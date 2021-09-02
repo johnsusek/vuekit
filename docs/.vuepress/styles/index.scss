@@ -13,10 +13,25 @@ h1 {
 .home {
   .footer {
     border-top: 0;
+    color: var(--c-text-lightest);
   }
 
   .theme-default-content {
     text-align: center;
+  }
+
+  .hero {
+    h1 {
+      margin-bottom: 0.05em;
+      font-size: 56px;
+      letter-spacing: -0.005em;
+    }
+
+    .description {
+      margin-top: 0.05em;
+      letter-spacing: -0.004em;
+      color: var(--c-text);
+    }
   }
 }
 

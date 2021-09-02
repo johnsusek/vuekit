@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/johnsusek/vuekit.git"
   },
-  "author": "John Susek <john@vuekit.org>",
+  "author": "John Susek",
   "license": "MIT",
   "devDependencies": {
     "vuepress": "2.*"

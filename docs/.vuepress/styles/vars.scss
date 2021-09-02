@@ -1,0 +1,96 @@
+@import "./colors.scss";
+
+:root {
+  // brand colors
+  --c-brand: #{$zughy-astral};
+  --c-brand-light: #{$zughy-scooter};
+
+  // background colors
+  --c-bg: #{$solarized-10};
+  --c-bg-light: #{lighten($solarized-10, 4%)};
+  --c-bg-lighter: #{lighten($solarized-10, 5%)};
+  --c-bg-navbar: var(--c-bg);
+  --c-bg-sidebar: var(--c-bg);
+  --c-bg-arrow: #{$solarized-90};
+
+  // text colors
+  --c-text: #{$solarized-150};
+  --c-text-accent: var(--c-brand);
+  --c-text-light: #{$solarized-100};
+  --c-text-lighter: #{$solarized-90};
+  --c-text-lightest: #{$solarized-70};
+  --c-text-quote: #{$solarized-60};
+
+  // border colors
+  --c-border: #{$solarized-20};
+  --c-border-dark: #{darken($solarized-20, 5%)};
+
+  // custom container colors
+  --c-tip: #{$zughy-sushi};
+  --c-tip-bg: var(--c-bg-light);
+  --c-tip-title: var(--c-text);
+  --c-tip-text: var(--c-text);
+  --c-tip-text-accent: var(--c-text-accent);
+  --c-warning: #{$zughy-buttercup};
+  --c-warning-bg: #{lighten($zughy-buttercup, 10%)};
+  --c-warning-title: #{darken($zughy-buttercup, 4%)};
+  --c-warning-text: #{darken($zughy-buttercup, 8%)};
+  --c-warning-text-accent: var(--c-text);
+  --c-danger: #{$zughy-spicy-mix};
+  --c-danger-bg: #{lighten($zughy-spicy-mix, 10%)};
+  --c-danger-title: #{darken($zughy-spicy-mix, 4%)};
+  --c-danger-text: #{darken($zughy-spicy-mix, 8%)};
+  --c-danger-text-accent: var(--c-text);
+  --c-details-bg: #{$solarized-20};
+
+  // badge component colors
+  --c-badge-tip: var(--c-tip);
+  --c-badge-warning: var(--c-warning);
+  --c-badge-danger: var(--c-danger);
+
+  // transition vars
+  --t-color: 0.3s ease;
+  --t-transform: 0.3s ease;
+
+  // code blocks vars
+  --code-bg-color: #{$solarized-150};
+
+  // font vars
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-code: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  // layout vars
+  --navbar-height: 3.6rem;
+  --navbar-padding-v: 0.7rem;
+  --navbar-padding-h: 1.5rem;
+  --sidebar-width: 20rem;
+  --sidebar-width-mobile: calc(var(--sidebar-width) * 0.82);
+  --content-width: 740px;
+  --homepage-width: 960px;
+}
+
+html.dark {
+  // brand colors
+  --c-brand: #{$zughy-astral};
+  --c-brand-light: #{$zughy-scooter};
+
+  // background colors
+  --c-bg: #{$solarized-170};
+  --c-bg-light: #{lighten($solarized-170, 4%)};
+  --c-bg-lighter: #{lighten($solarized-170, 5%)};
+
+  // text colors
+  --c-text: #{$solarized-60};
+  --c-text-light: #{lighten($solarized-60, 3%)};
+  --c-text-lighter: #{lighten($solarized-60, 4%)};
+  --c-text-lightest: #{lighten($solarized-60, 5%)};
+
+  // border colors
+  --c-border: #{darken($solarized-170, 3%)};
+  --c-border-dark: #{darken($solarized-170, 4%)};
+
+  .navbar .logo {
+    filter: opacity(0.925);
+  }
+}

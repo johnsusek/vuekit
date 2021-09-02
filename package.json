@@ -1,0 +1,20 @@
+{
+  "name": "vuekit",
+  "version": "0.0.1",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnsusek/vuekit.git"
+  },
+  "author": "John Susek <john@vuekit.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "2.*"
+  }
+}

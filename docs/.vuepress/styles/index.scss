@@ -1,0 +1,31 @@
+@import "./colors.scss";
+@import "./vars.scss";
+@import "./plugins.scss";
+
+div[class*="language-"].ext-vue:before {
+  display: none;
+}
+
+h1 {
+  letter-spacing: 0.4px;
+}
+
+.home {
+  .footer {
+    border-top: 0;
+  }
+
+  .theme-default-content {
+    text-align: center;
+  }
+}
+
+.hero img {
+  height: 280px;
+}
+
+html.dark {
+  .navbar .logo {
+    filter: opacity(0.925);
+  }
+}

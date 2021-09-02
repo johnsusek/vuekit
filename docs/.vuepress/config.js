@@ -1,7 +1,7 @@
 module.exports = {
   lang: 'en-US',
   title: 'VueKit',
-  description: 'The new way to create MacOS apps.',
+  description: 'A new way to create MacOS apps.',
 
   markdown: {
     code: {

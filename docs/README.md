@@ -9,4 +9,4 @@ actions:
 
 ---
 
-`npm init vuekit-app`
+`npm init vuekit-app@latest`

@@ -1,8 +1,5 @@
 # VueKit
 
-To create a VueKit app:
+The new way to create MacOS apps.
 
-`npx degit https://github.com/johnsusek/vuekit-template`
-
-
-
+`npm init vuekit-app`

@@ -41,6 +41,7 @@
     "src",
     "scripts",
     "tools",
-    "templates"
+    "templates",
+    "tsconfig.json"
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true, // don't typecheck .d.ts headers
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "strict": false,
+    "sourceMap": false,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "lib": [
+      "esnext"
+    ],
+    "typeRoots": [
+      "src/types"
+    ],
+    "types": []
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

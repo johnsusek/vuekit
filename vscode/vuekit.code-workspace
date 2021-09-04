@@ -10,9 +10,6 @@
 			"name": "vuekit"
 		},
 		{
-			"path": "../../vuekit-vue"
-		},
-		{
 			"path": "../../create-vuekit-app"
 		},
 		{

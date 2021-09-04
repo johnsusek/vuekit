@@ -1,20 +1,46 @@
 {
   "name": "vuekit",
   "version": "0.0.1",
-  "directories": {
-    "doc": "docs"
-  },
+  "author": "John Susek",
+  "license": "MIT",
+  "repository": "https://github.com/johnsusek/vuekit.git",
+  "main": "src/index.ts",
   "scripts": {
+    "test": "true",
+    "tsc": "tsc --noEmit",
+    "prepublish": "npm run tsc",
+    "update-xcodegen": "./scripts/update-xcodegen.sh 2.24.0",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnsusek/vuekit.git"
+  "bin": {
+    "vuekit-setup": "./scripts/vuekit-setup.sh",
+    "xcodegen": "./scripts/run-xcodegen.sh"
   },
-  "author": "John Susek",
-  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "4.30.*",
+    "@typescript-eslint/parser": "4.30.*",
+    "@vitejs/plugin-vue": "1.6.*",
+    "@vue/compiler-sfc": "3.2.*",
+    "eslint": "7.32.*",
+    "eslint-config-airbnb-base": "14.2.*",
+    "eslint-plugin-import": "2.24.*",
+    "eslint-plugin-vue": "7.17.*",
+    "nodemon": "2.0.*",
+    "typescript": "4.*",
+    "unplugin-vue-components": "0.14.11",
+    "vite": "2.*",
+    "vue": "3.*",
+    "vue-tsc": "*",
+    "vuekit-bridge": "0.0.*"
+  },
   "devDependencies": {
-    "vuepress": "2.*"
-  }
+    "vuepress": "~2.0.0-beta.25"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "tools",
+    "templates"
+  ]
 }

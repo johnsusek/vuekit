@@ -23,9 +23,6 @@
 		},
 		{
 			"path": "../../vuekit-tools"
-		},
-		{
-			"path": "../../vuekit-dev"
 		}
 	]
 }

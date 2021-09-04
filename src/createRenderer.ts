@@ -1,5 +1,5 @@
 import { createRenderer, defineComponent } from '@vue/runtime-core';
-import { VueKitNodeProps } from '../../vuekit/src/types/VueKit';
+import { VueKitNodeProps } from './types/VueKit';
 import './types/macos/AppKit.d.ts';
 
 import {

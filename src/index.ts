@@ -16,6 +16,7 @@
 // export const pinia = createPinia();
 
 // pinia.use(VueKitPinia);
+import './types';
 
 export {
   createApp, render, createElement, defineComponent

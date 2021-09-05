@@ -7,6 +7,7 @@
   "main": "src/index.ts",
   "scripts": {
     "vuekit-setup": "./scripts/vuekit-setup.sh",
+    "build:framework": "cd framework && xcodebuild -quiet && cp -LR build/Release/* . && rm -rf build/",
     "test": "true",
     "tsc": "tsc --noEmit",
     "prepublish": "npm run tsc",
@@ -43,6 +44,8 @@
     "scripts",
     "tools",
     "templates",
-    "tsconfig.json"
+    "tsconfig.json",
+    "framework/VueKit.framework",
+    "framework/VueKit.framework.dSYM"
   ]
 }

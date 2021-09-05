@@ -1,5 +1,11 @@
 node_modules
+
 .temp
 .cache
+.vscode
+
 docs/.vuepress/dist
-.vscode/
+
+*.xcodeproj
+*.framework
+*.framework.dSYM

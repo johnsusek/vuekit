@@ -60,10 +60,8 @@ function addToParentNode(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
 
   el.parent = parent;
 
-  if (!parent.children) {
-    console.log('Parent does not have a "children" property to push!', parent);
-    return;
-  }
+  // Root node
+  if (!parent.children) return;
 
   let children = parent.children;
   let anchorIdx = children.indexOf(anchor);

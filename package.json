@@ -33,8 +33,7 @@
     "unplugin-vue-components": "0.14.11",
     "vite": "2.*",
     "vue": "3.*",
-    "vue-tsc": "*",
-    "vuekit-bridge": "0.0.*"
+    "vue-tsc": "*"
   },
   "devDependencies": {
     "vuepress": "~2.0.0-beta.25"

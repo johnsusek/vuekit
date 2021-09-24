@@ -11,7 +11,7 @@ echo "[2/3] Building initial bundle..."
 npm run build --silent
 
 echo "[3/3] Generating Xcode project..."
-npm run xcodegen --silent 1>/dev/null
+npm run xcodegenerate --silent 1>/dev/null
 
 echo
 echo "VueKit setup is done. Your .xcodeproj file has been generated."

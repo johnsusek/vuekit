@@ -1,573 +1,499 @@
+globalThis.CVAttachmentMode = globalThis.CVAttachmentMode || {};
 
-enum CVAttachmentMode {
-
-	kCVAttachmentMode_ShouldNotPropagate = 0,
-
-	kCVAttachmentMode_ShouldPropagate = 1
+globalThis.CVAttachmentMode = {
+    kCVAttachmentMode_ShouldNotPropagate: 0,
+    kCVAttachmentMode_ShouldPropagate: 1,
+    '0': 'kCVAttachmentMode_ShouldNotPropagate',
+    '1': 'kCVAttachmentMode_ShouldPropagate'
 }
 
+globalThis.CVPixelBufferLockFlags = globalThis.CVPixelBufferLockFlags || {};
 
-declare function CVBufferGetAttachment(buffer: any, key: string, attachmentMode: CVAttachmentMode): any;
+globalThis.CVPixelBufferLockFlags = {
+    kCVPixelBufferLock_ReadOnly: 1,
+    '1': 'kCVPixelBufferLock_ReadOnly'
+}
 
-declare function CVBufferGetAttachments(buffer: any, attachmentMode: CVAttachmentMode): NSDictionary<any, any>;
+globalThis.CVPixelBufferPoolFlushFlags = globalThis.CVPixelBufferPoolFlushFlags || {};
 
+globalThis.CVPixelBufferPoolFlushFlags = {
+    kCVPixelBufferPoolFlushExcessBuffers: 1,
+    '1': 'kCVPixelBufferPoolFlushExcessBuffers'
+}
+
+globalThis.CVSMPTETimeFlags = globalThis.CVSMPTETimeFlags || {};
+
+globalThis.CVSMPTETimeFlags = {
+    kCVSMPTETimeValid: 1,
+    kCVSMPTETimeRunning: 2,
+    '1': 'kCVSMPTETimeValid',
+    '2': 'kCVSMPTETimeRunning'
+}
+
+globalThis.CVSMPTETimeType = globalThis.CVSMPTETimeType || {};
+
+globalThis.CVSMPTETimeType = {
+    kCVSMPTETimeType24: 0,
+    kCVSMPTETimeType25: 1,
+    kCVSMPTETimeType30Drop: 2,
+    kCVSMPTETimeType30: 3,
+    kCVSMPTETimeType2997: 4,
+    kCVSMPTETimeType2997Drop: 5,
+    kCVSMPTETimeType60: 6,
+    kCVSMPTETimeType5994: 7,
+    '0': 'kCVSMPTETimeType24',
+    '1': 'kCVSMPTETimeType25',
+    '2': 'kCVSMPTETimeType30Drop',
+    '3': 'kCVSMPTETimeType30',
+    '4': 'kCVSMPTETimeType2997',
+    '5': 'kCVSMPTETimeType2997Drop',
+    '6': 'kCVSMPTETimeType60',
+    '7': 'kCVSMPTETimeType5994'
+}
+
+globalThis.CVTimeFlags = globalThis.CVTimeFlags || {};
+
+globalThis.CVTimeFlags = {
+    kCVTimeIsIndefinite: 1,
+    '1': 'kCVTimeIsIndefinite'
+}
+
+globalThis.CVTimeStampFlags = globalThis.CVTimeStampFlags || {};
+
+globalThis.CVTimeStampFlags = {
+    kCVTimeStampVideoTimeValid: 1,
+    kCVTimeStampHostTimeValid: 2,
+    kCVTimeStampSMPTETimeValid: 4,
+    kCVTimeStampVideoRefreshPeriodValid: 8,
+    kCVTimeStampRateScalarValid: 16,
+    kCVTimeStampTopField: 65536,
+    kCVTimeStampBottomField: 131072,
+    kCVTimeStampVideoHostTimeValid: 3,
+    kCVTimeStampIsInterlaced: 196608,
+    '1': 'kCVTimeStampVideoTimeValid',
+    '2': 'kCVTimeStampHostTimeValid',
+    '4': 'kCVTimeStampSMPTETimeValid',
+    '8': 'kCVTimeStampVideoRefreshPeriodValid',
+    '16': 'kCVTimeStampRateScalarValid',
+    '65536': 'kCVTimeStampTopField',
+    '131072': 'kCVTimeStampBottomField',
+    '3': 'kCVTimeStampVideoHostTimeValid',
+    '196608': 'kCVTimeStampIsInterlaced'
+}
+
+declare function CVBufferGetAttachment(buffer: any, key: NSObject, attachmentMode: CVAttachmentMode): any;
+declare function CVBufferGetAttachments(buffer: any, attachmentMode: CVAttachmentMode): NSObject;
 declare function CVBufferPropagateAttachments(sourceBuffer: any, destinationBuffer: any): void;
-
 declare function CVBufferRelease(buffer: any): void;
-
 declare function CVBufferRemoveAllAttachments(buffer: any): void;
-
-declare function CVBufferRemoveAttachment(buffer: any, key: string): void;
-
+declare function CVBufferRemoveAttachment(buffer: any, key: NSObject): void;
 declare function CVBufferRetain(buffer: any): any;
-
-declare function CVBufferSetAttachment(buffer: any, key: string, value: any, attachmentMode: CVAttachmentMode): void;
-
-declare function CVBufferSetAttachments(buffer: any, theAttachments: NSDictionary<any, any>, attachmentMode: CVAttachmentMode): void;
-
-declare function CVColorPrimariesGetIntegerCodePointForString(colorPrimariesString: string): number;
-
-declare function CVColorPrimariesGetStringForIntegerCodePoint(colorPrimariesCodePoint: number): string;
-
+declare function CVBufferSetAttachment(buffer: any, key: NSObject, value: any, attachmentMode: CVAttachmentMode): void;
+declare function CVBufferSetAttachments(buffer: any, theAttachments: NSObject, attachmentMode: CVAttachmentMode): void;
+declare function CVColorPrimariesGetIntegerCodePointForString(colorPrimariesString: NSObject): number;
+declare function CVColorPrimariesGetStringForIntegerCodePoint(colorPrimariesCodePoint: number): NSObject;
 declare function CVDisplayLinkCreateWithActiveCGDisplays(displayLinkOut: any): number;
-
 declare function CVDisplayLinkCreateWithCGDisplay(displayID: number, displayLinkOut: any): number;
-
 declare function CVDisplayLinkCreateWithCGDisplays(displayArray: number, count: number, displayLinkOut: any): number;
-
 declare function CVDisplayLinkCreateWithOpenGLDisplayMask(mask: number, displayLinkOut: any): number;
-
 declare function CVDisplayLinkGetActualOutputVideoRefreshPeriod(displayLink: any): number;
-
 declare function CVDisplayLinkGetCurrentCGDisplay(displayLink: any): number;
-
 declare function CVDisplayLinkGetCurrentTime(displayLink: any, outTime: CVTimeStamp): number;
-
 declare function CVDisplayLinkGetNominalOutputVideoRefreshPeriod(displayLink: any): CVTime;
-
 declare function CVDisplayLinkGetOutputVideoLatency(displayLink: any): CVTime;
-
 declare function CVDisplayLinkGetTypeID(): number;
-
 declare function CVDisplayLinkIsRunning(displayLink: any): boolean;
-
 declare function CVDisplayLinkRelease(displayLink: any): void;
-
 declare function CVDisplayLinkRetain(displayLink: any): any;
-
 declare function CVDisplayLinkSetCurrentCGDisplay(displayLink: any, displayID: number): number;
-
 declare function CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink: any, cglContext: _CGLContextObject, cglPixelFormat: any): number;
-
 declare function CVDisplayLinkSetOutputCallback(displayLink: any, callback: (p1: any, p2: CVTimeStamp, p3: CVTimeStamp, p4: number, p5: number, p6: any) => number, userInfo: any): number;
-
 declare function CVDisplayLinkSetOutputHandler(displayLink: any, handler: (p1: any, p2: CVTimeStamp, p3: CVTimeStamp, p4: number, p5: number) => number): number;
-
 declare function CVDisplayLinkStart(displayLink: any): number;
-
 declare function CVDisplayLinkStop(displayLink: any): number;
-
 declare function CVDisplayLinkTranslateTime(displayLink: any, inTime: CVTimeStamp, outTime: CVTimeStamp): number;
-
 interface CVFillExtendedPixelsCallBackData {
-	version: number;
-	fillCallBack: (p1: any, p2: any) => boolean;
-	refCon: any;
+  version: number;
+  fillCallBack: (p1: any, p2: any) => boolean;
+  refCon: any;
 }
+
 declare var CVFillExtendedPixelsCallBackData: CVFillExtendedPixelsCallBackData;
 
 declare function CVGetCurrentHostTime(): number;
-
 declare function CVGetHostClockFrequency(): number;
-
 declare function CVGetHostClockMinimumTimeDelta(): number;
-
-declare function CVImageBufferCreateColorSpaceFromAttachments(attachments: NSDictionary<any, any>): any;
-
-declare function CVImageBufferGetCleanRect(imageBuffer: any): CGRect;
-
+declare function CVImageBufferCreateColorSpaceFromAttachments(attachments: NSObject): any;
+declare function CVImageBufferGetCleanRect(imageBuffer: any): NSRect;
 declare function CVImageBufferGetColorSpace(imageBuffer: any): any;
-
-declare function CVImageBufferGetDisplaySize(imageBuffer: any): CGSize;
-
-declare function CVImageBufferGetEncodedSize(imageBuffer: any): CGSize;
-
+declare function CVImageBufferGetDisplaySize(imageBuffer: any): NSSize;
+declare function CVImageBufferGetEncodedSize(imageBuffer: any): NSSize;
 declare function CVImageBufferIsFlipped(imageBuffer: any): boolean;
-
-declare function CVMetalTextureCacheCreate(allocator: any, cacheAttributes: NSDictionary<any, any>, metalDevice: MTLDevice, textureAttributes: NSDictionary<any, any>, cacheOut: any): number;
-
-declare function CVMetalTextureCacheCreateTextureFromImage(allocator: any, textureCache: any, sourceImage: any, textureAttributes: NSDictionary<any, any>, pixelFormat: MTLPixelFormat, width: number, height: number, planeIndex: number, textureOut: any): number;
-
+declare function CVMetalTextureCacheCreate(allocator: any, cacheAttributes: NSObject, metalDevice: MTLDevice, textureAttributes: NSObject, cacheOut: any): number;
+declare function CVMetalTextureCacheCreateTextureFromImage(allocator: any, textureCache: any, sourceImage: any, textureAttributes: NSObject, pixelFormat: MTLPixelFormat, width: number, height: number, planeIndex: number, textureOut: any): number;
 declare function CVMetalTextureCacheFlush(textureCache: any, options: number): void;
-
 declare function CVMetalTextureCacheGetTypeID(): number;
-
 declare function CVMetalTextureGetCleanTexCoords(image: any, lowerLeft: number, lowerRight: number, upperRight: number, upperLeft: number): void;
-
 declare function CVMetalTextureGetTexture(image: any): MTLTexture;
-
 declare function CVMetalTextureGetTypeID(): number;
-
 declare function CVMetalTextureIsFlipped(image: any): boolean;
-
-declare function CVPixelBufferCreate(allocator: any, width: number, height: number, pixelFormatType: number, pixelBufferAttributes: NSDictionary<any, any>, pixelBufferOut: any): number;
-
-declare function CVPixelBufferCreateResolvedAttributesDictionary(allocator: any, attributes: NSArray<any> | any[], resolvedDictionaryOut: NSDictionary<any, any>): number;
-
-declare function CVPixelBufferCreateWithBytes(allocator: any, width: number, height: number, pixelFormatType: number, baseAddress: any, bytesPerRow: number, releaseCallback: (p1: any, p2: any) => void, releaseRefCon: any, pixelBufferAttributes: NSDictionary<any, any>, pixelBufferOut: any): number;
-
-declare function CVPixelBufferCreateWithIOSurface(allocator: any, surface: any, pixelBufferAttributes: NSDictionary<any, any>, pixelBufferOut: any): number;
-
-declare function CVPixelBufferCreateWithPlanarBytes(allocator: any, width: number, height: number, pixelFormatType: number, dataPtr: any, dataSize: number, numberOfPlanes: number, planeBaseAddress: any, planeWidth: number, planeHeight: number, planeBytesPerRow: number, releaseCallback: (p1: any, p2: any, p3: number, p4: number, p5: any) => void, releaseRefCon: any, pixelBufferAttributes: NSDictionary<any, any>, pixelBufferOut: any): number;
-
+declare function CVPixelBufferCreate(allocator: any, width: number, height: number, pixelFormatType: number, pixelBufferAttributes: NSObject, pixelBufferOut: any): number;
+declare function CVPixelBufferCreateResolvedAttributesDictionary(allocator: any, attributes: NSObject, resolvedDictionaryOut: NSObject): number;
+declare function CVPixelBufferCreateWithBytes(allocator: any, width: number, height: number, pixelFormatType: number, baseAddress: any, bytesPerRow: number, releaseCallback: (p1: any, p2: any) => void, releaseRefCon: any, pixelBufferAttributes: NSObject, pixelBufferOut: any): number;
+declare function CVPixelBufferCreateWithIOSurface(allocator: any, surface: any, pixelBufferAttributes: NSObject, pixelBufferOut: any): number;
+declare function CVPixelBufferCreateWithPlanarBytes(allocator: any, width: number, height: number, pixelFormatType: number, dataPtr: any, dataSize: number, numberOfPlanes: number, planeBaseAddress: any, planeWidth: number, planeHeight: number, planeBytesPerRow: number, releaseCallback: (p1: any, p2: any, p3: number, p4: number, p5: any) => void, releaseRefCon: any, pixelBufferAttributes: NSObject, pixelBufferOut: any): number;
 declare function CVPixelBufferFillExtendedPixels(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetBaseAddress(pixelBuffer: any): any;
-
 declare function CVPixelBufferGetBaseAddressOfPlane(pixelBuffer: any, planeIndex: number): any;
-
 declare function CVPixelBufferGetBytesPerRow(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer: any, planeIndex: number): number;
-
 declare function CVPixelBufferGetDataSize(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetExtendedPixels(pixelBuffer: any, extraColumnsOnLeft: number, extraColumnsOnRight: number, extraRowsOnTop: number, extraRowsOnBottom: number): void;
-
 declare function CVPixelBufferGetHeight(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetHeightOfPlane(pixelBuffer: any, planeIndex: number): number;
-
 declare function CVPixelBufferGetIOSurface(pixelBuffer: any): any;
-
 declare function CVPixelBufferGetPixelFormatType(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetPlaneCount(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetTypeID(): number;
-
 declare function CVPixelBufferGetWidth(pixelBuffer: any): number;
-
 declare function CVPixelBufferGetWidthOfPlane(pixelBuffer: any, planeIndex: number): number;
-
 declare function CVPixelBufferIsPlanar(pixelBuffer: any): boolean;
-
 declare function CVPixelBufferLockBaseAddress(pixelBuffer: any, lockFlags: CVPixelBufferLockFlags): number;
-
-enum CVPixelBufferLockFlags {
-
-	kCVPixelBufferLock_ReadOnly = 1
-}
-
-
-declare function CVPixelBufferPoolCreate(allocator: any, poolAttributes: NSDictionary<any, any>, pixelBufferAttributes: NSDictionary<any, any>, poolOut: any): number;
-
+declare function CVPixelBufferPoolCreate(allocator: any, poolAttributes: NSObject, pixelBufferAttributes: NSObject, poolOut: any): number;
 declare function CVPixelBufferPoolCreatePixelBuffer(allocator: any, pixelBufferPool: any, pixelBufferOut: any): number;
-
-declare function CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(allocator: any, pixelBufferPool: any, auxAttributes: NSDictionary<any, any>, pixelBufferOut: any): number;
-
+declare function CVPixelBufferPoolCreatePixelBufferWithAuxAttributes(allocator: any, pixelBufferPool: any, auxAttributes: NSObject, pixelBufferOut: any): number;
 declare function CVPixelBufferPoolFlush(pool: any, options: CVPixelBufferPoolFlushFlags): void;
-
-enum CVPixelBufferPoolFlushFlags {
-
-	kCVPixelBufferPoolFlushExcessBuffers = 1
-}
-
-
-declare function CVPixelBufferPoolGetAttributes(pool: any): NSDictionary<any, any>;
-
-declare function CVPixelBufferPoolGetPixelBufferAttributes(pool: any): NSDictionary<any, any>;
-
+declare function CVPixelBufferPoolGetAttributes(pool: any): NSObject;
+declare function CVPixelBufferPoolGetPixelBufferAttributes(pool: any): NSObject;
 declare function CVPixelBufferPoolGetTypeID(): number;
-
 declare function CVPixelBufferPoolRelease(pixelBufferPool: any): void;
-
 declare function CVPixelBufferPoolRetain(pixelBufferPool: any): any;
-
 declare function CVPixelBufferRelease(texture: any): void;
-
 declare function CVPixelBufferRetain(texture: any): any;
-
 declare function CVPixelBufferUnlockBaseAddress(pixelBuffer: any, unlockFlags: CVPixelBufferLockFlags): number;
-
-declare function CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes(allocator: any): NSArray<any>;
-
-declare function CVPixelFormatDescriptionCreateWithPixelFormatType(allocator: any, pixelFormat: number): NSDictionary<any, any>;
-
-declare function CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType(description: NSDictionary<any, any>, pixelFormat: number): void;
-
+declare function CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes(allocator: any): NSObject;
+declare function CVPixelFormatDescriptionCreateWithPixelFormatType(allocator: any, pixelFormat: number): NSObject;
+declare function CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType(description: NSObject, pixelFormat: number): void;
 interface CVPlanarComponentInfo {
-	offset: number;
-	rowBytes: number;
+  offset: number;
+  rowBytes: number;
 }
+
 declare var CVPlanarComponentInfo: CVPlanarComponentInfo;
 
 interface CVPlanarPixelBufferInfo {
-	componentInfo: CVPlanarComponentInfo;
+  componentInfo: CVPlanarComponentInfo;
 }
+
 declare var CVPlanarPixelBufferInfo: CVPlanarPixelBufferInfo;
 
 interface CVPlanarPixelBufferInfo_YCbCrBiPlanar {
-	componentInfoY: CVPlanarComponentInfo;
-	componentInfoCbCr: CVPlanarComponentInfo;
+  componentInfoY: CVPlanarComponentInfo;
+  componentInfoCbCr: CVPlanarComponentInfo;
 }
+
 declare var CVPlanarPixelBufferInfo_YCbCrBiPlanar: CVPlanarPixelBufferInfo_YCbCrBiPlanar;
 
 interface CVPlanarPixelBufferInfo_YCbCrPlanar {
-	componentInfoY: CVPlanarComponentInfo;
-	componentInfoCb: CVPlanarComponentInfo;
-	componentInfoCr: CVPlanarComponentInfo;
+  componentInfoY: CVPlanarComponentInfo;
+  componentInfoCb: CVPlanarComponentInfo;
+  componentInfoCr: CVPlanarComponentInfo;
 }
+
 declare var CVPlanarPixelBufferInfo_YCbCrPlanar: CVPlanarPixelBufferInfo_YCbCrPlanar;
 
 interface CVSMPTETime {
-	subframes: number;
-	subframeDivisor: number;
-	counter: number;
-	type: number;
-	flags: number;
-	hours: number;
-	minutes: number;
-	seconds: number;
-	frames: number;
+  subframes: number;
+  subframeDivisor: number;
+  counter: number;
+  type: number;
+  flags: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  frames: number;
 }
+
 declare var CVSMPTETime: CVSMPTETime;
 
-enum CVSMPTETimeFlags {
-
-	kCVSMPTETimeValid = 1,
-
-	kCVSMPTETimeRunning = 2
-}
-
-
-enum CVSMPTETimeType {
-
-	kCVSMPTETimeType24 = 0,
-
-	kCVSMPTETimeType25 = 1,
-
-	kCVSMPTETimeType30Drop = 2,
-
-	kCVSMPTETimeType30 = 3,
-
-	kCVSMPTETimeType2997 = 4,
-
-	kCVSMPTETimeType2997Drop = 5,
-
-	kCVSMPTETimeType60 = 6,
-
-	kCVSMPTETimeType5994 = 7
-}
-
-
 interface CVTime {
-	timeValue: number;
-	timeScale: number;
-	flags: number;
+  timeValue: number;
+  timeScale: number;
+  flags: number;
 }
+
 declare var CVTime: CVTime;
 
-enum CVTimeFlags {
-
-	kCVTimeIsIndefinite = 1
-}
-
-
 interface CVTimeStamp {
-	version: number;
-	videoTimeScale: number;
-	videoTime: number;
-	hostTime: number;
-	rateScalar: number;
-	videoRefreshPeriod: number;
-	smpteTime: CVSMPTETime;
-	flags: number;
-	reserved: number;
+  version: number;
+  videoTimeScale: number;
+  videoTime: number;
+  hostTime: number;
+  rateScalar: number;
+  videoRefreshPeriod: number;
+  smpteTime: CVSMPTETime;
+  flags: number;
+  reserved: number;
 }
+
 declare var CVTimeStamp: CVTimeStamp;
 
-enum CVTimeStampFlags {
+declare function CVTransferFunctionGetIntegerCodePointForString(transferFunctionString: NSObject): number;
+declare function CVTransferFunctionGetStringForIntegerCodePoint(transferFunctionCodePoint: number): NSObject;
+declare function CVYCbCrMatrixGetIntegerCodePointForString(yCbCrMatrixString: NSObject): number;
+declare function CVYCbCrMatrixGetStringForIntegerCodePoint(yCbCrMatrixCodePoint: number): NSObject;
+declare var kCVBufferMovieTimeKey: NSObject;
 
-	kCVTimeStampVideoTimeValid = 1,
+declare var kCVBufferNonPropagatedAttachmentsKey: NSObject;
 
-	kCVTimeStampHostTimeValid = 2,
+declare var kCVBufferPropagatedAttachmentsKey: NSObject;
 
-	kCVTimeStampSMPTETimeValid = 4,
+declare var kCVBufferTimeScaleKey: NSObject;
 
-	kCVTimeStampVideoRefreshPeriodValid = 8,
+declare var kCVBufferTimeValueKey: NSObject;
 
-	kCVTimeStampRateScalarValid = 16,
+declare var kCVImageBufferAlphaChannelIsOpaque: NSObject;
 
-	kCVTimeStampTopField = 65536,
+declare var kCVImageBufferAlphaChannelModeKey: NSObject;
 
-	kCVTimeStampBottomField = 131072,
+declare var kCVImageBufferAlphaChannelMode_PremultipliedAlpha: NSObject;
 
-	kCVTimeStampVideoHostTimeValid = 3,
+declare var kCVImageBufferAlphaChannelMode_StraightAlpha: NSObject;
 
-	kCVTimeStampIsInterlaced = 196608
-}
+declare var kCVImageBufferCGColorSpaceKey: NSObject;
 
+declare var kCVImageBufferChromaLocationBottomFieldKey: NSObject;
 
-declare function CVTransferFunctionGetIntegerCodePointForString(transferFunctionString: string): number;
+declare var kCVImageBufferChromaLocationTopFieldKey: NSObject;
 
-declare function CVTransferFunctionGetStringForIntegerCodePoint(transferFunctionCodePoint: number): string;
+declare var kCVImageBufferChromaLocation_Bottom: NSObject;
 
-declare function CVYCbCrMatrixGetIntegerCodePointForString(yCbCrMatrixString: string): number;
+declare var kCVImageBufferChromaLocation_BottomLeft: NSObject;
 
-declare function CVYCbCrMatrixGetStringForIntegerCodePoint(yCbCrMatrixCodePoint: number): string;
+declare var kCVImageBufferChromaLocation_Center: NSObject;
 
-declare var kCVBufferMovieTimeKey: string;
+declare var kCVImageBufferChromaLocation_DV420: NSObject;
 
-declare var kCVBufferNonPropagatedAttachmentsKey: string;
+declare var kCVImageBufferChromaLocation_Left: NSObject;
 
-declare var kCVBufferPropagatedAttachmentsKey: string;
+declare var kCVImageBufferChromaLocation_Top: NSObject;
 
-declare var kCVBufferTimeScaleKey: string;
+declare var kCVImageBufferChromaLocation_TopLeft: NSObject;
 
-declare var kCVBufferTimeValueKey: string;
+declare var kCVImageBufferChromaSubsamplingKey: NSObject;
 
-declare var kCVImageBufferAlphaChannelIsOpaque: string;
+declare var kCVImageBufferChromaSubsampling_411: NSObject;
 
-declare var kCVImageBufferAlphaChannelModeKey: string;
+declare var kCVImageBufferChromaSubsampling_420: NSObject;
 
-declare var kCVImageBufferAlphaChannelMode_PremultipliedAlpha: string;
+declare var kCVImageBufferChromaSubsampling_422: NSObject;
 
-declare var kCVImageBufferAlphaChannelMode_StraightAlpha: string;
+declare var kCVImageBufferCleanApertureHeightKey: NSObject;
 
-declare var kCVImageBufferCGColorSpaceKey: string;
+declare var kCVImageBufferCleanApertureHorizontalOffsetKey: NSObject;
 
-declare var kCVImageBufferChromaLocationBottomFieldKey: string;
+declare var kCVImageBufferCleanApertureKey: NSObject;
 
-declare var kCVImageBufferChromaLocationTopFieldKey: string;
+declare var kCVImageBufferCleanApertureVerticalOffsetKey: NSObject;
 
-declare var kCVImageBufferChromaLocation_Bottom: string;
+declare var kCVImageBufferCleanApertureWidthKey: NSObject;
 
-declare var kCVImageBufferChromaLocation_BottomLeft: string;
+declare var kCVImageBufferColorPrimariesKey: NSObject;
 
-declare var kCVImageBufferChromaLocation_Center: string;
+declare var kCVImageBufferColorPrimaries_DCI_P3: NSObject;
 
-declare var kCVImageBufferChromaLocation_DV420: string;
+declare var kCVImageBufferColorPrimaries_EBU_3213: NSObject;
 
-declare var kCVImageBufferChromaLocation_Left: string;
+declare var kCVImageBufferColorPrimaries_ITU_R_2020: NSObject;
 
-declare var kCVImageBufferChromaLocation_Top: string;
+declare var kCVImageBufferColorPrimaries_ITU_R_709_2: NSObject;
 
-declare var kCVImageBufferChromaLocation_TopLeft: string;
+declare var kCVImageBufferColorPrimaries_P22: NSObject;
 
-declare var kCVImageBufferChromaSubsamplingKey: string;
+declare var kCVImageBufferColorPrimaries_P3_D65: NSObject;
 
-declare var kCVImageBufferChromaSubsampling_411: string;
+declare var kCVImageBufferColorPrimaries_SMPTE_C: NSObject;
 
-declare var kCVImageBufferChromaSubsampling_420: string;
+declare var kCVImageBufferContentLightLevelInfoKey: NSObject;
 
-declare var kCVImageBufferChromaSubsampling_422: string;
+declare var kCVImageBufferDisplayDimensionsKey: NSObject;
 
-declare var kCVImageBufferCleanApertureHeightKey: string;
+declare var kCVImageBufferDisplayHeightKey: NSObject;
 
-declare var kCVImageBufferCleanApertureHorizontalOffsetKey: string;
+declare var kCVImageBufferDisplayWidthKey: NSObject;
 
-declare var kCVImageBufferCleanApertureKey: string;
+declare var kCVImageBufferFieldCountKey: NSObject;
 
-declare var kCVImageBufferCleanApertureVerticalOffsetKey: string;
+declare var kCVImageBufferFieldDetailKey: NSObject;
 
-declare var kCVImageBufferCleanApertureWidthKey: string;
+declare var kCVImageBufferFieldDetailSpatialFirstLineEarly: NSObject;
 
-declare var kCVImageBufferColorPrimariesKey: string;
+declare var kCVImageBufferFieldDetailSpatialFirstLineLate: NSObject;
 
-declare var kCVImageBufferColorPrimaries_DCI_P3: string;
+declare var kCVImageBufferFieldDetailTemporalBottomFirst: NSObject;
 
-declare var kCVImageBufferColorPrimaries_EBU_3213: string;
+declare var kCVImageBufferFieldDetailTemporalTopFirst: NSObject;
 
-declare var kCVImageBufferColorPrimaries_ITU_R_2020: string;
+declare var kCVImageBufferGammaLevelKey: NSObject;
 
-declare var kCVImageBufferColorPrimaries_ITU_R_709_2: string;
+declare var kCVImageBufferICCProfileKey: NSObject;
 
-declare var kCVImageBufferColorPrimaries_P22: string;
+declare var kCVImageBufferMasteringDisplayColorVolumeKey: NSObject;
 
-declare var kCVImageBufferColorPrimaries_P3_D65: string;
+declare var kCVImageBufferPixelAspectRatioHorizontalSpacingKey: NSObject;
 
-declare var kCVImageBufferColorPrimaries_SMPTE_C: string;
+declare var kCVImageBufferPixelAspectRatioKey: NSObject;
 
-declare var kCVImageBufferContentLightLevelInfoKey: string;
+declare var kCVImageBufferPixelAspectRatioVerticalSpacingKey: NSObject;
 
-declare var kCVImageBufferDisplayDimensionsKey: string;
+declare var kCVImageBufferPreferredCleanApertureKey: NSObject;
 
-declare var kCVImageBufferDisplayHeightKey: string;
+declare var kCVImageBufferTransferFunctionKey: NSObject;
 
-declare var kCVImageBufferDisplayWidthKey: string;
+declare var kCVImageBufferTransferFunction_ITU_R_2020: NSObject;
 
-declare var kCVImageBufferFieldCountKey: string;
+declare var kCVImageBufferTransferFunction_ITU_R_2100_HLG: NSObject;
 
-declare var kCVImageBufferFieldDetailKey: string;
+declare var kCVImageBufferTransferFunction_ITU_R_709_2: NSObject;
 
-declare var kCVImageBufferFieldDetailSpatialFirstLineEarly: string;
+declare var kCVImageBufferTransferFunction_Linear: NSObject;
 
-declare var kCVImageBufferFieldDetailSpatialFirstLineLate: string;
+declare var kCVImageBufferTransferFunction_SMPTE_240M_1995: NSObject;
 
-declare var kCVImageBufferFieldDetailTemporalBottomFirst: string;
+declare var kCVImageBufferTransferFunction_SMPTE_ST_2084_PQ: NSObject;
 
-declare var kCVImageBufferFieldDetailTemporalTopFirst: string;
+declare var kCVImageBufferTransferFunction_SMPTE_ST_428_1: NSObject;
 
-declare var kCVImageBufferGammaLevelKey: string;
+declare var kCVImageBufferTransferFunction_UseGamma: NSObject;
 
-declare var kCVImageBufferICCProfileKey: string;
+declare var kCVImageBufferTransferFunction_sRGB: NSObject;
 
-declare var kCVImageBufferMasteringDisplayColorVolumeKey: string;
+declare var kCVImageBufferYCbCrMatrixKey: NSObject;
 
-declare var kCVImageBufferPixelAspectRatioHorizontalSpacingKey: string;
+declare var kCVImageBufferYCbCrMatrix_DCI_P3: NSObject;
 
-declare var kCVImageBufferPixelAspectRatioKey: string;
+declare var kCVImageBufferYCbCrMatrix_ITU_R_2020: NSObject;
 
-declare var kCVImageBufferPixelAspectRatioVerticalSpacingKey: string;
+declare var kCVImageBufferYCbCrMatrix_ITU_R_601_4: NSObject;
 
-declare var kCVImageBufferPreferredCleanApertureKey: string;
+declare var kCVImageBufferYCbCrMatrix_ITU_R_709_2: NSObject;
 
-declare var kCVImageBufferTransferFunctionKey: string;
+declare var kCVImageBufferYCbCrMatrix_P3_D65: NSObject;
 
-declare var kCVImageBufferTransferFunction_ITU_R_2020: string;
-
-declare var kCVImageBufferTransferFunction_ITU_R_2100_HLG: string;
-
-declare var kCVImageBufferTransferFunction_ITU_R_709_2: string;
-
-declare var kCVImageBufferTransferFunction_Linear: string;
-
-declare var kCVImageBufferTransferFunction_SMPTE_240M_1995: string;
-
-declare var kCVImageBufferTransferFunction_SMPTE_ST_2084_PQ: string;
-
-declare var kCVImageBufferTransferFunction_SMPTE_ST_428_1: string;
-
-declare var kCVImageBufferTransferFunction_UseGamma: string;
-
-declare var kCVImageBufferTransferFunction_sRGB: string;
-
-declare var kCVImageBufferYCbCrMatrixKey: string;
-
-declare var kCVImageBufferYCbCrMatrix_DCI_P3: string;
-
-declare var kCVImageBufferYCbCrMatrix_ITU_R_2020: string;
-
-declare var kCVImageBufferYCbCrMatrix_ITU_R_601_4: string;
-
-declare var kCVImageBufferYCbCrMatrix_ITU_R_709_2: string;
-
-declare var kCVImageBufferYCbCrMatrix_P3_D65: string;
-
-declare var kCVImageBufferYCbCrMatrix_SMPTE_240M_1995: string;
+declare var kCVImageBufferYCbCrMatrix_SMPTE_240M_1995: NSObject;
 
 declare var kCVIndefiniteTime: CVTime;
 
-declare var kCVMetalTextureCacheMaximumTextureAgeKey: string;
+declare var kCVMetalTextureCacheMaximumTextureAgeKey: NSObject;
 
-declare var kCVMetalTextureStorageMode: string;
+declare var kCVMetalTextureStorageMode: NSObject;
 
-declare var kCVMetalTextureUsage: string;
+declare var kCVMetalTextureUsage: NSObject;
 
-declare var kCVPixelBufferBytesPerRowAlignmentKey: string;
+declare var kCVPixelBufferBytesPerRowAlignmentKey: NSObject;
 
-declare var kCVPixelBufferCGBitmapContextCompatibilityKey: string;
+declare var kCVPixelBufferCGBitmapContextCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferCGImageCompatibilityKey: string;
+declare var kCVPixelBufferCGImageCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferExtendedPixelsBottomKey: string;
+declare var kCVPixelBufferExtendedPixelsBottomKey: NSObject;
 
-declare var kCVPixelBufferExtendedPixelsLeftKey: string;
+declare var kCVPixelBufferExtendedPixelsLeftKey: NSObject;
 
-declare var kCVPixelBufferExtendedPixelsRightKey: string;
+declare var kCVPixelBufferExtendedPixelsRightKey: NSObject;
 
-declare var kCVPixelBufferExtendedPixelsTopKey: string;
+declare var kCVPixelBufferExtendedPixelsTopKey: NSObject;
 
-declare var kCVPixelBufferHeightKey: string;
+declare var kCVPixelBufferHeightKey: NSObject;
 
-declare var kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey: string;
+declare var kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferIOSurfaceOpenGLFBOCompatibilityKey: string;
+declare var kCVPixelBufferIOSurfaceOpenGLFBOCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferIOSurfaceOpenGLTextureCompatibilityKey: string;
+declare var kCVPixelBufferIOSurfaceOpenGLTextureCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferIOSurfacePropertiesKey: string;
+declare var kCVPixelBufferIOSurfacePropertiesKey: NSObject;
 
-declare var kCVPixelBufferMemoryAllocatorKey: string;
+declare var kCVPixelBufferMemoryAllocatorKey: NSObject;
 
-declare var kCVPixelBufferMetalCompatibilityKey: string;
+declare var kCVPixelBufferMetalCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferOpenGLCompatibilityKey: string;
+declare var kCVPixelBufferOpenGLCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferOpenGLTextureCacheCompatibilityKey: string;
+declare var kCVPixelBufferOpenGLTextureCacheCompatibilityKey: NSObject;
 
-declare var kCVPixelBufferPixelFormatTypeKey: string;
+declare var kCVPixelBufferPixelFormatTypeKey: NSObject;
 
-declare var kCVPixelBufferPlaneAlignmentKey: string;
+declare var kCVPixelBufferPlaneAlignmentKey: NSObject;
 
-declare var kCVPixelBufferPoolAllocationThresholdKey: string;
+declare var kCVPixelBufferPoolAllocationThresholdKey: NSObject;
 
-declare var kCVPixelBufferPoolFreeBufferNotification: string;
+declare var kCVPixelBufferPoolFreeBufferNotification: NSObject;
 
-declare var kCVPixelBufferPoolMaximumBufferAgeKey: string;
+declare var kCVPixelBufferPoolMaximumBufferAgeKey: NSObject;
 
-declare var kCVPixelBufferPoolMinimumBufferCountKey: string;
+declare var kCVPixelBufferPoolMinimumBufferCountKey: NSObject;
 
-declare var kCVPixelBufferWidthKey: string;
+declare var kCVPixelBufferWidthKey: NSObject;
 
-declare var kCVPixelFormatBitsPerBlock: string;
+declare var kCVPixelFormatBitsPerBlock: NSObject;
 
-declare var kCVPixelFormatBlackBlock: string;
+declare var kCVPixelFormatBlackBlock: NSObject;
 
-declare var kCVPixelFormatBlockHeight: string;
+declare var kCVPixelFormatBlockHeight: NSObject;
 
-declare var kCVPixelFormatBlockHorizontalAlignment: string;
+declare var kCVPixelFormatBlockHorizontalAlignment: NSObject;
 
-declare var kCVPixelFormatBlockVerticalAlignment: string;
+declare var kCVPixelFormatBlockVerticalAlignment: NSObject;
 
-declare var kCVPixelFormatBlockWidth: string;
+declare var kCVPixelFormatBlockWidth: NSObject;
 
-declare var kCVPixelFormatCGBitmapContextCompatibility: string;
+declare var kCVPixelFormatCGBitmapContextCompatibility: NSObject;
 
-declare var kCVPixelFormatCGBitmapInfo: string;
+declare var kCVPixelFormatCGBitmapInfo: NSObject;
 
-declare var kCVPixelFormatCGImageCompatibility: string;
+declare var kCVPixelFormatCGImageCompatibility: NSObject;
 
-declare var kCVPixelFormatCodecType: string;
+declare var kCVPixelFormatCodecType: NSObject;
 
-declare var kCVPixelFormatComponentRange: string;
+declare var kCVPixelFormatComponentRange: NSObject;
 
-declare var kCVPixelFormatComponentRange_FullRange: string;
+declare var kCVPixelFormatComponentRange_FullRange: NSObject;
 
-declare var kCVPixelFormatComponentRange_VideoRange: string;
+declare var kCVPixelFormatComponentRange_VideoRange: NSObject;
 
-declare var kCVPixelFormatComponentRange_WideRange: string;
+declare var kCVPixelFormatComponentRange_WideRange: NSObject;
 
-declare var kCVPixelFormatConstant: string;
+declare var kCVPixelFormatConstant: NSObject;
 
-declare var kCVPixelFormatContainsAlpha: string;
+declare var kCVPixelFormatContainsAlpha: NSObject;
 
-declare var kCVPixelFormatContainsGrayscale: string;
+declare var kCVPixelFormatContainsGrayscale: NSObject;
 
-declare var kCVPixelFormatContainsRGB: string;
+declare var kCVPixelFormatContainsRGB: NSObject;
 
-declare var kCVPixelFormatContainsYCbCr: string;
+declare var kCVPixelFormatContainsYCbCr: NSObject;
 
-declare var kCVPixelFormatFillExtendedPixelsCallback: string;
+declare var kCVPixelFormatFillExtendedPixelsCallback: NSObject;
 
-declare var kCVPixelFormatFourCC: string;
+declare var kCVPixelFormatFourCC: NSObject;
 
-declare var kCVPixelFormatHorizontalSubsampling: string;
+declare var kCVPixelFormatHorizontalSubsampling: NSObject;
 
-declare var kCVPixelFormatName: string;
+declare var kCVPixelFormatName: NSObject;
 
-declare var kCVPixelFormatOpenGLCompatibility: string;
+declare var kCVPixelFormatOpenGLCompatibility: NSObject;
 
-declare var kCVPixelFormatOpenGLFormat: string;
+declare var kCVPixelFormatOpenGLFormat: NSObject;
 
-declare var kCVPixelFormatOpenGLInternalFormat: string;
+declare var kCVPixelFormatOpenGLInternalFormat: NSObject;
 
-declare var kCVPixelFormatOpenGLType: string;
+declare var kCVPixelFormatOpenGLType: NSObject;
 
-declare var kCVPixelFormatPlanes: string;
+declare var kCVPixelFormatPlanes: NSObject;
 
-declare var kCVPixelFormatQDCompatibility: string;
+declare var kCVPixelFormatQDCompatibility: NSObject;
+
 
 declare const kCVPixelFormatType_128RGBAFloat: number;
 
@@ -698,8 +624,8 @@ declare const kCVPixelFormatType_TwoComponent16Half: number;
 declare const kCVPixelFormatType_TwoComponent32Float: number;
 
 declare const kCVPixelFormatType_TwoComponent8: number;
+declare var kCVPixelFormatVerticalSubsampling: NSObject;
 
-declare var kCVPixelFormatVerticalSubsampling: string;
 
 declare const kCVReturnAllocationFailed: number;
 
@@ -740,5 +666,50 @@ declare const kCVReturnSuccess: number;
 declare const kCVReturnUnsupported: number;
 
 declare const kCVReturnWouldExceedAllocationThreshold: number;
-
 declare var kCVZeroTime: CVTime;
+
+enum CVAttachmentMode {
+    kCVAttachmentMode_ShouldNotPropagate = 0,
+    kCVAttachmentMode_ShouldPropagate = 1
+}
+
+enum CVPixelBufferLockFlags {
+    kCVPixelBufferLock_ReadOnly = 1
+}
+
+enum CVPixelBufferPoolFlushFlags {
+    kCVPixelBufferPoolFlushExcessBuffers = 1
+}
+
+enum CVSMPTETimeFlags {
+    kCVSMPTETimeValid = 1,
+    kCVSMPTETimeRunning = 2
+}
+
+enum CVSMPTETimeType {
+    kCVSMPTETimeType24 = 0,
+    kCVSMPTETimeType25 = 1,
+    kCVSMPTETimeType30Drop = 2,
+    kCVSMPTETimeType30 = 3,
+    kCVSMPTETimeType2997 = 4,
+    kCVSMPTETimeType2997Drop = 5,
+    kCVSMPTETimeType60 = 6,
+    kCVSMPTETimeType5994 = 7
+}
+
+enum CVTimeFlags {
+    kCVTimeIsIndefinite = 1
+}
+
+enum CVTimeStampFlags {
+    kCVTimeStampVideoTimeValid = 1,
+    kCVTimeStampHostTimeValid = 2,
+    kCVTimeStampSMPTETimeValid = 4,
+    kCVTimeStampVideoRefreshPeriodValid = 8,
+    kCVTimeStampRateScalarValid = 16,
+    kCVTimeStampTopField = 65536,
+    kCVTimeStampBottomField = 131072,
+    kCVTimeStampVideoHostTimeValid = 3,
+    kCVTimeStampIsInterlaced = 196608
+}
+

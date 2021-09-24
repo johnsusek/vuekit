@@ -27,8 +27,3 @@ declare let console: Console
 declare function clearTimeout(id: number): void
 declare function setTimeout(block: any, timeout: number): number;
 
-declare module '*.vue' {
-  import Vue from '@vue/runtime-core';
-
-  export default Vue;
-}

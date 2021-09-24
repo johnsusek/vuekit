@@ -1,151 +1,124 @@
-
 interface CMIODeviceAVCCommand {
-	mCommand: string;
-	mCommandLength: number;
-	mResponse: string;
-	mResponseLength: number;
-	mResponseUsed: number;
+  mCommand: string;
+  mCommandLength: number;
+  mResponse: string;
+  mResponseLength: number;
+  mResponseUsed: number;
 }
+
 declare var CMIODeviceAVCCommand: CMIODeviceAVCCommand;
 
 declare function CMIODeviceProcessAVCCommand(deviceID: number, ioAVCCommand: CMIODeviceAVCCommand): number;
-
 declare function CMIODeviceProcessRS422Command(deviceID: number, ioRS422Command: CMIODeviceRS422Command): number;
-
 interface CMIODeviceRS422Command {
-	mCommand: string;
-	mCommandLength: number;
-	mResponse: string;
-	mResponseLength: number;
-	mResponseUsed: number;
+  mCommand: string;
+  mCommandLength: number;
+  mResponse: string;
+  mResponseLength: number;
+  mResponseUsed: number;
 }
+
 declare var CMIODeviceRS422Command: CMIODeviceRS422Command;
 
 interface CMIODeviceSMPTETimeCallback {
-	mGetSMPTETimeProc: (p1: any, p2: number, p3: string, p4: number) => number;
-	mRefCon: any;
+  mGetSMPTETimeProc: (p1: any, p2: number, p3: string, p4: number) => number;
+  mRefCon: any;
 }
+
 declare var CMIODeviceSMPTETimeCallback: CMIODeviceSMPTETimeCallback;
 
 declare function CMIODeviceStartStream(deviceID: number, streamID: number): number;
-
 declare function CMIODeviceStopStream(deviceID: number, streamID: number): number;
-
 interface CMIODeviceStreamConfiguration {
-	mNumberStreams: number;
-	mNumberChannels: number;
+  mNumberStreams: number;
+  mNumberChannels: number;
 }
+
 declare var CMIODeviceStreamConfiguration: CMIODeviceStreamConfiguration;
 
 interface CMIOHardwarePlugInInterface {
-	_reserved: any;
-	QueryInterface: (p1: any, p2: CFUUIDBytes, p3: any) => number;
-	AddRef: (p1: any) => number;
-	Release: (p1: any) => number;
-	Initialize: (p1: CMIOHardwarePlugInInterface) => number;
-	InitializeWithObjectID: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
-	Teardown: (p1: CMIOHardwarePlugInInterface) => number;
-	ObjectShow: (p1: CMIOHardwarePlugInInterface, p2: number) => void;
-	ObjectHasProperty: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress) => boolean;
-	ObjectIsPropertySettable: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: string) => number;
-	ObjectGetPropertyDataSize: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number) => number;
-	ObjectGetPropertyData: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number, p7: number, p8: any) => number;
-	ObjectSetPropertyData: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number, p7: any) => number;
-	DeviceSuspend: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
-	DeviceResume: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
-	DeviceStartStream: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
-	DeviceStopStream: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
-	DeviceProcessAVCCommand: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIODeviceAVCCommand) => number;
-	DeviceProcessRS422Command: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIODeviceRS422Command) => number;
-	StreamCopyBufferQueue: (p1: CMIOHardwarePlugInInterface, p2: number, p3: (p1: number, p2: any, p3: any) => void, p4: any, p5: any) => number;
-	StreamDeckPlay: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
-	StreamDeckStop: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
-	StreamDeckJog: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
-	StreamDeckCueTo: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number, p4: boolean) => number;
+  _reserved: any;
+  QueryInterface: (p1: any, p2: CFUUIDBytes, p3: any) => number;
+  AddRef: (p1: any) => number;
+  Release: (p1: any) => number;
+  Initialize: (p1: CMIOHardwarePlugInInterface) => number;
+  InitializeWithObjectID: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
+  Teardown: (p1: CMIOHardwarePlugInInterface) => number;
+  ObjectShow: (p1: CMIOHardwarePlugInInterface, p2: number) => void;
+  ObjectHasProperty: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress) => boolean;
+  ObjectIsPropertySettable: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: string) => number;
+  ObjectGetPropertyDataSize: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number) => number;
+  ObjectGetPropertyData: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number, p7: number, p8: any) => number;
+  ObjectSetPropertyData: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIOObjectPropertyAddress, p4: number, p5: any, p6: number, p7: any) => number;
+  DeviceSuspend: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
+  DeviceResume: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
+  DeviceStartStream: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
+  DeviceStopStream: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
+  DeviceProcessAVCCommand: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIODeviceAVCCommand) => number;
+  DeviceProcessRS422Command: (p1: CMIOHardwarePlugInInterface, p2: number, p3: CMIODeviceRS422Command) => number;
+  StreamCopyBufferQueue: (p1: CMIOHardwarePlugInInterface, p2: number, p3: (p1: number, p2: any, p3: any) => void, p4: any, p5: any) => number;
+  StreamDeckPlay: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
+  StreamDeckStop: (p1: CMIOHardwarePlugInInterface, p2: number) => number;
+  StreamDeckJog: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number) => number;
+  StreamDeckCueTo: (p1: CMIOHardwarePlugInInterface, p2: number, p3: number, p4: boolean) => number;
 }
+
 declare var CMIOHardwarePlugInInterface: CMIOHardwarePlugInInterface;
 
 declare function CMIOObjectAddPropertyListener(objectID: number, address: CMIOObjectPropertyAddress, listener: (p1: number, p2: number, p3: CMIOObjectPropertyAddress, p4: any) => number, clientData: any): number;
-
 declare function CMIOObjectAddPropertyListenerBlock(objectID: number, address: CMIOObjectPropertyAddress, dispatchQueue: NSObject, listener: (p1: number, p2: CMIOObjectPropertyAddress) => void): number;
-
 declare function CMIOObjectCreate(owningPlugIn: CMIOHardwarePlugInInterface, owningObjectID: number, classID: number, objectID: number): number;
-
 declare function CMIOObjectGetPropertyData(objectID: number, address: CMIOObjectPropertyAddress, qualifierDataSize: number, qualifierData: any, dataSize: number, dataUsed: number, data: any): number;
-
 declare function CMIOObjectGetPropertyDataSize(objectID: number, address: CMIOObjectPropertyAddress, qualifierDataSize: number, qualifierData: any, dataSize: number): number;
-
 declare function CMIOObjectHasProperty(objectID: number, address: CMIOObjectPropertyAddress): boolean;
-
 declare function CMIOObjectIsPropertySettable(objectID: number, address: CMIOObjectPropertyAddress, isSettable: string | any): number;
-
 declare function CMIOObjectPropertiesChanged(owningPlugIn: CMIOHardwarePlugInInterface, objectID: number, numberAddresses: number, addresses: CMIOObjectPropertyAddress): number;
-
 interface CMIOObjectPropertyAddress {
-	mSelector: number;
-	mScope: number;
-	mElement: number;
+  mSelector: number;
+  mScope: number;
+  mElement: number;
 }
+
 declare var CMIOObjectPropertyAddress: CMIOObjectPropertyAddress;
 
 declare function CMIOObjectRemovePropertyListener(objectID: number, address: CMIOObjectPropertyAddress, listener: (p1: number, p2: number, p3: CMIOObjectPropertyAddress, p4: any) => number, clientData: any): number;
-
 declare function CMIOObjectRemovePropertyListenerBlock(objectID: number, address: CMIOObjectPropertyAddress, dispatchQueue: NSObject, listener: (p1: number, p2: CMIOObjectPropertyAddress) => void): number;
-
 declare function CMIOObjectSetPropertyData(objectID: number, address: CMIOObjectPropertyAddress, qualifierDataSize: number, qualifierData: any, dataSize: number, data: any): number;
-
 declare function CMIOObjectShow(objectID: number): void;
-
 declare function CMIOObjectsPublishedAndDied(owningPlugIn: CMIOHardwarePlugInInterface, owningObjectID: number, numberPublishedCMIOObjects: number, publishedCMIOObjects: number, numberDeadCMIOObjects: number, deadCMIOObjects: number): number;
-
 declare function CMIOSampleBufferCopyNonRequiredAttachments(sourceSBuf: any, destSBuf: any, attachmentMode: number): number;
-
 declare function CMIOSampleBufferCopySampleAttachments(sourceSBuf: any, destSBuf: any): number;
-
 declare function CMIOSampleBufferCreate(allocator: any, dataBuffer: any, formatDescription: any, numSamples: number, numSampleTimingEntries: number, sampleTimingArray: CMSampleTimingInfo, numSampleSizeEntries: number, sampleSizeArray: number, sequenceNumber: number, discontinuityFlags: number, sBufOut: any): number;
-
 declare function CMIOSampleBufferCreateForImageBuffer(allocator: any, imageBuffer: any, formatDescription: any, sampleTiming: CMSampleTimingInfo, sequenceNumber: number, discontinuityFlags: number, sBufOut: any): number;
-
 declare function CMIOSampleBufferCreateNoDataMarker(allocator: any, noDataEvent: number, formatDescription: any, sequenceNumber: number, discontinuityFlags: number, sBufOut: any): number;
-
 declare function CMIOSampleBufferGetDiscontinuityFlags(sbuf: any): number;
-
 declare function CMIOSampleBufferGetSequenceNumber(sbuf: any): number;
-
 declare function CMIOSampleBufferSetDiscontinuityFlags(allocator: any, sbuf: any, discontinuityFlags: number): void;
-
 declare function CMIOSampleBufferSetSequenceNumber(allocator: any, sbuf: any, sequenceNumber: number): void;
-
 declare function CMIOStreamClockConvertHostTimeToDeviceTime(hostTime: number, clock: any): CMTime;
-
-declare function CMIOStreamClockCreate(allocator: any, clockName: string, sourceIdentifier: any, getTimeCallMinimumInterval: CMTime, numberOfEventsForRateSmoothing: number, numberOfAveragesForRateSmoothing: number, clock: any): number;
-
+declare function CMIOStreamClockCreate(allocator: any, clockName: NSObject, sourceIdentifier: any, getTimeCallMinimumInterval: CMTime, numberOfEventsForRateSmoothing: number, numberOfAveragesForRateSmoothing: number, clock: any): number;
 declare function CMIOStreamClockInvalidate(clock: any): number;
-
 declare function CMIOStreamClockPostTimingEvent(eventTime: CMTime, hostTime: number, resynchronize: boolean, clock: any): number;
-
 declare function CMIOStreamCopyBufferQueue(streamID: number, queueAlteredProc: (p1: number, p2: any, p3: any) => void, queueAlteredRefCon: any, queue: any): number;
-
 interface CMIOStreamDeck {
-	mStatus: number;
-	mState: number;
-	mState2: number;
+  mStatus: number;
+  mState: number;
+  mState2: number;
 }
+
 declare var CMIOStreamDeck: CMIOStreamDeck;
 
 declare function CMIOStreamDeckCueTo(streamID: number, frameNumber: number, playOnCue: boolean): number;
-
 declare function CMIOStreamDeckJog(streamID: number, speed: number): number;
-
 declare function CMIOStreamDeckPlay(streamID: number): number;
-
 declare function CMIOStreamDeckStop(streamID: number): number;
-
 interface CMIOStreamScheduledOutputNotificationProcAndRefCon {
-	scheduledOutputNotificationProc: (p1: number, p2: number, p3: any) => void;
-	scheduledOutputNotificationRefCon: any;
+  scheduledOutputNotificationProc: (p1: number, p2: number, p3: any) => void;
+  scheduledOutputNotificationRefCon: any;
 }
+
 declare var CMIOStreamScheduledOutputNotificationProcAndRefCon: CMIOStreamScheduledOutputNotificationProcAndRefCon;
+
 
 declare const kCMIOAVCDeviceType_DVCPro100_720p: number;
 
@@ -176,8 +149,8 @@ declare const kCMIOAVCDeviceType_Unknown: number;
 declare const kCMIOBacklightCompensationControlClassID: number;
 
 declare const kCMIOBlackLevelControlClassID: number;
+declare var kCMIOBlockBufferAttachmentKey_CVPixelBufferReference: NSObject;
 
-declare var kCMIOBlockBufferAttachmentKey_CVPixelBufferReference: string;
 
 declare const kCMIOBooleanControlClassID: number;
 
@@ -600,64 +573,64 @@ declare const kCMIOPlugInPropertyBundleID: number;
 declare const kCMIOPowerLineFrequencyControlClassID: number;
 
 declare const kCMIORollAbsoluteControlClassID: number;
+declare var kCMIOSampleBufferAttachmentKey_CAAudioTimeStamp: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_CAAudioTimeStamp: string;
+declare var kCMIOSampleBufferAttachmentKey_ClientSequenceID: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_ClientSequenceID: string;
+declare var kCMIOSampleBufferAttachmentKey_ClosedCaptionSampleBuffer: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_ClosedCaptionSampleBuffer: string;
+declare var kCMIOSampleBufferAttachmentKey_DiscontinuityFlags: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_DiscontinuityFlags: string;
+declare var kCMIOSampleBufferAttachmentKey_HDV1_PackData: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_HDV1_PackData: string;
+declare var kCMIOSampleBufferAttachmentKey_HDV2_VAUX: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_HDV2_VAUX: string;
+declare var kCMIOSampleBufferAttachmentKey_HostTime: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_HostTime: string;
+declare var kCMIOSampleBufferAttachmentKey_MouseAndKeyboardModifiers: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_MouseAndKeyboardModifiers: string;
+declare var kCMIOSampleBufferAttachmentKey_MuxedSourcePresentationTimeStamp: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_MuxedSourcePresentationTimeStamp: string;
+declare var kCMIOSampleBufferAttachmentKey_NativeSMPTEFrameCount: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_NativeSMPTEFrameCount: string;
+declare var kCMIOSampleBufferAttachmentKey_NoDataMarker: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_NoDataMarker: string;
+declare var kCMIOSampleBufferAttachmentKey_NumberOfVideoFramesInBuffer: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_NumberOfVideoFramesInBuffer: string;
+declare var kCMIOSampleBufferAttachmentKey_NumberOfVideoFramesInGOP: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_NumberOfVideoFramesInGOP: string;
+declare var kCMIOSampleBufferAttachmentKey_PulldownCadenceInfo: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_PulldownCadenceInfo: string;
+declare var kCMIOSampleBufferAttachmentKey_RepeatedBufferContents: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_RepeatedBufferContents: string;
+declare var kCMIOSampleBufferAttachmentKey_SMPTETime: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_SMPTETime: string;
+declare var kCMIOSampleBufferAttachmentKey_SequenceNumber: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_SequenceNumber: string;
+declare var kCMIOSampleBufferAttachmentKey_SourceAudioFormatDescription: NSObject;
 
-declare var kCMIOSampleBufferAttachmentKey_SourceAudioFormatDescription: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorFrameRect: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorFrameRect: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorIsDrawnInFramebuffer: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorIsDrawnInFramebuffer: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorIsVisible: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorIsVisible: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorPositionX: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorPositionX: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorPositionY: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorPositionY: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorReference: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorReference: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorScale: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorScale: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorSeed: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_CursorSeed: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_KeyboardModifiers: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_KeyboardModifiers: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_KeyboardModifiersEvent: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_KeyboardModifiersEvent: string;
+declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_MouseButtonState: NSObject;
 
-declare var kCMIOSampleBufferAttachment_MouseAndKeyboardModifiersKey_MouseButtonState: string;
 
 declare const kCMIOSampleBufferDiscontinuityFlag_BufferOverrun: number;
 

@@ -1,2 +1,0 @@
-
-declare var CXCallDirectoryPhoneNumberMax: number;

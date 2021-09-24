@@ -1,682 +1,402 @@
+globalThis.CMTimeFlags = globalThis.CMTimeFlags || {};
 
-declare function CMAudioDeviceClockCreate(allocator: any, deviceUID: string, clockOut: any): number;
-
-declare function CMAudioDeviceClockCreateFromAudioDeviceID(allocator: any, deviceID: number, clockOut: any): number;
-
-declare function CMAudioDeviceClockGetAudioDevice(clock: any, deviceUIDOut: string, deviceIDOut: number, trackingDefaultDeviceOut: string | any): number;
-
-declare function CMAudioDeviceClockSetAudioDeviceID(clock: any, deviceID: number): number;
-
-declare function CMAudioDeviceClockSetAudioDeviceUID(clock: any, deviceUID: string): number;
-
-declare function CMAudioFormatDescriptionCopyAsBigEndianSoundDescriptionBlockBuffer(allocator: any, audioFormatDescription: any, flavor: any, blockBufferOut: any): number;
-
-declare function CMAudioFormatDescriptionCreate(allocator: any, asbd: AudioStreamBasicDescription, layoutSize: number, layout: AudioChannelLayout, magicCookieSize: number, magicCookie: any, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
-declare function CMAudioFormatDescriptionCreateFromBigEndianSoundDescriptionBlockBuffer(allocator: any, soundDescriptionBlockBuffer: any, flavor: any, formatDescriptionOut: any): number;
-
-declare function CMAudioFormatDescriptionCreateFromBigEndianSoundDescriptionData(allocator: any, soundDescriptionData: string | any, size: number, flavor: any, formatDescriptionOut: any): number;
-
-declare function CMAudioFormatDescriptionCreateSummary(allocator: any, formatDescriptionArray: NSArray<any> | any[], flags: number, formatDescriptionOut: any): number;
-
-declare function CMAudioFormatDescriptionEqual(formatDescription: any, otherFormatDescription: any, equalityMask: number, equalityMaskOut: number): boolean;
-
-declare function CMAudioFormatDescriptionGetChannelLayout(desc: any, sizeOut: number): AudioChannelLayout;
-
-declare function CMAudioFormatDescriptionGetFormatList(desc: any, sizeOut: number): AudioFormatListItem;
-
-declare function CMAudioFormatDescriptionGetMagicCookie(desc: any, sizeOut: number): any;
-
-declare function CMAudioFormatDescriptionGetMostCompatibleFormat(desc: any): AudioFormatListItem;
-
-declare function CMAudioFormatDescriptionGetRichestDecodableFormat(desc: any): AudioFormatListItem;
-
-declare function CMAudioFormatDescriptionGetStreamBasicDescription(desc: any): AudioStreamBasicDescription;
-
-declare function CMAudioSampleBufferCreateReadyWithPacketDescriptions(allocator: any, dataBuffer: any, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any): number;
-
-declare function CMAudioSampleBufferCreateWithPacketDescriptions(allocator: any, dataBuffer: any, dataReady: boolean, makeDataReadyCallback: (p1: any, p2: any) => number, makeDataReadyRefcon: any, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any): number;
-
-declare function CMAudioSampleBufferCreateWithPacketDescriptionsAndMakeDataReadyHandler(allocator: any, dataBuffer: any, dataReady: boolean, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any, makeDataReadyHandler: (p1: any) => number): number;
-
-declare function CMBlockBufferAccessDataBytes(theBuffer: any, offset: number, length: number, temporaryBlock: any, returnedPointerOut: string): number;
-
-declare function CMBlockBufferAppendBufferReference(theBuffer: any, targetBBuf: any, offsetToData: number, dataLength: number, flags: number): number;
-
-declare function CMBlockBufferAppendMemoryBlock(theBuffer: any, memoryBlock: any, blockLength: number, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number): number;
-
-declare function CMBlockBufferAssureBlockMemory(theBuffer: any): number;
-
-declare function CMBlockBufferCopyDataBytes(theSourceBuffer: any, offsetToData: number, dataLength: number, destination: any): number;
-
-declare function CMBlockBufferCreateContiguous(structureAllocator: any, sourceBuffer: any, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
-
-declare function CMBlockBufferCreateEmpty(structureAllocator: any, subBlockCapacity: number, flags: number, blockBufferOut: any): number;
-
-declare function CMBlockBufferCreateWithBufferReference(structureAllocator: any, bufferReference: any, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
-
-declare function CMBlockBufferCreateWithMemoryBlock(structureAllocator: any, memoryBlock: any, blockLength: number, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
-
-interface CMBlockBufferCustomBlockSource {
-	version: number;
-	AllocateBlock: (p1: any, p2: number) => any;
-	FreeBlock: (p1: any, p2: any, p3: number) => void;
-	refCon: any;
+globalThis.CMTimeFlags = {
+    kCMTimeFlags_Valid: 1,
+    kCMTimeFlags_HasBeenRounded: 2,
+    kCMTimeFlags_PositiveInfinity: 4,
+    kCMTimeFlags_NegativeInfinity: 8,
+    kCMTimeFlags_Indefinite: 16,
+    kCMTimeFlags_ImpliedValueFlagsMask: 28,
+    '1': 'kCMTimeFlags_Valid',
+    '2': 'kCMTimeFlags_HasBeenRounded',
+    '4': 'kCMTimeFlags_PositiveInfinity',
+    '8': 'kCMTimeFlags_NegativeInfinity',
+    '16': 'kCMTimeFlags_Indefinite',
+    '28': 'kCMTimeFlags_ImpliedValueFlagsMask'
 }
+
+globalThis.CMTimeRoundingMethod = globalThis.CMTimeRoundingMethod || {};
+
+globalThis.CMTimeRoundingMethod = {
+    kCMTimeRoundingMethod_RoundHalfAwayFromZero: 1,
+    kCMTimeRoundingMethod_RoundTowardZero: 2,
+    kCMTimeRoundingMethod_RoundAwayFromZero: 3,
+    kCMTimeRoundingMethod_QuickTime: 4,
+    kCMTimeRoundingMethod_RoundTowardPositiveInfinity: 5,
+    kCMTimeRoundingMethod_RoundTowardNegativeInfinity: 6,
+    kCMTimeRoundingMethod_Default: 1,
+    '1': 'kCMTimeRoundingMethod_RoundHalfAwayFromZero',
+    '2': 'kCMTimeRoundingMethod_RoundTowardZero',
+    '3': 'kCMTimeRoundingMethod_RoundAwayFromZero',
+    '4': 'kCMTimeRoundingMethod_QuickTime',
+    '5': 'kCMTimeRoundingMethod_RoundTowardPositiveInfinity',
+    '6': 'kCMTimeRoundingMethod_RoundTowardNegativeInfinity',
+    '1': 'kCMTimeRoundingMethod_Default'
+}
+
+declare function CMAudioDeviceClockCreate(allocator: any, deviceUID: NSObject, clockOut: any): number;
+declare function CMAudioDeviceClockCreateFromAudioDeviceID(allocator: any, deviceID: number, clockOut: any): number;
+declare function CMAudioDeviceClockGetAudioDevice(clock: any, deviceUIDOut: NSObject, deviceIDOut: number, trackingDefaultDeviceOut: string | any): number;
+declare function CMAudioDeviceClockSetAudioDeviceID(clock: any, deviceID: number): number;
+declare function CMAudioDeviceClockSetAudioDeviceUID(clock: any, deviceUID: NSObject): number;
+declare function CMAudioFormatDescriptionCopyAsBigEndianSoundDescriptionBlockBuffer(allocator: any, audioFormatDescription: any, flavor: any, blockBufferOut: any): number;
+declare function CMAudioFormatDescriptionCreate(allocator: any, asbd: AudioStreamBasicDescription, layoutSize: number, layout: AudioChannelLayout, magicCookieSize: number, magicCookie: any, extensions: NSObject, formatDescriptionOut: any): number;
+declare function CMAudioFormatDescriptionCreateFromBigEndianSoundDescriptionBlockBuffer(allocator: any, soundDescriptionBlockBuffer: any, flavor: any, formatDescriptionOut: any): number;
+declare function CMAudioFormatDescriptionCreateFromBigEndianSoundDescriptionData(allocator: any, soundDescriptionData: string | any, size: number, flavor: any, formatDescriptionOut: any): number;
+declare function CMAudioFormatDescriptionCreateSummary(allocator: any, formatDescriptionArray: NSObject, flags: number, formatDescriptionOut: any): number;
+declare function CMAudioFormatDescriptionEqual(formatDescription: any, otherFormatDescription: any, equalityMask: number, equalityMaskOut: number): boolean;
+declare function CMAudioFormatDescriptionGetChannelLayout(desc: any, sizeOut: number): AudioChannelLayout;
+declare function CMAudioFormatDescriptionGetFormatList(desc: any, sizeOut: number): AudioFormatListItem;
+declare function CMAudioFormatDescriptionGetMagicCookie(desc: any, sizeOut: number): any;
+declare function CMAudioFormatDescriptionGetMostCompatibleFormat(desc: any): AudioFormatListItem;
+declare function CMAudioFormatDescriptionGetRichestDecodableFormat(desc: any): AudioFormatListItem;
+declare function CMAudioFormatDescriptionGetStreamBasicDescription(desc: any): AudioStreamBasicDescription;
+declare function CMAudioSampleBufferCreateReadyWithPacketDescriptions(allocator: any, dataBuffer: any, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any): number;
+declare function CMAudioSampleBufferCreateWithPacketDescriptions(allocator: any, dataBuffer: any, dataReady: boolean, makeDataReadyCallback: (p1: any, p2: any) => number, makeDataReadyRefcon: any, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any): number;
+declare function CMAudioSampleBufferCreateWithPacketDescriptionsAndMakeDataReadyHandler(allocator: any, dataBuffer: any, dataReady: boolean, formatDescription: any, numSamples: number, presentationTimeStamp: CMTime, packetDescriptions: AudioStreamPacketDescription, sampleBufferOut: any, makeDataReadyHandler: (p1: any) => number): number;
+declare function CMBlockBufferAccessDataBytes(theBuffer: any, offset: number, length: number, temporaryBlock: any, returnedPointerOut: string): number;
+declare function CMBlockBufferAppendBufferReference(theBuffer: any, targetBBuf: any, offsetToData: number, dataLength: number, flags: number): number;
+declare function CMBlockBufferAppendMemoryBlock(theBuffer: any, memoryBlock: any, blockLength: number, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number): number;
+declare function CMBlockBufferAssureBlockMemory(theBuffer: any): number;
+declare function CMBlockBufferCopyDataBytes(theSourceBuffer: any, offsetToData: number, dataLength: number, destination: any): number;
+declare function CMBlockBufferCreateContiguous(structureAllocator: any, sourceBuffer: any, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
+declare function CMBlockBufferCreateEmpty(structureAllocator: any, subBlockCapacity: number, flags: number, blockBufferOut: any): number;
+declare function CMBlockBufferCreateWithBufferReference(structureAllocator: any, bufferReference: any, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
+declare function CMBlockBufferCreateWithMemoryBlock(structureAllocator: any, memoryBlock: any, blockLength: number, blockAllocator: any, customBlockSource: CMBlockBufferCustomBlockSource, offsetToData: number, dataLength: number, flags: number, blockBufferOut: any): number;
+interface CMBlockBufferCustomBlockSource {
+  version: number;
+  AllocateBlock: (p1: any, p2: number) => any;
+  FreeBlock: (p1: any, p2: any, p3: number) => void;
+  refCon: any;
+}
+
 declare var CMBlockBufferCustomBlockSource: CMBlockBufferCustomBlockSource;
 
 declare function CMBlockBufferFillDataBytes(fillByte: number, destinationBuffer: any, offsetIntoDestination: number, dataLength: number): number;
-
 declare function CMBlockBufferGetDataLength(theBuffer: any): number;
-
 declare function CMBlockBufferGetDataPointer(theBuffer: any, offset: number, lengthAtOffsetOut: number, totalLengthOut: number, dataPointerOut: string): number;
-
 declare function CMBlockBufferGetTypeID(): number;
-
 declare function CMBlockBufferIsEmpty(theBuffer: any): boolean;
-
 declare function CMBlockBufferIsRangeContiguous(theBuffer: any, offset: number, length: number): boolean;
-
 declare function CMBlockBufferReplaceDataBytes(sourceBytes: any, destinationBuffer: any, offsetIntoDestination: number, dataLength: number): number;
-
 interface CMBufferCallbacks {
-	version: number;
-	refcon: any;
-	getDecodeTimeStamp: (p1: any, p2: any) => CMTime;
-	getPresentationTimeStamp: (p1: any, p2: any) => CMTime;
-	getDuration: (p1: any, p2: any) => CMTime;
-	isDataReady: (p1: any, p2: any) => boolean;
-	compare: (p1: any, p2: any, p3: any) => CFComparisonResult;
-	dataBecameReadyNotification: string;
-	getSize: (p1: any, p2: any) => number;
+  version: number;
+  refcon: any;
+  getDecodeTimeStamp: (p1: any, p2: any) => CMTime;
+  getPresentationTimeStamp: (p1: any, p2: any) => CMTime;
+  getDuration: (p1: any, p2: any) => CMTime;
+  isDataReady: (p1: any, p2: any) => boolean;
+  compare: (p1: any, p2: any, p3: any) => CFComparisonResult;
+  dataBecameReadyNotification: NSObject;
+  getSize: (p1: any, p2: any) => number;
 }
+
 declare var CMBufferCallbacks: CMBufferCallbacks;
 
 interface CMBufferHandlers {
-	version: number;
-	getDecodeTimeStamp: (p1: any) => CMTime;
-	getPresentationTimeStamp: (p1: any) => CMTime;
-	getDuration: (p1: any) => CMTime;
-	isDataReady: (p1: any) => boolean;
-	compare: (p1: any, p2: any) => CFComparisonResult;
-	dataBecameReadyNotification: string;
-	getSize: (p1: any) => number;
+  version: number;
+  getDecodeTimeStamp: (p1: any) => CMTime;
+  getPresentationTimeStamp: (p1: any) => CMTime;
+  getDuration: (p1: any) => CMTime;
+  isDataReady: (p1: any) => boolean;
+  compare: (p1: any, p2: any) => CFComparisonResult;
+  dataBecameReadyNotification: NSObject;
+  getSize: (p1: any) => number;
 }
+
 declare var CMBufferHandlers: CMBufferHandlers;
 
 declare function CMBufferQueueCallForEachBuffer(queue: any, callback: (p1: any, p2: any) => number, refcon: any): number;
-
 declare function CMBufferQueueContainsEndOfData(queue: any): boolean;
-
 declare function CMBufferQueueCreate(allocator: any, capacity: number, callbacks: CMBufferCallbacks, queueOut: any): number;
-
 declare function CMBufferQueueCreateWithHandlers(allocator: any, capacity: number, handlers: CMBufferHandlers, queueOut: any): number;
-
 declare function CMBufferQueueDequeueAndRetain(queue: any): any;
-
 declare function CMBufferQueueDequeueIfDataReadyAndRetain(queue: any): any;
-
 declare function CMBufferQueueEnqueue(queue: any, buf: any): number;
-
 declare function CMBufferQueueGetBufferCount(queue: any): number;
-
 declare function CMBufferQueueGetCallbacksForSampleBuffersSortedByOutputPTS(): CMBufferCallbacks;
-
 declare function CMBufferQueueGetCallbacksForUnsortedSampleBuffers(): CMBufferCallbacks;
-
 declare function CMBufferQueueGetDuration(queue: any): CMTime;
-
 declare function CMBufferQueueGetEndPresentationTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetFirstDecodeTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetFirstPresentationTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetHead(queue: any): any;
-
 declare function CMBufferQueueGetMaxPresentationTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetMinDecodeTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetMinPresentationTimeStamp(queue: any): CMTime;
-
 declare function CMBufferQueueGetTotalSize(queue: any): number;
-
 declare function CMBufferQueueGetTypeID(): number;
-
 declare function CMBufferQueueInstallTrigger(queue: any, callback: (p1: any, p2: any) => void, refcon: any, condition: number, time: CMTime, triggerTokenOut: any): number;
-
 declare function CMBufferQueueInstallTriggerHandler(queue: any, condition: number, time: CMTime, triggerTokenOut: any, handler: (p1: any) => void): number;
-
 declare function CMBufferQueueInstallTriggerHandlerWithIntegerThreshold(queue: any, condition: number, threshold: number, triggerTokenOut: any, handler: (p1: any) => void): number;
-
 declare function CMBufferQueueInstallTriggerWithIntegerThreshold(queue: any, callback: (p1: any, p2: any) => void, refcon: any, condition: number, threshold: number, triggerTokenOut: any): number;
-
 declare function CMBufferQueueIsAtEndOfData(queue: any): boolean;
-
 declare function CMBufferQueueIsEmpty(queue: any): boolean;
-
 declare function CMBufferQueueMarkEndOfData(queue: any): number;
-
 declare function CMBufferQueueRemoveTrigger(queue: any, triggerToken: any): number;
-
 declare function CMBufferQueueReset(queue: any): number;
-
 declare function CMBufferQueueResetWithCallback(queue: any, callback: (p1: any, p2: any) => void, refcon: any): number;
-
 declare function CMBufferQueueSetValidationCallback(queue: any, callback: (p1: any, p2: any, p3: any) => number, refcon: any): number;
-
 declare function CMBufferQueueSetValidationHandler(queue: any, handler: (p1: any, p2: any) => number): number;
-
 declare function CMBufferQueueTestTrigger(queue: any, triggerToken: any): boolean;
-
 declare function CMClockConvertHostTimeToSystemUnits(hostTime: CMTime): number;
-
 declare function CMClockGetAnchorTime(clock: any, clockTimeOut: CMTime, referenceClockTimeOut: CMTime): number;
-
 declare function CMClockGetHostTimeClock(): any;
-
 declare function CMClockGetTime(clock: any): CMTime;
-
 declare function CMClockGetTypeID(): number;
-
 declare function CMClockInvalidate(clock: any): void;
-
 declare function CMClockMakeHostTimeFromSystemUnits(hostTime: number): CMTime;
-
 declare function CMClockMightDrift(clock: any, otherClock: any): boolean;
-
 declare function CMClosedCaptionFormatDescriptionCopyAsBigEndianClosedCaptionDescriptionBlockBuffer(allocator: any, closedCaptionFormatDescription: any, flavor: any, blockBufferOut: any): number;
-
 declare function CMClosedCaptionFormatDescriptionCreateFromBigEndianClosedCaptionDescriptionBlockBuffer(allocator: any, closedCaptionDescriptionBlockBuffer: any, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMClosedCaptionFormatDescriptionCreateFromBigEndianClosedCaptionDescriptionData(allocator: any, closedCaptionDescriptionData: string | any, size: number, flavor: any, formatDescriptionOut: any): number;
-
-declare function CMCopyDictionaryOfAttachments(allocator: any, target: any, attachmentMode: number): NSDictionary<any, any>;
-
+declare function CMCopyDictionaryOfAttachments(allocator: any, target: any, attachmentMode: number): NSObject;
 declare function CMDoesBigEndianSoundDescriptionRequireLegacyCBRSampleTableLayout(soundDescriptionBlockBuffer: any, flavor: any): boolean;
-
-declare function CMFormatDescriptionCreate(allocator: any, mediaType: number, mediaSubType: number, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
+declare function CMFormatDescriptionCreate(allocator: any, mediaType: number, mediaSubType: number, extensions: NSObject, formatDescriptionOut: any): number;
 declare function CMFormatDescriptionEqual(formatDescription: any, otherFormatDescription: any): boolean;
-
 declare function CMFormatDescriptionEqualIgnoringExtensionKeys(formatDescription: any, otherFormatDescription: any, formatDescriptionExtensionKeysToIgnore: any, sampleDescriptionExtensionAtomKeysToIgnore: any): boolean;
-
-declare function CMFormatDescriptionGetExtension(desc: any, extensionKey: string): any;
-
-declare function CMFormatDescriptionGetExtensions(desc: any): NSDictionary<any, any>;
-
+declare function CMFormatDescriptionGetExtension(desc: any, extensionKey: NSObject): any;
+declare function CMFormatDescriptionGetExtensions(desc: any): NSObject;
 declare function CMFormatDescriptionGetMediaSubType(desc: any): number;
-
 declare function CMFormatDescriptionGetMediaType(desc: any): number;
-
 declare function CMFormatDescriptionGetTypeID(): number;
-
-declare function CMGetAttachment(target: any, key: string, attachmentModeOut: number): any;
-
-declare function CMMemoryPoolCreate(options: NSDictionary<any, any>): any;
-
+declare function CMGetAttachment(target: any, key: NSObject, attachmentModeOut: number): any;
+declare function CMMemoryPoolCreate(options: NSObject): any;
 declare function CMMemoryPoolFlush(pool: any): void;
-
 declare function CMMemoryPoolGetAllocator(pool: any): any;
-
 declare function CMMemoryPoolGetTypeID(): number;
-
 declare function CMMemoryPoolInvalidate(pool: any): void;
-
-declare function CMMetadataCreateIdentifierForKeyAndKeySpace(allocator: any, key: any, keySpace: string, identifierOut: string): number;
-
-declare function CMMetadataCreateKeyFromIdentifier(allocator: any, identifier: string, keyOut: any): number;
-
-declare function CMMetadataCreateKeyFromIdentifierAsCFData(allocator: any, identifier: string, keyOut: NSData): number;
-
-declare function CMMetadataCreateKeySpaceFromIdentifier(allocator: any, identifier: string, keySpaceOut: string): number;
-
-declare function CMMetadataDataTypeRegistryDataTypeConformsToDataType(dataType: string, conformsToDataType: string): boolean;
-
-declare function CMMetadataDataTypeRegistryDataTypeIsBaseDataType(dataType: string): boolean;
-
-declare function CMMetadataDataTypeRegistryDataTypeIsRegistered(dataType: string): boolean;
-
-declare function CMMetadataDataTypeRegistryGetBaseDataTypeForConformingDataType(dataType: string): string;
-
-declare function CMMetadataDataTypeRegistryGetBaseDataTypes(): NSArray<any>;
-
-declare function CMMetadataDataTypeRegistryGetConformingDataTypes(dataType: string): NSArray<any>;
-
-declare function CMMetadataDataTypeRegistryGetDataTypeDescription(dataType: string): string;
-
-declare function CMMetadataDataTypeRegistryRegisterDataType(dataType: string, description: string, conformingDataTypes: NSArray<any> | any[]): number;
-
+declare function CMMetadataCreateIdentifierForKeyAndKeySpace(allocator: any, key: any, keySpace: NSObject, identifierOut: NSObject): number;
+declare function CMMetadataCreateKeyFromIdentifier(allocator: any, identifier: NSObject, keyOut: any): number;
+declare function CMMetadataCreateKeyFromIdentifierAsCFData(allocator: any, identifier: NSObject, keyOut: NSObject): number;
+declare function CMMetadataCreateKeySpaceFromIdentifier(allocator: any, identifier: NSObject, keySpaceOut: NSObject): number;
+declare function CMMetadataDataTypeRegistryDataTypeConformsToDataType(dataType: NSObject, conformsToDataType: NSObject): boolean;
+declare function CMMetadataDataTypeRegistryDataTypeIsBaseDataType(dataType: NSObject): boolean;
+declare function CMMetadataDataTypeRegistryDataTypeIsRegistered(dataType: NSObject): boolean;
+declare function CMMetadataDataTypeRegistryGetBaseDataTypeForConformingDataType(dataType: NSObject): NSObject;
+declare function CMMetadataDataTypeRegistryGetBaseDataTypes(): NSObject;
+declare function CMMetadataDataTypeRegistryGetConformingDataTypes(dataType: NSObject): NSObject;
+declare function CMMetadataDataTypeRegistryGetDataTypeDescription(dataType: NSObject): NSObject;
+declare function CMMetadataDataTypeRegistryRegisterDataType(dataType: NSObject, description: NSObject, conformingDataTypes: NSObject): number;
 declare function CMMetadataFormatDescriptionCopyAsBigEndianMetadataDescriptionBlockBuffer(allocator: any, metadataFormatDescription: any, flavor: any, blockBufferOut: any): number;
-
 declare function CMMetadataFormatDescriptionCreateByMergingMetadataFormatDescriptions(allocator: any, sourceDescription: any, otherSourceDescription: any, formatDescriptionOut: any): number;
-
 declare function CMMetadataFormatDescriptionCreateFromBigEndianMetadataDescriptionBlockBuffer(allocator: any, metadataDescriptionBlockBuffer: any, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMMetadataFormatDescriptionCreateFromBigEndianMetadataDescriptionData(allocator: any, metadataDescriptionData: string | any, size: number, flavor: any, formatDescriptionOut: any): number;
-
-declare function CMMetadataFormatDescriptionCreateWithKeys(allocator: any, metadataType: number, keys: NSArray<any> | any[], formatDescriptionOut: any): number;
-
-declare function CMMetadataFormatDescriptionCreateWithMetadataFormatDescriptionAndMetadataSpecifications(allocator: any, sourceDescription: any, metadataSpecifications: NSArray<any> | any[], formatDescriptionOut: any): number;
-
-declare function CMMetadataFormatDescriptionCreateWithMetadataSpecifications(allocator: any, metadataType: number, metadataSpecifications: NSArray<any> | any[], formatDescriptionOut: any): number;
-
-declare function CMMetadataFormatDescriptionGetIdentifiers(desc: any): NSArray<any>;
-
-declare function CMMetadataFormatDescriptionGetKeyWithLocalID(desc: any, localKeyID: number): NSDictionary<any, any>;
-
-declare function CMMuxedFormatDescriptionCreate(allocator: any, muxType: number, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
+declare function CMMetadataFormatDescriptionCreateWithKeys(allocator: any, metadataType: number, keys: NSObject, formatDescriptionOut: any): number;
+declare function CMMetadataFormatDescriptionCreateWithMetadataFormatDescriptionAndMetadataSpecifications(allocator: any, sourceDescription: any, metadataSpecifications: NSObject, formatDescriptionOut: any): number;
+declare function CMMetadataFormatDescriptionCreateWithMetadataSpecifications(allocator: any, metadataType: number, metadataSpecifications: NSObject, formatDescriptionOut: any): number;
+declare function CMMetadataFormatDescriptionGetIdentifiers(desc: any): NSObject;
+declare function CMMetadataFormatDescriptionGetKeyWithLocalID(desc: any, localKeyID: number): NSObject;
+declare function CMMuxedFormatDescriptionCreate(allocator: any, muxType: number, extensions: NSObject, formatDescriptionOut: any): number;
 declare function CMPropagateAttachments(source: any, destination: any): void;
-
 declare function CMRemoveAllAttachments(target: any): void;
-
-declare function CMRemoveAttachment(target: any, key: string): void;
-
+declare function CMRemoveAttachment(target: any, key: NSObject): void;
 declare function CMSampleBufferCallBlockForEachSample(sbuf: any, handler: (p1: any, p2: number) => number): number;
-
 declare function CMSampleBufferCallForEachSample(sbuf: any, callback: (p1: any, p2: number, p3: any) => number, refcon: any): number;
-
 declare function CMSampleBufferCopyPCMDataIntoAudioBufferList(sbuf: any, frameOffset: number, numFrames: number, bufferList: AudioBufferList): number;
-
 declare function CMSampleBufferCopySampleBufferForRange(allocator: any, sbuf: any, sampleRange: CFRange, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreate(allocator: any, dataBuffer: any, dataReady: boolean, makeDataReadyCallback: (p1: any, p2: any) => number, makeDataReadyRefcon: any, formatDescription: any, numSamples: number, numSampleTimingEntries: number, sampleTimingArray: CMSampleTimingInfo, numSampleSizeEntries: number, sampleSizeArray: number, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateCopy(allocator: any, sbuf: any, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateCopyWithNewTiming(allocator: any, originalSBuf: any, numSampleTimingEntries: number, sampleTimingArray: CMSampleTimingInfo, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateForImageBuffer(allocator: any, imageBuffer: any, dataReady: boolean, makeDataReadyCallback: (p1: any, p2: any) => number, makeDataReadyRefcon: any, formatDescription: any, sampleTiming: CMSampleTimingInfo, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateForImageBufferWithMakeDataReadyHandler(allocator: any, imageBuffer: any, dataReady: boolean, formatDescription: any, sampleTiming: CMSampleTimingInfo, sampleBufferOut: any, makeDataReadyHandler: (p1: any) => number): number;
-
 declare function CMSampleBufferCreateReady(allocator: any, dataBuffer: any, formatDescription: any, numSamples: number, numSampleTimingEntries: number, sampleTimingArray: CMSampleTimingInfo, numSampleSizeEntries: number, sampleSizeArray: number, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateReadyWithImageBuffer(allocator: any, imageBuffer: any, formatDescription: any, sampleTiming: CMSampleTimingInfo, sampleBufferOut: any): number;
-
 declare function CMSampleBufferCreateWithMakeDataReadyHandler(allocator: any, dataBuffer: any, dataReady: boolean, formatDescription: any, numSamples: number, numSampleTimingEntries: number, sampleTimingArray: CMSampleTimingInfo, numSampleSizeEntries: number, sampleSizeArray: number, sampleBufferOut: any, makeDataReadyHandler: (p1: any) => number): number;
-
 declare function CMSampleBufferDataIsReady(sbuf: any): boolean;
-
 declare function CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sbuf: any, bufferListSizeNeededOut: number, bufferListOut: AudioBufferList, bufferListSize: number, blockBufferStructureAllocator: any, blockBufferBlockAllocator: any, flags: number, blockBufferOut: any): number;
-
 declare function CMSampleBufferGetAudioStreamPacketDescriptions(sbuf: any, packetDescriptionsSize: number, packetDescriptionsOut: AudioStreamPacketDescription, packetDescriptionsSizeNeededOut: number): number;
-
 declare function CMSampleBufferGetAudioStreamPacketDescriptionsPtr(sbuf: any, packetDescriptionsPointerOut: AudioStreamPacketDescription, packetDescriptionsSizeOut: number): number;
-
 declare function CMSampleBufferGetDataBuffer(sbuf: any): any;
-
 declare function CMSampleBufferGetDecodeTimeStamp(sbuf: any): CMTime;
-
 declare function CMSampleBufferGetDuration(sbuf: any): CMTime;
-
 declare function CMSampleBufferGetFormatDescription(sbuf: any): any;
-
 declare function CMSampleBufferGetImageBuffer(sbuf: any): any;
-
 declare function CMSampleBufferGetNumSamples(sbuf: any): number;
-
 declare function CMSampleBufferGetOutputDecodeTimeStamp(sbuf: any): CMTime;
-
 declare function CMSampleBufferGetOutputDuration(sbuf: any): CMTime;
-
 declare function CMSampleBufferGetOutputPresentationTimeStamp(sbuf: any): CMTime;
-
 declare function CMSampleBufferGetOutputSampleTimingInfoArray(sbuf: any, timingArrayEntries: number, timingArrayOut: CMSampleTimingInfo, timingArrayEntriesNeededOut: number): number;
-
 declare function CMSampleBufferGetPresentationTimeStamp(sbuf: any): CMTime;
-
-declare function CMSampleBufferGetSampleAttachmentsArray(sbuf: any, createIfNecessary: boolean): NSArray<any>;
-
+declare function CMSampleBufferGetSampleAttachmentsArray(sbuf: any, createIfNecessary: boolean): NSObject;
 declare function CMSampleBufferGetSampleSize(sbuf: any, sampleIndex: number): number;
-
 declare function CMSampleBufferGetSampleSizeArray(sbuf: any, sizeArrayEntries: number, sizeArrayOut: number, sizeArrayEntriesNeededOut: number): number;
-
 declare function CMSampleBufferGetSampleTimingInfo(sbuf: any, sampleIndex: number, timingInfoOut: CMSampleTimingInfo): number;
-
 declare function CMSampleBufferGetSampleTimingInfoArray(sbuf: any, numSampleTimingEntries: number, timingArrayOut: CMSampleTimingInfo, timingArrayEntriesNeededOut: number): number;
-
 declare function CMSampleBufferGetTotalSampleSize(sbuf: any): number;
-
 declare function CMSampleBufferGetTypeID(): number;
-
 declare function CMSampleBufferHasDataFailed(sbuf: any, statusOut: number): boolean;
-
 declare function CMSampleBufferInvalidate(sbuf: any): number;
-
 declare function CMSampleBufferIsValid(sbuf: any): boolean;
-
 declare function CMSampleBufferMakeDataReady(sbuf: any): number;
-
 declare function CMSampleBufferSetDataBuffer(sbuf: any, dataBuffer: any): number;
-
 declare function CMSampleBufferSetDataBufferFromAudioBufferList(sbuf: any, blockBufferStructureAllocator: any, blockBufferBlockAllocator: any, flags: number, bufferList: AudioBufferList): number;
-
 declare function CMSampleBufferSetDataFailed(sbuf: any, status: number): number;
-
 declare function CMSampleBufferSetDataReady(sbuf: any): number;
-
 declare function CMSampleBufferSetInvalidateCallback(sbuf: any, invalidateCallback: (p1: any, p2: number) => void, invalidateRefCon: number): number;
-
 declare function CMSampleBufferSetInvalidateHandler(sbuf: any, invalidateHandler: (p1: any) => void): number;
-
 declare function CMSampleBufferSetOutputPresentationTimeStamp(sbuf: any, outputPresentationTimeStamp: CMTime): number;
-
 declare function CMSampleBufferTrackDataReadiness(sbuf: any, sampleBufferToTrack: any): number;
-
 interface CMSampleTimingInfo {
-	duration: CMTime;
-	presentationTimeStamp: CMTime;
-	decodeTimeStamp: CMTime;
+  duration: CMTime;
+  presentationTimeStamp: CMTime;
+  decodeTimeStamp: CMTime;
 }
+
 declare var CMSampleTimingInfo: CMSampleTimingInfo;
 
-declare function CMSetAttachment(target: any, key: string, value: any, attachmentMode: number): void;
-
-declare function CMSetAttachments(target: any, theAttachments: NSDictionary<any, any>, attachmentMode: number): void;
-
+declare function CMSetAttachment(target: any, key: NSObject, value: any, attachmentMode: number): void;
+declare function CMSetAttachments(target: any, theAttachments: NSObject, attachmentMode: number): void;
 declare function CMSimpleQueueCreate(allocator: any, capacity: number, queueOut: any): number;
-
 declare function CMSimpleQueueDequeue(queue: any): any;
-
 declare function CMSimpleQueueEnqueue(queue: any, element: any): number;
-
 declare function CMSimpleQueueGetCapacity(queue: any): number;
-
 declare function CMSimpleQueueGetCount(queue: any): number;
-
 declare function CMSimpleQueueGetHead(queue: any): any;
-
 declare function CMSimpleQueueGetTypeID(): number;
-
 declare function CMSimpleQueueReset(queue: any): number;
-
 declare function CMSwapBigEndianClosedCaptionDescriptionToHost(closedCaptionDescriptionData: string | any, closedCaptionDescriptionSize: number): number;
-
 declare function CMSwapBigEndianImageDescriptionToHost(imageDescriptionData: string | any, imageDescriptionSize: number): number;
-
 declare function CMSwapBigEndianMetadataDescriptionToHost(metadataDescriptionData: string | any, metadataDescriptionSize: number): number;
-
 declare function CMSwapBigEndianSoundDescriptionToHost(soundDescriptionData: string | any, soundDescriptionSize: number): number;
-
 declare function CMSwapBigEndianTextDescriptionToHost(textDescriptionData: string | any, textDescriptionSize: number): number;
-
 declare function CMSwapBigEndianTimeCodeDescriptionToHost(timeCodeDescriptionData: string | any, timeCodeDescriptionSize: number): number;
-
 declare function CMSwapHostEndianClosedCaptionDescriptionToBig(closedCaptionDescriptionData: string | any, closedCaptionDescriptionSize: number): number;
-
 declare function CMSwapHostEndianImageDescriptionToBig(imageDescriptionData: string | any, imageDescriptionSize: number): number;
-
 declare function CMSwapHostEndianMetadataDescriptionToBig(metadataDescriptionData: string | any, metadataDescriptionSize: number): number;
-
 declare function CMSwapHostEndianSoundDescriptionToBig(soundDescriptionData: string | any, soundDescriptionSize: number): number;
-
 declare function CMSwapHostEndianTextDescriptionToBig(textDescriptionData: string | any, textDescriptionSize: number): number;
-
 declare function CMSwapHostEndianTimeCodeDescriptionToBig(timeCodeDescriptionData: string | any, timeCodeDescriptionSize: number): number;
-
 declare function CMSyncConvertTime(time: CMTime, fromClockOrTimebase: any, toClockOrTimebase: any): CMTime;
-
 declare function CMSyncGetRelativeRate(ofClockOrTimebase: any, relativeToClockOrTimebase: any): number;
-
 declare function CMSyncGetRelativeRateAndAnchorTime(ofClockOrTimebase: any, relativeToClockOrTimebase: any, outRelativeRate: number, outOfClockOrTimebaseAnchorTime: CMTime, outRelativeToClockOrTimebaseAnchorTime: CMTime): number;
-
 declare function CMSyncGetTime(clockOrTimebase: any): CMTime;
-
 declare function CMSyncMightDrift(clockOrTimebase1: any, clockOrTimebase2: any): boolean;
-
 declare function CMTextFormatDescriptionCopyAsBigEndianTextDescriptionBlockBuffer(allocator: any, textFormatDescription: any, flavor: any, blockBufferOut: any): number;
-
 declare function CMTextFormatDescriptionCreateFromBigEndianTextDescriptionBlockBuffer(allocator: any, textDescriptionBlockBuffer: any, flavor: any, mediaType: number, formatDescriptionOut: any): number;
-
 declare function CMTextFormatDescriptionCreateFromBigEndianTextDescriptionData(allocator: any, textDescriptionData: string | any, size: number, flavor: any, mediaType: number, formatDescriptionOut: any): number;
-
 declare function CMTextFormatDescriptionGetDefaultStyle(desc: any, localFontIDOut: number, boldOut: string | any, italicOut: string | any, underlineOut: string | any, fontSizeOut: number, colorComponentsOut: number): number;
-
-declare function CMTextFormatDescriptionGetDefaultTextBox(desc: any, originIsAtTopLeft: boolean, heightOfTextTrack: number, defaultTextBoxOut: CGRect): number;
-
+declare function CMTextFormatDescriptionGetDefaultTextBox(desc: any, originIsAtTopLeft: boolean, heightOfTextTrack: number, defaultTextBoxOut: NSRect): number;
 declare function CMTextFormatDescriptionGetDisplayFlags(desc: any, displayFlagsOut: number): number;
-
-declare function CMTextFormatDescriptionGetFontName(desc: any, localFontID: number, fontNameOut: string): number;
-
+declare function CMTextFormatDescriptionGetFontName(desc: any, localFontID: number, fontNameOut: NSObject): number;
 declare function CMTextFormatDescriptionGetJustification(desc: any, horizontaJustificationlOut: number, verticalJustificationOut: number): number;
-
 interface CMTime {
-	value: number;
-	timescale: number;
-	flags: CMTimeFlags;
-	epoch: number;
+  value: number;
+  timescale: number;
+  flags: CMTimeFlags;
+  epoch: number;
 }
+
 declare var CMTime: CMTime;
 
 declare function CMTimeAbsoluteValue(time: CMTime): CMTime;
-
 declare function CMTimeAdd(lhs: CMTime, rhs: CMTime): CMTime;
-
 declare function CMTimeClampToRange(time: CMTime, range: CMTimeRange): CMTime;
-
 declare function CMTimeCodeFormatDescriptionCopyAsBigEndianTimeCodeDescriptionBlockBuffer(allocator: any, timeCodeFormatDescription: any, flavor: any, blockBufferOut: any): number;
-
-declare function CMTimeCodeFormatDescriptionCreate(allocator: any, timeCodeFormatType: number, frameDuration: CMTime, frameQuanta: number, flags: number, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
+declare function CMTimeCodeFormatDescriptionCreate(allocator: any, timeCodeFormatType: number, frameDuration: CMTime, frameQuanta: number, flags: number, extensions: NSObject, formatDescriptionOut: any): number;
 declare function CMTimeCodeFormatDescriptionCreateFromBigEndianTimeCodeDescriptionBlockBuffer(allocator: any, timeCodeDescriptionBlockBuffer: any, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMTimeCodeFormatDescriptionCreateFromBigEndianTimeCodeDescriptionData(allocator: any, timeCodeDescriptionData: string | any, size: number, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMTimeCodeFormatDescriptionGetFrameDuration(timeCodeFormatDescription: any): CMTime;
-
 declare function CMTimeCodeFormatDescriptionGetFrameQuanta(timeCodeFormatDescription: any): number;
-
 declare function CMTimeCodeFormatDescriptionGetTimeCodeFlags(desc: any): number;
-
 declare function CMTimeCompare(time1: CMTime, time2: CMTime): number;
-
 declare function CMTimeConvertScale(time: CMTime, newTimescale: number, method: CMTimeRoundingMethod): CMTime;
-
-declare function CMTimeCopyAsDictionary(time: CMTime, allocator: any): NSDictionary<any, any>;
-
-declare function CMTimeCopyDescription(allocator: any, time: CMTime): string;
-
-enum CMTimeFlags {
-
-	kCMTimeFlags_Valid = 1,
-
-	kCMTimeFlags_HasBeenRounded = 2,
-
-	kCMTimeFlags_PositiveInfinity = 4,
-
-	kCMTimeFlags_NegativeInfinity = 8,
-
-	kCMTimeFlags_Indefinite = 16,
-
-	kCMTimeFlags_ImpliedValueFlagsMask = 28
-}
-
-
+declare function CMTimeCopyAsDictionary(time: CMTime, allocator: any): NSObject;
+declare function CMTimeCopyDescription(allocator: any, time: CMTime): NSObject;
 declare function CMTimeFoldIntoRange(time: CMTime, foldRange: CMTimeRange): CMTime;
-
 declare function CMTimeGetSeconds(time: CMTime): number;
-
 declare function CMTimeMake(value: number, timescale: number): CMTime;
-
-declare function CMTimeMakeFromDictionary(dictionaryRepresentation: NSDictionary<any, any>): CMTime;
-
+declare function CMTimeMakeFromDictionary(dictionaryRepresentation: NSObject): CMTime;
 declare function CMTimeMakeWithEpoch(value: number, timescale: number, epoch: number): CMTime;
-
 declare function CMTimeMakeWithSeconds(seconds: number, preferredTimescale: number): CMTime;
-
 declare function CMTimeMapDurationFromRangeToRange(dur: CMTime, fromRange: CMTimeRange, toRange: CMTimeRange): CMTime;
-
 declare function CMTimeMapTimeFromRangeToRange(t: CMTime, fromRange: CMTimeRange, toRange: CMTimeRange): CMTime;
-
 interface CMTimeMapping {
-	source: CMTimeRange;
-	target: CMTimeRange;
+  source: CMTimeRange;
+  target: CMTimeRange;
 }
+
 declare var CMTimeMapping: CMTimeMapping;
 
-declare function CMTimeMappingCopyAsDictionary(mapping: CMTimeMapping, allocator: any): NSDictionary<any, any>;
-
-declare function CMTimeMappingCopyDescription(allocator: any, mapping: CMTimeMapping): string;
-
+declare function CMTimeMappingCopyAsDictionary(mapping: CMTimeMapping, allocator: any): NSObject;
+declare function CMTimeMappingCopyDescription(allocator: any, mapping: CMTimeMapping): NSObject;
 declare function CMTimeMappingMake(source: CMTimeRange, target: CMTimeRange): CMTimeMapping;
-
 declare function CMTimeMappingMakeEmpty(target: CMTimeRange): CMTimeMapping;
-
-declare function CMTimeMappingMakeFromDictionary(dictionaryRepresentation: NSDictionary<any, any>): CMTimeMapping;
-
+declare function CMTimeMappingMakeFromDictionary(dictionaryRepresentation: NSObject): CMTimeMapping;
 declare function CMTimeMappingShow(mapping: CMTimeMapping): void;
-
 declare function CMTimeMaximum(time1: CMTime, time2: CMTime): CMTime;
-
 declare function CMTimeMinimum(time1: CMTime, time2: CMTime): CMTime;
-
 declare function CMTimeMultiply(time: CMTime, multiplier: number): CMTime;
-
 declare function CMTimeMultiplyByFloat64(time: CMTime, multiplier: number): CMTime;
-
 declare function CMTimeMultiplyByRatio(time: CMTime, multiplier: number, divisor: number): CMTime;
-
 interface CMTimeRange {
-	start: CMTime;
-	duration: CMTime;
+  start: CMTime;
+  duration: CMTime;
 }
+
 declare var CMTimeRange: CMTimeRange;
 
 declare function CMTimeRangeContainsTime(range: CMTimeRange, time: CMTime): boolean;
-
 declare function CMTimeRangeContainsTimeRange(range: CMTimeRange, otherRange: CMTimeRange): boolean;
-
-declare function CMTimeRangeCopyAsDictionary(range: CMTimeRange, allocator: any): NSDictionary<any, any>;
-
-declare function CMTimeRangeCopyDescription(allocator: any, range: CMTimeRange): string;
-
+declare function CMTimeRangeCopyAsDictionary(range: CMTimeRange, allocator: any): NSObject;
+declare function CMTimeRangeCopyDescription(allocator: any, range: CMTimeRange): NSObject;
 declare function CMTimeRangeEqual(range1: CMTimeRange, range2: CMTimeRange): boolean;
-
 declare function CMTimeRangeFromTimeToTime(start: CMTime, end: CMTime): CMTimeRange;
-
 declare function CMTimeRangeGetEnd(range: CMTimeRange): CMTime;
-
 declare function CMTimeRangeGetIntersection(range: CMTimeRange, otherRange: CMTimeRange): CMTimeRange;
-
 declare function CMTimeRangeGetUnion(range: CMTimeRange, otherRange: CMTimeRange): CMTimeRange;
-
 declare function CMTimeRangeMake(start: CMTime, duration: CMTime): CMTimeRange;
-
-declare function CMTimeRangeMakeFromDictionary(dictionaryRepresentation: NSDictionary<any, any>): CMTimeRange;
-
+declare function CMTimeRangeMakeFromDictionary(dictionaryRepresentation: NSObject): CMTimeRange;
 declare function CMTimeRangeShow(range: CMTimeRange): void;
-
-enum CMTimeRoundingMethod {
-
-	kCMTimeRoundingMethod_RoundHalfAwayFromZero = 1,
-
-	kCMTimeRoundingMethod_RoundTowardZero = 2,
-
-	kCMTimeRoundingMethod_RoundAwayFromZero = 3,
-
-	kCMTimeRoundingMethod_QuickTime = 4,
-
-	kCMTimeRoundingMethod_RoundTowardPositiveInfinity = 5,
-
-	kCMTimeRoundingMethod_RoundTowardNegativeInfinity = 6,
-
-	kCMTimeRoundingMethod_Default = 1
-}
-
-
 declare function CMTimeShow(time: CMTime): void;
-
 declare function CMTimeSubtract(lhs: CMTime, rhs: CMTime): CMTime;
-
-declare function CMTimebaseAddTimer(timebase: any, timer: NSTimer, runloop: any): number;
-
+declare function CMTimebaseAddTimer(timebase: any, timer: NSObject, runloop: any): number;
 declare function CMTimebaseAddTimerDispatchSource(timebase: any, timerSource: NSObject): number;
-
 declare function CMTimebaseCopyMaster(timebase: any): any;
-
 declare function CMTimebaseCopyMasterClock(timebase: any): any;
-
 declare function CMTimebaseCopyMasterTimebase(timebase: any): any;
-
 declare function CMTimebaseCopyUltimateMasterClock(timebase: any): any;
-
 declare function CMTimebaseCreateWithMasterClock(allocator: any, masterClock: any, timebaseOut: any): number;
-
 declare function CMTimebaseCreateWithMasterTimebase(allocator: any, masterTimebase: any, timebaseOut: any): number;
-
 declare function CMTimebaseGetEffectiveRate(timebase: any): number;
-
 declare function CMTimebaseGetRate(timebase: any): number;
-
 declare function CMTimebaseGetTime(timebase: any): CMTime;
-
 declare function CMTimebaseGetTimeAndRate(timebase: any, timeOut: CMTime, rateOut: number): number;
-
 declare function CMTimebaseGetTimeWithTimeScale(timebase: any, timescale: number, method: CMTimeRoundingMethod): CMTime;
-
 declare function CMTimebaseGetTypeID(): number;
-
 declare function CMTimebaseNotificationBarrier(timebase: any): number;
-
-declare function CMTimebaseRemoveTimer(timebase: any, timer: NSTimer): number;
-
+declare function CMTimebaseRemoveTimer(timebase: any, timer: NSObject): number;
 declare function CMTimebaseRemoveTimerDispatchSource(timebase: any, timerSource: NSObject): number;
-
 declare function CMTimebaseSetAnchorTime(timebase: any, timebaseTime: CMTime, immediateMasterTime: CMTime): number;
-
 declare function CMTimebaseSetMasterClock(timebase: any, newMasterClock: any): number;
-
 declare function CMTimebaseSetMasterTimebase(timebase: any, newMasterTimebase: any): number;
-
 declare function CMTimebaseSetRate(timebase: any, rate: number): number;
-
 declare function CMTimebaseSetRateAndAnchorTime(timebase: any, rate: number, timebaseTime: CMTime, immediateMasterTime: CMTime): number;
-
 declare function CMTimebaseSetTime(timebase: any, time: CMTime): number;
-
 declare function CMTimebaseSetTimerDispatchSourceNextFireTime(timebase: any, timerSource: NSObject, fireTime: CMTime, flags: number): number;
-
 declare function CMTimebaseSetTimerDispatchSourceToFireImmediately(timebase: any, timerSource: NSObject): number;
-
-declare function CMTimebaseSetTimerNextFireTime(timebase: any, timer: NSTimer, fireTime: CMTime, flags: number): number;
-
-declare function CMTimebaseSetTimerToFireImmediately(timebase: any, timer: NSTimer): number;
-
+declare function CMTimebaseSetTimerNextFireTime(timebase: any, timer: NSObject, fireTime: CMTime, flags: number): number;
+declare function CMTimebaseSetTimerToFireImmediately(timebase: any, timer: NSObject): number;
 interface CMVideoDimensions {
-	width: number;
-	height: number;
+  width: number;
+  height: number;
 }
+
 declare var CMVideoDimensions: CMVideoDimensions;
 
 declare function CMVideoFormatDescriptionCopyAsBigEndianImageDescriptionBlockBuffer(allocator: any, videoFormatDescription: any, stringEncoding: number, flavor: any, blockBufferOut: any): number;
-
-declare function CMVideoFormatDescriptionCreate(allocator: any, codecType: number, width: number, height: number, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
+declare function CMVideoFormatDescriptionCreate(allocator: any, codecType: number, width: number, height: number, extensions: NSObject, formatDescriptionOut: any): number;
 declare function CMVideoFormatDescriptionCreateForImageBuffer(allocator: any, imageBuffer: any, formatDescriptionOut: any): number;
-
 declare function CMVideoFormatDescriptionCreateFromBigEndianImageDescriptionBlockBuffer(allocator: any, imageDescriptionBlockBuffer: any, stringEncoding: number, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMVideoFormatDescriptionCreateFromBigEndianImageDescriptionData(allocator: any, imageDescriptionData: string | any, size: number, stringEncoding: number, flavor: any, formatDescriptionOut: any): number;
-
 declare function CMVideoFormatDescriptionCreateFromH264ParameterSets(allocator: any, parameterSetCount: number, parameterSetPointers: string, parameterSetSizes: number, NALUnitHeaderLength: number, formatDescriptionOut: any): number;
-
-declare function CMVideoFormatDescriptionCreateFromHEVCParameterSets(allocator: any, parameterSetCount: number, parameterSetPointers: string, parameterSetSizes: number, NALUnitHeaderLength: number, extensions: NSDictionary<any, any>, formatDescriptionOut: any): number;
-
-declare function CMVideoFormatDescriptionGetCleanAperture(videoDesc: any, originIsAtTopLeft: boolean): CGRect;
-
+declare function CMVideoFormatDescriptionCreateFromHEVCParameterSets(allocator: any, parameterSetCount: number, parameterSetPointers: string, parameterSetSizes: number, NALUnitHeaderLength: number, extensions: NSObject, formatDescriptionOut: any): number;
+declare function CMVideoFormatDescriptionGetCleanAperture(videoDesc: any, originIsAtTopLeft: boolean): NSRect;
 declare function CMVideoFormatDescriptionGetDimensions(videoDesc: any): CMVideoDimensions;
-
-declare function CMVideoFormatDescriptionGetExtensionKeysCommonWithImageBuffers(): NSArray<any>;
-
+declare function CMVideoFormatDescriptionGetExtensionKeysCommonWithImageBuffers(): NSObject;
 declare function CMVideoFormatDescriptionGetH264ParameterSetAtIndex(videoDesc: any, parameterSetIndex: number, parameterSetPointerOut: string, parameterSetSizeOut: number, parameterSetCountOut: number, NALUnitHeaderLengthOut: number): number;
-
 declare function CMVideoFormatDescriptionGetHEVCParameterSetAtIndex(videoDesc: any, parameterSetIndex: number, parameterSetPointerOut: string, parameterSetSizeOut: number, parameterSetCountOut: number, NALUnitHeaderLengthOut: number): number;
-
-declare function CMVideoFormatDescriptionGetPresentationDimensions(videoDesc: any, usePixelAspectRatio: boolean, useCleanAperture: boolean): CGSize;
-
+declare function CMVideoFormatDescriptionGetPresentationDimensions(videoDesc: any, usePixelAspectRatio: boolean, useCleanAperture: boolean): NSSize;
 declare function CMVideoFormatDescriptionMatchesImageBuffer(desc: any, imageBuffer: any): boolean;
 
 declare const kCMAttachmentMode_ShouldNotPropagate: number;
@@ -784,10 +504,10 @@ declare const kCMClosedCaptionFormatType_ATSC: number;
 declare const kCMClosedCaptionFormatType_CEA608: number;
 
 declare const kCMClosedCaptionFormatType_CEA708: number;
+declare var kCMFormatDescriptionAlphaChannelMode_PremultipliedAlpha: NSObject;
 
-declare var kCMFormatDescriptionAlphaChannelMode_PremultipliedAlpha: string;
+declare var kCMFormatDescriptionAlphaChannelMode_StraightAlpha: NSObject;
 
-declare var kCMFormatDescriptionAlphaChannelMode_StraightAlpha: string;
 
 declare const kCMFormatDescriptionBridgeError_AllocationFailed: number;
 
@@ -802,182 +522,182 @@ declare const kCMFormatDescriptionBridgeError_InvalidSerializedSampleDescription
 declare const kCMFormatDescriptionBridgeError_InvalidSlice: number;
 
 declare const kCMFormatDescriptionBridgeError_UnsupportedSampleDescriptionFlavor: number;
+declare var kCMFormatDescriptionChromaLocation_Bottom: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_Bottom: string;
+declare var kCMFormatDescriptionChromaLocation_BottomLeft: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_BottomLeft: string;
+declare var kCMFormatDescriptionChromaLocation_Center: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_Center: string;
+declare var kCMFormatDescriptionChromaLocation_DV420: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_DV420: string;
+declare var kCMFormatDescriptionChromaLocation_Left: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_Left: string;
+declare var kCMFormatDescriptionChromaLocation_Top: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_Top: string;
+declare var kCMFormatDescriptionChromaLocation_TopLeft: NSObject;
 
-declare var kCMFormatDescriptionChromaLocation_TopLeft: string;
+declare var kCMFormatDescriptionColorPrimaries_DCI_P3: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_DCI_P3: string;
+declare var kCMFormatDescriptionColorPrimaries_EBU_3213: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_EBU_3213: string;
+declare var kCMFormatDescriptionColorPrimaries_ITU_R_2020: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_ITU_R_2020: string;
+declare var kCMFormatDescriptionColorPrimaries_ITU_R_709_2: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_ITU_R_709_2: string;
+declare var kCMFormatDescriptionColorPrimaries_P22: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_P22: string;
+declare var kCMFormatDescriptionColorPrimaries_P3_D65: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_P3_D65: string;
+declare var kCMFormatDescriptionColorPrimaries_SMPTE_C: NSObject;
 
-declare var kCMFormatDescriptionColorPrimaries_SMPTE_C: string;
+declare var kCMFormatDescriptionConformsToMPEG2VideoProfile: NSObject;
 
-declare var kCMFormatDescriptionConformsToMPEG2VideoProfile: string;
 
 declare const kCMFormatDescriptionError_AllocationFailed: number;
 
 declare const kCMFormatDescriptionError_InvalidParameter: number;
 
 declare const kCMFormatDescriptionError_ValueNotAvailable: number;
+declare var kCMFormatDescriptionExtensionKey_MetadataKeyTable: NSObject;
 
-declare var kCMFormatDescriptionExtensionKey_MetadataKeyTable: string;
+declare var kCMFormatDescriptionExtension_AlphaChannelMode: NSObject;
 
-declare var kCMFormatDescriptionExtension_AlphaChannelMode: string;
+declare var kCMFormatDescriptionExtension_AlternativeTransferCharacteristics: NSObject;
 
-declare var kCMFormatDescriptionExtension_AlternativeTransferCharacteristics: string;
+declare var kCMFormatDescriptionExtension_AuxiliaryTypeInfo: NSObject;
 
-declare var kCMFormatDescriptionExtension_AuxiliaryTypeInfo: string;
+declare var kCMFormatDescriptionExtension_BytesPerRow: NSObject;
 
-declare var kCMFormatDescriptionExtension_BytesPerRow: string;
+declare var kCMFormatDescriptionExtension_ChromaLocationBottomField: NSObject;
 
-declare var kCMFormatDescriptionExtension_ChromaLocationBottomField: string;
+declare var kCMFormatDescriptionExtension_ChromaLocationTopField: NSObject;
 
-declare var kCMFormatDescriptionExtension_ChromaLocationTopField: string;
+declare var kCMFormatDescriptionExtension_CleanAperture: NSObject;
 
-declare var kCMFormatDescriptionExtension_CleanAperture: string;
+declare var kCMFormatDescriptionExtension_ColorPrimaries: NSObject;
 
-declare var kCMFormatDescriptionExtension_ColorPrimaries: string;
+declare var kCMFormatDescriptionExtension_ContainsAlphaChannel: NSObject;
 
-declare var kCMFormatDescriptionExtension_ContainsAlphaChannel: string;
+declare var kCMFormatDescriptionExtension_ContentLightLevelInfo: NSObject;
 
-declare var kCMFormatDescriptionExtension_ContentLightLevelInfo: string;
+declare var kCMFormatDescriptionExtension_Depth: NSObject;
 
-declare var kCMFormatDescriptionExtension_Depth: string;
+declare var kCMFormatDescriptionExtension_FieldCount: NSObject;
 
-declare var kCMFormatDescriptionExtension_FieldCount: string;
+declare var kCMFormatDescriptionExtension_FieldDetail: NSObject;
 
-declare var kCMFormatDescriptionExtension_FieldDetail: string;
+declare var kCMFormatDescriptionExtension_FormatName: NSObject;
 
-declare var kCMFormatDescriptionExtension_FormatName: string;
+declare var kCMFormatDescriptionExtension_FullRangeVideo: NSObject;
 
-declare var kCMFormatDescriptionExtension_FullRangeVideo: string;
+declare var kCMFormatDescriptionExtension_GammaLevel: NSObject;
 
-declare var kCMFormatDescriptionExtension_GammaLevel: string;
+declare var kCMFormatDescriptionExtension_ICCProfile: NSObject;
 
-declare var kCMFormatDescriptionExtension_ICCProfile: string;
+declare var kCMFormatDescriptionExtension_MasteringDisplayColorVolume: NSObject;
 
-declare var kCMFormatDescriptionExtension_MasteringDisplayColorVolume: string;
+declare var kCMFormatDescriptionExtension_OriginalCompressionSettings: NSObject;
 
-declare var kCMFormatDescriptionExtension_OriginalCompressionSettings: string;
+declare var kCMFormatDescriptionExtension_PixelAspectRatio: NSObject;
 
-declare var kCMFormatDescriptionExtension_PixelAspectRatio: string;
+declare var kCMFormatDescriptionExtension_RevisionLevel: NSObject;
 
-declare var kCMFormatDescriptionExtension_RevisionLevel: string;
+declare var kCMFormatDescriptionExtension_SampleDescriptionExtensionAtoms: NSObject;
 
-declare var kCMFormatDescriptionExtension_SampleDescriptionExtensionAtoms: string;
+declare var kCMFormatDescriptionExtension_SpatialQuality: NSObject;
 
-declare var kCMFormatDescriptionExtension_SpatialQuality: string;
+declare var kCMFormatDescriptionExtension_TemporalQuality: NSObject;
 
-declare var kCMFormatDescriptionExtension_TemporalQuality: string;
+declare var kCMFormatDescriptionExtension_TransferFunction: NSObject;
 
-declare var kCMFormatDescriptionExtension_TransferFunction: string;
+declare var kCMFormatDescriptionExtension_Vendor: NSObject;
 
-declare var kCMFormatDescriptionExtension_Vendor: string;
+declare var kCMFormatDescriptionExtension_VerbatimISOSampleEntry: NSObject;
 
-declare var kCMFormatDescriptionExtension_VerbatimISOSampleEntry: string;
+declare var kCMFormatDescriptionExtension_VerbatimImageDescription: NSObject;
 
-declare var kCMFormatDescriptionExtension_VerbatimImageDescription: string;
+declare var kCMFormatDescriptionExtension_VerbatimSampleDescription: NSObject;
 
-declare var kCMFormatDescriptionExtension_VerbatimSampleDescription: string;
+declare var kCMFormatDescriptionExtension_Version: NSObject;
 
-declare var kCMFormatDescriptionExtension_Version: string;
+declare var kCMFormatDescriptionExtension_YCbCrMatrix: NSObject;
 
-declare var kCMFormatDescriptionExtension_YCbCrMatrix: string;
+declare var kCMFormatDescriptionFieldDetail_SpatialFirstLineEarly: NSObject;
 
-declare var kCMFormatDescriptionFieldDetail_SpatialFirstLineEarly: string;
+declare var kCMFormatDescriptionFieldDetail_SpatialFirstLineLate: NSObject;
 
-declare var kCMFormatDescriptionFieldDetail_SpatialFirstLineLate: string;
+declare var kCMFormatDescriptionFieldDetail_TemporalBottomFirst: NSObject;
 
-declare var kCMFormatDescriptionFieldDetail_TemporalBottomFirst: string;
+declare var kCMFormatDescriptionFieldDetail_TemporalTopFirst: NSObject;
 
-declare var kCMFormatDescriptionFieldDetail_TemporalTopFirst: string;
+declare var kCMFormatDescriptionKey_CleanApertureHeight: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureHeight: string;
+declare var kCMFormatDescriptionKey_CleanApertureHeightRational: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureHeightRational: string;
+declare var kCMFormatDescriptionKey_CleanApertureHorizontalOffset: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureHorizontalOffset: string;
+declare var kCMFormatDescriptionKey_CleanApertureHorizontalOffsetRational: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureHorizontalOffsetRational: string;
+declare var kCMFormatDescriptionKey_CleanApertureVerticalOffset: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureVerticalOffset: string;
+declare var kCMFormatDescriptionKey_CleanApertureVerticalOffsetRational: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureVerticalOffsetRational: string;
+declare var kCMFormatDescriptionKey_CleanApertureWidth: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureWidth: string;
+declare var kCMFormatDescriptionKey_CleanApertureWidthRational: NSObject;
 
-declare var kCMFormatDescriptionKey_CleanApertureWidthRational: string;
+declare var kCMFormatDescriptionKey_PixelAspectRatioHorizontalSpacing: NSObject;
 
-declare var kCMFormatDescriptionKey_PixelAspectRatioHorizontalSpacing: string;
+declare var kCMFormatDescriptionKey_PixelAspectRatioVerticalSpacing: NSObject;
 
-declare var kCMFormatDescriptionKey_PixelAspectRatioVerticalSpacing: string;
+declare var kCMFormatDescriptionTransferFunction_ITU_R_2020: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_ITU_R_2020: string;
+declare var kCMFormatDescriptionTransferFunction_ITU_R_2100_HLG: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_ITU_R_2100_HLG: string;
+declare var kCMFormatDescriptionTransferFunction_ITU_R_709_2: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_ITU_R_709_2: string;
+declare var kCMFormatDescriptionTransferFunction_Linear: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_Linear: string;
+declare var kCMFormatDescriptionTransferFunction_SMPTE_240M_1995: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_SMPTE_240M_1995: string;
+declare var kCMFormatDescriptionTransferFunction_SMPTE_ST_2084_PQ: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_SMPTE_ST_2084_PQ: string;
+declare var kCMFormatDescriptionTransferFunction_SMPTE_ST_428_1: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_SMPTE_ST_428_1: string;
+declare var kCMFormatDescriptionTransferFunction_UseGamma: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_UseGamma: string;
+declare var kCMFormatDescriptionTransferFunction_sRGB: NSObject;
 
-declare var kCMFormatDescriptionTransferFunction_sRGB: string;
+declare var kCMFormatDescriptionVendor_Apple: NSObject;
 
-declare var kCMFormatDescriptionVendor_Apple: string;
+declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_2020: NSObject;
 
-declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_2020: string;
+declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_601_4: NSObject;
 
-declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_601_4: string;
+declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_709_2: NSObject;
 
-declare var kCMFormatDescriptionYCbCrMatrix_ITU_R_709_2: string;
+declare var kCMFormatDescriptionYCbCrMatrix_SMPTE_240M_1995: NSObject;
 
-declare var kCMFormatDescriptionYCbCrMatrix_SMPTE_240M_1995: string;
+declare var kCMHEVCTemporalLevelInfoKey_ConstraintIndicatorFlags: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_ConstraintIndicatorFlags: string;
+declare var kCMHEVCTemporalLevelInfoKey_LevelIndex: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_LevelIndex: string;
+declare var kCMHEVCTemporalLevelInfoKey_ProfileCompatibilityFlags: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_ProfileCompatibilityFlags: string;
+declare var kCMHEVCTemporalLevelInfoKey_ProfileIndex: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_ProfileIndex: string;
+declare var kCMHEVCTemporalLevelInfoKey_ProfileSpace: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_ProfileSpace: string;
+declare var kCMHEVCTemporalLevelInfoKey_TemporalLevel: NSObject;
 
-declare var kCMHEVCTemporalLevelInfoKey_TemporalLevel: string;
-
-declare var kCMHEVCTemporalLevelInfoKey_TierFlag: string;
+declare var kCMHEVCTemporalLevelInfoKey_TierFlag: NSObject;
 
 declare var kCMImageDescriptionFlavor_3GPFamily: any;
 
 declare var kCMImageDescriptionFlavor_ISOFamily: any;
 
 declare var kCMImageDescriptionFlavor_QuickTimeMovie: any;
+
 
 declare const kCMMPEG2VideoProfile_HDV_1080i50: number;
 
@@ -1074,58 +794,58 @@ declare const kCMMediaType_Video: number;
 declare const kCMMemoryPoolError_AllocationFailed: number;
 
 declare const kCMMemoryPoolError_InvalidParameter: number;
+declare var kCMMemoryPoolOption_AgeOutPeriod: NSObject;
 
-declare var kCMMemoryPoolOption_AgeOutPeriod: string;
+declare var kCMMetadataBaseDataType_AffineTransformF64: NSObject;
 
-declare var kCMMetadataBaseDataType_AffineTransformF64: string;
+declare var kCMMetadataBaseDataType_BMP: NSObject;
 
-declare var kCMMetadataBaseDataType_BMP: string;
+declare var kCMMetadataBaseDataType_DimensionsF32: NSObject;
 
-declare var kCMMetadataBaseDataType_DimensionsF32: string;
+declare var kCMMetadataBaseDataType_Float32: NSObject;
 
-declare var kCMMetadataBaseDataType_Float32: string;
+declare var kCMMetadataBaseDataType_Float64: NSObject;
 
-declare var kCMMetadataBaseDataType_Float64: string;
+declare var kCMMetadataBaseDataType_GIF: NSObject;
 
-declare var kCMMetadataBaseDataType_GIF: string;
+declare var kCMMetadataBaseDataType_JPEG: NSObject;
 
-declare var kCMMetadataBaseDataType_JPEG: string;
+declare var kCMMetadataBaseDataType_JSON: NSObject;
 
-declare var kCMMetadataBaseDataType_JSON: string;
+declare var kCMMetadataBaseDataType_PNG: NSObject;
 
-declare var kCMMetadataBaseDataType_PNG: string;
+declare var kCMMetadataBaseDataType_PerspectiveTransformF64: NSObject;
 
-declare var kCMMetadataBaseDataType_PerspectiveTransformF64: string;
+declare var kCMMetadataBaseDataType_PointF32: NSObject;
 
-declare var kCMMetadataBaseDataType_PointF32: string;
+declare var kCMMetadataBaseDataType_PolygonF32: NSObject;
 
-declare var kCMMetadataBaseDataType_PolygonF32: string;
+declare var kCMMetadataBaseDataType_PolylineF32: NSObject;
 
-declare var kCMMetadataBaseDataType_PolylineF32: string;
+declare var kCMMetadataBaseDataType_RawData: NSObject;
 
-declare var kCMMetadataBaseDataType_RawData: string;
+declare var kCMMetadataBaseDataType_RectF32: NSObject;
 
-declare var kCMMetadataBaseDataType_RectF32: string;
+declare var kCMMetadataBaseDataType_SInt16: NSObject;
 
-declare var kCMMetadataBaseDataType_SInt16: string;
+declare var kCMMetadataBaseDataType_SInt32: NSObject;
 
-declare var kCMMetadataBaseDataType_SInt32: string;
+declare var kCMMetadataBaseDataType_SInt64: NSObject;
 
-declare var kCMMetadataBaseDataType_SInt64: string;
+declare var kCMMetadataBaseDataType_SInt8: NSObject;
 
-declare var kCMMetadataBaseDataType_SInt8: string;
+declare var kCMMetadataBaseDataType_UInt16: NSObject;
 
-declare var kCMMetadataBaseDataType_UInt16: string;
+declare var kCMMetadataBaseDataType_UInt32: NSObject;
 
-declare var kCMMetadataBaseDataType_UInt32: string;
+declare var kCMMetadataBaseDataType_UInt64: NSObject;
 
-declare var kCMMetadataBaseDataType_UInt64: string;
+declare var kCMMetadataBaseDataType_UInt8: NSObject;
 
-declare var kCMMetadataBaseDataType_UInt8: string;
+declare var kCMMetadataBaseDataType_UTF16: NSObject;
 
-declare var kCMMetadataBaseDataType_UTF16: string;
+declare var kCMMetadataBaseDataType_UTF8: NSObject;
 
-declare var kCMMetadataBaseDataType_UTF8: string;
 
 declare const kCMMetadataDataTypeRegistryError_AllocationFailed: number;
 
@@ -1138,40 +858,40 @@ declare const kCMMetadataDataTypeRegistryError_MultipleConformingBaseTypes: numb
 declare const kCMMetadataDataTypeRegistryError_RequiredParameterMissing: number;
 
 declare const kCMMetadataDataTypeRegistryError_RequiresConformingBaseType: number;
+declare var kCMMetadataDataType_QuickTimeMetadataDirection: NSObject;
 
-declare var kCMMetadataDataType_QuickTimeMetadataDirection: string;
+declare var kCMMetadataDataType_QuickTimeMetadataLocation_ISO6709: NSObject;
 
-declare var kCMMetadataDataType_QuickTimeMetadataLocation_ISO6709: string;
+declare var kCMMetadataFormatDescriptionKey_ConformingDataTypes: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_ConformingDataTypes: string;
+declare var kCMMetadataFormatDescriptionKey_DataType: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_DataType: string;
+declare var kCMMetadataFormatDescriptionKey_DataTypeNamespace: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_DataTypeNamespace: string;
+declare var kCMMetadataFormatDescriptionKey_LanguageTag: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_LanguageTag: string;
+declare var kCMMetadataFormatDescriptionKey_LocalID: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_LocalID: string;
+declare var kCMMetadataFormatDescriptionKey_Namespace: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_Namespace: string;
+declare var kCMMetadataFormatDescriptionKey_SetupData: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_SetupData: string;
+declare var kCMMetadataFormatDescriptionKey_StructuralDependency: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_StructuralDependency: string;
+declare var kCMMetadataFormatDescriptionKey_Value: NSObject;
 
-declare var kCMMetadataFormatDescriptionKey_Value: string;
+declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_DataType: NSObject;
 
-declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_DataType: string;
+declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_ExtendedLanguageTag: NSObject;
 
-declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_ExtendedLanguageTag: string;
+declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_Identifier: NSObject;
 
-declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_Identifier: string;
+declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_SetupData: NSObject;
 
-declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_SetupData: string;
+declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_StructuralDependency: NSObject;
 
-declare var kCMMetadataFormatDescriptionMetadataSpecificationKey_StructuralDependency: string;
+declare var kCMMetadataFormatDescription_StructuralDependencyKey_DependencyIsInvalidFlag: NSObject;
 
-declare var kCMMetadataFormatDescription_StructuralDependencyKey_DependencyIsInvalidFlag: string;
 
 declare const kCMMetadataFormatType_Boxed: number;
 
@@ -1198,32 +918,32 @@ declare const kCMMetadataIdentifierError_BadNumberKey: number;
 declare const kCMMetadataIdentifierError_NoKeyValueAvailable: number;
 
 declare const kCMMetadataIdentifierError_RequiredParameterMissing: number;
+declare var kCMMetadataIdentifier_QuickTimeMetadataDirection_Facing: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataDirection_Facing: string;
+declare var kCMMetadataIdentifier_QuickTimeMetadataLivePhotoStillImageTransform: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataLivePhotoStillImageTransform: string;
+declare var kCMMetadataIdentifier_QuickTimeMetadataLivePhotoStillImageTransformReferenceDimensions: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataLivePhotoStillImageTransformReferenceDimensions: string;
+declare var kCMMetadataIdentifier_QuickTimeMetadataLocation_ISO6709: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataLocation_ISO6709: string;
+declare var kCMMetadataIdentifier_QuickTimeMetadataPreferredAffineTransform: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataPreferredAffineTransform: string;
+declare var kCMMetadataIdentifier_QuickTimeMetadataVideoOrientation: NSObject;
 
-declare var kCMMetadataIdentifier_QuickTimeMetadataVideoOrientation: string;
+declare var kCMMetadataKeySpace_HLSDateRange: NSObject;
 
-declare var kCMMetadataKeySpace_HLSDateRange: string;
+declare var kCMMetadataKeySpace_ID3: NSObject;
 
-declare var kCMMetadataKeySpace_ID3: string;
+declare var kCMMetadataKeySpace_ISOUserData: NSObject;
 
-declare var kCMMetadataKeySpace_ISOUserData: string;
+declare var kCMMetadataKeySpace_Icy: NSObject;
 
-declare var kCMMetadataKeySpace_Icy: string;
+declare var kCMMetadataKeySpace_QuickTimeMetadata: NSObject;
 
-declare var kCMMetadataKeySpace_QuickTimeMetadata: string;
+declare var kCMMetadataKeySpace_QuickTimeUserData: NSObject;
 
-declare var kCMMetadataKeySpace_QuickTimeUserData: string;
+declare var kCMMetadataKeySpace_iTunes: NSObject;
 
-declare var kCMMetadataKeySpace_iTunes: string;
 
 declare const kCMMuxedStreamType_DV: number;
 
@@ -1266,100 +986,100 @@ declare const kCMPixelFormat_444YpCbCr10: number;
 declare const kCMPixelFormat_444YpCbCr8: number;
 
 declare const kCMPixelFormat_8IndexedGray_WhiteIsZero: number;
+declare var kCMSampleAttachmentKey_AudioIndependentSampleDecoderRefreshCount: NSObject;
 
-declare var kCMSampleAttachmentKey_AudioIndependentSampleDecoderRefreshCount: string;
+declare var kCMSampleAttachmentKey_DependsOnOthers: NSObject;
 
-declare var kCMSampleAttachmentKey_DependsOnOthers: string;
+declare var kCMSampleAttachmentKey_DisplayImmediately: NSObject;
 
-declare var kCMSampleAttachmentKey_DisplayImmediately: string;
+declare var kCMSampleAttachmentKey_DoNotDisplay: NSObject;
 
-declare var kCMSampleAttachmentKey_DoNotDisplay: string;
+declare var kCMSampleAttachmentKey_EarlierDisplayTimesAllowed: NSObject;
 
-declare var kCMSampleAttachmentKey_EarlierDisplayTimesAllowed: string;
+declare var kCMSampleAttachmentKey_HEVCStepwiseTemporalSubLayerAccess: NSObject;
 
-declare var kCMSampleAttachmentKey_HEVCStepwiseTemporalSubLayerAccess: string;
+declare var kCMSampleAttachmentKey_HEVCSyncSampleNALUnitType: NSObject;
 
-declare var kCMSampleAttachmentKey_HEVCSyncSampleNALUnitType: string;
+declare var kCMSampleAttachmentKey_HEVCTemporalLevelInfo: NSObject;
 
-declare var kCMSampleAttachmentKey_HEVCTemporalLevelInfo: string;
+declare var kCMSampleAttachmentKey_HEVCTemporalSubLayerAccess: NSObject;
 
-declare var kCMSampleAttachmentKey_HEVCTemporalSubLayerAccess: string;
+declare var kCMSampleAttachmentKey_HasRedundantCoding: NSObject;
 
-declare var kCMSampleAttachmentKey_HasRedundantCoding: string;
+declare var kCMSampleAttachmentKey_IsDependedOnByOthers: NSObject;
 
-declare var kCMSampleAttachmentKey_IsDependedOnByOthers: string;
+declare var kCMSampleAttachmentKey_NotSync: NSObject;
 
-declare var kCMSampleAttachmentKey_NotSync: string;
+declare var kCMSampleAttachmentKey_PartialSync: NSObject;
 
-declare var kCMSampleAttachmentKey_PartialSync: string;
+declare var kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix: string;
+declare var kCMSampleBufferAttachmentKey_DisplayEmptyMediaImmediately: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_DisplayEmptyMediaImmediately: string;
+declare var kCMSampleBufferAttachmentKey_DrainAfterDecoding: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_DrainAfterDecoding: string;
+declare var kCMSampleBufferAttachmentKey_DroppedFrameReason: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_DroppedFrameReason: string;
+declare var kCMSampleBufferAttachmentKey_DroppedFrameReasonInfo: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_DroppedFrameReasonInfo: string;
+declare var kCMSampleBufferAttachmentKey_EmptyMedia: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_EmptyMedia: string;
+declare var kCMSampleBufferAttachmentKey_EndsPreviousSampleDuration: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_EndsPreviousSampleDuration: string;
+declare var kCMSampleBufferAttachmentKey_FillDiscontinuitiesWithSilence: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_FillDiscontinuitiesWithSilence: string;
+declare var kCMSampleBufferAttachmentKey_ForceKeyFrame: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_ForceKeyFrame: string;
+declare var kCMSampleBufferAttachmentKey_GradualDecoderRefresh: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_GradualDecoderRefresh: string;
+declare var kCMSampleBufferAttachmentKey_PermanentEmptyMedia: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_PermanentEmptyMedia: string;
+declare var kCMSampleBufferAttachmentKey_PostNotificationWhenConsumed: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_PostNotificationWhenConsumed: string;
+declare var kCMSampleBufferAttachmentKey_ResetDecoderBeforeDecoding: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_ResetDecoderBeforeDecoding: string;
+declare var kCMSampleBufferAttachmentKey_ResumeOutput: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_ResumeOutput: string;
+declare var kCMSampleBufferAttachmentKey_Reverse: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_Reverse: string;
+declare var kCMSampleBufferAttachmentKey_SampleReferenceByteOffset: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_SampleReferenceByteOffset: string;
+declare var kCMSampleBufferAttachmentKey_SampleReferenceURL: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_SampleReferenceURL: string;
+declare var kCMSampleBufferAttachmentKey_SpeedMultiplier: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_SpeedMultiplier: string;
+declare var kCMSampleBufferAttachmentKey_StillImageLensStabilizationInfo: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_StillImageLensStabilizationInfo: string;
+declare var kCMSampleBufferAttachmentKey_TransitionID: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_TransitionID: string;
+declare var kCMSampleBufferAttachmentKey_TrimDurationAtEnd: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_TrimDurationAtEnd: string;
+declare var kCMSampleBufferAttachmentKey_TrimDurationAtStart: NSObject;
 
-declare var kCMSampleBufferAttachmentKey_TrimDurationAtStart: string;
+declare var kCMSampleBufferConduitNotificationParameter_MaxUpcomingOutputPTS: NSObject;
 
-declare var kCMSampleBufferConduitNotificationParameter_MaxUpcomingOutputPTS: string;
+declare var kCMSampleBufferConduitNotificationParameter_MinUpcomingOutputPTS: NSObject;
 
-declare var kCMSampleBufferConduitNotificationParameter_MinUpcomingOutputPTS: string;
+declare var kCMSampleBufferConduitNotificationParameter_ResumeTag: NSObject;
 
-declare var kCMSampleBufferConduitNotificationParameter_ResumeTag: string;
+declare var kCMSampleBufferConduitNotificationParameter_UpcomingOutputPTSRangeMayOverlapQueuedOutputPTSRange: NSObject;
 
-declare var kCMSampleBufferConduitNotificationParameter_UpcomingOutputPTSRangeMayOverlapQueuedOutputPTSRange: string;
+declare var kCMSampleBufferConduitNotification_InhibitOutputUntil: NSObject;
 
-declare var kCMSampleBufferConduitNotification_InhibitOutputUntil: string;
+declare var kCMSampleBufferConduitNotification_ResetOutput: NSObject;
 
-declare var kCMSampleBufferConduitNotification_ResetOutput: string;
+declare var kCMSampleBufferConduitNotification_UpcomingOutputPTSRangeChanged: NSObject;
 
-declare var kCMSampleBufferConduitNotification_UpcomingOutputPTSRangeChanged: string;
+declare var kCMSampleBufferConsumerNotification_BufferConsumed: NSObject;
 
-declare var kCMSampleBufferConsumerNotification_BufferConsumed: string;
+declare var kCMSampleBufferDroppedFrameReasonInfo_CameraModeSwitch: NSObject;
 
-declare var kCMSampleBufferDroppedFrameReasonInfo_CameraModeSwitch: string;
+declare var kCMSampleBufferDroppedFrameReason_Discontinuity: NSObject;
 
-declare var kCMSampleBufferDroppedFrameReason_Discontinuity: string;
+declare var kCMSampleBufferDroppedFrameReason_FrameWasLate: NSObject;
 
-declare var kCMSampleBufferDroppedFrameReason_FrameWasLate: string;
+declare var kCMSampleBufferDroppedFrameReason_OutOfBuffers: NSObject;
 
-declare var kCMSampleBufferDroppedFrameReason_OutOfBuffers: string;
 
 declare const kCMSampleBufferError_AllocationFailed: number;
 
@@ -1396,20 +1116,20 @@ declare const kCMSampleBufferError_SampleIndexOutOfRange: number;
 declare const kCMSampleBufferError_SampleTimingInfoInvalid: number;
 
 declare const kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment: number;
+declare var kCMSampleBufferLensStabilizationInfo_Active: NSObject;
 
-declare var kCMSampleBufferLensStabilizationInfo_Active: string;
+declare var kCMSampleBufferLensStabilizationInfo_Off: NSObject;
 
-declare var kCMSampleBufferLensStabilizationInfo_Off: string;
+declare var kCMSampleBufferLensStabilizationInfo_OutOfRange: NSObject;
 
-declare var kCMSampleBufferLensStabilizationInfo_OutOfRange: string;
+declare var kCMSampleBufferLensStabilizationInfo_Unavailable: NSObject;
 
-declare var kCMSampleBufferLensStabilizationInfo_Unavailable: string;
+declare var kCMSampleBufferNotificationParameter_OSStatus: NSObject;
 
-declare var kCMSampleBufferNotificationParameter_OSStatus: string;
+declare var kCMSampleBufferNotification_DataBecameReady: NSObject;
 
-declare var kCMSampleBufferNotification_DataBecameReady: string;
+declare var kCMSampleBufferNotification_DataFailed: NSObject;
 
-declare var kCMSampleBufferNotification_DataFailed: string;
 
 declare const kCMSimpleQueueError_AllocationFailed: number;
 
@@ -1418,7 +1138,6 @@ declare const kCMSimpleQueueError_ParameterOutOfRange: number;
 declare const kCMSimpleQueueError_QueueIsFull: number;
 
 declare const kCMSimpleQueueError_RequiredParameterMissing: number;
-
 declare var kCMSoundDescriptionFlavor_3GPFamily: any;
 
 declare var kCMSoundDescriptionFlavor_ISOFamily: any;
@@ -1426,6 +1145,7 @@ declare var kCMSoundDescriptionFlavor_ISOFamily: any;
 declare var kCMSoundDescriptionFlavor_QuickTimeMovie: any;
 
 declare var kCMSoundDescriptionFlavor_QuickTimeMovieV2: any;
+
 
 declare const kCMSubtitleFormatType_3GText: number;
 
@@ -1464,56 +1184,56 @@ declare const kCMTextDisplayFlag_scrollIn: number;
 declare const kCMTextDisplayFlag_scrollOut: number;
 
 declare const kCMTextDisplayFlag_writeTextVertically: number;
+declare var kCMTextFormatDescriptionColor_Alpha: NSObject;
 
-declare var kCMTextFormatDescriptionColor_Alpha: string;
+declare var kCMTextFormatDescriptionColor_Blue: NSObject;
 
-declare var kCMTextFormatDescriptionColor_Blue: string;
+declare var kCMTextFormatDescriptionColor_Green: NSObject;
 
-declare var kCMTextFormatDescriptionColor_Green: string;
+declare var kCMTextFormatDescriptionColor_Red: NSObject;
 
-declare var kCMTextFormatDescriptionColor_Red: string;
+declare var kCMTextFormatDescriptionExtension_BackgroundColor: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_BackgroundColor: string;
+declare var kCMTextFormatDescriptionExtension_DefaultFontName: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_DefaultFontName: string;
+declare var kCMTextFormatDescriptionExtension_DefaultStyle: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_DefaultStyle: string;
+declare var kCMTextFormatDescriptionExtension_DefaultTextBox: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_DefaultTextBox: string;
+declare var kCMTextFormatDescriptionExtension_DisplayFlags: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_DisplayFlags: string;
+declare var kCMTextFormatDescriptionExtension_FontTable: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_FontTable: string;
+declare var kCMTextFormatDescriptionExtension_HorizontalJustification: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_HorizontalJustification: string;
+declare var kCMTextFormatDescriptionExtension_TextJustification: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_TextJustification: string;
+declare var kCMTextFormatDescriptionExtension_VerticalJustification: NSObject;
 
-declare var kCMTextFormatDescriptionExtension_VerticalJustification: string;
+declare var kCMTextFormatDescriptionRect_Bottom: NSObject;
 
-declare var kCMTextFormatDescriptionRect_Bottom: string;
+declare var kCMTextFormatDescriptionRect_Left: NSObject;
 
-declare var kCMTextFormatDescriptionRect_Left: string;
+declare var kCMTextFormatDescriptionRect_Right: NSObject;
 
-declare var kCMTextFormatDescriptionRect_Right: string;
+declare var kCMTextFormatDescriptionRect_Top: NSObject;
 
-declare var kCMTextFormatDescriptionRect_Top: string;
+declare var kCMTextFormatDescriptionStyle_Ascent: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_Ascent: string;
+declare var kCMTextFormatDescriptionStyle_EndChar: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_EndChar: string;
+declare var kCMTextFormatDescriptionStyle_Font: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_Font: string;
+declare var kCMTextFormatDescriptionStyle_FontFace: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_FontFace: string;
+declare var kCMTextFormatDescriptionStyle_FontSize: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_FontSize: string;
+declare var kCMTextFormatDescriptionStyle_ForegroundColor: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_ForegroundColor: string;
+declare var kCMTextFormatDescriptionStyle_Height: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_Height: string;
+declare var kCMTextFormatDescriptionStyle_StartChar: NSObject;
 
-declare var kCMTextFormatDescriptionStyle_StartChar: string;
 
 declare const kCMTextFormatType_3GText: number;
 
@@ -1524,98 +1244,98 @@ declare const kCMTextJustification_bottom_right: number;
 declare const kCMTextJustification_centered: number;
 
 declare const kCMTextJustification_left_top: number;
+declare var kCMTextMarkupAlignmentType_End: NSObject;
 
-declare var kCMTextMarkupAlignmentType_End: string;
+declare var kCMTextMarkupAlignmentType_Left: NSObject;
 
-declare var kCMTextMarkupAlignmentType_Left: string;
+declare var kCMTextMarkupAlignmentType_Middle: NSObject;
 
-declare var kCMTextMarkupAlignmentType_Middle: string;
+declare var kCMTextMarkupAlignmentType_Right: NSObject;
 
-declare var kCMTextMarkupAlignmentType_Right: string;
+declare var kCMTextMarkupAlignmentType_Start: NSObject;
 
-declare var kCMTextMarkupAlignmentType_Start: string;
+declare var kCMTextMarkupAttribute_Alignment: NSObject;
 
-declare var kCMTextMarkupAttribute_Alignment: string;
+declare var kCMTextMarkupAttribute_BackgroundColorARGB: NSObject;
 
-declare var kCMTextMarkupAttribute_BackgroundColorARGB: string;
+declare var kCMTextMarkupAttribute_BaseFontSizePercentageRelativeToVideoHeight: NSObject;
 
-declare var kCMTextMarkupAttribute_BaseFontSizePercentageRelativeToVideoHeight: string;
+declare var kCMTextMarkupAttribute_BoldStyle: NSObject;
 
-declare var kCMTextMarkupAttribute_BoldStyle: string;
+declare var kCMTextMarkupAttribute_CharacterBackgroundColorARGB: NSObject;
 
-declare var kCMTextMarkupAttribute_CharacterBackgroundColorARGB: string;
+declare var kCMTextMarkupAttribute_CharacterEdgeStyle: NSObject;
 
-declare var kCMTextMarkupAttribute_CharacterEdgeStyle: string;
+declare var kCMTextMarkupAttribute_FontFamilyName: NSObject;
 
-declare var kCMTextMarkupAttribute_FontFamilyName: string;
+declare var kCMTextMarkupAttribute_ForegroundColorARGB: NSObject;
 
-declare var kCMTextMarkupAttribute_ForegroundColorARGB: string;
+declare var kCMTextMarkupAttribute_GenericFontFamilyName: NSObject;
 
-declare var kCMTextMarkupAttribute_GenericFontFamilyName: string;
+declare var kCMTextMarkupAttribute_ItalicStyle: NSObject;
 
-declare var kCMTextMarkupAttribute_ItalicStyle: string;
+declare var kCMTextMarkupAttribute_OrthogonalLinePositionPercentageRelativeToWritingDirection: NSObject;
 
-declare var kCMTextMarkupAttribute_OrthogonalLinePositionPercentageRelativeToWritingDirection: string;
+declare var kCMTextMarkupAttribute_RelativeFontSize: NSObject;
 
-declare var kCMTextMarkupAttribute_RelativeFontSize: string;
+declare var kCMTextMarkupAttribute_TextPositionPercentageRelativeToWritingDirection: NSObject;
 
-declare var kCMTextMarkupAttribute_TextPositionPercentageRelativeToWritingDirection: string;
+declare var kCMTextMarkupAttribute_UnderlineStyle: NSObject;
 
-declare var kCMTextMarkupAttribute_UnderlineStyle: string;
+declare var kCMTextMarkupAttribute_VerticalLayout: NSObject;
 
-declare var kCMTextMarkupAttribute_VerticalLayout: string;
+declare var kCMTextMarkupAttribute_WritingDirectionSizePercentage: NSObject;
 
-declare var kCMTextMarkupAttribute_WritingDirectionSizePercentage: string;
+declare var kCMTextMarkupCharacterEdgeStyle_Depressed: NSObject;
 
-declare var kCMTextMarkupCharacterEdgeStyle_Depressed: string;
+declare var kCMTextMarkupCharacterEdgeStyle_DropShadow: NSObject;
 
-declare var kCMTextMarkupCharacterEdgeStyle_DropShadow: string;
+declare var kCMTextMarkupCharacterEdgeStyle_None: NSObject;
 
-declare var kCMTextMarkupCharacterEdgeStyle_None: string;
+declare var kCMTextMarkupCharacterEdgeStyle_Raised: NSObject;
 
-declare var kCMTextMarkupCharacterEdgeStyle_Raised: string;
+declare var kCMTextMarkupCharacterEdgeStyle_Uniform: NSObject;
 
-declare var kCMTextMarkupCharacterEdgeStyle_Uniform: string;
+declare var kCMTextMarkupGenericFontName_Casual: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Casual: string;
+declare var kCMTextMarkupGenericFontName_Cursive: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Cursive: string;
+declare var kCMTextMarkupGenericFontName_Default: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Default: string;
+declare var kCMTextMarkupGenericFontName_Fantasy: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Fantasy: string;
+declare var kCMTextMarkupGenericFontName_Monospace: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Monospace: string;
+declare var kCMTextMarkupGenericFontName_MonospaceSansSerif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_MonospaceSansSerif: string;
+declare var kCMTextMarkupGenericFontName_MonospaceSerif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_MonospaceSerif: string;
+declare var kCMTextMarkupGenericFontName_ProportionalSansSerif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_ProportionalSansSerif: string;
+declare var kCMTextMarkupGenericFontName_ProportionalSerif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_ProportionalSerif: string;
+declare var kCMTextMarkupGenericFontName_SansSerif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_SansSerif: string;
+declare var kCMTextMarkupGenericFontName_Serif: NSObject;
 
-declare var kCMTextMarkupGenericFontName_Serif: string;
+declare var kCMTextMarkupGenericFontName_SmallCapital: NSObject;
 
-declare var kCMTextMarkupGenericFontName_SmallCapital: string;
+declare var kCMTextVerticalLayout_LeftToRight: NSObject;
 
-declare var kCMTextVerticalLayout_LeftToRight: string;
+declare var kCMTextVerticalLayout_RightToLeft: NSObject;
 
-declare var kCMTextVerticalLayout_RightToLeft: string;
 
 declare const kCMTimeCodeFlag_24HourMax: number;
 
 declare const kCMTimeCodeFlag_DropFrame: number;
 
 declare const kCMTimeCodeFlag_NegTimesOK: number;
+declare var kCMTimeCodeFormatDescriptionExtension_SourceReferenceName: NSObject;
 
-declare var kCMTimeCodeFormatDescriptionExtension_SourceReferenceName: string;
+declare var kCMTimeCodeFormatDescriptionKey_LangCode: NSObject;
 
-declare var kCMTimeCodeFormatDescriptionKey_LangCode: string;
+declare var kCMTimeCodeFormatDescriptionKey_Value: NSObject;
 
-declare var kCMTimeCodeFormatDescriptionKey_Value: string;
 
 declare const kCMTimeCodeFormatType_Counter32: number;
 
@@ -1624,10 +1344,9 @@ declare const kCMTimeCodeFormatType_Counter64: number;
 declare const kCMTimeCodeFormatType_TimeCode32: number;
 
 declare const kCMTimeCodeFormatType_TimeCode64: number;
+declare var kCMTimeEpochKey: NSObject;
 
-declare var kCMTimeEpochKey: string;
-
-declare var kCMTimeFlagsKey: string;
+declare var kCMTimeFlagsKey: NSObject;
 
 declare var kCMTimeIndefinite: CMTime;
 
@@ -1635,27 +1354,28 @@ declare var kCMTimeInvalid: CMTime;
 
 declare var kCMTimeMappingInvalid: CMTimeMapping;
 
-declare var kCMTimeMappingSourceKey: string;
+declare var kCMTimeMappingSourceKey: NSObject;
 
-declare var kCMTimeMappingTargetKey: string;
+declare var kCMTimeMappingTargetKey: NSObject;
 
 declare var kCMTimeNegativeInfinity: CMTime;
 
 declare var kCMTimePositiveInfinity: CMTime;
 
-declare var kCMTimeRangeDurationKey: string;
+declare var kCMTimeRangeDurationKey: NSObject;
 
 declare var kCMTimeRangeInvalid: CMTimeRange;
 
-declare var kCMTimeRangeStartKey: string;
+declare var kCMTimeRangeStartKey: NSObject;
 
 declare var kCMTimeRangeZero: CMTimeRange;
 
-declare var kCMTimeScaleKey: string;
+declare var kCMTimeScaleKey: NSObject;
 
-declare var kCMTimeValueKey: string;
+declare var kCMTimeValueKey: NSObject;
 
 declare var kCMTimeZero: CMTime;
+
 
 declare const kCMTimebaseError_AllocationFailed: number;
 
@@ -1666,14 +1386,14 @@ declare const kCMTimebaseError_MissingRequiredParameter: number;
 declare const kCMTimebaseError_ReadOnly: number;
 
 declare const kCMTimebaseError_TimerIntervalTooShort: number;
+declare var kCMTimebaseNotificationKey_EventTime: NSObject;
 
-declare var kCMTimebaseNotificationKey_EventTime: string;
+declare var kCMTimebaseNotification_EffectiveRateChanged: NSObject;
 
-declare var kCMTimebaseNotification_EffectiveRateChanged: string;
-
-declare var kCMTimebaseNotification_TimeJumped: string;
+declare var kCMTimebaseNotification_TimeJumped: NSObject;
 
 declare var kCMTimingInfoInvalid: CMSampleTimingInfo;
+
 
 declare const kCMVideoCodecType_422YpCbCr8: number;
 
@@ -1740,3 +1460,22 @@ declare const kCMVideoCodecType_MPEG4Video: number;
 declare const kCMVideoCodecType_SorensonVideo: number;
 
 declare const kCMVideoCodecType_SorensonVideo3: number;
+enum CMTimeFlags {
+    kCMTimeFlags_Valid = 1,
+    kCMTimeFlags_HasBeenRounded = 2,
+    kCMTimeFlags_PositiveInfinity = 4,
+    kCMTimeFlags_NegativeInfinity = 8,
+    kCMTimeFlags_Indefinite = 16,
+    kCMTimeFlags_ImpliedValueFlagsMask = 28
+}
+
+enum CMTimeRoundingMethod {
+    kCMTimeRoundingMethod_RoundHalfAwayFromZero = 1,
+    kCMTimeRoundingMethod_RoundTowardZero = 2,
+    kCMTimeRoundingMethod_RoundAwayFromZero = 3,
+    kCMTimeRoundingMethod_QuickTime = 4,
+    kCMTimeRoundingMethod_RoundTowardPositiveInfinity = 5,
+    kCMTimeRoundingMethod_RoundTowardNegativeInfinity = 6,
+    kCMTimeRoundingMethod_Default = 1
+}
+

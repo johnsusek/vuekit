@@ -1,3 +1,204 @@
+globalThis.LSAcceptanceFlags = globalThis.LSAcceptanceFlags || {};
+
+globalThis.LSAcceptanceFlags = {
+    kLSAcceptDefault: 1,
+    kLSAcceptAllowLoginUI: 2,
+    '1': 'kLSAcceptDefault',
+    '2': 'kLSAcceptAllowLoginUI'
+}
+
+globalThis.LSHandlerOptions = globalThis.LSHandlerOptions || {};
+
+globalThis.LSHandlerOptions = {
+    kLSHandlerOptionsDefault: 0,
+    kLSHandlerOptionsIgnoreCreator: 1,
+    '0': 'kLSHandlerOptionsDefault',
+    '1': 'kLSHandlerOptionsIgnoreCreator'
+}
+
+globalThis.LSItemInfoFlags = globalThis.LSItemInfoFlags || {};
+
+globalThis.LSItemInfoFlags = {
+    kLSItemInfoIsPlainFile: 1,
+    kLSItemInfoIsPackage: 2,
+    kLSItemInfoIsApplication: 4,
+    kLSItemInfoIsContainer: 8,
+    kLSItemInfoIsAliasFile: 16,
+    kLSItemInfoIsSymlink: 32,
+    kLSItemInfoIsInvisible: 64,
+    kLSItemInfoIsNativeApp: 128,
+    kLSItemInfoIsClassicApp: 256,
+    kLSItemInfoAppPrefersNative: 512,
+    kLSItemInfoAppPrefersClassic: 1024,
+    kLSItemInfoAppIsScriptable: 2048,
+    kLSItemInfoIsVolume: 4096,
+    kLSItemInfoExtensionIsHidden: 1048576,
+    '1': 'kLSItemInfoIsPlainFile',
+    '2': 'kLSItemInfoIsPackage',
+    '4': 'kLSItemInfoIsApplication',
+    '8': 'kLSItemInfoIsContainer',
+    '16': 'kLSItemInfoIsAliasFile',
+    '32': 'kLSItemInfoIsSymlink',
+    '64': 'kLSItemInfoIsInvisible',
+    '128': 'kLSItemInfoIsNativeApp',
+    '256': 'kLSItemInfoIsClassicApp',
+    '512': 'kLSItemInfoAppPrefersNative',
+    '1024': 'kLSItemInfoAppPrefersClassic',
+    '2048': 'kLSItemInfoAppIsScriptable',
+    '4096': 'kLSItemInfoIsVolume',
+    '1048576': 'kLSItemInfoExtensionIsHidden'
+}
+
+globalThis.LSLaunchFlags = globalThis.LSLaunchFlags || {};
+
+globalThis.LSLaunchFlags = {
+    kLSLaunchDefaults: 1,
+    kLSLaunchAndPrint: 2,
+    kLSLaunchAndDisplayErrors: 64,
+    kLSLaunchDontAddToRecents: 256,
+    kLSLaunchDontSwitch: 512,
+    kLSLaunchAsync: 65536,
+    kLSLaunchNewInstance: 524288,
+    kLSLaunchAndHide: 1048576,
+    kLSLaunchAndHideOthers: 2097152,
+    '1': 'kLSLaunchDefaults',
+    '2': 'kLSLaunchAndPrint',
+    '64': 'kLSLaunchAndDisplayErrors',
+    '256': 'kLSLaunchDontAddToRecents',
+    '512': 'kLSLaunchDontSwitch',
+    '65536': 'kLSLaunchAsync',
+    '524288': 'kLSLaunchNewInstance',
+    '1048576': 'kLSLaunchAndHide',
+    '2097152': 'kLSLaunchAndHideOthers'
+}
+
+globalThis.LSRequestedInfo = globalThis.LSRequestedInfo || {};
+
+globalThis.LSRequestedInfo = {
+    kLSRequestExtension: 1,
+    kLSRequestTypeCreator: 2,
+    kLSRequestBasicFlagsOnly: 4,
+    kLSRequestAppTypeFlags: 8,
+    kLSRequestAllFlags: 16,
+    kLSRequestIconAndKind: 32,
+    kLSRequestExtensionFlagsOnly: 64,
+    kLSRequestAllInfo: 4294967295,
+    '1': 'kLSRequestExtension',
+    '2': 'kLSRequestTypeCreator',
+    '4': 'kLSRequestBasicFlagsOnly',
+    '8': 'kLSRequestAppTypeFlags',
+    '16': 'kLSRequestAllFlags',
+    '32': 'kLSRequestIconAndKind',
+    '64': 'kLSRequestExtensionFlagsOnly',
+    '4294967295': 'kLSRequestAllInfo'
+}
+
+globalThis.LSRolesMask = globalThis.LSRolesMask || {};
+
+globalThis.LSRolesMask = {
+    kLSRolesNone: 1,
+    kLSRolesViewer: 2,
+    kLSRolesEditor: 4,
+    kLSRolesShell: 8,
+    kLSRolesAll: 4294967295,
+    '1': 'kLSRolesNone',
+    '2': 'kLSRolesViewer',
+    '4': 'kLSRolesEditor',
+    '8': 'kLSRolesShell',
+    '4294967295': 'kLSRolesAll'
+}
+
+globalThis.MDLabelDomain = globalThis.MDLabelDomain || {};
+
+globalThis.MDLabelDomain = {
+    kMDLabelUserDomain: 0,
+    kMDLabelLocalDomain: 1,
+    '0': 'kMDLabelUserDomain',
+    '1': 'kMDLabelLocalDomain'
+}
+
+globalThis.MDQueryOptionFlags = globalThis.MDQueryOptionFlags || {};
+
+globalThis.MDQueryOptionFlags = {
+    kMDQuerySynchronous: 1,
+    kMDQueryWantsUpdates: 4,
+    kMDQueryAllowFSTranslation: 8,
+    '1': 'kMDQuerySynchronous',
+    '4': 'kMDQueryWantsUpdates',
+    '8': 'kMDQueryAllowFSTranslation'
+}
+
+globalThis.MDQuerySortOptionFlags = globalThis.MDQuerySortOptionFlags || {};
+
+globalThis.MDQuerySortOptionFlags = {
+    kMDQueryReverseSortOrderFlag: 1,
+    '1': 'kMDQueryReverseSortOrderFlag'
+}
+
+globalThis.SKDocumentIndexState = globalThis.SKDocumentIndexState || {};
+
+globalThis.SKDocumentIndexState = {
+    kSKDocumentStateNotIndexed: 0,
+    kSKDocumentStateIndexed: 1,
+    kSKDocumentStateAddPending: 2,
+    kSKDocumentStateDeletePending: 3,
+    '0': 'kSKDocumentStateNotIndexed',
+    '1': 'kSKDocumentStateIndexed',
+    '2': 'kSKDocumentStateAddPending',
+    '3': 'kSKDocumentStateDeletePending'
+}
+
+globalThis.SKIndexType = globalThis.SKIndexType || {};
+
+globalThis.SKIndexType = {
+    kSKIndexUnknown: 0,
+    kSKIndexInverted: 1,
+    kSKIndexVector: 2,
+    kSKIndexInvertedVector: 3,
+    '0': 'kSKIndexUnknown',
+    '1': 'kSKIndexInverted',
+    '2': 'kSKIndexVector',
+    '3': 'kSKIndexInvertedVector'
+}
+
+globalThis.SKSearchType = globalThis.SKSearchType || {};
+
+globalThis.SKSearchType = {
+    kSKSearchRanked: 0,
+    kSKSearchBooleanRanked: 1,
+    kSKSearchRequiredRanked: 2,
+    kSKSearchPrefixRanked: 3,
+    '0': 'kSKSearchRanked',
+    '1': 'kSKSearchBooleanRanked',
+    '2': 'kSKSearchRequiredRanked',
+    '3': 'kSKSearchPrefixRanked'
+}
+
+globalThis.WSTypeID = globalThis.WSTypeID || {};
+
+globalThis.WSTypeID = {
+    eWSUnknownType: 0,
+    eWSNullType: 1,
+    eWSBooleanType: 2,
+    eWSIntegerType: 3,
+    eWSDoubleType: 4,
+    eWSStringType: 5,
+    eWSDateType: 6,
+    eWSDataType: 7,
+    eWSArrayType: 8,
+    eWSDictionaryType: 9,
+    '0': 'eWSUnknownType',
+    '1': 'eWSNullType',
+    '2': 'eWSBooleanType',
+    '3': 'eWSIntegerType',
+    '4': 'eWSDoubleType',
+    '5': 'eWSStringType',
+    '6': 'eWSDateType',
+    '7': 'eWSDataType',
+    '8': 'eWSArrayType',
+    '9': 'eWSDictionaryType'
+}
+
 
 declare const AAPNotCreatedErr: number;
 
@@ -6,1202 +207,1075 @@ declare const AAPNotFoundErr: number;
 declare const ACE2Type: number;
 
 declare const ACE8Type: number;
-
 interface AEBuildError {
-	fError: number;
-	fErrorPos: number;
+  fError: number;
+  fErrorPos: number;
 }
+
 declare var AEBuildError: AEBuildError;
 
 declare function AECallObjectAccessor(desiredClass: number, containerToken: AEDesc, containerClass: number, keyForm: number, keyData: AEDesc, token: AEDesc): number;
-
 declare function AECheckIsRecord(theDesc: AEDesc): boolean;
-
 declare function AECoerceDesc(theAEDesc: AEDesc, toType: number, result: AEDesc): number;
-
 declare function AECoercePtr(typeCode: number, dataPtr: any, dataSize: number, toType: number, result: AEDesc): number;
-
 declare function AECompareDesc(desc1: AEDesc, desc2: AEDesc, resultP: string | any): number;
-
 declare function AECountItems(theAEDescList: AEDesc, theCount: number): number;
-
 declare function AECreateAppleEvent(theAEEventClass: number, theAEEventID: number, target: AEDesc, returnID: number, transactionID: number, result: AEDesc): number;
-
 declare function AECreateDesc(typeCode: number, dataPtr: any, dataSize: number, result: AEDesc): number;
-
 declare function AECreateDescFromExternalPtr(descriptorType: number, dataPtr: any, dataLength: number, disposeCallback: (p1: any, p2: number, p3: any) => void, disposeRefcon: any, theDesc: AEDesc): number;
-
 declare function AECreateList(factoringPtr: any, factoredSize: number, isRecord: boolean, resultList: AEDesc): number;
-
-declare function AECreateRemoteProcessResolver(allocator: any, url: NSURL): any;
-
+declare function AECreateRemoteProcessResolver(allocator: any, url: NSObject): any;
 declare function AEDecodeMessage(header: mach_msg_header_t, event: AEDesc, reply: AEDesc): number;
-
 declare function AEDeleteItem(theAEDescList: AEDesc, index: number): number;
-
 declare function AEDeleteParam(theAppleEvent: AEDesc, theAEKeyword: number): number;
-
 interface AEDesc {
-	descriptorType: number;
-	dataHandle: any;
+  descriptorType: number;
+  dataHandle: any;
 }
+
 declare var AEDesc: AEDesc;
 
 declare function AEDeterminePermissionToAutomateTarget(target: AEDesc, theAEEventClass: number, theAEEventID: number, askUserIfNeeded: boolean): number;
-
 declare function AEDisposeDesc(theAEDesc: AEDesc): number;
-
 declare function AEDisposeRemoteProcessResolver(ref: any): void;
-
 declare function AEDisposeToken(theToken: AEDesc): number;
-
 declare function AEDuplicateDesc(theAEDesc: AEDesc, result: AEDesc): number;
-
 declare function AEFlattenDesc(theAEDesc: AEDesc, buffer: string | any, bufferSize: number, actualSize: number): number;
-
 declare function AEGetAttributeDesc(theAppleEvent: AEDesc, theAEKeyword: number, desiredType: number, result: AEDesc): number;
-
 declare function AEGetAttributePtr(theAppleEvent: AEDesc, theAEKeyword: number, desiredType: number, typeCode: number, dataPtr: any, maximumSize: number, actualSize: number): number;
-
 declare function AEGetCoercionHandler(fromType: number, toType: number, handler: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number, handlerRefcon: any, fromTypeIsDesc: string | any, isSysHandler: boolean): number;
-
 declare function AEGetDescData(theAEDesc: AEDesc, dataPtr: any, maximumSize: number): number;
-
 declare function AEGetDescDataRange(dataDesc: AEDesc, buffer: any, offset: number, length: number): number;
-
 declare function AEGetDescDataSize(theAEDesc: AEDesc): number;
-
 declare function AEGetEventHandler(theAEEventClass: number, theAEEventID: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, handlerRefcon: any, isSysHandler: boolean): number;
-
 declare function AEGetNthDesc(theAEDescList: AEDesc, index: number, desiredType: number, theAEKeyword: number, result: AEDesc): number;
-
 declare function AEGetNthPtr(theAEDescList: AEDesc, index: number, desiredType: number, theAEKeyword: number, typeCode: number, dataPtr: any, maximumSize: number, actualSize: number): number;
-
 declare function AEGetObjectAccessor(desiredClass: number, containerType: number, accessor: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number, accessorRefcon: any, isSysHandler: boolean): number;
-
 declare function AEGetParamDesc(theAppleEvent: AEDesc, theAEKeyword: number, desiredType: number, result: AEDesc): number;
-
 declare function AEGetParamPtr(theAppleEvent: AEDesc, theAEKeyword: number, desiredType: number, actualType: number, dataPtr: any, maximumSize: number, actualSize: number): number;
-
 declare function AEGetRegisteredMachPort(): number;
-
 declare function AEGetSpecialHandler(functionClass: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, isSysHandler: boolean): number;
-
 declare function AEInitializeDesc(desc: AEDesc): void;
-
 declare function AEInstallCoercionHandler(fromType: number, toType: number, handler: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number, handlerRefcon: any, fromTypeIsDesc: boolean, isSysHandler: boolean): number;
-
 declare function AEInstallEventHandler(theAEEventClass: number, theAEEventID: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, handlerRefcon: any, isSysHandler: boolean): number;
-
 declare function AEInstallObjectAccessor(desiredClass: number, containerType: number, theAccessor: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number, accessorRefcon: any, isSysHandler: boolean): number;
-
 declare function AEInstallSpecialHandler(functionClass: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, isSysHandler: boolean): number;
-
 interface AEKeyDesc {
-	descKey: number;
-	descContent: AEDesc;
+  descKey: number;
+  descContent: AEDesc;
 }
+
 declare var AEKeyDesc: AEKeyDesc;
 
 declare function AEManagerInfo(keyWord: number, result: number): number;
-
 declare function AEObjectInit(): number;
-
 declare function AEPrintDescToHandle(desc: AEDesc, result: string): number;
-
 declare function AEProcessMessage(header: mach_msg_header_t): number;
-
 declare function AEPutAttributeDesc(theAppleEvent: AEDesc, theAEKeyword: number, theAEDesc: AEDesc): number;
-
 declare function AEPutAttributePtr(theAppleEvent: AEDesc, theAEKeyword: number, typeCode: number, dataPtr: any, dataSize: number): number;
-
 declare function AEPutDesc(theAEDescList: AEDesc, index: number, theAEDesc: AEDesc): number;
-
 declare function AEPutParamDesc(theAppleEvent: AEDesc, theAEKeyword: number, theAEDesc: AEDesc): number;
-
 declare function AEPutParamPtr(theAppleEvent: AEDesc, theAEKeyword: number, typeCode: number, dataPtr: any, dataSize: number): number;
-
 declare function AEPutPtr(theAEDescList: AEDesc, index: number, typeCode: number, dataPtr: any, dataSize: number): number;
-
 interface AERemoteProcessResolverContext {
-	version: number;
-	info: any;
-	retain: (p1: any) => any;
-	release: (p1: any) => void;
-	copyDescription: (p1: any) => string;
+  version: number;
+  info: any;
+  retain: (p1: any) => any;
+  release: (p1: any) => void;
+  copyDescription: (p1: any) => NSObject;
 }
+
 declare var AERemoteProcessResolverContext: AERemoteProcessResolverContext;
 
-declare function AERemoteProcessResolverGetProcesses(ref: any, outError: CFStreamError): NSArray<any>;
-
-declare function AERemoteProcessResolverScheduleWithRunLoop(ref: any, runLoop: any, runLoopMode: string, callback: (p1: any, p2: any) => void, ctx: AERemoteProcessResolverContext): void;
-
+declare function AERemoteProcessResolverGetProcesses(ref: any, outError: CFStreamError): NSObject;
+declare function AERemoteProcessResolverScheduleWithRunLoop(ref: any, runLoop: any, runLoopMode: NSObject, callback: (p1: any, p2: any) => void, ctx: AERemoteProcessResolverContext): void;
 declare function AERemoveCoercionHandler(fromType: number, toType: number, handler: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number, isSysHandler: boolean): number;
-
 declare function AERemoveEventHandler(theAEEventClass: number, theAEEventID: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, isSysHandler: boolean): number;
-
 declare function AERemoveObjectAccessor(desiredClass: number, containerType: number, theAccessor: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number, isSysHandler: boolean): number;
-
 declare function AERemoveSpecialHandler(functionClass: number, handler: (p1: AEDesc, p2: AEDesc, p3: any) => number, isSysHandler: boolean): number;
-
 declare function AEReplaceDescData(typeCode: number, dataPtr: any, dataSize: number, theAEDesc: AEDesc): number;
-
 declare function AEResolve(objectSpecifier: AEDesc, callbackFlags: number, theToken: AEDesc): number;
-
 declare function AESendMessage(event: AEDesc, reply: AEDesc, sendMode: number, timeOutInTicks: number): number;
-
 declare function AESetObjectCallbacks(myCompareProc: (p1: number, p2: AEDesc, p3: AEDesc, p4: string) => number, myCountProc: (p1: number, p2: number, p3: AEDesc, p4: number) => number, myDisposeTokenProc: (p1: AEDesc) => number, myGetMarkTokenProc: (p1: AEDesc, p2: number, p3: AEDesc) => number, myMarkProc: (p1: AEDesc, p2: AEDesc, p3: number) => number, myAdjustMarksProc: (p1: number, p2: number, p3: AEDesc) => number, myGetErrDescProcPtr: (p1: AEDesc) => number): number;
-
 declare function AESizeOfAttribute(theAppleEvent: AEDesc, theAEKeyword: number, typeCode: number, dataSize: number): number;
-
 declare function AESizeOfFlattenedDesc(theAEDesc: AEDesc): number;
-
 declare function AESizeOfNthItem(theAEDescList: AEDesc, index: number, typeCode: number, dataSize: number): number;
-
 declare function AESizeOfParam(theAppleEvent: AEDesc, theAEKeyword: number, typeCode: number, dataSize: number): number;
-
 declare function AEStreamClose(ref: any, desc: AEDesc): number;
-
 declare function AEStreamCloseDesc(ref: any): number;
-
 declare function AEStreamCloseList(ref: any): number;
-
 declare function AEStreamCloseRecord(ref: any): number;
-
 declare function AEStreamCreateEvent(clazz: number, id: number, targetType: number, targetData: any, targetLength: number, returnID: number, transactionID: number): any;
-
 declare function AEStreamOpen(): any;
-
 declare function AEStreamOpenDesc(ref: any, newType: number): number;
-
 declare function AEStreamOpenEvent(event: AEDesc): any;
-
 declare function AEStreamOpenKeyDesc(ref: any, key: number, newType: number): number;
-
 declare function AEStreamOpenList(ref: any): number;
-
 declare function AEStreamOpenRecord(ref: any, newType: number): number;
-
 declare function AEStreamOptionalParam(ref: any, key: number): number;
-
 declare function AEStreamSetRecordType(ref: any, newType: number): number;
-
 declare function AEStreamWriteAEDesc(ref: any, desc: AEDesc): number;
-
 declare function AEStreamWriteData(ref: any, data: any, length: number): number;
-
 declare function AEStreamWriteDesc(ref: any, newType: number, data: any, length: number): number;
-
 declare function AEStreamWriteKey(ref: any, key: number): number;
-
 declare function AEStreamWriteKeyDesc(ref: any, key: number, newType: number, data: any, length: number): number;
-
 declare function AEUnflattenDesc(buffer: any, result: AEDesc): number;
-
 interface AFPAlternateAddress {
-	fVersion: number;
-	fAddressCount: number;
-	fAddressList: number;
+  fVersion: number;
+  fAddressCount: number;
+  fAddressList: number;
 }
+
 declare var AFPAlternateAddress: AFPAlternateAddress;
 
 interface AFPTagData {
-	fLength: number;
-	fType: number;
-	fData: number;
+  fLength: number;
+  fType: number;
+  fData: number;
 }
+
 declare var AFPTagData: AFPTagData;
 
 interface AFPVolMountInfo {
-	length: number;
-	media: number;
-	flags: number;
-	nbpInterval: number;
-	nbpCount: number;
-	uamType: number;
-	zoneNameOffset: number;
-	serverNameOffset: number;
-	volNameOffset: number;
-	userNameOffset: number;
-	userPasswordOffset: number;
-	volPasswordOffset: number;
-	AFPData: number;
+  length: number;
+  media: number;
+  flags: number;
+  nbpInterval: number;
+  nbpCount: number;
+  uamType: number;
+  zoneNameOffset: number;
+  serverNameOffset: number;
+  volNameOffset: number;
+  userNameOffset: number;
+  userPasswordOffset: number;
+  volPasswordOffset: number;
+  AFPData: number;
 }
+
 declare var AFPVolMountInfo: AFPVolMountInfo;
 
 interface AFPXVolMountInfo {
-	length: number;
-	media: number;
-	flags: number;
-	nbpInterval: number;
-	nbpCount: number;
-	uamType: number;
-	zoneNameOffset: number;
-	serverNameOffset: number;
-	volNameOffset: number;
-	userNameOffset: number;
-	userPasswordOffset: number;
-	volPasswordOffset: number;
-	extendedFlags: number;
-	uamNameOffset: number;
-	alternateAddressOffset: number;
-	AFPData: number;
+  length: number;
+  media: number;
+  flags: number;
+  nbpInterval: number;
+  nbpCount: number;
+  uamType: number;
+  zoneNameOffset: number;
+  serverNameOffset: number;
+  volNameOffset: number;
+  userNameOffset: number;
+  userPasswordOffset: number;
+  volPasswordOffset: number;
+  extendedFlags: number;
+  uamNameOffset: number;
+  alternateAddressOffset: number;
+  AFPData: number;
 }
+
 declare var AFPXVolMountInfo: AFPXVolMountInfo;
+
 
 declare const AIFCID: number;
 
 declare const AIFCVersion1: number;
 
 declare const AIFFID: number;
-
 interface AIFFLoop {
-	playMode: number;
-	beginLoop: number;
-	endLoop: number;
+  playMode: number;
+  beginLoop: number;
+  endLoop: number;
 }
+
 declare var AIFFLoop: AIFFLoop;
+
 
 declare const ASDBadForkErr: number;
 
 declare const ASDBadHeaderErr: number;
 
 declare const ASDEntryNotFoundErr: number;
-
 interface AVLTreeStruct {
-	signature: number;
-	privateStuff: number;
+  signature: number;
+  privateStuff: number;
 }
+
 declare var AVLTreeStruct: AVLTreeStruct;
 
 interface AliasRecord {
-	hidden: number;
+  hidden: number;
 }
+
 declare var AliasRecord: AliasRecord;
+
 
 declare const AnnotationID: number;
 
 declare const AppleShareMediaType: number;
-
 interface ApplicationSpecificChunk {
-	ckID: number;
-	ckSize: number;
-	applicationSignature: number;
-	data: number;
+  ckID: number;
+  ckSize: number;
+  applicationSignature: number;
+  data: number;
 }
+
 declare var ApplicationSpecificChunk: ApplicationSpecificChunk;
 
-declare const ApplicationSpecificID: number;
 
+declare const ApplicationSpecificID: number;
 interface AudioRecordingChunk {
-	ckID: number;
-	ckSize: number;
-	AESChannelStatus: number;
+  ckID: number;
+  ckSize: number;
+  AESChannelStatus: number;
 }
+
 declare var AudioRecordingChunk: AudioRecordingChunk;
+
 
 declare const AudioRecordingID: number;
 
 declare const AuthorID: number;
-
 interface BigEndianFixed {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianFixed: BigEndianFixed;
 
 interface BigEndianLong {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianLong: BigEndianLong;
 
 interface BigEndianOSType {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianOSType: BigEndianOSType;
 
 interface BigEndianShort {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianShort: BigEndianShort;
 
 interface BigEndianUInt32 {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianUInt32: BigEndianUInt32;
 
 interface BigEndianUnsignedFixed {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianUnsignedFixed: BigEndianUnsignedFixed;
 
 interface BigEndianUnsignedLong {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianUnsignedLong: BigEndianUnsignedLong;
 
 interface BigEndianUnsignedShort {
-	bigEndianValue: number;
+  bigEndianValue: number;
 }
+
 declare var BigEndianUnsignedShort: BigEndianUnsignedShort;
 
+
 declare const CDEFNFnd: number;
-
-declare function CSBackupIsItemExcluded(item: NSURL, excludeByPath: string | any): boolean;
-
-declare function CSBackupSetItemExcluded(item: NSURL, exclude: boolean, excludeByPath: boolean): number;
-
+declare function CSBackupIsItemExcluded(item: NSObject, excludeByPath: string | any): boolean;
+declare function CSBackupSetItemExcluded(item: NSObject, exclude: boolean, excludeByPath: boolean): number;
 declare function CSDiskSpaceCancelRecovery(operationUUID: any): void;
-
-declare function CSDiskSpaceGetRecoveryEstimate(volumeURL: NSURL): number;
-
-declare function CSDiskSpaceStartRecovery(volumeURL: NSURL, bytesNeeded: number, options: number, outOperationUUID: any, callbackQueue: NSObject, callback: (p1: boolean, p2: number, p3: NSError) => void): void;
-
+declare function CSDiskSpaceGetRecoveryEstimate(volumeURL: NSObject): number;
+declare function CSDiskSpaceStartRecovery(volumeURL: NSObject, bytesNeeded: number, options: number, outOperationUUID: any, callbackQueue: NSObject, callback: (p1: boolean, p2: number, p3: NSObject) => void): void;
 declare function CSGetDefaultIdentityAuthority(): any;
-
 declare function CSGetLocalIdentityAuthority(): any;
-
 declare function CSGetManagedIdentityAuthority(): any;
-
-declare function CSIdentityAddAlias(identity: any, alias: string): void;
-
+declare function CSIdentityAddAlias(identity: any, alias: NSObject): void;
 declare function CSIdentityAddMember(group: any, member: any): void;
-
-declare function CSIdentityAuthenticateUsingPassword(user: any, password: string): boolean;
-
-declare function CSIdentityAuthorityCopyLocalizedName(authority: any): string;
-
+declare function CSIdentityAuthenticateUsingPassword(user: any, password: NSObject): boolean;
+declare function CSIdentityAuthorityCopyLocalizedName(authority: any): NSObject;
 declare function CSIdentityAuthorityGetTypeID(): number;
-
 interface CSIdentityClientContext {
-	version: number;
-	info: any;
-	retain: (p1: any) => any;
-	release: (p1: any) => void;
-	copyDescription: (p1: any) => string;
-	statusUpdated: (p1: any, p2: number, p3: NSError, p4: any) => void;
+  version: number;
+  info: any;
+  retain: (p1: any) => any;
+  release: (p1: any) => void;
+  copyDescription: (p1: any) => NSObject;
+  statusUpdated: (p1: any, p2: number, p3: NSObject, p4: any) => void;
 }
+
 declare var CSIdentityClientContext: CSIdentityClientContext;
 
-declare function CSIdentityCommit(identity: any, authorization: any, error: NSError): boolean;
-
-declare function CSIdentityCommitAsynchronously(identity: any, clientContext: CSIdentityClientContext, runLoop: any, runLoopMode: string, authorization: any): boolean;
-
-declare function CSIdentityCreate(allocator: any, identityClass: number, fullName: string, posixName: string, flags: number, authority: any): any;
-
+declare function CSIdentityCommit(identity: any, authorization: any, error: NSObject): boolean;
+declare function CSIdentityCommitAsynchronously(identity: any, clientContext: CSIdentityClientContext, runLoop: any, runLoopMode: NSObject, authorization: any): boolean;
+declare function CSIdentityCreate(allocator: any, identityClass: number, fullName: NSObject, posixName: NSObject, flags: number, authority: any): any;
 declare function CSIdentityCreateCopy(allocator: any, identity: any): any;
-
 declare function CSIdentityCreateGroupMembershipQuery(allocator: any, group: any): any;
-
-declare function CSIdentityCreatePersistentReference(allocator: any, identity: any): NSData;
-
+declare function CSIdentityCreatePersistentReference(allocator: any, identity: any): NSObject;
 declare function CSIdentityDelete(identity: any): void;
-
-declare function CSIdentityGetAliases(identity: any): NSArray<any>;
-
+declare function CSIdentityGetAliases(identity: any): NSObject;
 declare function CSIdentityGetAuthority(identity: any): any;
-
 declare function CSIdentityGetCertificate(user: any): any;
-
 declare function CSIdentityGetClass(identity: any): number;
-
-declare function CSIdentityGetEmailAddress(identity: any): string;
-
-declare function CSIdentityGetFullName(identity: any): string;
-
-declare function CSIdentityGetImageData(identity: any): NSData;
-
-declare function CSIdentityGetImageDataType(identity: any): string;
-
-declare function CSIdentityGetImageURL(identity: any): NSURL;
-
+declare function CSIdentityGetEmailAddress(identity: any): NSObject;
+declare function CSIdentityGetFullName(identity: any): NSObject;
+declare function CSIdentityGetImageData(identity: any): NSObject;
+declare function CSIdentityGetImageDataType(identity: any): NSObject;
+declare function CSIdentityGetImageURL(identity: any): NSObject;
 declare function CSIdentityGetPosixID(identity: any): number;
-
-declare function CSIdentityGetPosixName(identity: any): string;
-
+declare function CSIdentityGetPosixName(identity: any): NSObject;
 declare function CSIdentityGetTypeID(): number;
-
 declare function CSIdentityGetUUID(identity: any): any;
-
 declare function CSIdentityIsCommitting(identity: any): boolean;
-
 declare function CSIdentityIsEnabled(user: any): boolean;
-
 declare function CSIdentityIsHidden(identity: any): boolean;
-
 declare function CSIdentityIsMemberOfGroup(identity: any, group: any): boolean;
-
 interface CSIdentityQueryClientContext {
-	version: number;
-	info: any;
-	retainInfo: (p1: any) => any;
-	releaseInfo: (p1: any) => void;
-	copyInfoDescription: (p1: any) => string;
-	receiveEvent: (p1: any, p2: number, p3: NSArray<any>, p4: NSError, p5: any) => void;
+  version: number;
+  info: any;
+  retainInfo: (p1: any) => any;
+  releaseInfo: (p1: any) => void;
+  copyInfoDescription: (p1: any) => NSObject;
+  receiveEvent: (p1: any, p2: number, p3: NSObject, p4: NSObject, p5: any) => void;
 }
+
 declare var CSIdentityQueryClientContext: CSIdentityQueryClientContext;
 
-declare function CSIdentityQueryCopyResults(query: any): NSArray<any>;
-
+declare function CSIdentityQueryCopyResults(query: any): NSObject;
 declare function CSIdentityQueryCreate(allocator: any, identityClass: number, authority: any): any;
-
 declare function CSIdentityQueryCreateForCurrentUser(allocator: any): any;
-
-declare function CSIdentityQueryCreateForName(allocator: any, name: string, comparisonMethod: number, identityClass: number, authority: any): any;
-
-declare function CSIdentityQueryCreateForPersistentReference(allocator: any, referenceData: NSData): any;
-
+declare function CSIdentityQueryCreateForName(allocator: any, name: NSObject, comparisonMethod: number, identityClass: number, authority: any): any;
+declare function CSIdentityQueryCreateForPersistentReference(allocator: any, referenceData: NSObject): any;
 declare function CSIdentityQueryCreateForPosixID(allocator: any, posixID: number, identityClass: number, authority: any): any;
-
 declare function CSIdentityQueryCreateForUUID(allocator: any, uuid: any, authority: any): any;
-
-declare function CSIdentityQueryExecute(query: any, flags: number, error: NSError): boolean;
-
-declare function CSIdentityQueryExecuteAsynchronously(query: any, flags: number, clientContext: CSIdentityQueryClientContext, runLoop: any, runLoopMode: string): boolean;
-
+declare function CSIdentityQueryExecute(query: any, flags: number, error: NSObject): boolean;
+declare function CSIdentityQueryExecuteAsynchronously(query: any, flags: number, clientContext: CSIdentityQueryClientContext, runLoop: any, runLoopMode: NSObject): boolean;
 declare function CSIdentityQueryGetTypeID(): number;
-
 declare function CSIdentityQueryStop(query: any): void;
-
-declare function CSIdentityRemoveAlias(identity: any, alias: string): void;
-
+declare function CSIdentityRemoveAlias(identity: any, alias: NSObject): void;
 declare function CSIdentityRemoveClient(identity: any): void;
-
 declare function CSIdentityRemoveMember(group: any, member: any): void;
-
 declare function CSIdentitySetCertificate(user: any, certificate: any): void;
-
-declare function CSIdentitySetEmailAddress(identity: any, emailAddress: string): void;
-
-declare function CSIdentitySetFullName(identity: any, fullName: string): void;
-
-declare function CSIdentitySetImageData(identity: any, imageData: NSData, imageDataType: string): void;
-
-declare function CSIdentitySetImageURL(identity: any, url: NSURL): void;
-
+declare function CSIdentitySetEmailAddress(identity: any, emailAddress: NSObject): void;
+declare function CSIdentitySetFullName(identity: any, fullName: NSObject): void;
+declare function CSIdentitySetImageData(identity: any, imageData: NSObject, imageDataType: NSObject): void;
+declare function CSIdentitySetImageURL(identity: any, url: NSObject): void;
 declare function CSIdentitySetIsEnabled(user: any, isEnabled: boolean): void;
-
-declare function CSIdentitySetPassword(user: any, password: string): void;
+declare function CSIdentitySetPassword(user: any, password: NSObject): void;
 
 declare const CantDecompress: number;
-
 interface CatPositionRec {
-	initialize: number;
-	priv: number;
+  initialize: number;
+  priv: number;
 }
+
 declare var CatPositionRec: CatPositionRec;
 
 declare function ChangeTextToUnicodeInfo(ioTextToUnicodeInfo: any, iUnicodeMapping: UnicodeMapping): number;
-
 declare function ChangeUnicodeToTextInfo(ioUnicodeToTextInfo: any, iUnicodeMapping: UnicodeMapping): number;
-
 interface ChunkHeader {
-	ckID: number;
-	ckSize: number;
+  ckID: number;
+  ckSize: number;
 }
+
 declare var ChunkHeader: ChunkHeader;
 
 interface Comment {
-	timeStamp: number;
-	marker: number;
-	count: number;
-	text: number;
+  timeStamp: number;
+  marker: number;
+  count: number;
+  text: number;
 }
+
 declare var Comment: Comment;
 
-declare const CommentID: number;
 
+declare const CommentID: number;
 interface CommentsChunk {
-	ckID: number;
-	ckSize: number;
-	numComments: number;
-	comments: Comment;
+  ckID: number;
+  ckSize: number;
+  numComments: number;
+  comments: Comment;
 }
+
 declare var CommentsChunk: CommentsChunk;
 
 interface CommonChunk {
-	ckID: number;
-	ckSize: number;
-	numChannels: number;
-	numSampleFrames: number;
-	sampleSize: number;
-	sampleRate: Float80;
+  ckID: number;
+  ckSize: number;
+  numChannels: number;
+  numSampleFrames: number;
+  sampleSize: number;
+  sampleRate: Float80;
 }
+
 declare var CommonChunk: CommonChunk;
 
-declare const CommonID: number;
 
+declare const CommonID: number;
 interface ComponentAliasResource {
-	cr: ComponentResource;
-	aliasCD: ComponentDescription;
+  cr: ComponentResource;
+  aliasCD: ComponentDescription;
 }
+
 declare var ComponentAliasResource: ComponentAliasResource;
 
 interface ComponentDescription {
-	componentType: number;
-	componentSubType: number;
-	componentManufacturer: number;
-	componentFlags: number;
-	componentFlagsMask: number;
+  componentType: number;
+  componentSubType: number;
+  componentManufacturer: number;
+  componentFlags: number;
+  componentFlagsMask: number;
 }
+
 declare var ComponentDescription: ComponentDescription;
 
 interface ComponentInstanceRecord {
-	data: number;
+  data: number;
 }
+
 declare var ComponentInstanceRecord: ComponentInstanceRecord;
 
 interface ComponentMPWorkFunctionHeaderRecord {
-	headerSize: number;
-	recordSize: number;
-	workFlags: number;
-	processorCount: number;
-	unused: number;
-	isRunning: number;
+  headerSize: number;
+  recordSize: number;
+  workFlags: number;
+  processorCount: number;
+  unused: number;
+  isRunning: number;
 }
+
 declare var ComponentMPWorkFunctionHeaderRecord: ComponentMPWorkFunctionHeaderRecord;
 
 interface ComponentParameters {
-	flags: number;
-	paramSize: number;
-	what: number;
-	padding: number;
-	params: number;
+  flags: number;
+  paramSize: number;
+  what: number;
+  padding: number;
+  params: number;
 }
+
 declare var ComponentParameters: ComponentParameters;
 
 interface ComponentPlatformInfo {
-	componentFlags: number;
-	component: ResourceSpec;
-	platformType: number;
+  componentFlags: number;
+  component: ResourceSpec;
+  platformType: number;
 }
+
 declare var ComponentPlatformInfo: ComponentPlatformInfo;
 
 interface ComponentPlatformInfoArray {
-	count: number;
-	platformArray: ComponentPlatformInfo;
+  count: number;
+  platformArray: ComponentPlatformInfo;
 }
+
 declare var ComponentPlatformInfoArray: ComponentPlatformInfoArray;
 
 interface ComponentRecord {
-	data: number;
+  data: number;
 }
+
 declare var ComponentRecord: ComponentRecord;
 
 interface ComponentResource {
-	cd: ComponentDescription;
-	component: ResourceSpec;
-	componentName: ResourceSpec;
-	componentInfo: ResourceSpec;
-	componentIcon: ResourceSpec;
+  cd: ComponentDescription;
+  component: ResourceSpec;
+  componentName: ResourceSpec;
+  componentInfo: ResourceSpec;
+  componentIcon: ResourceSpec;
 }
+
 declare var ComponentResource: ComponentResource;
 
 interface ComponentResourceExtension {
-	componentVersion: number;
-	componentRegisterFlags: number;
-	componentIconFamily: number;
+  componentVersion: number;
+  componentRegisterFlags: number;
+  componentIconFamily: number;
 }
+
 declare var ComponentResourceExtension: ComponentResourceExtension;
 
 interface ContainerChunk {
-	ckID: number;
-	ckSize: number;
-	formType: number;
+  ckID: number;
+  ckSize: number;
+  formType: number;
 }
+
 declare var ContainerChunk: ContainerChunk;
 
 declare function ConvertFromPStringToUnicode(iTextToUnicodeInfo: any, iPascalStr: string | any, iOutputBufLen: number, oUnicodeLen: number, oUnicodeStr: number): number;
-
 declare function ConvertFromTextToUnicode(iTextToUnicodeInfo: any, iSourceLen: number, iSourceStr: any, iControlFlags: number, iOffsetCount: number, iOffsetArray: number, oOffsetCount: number, oOffsetArray: number, iOutputBufLen: number, oSourceRead: number, oUnicodeLen: number, oUnicodeStr: number): number;
-
 declare function ConvertFromUnicodeToPString(iUnicodeToTextInfo: any, iUnicodeLen: number, iUnicodeStr: number, oPascalStr: number): number;
-
 declare function ConvertFromUnicodeToScriptCodeRun(iUnicodeToTextInfo: any, iUnicodeLen: number, iUnicodeStr: number, iControlFlags: number, iOffsetCount: number, iOffsetArray: number, oOffsetCount: number, oOffsetArray: number, iOutputBufLen: number, oInputRead: number, oOutputLen: number, oOutputStr: any, iScriptRunBufLen: number, oScriptRunOutLen: number, oScriptCodeRuns: ScriptCodeRun): number;
-
 declare function ConvertFromUnicodeToText(iUnicodeToTextInfo: any, iUnicodeLen: number, iUnicodeStr: number, iControlFlags: number, iOffsetCount: number, iOffsetArray: number, oOffsetCount: number, oOffsetArray: number, iOutputBufLen: number, oInputRead: number, oOutputLen: number, oOutputStr: any): number;
-
 declare function ConvertFromUnicodeToTextRun(iUnicodeToTextInfo: any, iUnicodeLen: number, iUnicodeStr: number, iControlFlags: number, iOffsetCount: number, iOffsetArray: number, oOffsetCount: number, oOffsetArray: number, iOutputBufLen: number, oInputRead: number, oOutputLen: number, oOutputStr: any, iEncodingRunBufLen: number, oEncodingRunOutLen: number, oEncodingRuns: TextEncodingRun): number;
 
 declare const CopyrightID: number;
-
 declare function CountUnicodeMappings(iFilter: number, iFindMapping: UnicodeMapping, oActualCount: number): number;
-
 declare function CreateCompDescriptor(comparisonOperator: number, operand1: AEDesc, operand2: AEDesc, disposeInputs: boolean, theDescriptor: AEDesc): number;
-
 declare function CreateLogicalDescriptor(theLogicalTerms: AEDesc, theLogicOperator: number, disposeInputs: boolean, theDescriptor: AEDesc): number;
-
 declare function CreateObjSpecifier(desiredClass: number, theContainer: AEDesc, keyForm: number, keyData: AEDesc, disposeInputs: boolean, objSpecifier: AEDesc): number;
-
 declare function CreateOffsetDescriptor(theOffset: number, theDescriptor: AEDesc): number;
-
 declare function CreateRangeDescriptor(rangeStart: AEDesc, rangeStop: AEDesc, disposeInputs: boolean, theDescriptor: AEDesc): number;
-
 declare function CreateTextEncoding(encodingBase: number, encodingVariant: number, encodingFormat: number): number;
-
 declare function CreateTextToUnicodeInfo(iUnicodeMapping: UnicodeMapping, oTextToUnicodeInfo: any): number;
-
 declare function CreateTextToUnicodeInfoByEncoding(iEncoding: number, oTextToUnicodeInfo: any): number;
-
 declare function CreateUnicodeToTextInfo(iUnicodeMapping: UnicodeMapping, oUnicodeToTextInfo: any): number;
-
 declare function CreateUnicodeToTextInfoByEncoding(iEncoding: number, oUnicodeToTextInfo: any): number;
-
 declare function CreateUnicodeToTextRunInfo(iNumberOfMappings: number, iUnicodeMappings: UnicodeMapping, oUnicodeToTextInfo: any): number;
-
 declare function CreateUnicodeToTextRunInfoByEncoding(iNumberOfEncodings: number, iEncodings: number, oUnicodeToTextInfo: any): number;
-
 declare function CreateUnicodeToTextRunInfoByScriptCode(iNumberOfScriptCodes: number, iScripts: number, oUnicodeToTextInfo: any): number;
-
 interface CustomBadgeResource {
-	version: number;
-	customBadgeResourceID: number;
-	customBadgeType: number;
-	customBadgeCreator: number;
-	windowBadgeType: number;
-	windowBadgeCreator: number;
-	overrideType: number;
-	overrideCreator: number;
+  version: number;
+  customBadgeResourceID: number;
+  customBadgeType: number;
+  customBadgeCreator: number;
+  windowBadgeType: number;
+  windowBadgeCreator: number;
+  overrideType: number;
+  overrideCreator: number;
 }
+
 declare var CustomBadgeResource: CustomBadgeResource;
 
-declare function DCSCopyTextDefinition(dictionary: any, textString: string, range: CFRange): string;
-
-declare function DCSGetTermRangeInString(dictionary: any, textString: string, offset: number): CFRange;
-
+declare function DCSCopyTextDefinition(dictionary: any, textString: NSObject, range: CFRange): NSObject;
+declare function DCSGetTermRangeInString(dictionary: any, textString: NSObject, offset: number): CFRange;
 interface DInfo {
-	frRect: Rect;
-	frFlags: number;
-	frLocation: Point;
-	frView: number;
+  frRect: Rect;
+  frFlags: number;
+  frLocation: Point;
+  frView: number;
 }
+
 declare var DInfo: DInfo;
 
 interface DXInfo {
-	frScroll: Point;
-	frOpenChain: number;
-	frScript: number;
-	frXFlags: number;
-	frComment: number;
-	frPutAway: number;
+  frScroll: Point;
+  frOpenChain: number;
+  frScript: number;
+  frXFlags: number;
+  frComment: number;
+  frPutAway: number;
 }
+
 declare var DXInfo: DXInfo;
 
 interface DateCacheRecord {
-	hidden: number;
+  hidden: number;
 }
+
 declare var DateCacheRecord: DateCacheRecord;
 
 interface DateTimeRec {
-	year: number;
-	month: number;
-	day: number;
-	hour: number;
-	minute: number;
-	second: number;
-	dayOfWeek: number;
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+  dayOfWeek: number;
 }
+
 declare var DateTimeRec: DateTimeRec;
 
 interface DeferredTask {
-	qLink: QElem;
-	qType: number;
-	dtFlags: number;
-	dtAddr: (p1: number) => void;
-	dtParam: number;
-	dtReserved: number;
+  qLink: QElem;
+  qType: number;
+  dtFlags: number;
+  dtAddr: (p1: number) => void;
+  dtParam: number;
+  dtReserved: number;
 }
+
 declare var DeferredTask: DeferredTask;
 
 declare function DisposeAECoerceDescUPP(userUPP: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number): void;
-
 declare function DisposeAECoercePtrUPP(userUPP: (p1: number, p2: any, p3: number, p4: number, p5: any, p6: AEDesc) => number): void;
-
 declare function DisposeAEDisposeExternalUPP(userUPP: (p1: any, p2: number, p3: any) => void): void;
-
 declare function DisposeAEEventHandlerUPP(userUPP: (p1: AEDesc, p2: AEDesc, p3: any) => number): void;
-
-declare function DisposeIndexToUCStringUPP(userUPP: (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean): void;
-
+declare function DisposeIndexToUCStringUPP(userUPP: (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean): void;
 declare function DisposeOSLAccessorUPP(userUPP: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number): void;
-
 declare function DisposeOSLAdjustMarksUPP(userUPP: (p1: number, p2: number, p3: AEDesc) => number): void;
-
 declare function DisposeOSLCompareUPP(userUPP: (p1: number, p2: AEDesc, p3: AEDesc, p4: string) => number): void;
-
 declare function DisposeOSLCountUPP(userUPP: (p1: number, p2: number, p3: AEDesc, p4: number) => number): void;
-
 declare function DisposeOSLDisposeTokenUPP(userUPP: (p1: AEDesc) => number): void;
-
 declare function DisposeOSLGetErrDescUPP(userUPP: (p1: AEDesc) => number): void;
-
 declare function DisposeOSLGetMarkTokenUPP(userUPP: (p1: AEDesc, p2: number, p3: AEDesc) => number): void;
-
 declare function DisposeOSLMarkUPP(userUPP: (p1: AEDesc, p2: AEDesc, p3: number) => number): void;
-
 declare function DisposeTextToUnicodeInfo(ioTextToUnicodeInfo: any): number;
-
 declare function DisposeUnicodeToTextFallbackUPP(userUPP: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number): void;
-
 declare function DisposeUnicodeToTextInfo(ioUnicodeToTextInfo: any): number;
-
 declare function DisposeUnicodeToTextRunInfo(ioUnicodeToTextRunInfo: any): number;
 
 declare const EQUALTO: number;
-
 interface ExtCommonChunk {
-	ckID: number;
-	ckSize: number;
-	numChannels: number;
-	numSampleFrames: number;
-	sampleSize: number;
-	sampleRate: Float80;
-	compressionType: number;
-	compressionName: number;
+  ckID: number;
+  ckSize: number;
+  numChannels: number;
+  numSampleFrames: number;
+  sampleSize: number;
+  sampleRate: Float80;
+  compressionType: number;
+  compressionName: number;
 }
+
 declare var ExtCommonChunk: ExtCommonChunk;
 
 interface ExtComponentResource {
-	cd: ComponentDescription;
-	component: ResourceSpec;
-	componentName: ResourceSpec;
-	componentInfo: ResourceSpec;
-	componentIcon: ResourceSpec;
-	componentVersion: number;
-	componentRegisterFlags: number;
-	componentIconFamily: number;
-	count: number;
-	platformArray: ComponentPlatformInfo;
+  cd: ComponentDescription;
+  component: ResourceSpec;
+  componentName: ResourceSpec;
+  componentInfo: ResourceSpec;
+  componentIcon: ResourceSpec;
+  componentVersion: number;
+  componentRegisterFlags: number;
+  componentIconFamily: number;
+  count: number;
+  platformArray: ComponentPlatformInfo;
 }
+
 declare var ExtComponentResource: ExtComponentResource;
 
 interface ExtendedFileInfo {
-	reserved1: number;
-	extendedFinderFlags: number;
-	reserved2: number;
-	putAwayFolderID: number;
+  reserved1: number;
+  extendedFinderFlags: number;
+  reserved2: number;
+  putAwayFolderID: number;
 }
+
 declare var ExtendedFileInfo: ExtendedFileInfo;
 
 interface ExtendedFolderInfo {
-	scrollPosition: Point;
-	reserved1: number;
-	extendedFinderFlags: number;
-	reserved2: number;
-	putAwayFolderID: number;
+  scrollPosition: Point;
+  reserved1: number;
+  extendedFinderFlags: number;
+  reserved2: number;
+  putAwayFolderID: number;
 }
+
 declare var ExtendedFolderInfo: ExtendedFolderInfo;
 
 interface FInfo {
-	fdType: number;
-	fdCreator: number;
-	fdFlags: number;
-	fdLocation: Point;
-	fdFldr: number;
+  fdType: number;
+  fdCreator: number;
+  fdFlags: number;
+  fdLocation: Point;
+  fdFldr: number;
 }
+
 declare var FInfo: FInfo;
 
-declare const FORMID: number;
 
+declare const FORMID: number;
 interface FPUInformationIntel64 {
-	Registers: number;
-	Control: number;
-	Status: number;
-	Tag: number;
-	Opcode: number;
-	IP: number;
-	DP: number;
-	DS: number;
+  Registers: number;
+  Control: number;
+  Status: number;
+  Tag: number;
+  Opcode: number;
+  IP: number;
+  DP: number;
+  DS: number;
 }
+
 declare var FPUInformationIntel64: FPUInformationIntel64;
 
 interface FPUInformationPowerPC {
-	Registers: UnsignedWide;
-	FPSCR: number;
-	Reserved: number;
+  Registers: UnsignedWide;
+  FPSCR: number;
+  Reserved: number;
 }
+
 declare var FPUInformationPowerPC: FPUInformationPowerPC;
 
 interface FSAliasInfo {
-	volumeCreateDate: UTCDateTime;
-	targetCreateDate: UTCDateTime;
-	fileType: number;
-	fileCreator: number;
-	parentDirID: number;
-	nodeID: number;
-	filesystemID: number;
-	signature: number;
-	volumeIsBootVolume: boolean;
-	volumeIsAutomounted: boolean;
-	volumeIsEjectable: boolean;
-	volumeHasPersistentFileIDs: boolean;
-	isDirectory: boolean;
+  volumeCreateDate: UTCDateTime;
+  targetCreateDate: UTCDateTime;
+  fileType: number;
+  fileCreator: number;
+  parentDirID: number;
+  nodeID: number;
+  filesystemID: number;
+  signature: number;
+  volumeIsBootVolume: boolean;
+  volumeIsAutomounted: boolean;
+  volumeIsEjectable: boolean;
+  volumeHasPersistentFileIDs: boolean;
+  isDirectory: boolean;
 }
+
 declare var FSAliasInfo: FSAliasInfo;
 
 interface FSCatalogBulkParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	containerChanged: boolean;
-	reserved: number;
-	iteratorFlags: number;
-	iterator: any;
-	container: FSRef;
-	maximumItems: number;
-	actualItems: number;
-	whichInfo: number;
-	catalogInfo: FSCatalogInfo;
-	refs: FSRef;
-	specs: FSSpec;
-	names: HFSUniStr255;
-	searchParams: FSSearchParams;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  containerChanged: boolean;
+  reserved: number;
+  iteratorFlags: number;
+  iterator: any;
+  container: FSRef;
+  maximumItems: number;
+  actualItems: number;
+  whichInfo: number;
+  catalogInfo: FSCatalogInfo;
+  refs: FSRef;
+  specs: FSSpec;
+  names: HFSUniStr255;
+  searchParams: FSSearchParams;
 }
+
 declare var FSCatalogBulkParam: FSCatalogBulkParam;
 
 interface FSCatalogInfo {
-	nodeFlags: number;
-	volume: number;
-	parentDirID: number;
-	nodeID: number;
-	sharingFlags: number;
-	userPrivileges: number;
-	reserved1: number;
-	reserved2: number;
-	createDate: UTCDateTime;
-	contentModDate: UTCDateTime;
-	attributeModDate: UTCDateTime;
-	accessDate: UTCDateTime;
-	backupDate: UTCDateTime;
-	permissions: FSPermissionInfo;
-	finderInfo: number;
-	extFinderInfo: number;
-	dataLogicalSize: number;
-	dataPhysicalSize: number;
-	rsrcLogicalSize: number;
-	rsrcPhysicalSize: number;
-	valence: number;
-	textEncodingHint: number;
+  nodeFlags: number;
+  volume: number;
+  parentDirID: number;
+  nodeID: number;
+  sharingFlags: number;
+  userPrivileges: number;
+  reserved1: number;
+  reserved2: number;
+  createDate: UTCDateTime;
+  contentModDate: UTCDateTime;
+  attributeModDate: UTCDateTime;
+  accessDate: UTCDateTime;
+  backupDate: UTCDateTime;
+  permissions: FSPermissionInfo;
+  finderInfo: number;
+  extFinderInfo: number;
+  dataLogicalSize: number;
+  dataPhysicalSize: number;
+  rsrcLogicalSize: number;
+  rsrcPhysicalSize: number;
+  valence: number;
+  textEncodingHint: number;
 }
+
 declare var FSCatalogInfo: FSCatalogInfo;
 
 interface FSEventStreamContext {
-	version: number;
-	info: any;
-	retain: (p1: any) => any;
-	release: (p1: any) => void;
-	copyDescription: (p1: any) => string;
+  version: number;
+  info: any;
+  retain: (p1: any) => any;
+  release: (p1: any) => void;
+  copyDescription: (p1: any) => NSObject;
 }
+
 declare var FSEventStreamContext: FSEventStreamContext;
 
-declare function FSEventStreamCopyDescription(streamRef: any): string;
-
-declare function FSEventStreamCopyPathsBeingWatched(streamRef: any): NSArray<any>;
-
-declare function FSEventStreamCreate(allocator: any, callback: (p1: any, p2: any, p3: number, p4: any, p5: number, p6: number) => void, context: FSEventStreamContext, pathsToWatch: NSArray<any> | any[], sinceWhen: number, latency: number, flags: number): any;
-
-declare function FSEventStreamCreateRelativeToDevice(allocator: any, callback: (p1: any, p2: any, p3: number, p4: any, p5: number, p6: number) => void, context: FSEventStreamContext, deviceToWatch: number, pathsToWatchRelativeToDevice: NSArray<any> | any[], sinceWhen: number, latency: number, flags: number): any;
-
+declare function FSEventStreamCopyDescription(streamRef: any): NSObject;
+declare function FSEventStreamCopyPathsBeingWatched(streamRef: any): NSObject;
+declare function FSEventStreamCreate(allocator: any, callback: (p1: any, p2: any, p3: number, p4: any, p5: number, p6: number) => void, context: FSEventStreamContext, pathsToWatch: NSObject, sinceWhen: number, latency: number, flags: number): any;
+declare function FSEventStreamCreateRelativeToDevice(allocator: any, callback: (p1: any, p2: any, p3: number, p4: any, p5: number, p6: number) => void, context: FSEventStreamContext, deviceToWatch: number, pathsToWatchRelativeToDevice: NSObject, sinceWhen: number, latency: number, flags: number): any;
 declare function FSEventStreamFlushAsync(streamRef: any): number;
-
 declare function FSEventStreamFlushSync(streamRef: any): void;
-
 declare function FSEventStreamGetDeviceBeingWatched(streamRef: any): number;
-
 declare function FSEventStreamGetLatestEventId(streamRef: any): number;
-
 declare function FSEventStreamInvalidate(streamRef: any): void;
-
 declare function FSEventStreamRelease(streamRef: any): void;
-
 declare function FSEventStreamRetain(streamRef: any): void;
-
-declare function FSEventStreamScheduleWithRunLoop(streamRef: any, runLoop: any, runLoopMode: string): void;
-
+declare function FSEventStreamScheduleWithRunLoop(streamRef: any, runLoop: any, runLoopMode: NSObject): void;
 declare function FSEventStreamSetDispatchQueue(streamRef: any, q: NSObject): void;
-
-declare function FSEventStreamSetExclusionPaths(streamRef: any, pathsToExclude: NSArray<any> | any[]): boolean;
-
+declare function FSEventStreamSetExclusionPaths(streamRef: any, pathsToExclude: NSObject): boolean;
 declare function FSEventStreamShow(streamRef: any): void;
-
 declare function FSEventStreamStart(streamRef: any): boolean;
-
 declare function FSEventStreamStop(streamRef: any): void;
-
-declare function FSEventStreamUnscheduleFromRunLoop(streamRef: any, runLoop: any, runLoopMode: string): void;
-
+declare function FSEventStreamUnscheduleFromRunLoop(streamRef: any, runLoop: any, runLoopMode: NSObject): void;
 declare function FSEventsCopyUUIDForDevice(dev: number): any;
-
 declare function FSEventsGetCurrentEventId(): number;
-
 declare function FSEventsGetLastEventIdForDeviceBeforeTime(dev: number, time: number): number;
-
 declare function FSEventsPurgeEventsForDeviceUpToEventId(dev: number, eventId: number): boolean;
-
 interface FSFileOperationClientContext {
-	version: number;
-	info: any;
-	retain: (p1: any) => any;
-	release: (p1: any) => void;
-	copyDescription: (p1: any) => string;
+  version: number;
+  info: any;
+  retain: (p1: any) => any;
+  release: (p1: any) => void;
+  copyDescription: (p1: any) => NSObject;
 }
+
 declare var FSFileOperationClientContext: FSFileOperationClientContext;
 
 interface FSForkCBInfoParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	desiredRefNum: number;
-	volumeRefNum: number;
-	iterator: number;
-	actualRefNum: number;
-	ref: FSRef;
-	forkInfo: FSForkInfo;
-	forkName: HFSUniStr255;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  desiredRefNum: number;
+  volumeRefNum: number;
+  iterator: number;
+  actualRefNum: number;
+  ref: FSRef;
+  forkInfo: FSForkInfo;
+  forkName: HFSUniStr255;
 }
+
 declare var FSForkCBInfoParam: FSForkCBInfoParam;
 
 interface FSForkIOParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	reserved1: any;
-	reserved2: number;
-	forkRefNum: number;
-	reserved3: number;
-	permissions: number;
-	ref: FSRef;
-	buffer: string;
-	requestCount: number;
-	actualCount: number;
-	positionMode: number;
-	positionOffset: number;
-	allocationFlags: number;
-	allocationAmount: number;
-	forkNameLength: number;
-	forkName: number;
-	forkIterator: CatPositionRec;
-	outForkName: HFSUniStr255;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  reserved1: any;
+  reserved2: number;
+  forkRefNum: number;
+  reserved3: number;
+  permissions: number;
+  ref: FSRef;
+  buffer: string;
+  requestCount: number;
+  actualCount: number;
+  positionMode: number;
+  positionOffset: number;
+  allocationFlags: number;
+  allocationAmount: number;
+  forkNameLength: number;
+  forkName: number;
+  forkIterator: CatPositionRec;
+  outForkName: HFSUniStr255;
 }
+
 declare var FSForkIOParam: FSForkIOParam;
 
 interface FSForkInfo {
-	flags: number;
-	permissions: number;
-	volume: number;
-	reserved2: number;
-	nodeID: number;
-	forkID: number;
-	currentPosition: number;
-	logicalEOF: number;
-	physicalEOF: number;
-	process: number;
+  flags: number;
+  permissions: number;
+  volume: number;
+  reserved2: number;
+  nodeID: number;
+  forkID: number;
+  currentPosition: number;
+  logicalEOF: number;
+  physicalEOF: number;
+  process: number;
 }
+
 declare var FSForkInfo: FSForkInfo;
 
 interface FSPermissionInfo {
-	userID: number;
-	groupID: number;
-	reserved1: number;
-	userAccess: number;
-	mode: number;
-	fileSec: any;
+  userID: number;
+  groupID: number;
+  reserved1: number;
+  userAccess: number;
+  mode: number;
+  fileSec: any;
 }
+
 declare var FSPermissionInfo: FSPermissionInfo;
 
 interface FSRangeLockParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	forkRefNum: number;
-	requestCount: number;
-	positionMode: number;
-	positionOffset: number;
-	rangeStart: number;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  forkRefNum: number;
+  requestCount: number;
+  positionMode: number;
+  positionOffset: number;
+  rangeStart: number;
 }
+
 declare var FSRangeLockParam: FSRangeLockParam;
 
 interface FSRef {
-	hidden: number;
+  hidden: number;
 }
+
 declare var FSRef: FSRef;
 
 interface FSRefForkIOParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	parentRef: FSRef;
-	nameLength: number;
-	name: number;
-	whichInfo: number;
-	catInfo: FSCatalogInfo;
-	forkNameLength: number;
-	forkName: number;
-	permissions: number;
-	reserved1: number;
-	forkRefNum: number;
-	newRef: FSRef;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  parentRef: FSRef;
+  nameLength: number;
+  name: number;
+  whichInfo: number;
+  catInfo: FSCatalogInfo;
+  forkNameLength: number;
+  forkName: number;
+  permissions: number;
+  reserved1: number;
+  forkRefNum: number;
+  newRef: FSRef;
 }
+
 declare var FSRefForkIOParam: FSRefForkIOParam;
 
 interface FSRefParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	ioNamePtr: string;
-	ioVRefNum: number;
-	reserved1: number;
-	reserved2: number;
-	reserved3: number;
-	ref: FSRef;
-	whichInfo: number;
-	catInfo: FSCatalogInfo;
-	nameLength: number;
-	name: number;
-	ioDirID: number;
-	spec: FSSpec;
-	parentRef: FSRef;
-	newRef: FSRef;
-	textEncodingHint: number;
-	outName: HFSUniStr255;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  ioNamePtr: string;
+  ioVRefNum: number;
+  reserved1: number;
+  reserved2: number;
+  reserved3: number;
+  ref: FSRef;
+  whichInfo: number;
+  catInfo: FSCatalogInfo;
+  nameLength: number;
+  name: number;
+  ioDirID: number;
+  spec: FSSpec;
+  parentRef: FSRef;
+  newRef: FSRef;
+  textEncodingHint: number;
+  outName: HFSUniStr255;
 }
+
 declare var FSRefParam: FSRefParam;
 
 interface FSSearchParams {
-	searchTime: number;
-	searchBits: number;
-	searchNameLength: number;
-	searchName: number;
-	searchInfo1: FSCatalogInfo;
-	searchInfo2: FSCatalogInfo;
+  searchTime: number;
+  searchBits: number;
+  searchNameLength: number;
+  searchName: number;
+  searchInfo1: FSCatalogInfo;
+  searchInfo2: FSCatalogInfo;
 }
+
 declare var FSSearchParams: FSSearchParams;
 
 interface FSSpec {
-	hidden: number;
+  hidden: number;
 }
+
 declare var FSSpec: FSSpec;
 
 interface FSVolumeInfo {
-	createDate: UTCDateTime;
-	modifyDate: UTCDateTime;
-	backupDate: UTCDateTime;
-	checkedDate: UTCDateTime;
-	fileCount: number;
-	folderCount: number;
-	totalBytes: number;
-	freeBytes: number;
-	blockSize: number;
-	totalBlocks: number;
-	freeBlocks: number;
-	nextAllocation: number;
-	rsrcClumpSize: number;
-	dataClumpSize: number;
-	nextCatalogID: number;
-	finderInfo: number;
-	flags: number;
-	filesystemID: number;
-	signature: number;
-	driveNumber: number;
-	driverRefNum: number;
+  createDate: UTCDateTime;
+  modifyDate: UTCDateTime;
+  backupDate: UTCDateTime;
+  checkedDate: UTCDateTime;
+  fileCount: number;
+  folderCount: number;
+  totalBytes: number;
+  freeBytes: number;
+  blockSize: number;
+  totalBlocks: number;
+  freeBlocks: number;
+  nextAllocation: number;
+  rsrcClumpSize: number;
+  dataClumpSize: number;
+  nextCatalogID: number;
+  finderInfo: number;
+  flags: number;
+  filesystemID: number;
+  signature: number;
+  driveNumber: number;
+  driverRefNum: number;
 }
+
 declare var FSVolumeInfo: FSVolumeInfo;
 
 interface FSVolumeInfoParam {
-	qLink: QElem;
-	qType: number;
-	ioTrap: number;
-	ioCmdAddr: string;
-	ioCompletion: (p1: any) => void;
-	ioResult: number;
-	ioNamePtr: string;
-	ioVRefNum: number;
-	volumeIndex: number;
-	whichInfo: number;
-	volumeInfo: FSVolumeInfo;
-	volumeName: HFSUniStr255;
-	ref: FSRef;
+  qLink: QElem;
+  qType: number;
+  ioTrap: number;
+  ioCmdAddr: string;
+  ioCompletion: (p1: any) => void;
+  ioResult: number;
+  ioNamePtr: string;
+  ioVRefNum: number;
+  volumeIndex: number;
+  whichInfo: number;
+  volumeInfo: FSVolumeInfo;
+  volumeName: HFSUniStr255;
+  ref: FSRef;
 }
+
 declare var FSVolumeInfoParam: FSVolumeInfoParam;
 
 interface FVector {
-	start: number;
-	length: number;
+  start: number;
+  length: number;
 }
+
 declare var FVector: FVector;
 
 interface FXInfo {
-	fdIconID: number;
-	fdReserved: number;
-	fdScript: number;
-	fdXFlags: number;
-	fdComment: number;
-	fdPutAway: number;
+  fdIconID: number;
+  fdReserved: number;
+  fdScript: number;
+  fdXFlags: number;
+  fdComment: number;
+  fdPutAway: number;
 }
+
 declare var FXInfo: FXInfo;
 
 interface FileInfo {
-	fileType: number;
-	fileCreator: number;
-	finderFlags: number;
-	location: Point;
-	reservedField: number;
+  fileType: number;
+  fileCreator: number;
+  finderFlags: number;
+  location: Point;
+  reservedField: number;
 }
+
 declare var FileInfo: FileInfo;
 
 interface FolderDesc {
-	descSize: number;
-	foldType: number;
-	flags: number;
-	foldClass: number;
-	foldLocation: number;
-	badgeSignature: number;
-	badgeType: number;
-	reserved: number;
-	name: number;
+  descSize: number;
+  foldType: number;
+  flags: number;
+  foldClass: number;
+  foldLocation: number;
+  badgeSignature: number;
+  badgeType: number;
+  reserved: number;
+  name: number;
 }
+
 declare var FolderDesc: FolderDesc;
 
 interface FolderInfo {
-	windowBounds: Rect;
-	finderFlags: number;
-	location: Point;
-	reservedField: number;
+  windowBounds: Rect;
+  finderFlags: number;
+  location: Point;
+  reservedField: number;
 }
+
 declare var FolderInfo: FolderInfo;
 
 interface FolderRouting {
-	descSize: number;
-	fileType: number;
-	routeFromFolder: number;
-	routeToFolder: number;
-	flags: number;
+  descSize: number;
+  fileType: number;
+  routeFromFolder: number;
+  routeToFolder: number;
+  flags: number;
 }
+
 declare var FolderRouting: FolderRouting;
 
 interface FormatVersionChunk {
-	ckID: number;
-	ckSize: number;
-	timestamp: number;
+  ckID: number;
+  ckSize: number;
+  timestamp: number;
 }
+
 declare var FormatVersionChunk: FormatVersionChunk;
+
 
 declare const FormatVersionID: number;
 
@@ -1210,643 +1284,443 @@ declare const ForwardBackwardLooping: number;
 declare const ForwardLooping: number;
 
 declare const GREATERTHAN: number;
-
 declare function GetScriptInfoFromTextEncoding(iEncoding: number, oTextScriptID: number, oTextLanguageID: number): number;
-
 declare function GetTextEncodingBase(encoding: number): number;
-
 declare function GetTextEncodingFormat(encoding: number): number;
-
 declare function GetTextEncodingFromScriptInfo(iTextScriptID: number, iTextLanguageID: number, iTextRegionID: number, oEncoding: number): number;
-
 declare function GetTextEncodingName(iEncoding: number, iNamePartSelector: number, iPreferredRegion: number, iPreferredEncoding: number, iOutputBufLen: number, oNameLength: number, oActualRegion: number, oActualEncoding: number, oEncodingName: string | any): number;
-
 declare function GetTextEncodingVariant(encoding: number): number;
-
 interface GetVolParmsInfoBuffer {
-	vMVersion: number;
-	vMAttrib: number;
-	vMLocalHand: string;
-	vMServerAdr: number;
-	vMVolumeGrade: number;
-	vMForeignPrivID: number;
-	vMExtendedAttributes: number;
-	vMDeviceID: any;
-	vMMaxNameLength: number;
+  vMVersion: number;
+  vMAttrib: number;
+  vMLocalHand: string;
+  vMServerAdr: number;
+  vMVolumeGrade: number;
+  vMForeignPrivID: number;
+  vMExtendedAttributes: number;
+  vMDeviceID: any;
+  vMMaxNameLength: number;
 }
+
 declare var GetVolParmsInfoBuffer: GetVolParmsInfoBuffer;
 
-declare const HDActivity: number;
 
+declare const HDActivity: number;
 interface IconFamilyElement {
-	elementType: number;
-	elementSize: number;
-	elementData: number;
+  elementType: number;
+  elementSize: number;
+  elementData: number;
 }
+
 declare var IconFamilyElement: IconFamilyElement;
 
 interface IconFamilyResource {
-	resourceType: number;
-	resourceSize: number;
-	elements: IconFamilyElement;
+  resourceType: number;
+  resourceSize: number;
+  elements: IconFamilyElement;
 }
+
 declare var IconFamilyResource: IconFamilyResource;
 
-declare const IdleActivity: number;
 
+declare const IdleActivity: number;
 interface InstrumentChunk {
-	ckID: number;
-	ckSize: number;
-	baseFrequency: number;
-	detune: number;
-	lowFrequency: number;
-	highFrequency: number;
-	lowVelocity: number;
-	highVelocity: number;
-	gain: number;
-	sustainLoop: AIFFLoop;
-	releaseLoop: AIFFLoop;
+  ckID: number;
+  ckSize: number;
+  baseFrequency: number;
+  detune: number;
+  lowFrequency: number;
+  highFrequency: number;
+  lowVelocity: number;
+  highVelocity: number;
+  gain: number;
+  sustainLoop: AIFFLoop;
+  releaseLoop: AIFFLoop;
 }
+
 declare var InstrumentChunk: InstrumentChunk;
 
-declare const InstrumentID: number;
 
+declare const InstrumentID: number;
 interface Intl0Rec {
-	decimalPt: number;
-	thousSep: number;
-	listSep: number;
-	currSym1: number;
-	currSym2: number;
-	currSym3: number;
-	currFmt: number;
-	dateOrder: number;
-	shrtDateFmt: number;
-	dateSep: number;
-	timeCycle: number;
-	timeFmt: number;
-	mornStr: number;
-	eveStr: number;
-	timeSep: number;
-	time1Suff: number;
-	time2Suff: number;
-	time3Suff: number;
-	time4Suff: number;
-	time5Suff: number;
-	time6Suff: number;
-	time7Suff: number;
-	time8Suff: number;
-	metricSys: number;
-	intl0Vers: number;
+  decimalPt: number;
+  thousSep: number;
+  listSep: number;
+  currSym1: number;
+  currSym2: number;
+  currSym3: number;
+  currFmt: number;
+  dateOrder: number;
+  shrtDateFmt: number;
+  dateSep: number;
+  timeCycle: number;
+  timeFmt: number;
+  mornStr: number;
+  eveStr: number;
+  timeSep: number;
+  time1Suff: number;
+  time2Suff: number;
+  time3Suff: number;
+  time4Suff: number;
+  time5Suff: number;
+  time6Suff: number;
+  time7Suff: number;
+  time8Suff: number;
+  metricSys: number;
+  intl0Vers: number;
 }
+
 declare var Intl0Rec: Intl0Rec;
 
 interface Intl1Rec {
-	days: number;
-	months: number;
-	suppressDay: number;
-	lngDateFmt: number;
-	dayLeading0: number;
-	abbrLen: number;
-	st0: number;
-	st1: number;
-	st2: number;
-	st3: number;
-	st4: number;
-	intl1Vers: number;
-	localRtn: number;
+  days: number;
+  months: number;
+  suppressDay: number;
+  lngDateFmt: number;
+  dayLeading0: number;
+  abbrLen: number;
+  st0: number;
+  st1: number;
+  st2: number;
+  st3: number;
+  st4: number;
+  intl1Vers: number;
+  localRtn: number;
 }
+
 declare var Intl1Rec: Intl1Rec;
 
 interface IntlText {
-	theScriptCode: number;
-	theLangCode: number;
-	theText: number;
+  theScriptCode: number;
+  theLangCode: number;
+  theText: number;
 }
+
 declare var IntlText: IntlText;
 
 declare function InvokeAECoerceDescUPP(fromDesc: AEDesc, toType: number, handlerRefcon: any, toDesc: AEDesc, userUPP: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number): number;
-
 declare function InvokeAECoercePtrUPP(typeCode: number, dataPtr: any, dataSize: number, toType: number, handlerRefcon: any, result: AEDesc, userUPP: (p1: number, p2: any, p3: number, p4: number, p5: any, p6: AEDesc) => number): number;
-
 declare function InvokeAEDisposeExternalUPP(dataPtr: any, dataLength: number, refcon: any, userUPP: (p1: any, p2: number, p3: any) => void): void;
-
 declare function InvokeAEEventHandlerUPP(theAppleEvent: AEDesc, reply: AEDesc, handlerRefcon: any, userUPP: (p1: AEDesc, p2: AEDesc, p3: any) => number): number;
-
-declare function InvokeIndexToUCStringUPP(index: number, listDataPtr: any, refcon: any, outString: string, tsOptions: number, userUPP: (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean): boolean;
-
+declare function InvokeIndexToUCStringUPP(index: number, listDataPtr: any, refcon: any, outString: NSObject, tsOptions: number, userUPP: (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean): boolean;
 declare function InvokeOSLAccessorUPP(desiredClass: number, container: AEDesc, containerClass: number, form: number, selectionData: AEDesc, value: AEDesc, accessorRefcon: any, userUPP: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number): number;
-
 declare function InvokeOSLAdjustMarksUPP(newStart: number, newStop: number, markToken: AEDesc, userUPP: (p1: number, p2: number, p3: AEDesc) => number): number;
-
 declare function InvokeOSLCompareUPP(oper: number, obj1: AEDesc, obj2: AEDesc, result: string | any, userUPP: (p1: number, p2: AEDesc, p3: AEDesc, p4: string) => number): number;
-
 declare function InvokeOSLCountUPP(desiredType: number, containerClass: number, container: AEDesc, result: number, userUPP: (p1: number, p2: number, p3: AEDesc, p4: number) => number): number;
-
 declare function InvokeOSLDisposeTokenUPP(unneededToken: AEDesc, userUPP: (p1: AEDesc) => number): number;
-
 declare function InvokeOSLGetErrDescUPP(appDescPtr: AEDesc, userUPP: (p1: AEDesc) => number): number;
-
 declare function InvokeOSLGetMarkTokenUPP(dContainerToken: AEDesc, containerClass: number, result: AEDesc, userUPP: (p1: AEDesc, p2: number, p3: AEDesc) => number): number;
-
 declare function InvokeOSLMarkUPP(dToken: AEDesc, markToken: AEDesc, index: number, userUPP: (p1: AEDesc, p2: AEDesc, p3: number) => number): number;
-
 declare function InvokeUnicodeToTextFallbackUPP(iSrcUniStr: number, iSrcUniStrLen: number, oSrcConvLen: number, oDestStr: string | any, iDestStrLen: number, oDestConvLen: number, iInfoPtr: any, iUnicodeMappingPtr: UnicodeMapping, userUPP: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number): number;
-
 interface Itl1ExtRec {
-	base: Intl1Rec;
-	version: number;
-	format: number;
-	calendarCode: number;
-	extraDaysTableOffset: number;
-	extraDaysTableLength: number;
-	extraMonthsTableOffset: number;
-	extraMonthsTableLength: number;
-	abbrevDaysTableOffset: number;
-	abbrevDaysTableLength: number;
-	abbrevMonthsTableOffset: number;
-	abbrevMonthsTableLength: number;
-	extraSepsTableOffset: number;
-	extraSepsTableLength: number;
-	tables: number;
+  base: Intl1Rec;
+  version: number;
+  format: number;
+  calendarCode: number;
+  extraDaysTableOffset: number;
+  extraDaysTableLength: number;
+  extraMonthsTableOffset: number;
+  extraMonthsTableLength: number;
+  abbrevDaysTableOffset: number;
+  abbrevDaysTableLength: number;
+  abbrevMonthsTableOffset: number;
+  abbrevMonthsTableLength: number;
+  extraSepsTableOffset: number;
+  extraSepsTableLength: number;
+  tables: number;
 }
+
 declare var Itl1ExtRec: Itl1ExtRec;
 
 interface Itl4Rec {
-	flags: number;
-	resourceType: number;
-	resourceNum: number;
-	version: number;
-	resHeader1: number;
-	resHeader2: number;
-	numTables: number;
-	mapOffset: number;
-	strOffset: number;
-	fetchOffset: number;
-	unTokenOffset: number;
-	defPartsOffset: number;
-	resOffset6: number;
-	resOffset7: number;
-	resOffset8: number;
+  flags: number;
+  resourceType: number;
+  resourceNum: number;
+  version: number;
+  resHeader1: number;
+  resHeader2: number;
+  numTables: number;
+  mapOffset: number;
+  strOffset: number;
+  fetchOffset: number;
+  unTokenOffset: number;
+  defPartsOffset: number;
+  resOffset6: number;
+  resOffset7: number;
+  resOffset8: number;
 }
+
 declare var Itl4Rec: Itl4Rec;
 
 interface Itl5Record {
-	versionNumber: number;
-	numberOfTables: number;
-	reserved: number;
-	tableDirectory: TableDirectoryRecord;
+  versionNumber: number;
+  numberOfTables: number;
+  reserved: number;
+  tableDirectory: TableDirectoryRecord;
 }
+
 declare var Itl5Record: Itl5Record;
 
 interface ItlbExtRecord {
-	base: ItlbRecord;
-	itlbLocalSize: number;
-	itlbMonoFond: number;
-	itlbMonoSize: number;
-	itlbPrefFond: number;
-	itlbPrefSize: number;
-	itlbSmallFond: number;
-	itlbSmallSize: number;
-	itlbSysFond: number;
-	itlbSysSize: number;
-	itlbAppFond: number;
-	itlbAppSize: number;
-	itlbHelpFond: number;
-	itlbHelpSize: number;
-	itlbValidStyles: number;
-	itlbAliasStyle: number;
+  base: ItlbRecord;
+  itlbLocalSize: number;
+  itlbMonoFond: number;
+  itlbMonoSize: number;
+  itlbPrefFond: number;
+  itlbPrefSize: number;
+  itlbSmallFond: number;
+  itlbSmallSize: number;
+  itlbSysFond: number;
+  itlbSysSize: number;
+  itlbAppFond: number;
+  itlbAppSize: number;
+  itlbHelpFond: number;
+  itlbHelpSize: number;
+  itlbValidStyles: number;
+  itlbAliasStyle: number;
 }
+
 declare var ItlbExtRecord: ItlbExtRecord;
 
 interface ItlbRecord {
-	itlbNumber: number;
-	itlbDate: number;
-	itlbSort: number;
-	itlbFlags: number;
-	itlbToken: number;
-	itlbEncoding: number;
-	itlbLang: number;
-	itlbNumRep: number;
-	itlbDateRep: number;
-	itlbKeys: number;
-	itlbIcon: number;
+  itlbNumber: number;
+  itlbDate: number;
+  itlbSort: number;
+  itlbFlags: number;
+  itlbToken: number;
+  itlbEncoding: number;
+  itlbLang: number;
+  itlbNumRep: number;
+  itlbDateRep: number;
+  itlbKeys: number;
+  itlbIcon: number;
 }
+
 declare var ItlbRecord: ItlbRecord;
 
 interface ItlcRecord {
-	itlcSystem: number;
-	itlcReserved: number;
-	itlcFontForce: number;
-	itlcIntlForce: number;
-	itlcOldKybd: number;
-	itlcFlags: number;
-	itlcIconOffset: number;
-	itlcIconSide: number;
-	itlcIconRsvd: number;
-	itlcRegionCode: number;
-	itlcSysFlags: number;
-	itlcReserved4: number;
+  itlcSystem: number;
+  itlcReserved: number;
+  itlcFontForce: number;
+  itlcIntlForce: number;
+  itlcOldKybd: number;
+  itlcFlags: number;
+  itlcIconOffset: number;
+  itlcIconSide: number;
+  itlcIconRsvd: number;
+  itlcRegionCode: number;
+  itlcSysFlags: number;
+  itlcReserved4: number;
 }
+
 declare var ItlcRecord: ItlcRecord;
 
-declare const KAEISHandleCGI: number;
 
+declare const KAEISHandleCGI: number;
 interface KCCallbackInfo {
-	version: number;
-	item: any;
-	processID: number;
-	event: number;
-	keychain: any;
+  version: number;
+  item: any;
+  processID: number;
+  event: number;
+  keychain: any;
 }
+
 declare var KCCallbackInfo: KCCallbackInfo;
 
+
 declare const LESSTHAN: number;
-
-enum LSAcceptanceFlags {
-
-	kLSAcceptDefault = 1,
-
-	kLSAcceptAllowLoginUI = 2
-}
-
-
 interface LSApplicationParameters {
-	version: number;
-	flags: LSLaunchFlags;
-	application: FSRef;
-	asyncLaunchRefCon: any;
-	environment: NSDictionary<any, any>;
-	argv: NSArray<any>;
-	initialEvent: AEDesc;
+  version: number;
+  flags: LSLaunchFlags;
+  application: FSRef;
+  asyncLaunchRefCon: any;
+  environment: NSObject;
+  argv: NSObject;
+  initialEvent: AEDesc;
 }
+
 declare var LSApplicationParameters: LSApplicationParameters;
 
-declare function LSCanURLAcceptURL(inItemURL: NSURL, inTargetURL: NSURL, inRoleMask: LSRolesMask, inFlags: LSAcceptanceFlags, outAcceptsItem: string | any): number;
-
-declare function LSCopyAllRoleHandlersForContentType(inContentType: string, inRole: LSRolesMask): NSArray<any>;
-
-declare function LSCopyApplicationURLsForBundleIdentifier(inBundleIdentifier: string, outError: NSError): NSArray<any>;
-
-declare function LSCopyApplicationURLsForURL(inURL: NSURL, inRoleMask: LSRolesMask): NSArray<any>;
-
-declare function LSCopyDefaultApplicationURLForContentType(inContentType: string, inRoleMask: LSRolesMask, outError: NSError): NSURL;
-
-declare function LSCopyDefaultApplicationURLForURL(inURL: NSURL, inRoleMask: LSRolesMask, outError: NSError): NSURL;
-
-declare function LSCopyDefaultRoleHandlerForContentType(inContentType: string, inRole: LSRolesMask): string;
-
-enum LSHandlerOptions {
-
-	kLSHandlerOptionsDefault = 0,
-
-	kLSHandlerOptionsIgnoreCreator = 1
-}
-
-
-enum LSItemInfoFlags {
-
-	kLSItemInfoIsPlainFile = 1,
-
-	kLSItemInfoIsPackage = 2,
-
-	kLSItemInfoIsApplication = 4,
-
-	kLSItemInfoIsContainer = 8,
-
-	kLSItemInfoIsAliasFile = 16,
-
-	kLSItemInfoIsSymlink = 32,
-
-	kLSItemInfoIsInvisible = 64,
-
-	kLSItemInfoIsNativeApp = 128,
-
-	kLSItemInfoIsClassicApp = 256,
-
-	kLSItemInfoAppPrefersNative = 512,
-
-	kLSItemInfoAppPrefersClassic = 1024,
-
-	kLSItemInfoAppIsScriptable = 2048,
-
-	kLSItemInfoIsVolume = 4096,
-
-	kLSItemInfoExtensionIsHidden = 1048576
-}
-
-
+declare function LSCanURLAcceptURL(inItemURL: NSObject, inTargetURL: NSObject, inRoleMask: LSRolesMask, inFlags: LSAcceptanceFlags, outAcceptsItem: string | any): number;
+declare function LSCopyAllRoleHandlersForContentType(inContentType: NSObject, inRole: LSRolesMask): NSObject;
+declare function LSCopyApplicationURLsForBundleIdentifier(inBundleIdentifier: NSObject, outError: NSObject): NSObject;
+declare function LSCopyApplicationURLsForURL(inURL: NSObject, inRoleMask: LSRolesMask): NSObject;
+declare function LSCopyDefaultApplicationURLForContentType(inContentType: NSObject, inRoleMask: LSRolesMask, outError: NSObject): NSObject;
+declare function LSCopyDefaultApplicationURLForURL(inURL: NSObject, inRoleMask: LSRolesMask, outError: NSObject): NSObject;
+declare function LSCopyDefaultRoleHandlerForContentType(inContentType: NSObject, inRole: LSRolesMask): NSObject;
 interface LSItemInfoRecord {
-	flags: LSItemInfoFlags;
-	filetype: number;
-	creator: number;
-	extension: string;
+  flags: LSItemInfoFlags;
+  filetype: number;
+  creator: number;
+  extension: NSObject;
 }
+
 declare var LSItemInfoRecord: LSItemInfoRecord;
 
 interface LSLaunchFSRefSpec {
-	appRef: FSRef;
-	numDocs: number;
-	itemRefs: FSRef;
-	passThruParams: AEDesc;
-	launchFlags: LSLaunchFlags;
-	asyncRefCon: any;
+  appRef: FSRef;
+  numDocs: number;
+  itemRefs: FSRef;
+  passThruParams: AEDesc;
+  launchFlags: LSLaunchFlags;
+  asyncRefCon: any;
 }
+
 declare var LSLaunchFSRefSpec: LSLaunchFSRefSpec;
 
-enum LSLaunchFlags {
-
-	kLSLaunchDefaults = 1,
-
-	kLSLaunchAndPrint = 2,
-
-	kLSLaunchAndDisplayErrors = 64,
-
-	kLSLaunchDontAddToRecents = 256,
-
-	kLSLaunchDontSwitch = 512,
-
-	kLSLaunchAsync = 65536,
-
-	kLSLaunchNewInstance = 524288,
-
-	kLSLaunchAndHide = 1048576,
-
-	kLSLaunchAndHideOthers = 2097152
-}
-
-
 interface LSLaunchURLSpec {
-	appURL: NSURL;
-	itemURLs: NSArray<any>;
-	passThruParams: AEDesc;
-	launchFlags: LSLaunchFlags;
-	asyncRefCon: any;
+  appURL: NSObject;
+  itemURLs: NSObject;
+  passThruParams: AEDesc;
+  launchFlags: LSLaunchFlags;
+  asyncRefCon: any;
 }
+
 declare var LSLaunchURLSpec: LSLaunchURLSpec;
 
-declare function LSOpenCFURLRef(inURL: NSURL, outLaunchedURL: NSURL): number;
-
-declare function LSOpenFromURLSpec(inLaunchSpec: LSLaunchURLSpec, outLaunchedURL: NSURL): number;
-
-declare function LSRegisterURL(inURL: NSURL, inUpdate: boolean): number;
-
-enum LSRequestedInfo {
-
-	kLSRequestExtension = 1,
-
-	kLSRequestTypeCreator = 2,
-
-	kLSRequestBasicFlagsOnly = 4,
-
-	kLSRequestAppTypeFlags = 8,
-
-	kLSRequestAllFlags = 16,
-
-	kLSRequestIconAndKind = 32,
-
-	kLSRequestExtensionFlagsOnly = 64,
-
-	kLSRequestAllInfo = 4294967295
-}
-
-
-enum LSRolesMask {
-
-	kLSRolesNone = 1,
-
-	kLSRolesViewer = 2,
-
-	kLSRolesEditor = 4,
-
-	kLSRolesShell = 8,
-
-	kLSRolesAll = 4294967295
-}
-
-
-declare function LSSetDefaultHandlerForURLScheme(inURLScheme: string, inHandlerBundleID: string): number;
-
-declare function LSSetDefaultRoleHandlerForContentType(inContentType: string, inRole: LSRolesMask, inHandlerBundleID: string): number;
-
+declare function LSOpenCFURLRef(inURL: NSObject, outLaunchedURL: NSObject): number;
+declare function LSOpenFromURLSpec(inLaunchSpec: LSLaunchURLSpec, outLaunchedURL: NSObject): number;
+declare function LSRegisterURL(inURL: NSObject, inUpdate: boolean): number;
+declare function LSSetDefaultHandlerForURLScheme(inURLScheme: NSObject, inHandlerBundleID: NSObject): number;
+declare function LSSetDefaultRoleHandlerForContentType(inContentType: NSObject, inRole: LSRolesMask, inHandlerBundleID: NSObject): number;
 interface LocalDateTime {
-	highSeconds: number;
-	lowSeconds: number;
-	fraction: number;
+  highSeconds: number;
+  lowSeconds: number;
+  fraction: number;
 }
+
 declare var LocalDateTime: LocalDateTime;
 
 interface LocaleAndVariant {
-	locale: any;
-	opVariant: number;
+  locale: any;
+  opVariant: number;
 }
+
 declare var LocaleAndVariant: LocaleAndVariant;
 
 declare function LocaleOperationCountNames(opClass: number, nameCount: number): number;
-
 declare function LocaleOperationGetIndName(opClass: number, nameIndex: number, maxNameLen: number, actualNameLen: number, displayName: number, displayLocale: any): number;
-
 declare function LocaleOperationGetName(opClass: number, displayLocale: any, maxNameLen: number, actualNameLen: number, displayName: number): number;
-
 declare function LocaleRefFromLangOrRegionCode(lang: number, region: number, locale: any): number;
-
 declare function LocaleRefFromLocaleString(localeString: number, locale: any): number;
-
 declare function LocaleRefGetPartString(locale: any, partMask: number, maxStringLen: number, partString: number): number;
-
 declare function LocaleStringToLangAndRegionCodes(localeString: number, lang: number, region: number): number;
-
 declare function LongDoubleToSInt64(value: number): number;
-
 declare function LongDoubleToUInt64(value: number): number;
 
 declare const MACE3Type: number;
 
 declare const MACE6Type: number;
-
-declare function MDCopyLabelKinds(): NSArray<any>;
-
+declare function MDCopyLabelKinds(): NSObject;
 declare function MDCopyLabelWithUUID(labelUUID: any): any;
-
-declare function MDCopyLabelsMatchingExpression(simpleQueryString: string): NSArray<any>;
-
-declare function MDCopyLabelsWithKind(kind: string): NSArray<any>;
-
-declare function MDItemCopyAttribute(item: any, name: string): any;
-
-declare function MDItemCopyAttributeNames(item: any): NSArray<any>;
-
-declare function MDItemCopyAttributes(item: any, names: NSArray<any> | any[]): NSDictionary<any, any>;
-
-declare function MDItemCopyLabels(item: any): NSArray<any>;
-
-declare function MDItemCreate(allocator: any, path: string): any;
-
-declare function MDItemCreateWithURL(allocator: any, url: NSURL): any;
-
+declare function MDCopyLabelsMatchingExpression(simpleQueryString: NSObject): NSObject;
+declare function MDCopyLabelsWithKind(kind: NSObject): NSObject;
+declare function MDItemCopyAttribute(item: any, name: NSObject): any;
+declare function MDItemCopyAttributeNames(item: any): NSObject;
+declare function MDItemCopyAttributes(item: any, names: NSObject): NSObject;
+declare function MDItemCopyLabels(item: any): NSObject;
+declare function MDItemCreate(allocator: any, path: NSObject): any;
+declare function MDItemCreateWithURL(allocator: any, url: NSObject): any;
 declare function MDItemGetTypeID(): number;
-
 declare function MDItemRemoveLabel(item: any, label: any): boolean;
-
 declare function MDItemSetLabel(item: any, label: any): boolean;
-
-declare function MDItemsCopyAttributes(items: NSArray<any> | any[], names: NSArray<any> | any[]): NSArray<any>;
-
-declare function MDItemsCreateWithURLs(allocator: any, urls: NSArray<any> | any[]): NSArray<any>;
-
-declare function MDLabelCopyAttribute(label: any, name: string): any;
-
-declare function MDLabelCopyAttributeName(label: any): string;
-
-declare function MDLabelCreate(allocator: any, displayName: string, kind: string, domain: MDLabelDomain): any;
-
+declare function MDItemsCopyAttributes(items: NSObject, names: NSObject): NSObject;
+declare function MDItemsCreateWithURLs(allocator: any, urls: NSObject): NSObject;
+declare function MDLabelCopyAttribute(label: any, name: NSObject): any;
+declare function MDLabelCopyAttributeName(label: any): NSObject;
+declare function MDLabelCreate(allocator: any, displayName: NSObject, kind: NSObject, domain: MDLabelDomain): any;
 declare function MDLabelDelete(label: any): boolean;
-
-enum MDLabelDomain {
-
-	kMDLabelUserDomain = 0,
-
-	kMDLabelLocalDomain = 1
-}
-
-
 declare function MDLabelGetTypeID(): number;
-
-declare function MDLabelSetAttributes(label: any, attrs: NSDictionary<any, any>): boolean;
-
+declare function MDLabelSetAttributes(label: any, attrs: NSObject): boolean;
 interface MDQueryBatchingParams {
-	first_max_num: number;
-	first_max_ms: number;
-	progress_max_num: number;
-	progress_max_ms: number;
-	update_max_num: number;
-	update_max_ms: number;
+  first_max_num: number;
+  first_max_ms: number;
+  progress_max_num: number;
+  progress_max_ms: number;
+  update_max_num: number;
+  update_max_ms: number;
 }
+
 declare var MDQueryBatchingParams: MDQueryBatchingParams;
 
-declare function MDQueryCopyQueryString(query: any): string;
-
-declare function MDQueryCopySortingAttributes(query: any): NSArray<any>;
-
-declare function MDQueryCopyValueListAttributes(query: any): NSArray<any>;
-
-declare function MDQueryCopyValuesOfAttribute(query: any, name: string): NSArray<any>;
-
-declare function MDQueryCreate(allocator: any, queryString: string, valueListAttrs: NSArray<any> | any[], sortingAttrs: NSArray<any> | any[]): any;
-
-declare function MDQueryCreateForItems(allocator: any, queryString: string, valueListAttrs: NSArray<any> | any[], sortingAttrs: NSArray<any> | any[], items: NSArray<any> | any[]): any;
-
-declare function MDQueryCreateSubset(allocator: any, query: any, queryString: string, valueListAttrs: NSArray<any> | any[], sortingAttrs: NSArray<any> | any[]): any;
-
+declare function MDQueryCopyQueryString(query: any): NSObject;
+declare function MDQueryCopySortingAttributes(query: any): NSObject;
+declare function MDQueryCopyValueListAttributes(query: any): NSObject;
+declare function MDQueryCopyValuesOfAttribute(query: any, name: NSObject): NSObject;
+declare function MDQueryCreate(allocator: any, queryString: NSObject, valueListAttrs: NSObject, sortingAttrs: NSObject): any;
+declare function MDQueryCreateForItems(allocator: any, queryString: NSObject, valueListAttrs: NSObject, sortingAttrs: NSObject, items: NSObject): any;
+declare function MDQueryCreateSubset(allocator: any, query: any, queryString: NSObject, valueListAttrs: NSObject, sortingAttrs: NSObject): any;
 declare function MDQueryDisableUpdates(query: any): void;
-
 declare function MDQueryEnableUpdates(query: any): void;
-
 declare function MDQueryExecute(query: any, optionFlags: number): boolean;
-
-declare function MDQueryGetAttributeValueOfResultAtIndex(query: any, name: string, idx: number): any;
-
+declare function MDQueryGetAttributeValueOfResultAtIndex(query: any, name: NSObject, idx: number): any;
 declare function MDQueryGetBatchingParameters(query: any): MDQueryBatchingParams;
-
-declare function MDQueryGetCountOfResultsWithAttributeValue(query: any, name: string, value: any): number;
-
+declare function MDQueryGetCountOfResultsWithAttributeValue(query: any, name: NSObject, value: any): number;
 declare function MDQueryGetIndexOfResult(query: any, result: any): number;
-
 declare function MDQueryGetResultAtIndex(query: any, idx: number): any;
-
 declare function MDQueryGetResultCount(query: any): number;
-
-declare function MDQueryGetSortOptionFlagsForAttribute(query: any, fieldName: string): number;
-
+declare function MDQueryGetSortOptionFlagsForAttribute(query: any, fieldName: NSObject): number;
 declare function MDQueryGetTypeID(): number;
-
 declare function MDQueryIsGatheringComplete(query: any): boolean;
-
-enum MDQueryOptionFlags {
-
-	kMDQuerySynchronous = 1,
-
-	kMDQueryWantsUpdates = 4,
-
-	kMDQueryAllowFSTranslation = 8
-}
-
-
 declare function MDQuerySetBatchingParameters(query: any, params: MDQueryBatchingParams): void;
-
 declare function MDQuerySetCreateResultFunction(query: any, func: (p1: any, p2: any, p3: any) => any, context: any, cb: CFArrayCallBacks): void;
-
-declare function MDQuerySetCreateValueFunction(query: any, func: (p1: any, p2: string, p3: any, p4: any) => any, context: any, cb: CFArrayCallBacks): void;
-
+declare function MDQuerySetCreateValueFunction(query: any, func: (p1: any, p2: NSObject, p3: any, p4: any) => any, context: any, cb: CFArrayCallBacks): void;
 declare function MDQuerySetDispatchQueue(query: any, queue: NSObject): void;
-
 declare function MDQuerySetMaxCount(query: any, size: number): void;
-
-declare function MDQuerySetSearchScope(query: any, scopeDirectories: NSArray<any> | any[], scopeOptions: number): void;
-
+declare function MDQuerySetSearchScope(query: any, scopeDirectories: NSObject, scopeOptions: number): void;
 declare function MDQuerySetSortComparator(query: any, comparator: (p1: any, p2: any, p3: any) => CFComparisonResult, context: any): void;
-
 declare function MDQuerySetSortComparatorBlock(query: any, comparator: (p1: any, p2: any) => CFComparisonResult): void;
-
-declare function MDQuerySetSortOptionFlagsForAttribute(query: any, fieldName: string, flags: number): boolean;
-
-declare function MDQuerySetSortOrder(query: any, sortingAttrs: NSArray<any> | any[]): boolean;
-
-enum MDQuerySortOptionFlags {
-
-	kMDQueryReverseSortOrderFlag = 1
-}
-
-
+declare function MDQuerySetSortOptionFlagsForAttribute(query: any, fieldName: NSObject, flags: number): boolean;
+declare function MDQuerySetSortOrder(query: any, sortingAttrs: NSObject): boolean;
 declare function MDQueryStop(query: any): void;
-
-declare function MDSchemaCopyAllAttributes(): NSArray<any>;
-
-declare function MDSchemaCopyAttributesForContentType(contentTypeUTI: string): NSDictionary<any, any>;
-
-declare function MDSchemaCopyDisplayDescriptionForAttribute(name: string): string;
-
-declare function MDSchemaCopyDisplayNameForAttribute(name: string): string;
-
-declare function MDSchemaCopyMetaAttributesForAttribute(name: string): NSDictionary<any, any>;
-
+declare function MDSchemaCopyAllAttributes(): NSObject;
+declare function MDSchemaCopyAttributesForContentType(contentTypeUTI: NSObject): NSObject;
+declare function MDSchemaCopyDisplayDescriptionForAttribute(name: NSObject): NSObject;
+declare function MDSchemaCopyDisplayNameForAttribute(name: NSObject): NSObject;
+declare function MDSchemaCopyMetaAttributesForAttribute(name: NSObject): NSObject;
 interface MIDIDataChunk {
-	ckID: number;
-	ckSize: number;
-	MIDIdata: number;
+  ckID: number;
+  ckSize: number;
+  MIDIdata: number;
 }
+
 declare var MIDIDataChunk: MIDIDataChunk;
 
-declare const MIDIDataID: number;
 
+declare const MIDIDataID: number;
 interface MPAddressSpaceInfo {
-	version: number;
-	processID: any;
-	groupID: any;
-	nTasks: number;
-	vsid: number;
+  version: number;
+  processID: any;
+  groupID: any;
+  nTasks: number;
+  vsid: number;
 }
+
 declare var MPAddressSpaceInfo: MPAddressSpaceInfo;
 
 interface MPCriticalRegionInfo {
-	version: number;
-	processID: any;
-	regionName: number;
-	nWaiting: number;
-	waitingTaskID: any;
-	owningTask: any;
-	count: number;
+  version: number;
+  processID: any;
+  regionName: number;
+  nWaiting: number;
+  waitingTaskID: any;
+  owningTask: any;
+  count: number;
 }
+
 declare var MPCriticalRegionInfo: MPCriticalRegionInfo;
 
 interface MPEventInfo {
-	version: number;
-	processID: any;
-	eventName: number;
-	nWaiting: number;
-	waitingTaskID: any;
-	events: number;
+  version: number;
+  processID: any;
+  eventName: number;
+  nWaiting: number;
+  waitingTaskID: any;
+  events: number;
 }
+
 declare var MPEventInfo: MPEventInfo;
+
 
 declare const MPLibrary_DevelopmentRevision: number;
 
@@ -1855,219 +1729,217 @@ declare const MPLibrary_MajorVersion: number;
 declare const MPLibrary_MinorVersion: number;
 
 declare const MPLibrary_Release: number;
-
 interface MPNotificationInfo {
-	version: number;
-	processID: any;
-	notificationName: number;
-	queueID: any;
-	p1: any;
-	p2: any;
-	p3: any;
-	eventID: any;
-	events: number;
-	semaphoreID: any;
+  version: number;
+  processID: any;
+  notificationName: number;
+  queueID: any;
+  p1: any;
+  p2: any;
+  p3: any;
+  eventID: any;
+  events: number;
+  semaphoreID: any;
 }
+
 declare var MPNotificationInfo: MPNotificationInfo;
 
 interface MPQueueInfo {
-	version: number;
-	processID: any;
-	queueName: number;
-	nWaiting: number;
-	waitingTaskID: any;
-	nMessages: number;
-	nReserved: number;
-	p1: any;
-	p2: any;
-	p3: any;
+  version: number;
+  processID: any;
+  queueName: number;
+  nWaiting: number;
+  waitingTaskID: any;
+  nMessages: number;
+  nReserved: number;
+  p1: any;
+  p2: any;
+  p3: any;
 }
+
 declare var MPQueueInfo: MPQueueInfo;
 
 interface MPSemaphoreInfo {
-	version: number;
-	processID: any;
-	semaphoreName: number;
-	nWaiting: number;
-	waitingTaskID: any;
-	maximum: number;
-	count: number;
+  version: number;
+  processID: any;
+  semaphoreName: number;
+  nWaiting: number;
+  waitingTaskID: any;
+  maximum: number;
+  count: number;
 }
+
 declare var MPSemaphoreInfo: MPSemaphoreInfo;
 
 interface MPTaskInfo {
-	version: number;
-	name: number;
-	queueName: number;
-	runState: number;
-	lastCPU: number;
-	weight: number;
-	processID: any;
-	cpuTime: UnsignedWide;
-	schedTime: UnsignedWide;
-	creationTime: UnsignedWide;
-	codePageFaults: number;
-	dataPageFaults: number;
-	preemptions: number;
-	cpuID: any;
-	blockedObject: any;
-	spaceID: any;
-	stackBase: any;
-	stackLimit: any;
-	stackCurr: any;
+  version: number;
+  name: number;
+  queueName: number;
+  runState: number;
+  lastCPU: number;
+  weight: number;
+  processID: any;
+  cpuTime: UnsignedWide;
+  schedTime: UnsignedWide;
+  creationTime: UnsignedWide;
+  codePageFaults: number;
+  dataPageFaults: number;
+  preemptions: number;
+  cpuID: any;
+  blockedObject: any;
+  spaceID: any;
+  stackBase: any;
+  stackLimit: any;
+  stackCurr: any;
 }
+
 declare var MPTaskInfo: MPTaskInfo;
 
 interface MPTaskInfoVersion2 {
-	version: number;
-	name: number;
-	queueName: number;
-	runState: number;
-	lastCPU: number;
-	weight: number;
-	processID: any;
-	cpuTime: UnsignedWide;
-	schedTime: UnsignedWide;
-	creationTime: UnsignedWide;
-	codePageFaults: number;
-	dataPageFaults: number;
-	preemptions: number;
-	cpuID: any;
+  version: number;
+  name: number;
+  queueName: number;
+  runState: number;
+  lastCPU: number;
+  weight: number;
+  processID: any;
+  cpuTime: UnsignedWide;
+  schedTime: UnsignedWide;
+  creationTime: UnsignedWide;
+  codePageFaults: number;
+  dataPageFaults: number;
+  preemptions: number;
+  cpuID: any;
 }
+
 declare var MPTaskInfoVersion2: MPTaskInfoVersion2;
 
 interface MachineInformationIntel64 {
-	CS: number;
-	FS: number;
-	GS: number;
-	RFLAGS: number;
-	RIP: number;
-	ExceptTrap: number;
-	ExceptErr: number;
-	ExceptAddr: number;
+  CS: number;
+  FS: number;
+  GS: number;
+  RFLAGS: number;
+  RIP: number;
+  ExceptTrap: number;
+  ExceptErr: number;
+  ExceptAddr: number;
 }
+
 declare var MachineInformationIntel64: MachineInformationIntel64;
 
 interface MachineInformationPowerPC {
-	CTR: UnsignedWide;
-	LR: UnsignedWide;
-	PC: UnsignedWide;
-	CRRegister: number;
-	XER: number;
-	MSR: number;
-	MQ: number;
-	ExceptKind: number;
-	DSISR: number;
-	DAR: UnsignedWide;
-	Reserved: UnsignedWide;
+  CTR: UnsignedWide;
+  LR: UnsignedWide;
+  PC: UnsignedWide;
+  CRRegister: number;
+  XER: number;
+  MSR: number;
+  MQ: number;
+  ExceptKind: number;
+  DSISR: number;
+  DAR: UnsignedWide;
+  Reserved: UnsignedWide;
 }
+
 declare var MachineInformationPowerPC: MachineInformationPowerPC;
 
 interface Marker {
-	id: number;
-	position: number;
-	markerName: number;
+  id: number;
+  position: number;
+  markerName: number;
 }
+
 declare var Marker: Marker;
 
 interface MarkerChunk {
-	ckID: number;
-	ckSize: number;
-	numMarkers: number;
-	Markers: Marker;
+  ckID: number;
+  ckSize: number;
+  numMarkers: number;
+  Markers: Marker;
 }
+
 declare var MarkerChunk: MarkerChunk;
 
-declare const MarkerID: number;
 
+declare const MarkerID: number;
 interface MemoryExceptionInformation {
-	theArea: any;
-	theAddress: any;
-	theError: number;
-	theReference: number;
+  theArea: any;
+  theAddress: any;
+  theError: number;
+  theReference: number;
 }
+
 declare var MemoryExceptionInformation: MemoryExceptionInformation;
 
 interface MixedModeStateRecord {
-	state1: number;
-	state2: number;
-	state3: number;
-	state4: number;
+  state1: number;
+  state2: number;
+  state3: number;
+  state4: number;
 }
+
 declare var MixedModeStateRecord: MixedModeStateRecord;
 
 interface NItl4Rec {
-	flags: number;
-	resourceType: number;
-	resourceNum: number;
-	version: number;
-	format: number;
-	resHeader: number;
-	resHeader2: number;
-	numTables: number;
-	mapOffset: number;
-	strOffset: number;
-	fetchOffset: number;
-	unTokenOffset: number;
-	defPartsOffset: number;
-	whtSpListOffset: number;
-	resOffset7: number;
-	resOffset8: number;
-	resLength1: number;
-	resLength2: number;
-	resLength3: number;
-	unTokenLength: number;
-	defPartsLength: number;
-	whtSpListLength: number;
-	resLength7: number;
-	resLength8: number;
+  flags: number;
+  resourceType: number;
+  resourceNum: number;
+  version: number;
+  format: number;
+  resHeader: number;
+  resHeader2: number;
+  numTables: number;
+  mapOffset: number;
+  strOffset: number;
+  fetchOffset: number;
+  unTokenOffset: number;
+  defPartsOffset: number;
+  whtSpListOffset: number;
+  resOffset7: number;
+  resOffset8: number;
+  resLength1: number;
+  resLength2: number;
+  resLength3: number;
+  unTokenLength: number;
+  defPartsLength: number;
+  whtSpListLength: number;
+  resLength7: number;
+  resLength8: number;
 }
+
 declare var NItl4Rec: NItl4Rec;
 
-declare const NameID: number;
 
+declare const NameID: number;
 declare function NearestMacTextEncodings(generalEncoding: number, bestMacEncoding: number, alternateMacEncoding: number): number;
 
 declare const NetActivity: number;
-
 declare function NewAECoerceDescUPP(userRoutine: (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number): (p1: AEDesc, p2: number, p3: any, p4: AEDesc) => number;
-
 declare function NewAECoercePtrUPP(userRoutine: (p1: number, p2: any, p3: number, p4: number, p5: any, p6: AEDesc) => number): (p1: number, p2: any, p3: number, p4: number, p5: any, p6: AEDesc) => number;
-
 declare function NewAEDisposeExternalUPP(userRoutine: (p1: any, p2: number, p3: any) => void): (p1: any, p2: number, p3: any) => void;
-
 declare function NewAEEventHandlerUPP(userRoutine: (p1: AEDesc, p2: AEDesc, p3: any) => number): (p1: AEDesc, p2: AEDesc, p3: any) => number;
-
-declare function NewIndexToUCStringUPP(userRoutine: (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean): (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean;
-
+declare function NewIndexToUCStringUPP(userRoutine: (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean): (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean;
 declare function NewOSLAccessorUPP(userRoutine: (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number): (p1: number, p2: AEDesc, p3: number, p4: number, p5: AEDesc, p6: AEDesc, p7: any) => number;
-
 declare function NewOSLAdjustMarksUPP(userRoutine: (p1: number, p2: number, p3: AEDesc) => number): (p1: number, p2: number, p3: AEDesc) => number;
-
 declare function NewOSLCompareUPP(userRoutine: (p1: number, p2: AEDesc, p3: AEDesc, p4: string) => number): (p1: number, p2: AEDesc, p3: AEDesc, p4: string) => number;
-
 declare function NewOSLCountUPP(userRoutine: (p1: number, p2: number, p3: AEDesc, p4: number) => number): (p1: number, p2: number, p3: AEDesc, p4: number) => number;
-
 declare function NewOSLDisposeTokenUPP(userRoutine: (p1: AEDesc) => number): (p1: AEDesc) => number;
-
 declare function NewOSLGetErrDescUPP(userRoutine: (p1: AEDesc) => number): (p1: AEDesc) => number;
-
 declare function NewOSLGetMarkTokenUPP(userRoutine: (p1: AEDesc, p2: number, p3: AEDesc) => number): (p1: AEDesc, p2: number, p3: AEDesc) => number;
-
 declare function NewOSLMarkUPP(userRoutine: (p1: AEDesc, p2: AEDesc, p3: number) => number): (p1: AEDesc, p2: AEDesc, p3: number) => number;
-
 declare function NewUnicodeToTextFallbackUPP(userRoutine: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number): (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number;
 
 declare const NoLooping: number;
 
 declare const NoneType: number;
-
 interface NumFormatString {
-	fLength: number;
-	fVersion: number;
-	data: number;
+  fLength: number;
+  fVersion: number;
+  data: number;
 }
+
 declare var NumFormatString: NumFormatString;
+
 
 declare const OSAControlFlowError: number;
 
@@ -2102,1151 +1974,977 @@ declare const OSATokenTooLong: number;
 declare const OSAUndefinedHandler: number;
 
 declare const OSAUndefinedVariable: number;
-
 interface OffPair {
-	offFirst: number;
-	offSecond: number;
+  offFirst: number;
+  offSecond: number;
 }
+
 declare var OffPair: OffPair;
 
 interface OffsetArray {
-	fNumOfOffsets: number;
-	fOffset: number;
+  fNumOfOffsets: number;
+  fOffset: number;
 }
+
 declare var OffsetArray: OffsetArray;
 
-declare const OverallAct: number;
 
+declare const OverallAct: number;
 interface PEFContainerHeader {
-	tag1: number;
-	tag2: number;
-	architecture: number;
-	formatVersion: number;
-	dateTimeStamp: number;
-	oldDefVersion: number;
-	oldImpVersion: number;
-	currentVersion: number;
-	sectionCount: number;
-	instSectionCount: number;
-	reservedA: number;
+  tag1: number;
+  tag2: number;
+  architecture: number;
+  formatVersion: number;
+  dateTimeStamp: number;
+  oldDefVersion: number;
+  oldImpVersion: number;
+  currentVersion: number;
+  sectionCount: number;
+  instSectionCount: number;
+  reservedA: number;
 }
+
 declare var PEFContainerHeader: PEFContainerHeader;
 
 interface PEFExportedSymbol {
-	classAndName: number;
-	symbolValue: number;
-	sectionIndex: number;
+  classAndName: number;
+  symbolValue: number;
+  sectionIndex: number;
 }
+
 declare var PEFExportedSymbol: PEFExportedSymbol;
 
 interface PEFExportedSymbolHashSlot {
-	countAndStart: number;
+  countAndStart: number;
 }
+
 declare var PEFExportedSymbolHashSlot: PEFExportedSymbolHashSlot;
 
 interface PEFImportedLibrary {
-	nameOffset: number;
-	oldImpVersion: number;
-	currentVersion: number;
-	importedSymbolCount: number;
-	firstImportedSymbol: number;
-	options: number;
-	reservedA: number;
-	reservedB: number;
+  nameOffset: number;
+  oldImpVersion: number;
+  currentVersion: number;
+  importedSymbolCount: number;
+  firstImportedSymbol: number;
+  options: number;
+  reservedA: number;
+  reservedB: number;
 }
+
 declare var PEFImportedLibrary: PEFImportedLibrary;
 
 interface PEFImportedSymbol {
-	classAndName: number;
+  classAndName: number;
 }
+
 declare var PEFImportedSymbol: PEFImportedSymbol;
 
 interface PEFLoaderInfoHeader {
-	mainSection: number;
-	mainOffset: number;
-	initSection: number;
-	initOffset: number;
-	termSection: number;
-	termOffset: number;
-	importedLibraryCount: number;
-	totalImportedSymbolCount: number;
-	relocSectionCount: number;
-	relocInstrOffset: number;
-	loaderStringsOffset: number;
-	exportHashOffset: number;
-	exportHashTablePower: number;
-	exportedSymbolCount: number;
+  mainSection: number;
+  mainOffset: number;
+  initSection: number;
+  initOffset: number;
+  termSection: number;
+  termOffset: number;
+  importedLibraryCount: number;
+  totalImportedSymbolCount: number;
+  relocSectionCount: number;
+  relocInstrOffset: number;
+  loaderStringsOffset: number;
+  exportHashOffset: number;
+  exportHashTablePower: number;
+  exportedSymbolCount: number;
 }
+
 declare var PEFLoaderInfoHeader: PEFLoaderInfoHeader;
 
 interface PEFLoaderRelocationHeader {
-	sectionIndex: number;
-	reservedA: number;
-	relocCount: number;
-	firstRelocOffset: number;
+  sectionIndex: number;
+  reservedA: number;
+  relocCount: number;
+  firstRelocOffset: number;
 }
+
 declare var PEFLoaderRelocationHeader: PEFLoaderRelocationHeader;
 
 interface PEFSectionHeader {
-	nameOffset: number;
-	defaultAddress: number;
-	totalLength: number;
-	unpackedLength: number;
-	containerLength: number;
-	containerOffset: number;
-	sectionKind: number;
-	shareKind: number;
-	alignment: number;
-	reservedA: number;
+  nameOffset: number;
+  defaultAddress: number;
+  totalLength: number;
+  unpackedLength: number;
+  containerLength: number;
+  containerOffset: number;
+  sectionKind: number;
+  shareKind: number;
+  alignment: number;
+  reservedA: number;
 }
+
 declare var PEFSectionHeader: PEFSectionHeader;
 
 interface PEFSplitHashWord {
-	nameLength: number;
-	hashValue: number;
+  nameLength: number;
+  hashValue: number;
 }
+
 declare var PEFSplitHashWord: PEFSplitHashWord;
 
 interface QElem {
-	qLink: QElem;
-	qType: number;
-	qData: number;
+  qLink: QElem;
+  qType: number;
+  qData: number;
 }
+
 declare var QElem: QElem;
 
 interface QHdr {
-	qFlags: number;
-	qHead: QElem;
-	qTail: QElem;
+  qFlags: number;
+  qHead: QElem;
+  qTail: QElem;
 }
+
 declare var QHdr: QHdr;
 
 declare function QueryUnicodeMappings(iFilter: number, iFindMapping: UnicodeMapping, iMaxCount: number, oActualCount: number, oReturnedMappings: UnicodeMapping): number;
-
 interface RegisterInformationIntel64 {
-	RAX: number;
-	RBX: number;
-	RCX: number;
-	RDX: number;
-	RDI: number;
-	RSI: number;
-	RBP: number;
-	RSP: number;
-	R8: number;
-	R9: number;
-	R10: number;
-	R11: number;
-	R12: number;
-	R13: number;
-	R14: number;
-	R15: number;
+  RAX: number;
+  RBX: number;
+  RCX: number;
+  RDX: number;
+  RDI: number;
+  RSI: number;
+  RBP: number;
+  RSP: number;
+  R8: number;
+  R9: number;
+  R10: number;
+  R11: number;
+  R12: number;
+  R13: number;
+  R14: number;
+  R15: number;
 }
+
 declare var RegisterInformationIntel64: RegisterInformationIntel64;
 
 interface RegisterInformationPowerPC {
-	R0: UnsignedWide;
-	R1: UnsignedWide;
-	R2: UnsignedWide;
-	R3: UnsignedWide;
-	R4: UnsignedWide;
-	R5: UnsignedWide;
-	R6: UnsignedWide;
-	R7: UnsignedWide;
-	R8: UnsignedWide;
-	R9: UnsignedWide;
-	R10: UnsignedWide;
-	R11: UnsignedWide;
-	R12: UnsignedWide;
-	R13: UnsignedWide;
-	R14: UnsignedWide;
-	R15: UnsignedWide;
-	R16: UnsignedWide;
-	R17: UnsignedWide;
-	R18: UnsignedWide;
-	R19: UnsignedWide;
-	R20: UnsignedWide;
-	R21: UnsignedWide;
-	R22: UnsignedWide;
-	R23: UnsignedWide;
-	R24: UnsignedWide;
-	R25: UnsignedWide;
-	R26: UnsignedWide;
-	R27: UnsignedWide;
-	R28: UnsignedWide;
-	R29: UnsignedWide;
-	R30: UnsignedWide;
-	R31: UnsignedWide;
+  R0: UnsignedWide;
+  R1: UnsignedWide;
+  R2: UnsignedWide;
+  R3: UnsignedWide;
+  R4: UnsignedWide;
+  R5: UnsignedWide;
+  R6: UnsignedWide;
+  R7: UnsignedWide;
+  R8: UnsignedWide;
+  R9: UnsignedWide;
+  R10: UnsignedWide;
+  R11: UnsignedWide;
+  R12: UnsignedWide;
+  R13: UnsignedWide;
+  R14: UnsignedWide;
+  R15: UnsignedWide;
+  R16: UnsignedWide;
+  R17: UnsignedWide;
+  R18: UnsignedWide;
+  R19: UnsignedWide;
+  R20: UnsignedWide;
+  R21: UnsignedWide;
+  R22: UnsignedWide;
+  R23: UnsignedWide;
+  R24: UnsignedWide;
+  R25: UnsignedWide;
+  R26: UnsignedWide;
+  R27: UnsignedWide;
+  R28: UnsignedWide;
+  R29: UnsignedWide;
+  R30: UnsignedWide;
+  R31: UnsignedWide;
 }
+
 declare var RegisterInformationPowerPC: RegisterInformationPowerPC;
 
 interface RegisteredComponentInstanceRecord {
-	data: number;
+  data: number;
 }
+
 declare var RegisteredComponentInstanceRecord: RegisteredComponentInstanceRecord;
 
 interface RegisteredComponentRecord {
-	data: number;
+  data: number;
 }
+
 declare var RegisteredComponentRecord: RegisteredComponentRecord;
 
 declare function ResetTextToUnicodeInfo(ioTextToUnicodeInfo: any): number;
-
 declare function ResetUnicodeToTextInfo(ioUnicodeToTextInfo: any): number;
-
 declare function ResetUnicodeToTextRunInfo(ioUnicodeToTextRunInfo: any): number;
-
 declare function ResolveDefaultTextEncoding(encoding: number): number;
-
 interface ResourceSpec {
-	resType: number;
-	resID: number;
+  resType: number;
+  resID: number;
 }
+
 declare var ResourceSpec: ResourceSpec;
 
 declare function RevertTextEncodingToScriptInfo(iEncoding: number, oTextScriptID: number, oTextLanguageID: number, oTextFontname: number): number;
-
 interface RoutineDescriptor {
-	goMixedModeTrap: number;
-	version: number;
-	routineDescriptorFlags: number;
-	reserved1: number;
-	reserved2: number;
-	selectorInfo: number;
-	routineCount: number;
-	routineRecords: RoutineRecord;
+  goMixedModeTrap: number;
+  version: number;
+  routineDescriptorFlags: number;
+  reserved1: number;
+  reserved2: number;
+  selectorInfo: number;
+  routineCount: number;
+  routineRecords: RoutineRecord;
 }
+
 declare var RoutineDescriptor: RoutineDescriptor;
 
 interface RoutineRecord {
-	procInfo: number;
-	reserved1: number;
-	ISA: number;
-	routineFlags: number;
-	procDescriptor: () => number;
-	reserved2: number;
-	selector: number;
+  procInfo: number;
+  reserved1: number;
+  ISA: number;
+  routineFlags: number;
+  procDescriptor: () => number;
+  reserved2: number;
+  selector: number;
 }
+
 declare var RoutineRecord: RoutineRecord;
 
 interface RoutingResourceEntry {
-	creator: number;
-	fileType: number;
-	targetFolder: number;
-	destinationFolder: number;
-	reservedField: number;
+  creator: number;
+  fileType: number;
+  targetFolder: number;
+  destinationFolder: number;
+  reservedField: number;
 }
+
 declare var RoutingResourceEntry: RoutingResourceEntry;
 
 interface RuleBasedTrslRecord {
-	sourceType: number;
-	targetType: number;
-	formatNumber: number;
-	propertyFlag: number;
-	numberOfRules: number;
+  sourceType: number;
+  targetType: number;
+  formatNumber: number;
+  propertyFlag: number;
+  numberOfRules: number;
 }
+
 declare var RuleBasedTrslRecord: RuleBasedTrslRecord;
 
 declare function S32Set(value: number): number;
-
 declare function S64Add(left: number, right: number): number;
-
 declare function S64And(left: number, right: number): boolean;
-
 declare function S64BitwiseAnd(left: number, right: number): number;
-
 declare function S64BitwiseEor(left: number, right: number): number;
-
 declare function S64BitwiseNot(value: number): number;
-
 declare function S64BitwiseOr(left: number, right: number): number;
-
 declare function S64Div(dividend: number, divisor: number): number;
-
 declare function S64Divide(dividend: number, divisor: number, remainder: number): number;
-
 declare function S64Eor(left: number, right: number): boolean;
-
 declare function S64Max(): number;
-
 declare function S64Min(): number;
-
 declare function S64Mod(dividend: number, divisor: number): number;
-
 declare function S64Multiply(left: number, right: number): number;
-
 declare function S64Negate(value: number): number;
-
 declare function S64Not(value: number): boolean;
-
 declare function S64Or(left: number, right: number): boolean;
-
 declare function S64Set(value: number): number;
-
 declare function S64SetU(value: number): number;
-
 declare function S64ShiftLeft(value: number, shift: number): number;
-
 declare function S64ShiftRight(value: number, shift: number): number;
-
 declare function S64Subtract(left: number, right: number): number;
-
 declare function SInt64ToLongDouble(value: number): number;
-
 declare function SInt64ToUInt64(value: number): number;
-
-declare function SKDocumentCopyURL(inDocument: any): NSURL;
-
-declare function SKDocumentCreate(inScheme: string, inParent: any, inName: string): any;
-
-declare function SKDocumentCreateWithURL(inURL: NSURL): any;
-
-declare function SKDocumentGetName(inDocument: any): string;
-
+declare function SKDocumentCopyURL(inDocument: any): NSObject;
+declare function SKDocumentCreate(inScheme: NSObject, inParent: any, inName: NSObject): any;
+declare function SKDocumentCreateWithURL(inURL: NSObject): any;
+declare function SKDocumentGetName(inDocument: any): NSObject;
 declare function SKDocumentGetParent(inDocument: any): any;
-
-declare function SKDocumentGetSchemeName(inDocument: any): string;
-
+declare function SKDocumentGetSchemeName(inDocument: any): NSObject;
 declare function SKDocumentGetTypeID(): number;
-
-enum SKDocumentIndexState {
-
-	kSKDocumentStateNotIndexed = 0,
-
-	kSKDocumentStateIndexed = 1,
-
-	kSKDocumentStateAddPending = 2,
-
-	kSKDocumentStateDeletePending = 3
-}
-
-
-declare function SKIndexAddDocument(inIndex: any, inDocument: any, inMIMETypeHint: string, inCanReplace: boolean): boolean;
-
-declare function SKIndexAddDocumentWithText(inIndex: any, inDocument: any, inDocumentText: string, inCanReplace: boolean): boolean;
-
+declare function SKIndexAddDocument(inIndex: any, inDocument: any, inMIMETypeHint: NSObject, inCanReplace: boolean): boolean;
+declare function SKIndexAddDocumentWithText(inIndex: any, inDocument: any, inDocumentText: NSObject, inCanReplace: boolean): boolean;
 declare function SKIndexClose(inIndex: any): void;
-
 declare function SKIndexCompact(inIndex: any): boolean;
-
 declare function SKIndexCopyDocumentForDocumentID(inIndex: any, inDocumentID: number): any;
-
-declare function SKIndexCopyDocumentIDArrayForTermID(inIndex: any, inTermID: number): NSArray<any>;
-
-declare function SKIndexCopyDocumentProperties(inIndex: any, inDocument: any): NSDictionary<any, any>;
-
+declare function SKIndexCopyDocumentIDArrayForTermID(inIndex: any, inTermID: number): NSObject;
+declare function SKIndexCopyDocumentProperties(inIndex: any, inDocument: any): NSObject;
 declare function SKIndexCopyDocumentRefsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentRefsArray: any): void;
-
-declare function SKIndexCopyDocumentURLsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentURLsArray: NSURL): void;
-
-declare function SKIndexCopyInfoForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outNamesArray: string, outParentIDsArray: number): void;
-
-declare function SKIndexCopyTermIDArrayForDocumentID(inIndex: any, inDocumentID: number): NSArray<any>;
-
-declare function SKIndexCopyTermStringForTermID(inIndex: any, inTermID: number): string;
-
-declare function SKIndexCreateWithMutableData(inData: NSData, inIndexName: string, inIndexType: SKIndexType, inAnalysisProperties: NSDictionary<any, any>): any;
-
-declare function SKIndexCreateWithURL(inURL: NSURL, inIndexName: string, inIndexType: SKIndexType, inAnalysisProperties: NSDictionary<any, any>): any;
-
+declare function SKIndexCopyDocumentURLsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentURLsArray: NSObject): void;
+declare function SKIndexCopyInfoForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outNamesArray: NSObject, outParentIDsArray: number): void;
+declare function SKIndexCopyTermIDArrayForDocumentID(inIndex: any, inDocumentID: number): NSObject;
+declare function SKIndexCopyTermStringForTermID(inIndex: any, inTermID: number): NSObject;
+declare function SKIndexCreateWithMutableData(inData: NSObject, inIndexName: NSObject, inIndexType: SKIndexType, inAnalysisProperties: NSObject): any;
+declare function SKIndexCreateWithURL(inURL: NSObject, inIndexName: NSObject, inIndexType: SKIndexType, inAnalysisProperties: NSObject): any;
 declare function SKIndexDocumentIteratorCopyNext(inIterator: any): any;
-
 declare function SKIndexDocumentIteratorCreate(inIndex: any, inParentDocument: any): any;
-
 declare function SKIndexDocumentIteratorGetTypeID(): number;
-
 declare function SKIndexFlush(inIndex: any): boolean;
-
-declare function SKIndexGetAnalysisProperties(inIndex: any): NSDictionary<any, any>;
-
+declare function SKIndexGetAnalysisProperties(inIndex: any): NSObject;
 declare function SKIndexGetDocumentCount(inIndex: any): number;
-
 declare function SKIndexGetDocumentID(inIndex: any, inDocument: any): number;
-
 declare function SKIndexGetDocumentState(inIndex: any, inDocument: any): SKDocumentIndexState;
-
 declare function SKIndexGetDocumentTermCount(inIndex: any, inDocumentID: number): number;
-
 declare function SKIndexGetDocumentTermFrequency(inIndex: any, inDocumentID: number, inTermID: number): number;
-
 declare function SKIndexGetIndexType(inIndex: any): SKIndexType;
-
 declare function SKIndexGetMaximumBytesBeforeFlush(inIndex: any): number;
-
 declare function SKIndexGetMaximumDocumentID(inIndex: any): number;
-
 declare function SKIndexGetMaximumTermID(inIndex: any): number;
-
 declare function SKIndexGetTermDocumentCount(inIndex: any, inTermID: number): number;
-
-declare function SKIndexGetTermIDForTermString(inIndex: any, inTermString: string): number;
-
+declare function SKIndexGetTermIDForTermString(inIndex: any, inTermString: NSObject): number;
 declare function SKIndexGetTypeID(): number;
-
 declare function SKIndexMoveDocument(inIndex: any, inDocument: any, inNewParent: any): boolean;
-
-declare function SKIndexOpenWithData(inData: NSData, inIndexName: string): any;
-
-declare function SKIndexOpenWithMutableData(inData: NSData, inIndexName: string): any;
-
-declare function SKIndexOpenWithURL(inURL: NSURL, inIndexName: string, inWriteAccess: boolean): any;
-
+declare function SKIndexOpenWithData(inData: NSObject, inIndexName: NSObject): any;
+declare function SKIndexOpenWithMutableData(inData: NSObject, inIndexName: NSObject): any;
+declare function SKIndexOpenWithURL(inURL: NSObject, inIndexName: NSObject, inWriteAccess: boolean): any;
 declare function SKIndexRemoveDocument(inIndex: any, inDocument: any): boolean;
-
-declare function SKIndexRenameDocument(inIndex: any, inDocument: any, inNewName: string): boolean;
-
-declare function SKIndexSetDocumentProperties(inIndex: any, inDocument: any, inProperties: NSDictionary<any, any>): void;
-
+declare function SKIndexRenameDocument(inIndex: any, inDocument: any, inNewName: NSObject): boolean;
+declare function SKIndexSetDocumentProperties(inIndex: any, inDocument: any, inProperties: NSObject): void;
 declare function SKIndexSetMaximumBytesBeforeFlush(inIndex: any, inBytesForUpdate: number): void;
-
-enum SKIndexType {
-
-	kSKIndexUnknown = 0,
-
-	kSKIndexInverted = 1,
-
-	kSKIndexVector = 2,
-
-	kSKIndexInvertedVector = 3
-}
-
-
 declare function SKLoadDefaultExtractorPlugIns(): void;
-
 declare function SKSearchCancel(inSearch: any): void;
-
-declare function SKSearchCreate(inIndex: any, inQuery: string, inSearchOptions: number): any;
-
+declare function SKSearchCreate(inIndex: any, inQuery: NSObject, inSearchOptions: number): any;
 declare function SKSearchFindMatches(inSearch: any, inMaximumCount: number, outDocumentIDsArray: number, outScoresArray: number, maximumTime: number, outFoundCount: number): boolean;
-
 declare function SKSearchGetTypeID(): number;
-
-enum SKSearchType {
-
-	kSKSearchRanked = 0,
-
-	kSKSearchBooleanRanked = 1,
-
-	kSKSearchRequiredRanked = 2,
-
-	kSKSearchPrefixRanked = 3
-}
-
-
-declare function SKSummaryCopyParagraphAtIndex(summary: any, i: number): string;
-
-declare function SKSummaryCopyParagraphSummaryString(summary: any, numParagraphs: number): string;
-
-declare function SKSummaryCopySentenceAtIndex(summary: any, i: number): string;
-
-declare function SKSummaryCopySentenceSummaryString(summary: any, numSentences: number): string;
-
-declare function SKSummaryCreateWithString(inString: string): any;
-
+declare function SKSummaryCopyParagraphAtIndex(summary: any, i: number): NSObject;
+declare function SKSummaryCopyParagraphSummaryString(summary: any, numParagraphs: number): NSObject;
+declare function SKSummaryCopySentenceAtIndex(summary: any, i: number): NSObject;
+declare function SKSummaryCopySentenceSummaryString(summary: any, numSentences: number): NSObject;
+declare function SKSummaryCreateWithString(inString: NSObject): any;
 declare function SKSummaryGetParagraphCount(summary: any): number;
-
 declare function SKSummaryGetParagraphSummaryInfo(summary: any, numParagraphsInSummary: number, outRankOrderOfParagraphs: number, outParagraphIndexOfParagraphs: number): number;
-
 declare function SKSummaryGetSentenceCount(summary: any): number;
-
 declare function SKSummaryGetSentenceSummaryInfo(summary: any, numSentencesInSummary: number, outRankOrderOfSentences: number, outSentenceIndexOfSentences: number, outParagraphIndexOfSentences: number): number;
-
 declare function SKSummaryGetTypeID(): number;
-
 interface SchedulerInfoRec {
-	InfoRecSize: number;
-	CurrentThreadID: number;
-	SuggestedThreadID: number;
-	InterruptedCoopThreadID: number;
+  InfoRecSize: number;
+  CurrentThreadID: number;
+  SuggestedThreadID: number;
+  InterruptedCoopThreadID: number;
 }
+
 declare var SchedulerInfoRec: SchedulerInfoRec;
 
 interface ScriptCodeRun {
-	offset: number;
-	script: number;
+  offset: number;
+  script: number;
 }
+
 declare var ScriptCodeRun: ScriptCodeRun;
 
 declare function SetFallbackUnicodeToText(iUnicodeToTextInfo: any, iFallback: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number, iControlFlags: number, iInfoPtr: any): number;
-
 declare function SetFallbackUnicodeToTextRun(iUnicodeToTextRunInfo: any, iFallback: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number, iControlFlags: number, iInfoPtr: any): number;
-
 interface SleepQRec {
-	sleepQLink: SleepQRec;
-	sleepQType: number;
-	sleepQProc: (p1: number, p2: SleepQRec) => number;
-	sleepQFlags: number;
+  sleepQLink: SleepQRec;
+  sleepQType: number;
+  sleepQProc: (p1: number, p2: SleepQRec) => number;
+  sleepQFlags: number;
 }
+
 declare var SleepQRec: SleepQRec;
 
-declare const SlpTypeErr: number;
 
+declare const SlpTypeErr: number;
 interface SoundDataChunk {
-	ckID: number;
-	ckSize: number;
-	offset: number;
-	blockSize: number;
+  ckID: number;
+  ckSize: number;
+  offset: number;
+  blockSize: number;
 }
+
 declare var SoundDataChunk: SoundDataChunk;
 
-declare const SoundDataID: number;
 
+declare const SoundDataID: number;
 interface TECBufferContextRec {
-	textInputBuffer: string;
-	textInputBufferEnd: string;
-	textOutputBuffer: string;
-	textOutputBufferEnd: string;
-	encodingInputBuffer: TextEncodingRun;
-	encodingInputBufferEnd: TextEncodingRun;
-	encodingOutputBuffer: TextEncodingRun;
-	encodingOutputBufferEnd: TextEncodingRun;
+  textInputBuffer: string;
+  textInputBufferEnd: string;
+  textOutputBuffer: string;
+  textOutputBufferEnd: string;
+  encodingInputBuffer: TextEncodingRun;
+  encodingInputBufferEnd: TextEncodingRun;
+  encodingOutputBuffer: TextEncodingRun;
+  encodingOutputBufferEnd: TextEncodingRun;
 }
+
 declare var TECBufferContextRec: TECBufferContextRec;
 
 declare function TECClearConverterContextInfo(encodingConverter: any): number;
-
 declare function TECClearSnifferContextInfo(encodingSniffer: any): number;
-
 interface TECConversionInfo {
-	sourceEncoding: number;
-	destinationEncoding: number;
-	reserved1: number;
-	reserved2: number;
+  sourceEncoding: number;
+  destinationEncoding: number;
+  reserved1: number;
+  reserved2: number;
 }
+
 declare var TECConversionInfo: TECConversionInfo;
 
 declare function TECConvertText(encodingConverter: any, inputBuffer: string | any, inputBufferLength: number, actualInputLength: number, outputBuffer: string | any, outputBufferLength: number, actualOutputLength: number): number;
-
 declare function TECConvertTextToMultipleEncodings(encodingConverter: any, inputBuffer: string | any, inputBufferLength: number, actualInputLength: number, outputBuffer: string | any, outputBufferLength: number, actualOutputLength: number, outEncodingsBuffer: TextEncodingRun, maxOutEncodingRuns: number, actualOutEncodingRuns: number): number;
-
 interface TECConverterContextRec {
-	pluginRec: string;
-	sourceEncoding: number;
-	destEncoding: number;
-	reserved1: number;
-	reserved2: number;
-	bufferContext: TECBufferContextRec;
-	contextRefCon: any;
-	conversionProc: () => number;
-	flushProc: () => number;
-	clearContextInfoProc: () => number;
-	options1: number;
-	options2: number;
-	pluginState: TECPluginStateRec;
+  pluginRec: string;
+  sourceEncoding: number;
+  destEncoding: number;
+  reserved1: number;
+  reserved2: number;
+  bufferContext: TECBufferContextRec;
+  contextRefCon: any;
+  conversionProc: () => number;
+  flushProc: () => number;
+  clearContextInfoProc: () => number;
+  options1: number;
+  options2: number;
+  pluginState: TECPluginStateRec;
 }
+
 declare var TECConverterContextRec: TECConverterContextRec;
 
-declare function TECCopyTextEncodingInternetNameAndMIB(textEncoding: number, usage: number, encodingNamePtr: string, mibEnumPtr: number): number;
-
+declare function TECCopyTextEncodingInternetNameAndMIB(textEncoding: number, usage: number, encodingNamePtr: NSObject, mibEnumPtr: number): number;
 declare function TECCountAvailableSniffers(numberOfEncodings: number): number;
-
 declare function TECCountAvailableTextEncodings(numberEncodings: number): number;
-
 declare function TECCountDestinationTextEncodings(inputEncoding: number, numberOfEncodings: number): number;
-
 declare function TECCountDirectTextEncodingConversions(numberOfEncodings: number): number;
-
 declare function TECCountMailTextEncodings(locale: number, numberEncodings: number): number;
-
 declare function TECCountSubTextEncodings(inputEncoding: number, numberOfEncodings: number): number;
-
 declare function TECCountWebTextEncodings(locale: number, numberEncodings: number): number;
-
 declare function TECCreateConverter(newEncodingConverter: any, inputEncoding: number, outputEncoding: number): number;
-
 declare function TECCreateConverterFromPath(newEncodingConverter: any, inPath: number, inEncodings: number): number;
-
 declare function TECCreateOneToManyConverter(newEncodingConverter: any, inputEncoding: number, numOutputEncodings: number, outputEncodings: number): number;
-
 declare function TECCreateSniffer(encodingSniffer: any, testEncodings: number, numTextEncodings: number): number;
-
 declare function TECDisposeConverter(newEncodingConverter: any): number;
-
 declare function TECDisposeSniffer(encodingSniffer: any): number;
-
 interface TECEncodingPairRec {
-	source: TextEncodingRec;
-	dest: TextEncodingRec;
+  source: TextEncodingRec;
+  dest: TextEncodingRec;
 }
+
 declare var TECEncodingPairRec: TECEncodingPairRec;
 
 interface TECEncodingPairs {
-	encodingPair: TECEncodingPairRec;
-	flags: number;
-	speed: number;
+  encodingPair: TECEncodingPairRec;
+  flags: number;
+  speed: number;
 }
+
 declare var TECEncodingPairs: TECEncodingPairs;
 
 interface TECEncodingPairsRec {
-	count: number;
-	encodingPairs: TECEncodingPairs;
+  count: number;
+  encodingPairs: TECEncodingPairs;
 }
+
 declare var TECEncodingPairsRec: TECEncodingPairsRec;
 
 interface TECEncodingsListRec {
-	count: number;
-	encodings: TextEncodingRec;
+  count: number;
+  encodings: TextEncodingRec;
 }
+
 declare var TECEncodingsListRec: TECEncodingsListRec;
 
 declare function TECFlushMultipleEncodings(encodingConverter: any, outputBuffer: string | any, outputBufferLength: number, actualOutputLength: number, outEncodingsBuffer: TextEncodingRun, maxOutEncodingRuns: number, actualOutEncodingRuns: number): number;
-
 declare function TECFlushText(encodingConverter: any, outputBuffer: string | any, outputBufferLength: number, actualOutputLength: number): number;
-
 declare function TECGetAvailableSniffers(availableSniffers: number, maxAvailableSniffers: number, actualAvailableSniffers: number): number;
-
 declare function TECGetAvailableTextEncodings(availableEncodings: number, maxAvailableEncodings: number, actualAvailableEncodings: number): number;
-
 declare function TECGetDestinationTextEncodings(inputEncoding: number, destinationEncodings: number, maxDestinationEncodings: number, actualDestinationEncodings: number): number;
-
 declare function TECGetDirectTextEncodingConversions(availableConversions: TECConversionInfo, maxAvailableConversions: number, actualAvailableConversions: number): number;
-
 declare function TECGetEncodingList(encodingConverter: any, numEncodings: number, encodingList: string): number;
-
 declare function TECGetInfo(tecInfo: TECInfo): number;
-
 declare function TECGetMailTextEncodings(locale: number, availableEncodings: number, maxAvailableEncodings: number, actualAvailableEncodings: number): number;
-
 declare function TECGetSubTextEncodings(inputEncoding: number, subEncodings: number, maxSubEncodings: number, actualSubEncodings: number): number;
-
 declare function TECGetTextEncodingFromInternetName(textEncoding: number, encodingName: string | any): number;
-
-declare function TECGetTextEncodingFromInternetNameOrMIB(textEncodingPtr: number, usage: number, encodingName: string, mibEnum: number): number;
-
+declare function TECGetTextEncodingFromInternetNameOrMIB(textEncodingPtr: number, usage: number, encodingName: NSObject, mibEnum: number): number;
 declare function TECGetTextEncodingInternetName(textEncoding: number, encodingName: number): number;
-
 declare function TECGetWebTextEncodings(locale: number, availableEncodings: number, maxAvailableEncodings: number, actualAvailableEncodings: number): number;
-
 interface TECInfo {
-	format: number;
-	tecVersion: number;
-	tecTextConverterFeatures: number;
-	tecUnicodeConverterFeatures: number;
-	tecTextCommonFeatures: number;
-	tecTextEncodingsFolderName: number;
-	tecExtensionFileName: number;
-	tecLowestTEFileVersion: number;
-	tecHighestTEFileVersion: number;
+  format: number;
+  tecVersion: number;
+  tecTextConverterFeatures: number;
+  tecUnicodeConverterFeatures: number;
+  tecTextCommonFeatures: number;
+  tecTextEncodingsFolderName: number;
+  tecExtensionFileName: number;
+  tecLowestTEFileVersion: number;
+  tecHighestTEFileVersion: number;
 }
+
 declare var TECInfo: TECInfo;
 
 interface TECInternetNameRec {
-	offset: number;
-	searchEncoding: TextEncodingRec;
-	encodingNameLength: number;
-	encodingName: number;
+  offset: number;
+  searchEncoding: TextEncodingRec;
+  encodingNameLength: number;
+  encodingName: number;
 }
+
 declare var TECInternetNameRec: TECInternetNameRec;
 
 interface TECInternetNamesRec {
-	count: number;
-	InternetNames: TECInternetNameRec;
+  count: number;
+  InternetNames: TECInternetNameRec;
 }
+
 declare var TECInternetNamesRec: TECInternetNamesRec;
 
 interface TECLocaleListToEncodingListRec {
-	offset: number;
-	count: number;
-	locales: number;
+  offset: number;
+  count: number;
+  locales: number;
 }
+
 declare var TECLocaleListToEncodingListRec: TECLocaleListToEncodingListRec;
 
 interface TECLocaleToEncodingsListRec {
-	count: number;
-	localeListToEncodingList: TECLocaleListToEncodingListRec;
+  count: number;
+  localeListToEncodingList: TECLocaleListToEncodingListRec;
 }
+
 declare var TECLocaleToEncodingsListRec: TECLocaleToEncodingsListRec;
 
 interface TECPluginDispatchTable {
-	version: number;
-	compatibleVersion: number;
-	PluginID: number;
-	PluginNewEncodingConverter: (p1: any, p2: TECConverterContextRec, p3: number, p4: number) => number;
-	PluginClearContextInfo: (p1: any, p2: TECConverterContextRec) => number;
-	PluginConvertTextEncoding: (p1: any, p2: TECConverterContextRec) => number;
-	PluginFlushConversion: (p1: any, p2: TECConverterContextRec) => number;
-	PluginDisposeEncodingConverter: (p1: any, p2: TECConverterContextRec) => number;
-	PluginNewEncodingSniffer: (p1: any, p2: TECSnifferContextRec, p3: number) => number;
-	PluginClearSnifferContextInfo: (p1: any, p2: TECSnifferContextRec) => number;
-	PluginSniffTextEncoding: (p1: any, p2: TECSnifferContextRec) => number;
-	PluginDisposeEncodingSniffer: (p1: any, p2: TECSnifferContextRec) => number;
-	PluginGetCountAvailableTextEncodings: (p1: number, p2: number, p3: number) => number;
-	PluginGetCountAvailableTextEncodingPairs: (p1: TECConversionInfo, p2: number, p3: number) => number;
-	PluginGetCountDestinationTextEncodings: (p1: number, p2: number, p3: number, p4: number) => number;
-	PluginGetCountSubTextEncodings: (p1: number, p2: number, p3: number, p4: number) => number;
-	PluginGetCountAvailableSniffers: (p1: number, p2: number, p3: number) => number;
-	PluginGetCountWebTextEncodings: (p1: number, p2: number, p3: number) => number;
-	PluginGetCountMailTextEncodings: (p1: number, p2: number, p3: number) => number;
-	PluginGetTextEncodingInternetName: (p1: number, p2: number) => number;
-	PluginGetTextEncodingFromInternetName: (p1: number, p2: string) => number;
+  version: number;
+  compatibleVersion: number;
+  PluginID: number;
+  PluginNewEncodingConverter: (p1: any, p2: TECConverterContextRec, p3: number, p4: number) => number;
+  PluginClearContextInfo: (p1: any, p2: TECConverterContextRec) => number;
+  PluginConvertTextEncoding: (p1: any, p2: TECConverterContextRec) => number;
+  PluginFlushConversion: (p1: any, p2: TECConverterContextRec) => number;
+  PluginDisposeEncodingConverter: (p1: any, p2: TECConverterContextRec) => number;
+  PluginNewEncodingSniffer: (p1: any, p2: TECSnifferContextRec, p3: number) => number;
+  PluginClearSnifferContextInfo: (p1: any, p2: TECSnifferContextRec) => number;
+  PluginSniffTextEncoding: (p1: any, p2: TECSnifferContextRec) => number;
+  PluginDisposeEncodingSniffer: (p1: any, p2: TECSnifferContextRec) => number;
+  PluginGetCountAvailableTextEncodings: (p1: number, p2: number, p3: number) => number;
+  PluginGetCountAvailableTextEncodingPairs: (p1: TECConversionInfo, p2: number, p3: number) => number;
+  PluginGetCountDestinationTextEncodings: (p1: number, p2: number, p3: number, p4: number) => number;
+  PluginGetCountSubTextEncodings: (p1: number, p2: number, p3: number, p4: number) => number;
+  PluginGetCountAvailableSniffers: (p1: number, p2: number, p3: number) => number;
+  PluginGetCountWebTextEncodings: (p1: number, p2: number, p3: number) => number;
+  PluginGetCountMailTextEncodings: (p1: number, p2: number, p3: number) => number;
+  PluginGetTextEncodingInternetName: (p1: number, p2: number) => number;
+  PluginGetTextEncodingFromInternetName: (p1: number, p2: string) => number;
 }
+
 declare var TECPluginDispatchTable: TECPluginDispatchTable;
 
 interface TECPluginStateRec {
-	state1: number;
-	state2: number;
-	state3: number;
-	state4: number;
-	longState1: number;
-	longState2: number;
-	longState3: number;
-	longState4: number;
+  state1: number;
+  state2: number;
+  state3: number;
+  state4: number;
+  longState1: number;
+  longState2: number;
+  longState3: number;
+  longState4: number;
 }
+
 declare var TECPluginStateRec: TECPluginStateRec;
 
 declare function TECSetBasicOptions(encodingConverter: any, controlFlags: number): number;
-
 declare function TECSniffTextEncoding(encodingSniffer: any, inputBuffer: string | any, inputBufferLength: number, testEncodings: number, numTextEncodings: number, numErrsArray: number, maxErrs: number, numFeaturesArray: number, maxFeatures: number): number;
-
 interface TECSnifferContextRec {
-	pluginRec: string;
-	encoding: number;
-	maxErrors: number;
-	maxFeatures: number;
-	textInputBuffer: string;
-	textInputBufferEnd: string;
-	numFeatures: number;
-	numErrors: number;
-	contextRefCon: any;
-	sniffProc: () => number;
-	clearContextInfoProc: () => number;
-	pluginState: TECPluginStateRec;
+  pluginRec: string;
+  encoding: number;
+  maxErrors: number;
+  maxFeatures: number;
+  textInputBuffer: string;
+  textInputBufferEnd: string;
+  numFeatures: number;
+  numErrors: number;
+  contextRefCon: any;
+  sniffProc: () => number;
+  clearContextInfoProc: () => number;
+  pluginState: TECPluginStateRec;
 }
+
 declare var TECSnifferContextRec: TECSnifferContextRec;
 
 interface TECSubTextEncodingRec {
-	offset: number;
-	searchEncoding: TextEncodingRec;
-	count: number;
-	subEncodings: TextEncodingRec;
+  offset: number;
+  searchEncoding: TextEncodingRec;
+  count: number;
+  subEncodings: TextEncodingRec;
 }
+
 declare var TECSubTextEncodingRec: TECSubTextEncodingRec;
 
 interface TECSubTextEncodingsRec {
-	count: number;
-	subTextEncodingRec: TECSubTextEncodingRec;
+  count: number;
+  subTextEncodingRec: TECSubTextEncodingRec;
 }
+
 declare var TECSubTextEncodingsRec: TECSubTextEncodingsRec;
 
 interface TMTask {
-	qLink: QElem;
-	qType: number;
-	tmAddr: (p1: TMTask) => void;
-	tmCount: number;
-	tmWakeUp: number;
-	tmReserved: number;
+  qLink: QElem;
+  qType: number;
+  tmAddr: (p1: TMTask) => void;
+  tmCount: number;
+  tmWakeUp: number;
+  tmReserved: number;
 }
+
 declare var TMTask: TMTask;
 
 interface TScriptingSizeResource {
-	scriptingSizeFlags: number;
-	minStackSize: number;
-	preferredStackSize: number;
-	maxStackSize: number;
-	minHeapSize: number;
-	preferredHeapSize: number;
-	maxHeapSize: number;
+  scriptingSizeFlags: number;
+  minStackSize: number;
+  preferredStackSize: number;
+  maxStackSize: number;
+  minHeapSize: number;
+  preferredHeapSize: number;
+  maxHeapSize: number;
 }
+
 declare var TScriptingSizeResource: TScriptingSizeResource;
 
 interface TableDirectoryRecord {
-	tableSignature: number;
-	reserved: number;
-	tableStartOffset: number;
-	tableSize: number;
+  tableSignature: number;
+  reserved: number;
+  tableStartOffset: number;
+  tableSize: number;
 }
+
 declare var TableDirectoryRecord: TableDirectoryRecord;
 
 interface TextChunk {
-	ckID: number;
-	ckSize: number;
-	text: number;
+  ckID: number;
+  ckSize: number;
+  text: number;
 }
+
 declare var TextChunk: TextChunk;
 
 interface TextEncodingRec {
-	base: number;
-	variant: number;
-	format: number;
+  base: number;
+  variant: number;
+  format: number;
 }
+
 declare var TextEncodingRec: TextEncodingRec;
 
 interface TextEncodingRun {
-	offset: number;
-	textEncoding: number;
+  offset: number;
+  textEncoding: number;
 }
+
 declare var TextEncodingRun: TextEncodingRun;
 
 interface TextRange {
-	fStart: number;
-	fEnd: number;
-	fHiliteStyle: number;
+  fStart: number;
+  fEnd: number;
+  fHiliteStyle: number;
 }
+
 declare var TextRange: TextRange;
 
 interface TextRangeArray {
-	fNumOfRanges: number;
-	fRange: TextRange;
+  fNumOfRanges: number;
+  fRange: TextRange;
 }
+
 declare var TextRangeArray: TextRangeArray;
 
 interface TogglePB {
-	togFlags: number;
-	amChars: number;
-	pmChars: number;
-	reserved: number;
+  togFlags: number;
+  amChars: number;
+  pmChars: number;
+  reserved: number;
 }
+
 declare var TogglePB: TogglePB;
 
 interface TokenBlock {
-	source: string;
-	sourceLength: number;
-	tokenList: string;
-	tokenLength: number;
-	tokenCount: number;
-	stringList: string;
-	stringLength: number;
-	stringCount: number;
-	doString: boolean;
-	doAppend: boolean;
-	doAlphanumeric: boolean;
-	doNest: boolean;
-	leftDelims: number;
-	rightDelims: number;
-	leftComment: number;
-	rightComment: number;
-	escapeCode: number;
-	decimalCode: number;
-	itlResource: string;
-	reserved: number;
+  source: string;
+  sourceLength: number;
+  tokenList: string;
+  tokenLength: number;
+  tokenCount: number;
+  stringList: string;
+  stringLength: number;
+  stringCount: number;
+  doString: boolean;
+  doAppend: boolean;
+  doAlphanumeric: boolean;
+  doNest: boolean;
+  leftDelims: number;
+  rightDelims: number;
+  leftComment: number;
+  rightComment: number;
+  escapeCode: number;
+  decimalCode: number;
+  itlResource: string;
+  reserved: number;
 }
+
 declare var TokenBlock: TokenBlock;
 
 interface TokenRec {
-	theToken: number;
-	position: string;
-	length: number;
-	stringPosition: string;
+  theToken: number;
+  position: string;
+  length: number;
+  stringPosition: string;
 }
+
 declare var TokenRec: TokenRec;
 
 declare function TruncateForTextToUnicode(iTextToUnicodeInfo: any, iSourceLen: number, iSourceStr: any, iMaxLen: number, oTruncatedLen: number): number;
-
 declare function TruncateForUnicodeToText(iUnicodeToTextInfo: any, iSourceLen: number, iSourceStr: number, iControlFlags: number, iMaxLen: number, oTruncatedLen: number): number;
-
 declare function U32SetU(value: number): number;
-
 declare function U64Add(left: number, right: number): number;
-
 declare function U64And(left: number, right: number): boolean;
-
 declare function U64BitwiseAnd(left: number, right: number): number;
-
 declare function U64BitwiseEor(left: number, right: number): number;
-
 declare function U64BitwiseNot(value: number): number;
-
 declare function U64BitwiseOr(left: number, right: number): number;
-
 declare function U64Div(dividend: number, divisor: number): number;
-
 declare function U64Divide(dividend: number, divisor: number, remainder: number): number;
-
 declare function U64Eor(left: number, right: number): boolean;
-
 declare function U64Max(): number;
-
 declare function U64Mod(dividend: number, divisor: number): number;
-
 declare function U64Multiply(left: number, right: number): number;
-
 declare function U64Not(value: number): boolean;
-
 declare function U64Or(left: number, right: number): boolean;
-
 declare function U64Set(value: number): number;
-
 declare function U64SetU(value: number): number;
-
 declare function U64ShiftLeft(value: number, shift: number): number;
-
 declare function U64ShiftRight(value: number, shift: number): number;
-
 declare function U64Subtract(left: number, right: number): number;
-
 declare function UCCompareCollationKeys(key1Ptr: number, key1Length: number, key2Ptr: number, key2Length: number, equivalent: string | any, order: number): number;
-
 declare function UCCompareText(collatorRef: any, text1Ptr: number, text1Length: number, text2Ptr: number, text2Length: number, equivalent: string | any, order: number): number;
-
 declare function UCCompareTextDefault(options: number, text1Ptr: number, text1Length: number, text2Ptr: number, text2Length: number, equivalent: string | any, order: number): number;
-
 declare function UCCompareTextNoLocale(options: number, text1Ptr: number, text1Length: number, text2Ptr: number, text2Length: number, equivalent: string | any, order: number): number;
-
 declare function UCConvertCFAbsoluteTimeToLongDateTime(iCFTime: number, oLongDate: number): number;
-
 declare function UCConvertCFAbsoluteTimeToSeconds(iCFTime: number, oSeconds: number): number;
-
 declare function UCConvertCFAbsoluteTimeToUTCDateTime(iCFTime: number, oUTCDate: UTCDateTime): number;
-
 declare function UCConvertLongDateTimeToCFAbsoluteTime(iLongTime: number, oCFTime: number): number;
-
 declare function UCConvertSecondsToCFAbsoluteTime(iSeconds: number, oCFTime: number): number;
-
 declare function UCConvertUTCDateTimeToCFAbsoluteTime(iUTCDate: UTCDateTime, oCFTime: number): number;
-
 declare function UCCreateCollator(locale: any, opVariant: number, options: number, collatorRef: any): number;
-
 declare function UCDisposeCollator(collatorRef: any): number;
-
 declare function UCGetCharProperty(charPtr: number, textLength: number, propType: number, propValue: number): number;
-
 declare function UCGetCollationKey(collatorRef: any, textPtr: number, textLength: number, maxKeySize: number, actualKeySize: number, collationKey: number): number;
-
 interface UCKeyLayoutFeatureInfo {
-	keyLayoutFeatureInfoFormat: number;
-	reserved: number;
-	maxOutputStringLength: number;
+  keyLayoutFeatureInfoFormat: number;
+  reserved: number;
+  maxOutputStringLength: number;
 }
+
 declare var UCKeyLayoutFeatureInfo: UCKeyLayoutFeatureInfo;
 
 interface UCKeyModifiersToTableNum {
-	keyModifiersToTableNumFormat: number;
-	defaultTableNum: number;
-	modifiersCount: number;
-	tableNum: number;
+  keyModifiersToTableNumFormat: number;
+  defaultTableNum: number;
+  modifiersCount: number;
+  tableNum: number;
 }
+
 declare var UCKeyModifiersToTableNum: UCKeyModifiersToTableNum;
 
 interface UCKeySequenceDataIndex {
-	keySequenceDataIndexFormat: number;
-	charSequenceCount: number;
-	charSequenceOffsets: number;
+  keySequenceDataIndexFormat: number;
+  charSequenceCount: number;
+  charSequenceOffsets: number;
 }
+
 declare var UCKeySequenceDataIndex: UCKeySequenceDataIndex;
 
 interface UCKeyStateEntryRange {
-	curStateStart: number;
-	curStateRange: number;
-	deltaMultiplier: number;
-	charData: number;
-	nextState: number;
+  curStateStart: number;
+  curStateRange: number;
+  deltaMultiplier: number;
+  charData: number;
+  nextState: number;
 }
+
 declare var UCKeyStateEntryRange: UCKeyStateEntryRange;
 
 interface UCKeyStateEntryTerminal {
-	curState: number;
-	charData: number;
+  curState: number;
+  charData: number;
 }
+
 declare var UCKeyStateEntryTerminal: UCKeyStateEntryTerminal;
 
 interface UCKeyStateRecord {
-	stateZeroCharData: number;
-	stateZeroNextState: number;
-	stateEntryCount: number;
-	stateEntryFormat: number;
-	stateEntryData: number;
+  stateZeroCharData: number;
+  stateZeroNextState: number;
+  stateEntryCount: number;
+  stateEntryFormat: number;
+  stateEntryData: number;
 }
+
 declare var UCKeyStateRecord: UCKeyStateRecord;
 
 interface UCKeyStateRecordsIndex {
-	keyStateRecordsIndexFormat: number;
-	keyStateRecordCount: number;
-	keyStateRecordOffsets: number;
+  keyStateRecordsIndexFormat: number;
+  keyStateRecordCount: number;
+  keyStateRecordOffsets: number;
 }
+
 declare var UCKeyStateRecordsIndex: UCKeyStateRecordsIndex;
 
 interface UCKeyStateTerminators {
-	keyStateTerminatorsFormat: number;
-	keyStateTerminatorCount: number;
-	keyStateTerminators: number;
+  keyStateTerminatorsFormat: number;
+  keyStateTerminatorCount: number;
+  keyStateTerminators: number;
 }
+
 declare var UCKeyStateTerminators: UCKeyStateTerminators;
 
 interface UCKeyToCharTableIndex {
-	keyToCharTableIndexFormat: number;
-	keyToCharTableSize: number;
-	keyToCharTableCount: number;
-	keyToCharTableOffsets: number;
+  keyToCharTableIndexFormat: number;
+  keyToCharTableSize: number;
+  keyToCharTableCount: number;
+  keyToCharTableOffsets: number;
 }
+
 declare var UCKeyToCharTableIndex: UCKeyToCharTableIndex;
 
 declare function UCKeyTranslate(keyLayoutPtr: UCKeyboardLayout, virtualKeyCode: number, keyAction: number, modifierKeyState: number, keyboardType: number, keyTranslateOptions: number, deadKeyState: number, maxStringLength: number, actualStringLength: number, unicodeString: number): number;
-
 interface UCKeyboardLayout {
-	keyLayoutHeaderFormat: number;
-	keyLayoutDataVersion: number;
-	keyLayoutFeatureInfoOffset: number;
-	keyboardTypeCount: number;
-	keyboardTypeList: UCKeyboardTypeHeader;
+  keyLayoutHeaderFormat: number;
+  keyLayoutDataVersion: number;
+  keyLayoutFeatureInfoOffset: number;
+  keyboardTypeCount: number;
+  keyboardTypeList: UCKeyboardTypeHeader;
 }
+
 declare var UCKeyboardLayout: UCKeyboardLayout;
 
 interface UCKeyboardTypeHeader {
-	keyboardTypeFirst: number;
-	keyboardTypeLast: number;
-	keyModifiersToTableNumOffset: number;
-	keyToCharTableIndexOffset: number;
-	keyStateRecordsIndexOffset: number;
-	keyStateTerminatorsOffset: number;
-	keySequenceDataIndexOffset: number;
+  keyboardTypeFirst: number;
+  keyboardTypeLast: number;
+  keyModifiersToTableNumOffset: number;
+  keyToCharTableIndexOffset: number;
+  keyStateRecordsIndexOffset: number;
+  keyStateTerminatorsOffset: number;
+  keySequenceDataIndexOffset: number;
 }
+
 declare var UCKeyboardTypeHeader: UCKeyboardTypeHeader;
 
-declare function UCTypeSelectAddKeyToSelector(inRef: any, inText: string, inEventTime: number, updateFlag: string | any): number;
-
-declare function UCTypeSelectCompare(ref: any, inText: string, result: number): number;
-
+declare function UCTypeSelectAddKeyToSelector(inRef: any, inText: NSObject, inEventTime: number, updateFlag: string | any): number;
+declare function UCTypeSelectCompare(ref: any, inText: NSObject, result: number): number;
 declare function UCTypeSelectCreateSelector(locale: any, opVariant: number, options: number, newSelector: any): number;
-
-declare function UCTypeSelectFindItem(ref: any, listSize: number, listDataPtr: any, refcon: any, userUPP: (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean, closestItem: number): number;
-
+declare function UCTypeSelectFindItem(ref: any, listSize: number, listDataPtr: any, refcon: any, userUPP: (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean, closestItem: number): number;
 declare function UCTypeSelectFlushSelectorData(ref: any): number;
-
 declare function UCTypeSelectReleaseSelector(ref: any): number;
-
-declare function UCTypeSelectWalkList(ref: any, currSelect: string, direction: number, listSize: number, listDataPtr: any, refcon: any, userUPP: (p1: number, p2: any, p3: any, p4: string, p5: number) => boolean, closestItem: number): number;
-
-declare function UCTypeSelectWouldResetBuffer(inRef: any, inText: string, inEventTime: number): boolean;
-
+declare function UCTypeSelectWalkList(ref: any, currSelect: NSObject, direction: number, listSize: number, listDataPtr: any, refcon: any, userUPP: (p1: number, p2: any, p3: any, p4: NSObject, p5: number) => boolean, closestItem: number): number;
+declare function UCTypeSelectWouldResetBuffer(inRef: any, inText: NSObject, inEventTime: number): boolean;
 declare function UInt64ToLongDouble(value: number): number;
-
 declare function UInt64ToSInt64(value: number): number;
 
 declare const UNORDERED: number;
-
 interface UTCDateTime {
-	highSeconds: number;
-	lowSeconds: number;
-	fraction: number;
+  highSeconds: number;
+  lowSeconds: number;
+  fraction: number;
 }
+
 declare var UTCDateTime: UTCDateTime;
 
-declare function UTCreateStringForOSType(inOSType: number): string;
-
-declare function UTGetOSTypeFromString(inString: string): number;
-
-declare function UTTypeConformsTo(inUTI: string, inConformsToUTI: string): boolean;
-
-declare function UTTypeCopyAllTagsWithClass(inUTI: string, inTagClass: string): NSArray<any>;
-
-declare function UTTypeCopyDeclaration(inUTI: string): NSDictionary<any, any>;
-
-declare function UTTypeCopyDeclaringBundleURL(inUTI: string): NSURL;
-
-declare function UTTypeCopyDescription(inUTI: string): string;
-
-declare function UTTypeCopyPreferredTagWithClass(inUTI: string, inTagClass: string): string;
-
-declare function UTTypeCreateAllIdentifiersForTag(inTagClass: string, inTag: string, inConformingToUTI: string): NSArray<any>;
-
-declare function UTTypeCreatePreferredIdentifierForTag(inTagClass: string, inTag: string, inConformingToUTI: string): string;
-
-declare function UTTypeEqual(inUTI1: string, inUTI2: string): boolean;
-
-declare function UTTypeIsDeclared(inUTI: string): boolean;
-
-declare function UTTypeIsDynamic(inUTI: string): boolean;
-
+declare function UTCreateStringForOSType(inOSType: number): NSObject;
+declare function UTGetOSTypeFromString(inString: NSObject): number;
+declare function UTTypeConformsTo(inUTI: NSObject, inConformsToUTI: NSObject): boolean;
+declare function UTTypeCopyAllTagsWithClass(inUTI: NSObject, inTagClass: NSObject): NSObject;
+declare function UTTypeCopyDeclaration(inUTI: NSObject): NSObject;
+declare function UTTypeCopyDeclaringBundleURL(inUTI: NSObject): NSObject;
+declare function UTTypeCopyDescription(inUTI: NSObject): NSObject;
+declare function UTTypeCopyPreferredTagWithClass(inUTI: NSObject, inTagClass: NSObject): NSObject;
+declare function UTTypeCreateAllIdentifiersForTag(inTagClass: NSObject, inTag: NSObject, inConformingToUTI: NSObject): NSObject;
+declare function UTTypeCreatePreferredIdentifierForTag(inTagClass: NSObject, inTag: NSObject, inConformingToUTI: NSObject): NSObject;
+declare function UTTypeEqual(inUTI1: NSObject, inUTI2: NSObject): boolean;
+declare function UTTypeIsDeclared(inUTI: NSObject): boolean;
+declare function UTTypeIsDynamic(inUTI: NSObject): boolean;
 interface UnicodeMapping {
-	unicodeEncoding: number;
-	otherEncoding: number;
-	mappingVersion: number;
+  unicodeEncoding: number;
+  otherEncoding: number;
+  mappingVersion: number;
 }
+
 declare var UnicodeMapping: UnicodeMapping;
 
 interface UntokenTable {
-	len: number;
-	lastToken: number;
-	index: number;
+  len: number;
+  lastToken: number;
+  index: number;
 }
+
 declare var UntokenTable: UntokenTable;
 
 declare function UpgradeScriptInfoToTextEncoding(iTextScriptID: number, iTextLanguageID: number, iRegionID: number, iTextFontname: string | any, oEncoding: number): number;
 
 declare const UsrActivity: number;
-
 interface VolMountInfoHeader {
-	length: number;
-	media: number;
+  length: number;
+  media: number;
 }
+
 declare var VolMountInfoHeader: VolMountInfoHeader;
 
 interface VolumeMountInfoHeader {
-	length: number;
-	media: number;
-	flags: number;
+  length: number;
+  media: number;
+  flags: number;
 }
+
 declare var VolumeMountInfoHeader: VolumeMountInfoHeader;
 
-declare const WDEFNFnd: number;
 
+declare const WDEFNFnd: number;
 interface WSClientContext {
-	version: number;
-	info: any;
-	retain: (p1: any) => any;
-	release: (p1: any) => void;
-	copyDescription: (p1: any) => string;
+  version: number;
+  info: any;
+  retain: (p1: any) => any;
+  release: (p1: any) => void;
+  copyDescription: (p1: any) => NSObject;
 }
+
 declare var WSClientContext: WSClientContext;
 
-enum WSTypeID {
-
-	eWSUnknownType = 0,
-
-	eWSNullType = 1,
-
-	eWSBooleanType = 2,
-
-	eWSIntegerType = 3,
-
-	eWSDoubleType = 4,
-
-	eWSStringType = 5,
-
-	eWSDateType = 6,
-
-	eWSDataType = 7,
-
-	eWSArrayType = 8,
-
-	eWSDictionaryType = 9
-}
-
-
 interface WritingCode {
-	theScriptCode: number;
-	theLangCode: number;
+  theScriptCode: number;
+  theLangCode: number;
 }
+
 declare var WritingCode: WritingCode;
 
 interface XLibContainerHeader {
-	tag1: number;
-	tag2: number;
-	currentFormat: number;
-	containerStringsOffset: number;
-	exportHashOffset: number;
-	exportKeyOffset: number;
-	exportSymbolOffset: number;
-	exportNamesOffset: number;
-	exportHashTablePower: number;
-	exportedSymbolCount: number;
-	fragNameOffset: number;
-	fragNameLength: number;
-	dylibPathOffset: number;
-	dylibPathLength: number;
-	cpuFamily: number;
-	cpuModel: number;
-	dateTimeStamp: number;
-	currentVersion: number;
-	oldDefVersion: number;
-	oldImpVersion: number;
+  tag1: number;
+  tag2: number;
+  currentFormat: number;
+  containerStringsOffset: number;
+  exportHashOffset: number;
+  exportKeyOffset: number;
+  exportSymbolOffset: number;
+  exportNamesOffset: number;
+  exportHashTablePower: number;
+  exportedSymbolCount: number;
+  fragNameOffset: number;
+  fragNameLength: number;
+  dylibPathOffset: number;
+  dylibPathLength: number;
+  cpuFamily: number;
+  cpuModel: number;
+  dateTimeStamp: number;
+  currentVersion: number;
+  oldDefVersion: number;
+  oldImpVersion: number;
 }
+
 declare var XLibContainerHeader: XLibContainerHeader;
 
 interface XLibExportedSymbol {
-	classAndName: number;
-	bpOffset: number;
+  classAndName: number;
+  bpOffset: number;
 }
+
 declare var XLibExportedSymbol: XLibExportedSymbol;
+
 
 declare const _MixedModeMagic: number;
 
@@ -3937,12 +3635,13 @@ declare const cantStepErr: number;
 declare const catChangedErr: number;
 
 declare const cbNotFound: number;
-
 interface ccntTokenRecord {
-	tokenClass: number;
-	token: AEDesc;
+  tokenClass: number;
+  token: AEDesc;
 }
+
 declare var ccntTokenRecord: ccntTokenRecord;
+
 
 declare const cedilla: number;
 
@@ -4363,23 +4062,24 @@ declare const debuggingInvalidSignatureErr: number;
 declare const debuggingNoCallbackErr: number;
 
 declare const debuggingNoMatchErr: number;
-
 declare function dec2numl(d: decimal): number;
-
 interface decform {
-	style: number;
-	unused: number;
-	digits: number;
+  style: number;
+  unused: number;
+  digits: number;
 }
+
 declare var decform: decform;
 
 interface decimal {
-	sgn: number;
-	unused: number;
-	exp: number;
-	sig: { length: number; text: number; unused: number; };
+  sgn: number;
+  unused: number;
+  exp: number;
+  sig: { length: number; text: number; unused: number; };
 }
+
 declare var decimal: decimal;
+
 
 declare const defaultComponentAnyFlags: number;
 
@@ -8452,14 +8152,14 @@ declare const kAERedo: number;
 declare const kAERegular: number;
 
 declare const kAERemoteProcess: number;
+declare var kAERemoteProcessNameKey: NSObject;
 
-declare var kAERemoteProcessNameKey: string;
+declare var kAERemoteProcessProcessIDKey: NSObject;
 
-declare var kAERemoteProcessProcessIDKey: string;
+declare var kAERemoteProcessURLKey: NSObject;
 
-declare var kAERemoteProcessURLKey: string;
+declare var kAERemoteProcessUserIDKey: NSObject;
 
-declare var kAERemoteProcessUserIDKey: string;
 
 declare const kAEReopenApplication: number;
 
@@ -9014,14 +8714,14 @@ declare const kCSIdentityDeletedErr: number;
 declare const kCSIdentityDuplicateFullNameErr: number;
 
 declare const kCSIdentityDuplicatePosixNameErr: number;
+declare var kCSIdentityErrorDomain: NSObject;
 
-declare var kCSIdentityErrorDomain: string;
 
 declare const kCSIdentityFlagHidden: number;
 
 declare const kCSIdentityFlagNone: number;
+declare var kCSIdentityGeneratePosixName: NSObject;
 
-declare var kCSIdentityGeneratePosixName: string;
 
 declare const kCSIdentityInvalidFullNameErr: number;
 
@@ -10928,30 +10628,30 @@ declare const kLSNotAnApplicationErr: number;
 declare const kLSNotInitializedErr: number;
 
 declare const kLSNotRegisteredErr: number;
+declare var kLSQuarantineAgentBundleIdentifierKey: NSObject;
 
-declare var kLSQuarantineAgentBundleIdentifierKey: string;
+declare var kLSQuarantineAgentNameKey: NSObject;
 
-declare var kLSQuarantineAgentNameKey: string;
+declare var kLSQuarantineDataURLKey: NSObject;
 
-declare var kLSQuarantineDataURLKey: string;
+declare var kLSQuarantineOriginURLKey: NSObject;
 
-declare var kLSQuarantineOriginURLKey: string;
+declare var kLSQuarantineTimeStampKey: NSObject;
 
-declare var kLSQuarantineTimeStampKey: string;
+declare var kLSQuarantineTypeCalendarEventAttachment: NSObject;
 
-declare var kLSQuarantineTypeCalendarEventAttachment: string;
+declare var kLSQuarantineTypeEmailAttachment: NSObject;
 
-declare var kLSQuarantineTypeEmailAttachment: string;
+declare var kLSQuarantineTypeInstantMessageAttachment: NSObject;
 
-declare var kLSQuarantineTypeInstantMessageAttachment: string;
+declare var kLSQuarantineTypeKey: NSObject;
 
-declare var kLSQuarantineTypeKey: string;
+declare var kLSQuarantineTypeOtherAttachment: NSObject;
 
-declare var kLSQuarantineTypeOtherAttachment: string;
+declare var kLSQuarantineTypeOtherDownload: NSObject;
 
-declare var kLSQuarantineTypeOtherDownload: string;
+declare var kLSQuarantineTypeWebDownload: NSObject;
 
-declare var kLSQuarantineTypeWebDownload: string;
 
 declare const kLSServerCommunicationErr: number;
 
@@ -11040,406 +10740,406 @@ declare const kLockedIcon: number;
 declare const kLogsFolderType: number;
 
 declare const kM68kISA: number;
+declare var kMDAttributeAllValues: NSObject;
 
-declare var kMDAttributeAllValues: string;
+declare var kMDAttributeDisplayValues: NSObject;
 
-declare var kMDAttributeDisplayValues: string;
+declare var kMDAttributeMultiValued: NSObject;
 
-declare var kMDAttributeMultiValued: string;
+declare var kMDAttributeName: NSObject;
 
-declare var kMDAttributeName: string;
+declare var kMDAttributeReadOnlyValues: NSObject;
 
-declare var kMDAttributeReadOnlyValues: string;
+declare var kMDAttributeType: NSObject;
 
-declare var kMDAttributeType: string;
+declare var kMDExporterAvaliable: NSObject;
 
-declare var kMDExporterAvaliable: string;
+declare var kMDItemAcquisitionMake: NSObject;
 
-declare var kMDItemAcquisitionMake: string;
+declare var kMDItemAcquisitionModel: NSObject;
 
-declare var kMDItemAcquisitionModel: string;
+declare var kMDItemAlbum: NSObject;
 
-declare var kMDItemAlbum: string;
+declare var kMDItemAltitude: NSObject;
 
-declare var kMDItemAltitude: string;
+declare var kMDItemAperture: NSObject;
 
-declare var kMDItemAperture: string;
+declare var kMDItemAppleLoopDescriptors: NSObject;
 
-declare var kMDItemAppleLoopDescriptors: string;
+declare var kMDItemAppleLoopsKeyFilterType: NSObject;
 
-declare var kMDItemAppleLoopsKeyFilterType: string;
+declare var kMDItemAppleLoopsLoopMode: NSObject;
 
-declare var kMDItemAppleLoopsLoopMode: string;
+declare var kMDItemAppleLoopsRootKey: NSObject;
 
-declare var kMDItemAppleLoopsRootKey: string;
+declare var kMDItemApplicationCategories: NSObject;
 
-declare var kMDItemApplicationCategories: string;
+declare var kMDItemAttributeChangeDate: NSObject;
 
-declare var kMDItemAttributeChangeDate: string;
+declare var kMDItemAudiences: NSObject;
 
-declare var kMDItemAudiences: string;
+declare var kMDItemAudioBitRate: NSObject;
 
-declare var kMDItemAudioBitRate: string;
+declare var kMDItemAudioChannelCount: NSObject;
 
-declare var kMDItemAudioChannelCount: string;
+declare var kMDItemAudioEncodingApplication: NSObject;
 
-declare var kMDItemAudioEncodingApplication: string;
+declare var kMDItemAudioSampleRate: NSObject;
 
-declare var kMDItemAudioSampleRate: string;
+declare var kMDItemAudioTrackNumber: NSObject;
 
-declare var kMDItemAudioTrackNumber: string;
+declare var kMDItemAuthorAddresses: NSObject;
 
-declare var kMDItemAuthorAddresses: string;
+declare var kMDItemAuthorEmailAddresses: NSObject;
 
-declare var kMDItemAuthorEmailAddresses: string;
+declare var kMDItemAuthors: NSObject;
 
-declare var kMDItemAuthors: string;
+declare var kMDItemBitsPerSample: NSObject;
 
-declare var kMDItemBitsPerSample: string;
+declare var kMDItemCFBundleIdentifier: NSObject;
 
-declare var kMDItemCFBundleIdentifier: string;
+declare var kMDItemCameraOwner: NSObject;
 
-declare var kMDItemCameraOwner: string;
+declare var kMDItemCity: NSObject;
 
-declare var kMDItemCity: string;
+declare var kMDItemCodecs: NSObject;
 
-declare var kMDItemCodecs: string;
+declare var kMDItemColorSpace: NSObject;
 
-declare var kMDItemColorSpace: string;
+declare var kMDItemComment: NSObject;
 
-declare var kMDItemComment: string;
+declare var kMDItemComposer: NSObject;
 
-declare var kMDItemComposer: string;
+declare var kMDItemContactKeywords: NSObject;
 
-declare var kMDItemContactKeywords: string;
+declare var kMDItemContentCreationDate: NSObject;
 
-declare var kMDItemContentCreationDate: string;
+declare var kMDItemContentModificationDate: NSObject;
 
-declare var kMDItemContentModificationDate: string;
+declare var kMDItemContentType: NSObject;
 
-declare var kMDItemContentType: string;
+declare var kMDItemContentTypeTree: NSObject;
 
-declare var kMDItemContentTypeTree: string;
+declare var kMDItemContributors: NSObject;
 
-declare var kMDItemContributors: string;
+declare var kMDItemCopyright: NSObject;
 
-declare var kMDItemCopyright: string;
+declare var kMDItemCountry: NSObject;
 
-declare var kMDItemCountry: string;
+declare var kMDItemCoverage: NSObject;
 
-declare var kMDItemCoverage: string;
+declare var kMDItemCreator: NSObject;
 
-declare var kMDItemCreator: string;
+declare var kMDItemDateAdded: NSObject;
 
-declare var kMDItemDateAdded: string;
+declare var kMDItemDeliveryType: NSObject;
 
-declare var kMDItemDeliveryType: string;
+declare var kMDItemDescription: NSObject;
 
-declare var kMDItemDescription: string;
+declare var kMDItemDirector: NSObject;
 
-declare var kMDItemDirector: string;
+declare var kMDItemDisplayName: NSObject;
 
-declare var kMDItemDisplayName: string;
+declare var kMDItemDownloadedDate: NSObject;
 
-declare var kMDItemDownloadedDate: string;
+declare var kMDItemDueDate: NSObject;
 
-declare var kMDItemDueDate: string;
+declare var kMDItemDurationSeconds: NSObject;
 
-declare var kMDItemDurationSeconds: string;
+declare var kMDItemEXIFGPSVersion: NSObject;
 
-declare var kMDItemEXIFGPSVersion: string;
+declare var kMDItemEXIFVersion: NSObject;
 
-declare var kMDItemEXIFVersion: string;
+declare var kMDItemEditors: NSObject;
 
-declare var kMDItemEditors: string;
+declare var kMDItemEmailAddresses: NSObject;
 
-declare var kMDItemEmailAddresses: string;
+declare var kMDItemEncodingApplications: NSObject;
 
-declare var kMDItemEncodingApplications: string;
+declare var kMDItemExecutableArchitectures: NSObject;
 
-declare var kMDItemExecutableArchitectures: string;
+declare var kMDItemExecutablePlatform: NSObject;
 
-declare var kMDItemExecutablePlatform: string;
+declare var kMDItemExposureMode: NSObject;
 
-declare var kMDItemExposureMode: string;
+declare var kMDItemExposureProgram: NSObject;
 
-declare var kMDItemExposureProgram: string;
+declare var kMDItemExposureTimeSeconds: NSObject;
 
-declare var kMDItemExposureTimeSeconds: string;
+declare var kMDItemExposureTimeString: NSObject;
 
-declare var kMDItemExposureTimeString: string;
+declare var kMDItemFNumber: NSObject;
 
-declare var kMDItemFNumber: string;
+declare var kMDItemFSContentChangeDate: NSObject;
 
-declare var kMDItemFSContentChangeDate: string;
+declare var kMDItemFSCreationDate: NSObject;
 
-declare var kMDItemFSCreationDate: string;
+declare var kMDItemFSHasCustomIcon: NSObject;
 
-declare var kMDItemFSHasCustomIcon: string;
+declare var kMDItemFSInvisible: NSObject;
 
-declare var kMDItemFSInvisible: string;
+declare var kMDItemFSIsExtensionHidden: NSObject;
 
-declare var kMDItemFSIsExtensionHidden: string;
+declare var kMDItemFSIsStationery: NSObject;
 
-declare var kMDItemFSIsStationery: string;
+declare var kMDItemFSLabel: NSObject;
 
-declare var kMDItemFSLabel: string;
+declare var kMDItemFSName: NSObject;
 
-declare var kMDItemFSName: string;
+declare var kMDItemFSNodeCount: NSObject;
 
-declare var kMDItemFSNodeCount: string;
+declare var kMDItemFSOwnerGroupID: NSObject;
 
-declare var kMDItemFSOwnerGroupID: string;
+declare var kMDItemFSOwnerUserID: NSObject;
 
-declare var kMDItemFSOwnerUserID: string;
+declare var kMDItemFSSize: NSObject;
 
-declare var kMDItemFSSize: string;
+declare var kMDItemFinderComment: NSObject;
 
-declare var kMDItemFinderComment: string;
+declare var kMDItemFlashOnOff: NSObject;
 
-declare var kMDItemFlashOnOff: string;
+declare var kMDItemFocalLength: NSObject;
 
-declare var kMDItemFocalLength: string;
+declare var kMDItemFocalLength35mm: NSObject;
 
-declare var kMDItemFocalLength35mm: string;
+declare var kMDItemFonts: NSObject;
 
-declare var kMDItemFonts: string;
+declare var kMDItemGPSAreaInformation: NSObject;
 
-declare var kMDItemGPSAreaInformation: string;
+declare var kMDItemGPSDOP: NSObject;
 
-declare var kMDItemGPSDOP: string;
+declare var kMDItemGPSDateStamp: NSObject;
 
-declare var kMDItemGPSDateStamp: string;
+declare var kMDItemGPSDestBearing: NSObject;
 
-declare var kMDItemGPSDestBearing: string;
+declare var kMDItemGPSDestDistance: NSObject;
 
-declare var kMDItemGPSDestDistance: string;
+declare var kMDItemGPSDestLatitude: NSObject;
 
-declare var kMDItemGPSDestLatitude: string;
+declare var kMDItemGPSDestLongitude: NSObject;
 
-declare var kMDItemGPSDestLongitude: string;
+declare var kMDItemGPSDifferental: NSObject;
 
-declare var kMDItemGPSDifferental: string;
+declare var kMDItemGPSMapDatum: NSObject;
 
-declare var kMDItemGPSMapDatum: string;
+declare var kMDItemGPSMeasureMode: NSObject;
 
-declare var kMDItemGPSMeasureMode: string;
+declare var kMDItemGPSProcessingMethod: NSObject;
 
-declare var kMDItemGPSProcessingMethod: string;
+declare var kMDItemGPSStatus: NSObject;
 
-declare var kMDItemGPSStatus: string;
+declare var kMDItemGPSTrack: NSObject;
 
-declare var kMDItemGPSTrack: string;
+declare var kMDItemGenre: NSObject;
 
-declare var kMDItemGenre: string;
+declare var kMDItemHTMLContent: NSObject;
 
-declare var kMDItemHTMLContent: string;
+declare var kMDItemHasAlphaChannel: NSObject;
 
-declare var kMDItemHasAlphaChannel: string;
+declare var kMDItemHeadline: NSObject;
 
-declare var kMDItemHeadline: string;
+declare var kMDItemISOSpeed: NSObject;
 
-declare var kMDItemISOSpeed: string;
+declare var kMDItemIdentifier: NSObject;
 
-declare var kMDItemIdentifier: string;
+declare var kMDItemImageDirection: NSObject;
 
-declare var kMDItemImageDirection: string;
+declare var kMDItemInformation: NSObject;
 
-declare var kMDItemInformation: string;
+declare var kMDItemInstantMessageAddresses: NSObject;
 
-declare var kMDItemInstantMessageAddresses: string;
+declare var kMDItemInstructions: NSObject;
 
-declare var kMDItemInstructions: string;
+declare var kMDItemIsApplicationManaged: NSObject;
 
-declare var kMDItemIsApplicationManaged: string;
+declare var kMDItemIsGeneralMIDISequence: NSObject;
 
-declare var kMDItemIsGeneralMIDISequence: string;
+declare var kMDItemIsLikelyJunk: NSObject;
 
-declare var kMDItemIsLikelyJunk: string;
+declare var kMDItemKeySignature: NSObject;
 
-declare var kMDItemKeySignature: string;
+declare var kMDItemKeywords: NSObject;
 
-declare var kMDItemKeywords: string;
+declare var kMDItemKind: NSObject;
 
-declare var kMDItemKind: string;
+declare var kMDItemLanguages: NSObject;
 
-declare var kMDItemLanguages: string;
+declare var kMDItemLastUsedDate: NSObject;
 
-declare var kMDItemLastUsedDate: string;
+declare var kMDItemLatitude: NSObject;
 
-declare var kMDItemLatitude: string;
+declare var kMDItemLayerNames: NSObject;
 
-declare var kMDItemLayerNames: string;
+declare var kMDItemLensModel: NSObject;
 
-declare var kMDItemLensModel: string;
+declare var kMDItemLongitude: NSObject;
 
-declare var kMDItemLongitude: string;
+declare var kMDItemLyricist: NSObject;
 
-declare var kMDItemLyricist: string;
+declare var kMDItemMaxAperture: NSObject;
 
-declare var kMDItemMaxAperture: string;
+declare var kMDItemMediaTypes: NSObject;
 
-declare var kMDItemMediaTypes: string;
+declare var kMDItemMeteringMode: NSObject;
 
-declare var kMDItemMeteringMode: string;
+declare var kMDItemMusicalGenre: NSObject;
 
-declare var kMDItemMusicalGenre: string;
+declare var kMDItemMusicalInstrumentCategory: NSObject;
 
-declare var kMDItemMusicalInstrumentCategory: string;
+declare var kMDItemMusicalInstrumentName: NSObject;
 
-declare var kMDItemMusicalInstrumentName: string;
+declare var kMDItemNamedLocation: NSObject;
 
-declare var kMDItemNamedLocation: string;
+declare var kMDItemNumberOfPages: NSObject;
 
-declare var kMDItemNumberOfPages: string;
+declare var kMDItemOrganizations: NSObject;
 
-declare var kMDItemOrganizations: string;
+declare var kMDItemOrientation: NSObject;
 
-declare var kMDItemOrientation: string;
+declare var kMDItemOriginalFormat: NSObject;
 
-declare var kMDItemOriginalFormat: string;
+declare var kMDItemOriginalSource: NSObject;
 
-declare var kMDItemOriginalSource: string;
+declare var kMDItemPageHeight: NSObject;
 
-declare var kMDItemPageHeight: string;
+declare var kMDItemPageWidth: NSObject;
 
-declare var kMDItemPageWidth: string;
+declare var kMDItemParticipants: NSObject;
 
-declare var kMDItemParticipants: string;
+declare var kMDItemPath: NSObject;
 
-declare var kMDItemPath: string;
+declare var kMDItemPerformers: NSObject;
 
-declare var kMDItemPerformers: string;
+declare var kMDItemPhoneNumbers: NSObject;
 
-declare var kMDItemPhoneNumbers: string;
+declare var kMDItemPixelCount: NSObject;
 
-declare var kMDItemPixelCount: string;
+declare var kMDItemPixelHeight: NSObject;
 
-declare var kMDItemPixelHeight: string;
+declare var kMDItemPixelWidth: NSObject;
 
-declare var kMDItemPixelWidth: string;
+declare var kMDItemProducer: NSObject;
 
-declare var kMDItemProducer: string;
+declare var kMDItemProfileName: NSObject;
 
-declare var kMDItemProfileName: string;
+declare var kMDItemProjects: NSObject;
 
-declare var kMDItemProjects: string;
+declare var kMDItemPublishers: NSObject;
 
-declare var kMDItemPublishers: string;
+declare var kMDItemRecipientAddresses: NSObject;
 
-declare var kMDItemRecipientAddresses: string;
+declare var kMDItemRecipientEmailAddresses: NSObject;
 
-declare var kMDItemRecipientEmailAddresses: string;
+declare var kMDItemRecipients: NSObject;
 
-declare var kMDItemRecipients: string;
+declare var kMDItemRecordingDate: NSObject;
 
-declare var kMDItemRecordingDate: string;
+declare var kMDItemRecordingYear: NSObject;
 
-declare var kMDItemRecordingYear: string;
+declare var kMDItemRedEyeOnOff: NSObject;
 
-declare var kMDItemRedEyeOnOff: string;
+declare var kMDItemResolutionHeightDPI: NSObject;
 
-declare var kMDItemResolutionHeightDPI: string;
+declare var kMDItemResolutionWidthDPI: NSObject;
 
-declare var kMDItemResolutionWidthDPI: string;
+declare var kMDItemRights: NSObject;
 
-declare var kMDItemRights: string;
+declare var kMDItemSecurityMethod: NSObject;
 
-declare var kMDItemSecurityMethod: string;
+declare var kMDItemSpeed: NSObject;
 
-declare var kMDItemSpeed: string;
+declare var kMDItemStarRating: NSObject;
 
-declare var kMDItemStarRating: string;
+declare var kMDItemStateOrProvince: NSObject;
 
-declare var kMDItemStateOrProvince: string;
+declare var kMDItemStreamable: NSObject;
 
-declare var kMDItemStreamable: string;
+declare var kMDItemSubject: NSObject;
 
-declare var kMDItemSubject: string;
+declare var kMDItemTempo: NSObject;
 
-declare var kMDItemTempo: string;
+declare var kMDItemTextContent: NSObject;
 
-declare var kMDItemTextContent: string;
+declare var kMDItemTheme: NSObject;
 
-declare var kMDItemTheme: string;
+declare var kMDItemTimeSignature: NSObject;
 
-declare var kMDItemTimeSignature: string;
+declare var kMDItemTimestamp: NSObject;
 
-declare var kMDItemTimestamp: string;
+declare var kMDItemTitle: NSObject;
 
-declare var kMDItemTitle: string;
+declare var kMDItemTotalBitRate: NSObject;
 
-declare var kMDItemTotalBitRate: string;
+declare var kMDItemURL: NSObject;
 
-declare var kMDItemURL: string;
+declare var kMDItemVersion: NSObject;
 
-declare var kMDItemVersion: string;
+declare var kMDItemVideoBitRate: NSObject;
 
-declare var kMDItemVideoBitRate: string;
+declare var kMDItemWhereFroms: NSObject;
 
-declare var kMDItemWhereFroms: string;
+declare var kMDItemWhiteBalance: NSObject;
 
-declare var kMDItemWhiteBalance: string;
+declare var kMDLabelAddedNotification: NSObject;
 
-declare var kMDLabelAddedNotification: string;
+declare var kMDLabelBundleURL: NSObject;
 
-declare var kMDLabelBundleURL: string;
+declare var kMDLabelChangedNotification: NSObject;
 
-declare var kMDLabelChangedNotification: string;
+declare var kMDLabelContentChangeDate: NSObject;
 
-declare var kMDLabelContentChangeDate: string;
+declare var kMDLabelDisplayName: NSObject;
 
-declare var kMDLabelDisplayName: string;
+declare var kMDLabelIconData: NSObject;
 
-declare var kMDLabelIconData: string;
+declare var kMDLabelIconUUID: NSObject;
 
-declare var kMDLabelIconUUID: string;
+declare var kMDLabelIsMutuallyExclusiveSetMember: NSObject;
 
-declare var kMDLabelIsMutuallyExclusiveSetMember: string;
+declare var kMDLabelKind: NSObject;
 
-declare var kMDLabelKind: string;
+declare var kMDLabelKindIsMutuallyExclusiveSetKey: NSObject;
 
-declare var kMDLabelKindIsMutuallyExclusiveSetKey: string;
+declare var kMDLabelKindVisibilityKey: NSObject;
 
-declare var kMDLabelKindVisibilityKey: string;
+declare var kMDLabelRemovedNotification: NSObject;
 
-declare var kMDLabelRemovedNotification: string;
+declare var kMDLabelSetsFinderColor: NSObject;
 
-declare var kMDLabelSetsFinderColor: string;
+declare var kMDLabelUUID: NSObject;
 
-declare var kMDLabelUUID: string;
+declare var kMDLabelVisibility: NSObject;
 
-declare var kMDLabelVisibility: string;
+declare var kMDPrivateVisibility: NSObject;
 
-declare var kMDPrivateVisibility: string;
+declare var kMDPublicVisibility: NSObject;
 
-declare var kMDPublicVisibility: string;
+declare var kMDQueryDidFinishNotification: NSObject;
 
-declare var kMDQueryDidFinishNotification: string;
+declare var kMDQueryDidUpdateNotification: NSObject;
 
-declare var kMDQueryDidUpdateNotification: string;
+declare var kMDQueryProgressNotification: NSObject;
 
-declare var kMDQueryProgressNotification: string;
+declare var kMDQueryResultContentRelevance: NSObject;
 
-declare var kMDQueryResultContentRelevance: string;
+declare var kMDQueryScopeAllIndexed: NSObject;
 
-declare var kMDQueryScopeAllIndexed: string;
+declare var kMDQueryScopeComputer: NSObject;
 
-declare var kMDQueryScopeComputer: string;
+declare var kMDQueryScopeComputerIndexed: NSObject;
 
-declare var kMDQueryScopeComputerIndexed: string;
+declare var kMDQueryScopeHome: NSObject;
 
-declare var kMDQueryScopeHome: string;
+declare var kMDQueryScopeNetwork: NSObject;
 
-declare var kMDQueryScopeNetwork: string;
+declare var kMDQueryScopeNetworkIndexed: NSObject;
 
-declare var kMDQueryScopeNetworkIndexed: string;
+declare var kMDQueryUpdateAddedItems: NSObject;
 
-declare var kMDQueryUpdateAddedItems: string;
+declare var kMDQueryUpdateChangedItems: NSObject;
 
-declare var kMDQueryUpdateChangedItems: string;
+declare var kMDQueryUpdateRemovedItems: NSObject;
 
-declare var kMDQueryUpdateRemovedItems: string;
 
 declare const kMIDIDriversFolderType: number;
 
@@ -12816,14 +12516,14 @@ declare const kRsrcChainBelowApplicationMap: number;
 declare const kRsrcChainBelowSystemMap: number;
 
 declare const kRunningThreadState: number;
+declare var kSKEndTermChars: NSObject;
 
-declare var kSKEndTermChars: string;
+declare var kSKMaximumTerms: NSObject;
 
-declare var kSKMaximumTerms: string;
+declare var kSKMinTermLength: NSObject;
 
-declare var kSKMinTermLength: string;
+declare var kSKProximityIndexing: NSObject;
 
-declare var kSKProximityIndexing: string;
 
 declare const kSKSearchOptionDefault: number;
 
@@ -12832,14 +12532,14 @@ declare const kSKSearchOptionFindSimilar: number;
 declare const kSKSearchOptionNoRelevanceScores: number;
 
 declare const kSKSearchOptionSpaceMeansOR: number;
+declare var kSKStartTermChars: NSObject;
 
-declare var kSKStartTermChars: string;
+declare var kSKStopWords: NSObject;
 
-declare var kSKStopWords: string;
+declare var kSKSubstitutions: NSObject;
 
-declare var kSKSubstitutions: string;
+declare var kSKTermChars: NSObject;
 
-declare var kSKTermChars: string;
 
 declare const kSOAP1999Schema: number;
 
@@ -14138,288 +13838,288 @@ declare const kUTCDefaultOptions: number;
 declare const kUTCOverflowErr: number;
 
 declare const kUTCUnderflowErr: number;
+declare var kUTExportedTypeDeclarationsKey: NSObject;
 
-declare var kUTExportedTypeDeclarationsKey: string;
+declare var kUTImportedTypeDeclarationsKey: NSObject;
 
-declare var kUTImportedTypeDeclarationsKey: string;
+declare var kUTTagClassFilenameExtension: NSObject;
 
-declare var kUTTagClassFilenameExtension: string;
+declare var kUTTagClassMIMEType: NSObject;
 
-declare var kUTTagClassMIMEType: string;
+declare var kUTTagClassNSPboardType: NSObject;
 
-declare var kUTTagClassNSPboardType: string;
+declare var kUTTagClassOSType: NSObject;
 
-declare var kUTTagClassOSType: string;
+declare var kUTType3DContent: NSObject;
 
-declare var kUTType3DContent: string;
+declare var kUTTypeAVIMovie: NSObject;
 
-declare var kUTTypeAVIMovie: string;
+declare var kUTTypeAliasFile: NSObject;
 
-declare var kUTTypeAliasFile: string;
+declare var kUTTypeAliasRecord: NSObject;
 
-declare var kUTTypeAliasRecord: string;
+declare var kUTTypeAppleICNS: NSObject;
 
-declare var kUTTypeAppleICNS: string;
+declare var kUTTypeAppleProtectedMPEG4Audio: NSObject;
 
-declare var kUTTypeAppleProtectedMPEG4Audio: string;
+declare var kUTTypeAppleProtectedMPEG4Video: NSObject;
 
-declare var kUTTypeAppleProtectedMPEG4Video: string;
+declare var kUTTypeAppleScript: NSObject;
 
-declare var kUTTypeAppleScript: string;
+declare var kUTTypeApplication: NSObject;
 
-declare var kUTTypeApplication: string;
+declare var kUTTypeApplicationBundle: NSObject;
 
-declare var kUTTypeApplicationBundle: string;
+declare var kUTTypeApplicationFile: NSObject;
 
-declare var kUTTypeApplicationFile: string;
+declare var kUTTypeArchive: NSObject;
 
-declare var kUTTypeArchive: string;
+declare var kUTTypeAssemblyLanguageSource: NSObject;
 
-declare var kUTTypeAssemblyLanguageSource: string;
+declare var kUTTypeAudio: NSObject;
 
-declare var kUTTypeAudio: string;
+declare var kUTTypeAudioInterchangeFileFormat: NSObject;
 
-declare var kUTTypeAudioInterchangeFileFormat: string;
+declare var kUTTypeAudiovisualContent: NSObject;
 
-declare var kUTTypeAudiovisualContent: string;
+declare var kUTTypeBMP: NSObject;
 
-declare var kUTTypeBMP: string;
+declare var kUTTypeBinaryPropertyList: NSObject;
 
-declare var kUTTypeBinaryPropertyList: string;
+declare var kUTTypeBookmark: NSObject;
 
-declare var kUTTypeBookmark: string;
+declare var kUTTypeBundle: NSObject;
 
-declare var kUTTypeBundle: string;
+declare var kUTTypeBzip2Archive: NSObject;
 
-declare var kUTTypeBzip2Archive: string;
+declare var kUTTypeCHeader: NSObject;
 
-declare var kUTTypeCHeader: string;
+declare var kUTTypeCPlusPlusHeader: NSObject;
 
-declare var kUTTypeCPlusPlusHeader: string;
+declare var kUTTypeCPlusPlusSource: NSObject;
 
-declare var kUTTypeCPlusPlusSource: string;
+declare var kUTTypeCSource: NSObject;
 
-declare var kUTTypeCSource: string;
+declare var kUTTypeCalendarEvent: NSObject;
 
-declare var kUTTypeCalendarEvent: string;
+declare var kUTTypeCommaSeparatedText: NSObject;
 
-declare var kUTTypeCommaSeparatedText: string;
+declare var kUTTypeCompositeContent: NSObject;
 
-declare var kUTTypeCompositeContent: string;
+declare var kUTTypeConformsToKey: NSObject;
 
-declare var kUTTypeConformsToKey: string;
+declare var kUTTypeContact: NSObject;
 
-declare var kUTTypeContact: string;
+declare var kUTTypeContent: NSObject;
 
-declare var kUTTypeContent: string;
+declare var kUTTypeData: NSObject;
 
-declare var kUTTypeData: string;
+declare var kUTTypeDatabase: NSObject;
 
-declare var kUTTypeDatabase: string;
+declare var kUTTypeDelimitedText: NSObject;
 
-declare var kUTTypeDelimitedText: string;
+declare var kUTTypeDescriptionKey: NSObject;
 
-declare var kUTTypeDescriptionKey: string;
+declare var kUTTypeDirectory: NSObject;
 
-declare var kUTTypeDirectory: string;
+declare var kUTTypeDiskImage: NSObject;
 
-declare var kUTTypeDiskImage: string;
+declare var kUTTypeElectronicPublication: NSObject;
 
-declare var kUTTypeElectronicPublication: string;
+declare var kUTTypeEmailMessage: NSObject;
 
-declare var kUTTypeEmailMessage: string;
+declare var kUTTypeExecutable: NSObject;
 
-declare var kUTTypeExecutable: string;
+declare var kUTTypeFileURL: NSObject;
 
-declare var kUTTypeFileURL: string;
+declare var kUTTypeFlatRTFD: NSObject;
 
-declare var kUTTypeFlatRTFD: string;
+declare var kUTTypeFolder: NSObject;
 
-declare var kUTTypeFolder: string;
+declare var kUTTypeFont: NSObject;
 
-declare var kUTTypeFont: string;
+declare var kUTTypeFramework: NSObject;
 
-declare var kUTTypeFramework: string;
+declare var kUTTypeGIF: NSObject;
 
-declare var kUTTypeGIF: string;
+declare var kUTTypeGNUZipArchive: NSObject;
 
-declare var kUTTypeGNUZipArchive: string;
+declare var kUTTypeHTML: NSObject;
 
-declare var kUTTypeHTML: string;
+declare var kUTTypeICO: NSObject;
 
-declare var kUTTypeICO: string;
+declare var kUTTypeIconFileKey: NSObject;
 
-declare var kUTTypeIconFileKey: string;
+declare var kUTTypeIdentifierKey: NSObject;
 
-declare var kUTTypeIdentifierKey: string;
+declare var kUTTypeImage: NSObject;
 
-declare var kUTTypeImage: string;
+declare var kUTTypeInkText: NSObject;
 
-declare var kUTTypeInkText: string;
+declare var kUTTypeInternetLocation: NSObject;
 
-declare var kUTTypeInternetLocation: string;
+declare var kUTTypeItem: NSObject;
 
-declare var kUTTypeItem: string;
+declare var kUTTypeJPEG: NSObject;
 
-declare var kUTTypeJPEG: string;
+declare var kUTTypeJPEG2000: NSObject;
 
-declare var kUTTypeJPEG2000: string;
+declare var kUTTypeJSON: NSObject;
 
-declare var kUTTypeJSON: string;
+declare var kUTTypeJavaArchive: NSObject;
 
-declare var kUTTypeJavaArchive: string;
+declare var kUTTypeJavaClass: NSObject;
 
-declare var kUTTypeJavaClass: string;
+declare var kUTTypeJavaScript: NSObject;
 
-declare var kUTTypeJavaScript: string;
+declare var kUTTypeJavaSource: NSObject;
 
-declare var kUTTypeJavaSource: string;
+declare var kUTTypeLivePhoto: NSObject;
 
-declare var kUTTypeLivePhoto: string;
+declare var kUTTypeLog: NSObject;
 
-declare var kUTTypeLog: string;
+declare var kUTTypeM3UPlaylist: NSObject;
 
-declare var kUTTypeM3UPlaylist: string;
+declare var kUTTypeMIDIAudio: NSObject;
 
-declare var kUTTypeMIDIAudio: string;
+declare var kUTTypeMP3: NSObject;
 
-declare var kUTTypeMP3: string;
+declare var kUTTypeMPEG: NSObject;
 
-declare var kUTTypeMPEG: string;
+declare var kUTTypeMPEG2TransportStream: NSObject;
 
-declare var kUTTypeMPEG2TransportStream: string;
+declare var kUTTypeMPEG2Video: NSObject;
 
-declare var kUTTypeMPEG2Video: string;
+declare var kUTTypeMPEG4: NSObject;
 
-declare var kUTTypeMPEG4: string;
+declare var kUTTypeMPEG4Audio: NSObject;
 
-declare var kUTTypeMPEG4Audio: string;
+declare var kUTTypeMessage: NSObject;
 
-declare var kUTTypeMessage: string;
+declare var kUTTypeMountPoint: NSObject;
 
-declare var kUTTypeMountPoint: string;
+declare var kUTTypeMovie: NSObject;
 
-declare var kUTTypeMovie: string;
+declare var kUTTypeOSAScript: NSObject;
 
-declare var kUTTypeOSAScript: string;
+declare var kUTTypeOSAScriptBundle: NSObject;
 
-declare var kUTTypeOSAScriptBundle: string;
+declare var kUTTypeObjectiveCPlusPlusSource: NSObject;
 
-declare var kUTTypeObjectiveCPlusPlusSource: string;
+declare var kUTTypeObjectiveCSource: NSObject;
 
-declare var kUTTypeObjectiveCSource: string;
+declare var kUTTypePDF: NSObject;
 
-declare var kUTTypePDF: string;
+declare var kUTTypePHPScript: NSObject;
 
-declare var kUTTypePHPScript: string;
+declare var kUTTypePICT: NSObject;
 
-declare var kUTTypePICT: string;
+declare var kUTTypePKCS12: NSObject;
 
-declare var kUTTypePKCS12: string;
+declare var kUTTypePNG: NSObject;
 
-declare var kUTTypePNG: string;
+declare var kUTTypePackage: NSObject;
 
-declare var kUTTypePackage: string;
+declare var kUTTypePerlScript: NSObject;
 
-declare var kUTTypePerlScript: string;
+declare var kUTTypePlainText: NSObject;
 
-declare var kUTTypePlainText: string;
+declare var kUTTypePlaylist: NSObject;
 
-declare var kUTTypePlaylist: string;
+declare var kUTTypePluginBundle: NSObject;
 
-declare var kUTTypePluginBundle: string;
+declare var kUTTypePresentation: NSObject;
 
-declare var kUTTypePresentation: string;
+declare var kUTTypePropertyList: NSObject;
 
-declare var kUTTypePropertyList: string;
+declare var kUTTypePythonScript: NSObject;
 
-declare var kUTTypePythonScript: string;
+declare var kUTTypeQuickLookGenerator: NSObject;
 
-declare var kUTTypeQuickLookGenerator: string;
+declare var kUTTypeQuickTimeImage: NSObject;
 
-declare var kUTTypeQuickTimeImage: string;
+declare var kUTTypeQuickTimeMovie: NSObject;
 
-declare var kUTTypeQuickTimeMovie: string;
+declare var kUTTypeRTF: NSObject;
 
-declare var kUTTypeRTF: string;
+declare var kUTTypeRTFD: NSObject;
 
-declare var kUTTypeRTFD: string;
+declare var kUTTypeRawImage: NSObject;
 
-declare var kUTTypeRawImage: string;
+declare var kUTTypeReferenceURLKey: NSObject;
 
-declare var kUTTypeReferenceURLKey: string;
+declare var kUTTypeResolvable: NSObject;
 
-declare var kUTTypeResolvable: string;
+declare var kUTTypeRubyScript: NSObject;
 
-declare var kUTTypeRubyScript: string;
+declare var kUTTypeScalableVectorGraphics: NSObject;
 
-declare var kUTTypeScalableVectorGraphics: string;
+declare var kUTTypeScript: NSObject;
 
-declare var kUTTypeScript: string;
+declare var kUTTypeShellScript: NSObject;
 
-declare var kUTTypeShellScript: string;
+declare var kUTTypeSourceCode: NSObject;
 
-declare var kUTTypeSourceCode: string;
+declare var kUTTypeSpotlightImporter: NSObject;
 
-declare var kUTTypeSpotlightImporter: string;
+declare var kUTTypeSpreadsheet: NSObject;
 
-declare var kUTTypeSpreadsheet: string;
+declare var kUTTypeSwiftSource: NSObject;
 
-declare var kUTTypeSwiftSource: string;
+declare var kUTTypeSymLink: NSObject;
 
-declare var kUTTypeSymLink: string;
+declare var kUTTypeSystemPreferencesPane: NSObject;
 
-declare var kUTTypeSystemPreferencesPane: string;
+declare var kUTTypeTIFF: NSObject;
 
-declare var kUTTypeTIFF: string;
+declare var kUTTypeTXNTextAndMultimediaData: NSObject;
 
-declare var kUTTypeTXNTextAndMultimediaData: string;
+declare var kUTTypeTabSeparatedText: NSObject;
 
-declare var kUTTypeTabSeparatedText: string;
+declare var kUTTypeTagSpecificationKey: NSObject;
 
-declare var kUTTypeTagSpecificationKey: string;
+declare var kUTTypeText: NSObject;
 
-declare var kUTTypeText: string;
+declare var kUTTypeToDoItem: NSObject;
 
-declare var kUTTypeToDoItem: string;
+declare var kUTTypeURL: NSObject;
 
-declare var kUTTypeURL: string;
+declare var kUTTypeURLBookmarkData: NSObject;
 
-declare var kUTTypeURLBookmarkData: string;
+declare var kUTTypeUTF16ExternalPlainText: NSObject;
 
-declare var kUTTypeUTF16ExternalPlainText: string;
+declare var kUTTypeUTF16PlainText: NSObject;
 
-declare var kUTTypeUTF16PlainText: string;
+declare var kUTTypeUTF8PlainText: NSObject;
 
-declare var kUTTypeUTF8PlainText: string;
+declare var kUTTypeUTF8TabSeparatedText: NSObject;
 
-declare var kUTTypeUTF8TabSeparatedText: string;
+declare var kUTTypeUnixExecutable: NSObject;
 
-declare var kUTTypeUnixExecutable: string;
+declare var kUTTypeVCard: NSObject;
 
-declare var kUTTypeVCard: string;
+declare var kUTTypeVersionKey: NSObject;
 
-declare var kUTTypeVersionKey: string;
+declare var kUTTypeVideo: NSObject;
 
-declare var kUTTypeVideo: string;
+declare var kUTTypeVolume: NSObject;
 
-declare var kUTTypeVolume: string;
+declare var kUTTypeWaveformAudio: NSObject;
 
-declare var kUTTypeWaveformAudio: string;
+declare var kUTTypeWebArchive: NSObject;
 
-declare var kUTTypeWebArchive: string;
+declare var kUTTypeWindowsExecutable: NSObject;
 
-declare var kUTTypeWindowsExecutable: string;
+declare var kUTTypeX509Certificate: NSObject;
 
-declare var kUTTypeX509Certificate: string;
+declare var kUTTypeXML: NSObject;
 
-declare var kUTTypeXML: string;
+declare var kUTTypeXMLPropertyList: NSObject;
 
-declare var kUTTypeXMLPropertyList: string;
+declare var kUTTypeXPCService: NSObject;
 
-declare var kUTTypeXPCService: string;
+declare var kUTTypeZipArchive: NSObject;
 
-declare var kUTTypeZipArchive: string;
 
 declare const kUnicode16BitFormat: number;
 
@@ -15684,7 +15384,6 @@ declare const large4BitData: number;
 declare const large8BitData: number;
 
 declare const lastDskErr: number;
-
 declare function ldtox80(x: number, x80: Float80): void;
 
 declare const leftOverChars: number;
@@ -16124,7 +15823,6 @@ declare const nsDrvErr: number;
 declare const nsStackErr: number;
 
 declare const nsvErr: number;
-
 declare function num2decl(f: decform, x: number, d: decimal): void;
 
 declare const numberFormattingBadCurrencyPositionErr: number;
@@ -16582,7 +16280,6 @@ declare const registerComponentAliasesOnly: number;
 declare const registerComponentGlobal: number;
 
 declare const registerComponentNoDuplicates: number;
-
 declare function relationl(x: number, y: number): number;
 
 declare const reqAborted: number;
@@ -18654,7 +18351,6 @@ declare const writeReference: number;
 declare const writingPastEnd: number;
 
 declare const wrongApplicationPlatform: number;
-
 declare function x80told(x80: Float80, x: number): void;
 
 declare const ydm: number;
@@ -18666,3 +18362,110 @@ declare const yearMask: number;
 declare const ymd: number;
 
 declare const zeroCycle: number;
+enum LSAcceptanceFlags {
+    kLSAcceptDefault = 1,
+    kLSAcceptAllowLoginUI = 2
+}
+
+enum LSHandlerOptions {
+    kLSHandlerOptionsDefault = 0,
+    kLSHandlerOptionsIgnoreCreator = 1
+}
+
+enum LSItemInfoFlags {
+    kLSItemInfoIsPlainFile = 1,
+    kLSItemInfoIsPackage = 2,
+    kLSItemInfoIsApplication = 4,
+    kLSItemInfoIsContainer = 8,
+    kLSItemInfoIsAliasFile = 16,
+    kLSItemInfoIsSymlink = 32,
+    kLSItemInfoIsInvisible = 64,
+    kLSItemInfoIsNativeApp = 128,
+    kLSItemInfoIsClassicApp = 256,
+    kLSItemInfoAppPrefersNative = 512,
+    kLSItemInfoAppPrefersClassic = 1024,
+    kLSItemInfoAppIsScriptable = 2048,
+    kLSItemInfoIsVolume = 4096,
+    kLSItemInfoExtensionIsHidden = 1048576
+}
+
+enum LSLaunchFlags {
+    kLSLaunchDefaults = 1,
+    kLSLaunchAndPrint = 2,
+    kLSLaunchAndDisplayErrors = 64,
+    kLSLaunchDontAddToRecents = 256,
+    kLSLaunchDontSwitch = 512,
+    kLSLaunchAsync = 65536,
+    kLSLaunchNewInstance = 524288,
+    kLSLaunchAndHide = 1048576,
+    kLSLaunchAndHideOthers = 2097152
+}
+
+enum LSRequestedInfo {
+    kLSRequestExtension = 1,
+    kLSRequestTypeCreator = 2,
+    kLSRequestBasicFlagsOnly = 4,
+    kLSRequestAppTypeFlags = 8,
+    kLSRequestAllFlags = 16,
+    kLSRequestIconAndKind = 32,
+    kLSRequestExtensionFlagsOnly = 64,
+    kLSRequestAllInfo = 4294967295
+}
+
+enum LSRolesMask {
+    kLSRolesNone = 1,
+    kLSRolesViewer = 2,
+    kLSRolesEditor = 4,
+    kLSRolesShell = 8,
+    kLSRolesAll = 4294967295
+}
+
+enum MDLabelDomain {
+    kMDLabelUserDomain = 0,
+    kMDLabelLocalDomain = 1
+}
+
+enum MDQueryOptionFlags {
+    kMDQuerySynchronous = 1,
+    kMDQueryWantsUpdates = 4,
+    kMDQueryAllowFSTranslation = 8
+}
+
+enum MDQuerySortOptionFlags {
+    kMDQueryReverseSortOrderFlag = 1
+}
+
+enum SKDocumentIndexState {
+    kSKDocumentStateNotIndexed = 0,
+    kSKDocumentStateIndexed = 1,
+    kSKDocumentStateAddPending = 2,
+    kSKDocumentStateDeletePending = 3
+}
+
+enum SKIndexType {
+    kSKIndexUnknown = 0,
+    kSKIndexInverted = 1,
+    kSKIndexVector = 2,
+    kSKIndexInvertedVector = 3
+}
+
+enum SKSearchType {
+    kSKSearchRanked = 0,
+    kSKSearchBooleanRanked = 1,
+    kSKSearchRequiredRanked = 2,
+    kSKSearchPrefixRanked = 3
+}
+
+enum WSTypeID {
+    eWSUnknownType = 0,
+    eWSNullType = 1,
+    eWSBooleanType = 2,
+    eWSIntegerType = 3,
+    eWSDoubleType = 4,
+    eWSStringType = 5,
+    eWSDateType = 6,
+    eWSDataType = 7,
+    eWSArrayType = 8,
+    eWSDictionaryType = 9
+}
+

@@ -1,232 +1,190 @@
+globalThis.AVCaptureViewControlsStyle = globalThis.AVCaptureViewControlsStyle || {};
+
+globalThis.AVCaptureViewControlsStyle = {
+    Inline: 0,
+    Floating: 1,
+    InlineDeviceSelection: 2,
+    Default: 0,
+    '0': 'Inline',
+    '1': 'Floating',
+    '2': 'InlineDeviceSelection',
+    '0': 'Default'
+}
+
+globalThis.AVPlayerViewControlsStyle = globalThis.AVPlayerViewControlsStyle || {};
+
+globalThis.AVPlayerViewControlsStyle = {
+    None: 0,
+    Inline: 1,
+    Floating: 2,
+    Minimal: 3,
+    Default: 1,
+    '0': 'None',
+    '1': 'Inline',
+    '2': 'Floating',
+    '3': 'Minimal',
+    '1': 'Default'
+}
+
+globalThis.AVPlayerViewTrimResult = globalThis.AVPlayerViewTrimResult || {};
+
+globalThis.AVPlayerViewTrimResult = {
+    OKButton: 0,
+    CancelButton: 1,
+    '0': 'OKButton',
+    '1': 'CancelButton'
+}
+
+globalThis.AVRoutePickerViewButtonState = globalThis.AVRoutePickerViewButtonState || {};
+
+globalThis.AVRoutePickerViewButtonState = {
+    Normal: 0,
+    NormalHighlighted: 1,
+    Active: 2,
+    ActiveHighlighted: 3,
+    '0': 'Normal',
+    '1': 'NormalHighlighted',
+    '2': 'Active',
+    '3': 'ActiveHighlighted'
+}
 
 declare class AVCaptureView extends NSView {
-
-	setControlsStyle(_: AVCaptureViewControlsStyle)
-
-	controlsStyle: AVCaptureViewControlsStyle;
-
-	setDelegate(_: AVCaptureViewDelegate)
-
-	delegate: AVCaptureViewDelegate;
-
-	readonly fileOutput: AVCaptureFileOutput;
-
-	readonly session: AVCaptureSession;
-
-	setVideoGravity(_: string)
-
-	videoGravity: string;
-
-	setSessionShowVideoPreviewShowAudioPreview(_?: AVCaptureSession, showVideoPreview: boolean, showAudioPreview: boolean): void;
+  controlsStyle: AVCaptureViewControlsStyle;
+  setControlsStyle(_: AVCaptureViewControlsStyle)
+  delegate: AVCaptureViewDelegate;
+  setDelegate(_: AVCaptureViewDelegate)
+  readonly fileOutput: AVCaptureFileOutput;
+  readonly session: AVCaptureSession;
+  videoGravity: string;
+  setVideoGravity(_: string)
+  setSessionShowVideoPreviewShowAudioPreview(_?: AVCaptureSession, showVideoPreview: boolean, showAudioPreview: boolean): void;
 }
 
-enum AVCaptureViewControlsStyle {
-
-	Inline = 0,
-
-	Floating = 1,
-
-	InlineDeviceSelection = 2,
-
-	Default = 0
+interface AVCaptureViewDelegate extends NSObject {
+  captureViewStartRecordingToFileOutput(_: AVCaptureView, startRecordingTo: AVCaptureFileOutput): void;
 }
 
-
-interface AVCaptureViewDelegate extends NSObjectProtocol {
-
-	captureViewStartRecordingToFileOutput(_: AVCaptureView, startRecordingToFileOutput: AVCaptureFileOutput): void;
-}
 declare var AVCaptureViewDelegate: {
-
-	prototype: AVCaptureViewDelegate;
+  prototype: AVCaptureViewDelegate;
 };
 
 declare class AVPictureInPictureController extends NSObject {
-
-	static isPictureInPictureSupported(): boolean;
-
-	setDelegate(_: AVPictureInPictureControllerDelegate)
-
-	delegate: AVPictureInPictureControllerDelegate;
-
-	readonly isPictureInPictureActive: boolean;
-
-	readonly isPictureInPicturePossible: boolean;
-
-	readonly isPictureInPictureSuspended: boolean;
-
-	readonly playerLayer: AVPlayerLayer;
-
-	static pictureInPictureButtonStartImage(): NSImage;
-
-	static pictureInPictureButtonStopImage(): NSImage;
-
-	static create(playerLayer: AVPlayerLayer);
-
-	startPictureInPicture(): void;
-
-	stopPictureInPicture(): void;
+  static isPictureInPictureSupported(): boolean;
+  delegate: AVPictureInPictureControllerDelegate;
+  setDelegate(_: AVPictureInPictureControllerDelegate)
+  readonly isPictureInPictureActive: boolean;
+  readonly isPictureInPicturePossible: boolean;
+  readonly isPictureInPictureSuspended: boolean;
+  readonly playerLayer: AVPlayerLayer;
+  static pictureInPictureButtonStartImage(): NSImage;
+  static pictureInPictureButtonStopImage(): NSImage;
+  static createWithPlayerLayer(playerLayer: AVPlayerLayer): this;
+  startPictureInPicture(): void;
+  stopPictureInPicture(): void;
 }
 
-interface AVPictureInPictureControllerDelegate extends NSObjectProtocol {
-
-	pictureInPictureControllerFailedToStartPictureInPictureWithError?(_: AVPictureInPictureController, failedToStartPictureInPictureWithError: NSError): void;
-
-	pictureInPictureControllerRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
-
-	pictureInPictureControllerDidStartPictureInPicture?(_: AVPictureInPictureController): void;
-
-	pictureInPictureControllerDidStopPictureInPicture?(_: AVPictureInPictureController): void;
-
-	pictureInPictureControllerWillStartPictureInPicture?(_: AVPictureInPictureController): void;
-
-	pictureInPictureControllerWillStopPictureInPicture?(_: AVPictureInPictureController): void;
+interface AVPictureInPictureControllerDelegate extends NSObject {
+  pictureInPictureControllerFailedToStartPictureInPictureWithError?(_: AVPictureInPictureController, failedToStartPictureInPictureWithError: Error): void;
+  pictureInPictureControllerRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
+  pictureInPictureControllerDidStartPictureInPicture?(_: AVPictureInPictureController): void;
+  pictureInPictureControllerDidStopPictureInPicture?(_: AVPictureInPictureController): void;
+  pictureInPictureControllerWillStartPictureInPicture?(_: AVPictureInPictureController): void;
+  pictureInPictureControllerWillStopPictureInPicture?(_: AVPictureInPictureController): void;
 }
+
 declare var AVPictureInPictureControllerDelegate: {
-
-	prototype: AVPictureInPictureControllerDelegate;
+  prototype: AVPictureInPictureControllerDelegate;
 };
 
 declare class AVPlayerView extends NSView {
+  actionPopUpButtonMenu: NSMenu;
+  setActionPopUpButtonMenu(_: NSMenu)
+  allowsPictureInPicturePlayback: boolean;
+  setAllowsPictureInPicturePlayback(_: boolean)
+  readonly canBeginTrimming: boolean;
+  readonly contentOverlayView: NSView;
+  controlsStyle: AVPlayerViewControlsStyle;
+  setControlsStyle(_: AVPlayerViewControlsStyle)
+  pictureInPictureDelegate: AVPlayerViewPictureInPictureDelegate;
+  setPictureInPictureDelegate(_: AVPlayerViewPictureInPictureDelegate)
+  player: AVPlayer;
+  setPlayer(_: AVPlayer)
+  readonly isReadyForDisplay: boolean;
+  showsFrameSteppingButtons: boolean;
+  setShowsFrameSteppingButtons(_: boolean)
+  showsFullScreenToggleButton: boolean;
+  setShowsFullScreenToggleButton(_: boolean)
+  showsSharingServiceButton: boolean;
+  setShowsSharingServiceButton(_: boolean)
+  showsTimecodes: boolean;
+  setShowsTimecodes(_: boolean)
+  updatesNowPlayingInfoCenter: boolean;
+  setUpdatesNowPlayingInfoCenter(_: boolean)
+  readonly videoBounds: NSRect;
+  videoGravity: string;
+  setVideoGravity(_: string)
+  beginTrimmingWithCompletionHandler(completionHandler?: (p1: AVPlayerViewTrimResult) => void): void;
+  flashChapterNumberChapterTitle(_: number, chapterTitle?: string): void;
+}
 
-	setActionPopUpButtonMenu(_: NSMenu)
+interface AVPlayerViewPictureInPictureDelegate extends NSObject {
+  playerViewFailedToStartPictureInPictureWithError?(_: AVPlayerView, failedToStartPictureInPictureWithError: Error): void;
+  playerViewRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
+  playerViewDidStartPictureInPicture?(inPicture: AVPlayerView): void;
+  playerViewDidStopPictureInPicture?(inPicture: AVPlayerView): void;
+  playerViewShouldAutomaticallyDismissAtPictureInPictureStart?(inPictureStart: AVPlayerView): boolean;
+  playerViewWillStartPictureInPicture?(inPicture: AVPlayerView): void;
+  playerViewWillStopPictureInPicture?(inPicture: AVPlayerView): void;
+}
 
-	actionPopUpButtonMenu: NSMenu;
+declare var AVPlayerViewPictureInPictureDelegate: {
+  prototype: AVPlayerViewPictureInPictureDelegate;
+};
 
-	setAllowsPictureInPicturePlayback(_: boolean)
+declare class AVRoutePickerView extends NSView {
+  delegate: AVRoutePickerViewDelegate;
+  setDelegate(_: AVRoutePickerViewDelegate)
+  player: AVPlayer;
+  setPlayer(_: AVPlayer)
+  isRoutePickerButtonBordered: boolean;
+  setRoutePickerButtonBordered(_: boolean)
+  routePickerButtonColorForState(for_: AVRoutePickerViewButtonState): NSColor;
+  setRoutePickerButtonColorForState(_?: NSColor, for_: AVRoutePickerViewButtonState): void;
+}
 
-	allowsPictureInPicturePlayback: boolean;
+interface AVRoutePickerViewDelegate extends NSObject {
+  routePickerViewDidEndPresentingRoutes?(_: AVRoutePickerView): void;
+  routePickerViewWillBeginPresentingRoutes?(_: AVRoutePickerView): void;
+}
 
-	readonly canBeginTrimming: boolean;
+declare var AVRoutePickerViewDelegate: {
+  prototype: AVRoutePickerViewDelegate;
+};
 
-	readonly contentOverlayView: NSView;
-
-	setControlsStyle(_: AVPlayerViewControlsStyle)
-
-	controlsStyle: AVPlayerViewControlsStyle;
-
-	setPictureInPictureDelegate(_: AVPlayerViewPictureInPictureDelegate)
-
-	pictureInPictureDelegate: AVPlayerViewPictureInPictureDelegate;
-
-	setPlayer(_: AVPlayer)
-
-	player: AVPlayer;
-
-	readonly isReadyForDisplay: boolean;
-
-	setShowsFrameSteppingButtons(_: boolean)
-
-	showsFrameSteppingButtons: boolean;
-
-	setShowsFullScreenToggleButton(_: boolean)
-
-	showsFullScreenToggleButton: boolean;
-
-	setShowsSharingServiceButton(_: boolean)
-
-	showsSharingServiceButton: boolean;
-
-	setShowsTimecodes(_: boolean)
-
-	showsTimecodes: boolean;
-
-	setUpdatesNowPlayingInfoCenter(_: boolean)
-
-	updatesNowPlayingInfoCenter: boolean;
-
-	readonly videoBounds: CGRect;
-
-	setVideoGravity(_: string)
-
-	videoGravity: string;
-
-	beginTrimmingWithCompletionHandler(_?: (p1: AVPlayerViewTrimResult) => void): void;
-
-	flashChapterNumberChapterTitle(_: number, chapterTitle?: string): void;
+enum AVCaptureViewControlsStyle {
+    Inline = 0,
+    Floating = 1,
+    InlineDeviceSelection = 2,
+    Default = 0
 }
 
 enum AVPlayerViewControlsStyle {
-
-	None = 0,
-
-	Inline = 1,
-
-	Floating = 2,
-
-	Minimal = 3,
-
-	Default = 1
+    None = 0,
+    Inline = 1,
+    Floating = 2,
+    Minimal = 3,
+    Default = 1
 }
-
-
-interface AVPlayerViewPictureInPictureDelegate extends NSObjectProtocol {
-
-	playerViewFailedToStartPictureInPictureWithError?(_: AVPlayerView, failedToStartPictureInPictureWithError: NSError): void;
-
-	playerViewRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
-
-	playerViewDidStartPictureInPicture?(_: AVPlayerView): void;
-
-	playerViewDidStopPictureInPicture?(_: AVPlayerView): void;
-
-	playerViewShouldAutomaticallyDismissAtPictureInPictureStart?(_: AVPlayerView): boolean;
-
-	playerViewWillStartPictureInPicture?(_: AVPlayerView): void;
-
-	playerViewWillStopPictureInPicture?(_: AVPlayerView): void;
-}
-declare var AVPlayerViewPictureInPictureDelegate: {
-
-	prototype: AVPlayerViewPictureInPictureDelegate;
-};
 
 enum AVPlayerViewTrimResult {
-
-	OKButton = 0,
-
-	CancelButton = 1
-}
-
-
-declare class AVRoutePickerView extends NSView {
-
-	setDelegate(_: AVRoutePickerViewDelegate)
-
-	delegate: AVRoutePickerViewDelegate;
-
-	setPlayer(_: AVPlayer)
-
-	player: AVPlayer;
-
-	setRoutePickerButtonBordered(_: boolean)
-
-	isRoutePickerButtonBordered: boolean;
-
-	routePickerButtonColorForState(_: AVRoutePickerViewButtonState): NSColor;
-
-	setRoutePickerButtonColorForState(_?: NSColor, forState: AVRoutePickerViewButtonState): void;
+    OKButton = 0,
+    CancelButton = 1
 }
 
 enum AVRoutePickerViewButtonState {
-
-	Normal = 0,
-
-	NormalHighlighted = 1,
-
-	Active = 2,
-
-	ActiveHighlighted = 3
+    Normal = 0,
+    NormalHighlighted = 1,
+    Active = 2,
+    ActiveHighlighted = 3
 }
 
-
-interface AVRoutePickerViewDelegate extends NSObjectProtocol {
-
-	routePickerViewDidEndPresentingRoutes?(_: AVRoutePickerView): void;
-
-	routePickerViewWillBeginPresentingRoutes?(_: AVRoutePickerView): void;
-}
-declare var AVRoutePickerViewDelegate: {
-
-	prototype: AVRoutePickerViewDelegate;
-};

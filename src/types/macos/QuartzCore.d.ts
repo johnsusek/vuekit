@@ -1,1474 +1,823 @@
+globalThis.CAAutoresizingMask = globalThis.CAAutoresizingMask || {};
+
+globalThis.CAAutoresizingMask = {
+    kCALayerNotSizable: 0,
+    kCALayerMinXMargin: 1,
+    kCALayerWidthSizable: 2,
+    kCALayerMaxXMargin: 4,
+    kCALayerMinYMargin: 8,
+    kCALayerHeightSizable: 16,
+    kCALayerMaxYMargin: 32,
+    '0': 'kCALayerNotSizable',
+    '1': 'kCALayerMinXMargin',
+    '2': 'kCALayerWidthSizable',
+    '4': 'kCALayerMaxXMargin',
+    '8': 'kCALayerMinYMargin',
+    '16': 'kCALayerHeightSizable',
+    '32': 'kCALayerMaxYMargin'
+}
+
+globalThis.CAConstraintAttribute = globalThis.CAConstraintAttribute || {};
+
+globalThis.CAConstraintAttribute = {
+    kCAConstraintMinX: 0,
+    kCAConstraintMidX: 1,
+    kCAConstraintMaxX: 2,
+    kCAConstraintWidth: 3,
+    kCAConstraintMinY: 4,
+    kCAConstraintMidY: 5,
+    kCAConstraintMaxY: 6,
+    kCAConstraintHeight: 7,
+    '0': 'kCAConstraintMinX',
+    '1': 'kCAConstraintMidX',
+    '2': 'kCAConstraintMaxX',
+    '3': 'kCAConstraintWidth',
+    '4': 'kCAConstraintMinY',
+    '5': 'kCAConstraintMidY',
+    '6': 'kCAConstraintMaxY',
+    '7': 'kCAConstraintHeight'
+}
+
+globalThis.CACornerMask = globalThis.CACornerMask || {};
+
+globalThis.CACornerMask = {
+    kCALayerMinXMinYCorner: 1,
+    kCALayerMaxXMinYCorner: 2,
+    kCALayerMinXMaxYCorner: 4,
+    kCALayerMaxXMaxYCorner: 8,
+    '1': 'kCALayerMinXMinYCorner',
+    '2': 'kCALayerMaxXMinYCorner',
+    '4': 'kCALayerMinXMaxYCorner',
+    '8': 'kCALayerMaxXMaxYCorner'
+}
+
+globalThis.CAEdgeAntialiasingMask = globalThis.CAEdgeAntialiasingMask || {};
+
+globalThis.CAEdgeAntialiasingMask = {
+    kCALayerLeftEdge: 1,
+    kCALayerRightEdge: 2,
+    kCALayerBottomEdge: 4,
+    kCALayerTopEdge: 8,
+    '1': 'kCALayerLeftEdge',
+    '2': 'kCALayerRightEdge',
+    '4': 'kCALayerBottomEdge',
+    '8': 'kCALayerTopEdge'
+}
 
 interface CAAction {
-
-	runActionForKeyObjectArguments(_: string, object_: any, arguments_?: NSDictionary<any, any>): void;
+  runActionForKeyObjectArguments(forKey: string, object_: any, arguments_?: NSDictionary<any, any>): void;
 }
-declare var CAAction: {
 
-	prototype: CAAction;
+declare var CAAction: {
+  prototype: CAAction;
 };
 
 declare class CAAnimation extends NSObject implements CAAction, CAMediaTiming, NSCopying, NSSecureCoding {
-
-	static animation(): CAAnimation;
-
-	static defaultValueForKey(_: string): any;
-
-	setDelegate(_: CAAnimationDelegate)
-
-	delegate: CAAnimationDelegate;
-
-	setRemovedOnCompletion(_: boolean)
-
-	isRemovedOnCompletion: boolean;
-
-	setTimingFunction(_: CAMediaTimingFunction)
-
-	timingFunction: CAMediaTimingFunction;
-
-	setAutoreverses(_: boolean)
-
-	autoreverses: boolean; // inherited from CAMediaTiming
-
-	setBeginTime(_: number)
-
-	beginTime: number; // inherited from CAMediaTiming
-
-	setDuration(_: number)
-
-	duration: number; // inherited from CAMediaTiming
-
-	setFillMode(_: string)
-
-	fillMode: string; // inherited from CAMediaTiming
-
-	setRepeatCount(_: number)
-
-	repeatCount: number; // inherited from CAMediaTiming
-
-	setRepeatDuration(_: number)
-
-	repeatDuration: number; // inherited from CAMediaTiming
-
-	setSpeed(_: number)
-
-	speed: number; // inherited from CAMediaTiming
-
-	setTimeOffset(_: number)
-
-	timeOffset: number; // inherited from CAMediaTiming
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	copyWithZone(_?: any): any;
-
-	encodeWithCoder(_: NSCoder): void;
-
-	runActionForKeyObjectArguments(_: string, object_: any, arguments_?: NSDictionary<any, any>): void;
-
-	shouldArchiveValueForKey(_: string): boolean;
+  static defaultValueForKey(forKey: string): any;
+  delegate: CAAnimationDelegate;
+  setDelegate(_: CAAnimationDelegate)
+  isRemovedOnCompletion: boolean;
+  setRemovedOnCompletion(_: boolean)
+  timingFunction: CAMediaTimingFunction;
+  setTimingFunction(_: CAMediaTimingFunction)
+  autoreverses: boolean;
+  setAutoreverses(_: boolean) // inherited from CAMediaTiming
+  beginTime: number;
+  setBeginTime(_: number) // inherited from CAMediaTiming
+  duration: number;
+  setDuration(_: number) // inherited from CAMediaTiming
+  fillMode: string;
+  setFillMode(_: string) // inherited from CAMediaTiming
+  repeatCount: number;
+  setRepeatCount(_: number) // inherited from CAMediaTiming
+  repeatDuration: number;
+  setRepeatDuration(_: number) // inherited from CAMediaTiming
+  speed: number;
+  setSpeed(_: number) // inherited from CAMediaTiming
+  timeOffset: number;
+  setTimeOffset(_: number) // inherited from CAMediaTiming
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  encodeWithCoder(with_: NSCoder): void;
+  static createWithCoder(coder: NSCoder): this;
+  runActionForKeyObjectArguments(forKey: string, object_: any, arguments_?: NSDictionary<any, any>): void;
+  shouldArchiveValueForKey(forKey: string): boolean;
 }
 
-interface CAAnimationDelegate extends NSObjectProtocol {
-
-	animationDidStart?(_: CAAnimation): void;
-
-	animationDidStopFinished?(_: CAAnimation, finished: boolean): void;
+interface CAAnimationDelegate extends NSObject {
+  animationDidStart?(_: CAAnimation): void;
+  animationDidStopFinished?(_: CAAnimation, finished: boolean): void;
 }
+
 declare var CAAnimationDelegate: {
-
-	prototype: CAAnimationDelegate;
+  prototype: CAAnimationDelegate;
 };
 
 declare class CAAnimationGroup extends CAAnimation {
-
-	static animation(): CAAnimationGroup; // inherited from CAAnimation
-
-	setAnimations(_: NSArray<CAAnimation>)
-
-	animations: NSArray<CAAnimation>;
+  animations: NSArray<CAAnimation>;
+  setAnimations(_: NSArray<CAAnimation>)
 }
-
-enum CAAutoresizingMask {
-
-	kCALayerNotSizable = 0,
-
-	kCALayerMinXMargin = 1,
-
-	kCALayerWidthSizable = 2,
-
-	kCALayerMaxXMargin = 4,
-
-	kCALayerMinYMargin = 8,
-
-	kCALayerHeightSizable = 16,
-
-	kCALayerMaxYMargin = 32
-}
-
-globalThis.CAAutoresizingMask = CAAutoresizingMask;
 
 declare class CABasicAnimation extends CAPropertyAnimation {
-
-	static animation(): CABasicAnimation; // inherited from CAAnimation
-
-	static animationWithKeyPath(_?: string): CABasicAnimation; // inherited from CAPropertyAnimation
-
-	setByValue(_: any)
-
-	byValue: any;
-
-	setFromValue(_: any)
-
-	fromValue: any;
-
-	setToValue(_: any)
-
-	toValue: any;
+  static animationWithKeyPath(keyPath?: string): CABasicAnimation; // inherited from CAPropertyAnimation
+  byValue: any;
+  setByValue(_: any)
+  fromValue: any;
+  setFromValue(_: any)
+  toValue: any;
+  setToValue(_: any)
 }
 
 declare class CAConstraint extends NSObject implements NSSecureCoding {
-
-	static constraintWithAttributeRelativeToAttribute(_: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute): CAConstraint;
-
-	static constraintWithAttributeRelativeToAttributeOffset(_: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute, offset: number): CAConstraint;
-
-	static constraintWithAttributeRelativeToAttributeScaleOffset(_: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute, scale: number, offset: number): CAConstraint;
-
-	readonly attribute: CAConstraintAttribute;
-
-	readonly offset: number;
-
-	readonly scale: number;
-
-	readonly sourceAttribute: CAConstraintAttribute;
-
-	readonly sourceName: string;
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute, scale: number, offset: number);
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	encodeWithCoder(_: NSCoder): void;
+  static constraintWithAttributeRelativeToAttribute(attribute: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute): CAConstraint;
+  static constraintWithAttributeRelativeToAttributeOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute, offset: number): CAConstraint;
+  static constraintWithAttributeRelativeToAttributeScaleOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute: CAConstraintAttribute, scale: number, offset: number): CAConstraint;
+  readonly attribute: CAConstraintAttribute;
+  readonly offset: number;
+  readonly scale: number;
+  readonly sourceAttribute: CAConstraintAttribute;
+  readonly sourceName: string;
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  encodeWithCoder(with_: NSCoder): void;
+  static createWithAttributeRelativeToAttribute2ScaleOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute, scale: number, offset: number): this;
+  static createWithCoder(coder: NSCoder): this;
 }
-
-enum CAConstraintAttribute {
-
-	kCAConstraintMinX = 0,
-
-	kCAConstraintMidX = 1,
-
-	kCAConstraintMaxX = 2,
-
-	kCAConstraintWidth = 3,
-
-	kCAConstraintMinY = 4,
-
-	kCAConstraintMidY = 5,
-
-	kCAConstraintMaxY = 6,
-
-	kCAConstraintHeight = 7
-}
-
-globalThis.CAConstraintAttribute = CAConstraintAttribute;
 
 declare class CAConstraintLayoutManager extends NSObject implements CALayoutManager {
-
-	static layoutManager(): CAConstraintLayoutManager;
-
-	readonly debugDescription: string; // inherited from NSObjectProtocol
-
-	readonly description: string; // inherited from NSObjectProtocol
-
-	readonly hash: number; // inherited from NSObjectProtocol
-
-	readonly isProxy: boolean; // inherited from NSObjectProtocol
-
-	readonly superclass: typeof NSObject; // inherited from NSObjectProtocol
-
-	conformsToProtocol(_: any /* Protocol */): boolean;
-
-	invalidateLayoutOfLayer(_: CALayer): void;
-
-	isEqual(_: any): boolean;
-
-	isKindOfClass(_: typeof NSObject): boolean;
-
-	isMemberOfClass(_: typeof NSObject): boolean;
-
-	layoutSublayersOfLayer(_: CALayer): void;
-
-	performSelector(_: string): any;
-
-	performSelectorWithObject(_: string, withObject: any): any;
-
-	performSelectorWithObjectWithObject(_: string, withObject: any, withObject: any): any;
-
-	preferredSizeOfLayer(_: CALayer): CGSize;
-
-	respondsToSelector(_: string): boolean;
-
-	retainCount(): number;
-
-	self(): this;
+  readonly debugDescription: string; // inherited from NSObject
+  readonly description: string; // inherited from NSObject
+  readonly hash: number; // inherited from NSObject
+  readonly isProxy: boolean; // inherited from NSObject
+  readonly superclass: typeof NSObject; // inherited from NSObject
+  conformsToProtocol(to: any /* Protocol */): boolean;
+  invalidateLayoutOfLayer(of: CALayer): void;
+  isEqual(_: any): boolean;
+  isKindOfClass(_: typeof NSObject): boolean;
+  isMemberOfClass(_: typeof NSObject): boolean;
+  layoutSublayersOfLayer(of: CALayer): void;
+  performSelector(_: string): any;
+  performSelectorWithObject(_: string, withObject: any): any;
+  performSelectorWithObjectWithObject(_: string, withObject: any, withObject: any): any;
+  preferredSizeOfLayer(of: CALayer): NSSize;
+  respondsToSelector(_: string): boolean;
+  self(): this;
 }
-
-enum CACornerMask {
-
-	kCALayerMinXMinYCorner = 1,
-
-	kCALayerMaxXMinYCorner = 2,
-
-	kCALayerMinXMaxYCorner = 4,
-
-	kCALayerMaxXMaxYCorner = 8
-}
-
-globalThis.CACornerMask = CACornerMask;
 
 declare function CACurrentMediaTime(): number;
-
 declare class CAEDRMetadata extends NSObject {
-
-	static HDR10MetadataWithDisplayInfoContentInfoOpticalOutputScale(_?: NSData, contentInfo?: NSData, opticalOutputScale: number): CAEDRMetadata;
-
-	static HDR10MetadataWithMinLuminanceMaxLuminanceOpticalOutputScale(_: number, maxLuminance: number, opticalOutputScale: number): CAEDRMetadata;
-
-	static HLGMetadata(): CAEDRMetadata;
+  static HDR10MetadataWithDisplayInfoContentInfoOpticalOutputScale(displayInfo?: Data, contentInfo?: Data, opticalOutputScale: number): CAEDRMetadata;
+  static HDR10MetadataWithMinLuminanceMaxLuminanceOpticalOutputScale(minLuminance: number, maxLuminance: number, opticalOutputScale: number): CAEDRMetadata;
+  static HLGMetadata(): CAEDRMetadata;
 }
-
-enum CAEdgeAntialiasingMask {
-
-	kCALayerLeftEdge = 1,
-
-	kCALayerRightEdge = 2,
-
-	kCALayerBottomEdge = 4,
-
-	kCALayerTopEdge = 8
-}
-
-globalThis.CAEdgeAntialiasingMask = CAEdgeAntialiasingMask;
 
 declare class CAEmitterCell extends NSObject implements CAMediaTiming, NSSecureCoding {
-
-	static defaultValueForKey(_: string): any;
-
-	static emitterCell(): CAEmitterCell;
-
-	setAlphaRange(_: number)
-
-	alphaRange: number;
-
-	setAlphaSpeed(_: number)
-
-	alphaSpeed: number;
-
-	setBirthRate(_: number)
-
-	birthRate: number;
-
-	setBlueRange(_: number)
-
-	blueRange: number;
-
-	setBlueSpeed(_: number)
-
-	blueSpeed: number;
-
-	setColor(_: any)
-
-	color: any;
-
-	setContents(_: any)
-
-	contents: any;
-
-	setContentsRect(_: CGRect)
-
-	contentsRect: CGRect;
-
-	setContentsScale(_: number)
-
-	contentsScale: number;
-
-	setEmissionLatitude(_: number)
-
-	emissionLatitude: number;
-
-	setEmissionLongitude(_: number)
-
-	emissionLongitude: number;
-
-	setEmissionRange(_: number)
-
-	emissionRange: number;
-
-	setEmitterCells(_: NSArray<CAEmitterCell>)
-
-	emitterCells: NSArray<CAEmitterCell>;
-
-	setEnabled(_: boolean)
-
-	isEnabled: boolean;
-
-	setGreenRange(_: number)
-
-	greenRange: number;
-
-	setGreenSpeed(_: number)
-
-	greenSpeed: number;
-
-	setLifetime(_: number)
-
-	lifetime: number;
-
-	setLifetimeRange(_: number)
-
-	lifetimeRange: number;
-
-	setMagnificationFilter(_: string)
-
-	magnificationFilter: string;
-
-	setMinificationFilter(_: string)
-
-	minificationFilter: string;
-
-	setMinificationFilterBias(_: number)
-
-	minificationFilterBias: number;
-
-	setName(_: string)
-
-	name: string;
-
-	setRedRange(_: number)
-
-	redRange: number;
-
-	setRedSpeed(_: number)
-
-	redSpeed: number;
-
-	setScale(_: number)
-
-	scale: number;
-
-	setScaleRange(_: number)
-
-	scaleRange: number;
-
-	setScaleSpeed(_: number)
-
-	scaleSpeed: number;
-
-	setSpin(_: number)
-
-	spin: number;
-
-	setSpinRange(_: number)
-
-	spinRange: number;
-
-	setStyle(_: NSDictionary<any, any>)
-
-	style: NSDictionary<any, any>;
-
-	setVelocity(_: number)
-
-	velocity: number;
-
-	setVelocityRange(_: number)
-
-	velocityRange: number;
-
-	setXAcceleration(_: number)
-
-	xAcceleration: number;
-
-	setYAcceleration(_: number)
-
-	yAcceleration: number;
-
-	setZAcceleration(_: number)
-
-	zAcceleration: number;
-
-	setAutoreverses(_: boolean)
-
-	autoreverses: boolean; // inherited from CAMediaTiming
-
-	setBeginTime(_: number)
-
-	beginTime: number; // inherited from CAMediaTiming
-
-	setDuration(_: number)
-
-	duration: number; // inherited from CAMediaTiming
-
-	setFillMode(_: string)
-
-	fillMode: string; // inherited from CAMediaTiming
-
-	setRepeatCount(_: number)
-
-	repeatCount: number; // inherited from CAMediaTiming
-
-	setRepeatDuration(_: number)
-
-	repeatDuration: number; // inherited from CAMediaTiming
-
-	setSpeed(_: number)
-
-	speed: number; // inherited from CAMediaTiming
-
-	setTimeOffset(_: number)
-
-	timeOffset: number; // inherited from CAMediaTiming
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	encodeWithCoder(_: NSCoder): void;
-
-	shouldArchiveValueForKey(_: string): boolean;
+  static defaultValueForKey(forKey: string): any;
+  alphaRange: number;
+  setAlphaRange(_: number)
+  alphaSpeed: number;
+  setAlphaSpeed(_: number)
+  birthRate: number;
+  setBirthRate(_: number)
+  blueRange: number;
+  setBlueRange(_: number)
+  blueSpeed: number;
+  setBlueSpeed(_: number)
+  color: any;
+  setColor(_: any)
+  contents: any;
+  setContents(_: any)
+  contentsRect: NSRect;
+  setContentsRect(_: NSRect)
+  contentsScale: number;
+  setContentsScale(_: number)
+  emissionLatitude: number;
+  setEmissionLatitude(_: number)
+  emissionLongitude: number;
+  setEmissionLongitude(_: number)
+  emissionRange: number;
+  setEmissionRange(_: number)
+  emitterCells: NSArray<CAEmitterCell>;
+  setEmitterCells(_: NSArray<CAEmitterCell>)
+  isEnabled: boolean;
+  setEnabled(_: boolean)
+  greenRange: number;
+  setGreenRange(_: number)
+  greenSpeed: number;
+  setGreenSpeed(_: number)
+  lifetime: number;
+  setLifetime(_: number)
+  lifetimeRange: number;
+  setLifetimeRange(_: number)
+  magnificationFilter: string;
+  setMagnificationFilter(_: string)
+  minificationFilter: string;
+  setMinificationFilter(_: string)
+  minificationFilterBias: number;
+  setMinificationFilterBias(_: number)
+  name: string;
+  setName(_: string)
+  redRange: number;
+  setRedRange(_: number)
+  redSpeed: number;
+  setRedSpeed(_: number)
+  scale: number;
+  setScale(_: number)
+  scaleRange: number;
+  setScaleRange(_: number)
+  scaleSpeed: number;
+  setScaleSpeed(_: number)
+  spin: number;
+  setSpin(_: number)
+  spinRange: number;
+  setSpinRange(_: number)
+  style: NSDictionary<any, any>;
+  setStyle(_: NSDictionary<any, any>)
+  velocity: number;
+  setVelocity(_: number)
+  velocityRange: number;
+  setVelocityRange(_: number)
+  xAcceleration: number;
+  setXAcceleration(_: number)
+  yAcceleration: number;
+  setYAcceleration(_: number)
+  zAcceleration: number;
+  setZAcceleration(_: number)
+  autoreverses: boolean;
+  setAutoreverses(_: boolean) // inherited from CAMediaTiming
+  beginTime: number;
+  setBeginTime(_: number) // inherited from CAMediaTiming
+  duration: number;
+  setDuration(_: number) // inherited from CAMediaTiming
+  fillMode: string;
+  setFillMode(_: string) // inherited from CAMediaTiming
+  repeatCount: number;
+  setRepeatCount(_: number) // inherited from CAMediaTiming
+  repeatDuration: number;
+  setRepeatDuration(_: number) // inherited from CAMediaTiming
+  speed: number;
+  setSpeed(_: number) // inherited from CAMediaTiming
+  timeOffset: number;
+  setTimeOffset(_: number) // inherited from CAMediaTiming
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  encodeWithCoder(with_: NSCoder): void;
+  static createWithCoder(coder: NSCoder): this;
+  shouldArchiveValueForKey(forKey: string): boolean;
 }
 
 declare class CAEmitterLayer extends CALayer {
-
-	static layer(): CAEmitterLayer; // inherited from CALayer
-
-	setBirthRate(_: number)
-
-	birthRate: number;
-
-	setEmitterCells(_: NSArray<CAEmitterCell>)
-
-	emitterCells: NSArray<CAEmitterCell>;
-
-	setEmitterDepth(_: number)
-
-	emitterDepth: number;
-
-	setEmitterMode(_: string)
-
-	emitterMode: string;
-
-	setEmitterPosition(_: CGPoint)
-
-	emitterPosition: CGPoint;
-
-	setEmitterShape(_: string)
-
-	emitterShape: string;
-
-	setEmitterSize(_: CGSize)
-
-	emitterSize: CGSize;
-
-	setEmitterZPosition(_: number)
-
-	emitterZPosition: number;
-
-	setLifetime(_: number)
-
-	lifetime: number;
-
-	setPreservesDepth(_: boolean)
-
-	preservesDepth: boolean;
-
-	setRenderMode(_: string)
-
-	renderMode: string;
-
-	setScale(_: number)
-
-	scale: number;
-
-	setSeed(_: number)
-
-	seed: number;
-
-	setSpin(_: number)
-
-	spin: number;
-
-	setVelocity(_: number)
-
-	velocity: number;
+  birthRate: number;
+  setBirthRate(_: number)
+  emitterCells: NSArray<CAEmitterCell>;
+  setEmitterCells(_: NSArray<CAEmitterCell>)
+  emitterDepth: number;
+  setEmitterDepth(_: number)
+  emitterMode: string;
+  setEmitterMode(_: string)
+  emitterPosition: NSPoint;
+  setEmitterPosition(_: NSPoint)
+  emitterShape: string;
+  setEmitterShape(_: string)
+  emitterSize: NSSize;
+  setEmitterSize(_: NSSize)
+  emitterZPosition: number;
+  setEmitterZPosition(_: number)
+  lifetime: number;
+  setLifetime(_: number)
+  preservesDepth: boolean;
+  setPreservesDepth(_: boolean)
+  renderMode: string;
+  setRenderMode(_: string)
+  scale: number;
+  setScale(_: number)
+  seed: number;
+  setSeed(_: number)
+  spin: number;
+  setSpin(_: number)
+  velocity: number;
+  setVelocity(_: number)
 }
 
 declare class CAGradientLayer extends CALayer {
-
-	static layer(): CAGradientLayer; // inherited from CALayer
-
-	setColors(_: NSArray<any>)
-
-	colors: NSArray<any>;
-
-	setEndPoint(_: CGPoint)
-
-	endPoint: CGPoint;
-
-	setLocations(_: NSArray<number>)
-
-	locations: NSArray<number>;
-
-	setStartPoint(_: CGPoint)
-
-	startPoint: CGPoint;
-
-	setType(_: string)
-
-	type: string;
+  colors: NSArray<any>;
+  setColors(_: NSArray<any>)
+  endPoint: NSPoint;
+  setEndPoint(_: NSPoint)
+  locations: NSArray<number>;
+  setLocations(_: NSArray<number>)
+  startPoint: NSPoint;
+  setStartPoint(_: NSPoint)
+  type: string;
+  setType(_: string)
 }
 
 declare class CAKeyframeAnimation extends CAPropertyAnimation {
-
-	static animation(): CAKeyframeAnimation; // inherited from CAAnimation
-
-	static animationWithKeyPath(_?: string): CAKeyframeAnimation; // inherited from CAPropertyAnimation
-
-	setBiasValues(_: NSArray<number>)
-
-	biasValues: NSArray<number>;
-
-	setCalculationMode(_: string)
-
-	calculationMode: string;
-
-	setContinuityValues(_: NSArray<number>)
-
-	continuityValues: NSArray<number>;
-
-	setKeyTimes(_: NSArray<number>)
-
-	keyTimes: NSArray<number>;
-
-	setPath(_: any)
-
-	path: any;
-
-	setRotationMode(_: string)
-
-	rotationMode: string;
-
-	setTensionValues(_: NSArray<number>)
-
-	tensionValues: NSArray<number>;
-
-	setTimingFunctions(_: NSArray<CAMediaTimingFunction>)
-
-	timingFunctions: NSArray<CAMediaTimingFunction>;
-
-	setValues(_: NSArray<any>)
-
-	values: NSArray<any>;
+  static animationWithKeyPath(keyPath?: string): CAKeyframeAnimation; // inherited from CAPropertyAnimation
+  biasValues: NSArray<number>;
+  setBiasValues(_: NSArray<number>)
+  calculationMode: string;
+  setCalculationMode(_: string)
+  continuityValues: NSArray<number>;
+  setContinuityValues(_: NSArray<number>)
+  keyTimes: NSArray<number>;
+  setKeyTimes(_: NSArray<number>)
+  path: any;
+  setPath(_: any)
+  rotationMode: string;
+  setRotationMode(_: string)
+  tensionValues: NSArray<number>;
+  setTensionValues(_: NSArray<number>)
+  timingFunctions: NSArray<CAMediaTimingFunction>;
+  setTimingFunctions(_: NSArray<CAMediaTimingFunction>)
+  values: NSArray<any>;
+  setValues(_: NSArray<any>)
 }
 
 declare class CALayer extends NSObject implements CAMediaTiming, NSSecureCoding {
-
-	static cornerCurveExpansionFactor(_: string): number;
-
-	static defaultActionForKey(_: string): CAAction;
-
-	static defaultValueForKey(_: string): any;
-
-	static layer(): CALayer;
-
-	static layerWithRemoteClientId(_: number): CALayer;
-
-	static needsDisplayForKey(_: string): boolean;
-
-	setActions(_: NSDictionary<string, CAAction>)
-
-	actions: NSDictionary<string, CAAction>;
-
-	setAllowsEdgeAntialiasing(_: boolean)
-
-	allowsEdgeAntialiasing: boolean;
-
-	setAllowsGroupOpacity(_: boolean)
-
-	allowsGroupOpacity: boolean;
-
-	setAnchorPoint(_: CGPoint)
-
-	anchorPoint: CGPoint;
-
-	setAnchorPointZ(_: number)
-
-	anchorPointZ: number;
-
-	setAutoresizingMask(_: CAAutoresizingMask)
-
-	autoresizingMask: CAAutoresizingMask;
-
-	setBackgroundColor(_: any)
-
-	backgroundColor: any;
-
-	setBackgroundFilters(_: NSArray<any>)
-
-	backgroundFilters: NSArray<any>;
-
-	setBorderColor(_: any)
-
-	borderColor: any;
-
-	setBorderWidth(_: number)
-
-	borderWidth: number;
-
-	setBounds(_: CGRect)
-
-	bounds: CGRect;
-
-	setCompositingFilter(_: any)
-
-	compositingFilter: any;
-
-	setConstraints(_: NSArray<CAConstraint>)
-
-	constraints: NSArray<CAConstraint>;
-
-	setContents(_: any)
-
-	contents: any;
-
-	setContentsCenter(_: CGRect)
-
-	contentsCenter: CGRect;
-
-	setContentsFormat(_: string)
-
-	contentsFormat: string;
-
-	setContentsGravity(_: string)
-
-	contentsGravity: string;
-
-	setContentsRect(_: CGRect)
-
-	contentsRect: CGRect;
-
-	setContentsScale(_: number)
-
-	contentsScale: number;
-
-	setCornerCurve(_: string)
-
-	cornerCurve: string;
-
-	setCornerRadius(_: number)
-
-	cornerRadius: number;
-
-	setDelegate(_: CALayerDelegate)
-
-	delegate: CALayerDelegate;
-
-	setDoubleSided(_: boolean)
-
-	isDoubleSided: boolean;
-
-	setDrawsAsynchronously(_: boolean)
-
-	drawsAsynchronously: boolean;
-
-	setEdgeAntialiasingMask(_: CAEdgeAntialiasingMask)
-
-	edgeAntialiasingMask: CAEdgeAntialiasingMask;
-
-	setFilters(_: NSArray<any>)
-
-	filters: NSArray<any>;
-
-	setFrame(_: CGRect)
-
-	frame: CGRect;
-
-	setGeometryFlipped(_: boolean)
-
-	isGeometryFlipped: boolean;
-
-	setHidden(_: boolean)
-
-	isHidden: boolean;
-
-	setLayoutManager(_: CALayoutManager)
-
-	layoutManager: CALayoutManager;
-
-	setMagnificationFilter(_: string)
-
-	magnificationFilter: string;
-
-	setMask(_: CALayer)
-
-	mask: CALayer;
-
-	setMaskedCorners(_: CACornerMask)
-
-	maskedCorners: CACornerMask;
-
-	setMasksToBounds(_: boolean)
-
-	masksToBounds: boolean;
-
-	setMinificationFilter(_: string)
-
-	minificationFilter: string;
-
-	setMinificationFilterBias(_: number)
-
-	minificationFilterBias: number;
-
-	setName(_: string)
-
-	name: string;
-
-	setNeedsDisplayOnBoundsChange(_: boolean)
-
-	needsDisplayOnBoundsChange: boolean;
-
-	setOpacity(_: number)
-
-	opacity: number;
-
-	setOpaque(_: boolean)
-
-	isOpaque: boolean;
-
-	setPosition(_: CGPoint)
-
-	position: CGPoint;
-
-	setRasterizationScale(_: number)
-
-	rasterizationScale: number;
-
-	setShadowColor(_: any)
-
-	shadowColor: any;
-
-	setShadowOffset(_: CGSize)
-
-	shadowOffset: CGSize;
-
-	setShadowOpacity(_: number)
-
-	shadowOpacity: number;
-
-	setShadowPath(_: any)
-
-	shadowPath: any;
-
-	setShadowRadius(_: number)
-
-	shadowRadius: number;
-
-	setShouldRasterize(_: boolean)
-
-	shouldRasterize: boolean;
-
-	setStyle(_: NSDictionary<any, any>)
-
-	style: NSDictionary<any, any>;
-
-	setSublayerTransform(_: CATransform3D)
-
-	sublayerTransform: CATransform3D;
-
-	setSublayers(_: NSArray<CALayer>)
-
-	sublayers: NSArray<CALayer>;
-
-	readonly superlayer: CALayer;
-
-	setTransform(_: CATransform3D)
-
-	transform: CATransform3D;
-
-	readonly visibleRect: CGRect;
-
-	setZPosition(_: number)
-
-	zPosition: number;
-
-	setAutoreverses(_: boolean)
-
-	autoreverses: boolean; // inherited from CAMediaTiming
-
-	setBeginTime(_: number)
-
-	beginTime: number; // inherited from CAMediaTiming
-
-	setDuration(_: number)
-
-	duration: number; // inherited from CAMediaTiming
-
-	setFillMode(_: string)
-
-	fillMode: string; // inherited from CAMediaTiming
-
-	setRepeatCount(_: number)
-
-	repeatCount: number; // inherited from CAMediaTiming
-
-	setRepeatDuration(_: number)
-
-	repeatDuration: number; // inherited from CAMediaTiming
-
-	setSpeed(_: number)
-
-	speed: number; // inherited from CAMediaTiming
-
-	setTimeOffset(_: number)
-
-	timeOffset: number; // inherited from CAMediaTiming
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	static create(layer: any);
-
-	actionForKey(_: string): CAAction;
-
-	addAnimationForKey(_: CAAnimation, forKey?: string): void;
-
-	addConstraint(_: CAConstraint): void;
-
-	addSublayer(_: CALayer): void;
-
-	affineTransform(): CGAffineTransform;
-
-	animationForKey(_: string): CAAnimation;
-
-	animationKeys(): NSArray<string>;
-
-	containsPoint(_: CGPoint): boolean;
-
-	contentsAreFlipped(): boolean;
-
-	convertPointFromLayer(_: CGPoint, fromLayer?: CALayer): CGPoint;
-
-	convertPointToLayer(_: CGPoint, toLayer?: CALayer): CGPoint;
-
-	convertRectFromLayer(_: CGRect, fromLayer?: CALayer): CGRect;
-
-	convertRectToLayer(_: CGRect, toLayer?: CALayer): CGRect;
-
-	convertTimeFromLayer(_: number, fromLayer?: CALayer): number;
-
-	convertTimeToLayer(_: number, toLayer?: CALayer): number;
-
-	display(): void;
-
-	displayIfNeeded(): void;
-
-	drawInContext(_: any): void;
-
-	encodeWithCoder(_: NSCoder): void;
-
-	hitTest(_: CGPoint): CALayer;
-
-	insertSublayerAbove(_: CALayer, above?: CALayer): void;
-
-	insertSublayerAtIndex(_: CALayer, atIndex: number): void;
-
-	insertSublayerBelow(_: CALayer, below?: CALayer): void;
-
-	layoutIfNeeded(): void;
-
-	layoutSublayers(): void;
-
-	modelLayer(): this;
-
-	needsDisplay(): boolean;
-
-	needsLayout(): boolean;
-
-	preferredFrameSize(): CGSize;
-
-	presentationLayer(): this;
-
-	removeAllAnimations(): void;
-
-	removeAnimationForKey(_: string): void;
-
-	removeFromSuperlayer(): void;
-
-	renderInContext(_: any): void;
-
-	replaceSublayerWith(_: CALayer, with_: CALayer): void;
-
-	resizeSublayersWithOldSize(_: CGSize): void;
-
-	resizeWithOldSuperlayerSize(_: CGSize): void;
-
-	scrollPoint(_: CGPoint): void;
-
-	scrollRectToVisible(_: CGRect): void;
-
-	setAffineTransform(_: CGAffineTransform): void;
-
-	setNeedsDisplay(): void;
-
-	setNeedsDisplayInRect(_: CGRect): void;
-
-	setNeedsLayout(): void;
-
-	shouldArchiveValueForKey(_: string): boolean;
+  static cornerCurveExpansionFactor(_: string): number;
+  static defaultActionForKey(forKey: string): CAAction;
+  static defaultValueForKey(forKey: string): any;
+  static needsDisplayForKey(forKey: string): boolean;
+  actions: NSDictionary<string, CAAction>;
+  setActions(_: NSDictionary<string, CAAction>)
+  allowsEdgeAntialiasing: boolean;
+  setAllowsEdgeAntialiasing(_: boolean)
+  allowsGroupOpacity: boolean;
+  setAllowsGroupOpacity(_: boolean)
+  anchorPoint: NSPoint;
+  setAnchorPoint(_: NSPoint)
+  anchorPointZ: number;
+  setAnchorPointZ(_: number)
+  autoresizingMask: CAAutoresizingMask;
+  setAutoresizingMask(_: CAAutoresizingMask)
+  backgroundColor: any;
+  setBackgroundColor(_: any)
+  backgroundFilters: NSArray<any>;
+  setBackgroundFilters(_: NSArray<any>)
+  borderColor: any;
+  setBorderColor(_: any)
+  borderWidth: number;
+  setBorderWidth(_: number)
+  bounds: NSRect;
+  setBounds(_: NSRect)
+  compositingFilter: any;
+  setCompositingFilter(_: any)
+  constraints: NSArray<CAConstraint>;
+  setConstraints(_: NSArray<CAConstraint>)
+  contents: any;
+  setContents(_: any)
+  contentsCenter: NSRect;
+  setContentsCenter(_: NSRect)
+  contentsFormat: string;
+  setContentsFormat(_: string)
+  contentsGravity: string;
+  setContentsGravity(_: string)
+  contentsRect: NSRect;
+  setContentsRect(_: NSRect)
+  contentsScale: number;
+  setContentsScale(_: number)
+  cornerCurve: string;
+  setCornerCurve(_: string)
+  cornerRadius: number;
+  setCornerRadius(_: number)
+  delegate: CALayerDelegate;
+  setDelegate(_: CALayerDelegate)
+  isDoubleSided: boolean;
+  setDoubleSided(_: boolean)
+  drawsAsynchronously: boolean;
+  setDrawsAsynchronously(_: boolean)
+  edgeAntialiasingMask: CAEdgeAntialiasingMask;
+  setEdgeAntialiasingMask(_: CAEdgeAntialiasingMask)
+  filters: NSArray<any>;
+  setFilters(_: NSArray<any>)
+  frame: NSRect;
+  setFrame(_: NSRect)
+  isGeometryFlipped: boolean;
+  setGeometryFlipped(_: boolean)
+  isHidden: boolean;
+  setHidden(_: boolean)
+  layoutManager: CALayoutManager;
+  setLayoutManager(_: CALayoutManager)
+  magnificationFilter: string;
+  setMagnificationFilter(_: string)
+  mask: CALayer;
+  setMask(_: CALayer)
+  maskedCorners: CACornerMask;
+  setMaskedCorners(_: CACornerMask)
+  masksToBounds: boolean;
+  setMasksToBounds(_: boolean)
+  minificationFilter: string;
+  setMinificationFilter(_: string)
+  minificationFilterBias: number;
+  setMinificationFilterBias(_: number)
+  name: string;
+  setName(_: string)
+  needsDisplayOnBoundsChange: boolean;
+  setNeedsDisplayOnBoundsChange(_: boolean)
+  opacity: number;
+  setOpacity(_: number)
+  isOpaque: boolean;
+  setOpaque(_: boolean)
+  position: NSPoint;
+  setPosition(_: NSPoint)
+  rasterizationScale: number;
+  setRasterizationScale(_: number)
+  shadowColor: any;
+  setShadowColor(_: any)
+  shadowOffset: NSSize;
+  setShadowOffset(_: NSSize)
+  shadowOpacity: number;
+  setShadowOpacity(_: number)
+  shadowPath: any;
+  setShadowPath(_: any)
+  shadowRadius: number;
+  setShadowRadius(_: number)
+  shouldRasterize: boolean;
+  setShouldRasterize(_: boolean)
+  style: NSDictionary<any, any>;
+  setStyle(_: NSDictionary<any, any>)
+  sublayerTransform: CATransform3D;
+  setSublayerTransform(_: CATransform3D)
+  sublayers: NSArray<CALayer>;
+  setSublayers(_: NSArray<CALayer>)
+  readonly superlayer: CALayer;
+  transform: CATransform3D;
+  setTransform(_: CATransform3D)
+  readonly visibleRect: NSRect;
+  zPosition: number;
+  setZPosition(_: number)
+  autoreverses: boolean;
+  setAutoreverses(_: boolean) // inherited from CAMediaTiming
+  beginTime: number;
+  setBeginTime(_: number) // inherited from CAMediaTiming
+  duration: number;
+  setDuration(_: number) // inherited from CAMediaTiming
+  fillMode: string;
+  setFillMode(_: string) // inherited from CAMediaTiming
+  repeatCount: number;
+  setRepeatCount(_: number) // inherited from CAMediaTiming
+  repeatDuration: number;
+  setRepeatDuration(_: number) // inherited from CAMediaTiming
+  speed: number;
+  setSpeed(_: number) // inherited from CAMediaTiming
+  timeOffset: number;
+  setTimeOffset(_: number) // inherited from CAMediaTiming
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  actionForKey(forKey: string): CAAction;
+  addAnimationForKey(_: CAAnimation, forKey?: string): void;
+  addConstraint(_: CAConstraint): void;
+  addSublayer(_: CALayer): void;
+  affineTransform(): CGAffineTransform;
+  animationForKey(forKey: string): CAAnimation;
+  animationKeys(): NSArray<string>;
+  containsPoint(_: NSPoint): boolean;
+  contentsAreFlipped(): boolean;
+  convertPointFromLayer(_: NSPoint, from?: CALayer): NSPoint;
+  convertPointToLayer(_: NSPoint, to?: CALayer): NSPoint;
+  convertRectFromLayer(_: NSRect, from?: CALayer): NSRect;
+  convertRectToLayer(_: NSRect, to?: CALayer): NSRect;
+  convertTimeFromLayer(_: number, from?: CALayer): number;
+  convertTimeToLayer(_: number, to?: CALayer): number;
+  display(): void;
+  displayIfNeeded(): void;
+  drawInContext(in_: any): void;
+  encodeWithCoder(with_: NSCoder): void;
+  hitTest(_: NSPoint): CALayer;
+  static createWithCoder(coder: NSCoder): this;
+  static createWithLayer(layer: any): this;
+  insertSublayerAbove(_: CALayer, above?: CALayer): void;
+  insertSublayerAtIndex(_: CALayer, at: number): void;
+  insertSublayerBelow(_: CALayer, below?: CALayer): void;
+  layoutIfNeeded(): void;
+  layoutSublayers(): void;
+  modelLayer(): this;
+  needsDisplay(): boolean;
+  needsLayout(): boolean;
+  preferredFrameSize(): NSSize;
+  presentationLayer(): this;
+  removeAllAnimations(): void;
+  removeAnimationForKey(forKey: string): void;
+  removeFromSuperlayer(): void;
+  renderInContext(in_: any): void;
+  replaceSublayerWith(_: CALayer, with_: CALayer): void;
+  resizeSublayersWithOldSize(withOldSize: NSSize): void;
+  resizeWithOldSuperlayerSize(withOldSuperlayerSize: NSSize): void;
+  scrollPoint(_: NSPoint): void;
+  scrollRectToVisible(_: NSRect): void;
+  setAffineTransform(_: CGAffineTransform): void;
+  setNeedsDisplay(): void;
+  setNeedsDisplayInRect(_: NSRect): void;
+  setNeedsLayout(): void;
+  shouldArchiveValueForKey(forKey: string): boolean;
 }
 
-interface CALayerDelegate extends NSObjectProtocol {
-
-	actionForLayerForKey?(_: CALayer, forKey: string): CAAction;
-
-	displayLayer?(_: CALayer): void;
-
-	drawLayerInContext?(_: CALayer, inContext: any): void;
-
-	layerWillDraw?(_: CALayer): void;
-
-	layoutSublayersOfLayer?(_: CALayer): void;
+interface CALayerDelegate extends NSObject {
+  actionForLayerForKey?(for_: CALayer, forKey: string): CAAction;
+  displayLayer?(_: CALayer): void;
+  drawLayerInContext?(_: CALayer, in_: any): void;
+  layerWillDraw?(_: CALayer): void;
+  layoutSublayersOfLayer?(of: CALayer): void;
 }
+
 declare var CALayerDelegate: {
-
-	prototype: CALayerDelegate;
+  prototype: CALayerDelegate;
 };
 
-interface CALayoutManager extends NSObjectProtocol {
-
-	invalidateLayoutOfLayer?(_: CALayer): void;
-
-	layoutSublayersOfLayer?(_: CALayer): void;
-
-	preferredSizeOfLayer?(_: CALayer): CGSize;
+interface CALayoutManager extends NSObject {
+  invalidateLayoutOfLayer?(of: CALayer): void;
+  layoutSublayersOfLayer?(of: CALayer): void;
+  preferredSizeOfLayer?(of: CALayer): NSSize;
 }
-declare var CALayoutManager: {
 
-	prototype: CALayoutManager;
+declare var CALayoutManager: {
+  prototype: CALayoutManager;
 };
 
 interface CAMediaTiming {
-
-	setAutoreverses(_: boolean)
-
-	autoreverses: boolean;
-
-	setBeginTime(_: number)
-
-	beginTime: number;
-
-	setDuration(_: number)
-
-	duration: number;
-
-	setFillMode(_: string)
-
-	fillMode: string;
-
-	setRepeatCount(_: number)
-
-	repeatCount: number;
-
-	setRepeatDuration(_: number)
-
-	repeatDuration: number;
-
-	setSpeed(_: number)
-
-	speed: number;
-
-	setTimeOffset(_: number)
-
-	timeOffset: number;
+  autoreverses: boolean;
+  setAutoreverses(_: boolean)
+  beginTime: number;
+  setBeginTime(_: number)
+  duration: number;
+  setDuration(_: number)
+  fillMode: string;
+  setFillMode(_: string)
+  repeatCount: number;
+  setRepeatCount(_: number)
+  repeatDuration: number;
+  setRepeatDuration(_: number)
+  speed: number;
+  setSpeed(_: number)
+  timeOffset: number;
+  setTimeOffset(_: number)
 }
-declare var CAMediaTiming: {
 
-	prototype: CAMediaTiming;
+declare var CAMediaTiming: {
+  prototype: CAMediaTiming;
 };
 
 declare class CAMediaTimingFunction extends NSObject implements NSSecureCoding {
-
-	static functionWithControlPoints(_: number, _: number, _: number, _: number): CAMediaTimingFunction;
-
-	static functionWithName(_: string): CAMediaTimingFunction;
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	static create(controlPoints: number);
-
-	encodeWithCoder(_: NSCoder): void;
-
-	getControlPointAtIndexValues(_: number, values: number): void;
+  static functionWithControlPoints(_: number, _: number, _: number, _: number): CAMediaTimingFunction;
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  encodeWithCoder(with_: NSCoder): void;
+  getControlPointAtIndexValues(at: number, values: number): void;
+  static createWithCoder(coder: NSCoder): this;
+  static createWithControlPoints(_: number, _: number, _: number, controlPoints: number): this;
 }
 
 interface CAMetalDrawable extends MTLDrawable {
-
-	layer: CAMetalLayer;
-
-	texture: MTLTexture;
+  layer: CAMetalLayer;
+  texture: MTLTexture;
 }
-declare var CAMetalDrawable: {
 
-	prototype: CAMetalDrawable;
+declare var CAMetalDrawable: {
+  prototype: CAMetalDrawable;
 };
 
 declare class CAMetalLayer extends CALayer {
-
-	static layer(): CAMetalLayer; // inherited from CALayer
-
-	setEDRMetadata(_: CAEDRMetadata)
-
-	EDRMetadata: CAEDRMetadata;
-
-	setAllowsNextDrawableTimeout(_: boolean)
-
-	allowsNextDrawableTimeout: boolean;
-
-	setColorspace(_: any)
-
-	colorspace: any;
-
-	setDevice(_: MTLDevice)
-
-	device: MTLDevice;
-
-	setDisplaySyncEnabled(_: boolean)
-
-	displaySyncEnabled: boolean;
-
-	setDrawableSize(_: CGSize)
-
-	drawableSize: CGSize;
-
-	setFramebufferOnly(_: boolean)
-
-	framebufferOnly: boolean;
-
-	setMaximumDrawableCount(_: number)
-
-	maximumDrawableCount: number;
-
-	setPixelFormat(_: MTLPixelFormat)
-
-	pixelFormat: MTLPixelFormat;
-
-	readonly preferredDevice: MTLDevice;
-
-	setPresentsWithTransaction(_: boolean)
-
-	presentsWithTransaction: boolean;
-
-	setWantsExtendedDynamicRangeContent(_: boolean)
-
-	wantsExtendedDynamicRangeContent: boolean;
-
-	nextDrawable(): CAMetalDrawable;
+  EDRMetadata: CAEDRMetadata;
+  setEDRMetadata(_: CAEDRMetadata)
+  allowsNextDrawableTimeout: boolean;
+  setAllowsNextDrawableTimeout(_: boolean)
+  colorspace: any;
+  setColorspace(_: any)
+  device: MTLDevice;
+  setDevice(_: MTLDevice)
+  displaySyncEnabled: boolean;
+  setDisplaySyncEnabled(_: boolean)
+  drawableSize: NSSize;
+  setDrawableSize(_: NSSize)
+  framebufferOnly: boolean;
+  setFramebufferOnly(_: boolean)
+  maximumDrawableCount: number;
+  setMaximumDrawableCount(_: number)
+  pixelFormat: MTLPixelFormat;
+  setPixelFormat(_: MTLPixelFormat)
+  readonly preferredDevice: MTLDevice;
+  presentsWithTransaction: boolean;
+  setPresentsWithTransaction(_: boolean)
+  wantsExtendedDynamicRangeContent: boolean;
+  setWantsExtendedDynamicRangeContent(_: boolean)
+  nextDrawable(): CAMetalDrawable;
 }
 
 declare class CAPropertyAnimation extends CAAnimation {
-
-	static animation(): CAPropertyAnimation; // inherited from CAAnimation
-
-	static animationWithKeyPath(_?: string): CAPropertyAnimation;
-
-	setAdditive(_: boolean)
-
-	isAdditive: boolean;
-
-	setCumulative(_: boolean)
-
-	isCumulative: boolean;
-
-	setKeyPath(_: string)
-
-	keyPath: string;
-
-	setValueFunction(_: CAValueFunction)
-
-	valueFunction: CAValueFunction;
+  static animationWithKeyPath(keyPath?: string): CAPropertyAnimation;
+  isAdditive: boolean;
+  setAdditive(_: boolean)
+  isCumulative: boolean;
+  setCumulative(_: boolean)
+  keyPath: string;
+  setKeyPath(_: string)
+  valueFunction: CAValueFunction;
+  setValueFunction(_: CAValueFunction)
 }
 
 declare class CARemoteLayerClient extends NSObject {
-
-	readonly clientId: number;
-
-	setLayer(_: CALayer)
-
-	layer: CALayer;
-
-	static create(serverPort: number);
-
-	invalidate(): void;
+  readonly clientId: number;
+  layer: CALayer;
+  setLayer(_: CALayer)
+  static createWithServerPort(serverPort: number): this;
+  invalidate(): void;
 }
 
 declare class CARemoteLayerServer extends NSObject {
-
-	static sharedServer(): CARemoteLayerServer;
-
-	readonly serverPort: number;
+  static sharedServer(): CARemoteLayerServer;
+  readonly serverPort: number;
 }
 
 declare class CARenderer extends NSObject {
-
-	static rendererWithMTLTextureOptions(_: MTLTexture, options?: NSDictionary<any, any>): CARenderer;
-
-	setBounds(_: CGRect)
-
-	bounds: CGRect;
-
-	setLayer(_: CALayer)
-
-	layer: CALayer;
-
-	addUpdateRect(_: CGRect): void;
-
-	beginFrameAtTimeTimeStamp(_: number, timeStamp?: CVTimeStamp): void;
-
-	endFrame(): void;
-
-	nextFrameTime(): number;
-
-	render(): void;
-
-	setDestination(_: MTLTexture): void;
-
-	updateBounds(): CGRect;
+  bounds: NSRect;
+  setBounds(_: NSRect)
+  layer: CALayer;
+  setLayer(_: CALayer)
+  addUpdateRect(_: NSRect): void;
+  beginFrameAtTimeTimeStamp(atTime: number, timeStamp?: CVTimeStamp): void;
+  endFrame(): void;
+  nextFrameTime(): number;
+  render(): void;
+  setDestination(_: MTLTexture): void;
+  updateBounds(): NSRect;
 }
 
 declare class CAReplicatorLayer extends CALayer {
-
-	static layer(): CAReplicatorLayer; // inherited from CALayer
-
-	setInstanceAlphaOffset(_: number)
-
-	instanceAlphaOffset: number;
-
-	setInstanceBlueOffset(_: number)
-
-	instanceBlueOffset: number;
-
-	setInstanceColor(_: any)
-
-	instanceColor: any;
-
-	setInstanceCount(_: number)
-
-	instanceCount: number;
-
-	setInstanceDelay(_: number)
-
-	instanceDelay: number;
-
-	setInstanceGreenOffset(_: number)
-
-	instanceGreenOffset: number;
-
-	setInstanceRedOffset(_: number)
-
-	instanceRedOffset: number;
-
-	setInstanceTransform(_: CATransform3D)
-
-	instanceTransform: CATransform3D;
-
-	setPreservesDepth(_: boolean)
-
-	preservesDepth: boolean;
+  instanceAlphaOffset: number;
+  setInstanceAlphaOffset(_: number)
+  instanceBlueOffset: number;
+  setInstanceBlueOffset(_: number)
+  instanceColor: any;
+  setInstanceColor(_: any)
+  instanceCount: number;
+  setInstanceCount(_: number)
+  instanceDelay: number;
+  setInstanceDelay(_: number)
+  instanceGreenOffset: number;
+  setInstanceGreenOffset(_: number)
+  instanceRedOffset: number;
+  setInstanceRedOffset(_: number)
+  instanceTransform: CATransform3D;
+  setInstanceTransform(_: CATransform3D)
+  preservesDepth: boolean;
+  setPreservesDepth(_: boolean)
 }
 
 declare class CAScrollLayer extends CALayer {
-
-	static layer(): CAScrollLayer; // inherited from CALayer
-
-	setScrollMode(_: string)
-
-	scrollMode: string;
-
-	scrollToPoint(_: CGPoint): void;
-
-	scrollToRect(_: CGRect): void;
+  scrollMode: string;
+  setScrollMode(_: string)
+  scrollToPoint(to: NSPoint): void;
+  scrollToRect(to: NSRect): void;
 }
 
 declare class CAShapeLayer extends CALayer {
-
-	static layer(): CAShapeLayer; // inherited from CALayer
-
-	setFillColor(_: any)
-
-	fillColor: any;
-
-	setFillRule(_: string)
-
-	fillRule: string;
-
-	setLineCap(_: string)
-
-	lineCap: string;
-
-	setLineDashPattern(_: NSArray<number>)
-
-	lineDashPattern: NSArray<number>;
-
-	setLineDashPhase(_: number)
-
-	lineDashPhase: number;
-
-	setLineJoin(_: string)
-
-	lineJoin: string;
-
-	setLineWidth(_: number)
-
-	lineWidth: number;
-
-	setMiterLimit(_: number)
-
-	miterLimit: number;
-
-	setPath(_: any)
-
-	path: any;
-
-	setStrokeColor(_: any)
-
-	strokeColor: any;
-
-	setStrokeEnd(_: number)
-
-	strokeEnd: number;
-
-	setStrokeStart(_: number)
-
-	strokeStart: number;
+  fillColor: any;
+  setFillColor(_: any)
+  fillRule: string;
+  setFillRule(_: string)
+  lineCap: string;
+  setLineCap(_: string)
+  lineDashPattern: NSArray<number>;
+  setLineDashPattern(_: NSArray<number>)
+  lineDashPhase: number;
+  setLineDashPhase(_: number)
+  lineJoin: string;
+  setLineJoin(_: string)
+  lineWidth: number;
+  setLineWidth(_: number)
+  miterLimit: number;
+  setMiterLimit(_: number)
+  path: any;
+  setPath(_: any)
+  strokeColor: any;
+  setStrokeColor(_: any)
+  strokeEnd: number;
+  setStrokeEnd(_: number)
+  strokeStart: number;
+  setStrokeStart(_: number)
 }
 
 declare class CASpringAnimation extends CABasicAnimation {
-
-	static animation(): CASpringAnimation; // inherited from CAAnimation
-
-	static animationWithKeyPath(_?: string): CASpringAnimation; // inherited from CAPropertyAnimation
-
-	setDamping(_: number)
-
-	damping: number;
-
-	setInitialVelocity(_: number)
-
-	initialVelocity: number;
-
-	setMass(_: number)
-
-	mass: number;
-
-	readonly settlingDuration: number;
-
-	setStiffness(_: number)
-
-	stiffness: number;
+  static animationWithKeyPath(keyPath?: string): CASpringAnimation; // inherited from CAPropertyAnimation
+  damping: number;
+  setDamping(_: number)
+  initialVelocity: number;
+  setInitialVelocity(_: number)
+  mass: number;
+  setMass(_: number)
+  readonly settlingDuration: number;
+  stiffness: number;
+  setStiffness(_: number)
 }
 
 declare class CATextLayer extends CALayer {
-
-	static layer(): CATextLayer; // inherited from CALayer
-
-	setAlignmentMode(_: string)
-
-	alignmentMode: string;
-
-	setAllowsFontSubpixelQuantization(_: boolean)
-
-	allowsFontSubpixelQuantization: boolean;
-
-	setFont(_: any)
-
-	font: any;
-
-	setFontSize(_: number)
-
-	fontSize: number;
-
-	setForegroundColor(_: any)
-
-	foregroundColor: any;
-
-	setString(_: any)
-
-	string: any;
-
-	setTruncationMode(_: string)
-
-	truncationMode: string;
-
-	setWrapped(_: boolean)
-
-	isWrapped: boolean;
+  alignmentMode: string;
+  setAlignmentMode(_: string)
+  allowsFontSubpixelQuantization: boolean;
+  setAllowsFontSubpixelQuantization(_: boolean)
+  font: any;
+  setFont(_: any)
+  fontSize: number;
+  setFontSize(_: number)
+  foregroundColor: any;
+  setForegroundColor(_: any)
+  string: any;
+  setString(_: any)
+  truncationMode: string;
+  setTruncationMode(_: string)
+  isWrapped: boolean;
+  setWrapped(_: boolean)
 }
 
 declare class CATiledLayer extends CALayer {
-
-	static fadeDuration(): number;
-
-	static layer(): CATiledLayer; // inherited from CALayer
-
-	setLevelsOfDetail(_: number)
-
-	levelsOfDetail: number;
-
-	setLevelsOfDetailBias(_: number)
-
-	levelsOfDetailBias: number;
-
-	setTileSize(_: CGSize)
-
-	tileSize: CGSize;
+  static fadeDuration(): number;
+  levelsOfDetail: number;
+  setLevelsOfDetail(_: number)
+  levelsOfDetailBias: number;
+  setLevelsOfDetailBias(_: number)
+  tileSize: NSSize;
+  setTileSize(_: NSSize)
 }
 
 declare class CATransaction extends NSObject {
-
-	static animationDuration(): number;
-
-	static animationTimingFunction(): CAMediaTimingFunction;
-
-	static begin(): void;
-
-	static commit(): void;
-
-	static completionBlock(): () => void;
-
-	static disableActions(): boolean;
-
-	static flush(): void;
-
-	static lock(): void;
-
-	static setAnimationDuration(_: number): void;
-
-	static setAnimationTimingFunction(_?: CAMediaTimingFunction): void;
-
-	static setCompletionBlock(_?: () => void): void;
-
-	static setDisableActions(_: boolean): void;
-
-	static setValueForKey(_?: any, forKey: string): void;
-
-	static unlock(): void;
-
-	static valueForKey(_: string): any;
+  static animationDuration(): number;
+  static animationTimingFunction(): CAMediaTimingFunction;
+  static begin(): void;
+  static commit(): void;
+  static completionBlock(): () => void;
+  static disableActions(): boolean;
+  static flush(): void;
+  static lock(): void;
+  static setAnimationDuration(_: number): void;
+  static setAnimationTimingFunction(_?: CAMediaTimingFunction): void;
+  static setCompletionBlock(_?: () => void): void;
+  static setDisableActions(_: boolean): void;
+  static setValueForKey(_?: any, forKey: string): void;
+  static unlock(): void;
+  static valueForKey(forKey: string): any;
 }
 
 interface CATransform3D {
-	m11: number;
-	m12: number;
-	m13: number;
-	m14: number;
-	m21: number;
-	m22: number;
-	m23: number;
-	m24: number;
-	m31: number;
-	m32: number;
-	m33: number;
-	m34: number;
-	m41: number;
-	m42: number;
-	m43: number;
-	m44: number;
+  m11: number;
+  m12: number;
+  m13: number;
+  m14: number;
+  m21: number;
+  m22: number;
+  m23: number;
+  m24: number;
+  m31: number;
+  m32: number;
+  m33: number;
+  m34: number;
+  m41: number;
+  m42: number;
+  m43: number;
+  m44: number;
 }
+
 declare var CATransform3D: CATransform3D;
 
 declare function CATransform3DConcat(a: CATransform3D, b: CATransform3D): CATransform3D;
-
 declare function CATransform3DEqualToTransform(a: CATransform3D, b: CATransform3D): boolean;
-
 declare function CATransform3DGetAffineTransform(t: CATransform3D): CGAffineTransform;
-
 declare var CATransform3DIdentity: CATransform3D;
 
 declare function CATransform3DInvert(t: CATransform3D): CATransform3D;
-
 declare function CATransform3DIsAffine(t: CATransform3D): boolean;
-
 declare function CATransform3DIsIdentity(t: CATransform3D): boolean;
-
 declare function CATransform3DMakeAffineTransform(m: CGAffineTransform): CATransform3D;
-
 declare function CATransform3DMakeRotation(angle: number, x: number, y: number, z: number): CATransform3D;
-
 declare function CATransform3DMakeScale(sx: number, sy: number, sz: number): CATransform3D;
-
 declare function CATransform3DMakeTranslation(tx: number, ty: number, tz: number): CATransform3D;
-
 declare function CATransform3DRotate(t: CATransform3D, angle: number, x: number, y: number, z: number): CATransform3D;
-
 declare function CATransform3DScale(t: CATransform3D, sx: number, sy: number, sz: number): CATransform3D;
-
 declare function CATransform3DTranslate(t: CATransform3D, tx: number, ty: number, tz: number): CATransform3D;
-
 declare class CATransformLayer extends CALayer {
-
-	static layer(): CATransformLayer; // inherited from CALayer
 }
 
 declare class CATransition extends CAAnimation {
-
-	static animation(): CATransition; // inherited from CAAnimation
-
-	setEndProgress(_: number)
-
-	endProgress: number;
-
-	setFilter(_: any)
-
-	filter: any;
-
-	setStartProgress(_: number)
-
-	startProgress: number;
-
-	setSubtype(_: string)
-
-	subtype: string;
-
-	setType(_: string)
-
-	type: string;
+  endProgress: number;
+  setEndProgress(_: number)
+  filter: any;
+  setFilter(_: any)
+  startProgress: number;
+  setStartProgress(_: number)
+  subtype: string;
+  setSubtype(_: string)
+  type: string;
+  setType(_: string)
 }
 
 declare class CAValueFunction extends NSObject implements NSSecureCoding {
-
-	static functionWithName(_: string): CAValueFunction;
-
-	readonly name: string;
-
-	static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
-
-	static create(coder: NSCoder); // inherited from NSCoding
-
-	encodeWithCoder(_: NSCoder): void;
+  readonly name: string;
+  static supportsSecureCoding(): boolean; // inherited from NSSecureCoding
+  encodeWithCoder(with_: NSCoder): void;
+  static createWithCoder(coder: NSCoder): this;
 }
 
 interface _CALayerIvars {
-	refcount: number;
-	magic: number;
-	layer: any;
+  refcount: number;
+  magic: number;
+  layer: any;
 }
+
 declare var _CALayerIvars: _CALayerIvars;
 
 declare var kCAAlignmentCenter: string;
@@ -1676,3 +1025,39 @@ declare var kCAValueFunctionTranslateX: string;
 declare var kCAValueFunctionTranslateY: string;
 
 declare var kCAValueFunctionTranslateZ: string;
+
+enum CAAutoresizingMask {
+    kCALayerNotSizable = 0,
+    kCALayerMinXMargin = 1,
+    kCALayerWidthSizable = 2,
+    kCALayerMaxXMargin = 4,
+    kCALayerMinYMargin = 8,
+    kCALayerHeightSizable = 16,
+    kCALayerMaxYMargin = 32
+}
+
+enum CAConstraintAttribute {
+    kCAConstraintMinX = 0,
+    kCAConstraintMidX = 1,
+    kCAConstraintMaxX = 2,
+    kCAConstraintWidth = 3,
+    kCAConstraintMinY = 4,
+    kCAConstraintMidY = 5,
+    kCAConstraintMaxY = 6,
+    kCAConstraintHeight = 7
+}
+
+enum CACornerMask {
+    kCALayerMinXMinYCorner = 1,
+    kCALayerMaxXMinYCorner = 2,
+    kCALayerMinXMaxYCorner = 4,
+    kCALayerMaxXMaxYCorner = 8
+}
+
+enum CAEdgeAntialiasingMask {
+    kCALayerLeftEdge = 1,
+    kCALayerRightEdge = 2,
+    kCALayerBottomEdge = 4,
+    kCALayerTopEdge = 8
+}
+

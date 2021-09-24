@@ -1,113 +1,155 @@
+globalThis.IKCameraDeviceViewDisplayMode = globalThis.IKCameraDeviceViewDisplayMode || {};
+
+globalThis.IKCameraDeviceViewDisplayMode = {
+    None: -1,
+    Table: 0,
+    Icon: 1,
+    '-1': 'None',
+    '0': 'Table',
+    '1': 'Icon'
+}
+
+globalThis.IKCameraDeviceViewTransferMode = globalThis.IKCameraDeviceViewTransferMode || {};
+
+globalThis.IKCameraDeviceViewTransferMode = {
+    FileBased: 0,
+    MemoryBased: 1,
+    '0': 'FileBased',
+    '1': 'MemoryBased'
+}
+
+globalThis.IKDeviceBrowserViewDisplayMode = globalThis.IKDeviceBrowserViewDisplayMode || {};
+
+globalThis.IKDeviceBrowserViewDisplayMode = {
+    Table: 0,
+    Outline: 1,
+    Icon: 2,
+    '0': 'Table',
+    '1': 'Outline',
+    '2': 'Icon'
+}
+
+globalThis.IKImageBrowserCellState = globalThis.IKImageBrowserCellState || {};
+
+globalThis.IKImageBrowserCellState = {
+    StateNoImage: 0,
+    StateInvalid: 1,
+    StateReady: 2,
+    '0': 'StateNoImage',
+    '1': 'StateInvalid',
+    '2': 'StateReady'
+}
+
+globalThis.IKImageBrowserDropOperation = globalThis.IKImageBrowserDropOperation || {};
+
+globalThis.IKImageBrowserDropOperation = {
+    On: 0,
+    Before: 1,
+    '0': 'On',
+    '1': 'Before'
+}
+
+globalThis.IKScannerDeviceViewDisplayMode = globalThis.IKScannerDeviceViewDisplayMode || {};
+
+globalThis.IKScannerDeviceViewDisplayMode = {
+    None: -1,
+    Simple: 0,
+    Advanced: 1,
+    '-1': 'None',
+    '0': 'Simple',
+    '1': 'Advanced'
+}
+
+globalThis.IKScannerDeviceViewTransferMode = globalThis.IKScannerDeviceViewTransferMode || {};
+
+globalThis.IKScannerDeviceViewTransferMode = {
+    FileBased: 0,
+    MemoryBased: 1,
+    '0': 'FileBased',
+    '1': 'MemoryBased'
+}
+
+globalThis.QCPlugInExecutionMode = globalThis.QCPlugInExecutionMode || {};
+
+globalThis.QCPlugInExecutionMode = {
+    kQCPlugInExecutionModeProvider: 1,
+    kQCPlugInExecutionModeProcessor: 2,
+    kQCPlugInExecutionModeConsumer: 3,
+    '1': 'kQCPlugInExecutionModeProvider',
+    '2': 'kQCPlugInExecutionModeProcessor',
+    '3': 'kQCPlugInExecutionModeConsumer'
+}
+
+globalThis.QCPlugInTimeMode = globalThis.QCPlugInTimeMode || {};
+
+globalThis.QCPlugInTimeMode = {
+    kQCPlugInTimeModeNone: 0,
+    kQCPlugInTimeModeIdle: 1,
+    kQCPlugInTimeModeTimeBase: 2,
+    '0': 'kQCPlugInTimeModeNone',
+    '1': 'kQCPlugInTimeModeIdle',
+    '2': 'kQCPlugInTimeModeTimeBase'
+}
+
+globalThis.QLPreviewViewStyle = globalThis.QLPreviewViewStyle || {};
+
+globalThis.QLPreviewViewStyle = {
+    Normal: 0,
+    Compact: 1,
+    '0': 'Normal',
+    '1': 'Compact'
+}
 
 declare class IKCameraDeviceView extends NSView {
-
-	setCameraDevice(_: ICCameraDevice)
-
-	cameraDevice: ICCameraDevice;
-
-	readonly canDeleteSelectedItems: boolean;
-
-	readonly canDownloadSelectedItems: boolean;
-
-	readonly canRotateSelectedItemsLeft: boolean;
-
-	readonly canRotateSelectedItemsRight: boolean;
-
-	setDelegate(_: IKCameraDeviceViewDelegate)
-
-	delegate: IKCameraDeviceViewDelegate;
-
-	setDisplaysDownloadsDirectoryControl(_: boolean)
-
-	displaysDownloadsDirectoryControl: boolean;
-
-	setDisplaysPostProcessApplicationControl(_: boolean)
-
-	displaysPostProcessApplicationControl: boolean;
-
-	setDownloadAllControlLabel(_: string)
-
-	downloadAllControlLabel: string;
-
-	setDownloadSelectedControlLabel(_: string)
-
-	downloadSelectedControlLabel: string;
-
-	setDownloadsDirectory(_: NSURL)
-
-	downloadsDirectory: NSURL;
-
-	setHasDisplayModeIcon(_: boolean)
-
-	hasDisplayModeIcon: boolean;
-
-	setHasDisplayModeTable(_: boolean)
-
-	hasDisplayModeTable: boolean;
-
-	setIconSize(_: number)
-
-	iconSize: number;
-
-	setMode(_: IKCameraDeviceViewDisplayMode)
-
-	mode: IKCameraDeviceViewDisplayMode;
-
-	setPostProcessApplication(_: NSURL)
-
-	postProcessApplication: NSURL;
-
-	setTransferMode(_: IKCameraDeviceViewTransferMode)
-
-	transferMode: IKCameraDeviceViewTransferMode;
-
-	deleteSelectedItems(_: any): void;
-
-	downloadAllItems(_: any): void;
-
-	downloadSelectedItems(_: any): void;
-
-	rotateLeft(_: any): void;
-
-	rotateRight(_: any): void;
-
-	selectIndexesByExtendingSelection(_: NSIndexSet, byExtendingSelection: boolean): void;
-
-	selectedIndexes(): NSIndexSet;
+  cameraDevice: ICCameraDevice;
+  setCameraDevice(_: ICCameraDevice)
+  readonly canDeleteSelectedItems: boolean;
+  readonly canDownloadSelectedItems: boolean;
+  readonly canRotateSelectedItemsLeft: boolean;
+  readonly canRotateSelectedItemsRight: boolean;
+  delegate: IKCameraDeviceViewDelegate;
+  setDelegate(_: IKCameraDeviceViewDelegate)
+  displaysDownloadsDirectoryControl: boolean;
+  setDisplaysDownloadsDirectoryControl(_: boolean)
+  displaysPostProcessApplicationControl: boolean;
+  setDisplaysPostProcessApplicationControl(_: boolean)
+  downloadAllControlLabel: string;
+  setDownloadAllControlLabel(_: string)
+  downloadSelectedControlLabel: string;
+  setDownloadSelectedControlLabel(_: string)
+  downloadsDirectory: NSURL;
+  setDownloadsDirectory(_: NSURL)
+  hasDisplayModeIcon: boolean;
+  setHasDisplayModeIcon(_: boolean)
+  hasDisplayModeTable: boolean;
+  setHasDisplayModeTable(_: boolean)
+  iconSize: number;
+  setIconSize(_: number)
+  mode: IKCameraDeviceViewDisplayMode;
+  setMode(_: IKCameraDeviceViewDisplayMode)
+  postProcessApplication: NSURL;
+  setPostProcessApplication(_: NSURL)
+  transferMode: IKCameraDeviceViewTransferMode;
+  setTransferMode(_: IKCameraDeviceViewTransferMode)
+  deleteSelectedItems(_: any): void;
+  downloadAllItems(_: any): void;
+  downloadSelectedItems(_: any): void;
+  rotateLeft(_: any): void;
+  rotateRight(_: any): void;
+  selectIndexesByExtendingSelection(_: IndexSet, byExtendingSelection: boolean): void;
+  selectedIndexes(): IndexSet;
 }
 
 interface IKCameraDeviceViewDelegate {
-
-	cameraDeviceViewDidDownloadFileLocationFileDataError?(_: IKCameraDeviceView, didDownloadFile: ICCameraFile, location: NSURL, fileData: NSData, error: NSError): void;
-
-	cameraDeviceViewDidEncounterError?(_: IKCameraDeviceView, didEncounterError: NSError): void;
-
-	cameraDeviceViewSelectionDidChange?(_: IKCameraDeviceView): void;
+  cameraDeviceViewDidDownloadFileLocationFileDataError?(_: IKCameraDeviceView, didDownloadFile: ICCameraFile, location: NSURL, fileData: Data, error: Error): void;
+  cameraDeviceViewDidEncounterError?(_: IKCameraDeviceView, didEncounterError: Error): void;
+  cameraDeviceViewSelectionDidChange?(_: IKCameraDeviceView): void;
 }
-declare var IKCameraDeviceViewDelegate: {
 
-	prototype: IKCameraDeviceViewDelegate;
+declare var IKCameraDeviceViewDelegate: {
+  prototype: IKCameraDeviceViewDelegate;
 };
 
-enum IKCameraDeviceViewDisplayMode {
-
-	None = -1,
-
-	Table = 0,
-
-	Icon = 1
-}
-
-globalThis.IKCameraDeviceViewDisplayMode = IKCameraDeviceViewDisplayMode;
-
-enum IKCameraDeviceViewTransferMode {
-
-	FileBased = 0,
-
-	MemoryBased = 1
-}
-
-globalThis.IKCameraDeviceViewTransferMode = IKCameraDeviceViewTransferMode;
 
 declare const IKCellsStyleNone: number;
 
@@ -118,57 +160,30 @@ declare const IKCellsStyleShadowed: number;
 declare const IKCellsStyleSubtitled: number;
 
 declare const IKCellsStyleTitled: number;
-
 declare class IKDeviceBrowserView extends NSView {
-
-	setDelegate(_: IKDeviceBrowserViewDelegate)
-
-	delegate: IKDeviceBrowserViewDelegate;
-
-	setDisplaysLocalCameras(_: boolean)
-
-	displaysLocalCameras: boolean;
-
-	setDisplaysLocalScanners(_: boolean)
-
-	displaysLocalScanners: boolean;
-
-	setDisplaysNetworkCameras(_: boolean)
-
-	displaysNetworkCameras: boolean;
-
-	setDisplaysNetworkScanners(_: boolean)
-
-	displaysNetworkScanners: boolean;
-
-	setMode(_: IKDeviceBrowserViewDisplayMode)
-
-	mode: IKDeviceBrowserViewDisplayMode;
-
-	readonly selectedDevice: ICDevice;
+  delegate: IKDeviceBrowserViewDelegate;
+  setDelegate(_: IKDeviceBrowserViewDelegate)
+  displaysLocalCameras: boolean;
+  setDisplaysLocalCameras(_: boolean)
+  displaysLocalScanners: boolean;
+  setDisplaysLocalScanners(_: boolean)
+  displaysNetworkCameras: boolean;
+  setDisplaysNetworkCameras(_: boolean)
+  displaysNetworkScanners: boolean;
+  setDisplaysNetworkScanners(_: boolean)
+  mode: IKDeviceBrowserViewDisplayMode;
+  setMode(_: IKDeviceBrowserViewDisplayMode)
+  readonly selectedDevice: ICDevice;
 }
 
 interface IKDeviceBrowserViewDelegate {
-
-	deviceBrowserViewDidEncounterError?(_: IKDeviceBrowserView, didEncounterError: NSError): void;
-
-	deviceBrowserViewSelectionDidChange(_: IKDeviceBrowserView, selectionDidChange: ICDevice): void;
+  deviceBrowserViewDidEncounterError?(_: IKDeviceBrowserView, didEncounterError: Error): void;
+  deviceBrowserViewSelectionDidChange(_: IKDeviceBrowserView, selectionDidChange: ICDevice): void;
 }
+
 declare var IKDeviceBrowserViewDelegate: {
-
-	prototype: IKDeviceBrowserViewDelegate;
+  prototype: IKDeviceBrowserViewDelegate;
 };
-
-enum IKDeviceBrowserViewDisplayMode {
-
-	Table = 0,
-
-	Outline = 1,
-
-	Icon = 2
-}
-
-globalThis.IKDeviceBrowserViewDisplayMode = IKDeviceBrowserViewDisplayMode;
 
 declare var IKFilterBrowserDefaultInputImage: string;
 
@@ -181,22 +196,13 @@ declare var IKFilterBrowserFilterDoubleClickNotification: string;
 declare var IKFilterBrowserFilterSelectedNotification: string;
 
 declare class IKFilterBrowserPanel extends NSPanel {
-
-	static filterBrowserPanelWithStyleMask(_: number): any;
-
-	static windowWithContentViewController(contentViewController: NSViewController): IKFilterBrowserPanel; // inherited from NSWindow
-
-	beginSheetWithOptionsModalForWindowModalDelegateDidEndSelectorContextInfo(_: NSDictionary<any, any>, modalForWindow: NSWindow, modalDelegate: any, didEndSelector: string, contextInfo: any): void;
-
-	beginWithOptionsModelessDelegateDidEndSelectorContextInfo(_: NSDictionary<any, any>, modelessDelegate: any, didEndSelector: string, contextInfo: any): void;
-
-	filterBrowserViewWithOptions(_: NSDictionary<any, any>): IKFilterBrowserView;
-
-	filterName(): string;
-
-	finish(_: any): void;
-
-	runModalWithOptions(_: NSDictionary<any, any>): number;
+  static filterBrowserPanelWithStyleMask(withStyleMask: number): any;
+  beginSheetWithOptionsModalForWindowModalDelegateDidEndSelectorContextInfo(options: NSDictionary<any, any>, modalFor: NSWindow, modalDelegate: any, didEnd: string, contextInfo: any): void;
+  beginWithOptionsModelessDelegateDidEndSelectorContextInfo(options: NSDictionary<any, any>, modelessDelegate: any, didEnd: string, contextInfo: any): void;
+  filterBrowserViewWithOptions(options: NSDictionary<any, any>): IKFilterBrowserView;
+  filterName(): string;
+  finish(_: any): void;
+  runModalWithOptions(options: NSDictionary<any, any>): number;
 }
 
 declare var IKFilterBrowserShowCategories: string;
@@ -204,38 +210,31 @@ declare var IKFilterBrowserShowCategories: string;
 declare var IKFilterBrowserShowPreview: string;
 
 declare class IKFilterBrowserView extends NSView {
-
-	filterName(): string;
-
-	setPreviewState(_: boolean): void;
+  filterName(): string;
+  setPreviewState(_: boolean): void;
 }
 
 declare var IKFilterBrowserWillPreviewFilterNotification: string;
 
 interface IKFilterCustomUIProvider {
-
-	provideViewForUIConfigurationExcludedKeys(_: NSDictionary<any, any>, excludedKeys: NSArray<any>): IKFilterUIView;
+  provideViewForUIConfigurationExcludedKeys(forUIConfiguration: NSDictionary<any, any>, excludedKeys: NSArray<any>): IKFilterUIView;
 }
-declare var IKFilterCustomUIProvider: {
 
-	prototype: IKFilterCustomUIProvider;
+declare var IKFilterCustomUIProvider: {
+  prototype: IKFilterCustomUIProvider;
 };
 
 declare class IKFilterUIView extends NSView {
-
-	static viewWithFrameFilter(_: CGRect, filter: CIFilter): any;
-
-	static create(frame: CGRect, filter: CIFilter);
-
-	filter(): CIFilter;
-
-	objectController(): NSObjectController;
+  static viewWithFrameFilter(withFrame: NSRect, filter: CIFilter): any;
+  filter(): CIFilter;
+  static createWithFrameFilter(frame: NSRect, filter: CIFilter): this;
+  objectController(): NSObjectController;
 }
+
 
 declare const IKGroupBezelStyle: number;
 
 declare const IKGroupDisclosureStyle: number;
-
 declare var IKImageBrowserBackgroundColorKey: string;
 
 declare var IKImageBrowserCGImageRepresentationType: string;
@@ -243,32 +242,19 @@ declare var IKImageBrowserCGImageRepresentationType: string;
 declare var IKImageBrowserCGImageSourceRepresentationType: string;
 
 declare class IKImageBrowserCell extends NSObject {
-
-	cellState(): IKImageBrowserCellState;
-
-	frame(): CGRect;
-
-	imageAlignment(): NSImageAlignment;
-
-	imageContainerFrame(): CGRect;
-
-	imageFrame(): CGRect;
-
-	indexOfRepresentedItem(): number;
-
-	isSelected(): boolean;
-
-	layerForType(_: string): CALayer;
-
-	opacity(): number;
-
-	representedItem(): any;
-
-	selectionFrame(): CGRect;
-
-	subtitleFrame(): CGRect;
-
-	titleFrame(): CGRect;
+  cellState(): IKImageBrowserCellState;
+  frame(): NSRect;
+  imageAlignment(): NSImageAlignment;
+  imageContainerFrame(): NSRect;
+  imageFrame(): NSRect;
+  indexOfRepresentedItem(): number;
+  isSelected(): boolean;
+  layerForType(forType: string): CALayer;
+  opacity(): number;
+  representedItem(): any;
+  selectionFrame(): NSRect;
+  subtitleFrame(): NSRect;
+  titleFrame(): NSRect;
 }
 
 declare var IKImageBrowserCellBackgroundLayer: string;
@@ -279,17 +265,6 @@ declare var IKImageBrowserCellPlaceHolderLayer: string;
 
 declare var IKImageBrowserCellSelectionLayer: string;
 
-enum IKImageBrowserCellState {
-
-	StateNoImage = 0,
-
-	StateInvalid = 1,
-
-	StateReady = 2
-}
-
-globalThis.IKImageBrowserCellState = IKImageBrowserCellState;
-
 declare var IKImageBrowserCellsHighlightedTitleAttributesKey: string;
 
 declare var IKImageBrowserCellsOutlineColorKey: string;
@@ -297,15 +272,6 @@ declare var IKImageBrowserCellsOutlineColorKey: string;
 declare var IKImageBrowserCellsSubtitleAttributesKey: string;
 
 declare var IKImageBrowserCellsTitleAttributesKey: string;
-
-enum IKImageBrowserDropOperation {
-
-	On = 0,
-
-	Before = 1
-}
-
-globalThis.IKImageBrowserDropOperation = IKImageBrowserDropOperation;
 
 declare var IKImageBrowserGroupBackgroundColorKey: string;
 
@@ -348,144 +314,79 @@ declare var IKImageBrowserQuickLookPathRepresentationType: string;
 declare var IKImageBrowserSelectionColorKey: string;
 
 declare class IKImageEditPanel extends NSPanel {
-
-	static sharedImageEditPanel(): IKImageEditPanel;
-
-	static windowWithContentViewController(contentViewController: NSViewController): IKImageEditPanel; // inherited from NSWindow
-
-	setDataSource(_: IKImageEditPanelDataSource)
-
-	dataSource: IKImageEditPanelDataSource;
-
-	readonly filterArray: NSArray<any>;
-
-	reloadData(): void;
+  static sharedImageEditPanel(): IKImageEditPanel;
+  dataSource: IKImageEditPanelDataSource;
+  setDataSource(_: IKImageEditPanelDataSource)
+  readonly filterArray: NSArray<any>;
+  reloadData(): void;
 }
 
 interface IKImageEditPanelDataSource {
-
-	hasAdjustMode?(): boolean;
-
-	hasDetailsMode?(): boolean;
-
-	hasEffectsMode?(): boolean;
-
-	image(): any;
-
-	imageProperties?(): NSDictionary<any, any>;
-
-	setImageImageProperties(_: any, imageProperties: NSDictionary<any, any>): void;
-
-	thumbnailWithMaximumSize?(_: CGSize): any;
+  hasAdjustMode?(): boolean;
+  hasDetailsMode?(): boolean;
+  hasEffectsMode?(): boolean;
+  image(): any;
+  imageProperties?(): NSDictionary<any, any>;
+  setImageImageProperties(_: any, imageProperties: NSDictionary<any, any>): void;
+  thumbnailWithMaximumSize?(withMaximumSize: NSSize): any;
 }
-declare var IKImageEditPanelDataSource: {
 
-	prototype: IKImageEditPanelDataSource;
+declare var IKImageEditPanelDataSource: {
+  prototype: IKImageEditPanelDataSource;
 };
 
 declare class IKImageView extends NSView {
-
-	setAutohidesScrollers(_: boolean)
-
-	autohidesScrollers: boolean;
-
-	setAutoresizes(_: boolean)
-
-	autoresizes: boolean;
-
-	setBackgroundColor(_: NSColor)
-
-	backgroundColor: NSColor;
-
-	setCurrentToolMode(_: string)
-
-	currentToolMode: string;
-
-	setDelegate(_: any)
-
-	delegate: any;
-
-	setDoubleClickOpensImageEditPanel(_: boolean)
-
-	doubleClickOpensImageEditPanel: boolean;
-
-	setEditable(_: boolean)
-
-	editable: boolean;
-
-	setHasHorizontalScroller(_: boolean)
-
-	hasHorizontalScroller: boolean;
-
-	setHasVerticalScroller(_: boolean)
-
-	hasVerticalScroller: boolean;
-
-	setImageCorrection(_: CIFilter)
-
-	imageCorrection: CIFilter;
-
-	setRotationAngle(_: number)
-
-	rotationAngle: number;
-
-	setSupportsDragAndDrop(_: boolean)
-
-	supportsDragAndDrop: boolean;
-
-	setZoomFactor(_: number)
-
-	zoomFactor: number;
-
-	convertImagePointToViewPoint(_: CGPoint): CGPoint;
-
-	convertImageRectToViewRect(_: CGRect): CGRect;
-
-	convertViewPointToImagePoint(_: CGPoint): CGPoint;
-
-	convertViewRectToImageRect(_: CGRect): CGRect;
-
-	crop(_: any): void;
-
-	flipImageHorizontal(_: any): void;
-
-	flipImageVertical(_: any): void;
-
-	image(): any;
-
-	imageProperties(): NSDictionary<any, any>;
-
-	imageSize(): CGSize;
-
-	overlayForType(_: string): CALayer;
-
-	rotateImageLeft(_: any): void;
-
-	rotateImageRight(_: any): void;
-
-	scrollToPoint(_: CGPoint): void;
-
-	scrollToRect(_: CGRect): void;
-
-	setImageImageProperties(_: any, imageProperties: NSDictionary<any, any>): void;
-
-	setImageWithURL(_: NSURL): void;
-
-	setImageZoomFactorCenterPoint(_: number, centerPoint: CGPoint): void;
-
-	setOverlayForType(_: CALayer, forType: string): void;
-
-	setRotationAngleCenterPoint(_: number, centerPoint: CGPoint): void;
-
-	zoomImageToActualSize(_: any): void;
-
-	zoomImageToFit(_: any): void;
-
-	zoomImageToRect(_: CGRect): void;
-
-	zoomIn(_: any): void;
-
-	zoomOut(_: any): void;
+  autohidesScrollers: boolean;
+  setAutohidesScrollers(_: boolean)
+  autoresizes: boolean;
+  setAutoresizes(_: boolean)
+  backgroundColor: NSColor;
+  setBackgroundColor(_: NSColor)
+  currentToolMode: string;
+  setCurrentToolMode(_: string)
+  delegate: any;
+  setDelegate(_: any)
+  doubleClickOpensImageEditPanel: boolean;
+  setDoubleClickOpensImageEditPanel(_: boolean)
+  editable: boolean;
+  setEditable(_: boolean)
+  hasHorizontalScroller: boolean;
+  setHasHorizontalScroller(_: boolean)
+  hasVerticalScroller: boolean;
+  setHasVerticalScroller(_: boolean)
+  imageCorrection: CIFilter;
+  setImageCorrection(_: CIFilter)
+  rotationAngle: number;
+  setRotationAngle(_: number)
+  supportsDragAndDrop: boolean;
+  setSupportsDragAndDrop(_: boolean)
+  zoomFactor: number;
+  setZoomFactor(_: number)
+  convertImagePointToViewPoint(toViewPoint: NSPoint): NSPoint;
+  convertImageRectToViewRect(toViewRect: NSRect): NSRect;
+  convertViewPointToImagePoint(toImagePoint: NSPoint): NSPoint;
+  convertViewRectToImageRect(toImageRect: NSRect): NSRect;
+  crop(_: any): void;
+  flipImageHorizontal(_: any): void;
+  flipImageVertical(_: any): void;
+  image(): any;
+  imageProperties(): NSDictionary<any, any>;
+  imageSize(): NSSize;
+  overlayForType(forType: string): CALayer;
+  rotateImageLeft(_: any): void;
+  rotateImageRight(_: any): void;
+  scrollToPoint(to: NSPoint): void;
+  scrollToRect(to: NSRect): void;
+  setImageImageProperties(_: any, imageProperties: NSDictionary<any, any>): void;
+  setImageWithURL(_: NSURL): void;
+  setImageZoomFactorCenterPoint(_: number, center: NSPoint): void;
+  setOverlayForType(_: CALayer, forType: string): void;
+  setRotationAngleCenterPoint(_: number, center: NSPoint): void;
+  zoomImageToActualSize(_: any): void;
+  zoomImageToFit(_: any): void;
+  zoomImageToRect(to: NSRect): void;
+  zoomIn(_: any): void;
+  zoomOut(_: any): void;
 }
 
 declare var IKOverlayTypeBackground: string;
@@ -493,28 +394,16 @@ declare var IKOverlayTypeBackground: string;
 declare var IKOverlayTypeImage: string;
 
 declare class IKPictureTaker extends NSPanel {
-
-	static pictureTaker(): IKPictureTaker;
-
-	static windowWithContentViewController(contentViewController: NSViewController): IKPictureTaker; // inherited from NSWindow
-
-	beginPictureTakerSheetForWindowWithDelegateDidEndSelectorContextInfo(_: NSWindow, withDelegate: any, didEndSelector: string, contextInfo: any): void;
-
-	beginPictureTakerWithDelegateDidEndSelectorContextInfo(_: any, didEndSelector: string, contextInfo: any): void;
-
-	inputImage(): NSImage;
-
-	mirroring(): boolean;
-
-	outputImage(): NSImage;
-
-	popUpRecentsMenuForViewWithDelegateDidEndSelectorContextInfo(_: NSView, withDelegate: any, didEndSelector: string, contextInfo: any): void;
-
-	runModal(): number;
-
-	setInputImage(_: NSImage): void;
-
-	setMirroring(_: boolean): void;
+  static pictureTaker(): IKPictureTaker;
+  beginPictureTakerSheetForWindowWithDelegateDidEndSelectorContextInfo(for_: NSWindow, withDelegate: any, didEnd: string, contextInfo: any): void;
+  beginPictureTakerWithDelegateDidEndSelectorContextInfo(withDelegate: any, didEnd: string, contextInfo: any): void;
+  inputImage(): NSImage;
+  mirroring(): boolean;
+  outputImage(): NSImage;
+  popUpRecentsMenuForViewWithDelegateDidEndSelectorContextInfo(for_: NSView, withDelegate: any, didEnd: string, contextInfo: any): void;
+  runModal(): number;
+  setInputImage(_: NSImage): void;
+  setMirroring(_: boolean): void;
 }
 
 declare var IKPictureTakerAllowsEditingKey: string;
@@ -548,158 +437,83 @@ declare var IKPictureTakerShowRecentPictureKey: string;
 declare var IKPictureTakerUpdateRecentPictureKey: string;
 
 declare class IKSaveOptions extends NSObject {
-
-	setDelegate(_: any)
-
-	delegate: any;
-
-	readonly imageProperties: NSDictionary<any, any>;
-
-	readonly imageUTType: string;
-
-	readonly userSelection: NSDictionary<any, any>;
-
-	static create(imageProperties: NSDictionary<any, any>, imageUTType: string);
-
-	addSaveOptionsAccessoryViewToSavePanel(_: NSSavePanel): void;
-
-	addSaveOptionsToView(_: NSView): void;
+  delegate: any;
+  setDelegate(_: any)
+  readonly imageProperties: NSDictionary<any, any>;
+  readonly imageUTType: string;
+  readonly userSelection: NSDictionary<any, any>;
+  addSaveOptionsAccessoryViewToSavePanel(to: NSSavePanel): void;
+  addSaveOptionsToView(to: NSView): void;
+  static createWithImagePropertiesImageUTType(imageProperties: NSDictionary<any, any>, imageUTType: string): this;
 }
 
 declare class IKScannerDeviceView extends NSView {
-
-	setDelegate(_: IKScannerDeviceViewDelegate)
-
-	delegate: IKScannerDeviceViewDelegate;
-
-	setDisplaysDownloadsDirectoryControl(_: boolean)
-
-	displaysDownloadsDirectoryControl: boolean;
-
-	setDisplaysPostProcessApplicationControl(_: boolean)
-
-	displaysPostProcessApplicationControl: boolean;
-
-	setDocumentName(_: string)
-
-	documentName: string;
-
-	setDownloadsDirectory(_: NSURL)
-
-	downloadsDirectory: NSURL;
-
-	setHasDisplayModeAdvanced(_: boolean)
-
-	hasDisplayModeAdvanced: boolean;
-
-	setHasDisplayModeSimple(_: boolean)
-
-	hasDisplayModeSimple: boolean;
-
-	setMode(_: IKScannerDeviceViewDisplayMode)
-
-	mode: IKScannerDeviceViewDisplayMode;
-
-	setOverviewControlLabel(_: string)
-
-	overviewControlLabel: string;
-
-	setPostProcessApplication(_: NSURL)
-
-	postProcessApplication: NSURL;
-
-	setScanControlLabel(_: string)
-
-	scanControlLabel: string;
-
-	setScannerDevice(_: ICScannerDevice)
-
-	scannerDevice: ICScannerDevice;
-
-	setTransferMode(_: IKScannerDeviceViewTransferMode)
-
-	transferMode: IKScannerDeviceViewTransferMode;
+  delegate: IKScannerDeviceViewDelegate;
+  setDelegate(_: IKScannerDeviceViewDelegate)
+  displaysDownloadsDirectoryControl: boolean;
+  setDisplaysDownloadsDirectoryControl(_: boolean)
+  displaysPostProcessApplicationControl: boolean;
+  setDisplaysPostProcessApplicationControl(_: boolean)
+  documentName: string;
+  setDocumentName(_: string)
+  downloadsDirectory: NSURL;
+  setDownloadsDirectory(_: NSURL)
+  hasDisplayModeAdvanced: boolean;
+  setHasDisplayModeAdvanced(_: boolean)
+  hasDisplayModeSimple: boolean;
+  setHasDisplayModeSimple(_: boolean)
+  mode: IKScannerDeviceViewDisplayMode;
+  setMode(_: IKScannerDeviceViewDisplayMode)
+  overviewControlLabel: string;
+  setOverviewControlLabel(_: string)
+  postProcessApplication: NSURL;
+  setPostProcessApplication(_: NSURL)
+  scanControlLabel: string;
+  setScanControlLabel(_: string)
+  scannerDevice: ICScannerDevice;
+  setScannerDevice(_: ICScannerDevice)
+  transferMode: IKScannerDeviceViewTransferMode;
+  setTransferMode(_: IKScannerDeviceViewTransferMode)
 }
 
 interface IKScannerDeviceViewDelegate {
-
-	scannerDeviceViewDidEncounterError?(_: IKScannerDeviceView, didEncounterError: NSError): void;
-
-	scannerDeviceViewDidScanToBandDataScanInfoError?(_: IKScannerDeviceView, didScanToBandData: ICScannerBandData, scanInfo: NSDictionary<any, any>, error: NSError): void;
-
-	scannerDeviceViewDidScanToURLError?(_: IKScannerDeviceView, didScanToURL: NSURL, error: NSError): void;
-
-	scannerDeviceViewDidScanToURLFileDataError?(_: IKScannerDeviceView, didScanToURL: NSURL, fileData: NSData, error: NSError): void;
+  scannerDeviceViewDidScanToURLFileDataError?(_: IKScannerDeviceView, didScanTo: NSURL, fileData: Data, error: Error): void;
+  scannerDeviceViewDidScanToURLError?(_: IKScannerDeviceView, didScanTo: NSURL, error: Error): void;
+  scannerDeviceViewDidScanToBandDataScanInfoError?(_: IKScannerDeviceView, didScanTo: ICScannerBandData, scanInfo: NSDictionary<any, any>, error: Error): void;
+  scannerDeviceViewDidEncounterError?(_: IKScannerDeviceView, didEncounterError: Error): void;
 }
-declare var IKScannerDeviceViewDelegate: {
 
-	prototype: IKScannerDeviceViewDelegate;
+declare var IKScannerDeviceViewDelegate: {
+  prototype: IKScannerDeviceViewDelegate;
 };
 
-enum IKScannerDeviceViewDisplayMode {
-
-	None = -1,
-
-	Simple = 0,
-
-	Advanced = 1
-}
-
-globalThis.IKScannerDeviceViewDisplayMode = IKScannerDeviceViewDisplayMode;
-
-enum IKScannerDeviceViewTransferMode {
-
-	FileBased = 0,
-
-	MemoryBased = 1
-}
-
-globalThis.IKScannerDeviceViewTransferMode = IKScannerDeviceViewTransferMode;
-
 declare class IKSlideshow extends NSObject {
-
-	static canExportToApplication(_: string): boolean;
-
-	static exportSlideshowItemToApplication(_: any, toApplication: string): void;
-
-	static sharedSlideshow(): IKSlideshow;
-
-	setAutoPlayDelay(_: number)
-
-	autoPlayDelay: number;
-
-	indexOfCurrentSlideshowItem(): number;
-
-	reloadData(): void;
-
-	reloadSlideshowItemAtIndex(_: number): void;
-
-	runSlideshowWithDataSourceInModeOptions(_: IKSlideshowDataSource, inMode: string, options: NSDictionary<any, any>): void;
-
-	stopSlideshow(_: any): void;
+  static canExportToApplication(toApplication: string): boolean;
+  static exportSlideshowItemToApplication(_: any, toApplication: string): void;
+  static sharedSlideshow(): IKSlideshow;
+  autoPlayDelay: number;
+  setAutoPlayDelay(_: number)
+  indexOfCurrentSlideshowItem(): number;
+  reloadData(): void;
+  reloadSlideshowItemAtIndex(at: number): void;
+  runSlideshowWithDataSourceInModeOptions(with_: IKSlideshowDataSource, inMode: string, options: NSDictionary<any, any>): void;
+  stopSlideshow(_: any): void;
 }
 
 declare var IKSlideshowAudioFile: string;
 
 interface IKSlideshowDataSource {
-
-	canExportSlideshowItemAtIndexToApplication?(_: number, toApplication: string): boolean;
-
-	nameOfSlideshowItemAtIndex?(_: number): string;
-
-	numberOfSlideshowItems(): number;
-
-	slideshowDidChangeCurrentIndex?(_: number): void;
-
-	slideshowDidStop?(): void;
-
-	slideshowItemAtIndex(_: number): any;
-
-	slideshowWillStart?(): void;
+  canExportSlideshowItemAtIndexToApplication?(at: number, toApplication: string): boolean;
+  nameOfSlideshowItemAtIndex?(at: number): string;
+  numberOfSlideshowItems(): number;
+  slideshowDidChangeCurrentIndex?(_: number): void;
+  slideshowDidStop?(): void;
+  slideshowItemAtIndex(at: number): any;
+  slideshowWillStart?(): void;
 }
-declare var IKSlideshowDataSource: {
 
-	prototype: IKSlideshowDataSource;
+declare var IKSlideshowDataSource: {
+  prototype: IKSlideshowDataSource;
 };
 
 declare var IKSlideshowModeImages: string;
@@ -762,194 +576,100 @@ declare var IK_iPhotoBundleIdentifier: string;
 
 declare var QCCompositionInputPaceKey: string;
 
-enum QCPlugInExecutionMode {
-
-	kQCPlugInExecutionModeProvider = 1,
-
-	kQCPlugInExecutionModeProcessor = 2,
-
-	kQCPlugInExecutionModeConsumer = 3
+interface QLPreviewItem extends NSObject {
+  previewItemDisplayState?: any;
+  previewItemTitle?: string;
+  previewItemURL: NSURL;
 }
 
-globalThis.QCPlugInExecutionMode = QCPlugInExecutionMode;
-
-enum QCPlugInTimeMode {
-
-	kQCPlugInTimeModeNone = 0,
-
-	kQCPlugInTimeModeIdle = 1,
-
-	kQCPlugInTimeModeTimeBase = 2
-}
-
-globalThis.QCPlugInTimeMode = QCPlugInTimeMode;
-
-interface QLPreviewItem extends NSObjectProtocol {
-
-	previewItemDisplayState?: any;
-
-	previewItemTitle?: string;
-
-	previewItemURL: NSURL;
-}
 declare var QLPreviewItem: {
-
-	prototype: QLPreviewItem;
+  prototype: QLPreviewItem;
 };
 
 declare class QLPreviewPanel extends NSPanel {
-
-	static sharedPreviewPanel(): QLPreviewPanel;
-
-	static sharedPreviewPanelExists(): boolean;
-
-	static windowWithContentViewController(contentViewController: NSViewController): QLPreviewPanel; // inherited from NSWindow
-
-	readonly currentController: any;
-
-	readonly currentPreviewItem: QLPreviewItem;
-
-	setCurrentPreviewItemIndex(_: number)
-
-	currentPreviewItemIndex: number;
-
-	setDataSource(_: QLPreviewPanelDataSource)
-
-	dataSource: QLPreviewPanelDataSource;
-
-	setDelegate(_: any)
-
-	delegate: any;
-
-	setDisplayState(_: any)
-
-	displayState: any;
-
-	readonly isInFullScreenMode: boolean;
-
-	enterFullScreenModeWithOptions(_: NSScreen, withOptions: NSDictionary<any, any>): boolean;
-
-	exitFullScreenModeWithOptions(_: NSDictionary<any, any>): void;
-
-	refreshCurrentPreviewItem(): void;
-
-	reloadData(): void;
-
-	updateController(): void;
+  static sharedPreviewPanel(): QLPreviewPanel;
+  static sharedPreviewPanelExists(): boolean;
+  readonly currentController: any;
+  readonly currentPreviewItem: QLPreviewItem;
+  currentPreviewItemIndex: number;
+  setCurrentPreviewItemIndex(_: number)
+  dataSource: QLPreviewPanelDataSource;
+  setDataSource(_: QLPreviewPanelDataSource)
+  delegate: any;
+  setDelegate(_: any)
+  displayState: any;
+  setDisplayState(_: any)
+  readonly isInFullScreenMode: boolean;
+  enterFullScreenModeWithOptions(_: NSScreen, withOptions: NSDictionary<any, any>): boolean;
+  exitFullScreenModeWithOptions(options: NSDictionary<any, any>): void;
+  refreshCurrentPreviewItem(): void;
+  reloadData(): void;
+  updateController(): void;
 }
 
 interface QLPreviewPanelDataSource {
-
-	numberOfPreviewItemsInPreviewPanel(_: QLPreviewPanel): number;
-
-	previewPanelPreviewItemAtIndex(_: QLPreviewPanel, previewItemAtIndex: number): QLPreviewItem;
+  numberOfPreviewItemsInPreviewPanel(in_: QLPreviewPanel): number;
+  previewPanelPreviewItemAtIndex(_: QLPreviewPanel, previewItemAt: number): QLPreviewItem;
 }
-declare var QLPreviewPanelDataSource: {
 
-	prototype: QLPreviewPanelDataSource;
+declare var QLPreviewPanelDataSource: {
+  prototype: QLPreviewPanelDataSource;
 };
 
 interface QLPreviewPanelDelegate extends NSWindowDelegate {
-
-	previewPanelHandleEvent?(_: QLPreviewPanel, handleEvent: NSEvent): boolean;
-
-	previewPanelSourceFrameOnScreenForPreviewItem?(_: QLPreviewPanel, sourceFrameOnScreenForPreviewItem: QLPreviewItem): CGRect;
-
-	previewPanelTransitionImageForPreviewItemContentRect?(_: QLPreviewPanel, transitionImageForPreviewItem: QLPreviewItem, contentRect: CGRect): any;
+  previewPanelHandleEvent?(_: QLPreviewPanel, handle: NSEvent): boolean;
+  previewPanelSourceFrameOnScreenForPreviewItem?(_: QLPreviewPanel, sourceFrameOnScreenFor: QLPreviewItem): NSRect;
+  previewPanelTransitionImageForPreviewItemContentRect?(_: QLPreviewPanel, transitionImageFor: QLPreviewItem, contentRect: NSRect): any;
 }
-declare var QLPreviewPanelDelegate: {
 
-	prototype: QLPreviewPanelDelegate;
+declare var QLPreviewPanelDelegate: {
+  prototype: QLPreviewPanelDelegate;
 };
 
 declare class QLPreviewView extends NSView {
-
-	setAutostarts(_: boolean)
-
-	autostarts: boolean;
-
-	setDisplayState(_: any)
-
-	displayState: any;
-
-	setPreviewItem(_: QLPreviewItem)
-
-	previewItem: QLPreviewItem;
-
-	setShouldCloseWithWindow(_: boolean)
-
-	shouldCloseWithWindow: boolean;
-
-	static create(frame: CGRect, style: QLPreviewViewStyle);
-
-	close(): void;
-
-	refreshPreviewItem(): void;
+  autostarts: boolean;
+  setAutostarts(_: boolean)
+  displayState: any;
+  setDisplayState(_: any)
+  previewItem: QLPreviewItem;
+  setPreviewItem(_: QLPreviewItem)
+  shouldCloseWithWindow: boolean;
+  setShouldCloseWithWindow(_: boolean)
+  close(): void;
+  static createWithFrameStyle(frame: NSRect, style: QLPreviewViewStyle): this;
+  refreshPreviewItem(): void;
 }
 
-enum QLPreviewViewStyle {
-
-	Normal = 0,
-
-	Compact = 1
+interface QLPreviewingController extends NSObject {
+  preparePreviewOfFileAtURLCompletionHandler?(at: NSURL, completionHandler?: (p1: Error) => void): void;
+  preparePreviewOfSearchableItemWithIdentifierQueryStringCompletionHandler?(identifier: string, queryString?: string, completionHandler?: (p1: Error) => void): void;
 }
 
-globalThis.QLPreviewViewStyle = QLPreviewViewStyle;
-
-interface QLPreviewingController extends NSObjectProtocol {
-
-	preparePreviewOfFileAtURLCompletionHandler?(_: NSURL, completionHandler?: (p1: NSError) => void): void;
-
-	preparePreviewOfSearchableItemWithIdentifierQueryStringCompletionHandler?(_: string, queryString?: string, completionHandler?: (p1: NSError) => void): void;
-}
 declare var QLPreviewingController: {
-
-	prototype: QLPreviewingController;
+  prototype: QLPreviewingController;
 };
 
 declare class QuartzFilter extends NSObject {
-
-	static quartzFilterWithOutputIntents(_: NSArray<any>): QuartzFilter;
-
-	static quartzFilterWithProperties(_: NSDictionary<any, any>): QuartzFilter;
-
-	static quartzFilterWithURL(_: NSURL): QuartzFilter;
-
-	applyToContext(_: any): boolean;
-
-	localizedName(): string;
-
-	properties(): NSDictionary<any, any>;
-
-	removeFromContext(_: any): void;
-
-	url(): NSURL;
+  applyToContext(to: any): boolean;
+  localizedName(): string;
+  properties(): NSDictionary<any, any>;
+  removeFromContext(from: any): void;
+  url(): NSURL;
 }
 
 declare class QuartzFilterManager extends NSObject {
-
-	static filterManager(): QuartzFilterManager;
-
-	static filtersInDomains(_: NSArray<any>): NSArray<any>;
-
-	delegate(): any;
-
-	filterPanel(): NSPanel;
-
-	filterView(): QuartzFilterView;
-
-	importFilter(_: NSDictionary<any, any>): QuartzFilter;
-
-	selectFilter(_: QuartzFilter): boolean;
-
-	selectedFilter(): QuartzFilter;
-
-	setDelegate(_: any): void;
+  static filtersInDomains(inDomains: NSArray<any>): NSArray<any>;
+  delegate(): any;
+  filterPanel(): NSPanel;
+  filterView(): QuartzFilterView;
+  importFilter(_: NSDictionary<any, any>): QuartzFilter;
+  selectFilter(_: QuartzFilter): boolean;
+  selectedFilter(): QuartzFilter;
+  setDelegate(_: any): void;
 }
 
 declare class QuartzFilterView extends NSView {
-
-	sizeToFit(): void;
+  sizeToFit(): void;
 }
 
 declare var globalUpdateOK: boolean;
@@ -967,3 +687,60 @@ declare var kQuartzFilterManagerDidSelectFilterNotification: string;
 declare var kQuartzFilterPDFWorkflowDomain: string;
 
 declare var kQuartzFilterPrintingDomain: string;
+
+enum IKCameraDeviceViewDisplayMode {
+    None = -1,
+    Table = 0,
+    Icon = 1
+}
+
+enum IKCameraDeviceViewTransferMode {
+    FileBased = 0,
+    MemoryBased = 1
+}
+
+enum IKDeviceBrowserViewDisplayMode {
+    Table = 0,
+    Outline = 1,
+    Icon = 2
+}
+
+enum IKImageBrowserCellState {
+    StateNoImage = 0,
+    StateInvalid = 1,
+    StateReady = 2
+}
+
+enum IKImageBrowserDropOperation {
+    On = 0,
+    Before = 1
+}
+
+enum IKScannerDeviceViewDisplayMode {
+    None = -1,
+    Simple = 0,
+    Advanced = 1
+}
+
+enum IKScannerDeviceViewTransferMode {
+    FileBased = 0,
+    MemoryBased = 1
+}
+
+enum QCPlugInExecutionMode {
+    kQCPlugInExecutionModeProvider = 1,
+    kQCPlugInExecutionModeProcessor = 2,
+    kQCPlugInExecutionModeConsumer = 3
+}
+
+enum QCPlugInTimeMode {
+    kQCPlugInTimeModeNone = 0,
+    kQCPlugInTimeModeIdle = 1,
+    kQCPlugInTimeModeTimeBase = 2
+}
+
+enum QLPreviewViewStyle {
+    Normal = 0,
+    Compact = 1
+}
+

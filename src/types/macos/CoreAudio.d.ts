@@ -1,181 +1,165 @@
+globalThis.AudioDeviceClockAlgorithmSelector = globalThis.AudioDeviceClockAlgorithmSelector || {};
+
+globalThis.AudioDeviceClockAlgorithmSelector = {
+    kAudioDeviceClockAlgorithmRaw: 1918990199,
+    kAudioDeviceClockAlgorithmSimpleIIR: 1768518246,
+    kAudioDeviceClockAlgorithm12PtMovingWindowAverage: 1835103847,
+    '1918990199': 'kAudioDeviceClockAlgorithmRaw',
+    '1768518246': 'kAudioDeviceClockAlgorithmSimpleIIR',
+    '1835103847': 'kAudioDeviceClockAlgorithm12PtMovingWindowAverage'
+}
+
+globalThis.AudioHardwarePowerHint = globalThis.AudioHardwarePowerHint || {};
+
+globalThis.AudioHardwarePowerHint = {
+    kAudioHardwarePowerHintNone: 0,
+    kAudioHardwarePowerHintFavorSavingPower: 1,
+    '0': 'kAudioHardwarePowerHintNone',
+    '1': 'kAudioHardwarePowerHintFavorSavingPower'
+}
+
+globalThis.AudioServerPlugInIOOperation = globalThis.AudioServerPlugInIOOperation || {};
+
+globalThis.AudioServerPlugInIOOperation = {
+    kAudioServerPlugInIOOperationThread: 1953002084,
+    kAudioServerPlugInIOOperationCycle: 1668899692,
+    kAudioServerPlugInIOOperationReadInput: 1919246692,
+    kAudioServerPlugInIOOperationConvertInput: 1667853936,
+    kAudioServerPlugInIOOperationProcessInput: 1885957744,
+    kAudioServerPlugInIOOperationProcessOutput: 1886352756,
+    kAudioServerPlugInIOOperationMixOutput: 1835628655,
+    kAudioServerPlugInIOOperationProcessMix: 1886218616,
+    kAudioServerPlugInIOOperationConvertMix: 1668114808,
+    kAudioServerPlugInIOOperationWriteMix: 1919513701,
+    '1953002084': 'kAudioServerPlugInIOOperationThread',
+    '1668899692': 'kAudioServerPlugInIOOperationCycle',
+    '1919246692': 'kAudioServerPlugInIOOperationReadInput',
+    '1667853936': 'kAudioServerPlugInIOOperationConvertInput',
+    '1885957744': 'kAudioServerPlugInIOOperationProcessInput',
+    '1886352756': 'kAudioServerPlugInIOOperationProcessOutput',
+    '1835628655': 'kAudioServerPlugInIOOperationMixOutput',
+    '1886218616': 'kAudioServerPlugInIOOperationProcessMix',
+    '1668114808': 'kAudioServerPlugInIOOperationConvertMix',
+    '1919513701': 'kAudioServerPlugInIOOperationWriteMix'
+}
 
 declare function AudioConvertHostTimeToNanos(inHostTime: number): number;
-
 declare function AudioConvertNanosToHostTime(inNanos: number): number;
-
-enum AudioDeviceClockAlgorithmSelector {
-
-	kAudioDeviceClockAlgorithmRaw = 1918990199,
-
-	kAudioDeviceClockAlgorithmSimpleIIR = 1768518246,
-
-	kAudioDeviceClockAlgorithm12PtMovingWindowAverage = 1835103847
-}
-
-
 declare function AudioDeviceCreateIOProcID(inDevice: number, inProc: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number, inClientData: any, outIOProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number): number;
-
 declare function AudioDeviceCreateIOProcIDWithBlock(outIOProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number, inDevice: number, inDispatchQueue: NSObject, inIOBlock: (p1: AudioTimeStamp, p2: AudioBufferList, p3: AudioTimeStamp, p4: AudioBufferList, p5: AudioTimeStamp) => void): number;
-
 declare function AudioDeviceDestroyIOProcID(inDevice: number, inIOProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number): number;
-
 declare function AudioDeviceGetCurrentTime(inDevice: number, outTime: AudioTimeStamp): number;
-
 declare function AudioDeviceGetNearestStartTime(inDevice: number, ioRequestedStartTime: AudioTimeStamp, inFlags: number): number;
-
 declare function AudioDeviceStart(inDevice: number, inProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number): number;
-
 declare function AudioDeviceStartAtTime(inDevice: number, inProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number, ioRequestedStartTime: AudioTimeStamp, inFlags: number): number;
-
 declare function AudioDeviceStop(inDevice: number, inProcID: (p1: number, p2: AudioTimeStamp, p3: AudioBufferList, p4: AudioTimeStamp, p5: AudioBufferList, p6: AudioTimeStamp, p7: any) => number): number;
-
 declare function AudioDeviceTranslateTime(inDevice: number, inTime: AudioTimeStamp, outTime: AudioTimeStamp): number;
-
 declare function AudioGetCurrentHostTime(): number;
-
 declare function AudioGetHostClockFrequency(): number;
-
 declare function AudioGetHostClockMinimumTimeDelta(): number;
-
-declare function AudioHardwareCreateAggregateDevice(inDescription: NSDictionary<any, any>, outDeviceID: number): number;
-
+declare function AudioHardwareCreateAggregateDevice(inDescription: NSObject, outDeviceID: number): number;
 declare function AudioHardwareDestroyAggregateDevice(inDeviceID: number): number;
-
 interface AudioHardwareIOProcStreamUsage {
-	mIOProc: any;
-	mNumberStreams: number;
-	mStreamIsOn: number;
+  mIOProc: any;
+  mNumberStreams: number;
+  mStreamIsOn: number;
 }
+
 declare var AudioHardwareIOProcStreamUsage: AudioHardwareIOProcStreamUsage;
 
-enum AudioHardwarePowerHint {
-
-	kAudioHardwarePowerHintNone = 0,
-
-	kAudioHardwarePowerHintFavorSavingPower = 1
-}
-
-
 declare function AudioHardwareUnload(): number;
-
 declare function AudioObjectAddPropertyListener(inObjectID: number, inAddress: AudioObjectPropertyAddress, inListener: (p1: number, p2: number, p3: AudioObjectPropertyAddress, p4: any) => number, inClientData: any): number;
-
 declare function AudioObjectAddPropertyListenerBlock(inObjectID: number, inAddress: AudioObjectPropertyAddress, inDispatchQueue: NSObject, inListener: (p1: number, p2: AudioObjectPropertyAddress) => void): number;
-
 declare function AudioObjectGetPropertyData(inObjectID: number, inAddress: AudioObjectPropertyAddress, inQualifierDataSize: number, inQualifierData: any, ioDataSize: number, outData: any): number;
-
 declare function AudioObjectGetPropertyDataSize(inObjectID: number, inAddress: AudioObjectPropertyAddress, inQualifierDataSize: number, inQualifierData: any, outDataSize: number): number;
-
 declare function AudioObjectHasProperty(inObjectID: number, inAddress: AudioObjectPropertyAddress): boolean;
-
 declare function AudioObjectIsPropertySettable(inObjectID: number, inAddress: AudioObjectPropertyAddress, outIsSettable: string | any): number;
-
 interface AudioObjectPropertyAddress {
-	mSelector: number;
-	mScope: number;
-	mElement: number;
+  mSelector: number;
+  mScope: number;
+  mElement: number;
 }
+
 declare var AudioObjectPropertyAddress: AudioObjectPropertyAddress;
 
 declare function AudioObjectRemovePropertyListener(inObjectID: number, inAddress: AudioObjectPropertyAddress, inListener: (p1: number, p2: number, p3: AudioObjectPropertyAddress, p4: any) => number, inClientData: any): number;
-
 declare function AudioObjectRemovePropertyListenerBlock(inObjectID: number, inAddress: AudioObjectPropertyAddress, inDispatchQueue: NSObject, inListener: (p1: number, p2: AudioObjectPropertyAddress) => void): number;
-
 declare function AudioObjectSetPropertyData(inObjectID: number, inAddress: AudioObjectPropertyAddress, inQualifierDataSize: number, inQualifierData: any, inDataSize: number, inData: any): number;
-
 declare function AudioObjectShow(inObjectID: number): void;
-
 interface AudioServerPlugInClientInfo {
-	mClientID: number;
-	mProcessID: number;
-	mIsNativeEndian: boolean;
-	mBundleID: string;
+  mClientID: number;
+  mProcessID: number;
+  mIsNativeEndian: boolean;
+  mBundleID: NSObject;
 }
+
 declare var AudioServerPlugInClientInfo: AudioServerPlugInClientInfo;
 
 interface AudioServerPlugInCustomPropertyInfo {
-	mSelector: number;
-	mPropertyDataType: number;
-	mQualifierDataType: number;
+  mSelector: number;
+  mPropertyDataType: number;
+  mQualifierDataType: number;
 }
+
 declare var AudioServerPlugInCustomPropertyInfo: AudioServerPlugInCustomPropertyInfo;
 
 interface AudioServerPlugInDriverInterface {
-	_reserved: any;
-	QueryInterface: (p1: any, p2: CFUUIDBytes, p3: any) => number;
-	AddRef: (p1: any) => number;
-	Release: (p1: any) => number;
-	Initialize: (p1: AudioServerPlugInDriverInterface, p2: AudioServerPlugInHostInterface) => number;
-	CreateDevice: (p1: AudioServerPlugInDriverInterface, p2: NSDictionary<any, any>, p3: AudioServerPlugInClientInfo, p4: number) => number;
-	DestroyDevice: (p1: AudioServerPlugInDriverInterface, p2: number) => number;
-	AddDeviceClient: (p1: AudioServerPlugInDriverInterface, p2: number, p3: AudioServerPlugInClientInfo) => number;
-	RemoveDeviceClient: (p1: AudioServerPlugInDriverInterface, p2: number, p3: AudioServerPlugInClientInfo) => number;
-	PerformDeviceConfigurationChange: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: any) => number;
-	AbortDeviceConfigurationChange: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: any) => number;
-	HasProperty: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress) => boolean;
-	IsPropertySettable: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: string) => number;
-	GetPropertyDataSize: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number) => number;
-	GetPropertyData: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number, p8: number, p9: any) => number;
-	SetPropertyData: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number, p8: any) => number;
-	StartIO: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number) => number;
-	StopIO: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number) => number;
-	GetZeroTimeStamp: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: number) => number;
-	WillDoIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: string, p6: string) => number;
-	BeginIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: AudioServerPlugInIOCycleInfo) => number;
-	DoIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: number, p7: AudioServerPlugInIOCycleInfo, p8: any, p9: any) => number;
-	EndIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: AudioServerPlugInIOCycleInfo) => number;
+  _reserved: any;
+  QueryInterface: (p1: any, p2: CFUUIDBytes, p3: any) => number;
+  AddRef: (p1: any) => number;
+  Release: (p1: any) => number;
+  Initialize: (p1: AudioServerPlugInDriverInterface, p2: AudioServerPlugInHostInterface) => number;
+  CreateDevice: (p1: AudioServerPlugInDriverInterface, p2: NSObject, p3: AudioServerPlugInClientInfo, p4: number) => number;
+  DestroyDevice: (p1: AudioServerPlugInDriverInterface, p2: number) => number;
+  AddDeviceClient: (p1: AudioServerPlugInDriverInterface, p2: number, p3: AudioServerPlugInClientInfo) => number;
+  RemoveDeviceClient: (p1: AudioServerPlugInDriverInterface, p2: number, p3: AudioServerPlugInClientInfo) => number;
+  PerformDeviceConfigurationChange: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: any) => number;
+  AbortDeviceConfigurationChange: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: any) => number;
+  HasProperty: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress) => boolean;
+  IsPropertySettable: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: string) => number;
+  GetPropertyDataSize: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number) => number;
+  GetPropertyData: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number, p8: number, p9: any) => number;
+  SetPropertyData: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress, p5: number, p6: any, p7: number, p8: any) => number;
+  StartIO: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number) => number;
+  StopIO: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number) => number;
+  GetZeroTimeStamp: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: number) => number;
+  WillDoIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: string, p6: string) => number;
+  BeginIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: AudioServerPlugInIOCycleInfo) => number;
+  DoIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: number, p7: AudioServerPlugInIOCycleInfo, p8: any, p9: any) => number;
+  EndIOOperation: (p1: AudioServerPlugInDriverInterface, p2: number, p3: number, p4: number, p5: number, p6: AudioServerPlugInIOCycleInfo) => number;
 }
+
 declare var AudioServerPlugInDriverInterface: AudioServerPlugInDriverInterface;
 
 interface AudioServerPlugInHostInterface {
-	PropertiesChanged: (p1: AudioServerPlugInHostInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress) => number;
-	CopyFromStorage: (p1: AudioServerPlugInHostInterface, p2: string, p3: any) => number;
-	WriteToStorage: (p1: AudioServerPlugInHostInterface, p2: string, p3: any) => number;
-	DeleteFromStorage: (p1: AudioServerPlugInHostInterface, p2: string) => number;
-	RequestDeviceConfigurationChange: (p1: AudioServerPlugInHostInterface, p2: number, p3: number, p4: any) => number;
+  PropertiesChanged: (p1: AudioServerPlugInHostInterface, p2: number, p3: number, p4: AudioObjectPropertyAddress) => number;
+  CopyFromStorage: (p1: AudioServerPlugInHostInterface, p2: NSObject, p3: any) => number;
+  WriteToStorage: (p1: AudioServerPlugInHostInterface, p2: NSObject, p3: any) => number;
+  DeleteFromStorage: (p1: AudioServerPlugInHostInterface, p2: NSObject) => number;
+  RequestDeviceConfigurationChange: (p1: AudioServerPlugInHostInterface, p2: number, p3: number, p4: any) => number;
 }
+
 declare var AudioServerPlugInHostInterface: AudioServerPlugInHostInterface;
 
 interface AudioServerPlugInIOCycleInfo {
-	mIOCycleCounter: number;
-	mNominalIOBufferFrameSize: number;
-	mCurrentTime: AudioTimeStamp;
-	mInputTime: AudioTimeStamp;
-	mOutputTime: AudioTimeStamp;
-	mMasterHostTicksPerFrame: number;
-	mDeviceHostTicksPerFrame: number;
+  mIOCycleCounter: number;
+  mNominalIOBufferFrameSize: number;
+  mCurrentTime: AudioTimeStamp;
+  mInputTime: AudioTimeStamp;
+  mOutputTime: AudioTimeStamp;
+  mMasterHostTicksPerFrame: number;
+  mDeviceHostTicksPerFrame: number;
 }
+
 declare var AudioServerPlugInIOCycleInfo: AudioServerPlugInIOCycleInfo;
 
-enum AudioServerPlugInIOOperation {
-
-	kAudioServerPlugInIOOperationThread = 1953002084,
-
-	kAudioServerPlugInIOOperationCycle = 1668899692,
-
-	kAudioServerPlugInIOOperationReadInput = 1919246692,
-
-	kAudioServerPlugInIOOperationConvertInput = 1667853936,
-
-	kAudioServerPlugInIOOperationProcessInput = 1885957744,
-
-	kAudioServerPlugInIOOperationProcessOutput = 1886352756,
-
-	kAudioServerPlugInIOOperationMixOutput = 1835628655,
-
-	kAudioServerPlugInIOOperationProcessMix = 1886218616,
-
-	kAudioServerPlugInIOOperationConvertMix = 1668114808,
-
-	kAudioServerPlugInIOOperationWriteMix = 1919513701
-}
-
-
 interface AudioStreamRangedDescription {
-	mFormat: AudioStreamBasicDescription;
-	mSampleRateRange: AudioValueRange;
+  mFormat: AudioStreamBasicDescription;
+  mSampleRateRange: AudioValueRange;
 }
+
 declare var AudioStreamRangedDescription: AudioStreamRangedDescription;
+
 
 declare const kAudioAggregateDeviceClassID: number;
 
@@ -764,3 +748,27 @@ declare const kAudioTransportManagerPropertyTranslateUIDToEndPoint: number;
 declare const kAudioTransportManagerPropertyTransportType: number;
 
 declare const kAudioVolumeControlClassID: number;
+enum AudioDeviceClockAlgorithmSelector {
+    kAudioDeviceClockAlgorithmRaw = 1918990199,
+    kAudioDeviceClockAlgorithmSimpleIIR = 1768518246,
+    kAudioDeviceClockAlgorithm12PtMovingWindowAverage = 1835103847
+}
+
+enum AudioHardwarePowerHint {
+    kAudioHardwarePowerHintNone = 0,
+    kAudioHardwarePowerHintFavorSavingPower = 1
+}
+
+enum AudioServerPlugInIOOperation {
+    kAudioServerPlugInIOOperationThread = 1953002084,
+    kAudioServerPlugInIOOperationCycle = 1668899692,
+    kAudioServerPlugInIOOperationReadInput = 1919246692,
+    kAudioServerPlugInIOOperationConvertInput = 1667853936,
+    kAudioServerPlugInIOOperationProcessInput = 1885957744,
+    kAudioServerPlugInIOOperationProcessOutput = 1886352756,
+    kAudioServerPlugInIOOperationMixOutput = 1835628655,
+    kAudioServerPlugInIOOperationProcessMix = 1886218616,
+    kAudioServerPlugInIOOperationConvertMix = 1668114808,
+    kAudioServerPlugInIOOperationWriteMix = 1919513701
+}
+

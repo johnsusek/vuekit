@@ -1,1575 +1,1490 @@
+globalThis.CTCharacterCollection = globalThis.CTCharacterCollection || {};
+
+globalThis.CTCharacterCollection = {
+    kCTCharacterCollectionIdentityMapping: 0,
+    kCTCharacterCollectionAdobeCNS1: 1,
+    kCTCharacterCollectionAdobeGB1: 2,
+    kCTCharacterCollectionAdobeJapan1: 3,
+    kCTCharacterCollectionAdobeJapan2: 4,
+    kCTCharacterCollectionAdobeKorea1: 5,
+    kCTIdentityMappingCharacterCollection: 0,
+    kCTAdobeCNS1CharacterCollection: 1,
+    kCTAdobeGB1CharacterCollection: 2,
+    kCTAdobeJapan1CharacterCollection: 3,
+    kCTAdobeJapan2CharacterCollection: 4,
+    kCTAdobeKorea1CharacterCollection: 5,
+    '0': 'kCTCharacterCollectionIdentityMapping',
+    '1': 'kCTCharacterCollectionAdobeCNS1',
+    '2': 'kCTCharacterCollectionAdobeGB1',
+    '3': 'kCTCharacterCollectionAdobeJapan1',
+    '4': 'kCTCharacterCollectionAdobeJapan2',
+    '5': 'kCTCharacterCollectionAdobeKorea1',
+    '0': 'kCTIdentityMappingCharacterCollection',
+    '1': 'kCTAdobeCNS1CharacterCollection',
+    '2': 'kCTAdobeGB1CharacterCollection',
+    '3': 'kCTAdobeJapan1CharacterCollection',
+    '4': 'kCTAdobeJapan2CharacterCollection',
+    '5': 'kCTAdobeKorea1CharacterCollection'
+}
+
+globalThis.CTFontCollectionCopyOptions = globalThis.CTFontCollectionCopyOptions || {};
+
+globalThis.CTFontCollectionCopyOptions = {
+    kCTFontCollectionCopyDefaultOptions: 0,
+    kCTFontCollectionCopyUnique: 1,
+    kCTFontCollectionCopyStandardSort: 2,
+    '0': 'kCTFontCollectionCopyDefaultOptions',
+    '1': 'kCTFontCollectionCopyUnique',
+    '2': 'kCTFontCollectionCopyStandardSort'
+}
+
+globalThis.CTFontDescriptorMatchingState = globalThis.CTFontDescriptorMatchingState || {};
+
+globalThis.CTFontDescriptorMatchingState = {
+    kCTFontDescriptorMatchingDidBegin: 0,
+    kCTFontDescriptorMatchingDidFinish: 1,
+    kCTFontDescriptorMatchingWillBeginQuerying: 2,
+    kCTFontDescriptorMatchingStalled: 3,
+    kCTFontDescriptorMatchingWillBeginDownloading: 4,
+    kCTFontDescriptorMatchingDownloading: 5,
+    kCTFontDescriptorMatchingDidFinishDownloading: 6,
+    kCTFontDescriptorMatchingDidMatch: 7,
+    kCTFontDescriptorMatchingDidFailWithError: 8,
+    '0': 'kCTFontDescriptorMatchingDidBegin',
+    '1': 'kCTFontDescriptorMatchingDidFinish',
+    '2': 'kCTFontDescriptorMatchingWillBeginQuerying',
+    '3': 'kCTFontDescriptorMatchingStalled',
+    '4': 'kCTFontDescriptorMatchingWillBeginDownloading',
+    '5': 'kCTFontDescriptorMatchingDownloading',
+    '6': 'kCTFontDescriptorMatchingDidFinishDownloading',
+    '7': 'kCTFontDescriptorMatchingDidMatch',
+    '8': 'kCTFontDescriptorMatchingDidFailWithError'
+}
+
+globalThis.CTFontFormat = globalThis.CTFontFormat || {};
+
+globalThis.CTFontFormat = {
+    kCTFontFormatUnrecognized: 0,
+    kCTFontFormatOpenTypePostScript: 1,
+    kCTFontFormatOpenTypeTrueType: 2,
+    kCTFontFormatTrueType: 3,
+    kCTFontFormatPostScript: 4,
+    kCTFontFormatBitmap: 5,
+    '0': 'kCTFontFormatUnrecognized',
+    '1': 'kCTFontFormatOpenTypePostScript',
+    '2': 'kCTFontFormatOpenTypeTrueType',
+    '3': 'kCTFontFormatTrueType',
+    '4': 'kCTFontFormatPostScript',
+    '5': 'kCTFontFormatBitmap'
+}
+
+globalThis.CTFontManagerAutoActivationSetting = globalThis.CTFontManagerAutoActivationSetting || {};
+
+globalThis.CTFontManagerAutoActivationSetting = {
+    kCTFontManagerAutoActivationDefault: 0,
+    kCTFontManagerAutoActivationDisabled: 1,
+    kCTFontManagerAutoActivationEnabled: 2,
+    kCTFontManagerAutoActivationPromptUser: 3,
+    '0': 'kCTFontManagerAutoActivationDefault',
+    '1': 'kCTFontManagerAutoActivationDisabled',
+    '2': 'kCTFontManagerAutoActivationEnabled',
+    '3': 'kCTFontManagerAutoActivationPromptUser'
+}
+
+globalThis.CTFontManagerError = globalThis.CTFontManagerError || {};
+
+globalThis.CTFontManagerError = {
+    kCTFontManagerErrorFileNotFound: 101,
+    kCTFontManagerErrorInsufficientPermissions: 102,
+    kCTFontManagerErrorUnrecognizedFormat: 103,
+    kCTFontManagerErrorInvalidFontData: 104,
+    kCTFontManagerErrorAlreadyRegistered: 105,
+    kCTFontManagerErrorExceededResourceLimit: 106,
+    kCTFontManagerErrorAssetNotFound: 107,
+    kCTFontManagerErrorNotRegistered: 201,
+    kCTFontManagerErrorInUse: 202,
+    kCTFontManagerErrorSystemRequired: 203,
+    kCTFontManagerErrorRegistrationFailed: 301,
+    kCTFontManagerErrorMissingEntitlement: 302,
+    kCTFontManagerErrorInsufficientInfo: 303,
+    kCTFontManagerErrorCancelledByUser: 304,
+    kCTFontManagerErrorDuplicatedName: 305,
+    kCTFontManagerErrorInvalidFilePath: 306,
+    '101': 'kCTFontManagerErrorFileNotFound',
+    '102': 'kCTFontManagerErrorInsufficientPermissions',
+    '103': 'kCTFontManagerErrorUnrecognizedFormat',
+    '104': 'kCTFontManagerErrorInvalidFontData',
+    '105': 'kCTFontManagerErrorAlreadyRegistered',
+    '106': 'kCTFontManagerErrorExceededResourceLimit',
+    '107': 'kCTFontManagerErrorAssetNotFound',
+    '201': 'kCTFontManagerErrorNotRegistered',
+    '202': 'kCTFontManagerErrorInUse',
+    '203': 'kCTFontManagerErrorSystemRequired',
+    '301': 'kCTFontManagerErrorRegistrationFailed',
+    '302': 'kCTFontManagerErrorMissingEntitlement',
+    '303': 'kCTFontManagerErrorInsufficientInfo',
+    '304': 'kCTFontManagerErrorCancelledByUser',
+    '305': 'kCTFontManagerErrorDuplicatedName',
+    '306': 'kCTFontManagerErrorInvalidFilePath'
+}
+
+globalThis.CTFontManagerScope = globalThis.CTFontManagerScope || {};
+
+globalThis.CTFontManagerScope = {
+    kCTFontManagerScopeNone: 0,
+    kCTFontManagerScopeProcess: 1,
+    kCTFontManagerScopePersistent: 2,
+    kCTFontManagerScopeSession: 3,
+    kCTFontManagerScopeUser: 2,
+    '0': 'kCTFontManagerScopeNone',
+    '1': 'kCTFontManagerScopeProcess',
+    '2': 'kCTFontManagerScopePersistent',
+    '3': 'kCTFontManagerScopeSession',
+    '2': 'kCTFontManagerScopeUser'
+}
+
+globalThis.CTFontOptions = globalThis.CTFontOptions || {};
+
+globalThis.CTFontOptions = {
+    kCTFontOptionsDefault: 0,
+    kCTFontOptionsPreventAutoActivation: 1,
+    kCTFontOptionsPreferSystemFont: 4,
+    '0': 'kCTFontOptionsDefault',
+    '1': 'kCTFontOptionsPreventAutoActivation',
+    '4': 'kCTFontOptionsPreferSystemFont'
+}
+
+globalThis.CTFontOrientation = globalThis.CTFontOrientation || {};
+
+globalThis.CTFontOrientation = {
+    kCTFontOrientationDefault: 0,
+    kCTFontOrientationHorizontal: 1,
+    kCTFontOrientationVertical: 2,
+    kCTFontDefaultOrientation: 0,
+    kCTFontHorizontalOrientation: 1,
+    kCTFontVerticalOrientation: 2,
+    '0': 'kCTFontOrientationDefault',
+    '1': 'kCTFontOrientationHorizontal',
+    '2': 'kCTFontOrientationVertical',
+    '0': 'kCTFontDefaultOrientation',
+    '1': 'kCTFontHorizontalOrientation',
+    '2': 'kCTFontVerticalOrientation'
+}
+
+globalThis.CTFontStylisticClass = globalThis.CTFontStylisticClass || {};
+
+globalThis.CTFontStylisticClass = {
+    kCTFontClassUnknown: 0,
+    kCTFontClassOldStyleSerifs: 268435456,
+    kCTFontClassTransitionalSerifs: 536870912,
+    kCTFontClassModernSerifs: 805306368,
+    kCTFontClassClarendonSerifs: 1073741824,
+    kCTFontClassSlabSerifs: 1342177280,
+    kCTFontClassFreeformSerifs: 1879048192,
+    kCTFontClassSansSerif: 2147483648,
+    kCTFontClassOrnamentals: 2415919104,
+    kCTFontClassScripts: 2684354560,
+    kCTFontClassSymbolic: 3221225472,
+    kCTFontUnknownClass: 0,
+    kCTFontOldStyleSerifsClass: 268435456,
+    kCTFontTransitionalSerifsClass: 536870912,
+    kCTFontModernSerifsClass: 805306368,
+    kCTFontClarendonSerifsClass: 1073741824,
+    kCTFontSlabSerifsClass: 1342177280,
+    kCTFontFreeformSerifsClass: 1879048192,
+    kCTFontSansSerifClass: 2147483648,
+    kCTFontOrnamentalsClass: 2415919104,
+    kCTFontScriptsClass: 2684354560,
+    kCTFontSymbolicClass: 3221225472,
+    '0': 'kCTFontClassUnknown',
+    '268435456': 'kCTFontClassOldStyleSerifs',
+    '536870912': 'kCTFontClassTransitionalSerifs',
+    '805306368': 'kCTFontClassModernSerifs',
+    '1073741824': 'kCTFontClassClarendonSerifs',
+    '1342177280': 'kCTFontClassSlabSerifs',
+    '1879048192': 'kCTFontClassFreeformSerifs',
+    '2147483648': 'kCTFontClassSansSerif',
+    '2415919104': 'kCTFontClassOrnamentals',
+    '2684354560': 'kCTFontClassScripts',
+    '3221225472': 'kCTFontClassSymbolic',
+    '0': 'kCTFontUnknownClass',
+    '268435456': 'kCTFontOldStyleSerifsClass',
+    '536870912': 'kCTFontTransitionalSerifsClass',
+    '805306368': 'kCTFontModernSerifsClass',
+    '1073741824': 'kCTFontClarendonSerifsClass',
+    '1342177280': 'kCTFontSlabSerifsClass',
+    '1879048192': 'kCTFontFreeformSerifsClass',
+    '2147483648': 'kCTFontSansSerifClass',
+    '2415919104': 'kCTFontOrnamentalsClass',
+    '2684354560': 'kCTFontScriptsClass',
+    '3221225472': 'kCTFontSymbolicClass'
+}
+
+globalThis.CTFontSymbolicTraits = globalThis.CTFontSymbolicTraits || {};
+
+globalThis.CTFontSymbolicTraits = {
+    kCTFontTraitItalic: 1,
+    kCTFontTraitBold: 2,
+    kCTFontTraitExpanded: 32,
+    kCTFontTraitCondensed: 64,
+    kCTFontTraitMonoSpace: 1024,
+    kCTFontTraitVertical: 2048,
+    kCTFontTraitUIOptimized: 4096,
+    kCTFontTraitColorGlyphs: 8192,
+    kCTFontTraitComposite: 16384,
+    kCTFontTraitClassMask: 4026531840,
+    kCTFontItalicTrait: 1,
+    kCTFontBoldTrait: 2,
+    kCTFontExpandedTrait: 32,
+    kCTFontCondensedTrait: 64,
+    kCTFontMonoSpaceTrait: 1024,
+    kCTFontVerticalTrait: 2048,
+    kCTFontUIOptimizedTrait: 4096,
+    kCTFontColorGlyphsTrait: 8192,
+    kCTFontCompositeTrait: 16384,
+    kCTFontClassMaskTrait: 4026531840,
+    '1': 'kCTFontTraitItalic',
+    '2': 'kCTFontTraitBold',
+    '32': 'kCTFontTraitExpanded',
+    '64': 'kCTFontTraitCondensed',
+    '1024': 'kCTFontTraitMonoSpace',
+    '2048': 'kCTFontTraitVertical',
+    '4096': 'kCTFontTraitUIOptimized',
+    '8192': 'kCTFontTraitColorGlyphs',
+    '16384': 'kCTFontTraitComposite',
+    '4026531840': 'kCTFontTraitClassMask',
+    '1': 'kCTFontItalicTrait',
+    '2': 'kCTFontBoldTrait',
+    '32': 'kCTFontExpandedTrait',
+    '64': 'kCTFontCondensedTrait',
+    '1024': 'kCTFontMonoSpaceTrait',
+    '2048': 'kCTFontVerticalTrait',
+    '4096': 'kCTFontUIOptimizedTrait',
+    '8192': 'kCTFontColorGlyphsTrait',
+    '16384': 'kCTFontCompositeTrait',
+    '4026531840': 'kCTFontClassMaskTrait'
+}
+
+globalThis.CTFontTableOptions = globalThis.CTFontTableOptions || {};
+
+globalThis.CTFontTableOptions = {
+    kCTFontTableOptionNoOptions: 0,
+    kCTFontTableOptionExcludeSynthetic: 1,
+    '0': 'kCTFontTableOptionNoOptions',
+    '1': 'kCTFontTableOptionExcludeSynthetic'
+}
+
+globalThis.CTFontUIFontType = globalThis.CTFontUIFontType || {};
+
+globalThis.CTFontUIFontType = {
+    kCTFontUIFontNone: 4294967295,
+    kCTFontUIFontUser: 0,
+    kCTFontUIFontUserFixedPitch: 1,
+    kCTFontUIFontSystem: 2,
+    kCTFontUIFontEmphasizedSystem: 3,
+    kCTFontUIFontSmallSystem: 4,
+    kCTFontUIFontSmallEmphasizedSystem: 5,
+    kCTFontUIFontMiniSystem: 6,
+    kCTFontUIFontMiniEmphasizedSystem: 7,
+    kCTFontUIFontViews: 8,
+    kCTFontUIFontApplication: 9,
+    kCTFontUIFontLabel: 10,
+    kCTFontUIFontMenuTitle: 11,
+    kCTFontUIFontMenuItem: 12,
+    kCTFontUIFontMenuItemMark: 13,
+    kCTFontUIFontMenuItemCmdKey: 14,
+    kCTFontUIFontWindowTitle: 15,
+    kCTFontUIFontPushButton: 16,
+    kCTFontUIFontUtilityWindowTitle: 17,
+    kCTFontUIFontAlertHeader: 18,
+    kCTFontUIFontSystemDetail: 19,
+    kCTFontUIFontEmphasizedSystemDetail: 20,
+    kCTFontUIFontToolbar: 21,
+    kCTFontUIFontSmallToolbar: 22,
+    kCTFontUIFontMessage: 23,
+    kCTFontUIFontPalette: 24,
+    kCTFontUIFontToolTip: 25,
+    kCTFontUIFontControlContent: 26,
+    kCTFontNoFontType: 4294967295,
+    kCTFontUserFontType: 0,
+    kCTFontUserFixedPitchFontType: 1,
+    kCTFontSystemFontType: 2,
+    kCTFontEmphasizedSystemFontType: 3,
+    kCTFontSmallSystemFontType: 4,
+    kCTFontSmallEmphasizedSystemFontType: 5,
+    kCTFontMiniSystemFontType: 6,
+    kCTFontMiniEmphasizedSystemFontType: 7,
+    kCTFontViewsFontType: 8,
+    kCTFontApplicationFontType: 9,
+    kCTFontLabelFontType: 10,
+    kCTFontMenuTitleFontType: 11,
+    kCTFontMenuItemFontType: 12,
+    kCTFontMenuItemMarkFontType: 13,
+    kCTFontMenuItemCmdKeyFontType: 14,
+    kCTFontWindowTitleFontType: 15,
+    kCTFontPushButtonFontType: 16,
+    kCTFontUtilityWindowTitleFontType: 17,
+    kCTFontAlertHeaderFontType: 18,
+    kCTFontSystemDetailFontType: 19,
+    kCTFontEmphasizedSystemDetailFontType: 20,
+    kCTFontToolbarFontType: 21,
+    kCTFontSmallToolbarFontType: 22,
+    kCTFontMessageFontType: 23,
+    kCTFontPaletteFontType: 24,
+    kCTFontToolTipFontType: 25,
+    kCTFontControlContentFontType: 26,
+    '4294967295': 'kCTFontUIFontNone',
+    '0': 'kCTFontUIFontUser',
+    '1': 'kCTFontUIFontUserFixedPitch',
+    '2': 'kCTFontUIFontSystem',
+    '3': 'kCTFontUIFontEmphasizedSystem',
+    '4': 'kCTFontUIFontSmallSystem',
+    '5': 'kCTFontUIFontSmallEmphasizedSystem',
+    '6': 'kCTFontUIFontMiniSystem',
+    '7': 'kCTFontUIFontMiniEmphasizedSystem',
+    '8': 'kCTFontUIFontViews',
+    '9': 'kCTFontUIFontApplication',
+    '10': 'kCTFontUIFontLabel',
+    '11': 'kCTFontUIFontMenuTitle',
+    '12': 'kCTFontUIFontMenuItem',
+    '13': 'kCTFontUIFontMenuItemMark',
+    '14': 'kCTFontUIFontMenuItemCmdKey',
+    '15': 'kCTFontUIFontWindowTitle',
+    '16': 'kCTFontUIFontPushButton',
+    '17': 'kCTFontUIFontUtilityWindowTitle',
+    '18': 'kCTFontUIFontAlertHeader',
+    '19': 'kCTFontUIFontSystemDetail',
+    '20': 'kCTFontUIFontEmphasizedSystemDetail',
+    '21': 'kCTFontUIFontToolbar',
+    '22': 'kCTFontUIFontSmallToolbar',
+    '23': 'kCTFontUIFontMessage',
+    '24': 'kCTFontUIFontPalette',
+    '25': 'kCTFontUIFontToolTip',
+    '26': 'kCTFontUIFontControlContent',
+    '4294967295': 'kCTFontNoFontType',
+    '0': 'kCTFontUserFontType',
+    '1': 'kCTFontUserFixedPitchFontType',
+    '2': 'kCTFontSystemFontType',
+    '3': 'kCTFontEmphasizedSystemFontType',
+    '4': 'kCTFontSmallSystemFontType',
+    '5': 'kCTFontSmallEmphasizedSystemFontType',
+    '6': 'kCTFontMiniSystemFontType',
+    '7': 'kCTFontMiniEmphasizedSystemFontType',
+    '8': 'kCTFontViewsFontType',
+    '9': 'kCTFontApplicationFontType',
+    '10': 'kCTFontLabelFontType',
+    '11': 'kCTFontMenuTitleFontType',
+    '12': 'kCTFontMenuItemFontType',
+    '13': 'kCTFontMenuItemMarkFontType',
+    '14': 'kCTFontMenuItemCmdKeyFontType',
+    '15': 'kCTFontWindowTitleFontType',
+    '16': 'kCTFontPushButtonFontType',
+    '17': 'kCTFontUtilityWindowTitleFontType',
+    '18': 'kCTFontAlertHeaderFontType',
+    '19': 'kCTFontSystemDetailFontType',
+    '20': 'kCTFontEmphasizedSystemDetailFontType',
+    '21': 'kCTFontToolbarFontType',
+    '22': 'kCTFontSmallToolbarFontType',
+    '23': 'kCTFontMessageFontType',
+    '24': 'kCTFontPaletteFontType',
+    '25': 'kCTFontToolTipFontType',
+    '26': 'kCTFontControlContentFontType'
+}
+
+globalThis.CTFramePathFillRule = globalThis.CTFramePathFillRule || {};
+
+globalThis.CTFramePathFillRule = {
+    kCTFramePathFillEvenOdd: 0,
+    kCTFramePathFillWindingNumber: 1,
+    '0': 'kCTFramePathFillEvenOdd',
+    '1': 'kCTFramePathFillWindingNumber'
+}
+
+globalThis.CTFrameProgression = globalThis.CTFrameProgression || {};
+
+globalThis.CTFrameProgression = {
+    kCTFrameProgressionTopToBottom: 0,
+    kCTFrameProgressionRightToLeft: 1,
+    kCTFrameProgressionLeftToRight: 2,
+    '0': 'kCTFrameProgressionTopToBottom',
+    '1': 'kCTFrameProgressionRightToLeft',
+    '2': 'kCTFrameProgressionLeftToRight'
+}
+
+globalThis.CTLineBoundsOptions = globalThis.CTLineBoundsOptions || {};
+
+globalThis.CTLineBoundsOptions = {
+    kCTLineBoundsExcludeTypographicLeading: 1,
+    kCTLineBoundsExcludeTypographicShifts: 2,
+    kCTLineBoundsUseHangingPunctuation: 4,
+    kCTLineBoundsUseGlyphPathBounds: 8,
+    kCTLineBoundsUseOpticalBounds: 16,
+    kCTLineBoundsIncludeLanguageExtents: 32,
+    '1': 'kCTLineBoundsExcludeTypographicLeading',
+    '2': 'kCTLineBoundsExcludeTypographicShifts',
+    '4': 'kCTLineBoundsUseHangingPunctuation',
+    '8': 'kCTLineBoundsUseGlyphPathBounds',
+    '16': 'kCTLineBoundsUseOpticalBounds',
+    '32': 'kCTLineBoundsIncludeLanguageExtents'
+}
+
+globalThis.CTLineBreakMode = globalThis.CTLineBreakMode || {};
+
+globalThis.CTLineBreakMode = {
+    kCTLineBreakByWordWrapping: 0,
+    kCTLineBreakByCharWrapping: 1,
+    kCTLineBreakByClipping: 2,
+    kCTLineBreakByTruncatingHead: 3,
+    kCTLineBreakByTruncatingTail: 4,
+    kCTLineBreakByTruncatingMiddle: 5,
+    '0': 'kCTLineBreakByWordWrapping',
+    '1': 'kCTLineBreakByCharWrapping',
+    '2': 'kCTLineBreakByClipping',
+    '3': 'kCTLineBreakByTruncatingHead',
+    '4': 'kCTLineBreakByTruncatingTail',
+    '5': 'kCTLineBreakByTruncatingMiddle'
+}
+
+globalThis.CTLineTruncationType = globalThis.CTLineTruncationType || {};
+
+globalThis.CTLineTruncationType = {
+    kCTLineTruncationStart: 0,
+    kCTLineTruncationEnd: 1,
+    kCTLineTruncationMiddle: 2,
+    '0': 'kCTLineTruncationStart',
+    '1': 'kCTLineTruncationEnd',
+    '2': 'kCTLineTruncationMiddle'
+}
+
+globalThis.CTParagraphStyleSpecifier = globalThis.CTParagraphStyleSpecifier || {};
+
+globalThis.CTParagraphStyleSpecifier = {
+    kCTParagraphStyleSpecifierAlignment: 0,
+    kCTParagraphStyleSpecifierFirstLineHeadIndent: 1,
+    kCTParagraphStyleSpecifierHeadIndent: 2,
+    kCTParagraphStyleSpecifierTailIndent: 3,
+    kCTParagraphStyleSpecifierTabStops: 4,
+    kCTParagraphStyleSpecifierDefaultTabInterval: 5,
+    kCTParagraphStyleSpecifierLineBreakMode: 6,
+    kCTParagraphStyleSpecifierLineHeightMultiple: 7,
+    kCTParagraphStyleSpecifierMaximumLineHeight: 8,
+    kCTParagraphStyleSpecifierMinimumLineHeight: 9,
+    kCTParagraphStyleSpecifierLineSpacing: 10,
+    kCTParagraphStyleSpecifierParagraphSpacing: 11,
+    kCTParagraphStyleSpecifierParagraphSpacingBefore: 12,
+    kCTParagraphStyleSpecifierBaseWritingDirection: 13,
+    kCTParagraphStyleSpecifierMaximumLineSpacing: 14,
+    kCTParagraphStyleSpecifierMinimumLineSpacing: 15,
+    kCTParagraphStyleSpecifierLineSpacingAdjustment: 16,
+    kCTParagraphStyleSpecifierLineBoundsOptions: 17,
+    kCTParagraphStyleSpecifierCount: 18,
+    '0': 'kCTParagraphStyleSpecifierAlignment',
+    '1': 'kCTParagraphStyleSpecifierFirstLineHeadIndent',
+    '2': 'kCTParagraphStyleSpecifierHeadIndent',
+    '3': 'kCTParagraphStyleSpecifierTailIndent',
+    '4': 'kCTParagraphStyleSpecifierTabStops',
+    '5': 'kCTParagraphStyleSpecifierDefaultTabInterval',
+    '6': 'kCTParagraphStyleSpecifierLineBreakMode',
+    '7': 'kCTParagraphStyleSpecifierLineHeightMultiple',
+    '8': 'kCTParagraphStyleSpecifierMaximumLineHeight',
+    '9': 'kCTParagraphStyleSpecifierMinimumLineHeight',
+    '10': 'kCTParagraphStyleSpecifierLineSpacing',
+    '11': 'kCTParagraphStyleSpecifierParagraphSpacing',
+    '12': 'kCTParagraphStyleSpecifierParagraphSpacingBefore',
+    '13': 'kCTParagraphStyleSpecifierBaseWritingDirection',
+    '14': 'kCTParagraphStyleSpecifierMaximumLineSpacing',
+    '15': 'kCTParagraphStyleSpecifierMinimumLineSpacing',
+    '16': 'kCTParagraphStyleSpecifierLineSpacingAdjustment',
+    '17': 'kCTParagraphStyleSpecifierLineBoundsOptions',
+    '18': 'kCTParagraphStyleSpecifierCount'
+}
+
+globalThis.CTRubyAlignment = globalThis.CTRubyAlignment || {};
+
+globalThis.CTRubyAlignment = {
+    kCTRubyAlignmentInvalid: 255,
+    kCTRubyAlignmentAuto: 0,
+    kCTRubyAlignmentStart: 1,
+    kCTRubyAlignmentCenter: 2,
+    kCTRubyAlignmentEnd: 3,
+    kCTRubyAlignmentDistributeLetter: 4,
+    kCTRubyAlignmentDistributeSpace: 5,
+    kCTRubyAlignmentLineEdge: 6,
+    '255': 'kCTRubyAlignmentInvalid',
+    '0': 'kCTRubyAlignmentAuto',
+    '1': 'kCTRubyAlignmentStart',
+    '2': 'kCTRubyAlignmentCenter',
+    '3': 'kCTRubyAlignmentEnd',
+    '4': 'kCTRubyAlignmentDistributeLetter',
+    '5': 'kCTRubyAlignmentDistributeSpace',
+    '6': 'kCTRubyAlignmentLineEdge'
+}
+
+globalThis.CTRubyOverhang = globalThis.CTRubyOverhang || {};
+
+globalThis.CTRubyOverhang = {
+    kCTRubyOverhangInvalid: 255,
+    kCTRubyOverhangAuto: 0,
+    kCTRubyOverhangStart: 1,
+    kCTRubyOverhangEnd: 2,
+    kCTRubyOverhangNone: 3,
+    '255': 'kCTRubyOverhangInvalid',
+    '0': 'kCTRubyOverhangAuto',
+    '1': 'kCTRubyOverhangStart',
+    '2': 'kCTRubyOverhangEnd',
+    '3': 'kCTRubyOverhangNone'
+}
+
+globalThis.CTRubyPosition = globalThis.CTRubyPosition || {};
+
+globalThis.CTRubyPosition = {
+    kCTRubyPositionBefore: 0,
+    kCTRubyPositionAfter: 1,
+    kCTRubyPositionInterCharacter: 2,
+    kCTRubyPositionInline: 3,
+    kCTRubyPositionCount: 4,
+    '0': 'kCTRubyPositionBefore',
+    '1': 'kCTRubyPositionAfter',
+    '2': 'kCTRubyPositionInterCharacter',
+    '3': 'kCTRubyPositionInline',
+    '4': 'kCTRubyPositionCount'
+}
+
+globalThis.CTRunStatus = globalThis.CTRunStatus || {};
+
+globalThis.CTRunStatus = {
+    kCTRunStatusNoStatus: 0,
+    kCTRunStatusRightToLeft: 1,
+    kCTRunStatusNonMonotonic: 2,
+    kCTRunStatusHasNonIdentityMatrix: 4,
+    '0': 'kCTRunStatusNoStatus',
+    '1': 'kCTRunStatusRightToLeft',
+    '2': 'kCTRunStatusNonMonotonic',
+    '4': 'kCTRunStatusHasNonIdentityMatrix'
+}
+
+globalThis.CTTextAlignment = globalThis.CTTextAlignment || {};
+
+globalThis.CTTextAlignment = {
+    kCTTextAlignmentLeft: 0,
+    kCTTextAlignmentRight: 1,
+    kCTTextAlignmentCenter: 2,
+    kCTTextAlignmentJustified: 3,
+    kCTTextAlignmentNatural: 4,
+    kCTLeftTextAlignment: 0,
+    kCTRightTextAlignment: 1,
+    kCTCenterTextAlignment: 2,
+    kCTJustifiedTextAlignment: 3,
+    kCTNaturalTextAlignment: 4,
+    '0': 'kCTTextAlignmentLeft',
+    '1': 'kCTTextAlignmentRight',
+    '2': 'kCTTextAlignmentCenter',
+    '3': 'kCTTextAlignmentJustified',
+    '4': 'kCTTextAlignmentNatural',
+    '0': 'kCTLeftTextAlignment',
+    '1': 'kCTRightTextAlignment',
+    '2': 'kCTCenterTextAlignment',
+    '3': 'kCTJustifiedTextAlignment',
+    '4': 'kCTNaturalTextAlignment'
+}
+
+globalThis.CTUnderlineStyle = globalThis.CTUnderlineStyle || {};
+
+globalThis.CTUnderlineStyle = {
+    kCTUnderlineStyleNone: 0,
+    kCTUnderlineStyleSingle: 1,
+    kCTUnderlineStyleThick: 2,
+    kCTUnderlineStyleDouble: 9,
+    '0': 'kCTUnderlineStyleNone',
+    '1': 'kCTUnderlineStyleSingle',
+    '2': 'kCTUnderlineStyleThick',
+    '9': 'kCTUnderlineStyleDouble'
+}
+
+globalThis.CTUnderlineStyleModifiers = globalThis.CTUnderlineStyleModifiers || {};
+
+globalThis.CTUnderlineStyleModifiers = {
+    kCTUnderlinePatternSolid: 0,
+    kCTUnderlinePatternDot: 256,
+    kCTUnderlinePatternDash: 512,
+    kCTUnderlinePatternDashDot: 768,
+    kCTUnderlinePatternDashDotDot: 1024,
+    '0': 'kCTUnderlinePatternSolid',
+    '256': 'kCTUnderlinePatternDot',
+    '512': 'kCTUnderlinePatternDash',
+    '768': 'kCTUnderlinePatternDashDot',
+    '1024': 'kCTUnderlinePatternDashDotDot'
+}
+
+globalThis.CTWritingDirection = globalThis.CTWritingDirection || {};
+
+globalThis.CTWritingDirection = {
+    kCTWritingDirectionNatural: -1,
+    kCTWritingDirectionLeftToRight: 0,
+    kCTWritingDirectionRightToLeft: 1,
+    '-1': 'kCTWritingDirectionNatural',
+    '0': 'kCTWritingDirectionLeftToRight',
+    '1': 'kCTWritingDirectionRightToLeft'
+}
 
 interface ALMXGlyphEntry {
-	GlyphIndexOffset: number;
-	HorizontalAdvance: number;
-	XOffsetToHOrigin: number;
-	VerticalAdvance: number;
-	YOffsetToVOrigin: number;
+  GlyphIndexOffset: number;
+  HorizontalAdvance: number;
+  XOffsetToHOrigin: number;
+  VerticalAdvance: number;
+  YOffsetToVOrigin: number;
 }
+
 declare var ALMXGlyphEntry: ALMXGlyphEntry;
 
 interface AnchorPoint {
-	x: number;
-	y: number;
+  x: number;
+  y: number;
 }
+
 declare var AnchorPoint: AnchorPoint;
 
 interface AnchorPointTable {
-	nPoints: number;
-	points: AnchorPoint;
+  nPoints: number;
+  points: AnchorPoint;
 }
+
 declare var AnchorPointTable: AnchorPointTable;
 
 interface AnkrTable {
-	version: number;
-	flags: number;
-	lookupTableOffset: number;
-	anchorPointTableOffset: number;
+  version: number;
+  flags: number;
+  lookupTableOffset: number;
+  anchorPointTableOffset: number;
 }
+
 declare var AnkrTable: AnkrTable;
 
 interface BslnFormat0Part {
-	deltas: number;
+  deltas: number;
 }
+
 declare var BslnFormat0Part: BslnFormat0Part;
 
 interface BslnFormat2Part {
-	stdGlyph: number;
-	ctlPoints: number;
+  stdGlyph: number;
+  ctlPoints: number;
 }
+
 declare var BslnFormat2Part: BslnFormat2Part;
 
-enum CTCharacterCollection {
-
-	kCTCharacterCollectionIdentityMapping = 0,
-
-	kCTCharacterCollectionAdobeCNS1 = 1,
-
-	kCTCharacterCollectionAdobeGB1 = 2,
-
-	kCTCharacterCollectionAdobeJapan1 = 3,
-
-	kCTCharacterCollectionAdobeJapan2 = 4,
-
-	kCTCharacterCollectionAdobeKorea1 = 5,
-
-	kCTIdentityMappingCharacterCollection = 0,
-
-	kCTAdobeCNS1CharacterCollection = 1,
-
-	kCTAdobeGB1CharacterCollection = 2,
-
-	kCTAdobeJapan1CharacterCollection = 3,
-
-	kCTAdobeJapan2CharacterCollection = 4,
-
-	kCTAdobeKorea1CharacterCollection = 5
-}
-
-
-declare function CTFontCollectionCopyExclusionDescriptors(collection: NSFontCollection): NSArray<any>;
-
-declare function CTFontCollectionCopyFontAttribute(collection: NSFontCollection, attributeName: string, options: CTFontCollectionCopyOptions): NSArray<any>;
-
-declare function CTFontCollectionCopyFontAttributes(collection: NSFontCollection, attributeNames: NSSet<any>, options: CTFontCollectionCopyOptions): NSArray<any>;
-
-enum CTFontCollectionCopyOptions {
-
-	kCTFontCollectionCopyDefaultOptions = 0,
-
-	kCTFontCollectionCopyUnique = 1,
-
-	kCTFontCollectionCopyStandardSort = 2
-}
-
-
-declare function CTFontCollectionCopyQueryDescriptors(collection: NSFontCollection): NSArray<any>;
-
-declare function CTFontCollectionCreateCopyWithFontDescriptors(original: NSFontCollection, queryDescriptors: NSArray<any> | any[], options: NSDictionary<any, any>): NSFontCollection;
-
-declare function CTFontCollectionCreateFromAvailableFonts(options: NSDictionary<any, any>): NSFontCollection;
-
-declare function CTFontCollectionCreateMatchingFontDescriptors(collection: NSFontCollection): NSArray<any>;
-
-declare function CTFontCollectionCreateMatchingFontDescriptorsForFamily(collection: NSFontCollection, familyName: string, options: NSDictionary<any, any>): NSArray<any>;
-
-declare function CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(collection: NSFontCollection, sortCallback: (p1: NSFontDescriptor, p2: NSFontDescriptor, p3: any) => CFComparisonResult, refCon: any): NSArray<any>;
-
-declare function CTFontCollectionCreateMatchingFontDescriptorsWithOptions(collection: NSFontCollection, options: NSDictionary<any, any>): NSArray<any>;
-
-declare function CTFontCollectionCreateMutableCopy(original: NSFontCollection): NSFontCollection;
-
-declare function CTFontCollectionCreateWithFontDescriptors(queryDescriptors: NSArray<any> | any[], options: NSDictionary<any, any>): NSFontCollection;
-
+declare function CTFontCollectionCopyExclusionDescriptors(collection: NSObject): NSObject;
+declare function CTFontCollectionCopyFontAttribute(collection: NSObject, attributeName: NSObject, options: CTFontCollectionCopyOptions): NSObject;
+declare function CTFontCollectionCopyFontAttributes(collection: NSObject, attributeNames: NSObject, options: CTFontCollectionCopyOptions): NSObject;
+declare function CTFontCollectionCopyQueryDescriptors(collection: NSObject): NSObject;
+declare function CTFontCollectionCreateCopyWithFontDescriptors(original: NSObject, queryDescriptors: NSObject, options: NSObject): NSObject;
+declare function CTFontCollectionCreateFromAvailableFonts(options: NSObject): NSObject;
+declare function CTFontCollectionCreateMatchingFontDescriptors(collection: NSObject): NSObject;
+declare function CTFontCollectionCreateMatchingFontDescriptorsForFamily(collection: NSObject, familyName: NSObject, options: NSObject): NSObject;
+declare function CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(collection: NSObject, sortCallback: (p1: NSObject, p2: NSObject, p3: any) => CFComparisonResult, refCon: any): NSObject;
+declare function CTFontCollectionCreateMatchingFontDescriptorsWithOptions(collection: NSObject, options: NSObject): NSObject;
+declare function CTFontCollectionCreateMutableCopy(original: NSObject): NSObject;
+declare function CTFontCollectionCreateWithFontDescriptors(queryDescriptors: NSObject, options: NSObject): NSObject;
 declare function CTFontCollectionGetTypeID(): number;
-
-declare function CTFontCollectionSetExclusionDescriptors(collection: NSFontCollection, descriptors: NSArray<any> | any[]): void;
-
-declare function CTFontCollectionSetQueryDescriptors(collection: NSFontCollection, descriptors: NSArray<any> | any[]): void;
-
-declare function CTFontCopyAttribute(font: NSFont, attribute: string): any;
-
-declare function CTFontCopyAvailableTables(font: NSFont, options: CTFontTableOptions): NSArray<any>;
-
-declare function CTFontCopyCharacterSet(font: NSFont): NSCharacterSet;
-
-declare function CTFontCopyDefaultCascadeListForLanguages(font: NSFont, languagePrefList: NSArray<any> | any[]): NSArray<any>;
-
-declare function CTFontCopyDisplayName(font: NSFont): string;
-
-declare function CTFontCopyFamilyName(font: NSFont): string;
-
-declare function CTFontCopyFeatureSettings(font: NSFont): NSArray<any>;
-
-declare function CTFontCopyFeatures(font: NSFont): NSArray<any>;
-
-declare function CTFontCopyFontDescriptor(font: NSFont): NSFontDescriptor;
-
-declare function CTFontCopyFullName(font: NSFont): string;
-
-declare function CTFontCopyGraphicsFont(font: NSFont, attributes: NSFontDescriptor): any;
-
-declare function CTFontCopyLocalizedName(font: NSFont, nameKey: string, actualLanguage: string): string;
-
-declare function CTFontCopyName(font: NSFont, nameKey: string): string;
-
-declare function CTFontCopyPostScriptName(font: NSFont): string;
-
-declare function CTFontCopySupportedLanguages(font: NSFont): NSArray<any>;
-
-declare function CTFontCopyTable(font: NSFont, table: number, options: CTFontTableOptions): NSData;
-
-declare function CTFontCopyTraits(font: NSFont): NSDictionary<any, any>;
-
-declare function CTFontCopyVariation(font: NSFont): NSDictionary<any, any>;
-
-declare function CTFontCopyVariationAxes(font: NSFont): NSArray<any>;
-
-declare function CTFontCreateCopyWithAttributes(font: NSFont, size: number, matrix: CGAffineTransform, attributes: NSFontDescriptor): NSFont;
-
-declare function CTFontCreateCopyWithFamily(font: NSFont, size: number, matrix: CGAffineTransform, family: string): NSFont;
-
-declare function CTFontCreateCopyWithSymbolicTraits(font: NSFont, size: number, matrix: CGAffineTransform, symTraitValue: CTFontSymbolicTraits, symTraitMask: CTFontSymbolicTraits): NSFont;
-
-declare function CTFontCreateForString(currentFont: NSFont, string: string, range: CFRange): NSFont;
-
-declare function CTFontCreateForStringWithLanguage(currentFont: NSFont, string: string, range: CFRange, language: string): NSFont;
-
-declare function CTFontCreatePathForGlyph(font: NSFont, glyph: number, matrix: CGAffineTransform): any;
-
-declare function CTFontCreateUIFontForLanguage(uiType: CTFontUIFontType, size: number, language: string): NSFont;
-
-declare function CTFontCreateWithFontDescriptor(descriptor: NSFontDescriptor, size: number, matrix: CGAffineTransform): NSFont;
-
-declare function CTFontCreateWithFontDescriptorAndOptions(descriptor: NSFontDescriptor, size: number, matrix: CGAffineTransform, options: CTFontOptions): NSFont;
-
-declare function CTFontCreateWithGraphicsFont(graphicsFont: any, size: number, matrix: CGAffineTransform, attributes: NSFontDescriptor): NSFont;
-
-declare function CTFontCreateWithName(name: string, size: number, matrix: CGAffineTransform): NSFont;
-
-declare function CTFontCreateWithNameAndOptions(name: string, size: number, matrix: CGAffineTransform, options: CTFontOptions): NSFont;
-
-declare function CTFontCreateWithPlatformFont(platformFont: number, size: number, matrix: CGAffineTransform, attributes: NSFontDescriptor): NSFont;
-
-declare function CTFontDescriptorCopyAttribute(descriptor: NSFontDescriptor, attribute: string): any;
-
-declare function CTFontDescriptorCopyAttributes(descriptor: NSFontDescriptor): NSDictionary<any, any>;
-
-declare function CTFontDescriptorCopyLocalizedAttribute(descriptor: NSFontDescriptor, attribute: string, language: string): any;
-
-declare function CTFontDescriptorCreateCopyWithAttributes(original: NSFontDescriptor, attributes: NSDictionary<any, any>): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateCopyWithFamily(original: NSFontDescriptor, family: string): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateCopyWithFeature(original: NSFontDescriptor, featureTypeIdentifier: number, featureSelectorIdentifier: number): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateCopyWithSymbolicTraits(original: NSFontDescriptor, symTraitValue: CTFontSymbolicTraits, symTraitMask: CTFontSymbolicTraits): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateCopyWithVariation(original: NSFontDescriptor, variationIdentifier: number, variationValue: number): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateMatchingFontDescriptor(descriptor: NSFontDescriptor, mandatoryAttributes: NSSet<any>): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateMatchingFontDescriptors(descriptor: NSFontDescriptor, mandatoryAttributes: NSSet<any>): NSArray<any>;
-
-declare function CTFontDescriptorCreateWithAttributes(attributes: NSDictionary<any, any>): NSFontDescriptor;
-
-declare function CTFontDescriptorCreateWithNameAndSize(name: string, size: number): NSFontDescriptor;
-
+declare function CTFontCollectionSetExclusionDescriptors(collection: NSObject, descriptors: NSObject): void;
+declare function CTFontCollectionSetQueryDescriptors(collection: NSObject, descriptors: NSObject): void;
+declare function CTFontCopyAttribute(font: NSObject, attribute: NSObject): any;
+declare function CTFontCopyAvailableTables(font: NSObject, options: CTFontTableOptions): NSObject;
+declare function CTFontCopyCharacterSet(font: NSObject): NSObject;
+declare function CTFontCopyDefaultCascadeListForLanguages(font: NSObject, languagePrefList: NSObject): NSObject;
+declare function CTFontCopyDisplayName(font: NSObject): NSObject;
+declare function CTFontCopyFamilyName(font: NSObject): NSObject;
+declare function CTFontCopyFeatureSettings(font: NSObject): NSObject;
+declare function CTFontCopyFeatures(font: NSObject): NSObject;
+declare function CTFontCopyFontDescriptor(font: NSObject): NSObject;
+declare function CTFontCopyFullName(font: NSObject): NSObject;
+declare function CTFontCopyGraphicsFont(font: NSObject, attributes: NSObject): any;
+declare function CTFontCopyLocalizedName(font: NSObject, nameKey: NSObject, actualLanguage: NSObject): NSObject;
+declare function CTFontCopyName(font: NSObject, nameKey: NSObject): NSObject;
+declare function CTFontCopyPostScriptName(font: NSObject): NSObject;
+declare function CTFontCopySupportedLanguages(font: NSObject): NSObject;
+declare function CTFontCopyTable(font: NSObject, table: number, options: CTFontTableOptions): NSObject;
+declare function CTFontCopyTraits(font: NSObject): NSObject;
+declare function CTFontCopyVariation(font: NSObject): NSObject;
+declare function CTFontCopyVariationAxes(font: NSObject): NSObject;
+declare function CTFontCreateCopyWithAttributes(font: NSObject, size: number, matrix: CGAffineTransform, attributes: NSObject): NSObject;
+declare function CTFontCreateCopyWithFamily(font: NSObject, size: number, matrix: CGAffineTransform, family: NSObject): NSObject;
+declare function CTFontCreateCopyWithSymbolicTraits(font: NSObject, size: number, matrix: CGAffineTransform, symTraitValue: CTFontSymbolicTraits, symTraitMask: CTFontSymbolicTraits): NSObject;
+declare function CTFontCreateForString(currentFont: NSObject, string: NSObject, range: CFRange): NSObject;
+declare function CTFontCreateForStringWithLanguage(currentFont: NSObject, string: NSObject, range: CFRange, language: NSObject): NSObject;
+declare function CTFontCreatePathForGlyph(font: NSObject, glyph: number, matrix: CGAffineTransform): any;
+declare function CTFontCreateUIFontForLanguage(uiType: CTFontUIFontType, size: number, language: NSObject): NSObject;
+declare function CTFontCreateWithFontDescriptor(descriptor: NSObject, size: number, matrix: CGAffineTransform): NSObject;
+declare function CTFontCreateWithFontDescriptorAndOptions(descriptor: NSObject, size: number, matrix: CGAffineTransform, options: CTFontOptions): NSObject;
+declare function CTFontCreateWithGraphicsFont(graphicsFont: any, size: number, matrix: CGAffineTransform, attributes: NSObject): NSObject;
+declare function CTFontCreateWithName(name: NSObject, size: number, matrix: CGAffineTransform): NSObject;
+declare function CTFontCreateWithNameAndOptions(name: NSObject, size: number, matrix: CGAffineTransform, options: CTFontOptions): NSObject;
+declare function CTFontCreateWithPlatformFont(platformFont: number, size: number, matrix: CGAffineTransform, attributes: NSObject): NSObject;
+declare function CTFontDescriptorCopyAttribute(descriptor: NSObject, attribute: NSObject): any;
+declare function CTFontDescriptorCopyAttributes(descriptor: NSObject): NSObject;
+declare function CTFontDescriptorCopyLocalizedAttribute(descriptor: NSObject, attribute: NSObject, language: NSObject): any;
+declare function CTFontDescriptorCreateCopyWithAttributes(original: NSObject, attributes: NSObject): NSObject;
+declare function CTFontDescriptorCreateCopyWithFamily(original: NSObject, family: NSObject): NSObject;
+declare function CTFontDescriptorCreateCopyWithFeature(original: NSObject, featureTypeIdentifier: NSObject, featureSelectorIdentifier: NSObject): NSObject;
+declare function CTFontDescriptorCreateCopyWithSymbolicTraits(original: NSObject, symTraitValue: CTFontSymbolicTraits, symTraitMask: CTFontSymbolicTraits): NSObject;
+declare function CTFontDescriptorCreateCopyWithVariation(original: NSObject, variationIdentifier: NSObject, variationValue: number): NSObject;
+declare function CTFontDescriptorCreateMatchingFontDescriptor(descriptor: NSObject, mandatoryAttributes: NSObject): NSObject;
+declare function CTFontDescriptorCreateMatchingFontDescriptors(descriptor: NSObject, mandatoryAttributes: NSObject): NSObject;
+declare function CTFontDescriptorCreateWithAttributes(attributes: NSObject): NSObject;
+declare function CTFontDescriptorCreateWithNameAndSize(name: NSObject, size: number): NSObject;
 declare function CTFontDescriptorGetTypeID(): number;
-
-declare function CTFontDescriptorMatchFontDescriptorsWithProgressHandler(descriptors: NSArray<any> | any[], mandatoryAttributes: NSSet<any>, progressBlock: (p1: CTFontDescriptorMatchingState, p2: NSDictionary<any, any>) => boolean): boolean;
-
-enum CTFontDescriptorMatchingState {
-
-	kCTFontDescriptorMatchingDidBegin = 0,
-
-	kCTFontDescriptorMatchingDidFinish = 1,
-
-	kCTFontDescriptorMatchingWillBeginQuerying = 2,
-
-	kCTFontDescriptorMatchingStalled = 3,
-
-	kCTFontDescriptorMatchingWillBeginDownloading = 4,
-
-	kCTFontDescriptorMatchingDownloading = 5,
-
-	kCTFontDescriptorMatchingDidFinishDownloading = 6,
-
-	kCTFontDescriptorMatchingDidMatch = 7,
-
-	kCTFontDescriptorMatchingDidFailWithError = 8
-}
-
-
-declare function CTFontDrawGlyphs(font: NSFont, glyphs: number, positions: CGPoint, count: number, context: any): void;
-
-enum CTFontFormat {
-
-	kCTFontFormatUnrecognized = 0,
-
-	kCTFontFormatOpenTypePostScript = 1,
-
-	kCTFontFormatOpenTypeTrueType = 2,
-
-	kCTFontFormatTrueType = 3,
-
-	kCTFontFormatPostScript = 4,
-
-	kCTFontFormatBitmap = 5
-}
-
-
-declare function CTFontGetAdvancesForGlyphs(font: NSFont, orientation: CTFontOrientation, glyphs: number, advances: CGSize, count: number): number;
-
-declare function CTFontGetAscent(font: NSFont): number;
-
-declare function CTFontGetBoundingBox(font: NSFont): CGRect;
-
-declare function CTFontGetBoundingRectsForGlyphs(font: NSFont, orientation: CTFontOrientation, glyphs: number, boundingRects: CGRect, count: number): CGRect;
-
-declare function CTFontGetCapHeight(font: NSFont): number;
-
-declare function CTFontGetDescent(font: NSFont): number;
-
-declare function CTFontGetGlyphCount(font: NSFont): number;
-
-declare function CTFontGetGlyphWithName(font: NSFont, glyphName: string): number;
-
-declare function CTFontGetGlyphsForCharacters(font: NSFont, characters: number, glyphs: number, count: number): boolean;
-
-declare function CTFontGetLeading(font: NSFont): number;
-
-declare function CTFontGetLigatureCaretPositions(font: NSFont, glyph: number, positions: number, maxPositions: number): number;
-
-declare function CTFontGetMatrix(font: NSFont): CGAffineTransform;
-
-declare function CTFontGetOpticalBoundsForGlyphs(font: NSFont, glyphs: number, boundingRects: CGRect, count: number, options: number): CGRect;
-
-declare function CTFontGetPlatformFont(font: NSFont, attributes: NSFontDescriptor): number;
-
-declare function CTFontGetSize(font: NSFont): number;
-
-declare function CTFontGetSlantAngle(font: NSFont): number;
-
-declare function CTFontGetStringEncoding(font: NSFont): number;
-
-declare function CTFontGetSymbolicTraits(font: NSFont): CTFontSymbolicTraits;
-
+declare function CTFontDescriptorMatchFontDescriptorsWithProgressHandler(descriptors: NSObject, mandatoryAttributes: NSObject, progressBlock: (p1: CTFontDescriptorMatchingState, p2: NSObject) => boolean): boolean;
+declare function CTFontDrawGlyphs(font: NSObject, glyphs: number, positions: NSPoint, count: number, context: any): void;
+declare function CTFontGetAdvancesForGlyphs(font: NSObject, orientation: CTFontOrientation, glyphs: number, advances: NSSize, count: number): number;
+declare function CTFontGetAscent(font: NSObject): number;
+declare function CTFontGetBoundingBox(font: NSObject): NSRect;
+declare function CTFontGetBoundingRectsForGlyphs(font: NSObject, orientation: CTFontOrientation, glyphs: number, boundingRects: NSRect, count: number): NSRect;
+declare function CTFontGetCapHeight(font: NSObject): number;
+declare function CTFontGetDescent(font: NSObject): number;
+declare function CTFontGetGlyphCount(font: NSObject): number;
+declare function CTFontGetGlyphWithName(font: NSObject, glyphName: NSObject): number;
+declare function CTFontGetGlyphsForCharacters(font: NSObject, characters: number, glyphs: number, count: number): boolean;
+declare function CTFontGetLeading(font: NSObject): number;
+declare function CTFontGetLigatureCaretPositions(font: NSObject, glyph: number, positions: number, maxPositions: number): number;
+declare function CTFontGetMatrix(font: NSObject): CGAffineTransform;
+declare function CTFontGetOpticalBoundsForGlyphs(font: NSObject, glyphs: number, boundingRects: NSRect, count: number, options: number): NSRect;
+declare function CTFontGetPlatformFont(font: NSObject, attributes: NSObject): number;
+declare function CTFontGetSize(font: NSObject): number;
+declare function CTFontGetSlantAngle(font: NSObject): number;
+declare function CTFontGetStringEncoding(font: NSObject): number;
+declare function CTFontGetSymbolicTraits(font: NSObject): CTFontSymbolicTraits;
 declare function CTFontGetTypeID(): number;
-
-declare function CTFontGetUnderlinePosition(font: NSFont): number;
-
-declare function CTFontGetUnderlineThickness(font: NSFont): number;
-
-declare function CTFontGetUnitsPerEm(font: NSFont): number;
-
-declare function CTFontGetVerticalTranslationsForGlyphs(font: NSFont, glyphs: number, translations: CGSize, count: number): void;
-
-declare function CTFontGetXHeight(font: NSFont): number;
-
-enum CTFontManagerAutoActivationSetting {
-
-	kCTFontManagerAutoActivationDefault = 0,
-
-	kCTFontManagerAutoActivationDisabled = 1,
-
-	kCTFontManagerAutoActivationEnabled = 2,
-
-	kCTFontManagerAutoActivationPromptUser = 3
-}
-
-
+declare function CTFontGetUnderlinePosition(font: NSObject): number;
+declare function CTFontGetUnderlineThickness(font: NSObject): number;
+declare function CTFontGetUnitsPerEm(font: NSObject): number;
+declare function CTFontGetVerticalTranslationsForGlyphs(font: NSObject, glyphs: number, translations: NSSize, count: number): void;
+declare function CTFontGetXHeight(font: NSObject): number;
 declare function CTFontManagerCompareFontFamilyNames(family1: any, family2: any, context: any): CFComparisonResult;
-
-declare function CTFontManagerCopyAvailableFontFamilyNames(): NSArray<any>;
-
-declare function CTFontManagerCopyAvailableFontURLs(): NSArray<any>;
-
-declare function CTFontManagerCopyAvailablePostScriptNames(): NSArray<any>;
-
-declare function CTFontManagerCreateFontDescriptorFromData(data: NSData): NSFontDescriptor;
-
-declare function CTFontManagerCreateFontDescriptorsFromData(data: NSData): NSArray<any>;
-
-declare function CTFontManagerCreateFontDescriptorsFromURL(fileURL: NSURL): NSArray<any>;
-
-declare function CTFontManagerCreateFontRequestRunLoopSource(sourceOrder: number, createMatchesCallback: (p1: NSDictionary<any, any>, p2: number) => NSArray<any>): any;
-
-declare function CTFontManagerEnableFontDescriptors(descriptors: NSArray<any> | any[], enable: boolean): void;
-
-enum CTFontManagerError {
-
-	kCTFontManagerErrorFileNotFound = 101,
-
-	kCTFontManagerErrorInsufficientPermissions = 102,
-
-	kCTFontManagerErrorUnrecognizedFormat = 103,
-
-	kCTFontManagerErrorInvalidFontData = 104,
-
-	kCTFontManagerErrorAlreadyRegistered = 105,
-
-	kCTFontManagerErrorExceededResourceLimit = 106,
-
-	kCTFontManagerErrorAssetNotFound = 107,
-
-	kCTFontManagerErrorNotRegistered = 201,
-
-	kCTFontManagerErrorInUse = 202,
-
-	kCTFontManagerErrorSystemRequired = 203,
-
-	kCTFontManagerErrorRegistrationFailed = 301,
-
-	kCTFontManagerErrorMissingEntitlement = 302,
-
-	kCTFontManagerErrorInsufficientInfo = 303,
-
-	kCTFontManagerErrorCancelledByUser = 304,
-
-	kCTFontManagerErrorDuplicatedName = 305,
-
-	kCTFontManagerErrorInvalidFilePath = 306
-}
-
-
-declare function CTFontManagerGetAutoActivationSetting(bundleIdentifier: string): CTFontManagerAutoActivationSetting;
-
-declare function CTFontManagerGetScopeForURL(fontURL: NSURL): CTFontManagerScope;
-
-declare function CTFontManagerIsSupportedFont(fontURL: NSURL): boolean;
-
-declare function CTFontManagerRegisterFontDescriptors(fontDescriptors: NSArray<any> | any[], scope: CTFontManagerScope, enabled: boolean, registrationHandler: (p1: NSArray<any>, p2: boolean) => boolean): void;
-
-declare function CTFontManagerRegisterFontURLs(fontURLs: NSArray<any> | any[], scope: CTFontManagerScope, enabled: boolean, registrationHandler: (p1: NSArray<any>, p2: boolean) => boolean): void;
-
-declare function CTFontManagerRegisterFontsForURL(fontURL: NSURL, scope: CTFontManagerScope, error: NSError): boolean;
-
-declare function CTFontManagerRegisterGraphicsFont(font: any, error: NSError): boolean;
-
-enum CTFontManagerScope {
-
-	kCTFontManagerScopeNone = 0,
-
-	kCTFontManagerScopeProcess = 1,
-
-	kCTFontManagerScopePersistent = 2,
-
-	kCTFontManagerScopeSession = 3,
-
-	kCTFontManagerScopeUser = 2
-}
-
-
-declare function CTFontManagerSetAutoActivationSetting(bundleIdentifier: string, setting: CTFontManagerAutoActivationSetting): void;
-
-declare function CTFontManagerUnregisterFontDescriptors(fontDescriptors: NSArray<any> | any[], scope: CTFontManagerScope, registrationHandler: (p1: NSArray<any>, p2: boolean) => boolean): void;
-
-declare function CTFontManagerUnregisterFontURLs(fontURLs: NSArray<any> | any[], scope: CTFontManagerScope, registrationHandler: (p1: NSArray<any>, p2: boolean) => boolean): void;
-
-declare function CTFontManagerUnregisterFontsForURL(fontURL: NSURL, scope: CTFontManagerScope, error: NSError): boolean;
-
-declare function CTFontManagerUnregisterGraphicsFont(font: any, error: NSError): boolean;
-
-enum CTFontOptions {
-
-	kCTFontOptionsDefault = 0,
-
-	kCTFontOptionsPreventAutoActivation = 1,
-
-	kCTFontOptionsPreferSystemFont = 4
-}
-
-
-enum CTFontOrientation {
-
-	kCTFontOrientationDefault = 0,
-
-	kCTFontOrientationHorizontal = 1,
-
-	kCTFontOrientationVertical = 2,
-
-	kCTFontDefaultOrientation = 0,
-
-	kCTFontHorizontalOrientation = 1,
-
-	kCTFontVerticalOrientation = 2
-}
-
-
-enum CTFontStylisticClass {
-
-	kCTFontClassUnknown = 0,
-
-	kCTFontClassOldStyleSerifs = 268435456,
-
-	kCTFontClassTransitionalSerifs = 536870912,
-
-	kCTFontClassModernSerifs = 805306368,
-
-	kCTFontClassClarendonSerifs = 1073741824,
-
-	kCTFontClassSlabSerifs = 1342177280,
-
-	kCTFontClassFreeformSerifs = 1879048192,
-
-	kCTFontClassSansSerif = 2147483648,
-
-	kCTFontClassOrnamentals = 2415919104,
-
-	kCTFontClassScripts = 2684354560,
-
-	kCTFontClassSymbolic = 3221225472,
-
-	kCTFontUnknownClass = 0,
-
-	kCTFontOldStyleSerifsClass = 268435456,
-
-	kCTFontTransitionalSerifsClass = 536870912,
-
-	kCTFontModernSerifsClass = 805306368,
-
-	kCTFontClarendonSerifsClass = 1073741824,
-
-	kCTFontSlabSerifsClass = 1342177280,
-
-	kCTFontFreeformSerifsClass = 1879048192,
-
-	kCTFontSansSerifClass = 2147483648,
-
-	kCTFontOrnamentalsClass = 2415919104,
-
-	kCTFontScriptsClass = 2684354560,
-
-	kCTFontSymbolicClass = 3221225472
-}
-
-
-enum CTFontSymbolicTraits {
-
-	kCTFontTraitItalic = 1,
-
-	kCTFontTraitBold = 2,
-
-	kCTFontTraitExpanded = 32,
-
-	kCTFontTraitCondensed = 64,
-
-	kCTFontTraitMonoSpace = 1024,
-
-	kCTFontTraitVertical = 2048,
-
-	kCTFontTraitUIOptimized = 4096,
-
-	kCTFontTraitColorGlyphs = 8192,
-
-	kCTFontTraitComposite = 16384,
-
-	kCTFontTraitClassMask = 4026531840,
-
-	kCTFontItalicTrait = 1,
-
-	kCTFontBoldTrait = 2,
-
-	kCTFontExpandedTrait = 32,
-
-	kCTFontCondensedTrait = 64,
-
-	kCTFontMonoSpaceTrait = 1024,
-
-	kCTFontVerticalTrait = 2048,
-
-	kCTFontUIOptimizedTrait = 4096,
-
-	kCTFontColorGlyphsTrait = 8192,
-
-	kCTFontCompositeTrait = 16384,
-
-	kCTFontClassMaskTrait = 4026531840
-}
-
-
-enum CTFontTableOptions {
-
-	kCTFontTableOptionNoOptions = 0,
-
-	kCTFontTableOptionExcludeSynthetic = 1
-}
-
-
-enum CTFontUIFontType {
-
-	kCTFontUIFontNone = 4294967295,
-
-	kCTFontUIFontUser = 0,
-
-	kCTFontUIFontUserFixedPitch = 1,
-
-	kCTFontUIFontSystem = 2,
-
-	kCTFontUIFontEmphasizedSystem = 3,
-
-	kCTFontUIFontSmallSystem = 4,
-
-	kCTFontUIFontSmallEmphasizedSystem = 5,
-
-	kCTFontUIFontMiniSystem = 6,
-
-	kCTFontUIFontMiniEmphasizedSystem = 7,
-
-	kCTFontUIFontViews = 8,
-
-	kCTFontUIFontApplication = 9,
-
-	kCTFontUIFontLabel = 10,
-
-	kCTFontUIFontMenuTitle = 11,
-
-	kCTFontUIFontMenuItem = 12,
-
-	kCTFontUIFontMenuItemMark = 13,
-
-	kCTFontUIFontMenuItemCmdKey = 14,
-
-	kCTFontUIFontWindowTitle = 15,
-
-	kCTFontUIFontPushButton = 16,
-
-	kCTFontUIFontUtilityWindowTitle = 17,
-
-	kCTFontUIFontAlertHeader = 18,
-
-	kCTFontUIFontSystemDetail = 19,
-
-	kCTFontUIFontEmphasizedSystemDetail = 20,
-
-	kCTFontUIFontToolbar = 21,
-
-	kCTFontUIFontSmallToolbar = 22,
-
-	kCTFontUIFontMessage = 23,
-
-	kCTFontUIFontPalette = 24,
-
-	kCTFontUIFontToolTip = 25,
-
-	kCTFontUIFontControlContent = 26,
-
-	kCTFontNoFontType = 4294967295,
-
-	kCTFontUserFontType = 0,
-
-	kCTFontUserFixedPitchFontType = 1,
-
-	kCTFontSystemFontType = 2,
-
-	kCTFontEmphasizedSystemFontType = 3,
-
-	kCTFontSmallSystemFontType = 4,
-
-	kCTFontSmallEmphasizedSystemFontType = 5,
-
-	kCTFontMiniSystemFontType = 6,
-
-	kCTFontMiniEmphasizedSystemFontType = 7,
-
-	kCTFontViewsFontType = 8,
-
-	kCTFontApplicationFontType = 9,
-
-	kCTFontLabelFontType = 10,
-
-	kCTFontMenuTitleFontType = 11,
-
-	kCTFontMenuItemFontType = 12,
-
-	kCTFontMenuItemMarkFontType = 13,
-
-	kCTFontMenuItemCmdKeyFontType = 14,
-
-	kCTFontWindowTitleFontType = 15,
-
-	kCTFontPushButtonFontType = 16,
-
-	kCTFontUtilityWindowTitleFontType = 17,
-
-	kCTFontAlertHeaderFontType = 18,
-
-	kCTFontSystemDetailFontType = 19,
-
-	kCTFontEmphasizedSystemDetailFontType = 20,
-
-	kCTFontToolbarFontType = 21,
-
-	kCTFontSmallToolbarFontType = 22,
-
-	kCTFontMessageFontType = 23,
-
-	kCTFontPaletteFontType = 24,
-
-	kCTFontToolTipFontType = 25,
-
-	kCTFontControlContentFontType = 26
-}
-
-
+declare function CTFontManagerCopyAvailableFontFamilyNames(): NSObject;
+declare function CTFontManagerCopyAvailableFontURLs(): NSObject;
+declare function CTFontManagerCopyAvailablePostScriptNames(): NSObject;
+declare function CTFontManagerCreateFontDescriptorFromData(data: NSObject): NSObject;
+declare function CTFontManagerCreateFontDescriptorsFromData(data: NSObject): NSObject;
+declare function CTFontManagerCreateFontDescriptorsFromURL(fileURL: NSObject): NSObject;
+declare function CTFontManagerCreateFontRequestRunLoopSource(sourceOrder: number, createMatchesCallback: (p1: NSObject, p2: number) => NSObject): any;
+declare function CTFontManagerEnableFontDescriptors(descriptors: NSObject, enable: boolean): void;
+declare function CTFontManagerGetAutoActivationSetting(bundleIdentifier: NSObject): CTFontManagerAutoActivationSetting;
+declare function CTFontManagerGetScopeForURL(fontURL: NSObject): CTFontManagerScope;
+declare function CTFontManagerIsSupportedFont(fontURL: NSObject): boolean;
+declare function CTFontManagerRegisterFontDescriptors(fontDescriptors: NSObject, scope: CTFontManagerScope, enabled: boolean, registrationHandler: (p1: NSObject, p2: boolean) => boolean): void;
+declare function CTFontManagerRegisterFontURLs(fontURLs: NSObject, scope: CTFontManagerScope, enabled: boolean, registrationHandler: (p1: NSObject, p2: boolean) => boolean): void;
+declare function CTFontManagerRegisterFontsForURL(fontURL: NSObject, scope: CTFontManagerScope, error: NSObject): boolean;
+declare function CTFontManagerRegisterGraphicsFont(font: any, error: NSObject): boolean;
+declare function CTFontManagerSetAutoActivationSetting(bundleIdentifier: NSObject, setting: CTFontManagerAutoActivationSetting): void;
+declare function CTFontManagerUnregisterFontDescriptors(fontDescriptors: NSObject, scope: CTFontManagerScope, registrationHandler: (p1: NSObject, p2: boolean) => boolean): void;
+declare function CTFontManagerUnregisterFontURLs(fontURLs: NSObject, scope: CTFontManagerScope, registrationHandler: (p1: NSObject, p2: boolean) => boolean): void;
+declare function CTFontManagerUnregisterFontsForURL(fontURL: NSObject, scope: CTFontManagerScope, error: NSObject): boolean;
+declare function CTFontManagerUnregisterGraphicsFont(font: any, error: NSObject): boolean;
 declare function CTFrameDraw(frame: any, context: any): void;
-
-declare function CTFrameGetFrameAttributes(frame: any): NSDictionary<any, any>;
-
-declare function CTFrameGetLineOrigins(frame: any, range: CFRange, origins: CGPoint): void;
-
-declare function CTFrameGetLines(frame: any): NSArray<any>;
-
+declare function CTFrameGetFrameAttributes(frame: any): NSObject;
+declare function CTFrameGetLineOrigins(frame: any, range: CFRange, origins: NSPoint): void;
+declare function CTFrameGetLines(frame: any): NSObject;
 declare function CTFrameGetPath(frame: any): any;
-
 declare function CTFrameGetStringRange(frame: any): CFRange;
-
 declare function CTFrameGetTypeID(): number;
-
 declare function CTFrameGetVisibleStringRange(frame: any): CFRange;
-
-enum CTFramePathFillRule {
-
-	kCTFramePathFillEvenOdd = 0,
-
-	kCTFramePathFillWindingNumber = 1
-}
-
-
-enum CTFrameProgression {
-
-	kCTFrameProgressionTopToBottom = 0,
-
-	kCTFrameProgressionRightToLeft = 1,
-
-	kCTFrameProgressionLeftToRight = 2
-}
-
-
-declare function CTFramesetterCreateFrame(framesetter: any, stringRange: CFRange, path: any, frameAttributes: NSDictionary<any, any>): any;
-
-declare function CTFramesetterCreateWithAttributedString(attrString: NSAttributedString): any;
-
+declare function CTFramesetterCreateFrame(framesetter: any, stringRange: CFRange, path: any, frameAttributes: NSObject): any;
+declare function CTFramesetterCreateWithAttributedString(attrString: NSObject): any;
 declare function CTFramesetterCreateWithTypesetter(typesetter: any): any;
-
 declare function CTFramesetterGetTypeID(): number;
-
 declare function CTFramesetterGetTypesetter(framesetter: any): any;
-
-declare function CTFramesetterSuggestFrameSizeWithConstraints(framesetter: any, stringRange: CFRange, frameAttributes: NSDictionary<any, any>, constraints: CGSize, fitRange: CFRange): CGSize;
-
+declare function CTFramesetterSuggestFrameSizeWithConstraints(framesetter: any, stringRange: CFRange, frameAttributes: NSObject, constraints: NSSize, fitRange: CFRange): NSSize;
 declare function CTGetCoreTextVersion(): number;
-
-declare function CTGlyphInfoCreateWithCharacterIdentifier(cid: number, collection: CTCharacterCollection, baseString: string): NSGlyphInfo;
-
-declare function CTGlyphInfoCreateWithGlyph(glyph: number, font: NSFont, baseString: string): NSGlyphInfo;
-
-declare function CTGlyphInfoCreateWithGlyphName(glyphName: string, font: NSFont, baseString: string): NSGlyphInfo;
-
-declare function CTGlyphInfoGetCharacterCollection(glyphInfo: NSGlyphInfo): CTCharacterCollection;
-
-declare function CTGlyphInfoGetCharacterIdentifier(glyphInfo: NSGlyphInfo): number;
-
-declare function CTGlyphInfoGetGlyph(glyphInfo: NSGlyphInfo): number;
-
-declare function CTGlyphInfoGetGlyphName(glyphInfo: NSGlyphInfo): string;
-
+declare function CTGlyphInfoCreateWithCharacterIdentifier(cid: number, collection: CTCharacterCollection, baseString: NSObject): NSObject;
+declare function CTGlyphInfoCreateWithGlyph(glyph: number, font: NSObject, baseString: NSObject): NSObject;
+declare function CTGlyphInfoCreateWithGlyphName(glyphName: NSObject, font: NSObject, baseString: NSObject): NSObject;
+declare function CTGlyphInfoGetCharacterCollection(glyphInfo: NSObject): CTCharacterCollection;
+declare function CTGlyphInfoGetCharacterIdentifier(glyphInfo: NSObject): number;
+declare function CTGlyphInfoGetGlyph(glyphInfo: NSObject): number;
+declare function CTGlyphInfoGetGlyphName(glyphInfo: NSObject): NSObject;
 declare function CTGlyphInfoGetTypeID(): number;
-
-enum CTLineBoundsOptions {
-
-	kCTLineBoundsExcludeTypographicLeading = 1,
-
-	kCTLineBoundsExcludeTypographicShifts = 2,
-
-	kCTLineBoundsUseHangingPunctuation = 4,
-
-	kCTLineBoundsUseGlyphPathBounds = 8,
-
-	kCTLineBoundsUseOpticalBounds = 16,
-
-	kCTLineBoundsIncludeLanguageExtents = 32
-}
-
-
-enum CTLineBreakMode {
-
-	kCTLineBreakByWordWrapping = 0,
-
-	kCTLineBreakByCharWrapping = 1,
-
-	kCTLineBreakByClipping = 2,
-
-	kCTLineBreakByTruncatingHead = 3,
-
-	kCTLineBreakByTruncatingTail = 4,
-
-	kCTLineBreakByTruncatingMiddle = 5
-}
-
-
 declare function CTLineCreateJustifiedLine(line: any, justificationFactor: number, justificationWidth: number): any;
-
 declare function CTLineCreateTruncatedLine(line: any, width: number, truncationType: CTLineTruncationType, truncationToken: any): any;
-
-declare function CTLineCreateWithAttributedString(attrString: NSAttributedString): any;
-
+declare function CTLineCreateWithAttributedString(attrString: NSObject): any;
 declare function CTLineDraw(line: any, context: any): void;
-
 declare function CTLineEnumerateCaretOffsets(line: any, block: (p1: number, p2: number, p3: boolean, p4: boolean) => void): void;
-
-declare function CTLineGetBoundsWithOptions(line: any, options: CTLineBoundsOptions): CGRect;
-
+declare function CTLineGetBoundsWithOptions(line: any, options: CTLineBoundsOptions): NSRect;
 declare function CTLineGetGlyphCount(line: any): number;
-
-declare function CTLineGetGlyphRuns(line: any): NSArray<any>;
-
-declare function CTLineGetImageBounds(line: any, context: any): CGRect;
-
+declare function CTLineGetGlyphRuns(line: any): NSObject;
+declare function CTLineGetImageBounds(line: any, context: any): NSRect;
 declare function CTLineGetOffsetForStringIndex(line: any, charIndex: number, secondaryOffset: number): number;
-
 declare function CTLineGetPenOffsetForFlush(line: any, flushFactor: number, flushWidth: number): number;
-
-declare function CTLineGetStringIndexForPosition(line: any, position: CGPoint): number;
-
+declare function CTLineGetStringIndexForPosition(line: any, position: NSPoint): number;
 declare function CTLineGetStringRange(line: any): CFRange;
-
 declare function CTLineGetTrailingWhitespaceWidth(line: any): number;
-
 declare function CTLineGetTypeID(): number;
-
 declare function CTLineGetTypographicBounds(line: any, ascent: number, descent: number, leading: number): number;
-
-enum CTLineTruncationType {
-
-	kCTLineTruncationStart = 0,
-
-	kCTLineTruncationEnd = 1,
-
-	kCTLineTruncationMiddle = 2
-}
-
-
 declare function CTParagraphStyleCreate(settings: CTParagraphStyleSetting, settingCount: number): any;
-
 declare function CTParagraphStyleCreateCopy(paragraphStyle: any): any;
-
 declare function CTParagraphStyleGetTypeID(): number;
-
 declare function CTParagraphStyleGetValueForSpecifier(paragraphStyle: any, spec: CTParagraphStyleSpecifier, valueBufferSize: number, valueBuffer: any): boolean;
-
 interface CTParagraphStyleSetting {
-	spec: CTParagraphStyleSpecifier;
-	valueSize: number;
-	value: any;
+  spec: CTParagraphStyleSpecifier;
+  valueSize: number;
+  value: any;
 }
+
 declare var CTParagraphStyleSetting: CTParagraphStyleSetting;
 
-enum CTParagraphStyleSpecifier {
-
-	kCTParagraphStyleSpecifierAlignment = 0,
-
-	kCTParagraphStyleSpecifierFirstLineHeadIndent = 1,
-
-	kCTParagraphStyleSpecifierHeadIndent = 2,
-
-	kCTParagraphStyleSpecifierTailIndent = 3,
-
-	kCTParagraphStyleSpecifierTabStops = 4,
-
-	kCTParagraphStyleSpecifierDefaultTabInterval = 5,
-
-	kCTParagraphStyleSpecifierLineBreakMode = 6,
-
-	kCTParagraphStyleSpecifierLineHeightMultiple = 7,
-
-	kCTParagraphStyleSpecifierMaximumLineHeight = 8,
-
-	kCTParagraphStyleSpecifierMinimumLineHeight = 9,
-
-	kCTParagraphStyleSpecifierLineSpacing = 10,
-
-	kCTParagraphStyleSpecifierParagraphSpacing = 11,
-
-	kCTParagraphStyleSpecifierParagraphSpacingBefore = 12,
-
-	kCTParagraphStyleSpecifierBaseWritingDirection = 13,
-
-	kCTParagraphStyleSpecifierMaximumLineSpacing = 14,
-
-	kCTParagraphStyleSpecifierMinimumLineSpacing = 15,
-
-	kCTParagraphStyleSpecifierLineSpacingAdjustment = 16,
-
-	kCTParagraphStyleSpecifierLineBoundsOptions = 17,
-
-	kCTParagraphStyleSpecifierCount = 18
-}
-
-
-enum CTRubyAlignment {
-
-	kCTRubyAlignmentInvalid = 255,
-
-	kCTRubyAlignmentAuto = 0,
-
-	kCTRubyAlignmentStart = 1,
-
-	kCTRubyAlignmentCenter = 2,
-
-	kCTRubyAlignmentEnd = 3,
-
-	kCTRubyAlignmentDistributeLetter = 4,
-
-	kCTRubyAlignmentDistributeSpace = 5,
-
-	kCTRubyAlignmentLineEdge = 6
-}
-
-
-declare function CTRubyAnnotationCreate(alignment: CTRubyAlignment, overhang: CTRubyOverhang, sizeFactor: number, text: string): any;
-
+declare function CTRubyAnnotationCreate(alignment: CTRubyAlignment, overhang: CTRubyOverhang, sizeFactor: number, text: NSObject): any;
 declare function CTRubyAnnotationCreateCopy(rubyAnnotation: any): any;
-
-declare function CTRubyAnnotationCreateWithAttributes(alignment: CTRubyAlignment, overhang: CTRubyOverhang, position: CTRubyPosition, string: string, attributes: NSDictionary<any, any>): any;
-
+declare function CTRubyAnnotationCreateWithAttributes(alignment: CTRubyAlignment, overhang: CTRubyOverhang, position: CTRubyPosition, string: NSObject, attributes: NSObject): any;
 declare function CTRubyAnnotationGetAlignment(rubyAnnotation: any): CTRubyAlignment;
-
 declare function CTRubyAnnotationGetOverhang(rubyAnnotation: any): CTRubyOverhang;
-
 declare function CTRubyAnnotationGetSizeFactor(rubyAnnotation: any): number;
-
-declare function CTRubyAnnotationGetTextForPosition(rubyAnnotation: any, position: CTRubyPosition): string;
-
+declare function CTRubyAnnotationGetTextForPosition(rubyAnnotation: any, position: CTRubyPosition): NSObject;
 declare function CTRubyAnnotationGetTypeID(): number;
-
-enum CTRubyOverhang {
-
-	kCTRubyOverhangInvalid = 255,
-
-	kCTRubyOverhangAuto = 0,
-
-	kCTRubyOverhangStart = 1,
-
-	kCTRubyOverhangEnd = 2,
-
-	kCTRubyOverhangNone = 3
-}
-
-
-enum CTRubyPosition {
-
-	kCTRubyPositionBefore = 0,
-
-	kCTRubyPositionAfter = 1,
-
-	kCTRubyPositionInterCharacter = 2,
-
-	kCTRubyPositionInline = 3,
-
-	kCTRubyPositionCount = 4
-}
-
-
 interface CTRunDelegateCallbacks {
-	version: number;
-	dealloc: (p1: any) => void;
-	getAscent: (p1: any) => number;
-	getDescent: (p1: any) => number;
-	getWidth: (p1: any) => number;
+  version: number;
+  dealloc: (p1: any) => void;
+  getAscent: (p1: any) => number;
+  getDescent: (p1: any) => number;
+  getWidth: (p1: any) => number;
 }
+
 declare var CTRunDelegateCallbacks: CTRunDelegateCallbacks;
 
 declare function CTRunDelegateCreate(callbacks: CTRunDelegateCallbacks, refCon: any): any;
-
 declare function CTRunDelegateGetRefCon(runDelegate: any): any;
-
 declare function CTRunDelegateGetTypeID(): number;
-
 declare function CTRunDraw(run: any, context: any, range: CFRange): void;
-
-declare function CTRunGetAdvances(run: any, range: CFRange, buffer: CGSize): void;
-
-declare function CTRunGetAdvancesPtr(run: any): CGSize;
-
-declare function CTRunGetAttributes(run: any): NSDictionary<any, any>;
-
-declare function CTRunGetBaseAdvancesAndOrigins(runRef: any, range: CFRange, advancesBuffer: CGSize, originsBuffer: CGPoint): void;
-
+declare function CTRunGetAdvances(run: any, range: CFRange, buffer: NSSize): void;
+declare function CTRunGetAdvancesPtr(run: any): NSSize;
+declare function CTRunGetAttributes(run: any): NSObject;
+declare function CTRunGetBaseAdvancesAndOrigins(runRef: any, range: CFRange, advancesBuffer: NSSize, originsBuffer: NSPoint): void;
 declare function CTRunGetGlyphCount(run: any): number;
-
 declare function CTRunGetGlyphs(run: any, range: CFRange, buffer: number): void;
-
 declare function CTRunGetGlyphsPtr(run: any): number;
-
-declare function CTRunGetImageBounds(run: any, context: any, range: CFRange): CGRect;
-
-declare function CTRunGetPositions(run: any, range: CFRange, buffer: CGPoint): void;
-
-declare function CTRunGetPositionsPtr(run: any): CGPoint;
-
+declare function CTRunGetImageBounds(run: any, context: any, range: CFRange): NSRect;
+declare function CTRunGetPositions(run: any, range: CFRange, buffer: NSPoint): void;
+declare function CTRunGetPositionsPtr(run: any): NSPoint;
 declare function CTRunGetStatus(run: any): CTRunStatus;
-
 declare function CTRunGetStringIndices(run: any, range: CFRange, buffer: number): void;
-
 declare function CTRunGetStringIndicesPtr(run: any): number;
-
 declare function CTRunGetStringRange(run: any): CFRange;
-
 declare function CTRunGetTextMatrix(run: any): CGAffineTransform;
-
 declare function CTRunGetTypeID(): number;
-
 declare function CTRunGetTypographicBounds(run: any, range: CFRange, ascent: number, descent: number, leading: number): number;
-
-enum CTRunStatus {
-
-	kCTRunStatusNoStatus = 0,
-
-	kCTRunStatusRightToLeft = 1,
-
-	kCTRunStatusNonMonotonic = 2,
-
-	kCTRunStatusHasNonIdentityMatrix = 4
-}
-
-
-enum CTTextAlignment {
-
-	kCTTextAlignmentLeft = 0,
-
-	kCTTextAlignmentRight = 1,
-
-	kCTTextAlignmentCenter = 2,
-
-	kCTTextAlignmentJustified = 3,
-
-	kCTTextAlignmentNatural = 4,
-
-	kCTLeftTextAlignment = 0,
-
-	kCTRightTextAlignment = 1,
-
-	kCTCenterTextAlignment = 2,
-
-	kCTJustifiedTextAlignment = 3,
-
-	kCTNaturalTextAlignment = 4
-}
-
-
-declare function CTTextTabCreate(alignment: CTTextAlignment, location: number, options: NSDictionary<any, any>): any;
-
+declare function CTTextTabCreate(alignment: CTTextAlignment, location: number, options: NSObject): any;
 declare function CTTextTabGetAlignment(tab: any): CTTextAlignment;
-
 declare function CTTextTabGetLocation(tab: any): number;
-
-declare function CTTextTabGetOptions(tab: any): NSDictionary<any, any>;
-
+declare function CTTextTabGetOptions(tab: any): NSObject;
 declare function CTTextTabGetTypeID(): number;
-
 declare function CTTypesetterCreateLine(typesetter: any, stringRange: CFRange): any;
-
 declare function CTTypesetterCreateLineWithOffset(typesetter: any, stringRange: CFRange, offset: number): any;
-
-declare function CTTypesetterCreateWithAttributedString(string: NSAttributedString): any;
-
-declare function CTTypesetterCreateWithAttributedStringAndOptions(string: NSAttributedString, options: NSDictionary<any, any>): any;
-
+declare function CTTypesetterCreateWithAttributedString(string: NSObject): any;
+declare function CTTypesetterCreateWithAttributedStringAndOptions(string: NSObject, options: NSObject): any;
 declare function CTTypesetterGetTypeID(): number;
-
 declare function CTTypesetterSuggestClusterBreak(typesetter: any, startIndex: number, width: number): number;
-
 declare function CTTypesetterSuggestClusterBreakWithOffset(typesetter: any, startIndex: number, width: number, offset: number): number;
-
 declare function CTTypesetterSuggestLineBreak(typesetter: any, startIndex: number, width: number): number;
-
 declare function CTTypesetterSuggestLineBreakWithOffset(typesetter: any, startIndex: number, width: number, offset: number): number;
-
-enum CTUnderlineStyle {
-
-	kCTUnderlineStyleNone = 0,
-
-	kCTUnderlineStyleSingle = 1,
-
-	kCTUnderlineStyleThick = 2,
-
-	kCTUnderlineStyleDouble = 9
-}
-
-
-enum CTUnderlineStyleModifiers {
-
-	kCTUnderlinePatternSolid = 0,
-
-	kCTUnderlinePatternDot = 256,
-
-	kCTUnderlinePatternDash = 512,
-
-	kCTUnderlinePatternDashDot = 768,
-
-	kCTUnderlinePatternDashDotDot = 1024
-}
-
-
-enum CTWritingDirection {
-
-	kCTWritingDirectionNatural = -1,
-
-	kCTWritingDirectionLeftToRight = 0,
-
-	kCTWritingDirectionRightToLeft = 1
-}
-
-
 interface FontVariation {
-	name: number;
-	value: number;
+  name: number;
+  value: number;
 }
+
 declare var FontVariation: FontVariation;
 
 interface JustPCAction {
-	actionCount: number;
-	actions: JustPCActionSubrecord;
+  actionCount: number;
+  actions: JustPCActionSubrecord;
 }
+
 declare var JustPCAction: JustPCAction;
 
 interface JustPCActionSubrecord {
-	theClass: number;
-	theType: number;
-	length: number;
-	data: number;
+  theClass: number;
+  theType: number;
+  length: number;
+  data: number;
 }
+
 declare var JustPCActionSubrecord: JustPCActionSubrecord;
 
 interface JustPCConditionalAddAction {
-	substThreshold: number;
-	addGlyph: number;
-	substGlyph: number;
+  substThreshold: number;
+  addGlyph: number;
+  substGlyph: number;
 }
+
 declare var JustPCConditionalAddAction: JustPCConditionalAddAction;
 
 interface JustPCDecompositionAction {
-	lowerLimit: number;
-	upperLimit: number;
-	order: number;
-	count: number;
-	glyphs: number;
+  lowerLimit: number;
+  upperLimit: number;
+  order: number;
+  count: number;
+  glyphs: number;
 }
+
 declare var JustPCDecompositionAction: JustPCDecompositionAction;
 
 interface JustPCDuctilityAction {
-	ductilityAxis: number;
-	minimumLimit: number;
-	noStretchValue: number;
-	maximumLimit: number;
+  ductilityAxis: number;
+  minimumLimit: number;
+  noStretchValue: number;
+  maximumLimit: number;
 }
+
 declare var JustPCDuctilityAction: JustPCDuctilityAction;
 
 interface JustPCGlyphRepeatAddAction {
-	flags: number;
-	glyph: number;
+  flags: number;
+  glyph: number;
 }
+
 declare var JustPCGlyphRepeatAddAction: JustPCGlyphRepeatAddAction;
 
 interface JustTable {
-	version: number;
-	format: number;
-	horizHeaderOffset: number;
-	vertHeaderOffset: number;
+  version: number;
+  format: number;
+  horizHeaderOffset: number;
+  vertHeaderOffset: number;
 }
+
 declare var JustTable: JustTable;
 
 interface JustWidthDeltaEntry {
-	justClass: number;
-	beforeGrowLimit: number;
-	beforeShrinkLimit: number;
-	afterGrowLimit: number;
-	afterShrinkLimit: number;
-	growFlags: number;
-	shrinkFlags: number;
+  justClass: number;
+  beforeGrowLimit: number;
+  beforeShrinkLimit: number;
+  afterGrowLimit: number;
+  afterShrinkLimit: number;
+  growFlags: number;
+  shrinkFlags: number;
 }
+
 declare var JustWidthDeltaEntry: JustWidthDeltaEntry;
 
 interface JustWidthDeltaGroup {
-	count: number;
-	entries: JustWidthDeltaEntry;
+  count: number;
+  entries: JustWidthDeltaEntry;
 }
+
 declare var JustWidthDeltaGroup: JustWidthDeltaGroup;
 
 interface KernIndexArrayHeader {
-	glyphCount: number;
-	kernValueCount: number;
-	leftClassCount: number;
-	rightClassCount: number;
-	flags: number;
-	kernValue: number;
-	leftClass: number;
-	rightClass: number;
-	kernIndex: number;
+  glyphCount: number;
+  kernValueCount: number;
+  leftClassCount: number;
+  rightClassCount: number;
+  flags: number;
+  kernValue: number;
+  leftClass: number;
+  rightClass: number;
+  kernIndex: number;
 }
+
 declare var KernIndexArrayHeader: KernIndexArrayHeader;
 
 interface KernKerningPair {
-	left: number;
-	right: number;
+  left: number;
+  right: number;
 }
+
 declare var KernKerningPair: KernKerningPair;
 
 interface KernOffsetTable {
-	firstGlyph: number;
-	nGlyphs: number;
-	offsetTable: number;
+  firstGlyph: number;
+  nGlyphs: number;
+  offsetTable: number;
 }
+
 declare var KernOffsetTable: KernOffsetTable;
 
 interface KernOrderedListEntry {
-	pair: KernKerningPair;
-	value: number;
+  pair: KernKerningPair;
+  value: number;
 }
+
 declare var KernOrderedListEntry: KernOrderedListEntry;
 
 interface KernOrderedListHeader {
-	nPairs: number;
-	searchRange: number;
-	entrySelector: number;
-	rangeShift: number;
-	table: number;
+  nPairs: number;
+  searchRange: number;
+  entrySelector: number;
+  rangeShift: number;
+  table: number;
 }
+
 declare var KernOrderedListHeader: KernOrderedListHeader;
 
 interface KernSimpleArrayHeader {
-	rowWidth: number;
-	leftOffsetTable: number;
-	rightOffsetTable: number;
-	theArray: number;
-	firstTable: number;
+  rowWidth: number;
+  leftOffsetTable: number;
+  rightOffsetTable: number;
+  theArray: number;
+  firstTable: number;
 }
+
 declare var KernSimpleArrayHeader: KernSimpleArrayHeader;
 
 interface KernStateEntry {
-	newState: number;
-	flags: number;
+  newState: number;
+  flags: number;
 }
+
 declare var KernStateEntry: KernStateEntry;
 
 interface KernStateHeader {
-	header: STHeader;
-	valueTable: number;
-	firstTable: number;
+  header: STHeader;
+  valueTable: number;
+  firstTable: number;
 }
+
 declare var KernStateHeader: KernStateHeader;
 
 interface KernTableHeader {
-	version: number;
-	nTables: number;
-	firstSubtable: number;
+  version: number;
+  nTables: number;
+  firstSubtable: number;
 }
+
 declare var KernTableHeader: KernTableHeader;
 
 interface KernVersion0Header {
-	version: number;
-	nTables: number;
-	firstSubtable: number;
+  version: number;
+  nTables: number;
+  firstSubtable: number;
 }
+
 declare var KernVersion0Header: KernVersion0Header;
 
 interface KerxAnchorPointAction {
-	markAnchorPoint: number;
-	currAnchorPoint: number;
+  markAnchorPoint: number;
+  currAnchorPoint: number;
 }
+
 declare var KerxAnchorPointAction: KerxAnchorPointAction;
 
 interface KerxControlPointAction {
-	markControlPoint: number;
-	currControlPoint: number;
+  markControlPoint: number;
+  currControlPoint: number;
 }
+
 declare var KerxControlPointAction: KerxControlPointAction;
 
 interface KerxControlPointEntry {
-	newState: number;
-	flags: number;
-	actionIndex: number;
+  newState: number;
+  flags: number;
+  actionIndex: number;
 }
+
 declare var KerxControlPointEntry: KerxControlPointEntry;
 
 interface KerxControlPointHeader {
-	header: STXHeader;
-	flags: number;
-	firstTable: number;
+  header: STXHeader;
+  flags: number;
+  firstTable: number;
 }
+
 declare var KerxControlPointHeader: KerxControlPointHeader;
 
 interface KerxCoordinateAction {
-	markX: number;
-	markY: number;
-	currX: number;
-	currY: number;
+  markX: number;
+  markY: number;
+  currX: number;
+  currY: number;
 }
+
 declare var KerxCoordinateAction: KerxCoordinateAction;
 
 interface KerxIndexArrayHeader {
-	flags: number;
-	rowCount: number;
-	columnCount: number;
-	rowIndexTableOffset: number;
-	columnIndexTableOffset: number;
-	kerningArrayOffset: number;
-	kerningVectorOffset: number;
+  flags: number;
+  rowCount: number;
+  columnCount: number;
+  rowIndexTableOffset: number;
+  columnIndexTableOffset: number;
+  kerningArrayOffset: number;
+  kerningVectorOffset: number;
 }
+
 declare var KerxIndexArrayHeader: KerxIndexArrayHeader;
 
 interface KerxKerningPair {
-	left: number;
-	right: number;
+  left: number;
+  right: number;
 }
+
 declare var KerxKerningPair: KerxKerningPair;
 
 interface KerxOrderedListEntry {
-	pair: KerxKerningPair;
-	value: number;
+  pair: KerxKerningPair;
+  value: number;
 }
+
 declare var KerxOrderedListEntry: KerxOrderedListEntry;
 
 interface KerxOrderedListHeader {
-	nPairs: number;
-	searchRange: number;
-	entrySelector: number;
-	rangeShift: number;
-	table: number;
+  nPairs: number;
+  searchRange: number;
+  entrySelector: number;
+  rangeShift: number;
+  table: number;
 }
+
 declare var KerxOrderedListHeader: KerxOrderedListHeader;
 
 interface KerxSimpleArrayHeader {
-	rowWidth: number;
-	leftOffsetTable: number;
-	rightOffsetTable: number;
-	theArray: number;
-	firstTable: number;
+  rowWidth: number;
+  leftOffsetTable: number;
+  rightOffsetTable: number;
+  theArray: number;
+  firstTable: number;
 }
+
 declare var KerxSimpleArrayHeader: KerxSimpleArrayHeader;
 
 interface KerxStateEntry {
-	newState: number;
-	flags: number;
-	valueIndex: number;
+  newState: number;
+  flags: number;
+  valueIndex: number;
 }
+
 declare var KerxStateEntry: KerxStateEntry;
 
 interface KerxStateHeader {
-	header: STXHeader;
-	valueTable: number;
-	firstTable: number;
+  header: STXHeader;
+  valueTable: number;
+  firstTable: number;
 }
+
 declare var KerxStateHeader: KerxStateHeader;
 
 interface KerxTableHeader {
-	version: number;
-	nTables: number;
-	firstSubtable: number;
+  version: number;
+  nTables: number;
+  firstSubtable: number;
 }
+
 declare var KerxTableHeader: KerxTableHeader;
 
 interface LcarCaretClassEntry {
-	count: number;
-	partials: number;
+  count: number;
+  partials: number;
 }
+
 declare var LcarCaretClassEntry: LcarCaretClassEntry;
 
 interface LtagStringRange {
-	offset: number;
-	length: number;
+  offset: number;
+  length: number;
 }
+
 declare var LtagStringRange: LtagStringRange;
 
 interface LtagTable {
-	version: number;
-	flags: number;
-	numTags: number;
-	tagRange: LtagStringRange;
+  version: number;
+  flags: number;
+  numTags: number;
+  tagRange: LtagStringRange;
 }
+
 declare var LtagTable: LtagTable;
 
 interface MortChain {
-	defaultFlags: number;
-	length: number;
-	nFeatures: number;
-	nSubtables: number;
-	featureEntries: MortFeatureEntry;
+  defaultFlags: number;
+  length: number;
+  nFeatures: number;
+  nSubtables: number;
+  featureEntries: MortFeatureEntry;
 }
+
 declare var MortChain: MortChain;
 
 interface MortContextualSubtable {
-	header: STHeader;
-	substitutionTableOffset: number;
+  header: STHeader;
+  substitutionTableOffset: number;
 }
+
 declare var MortContextualSubtable: MortContextualSubtable;
 
 interface MortFeatureEntry {
-	featureType: number;
-	featureSelector: number;
-	enableFlags: number;
-	disableFlags: number;
+  featureType: number;
+  featureSelector: number;
+  enableFlags: number;
+  disableFlags: number;
 }
+
 declare var MortFeatureEntry: MortFeatureEntry;
 
 interface MortInsertionSubtable {
-	header: STHeader;
+  header: STHeader;
 }
+
 declare var MortInsertionSubtable: MortInsertionSubtable;
 
 interface MortLigatureSubtable {
-	header: STHeader;
-	ligatureActionTableOffset: number;
-	componentTableOffset: number;
-	ligatureTableOffset: number;
+  header: STHeader;
+  ligatureActionTableOffset: number;
+  componentTableOffset: number;
+  ligatureTableOffset: number;
 }
+
 declare var MortLigatureSubtable: MortLigatureSubtable;
 
 interface MortRearrangementSubtable {
-	header: STHeader;
+  header: STHeader;
 }
+
 declare var MortRearrangementSubtable: MortRearrangementSubtable;
 
 interface MortTable {
-	version: number;
-	nChains: number;
-	chains: MortChain;
+  version: number;
+  nChains: number;
+  chains: MortChain;
 }
+
 declare var MortTable: MortTable;
 
 interface MorxChain {
-	defaultFlags: number;
-	length: number;
-	nFeatures: number;
-	nSubtables: number;
-	featureEntries: MortFeatureEntry;
+  defaultFlags: number;
+  length: number;
+  nFeatures: number;
+  nSubtables: number;
+  featureEntries: MortFeatureEntry;
 }
+
 declare var MorxChain: MorxChain;
 
 interface MorxContextualSubtable {
-	header: STXHeader;
-	substitutionTableOffset: number;
+  header: STXHeader;
+  substitutionTableOffset: number;
 }
+
 declare var MorxContextualSubtable: MorxContextualSubtable;
 
 interface MorxInsertionSubtable {
-	header: STXHeader;
-	insertionGlyphTableOffset: number;
+  header: STXHeader;
+  insertionGlyphTableOffset: number;
 }
+
 declare var MorxInsertionSubtable: MorxInsertionSubtable;
 
 interface MorxLigatureSubtable {
-	header: STXHeader;
-	ligatureActionTableOffset: number;
-	componentTableOffset: number;
-	ligatureTableOffset: number;
+  header: STXHeader;
+  ligatureActionTableOffset: number;
+  componentTableOffset: number;
+  ligatureTableOffset: number;
 }
+
 declare var MorxLigatureSubtable: MorxLigatureSubtable;
 
 interface MorxRearrangementSubtable {
-	header: STXHeader;
+  header: STXHeader;
 }
+
 declare var MorxRearrangementSubtable: MorxRearrangementSubtable;
 
 interface MorxTable {
-	version: number;
-	nChains: number;
-	chains: MorxChain;
+  version: number;
+  nChains: number;
+  chains: MorxChain;
 }
+
 declare var MorxTable: MorxTable;
 
 interface OpbdSideValues {
-	leftSideShift: number;
-	topSideShift: number;
-	rightSideShift: number;
-	bottomSideShift: number;
+  leftSideShift: number;
+  topSideShift: number;
+  rightSideShift: number;
+  bottomSideShift: number;
 }
+
 declare var OpbdSideValues: OpbdSideValues;
 
 interface PropLookupSegment {
-	lastGlyph: number;
-	firstGlyph: number;
-	value: number;
+  lastGlyph: number;
+  firstGlyph: number;
+  value: number;
 }
+
 declare var PropLookupSegment: PropLookupSegment;
 
 interface PropLookupSingle {
-	glyph: number;
-	props: number;
+  glyph: number;
+  props: number;
 }
+
 declare var PropLookupSingle: PropLookupSingle;
 
 interface ROTAGlyphEntry {
-	GlyphIndexOffset: number;
-	HBaselineOffset: number;
-	VBaselineOffset: number;
+  GlyphIndexOffset: number;
+  HBaselineOffset: number;
+  VBaselineOffset: number;
 }
+
 declare var ROTAGlyphEntry: ROTAGlyphEntry;
 
 interface SFNTLookupArrayHeader {
-	lookupValues: number;
+  lookupValues: number;
 }
+
 declare var SFNTLookupArrayHeader: SFNTLookupArrayHeader;
 
 interface SFNTLookupBinarySearchHeader {
-	unitSize: number;
-	nUnits: number;
-	searchRange: number;
-	entrySelector: number;
-	rangeShift: number;
+  unitSize: number;
+  nUnits: number;
+  searchRange: number;
+  entrySelector: number;
+  rangeShift: number;
 }
+
 declare var SFNTLookupBinarySearchHeader: SFNTLookupBinarySearchHeader;
 
 interface SFNTLookupSegment {
-	lastGlyph: number;
-	firstGlyph: number;
-	value: number;
+  lastGlyph: number;
+  firstGlyph: number;
+  value: number;
 }
+
 declare var SFNTLookupSegment: SFNTLookupSegment;
 
 interface SFNTLookupSegmentHeader {
-	binSearch: SFNTLookupBinarySearchHeader;
-	segments: SFNTLookupSegment;
+  binSearch: SFNTLookupBinarySearchHeader;
+  segments: SFNTLookupSegment;
 }
+
 declare var SFNTLookupSegmentHeader: SFNTLookupSegmentHeader;
 
 interface SFNTLookupSingle {
-	glyph: number;
-	value: number;
+  glyph: number;
+  value: number;
 }
+
 declare var SFNTLookupSingle: SFNTLookupSingle;
 
 interface SFNTLookupSingleHeader {
-	binSearch: SFNTLookupBinarySearchHeader;
-	entries: SFNTLookupSingle;
+  binSearch: SFNTLookupBinarySearchHeader;
+  entries: SFNTLookupSingle;
 }
+
 declare var SFNTLookupSingleHeader: SFNTLookupSingleHeader;
 
 interface SFNTLookupTrimmedArrayHeader {
-	firstGlyph: number;
-	count: number;
-	valueArray: number;
+  firstGlyph: number;
+  count: number;
+  valueArray: number;
 }
+
 declare var SFNTLookupTrimmedArrayHeader: SFNTLookupTrimmedArrayHeader;
 
 interface SFNTLookupVectorHeader {
-	valueSize: number;
-	firstGlyph: number;
-	count: number;
-	values: number;
+  valueSize: number;
+  firstGlyph: number;
+  count: number;
+  values: number;
 }
+
 declare var SFNTLookupVectorHeader: SFNTLookupVectorHeader;
 
 interface STClassTable {
-	firstGlyph: number;
-	nGlyphs: number;
-	classes: number;
+  firstGlyph: number;
+  nGlyphs: number;
+  classes: number;
 }
+
 declare var STClassTable: STClassTable;
 
 interface STEntryOne {
-	newState: number;
-	flags: number;
-	offset1: number;
+  newState: number;
+  flags: number;
+  offset1: number;
 }
+
 declare var STEntryOne: STEntryOne;
 
 interface STEntryTwo {
-	newState: number;
-	flags: number;
-	offset1: number;
-	offset2: number;
+  newState: number;
+  flags: number;
+  offset1: number;
+  offset2: number;
 }
+
 declare var STEntryTwo: STEntryTwo;
 
 interface STEntryZero {
-	newState: number;
-	flags: number;
+  newState: number;
+  flags: number;
 }
+
 declare var STEntryZero: STEntryZero;
 
 interface STHeader {
-	filler: number;
-	nClasses: number;
-	classTableOffset: number;
-	stateArrayOffset: number;
-	entryTableOffset: number;
+  filler: number;
+  nClasses: number;
+  classTableOffset: number;
+  stateArrayOffset: number;
+  entryTableOffset: number;
 }
+
 declare var STHeader: STHeader;
 
 interface STXEntryOne {
-	newState: number;
-	flags: number;
-	index1: number;
+  newState: number;
+  flags: number;
+  index1: number;
 }
+
 declare var STXEntryOne: STXEntryOne;
 
 interface STXEntryTwo {
-	newState: number;
-	flags: number;
-	index1: number;
-	index2: number;
+  newState: number;
+  flags: number;
+  index1: number;
+  index2: number;
 }
+
 declare var STXEntryTwo: STXEntryTwo;
 
 interface STXEntryZero {
-	newState: number;
-	flags: number;
+  newState: number;
+  flags: number;
 }
+
 declare var STXEntryZero: STXEntryZero;
 
 interface STXHeader {
-	nClasses: number;
-	classTableOffset: number;
-	stateArrayOffset: number;
-	entryTableOffset: number;
+  nClasses: number;
+  classTableOffset: number;
+  stateArrayOffset: number;
+  entryTableOffset: number;
 }
+
 declare var STXHeader: STXHeader;
 
 interface TrakTable {
-	version: number;
-	format: number;
-	horizOffset: number;
-	vertOffset: number;
+  version: number;
+  format: number;
+  horizOffset: number;
+  vertOffset: number;
 }
+
 declare var TrakTable: TrakTable;
 
 interface TrakTableData {
-	nTracks: number;
-	nSizes: number;
-	sizeTableOffset: number;
-	trakTable: TrakTableEntry;
+  nTracks: number;
+  nSizes: number;
+  sizeTableOffset: number;
+  trakTable: TrakTableEntry;
 }
+
 declare var TrakTableData: TrakTableData;
 
 interface TrakTableEntry {
-	track: number;
-	nameTableIndex: number;
-	sizesOffset: number;
+  track: number;
+  nameTableIndex: number;
+  sizesOffset: number;
 }
+
 declare var TrakTableEntry: TrakTableEntry;
+
 
 declare const cmapFontTableTag: number;
 
@@ -1672,148 +1587,148 @@ declare const kCJKVerticalRomanCenteredSelector: number;
 declare const kCJKVerticalRomanHBaselineSelector: number;
 
 declare const kCJKVerticalRomanPlacementType: number;
+declare var kCTBackgroundColorAttributeName: NSObject;
 
-declare var kCTBackgroundColorAttributeName: string;
+declare var kCTBaselineClassAttributeName: NSObject;
 
-declare var kCTBaselineClassAttributeName: string;
+declare var kCTBaselineClassHanging: NSObject;
 
-declare var kCTBaselineClassHanging: string;
+declare var kCTBaselineClassIdeographicCentered: NSObject;
 
-declare var kCTBaselineClassIdeographicCentered: string;
+declare var kCTBaselineClassIdeographicHigh: NSObject;
 
-declare var kCTBaselineClassIdeographicHigh: string;
+declare var kCTBaselineClassIdeographicLow: NSObject;
 
-declare var kCTBaselineClassIdeographicLow: string;
+declare var kCTBaselineClassMath: NSObject;
 
-declare var kCTBaselineClassMath: string;
+declare var kCTBaselineClassRoman: NSObject;
 
-declare var kCTBaselineClassRoman: string;
+declare var kCTBaselineInfoAttributeName: NSObject;
 
-declare var kCTBaselineInfoAttributeName: string;
+declare var kCTBaselineOffsetAttributeName: NSObject;
 
-declare var kCTBaselineOffsetAttributeName: string;
+declare var kCTBaselineOriginalFont: NSObject;
 
-declare var kCTBaselineOriginalFont: string;
+declare var kCTBaselineReferenceFont: NSObject;
 
-declare var kCTBaselineReferenceFont: string;
+declare var kCTBaselineReferenceInfoAttributeName: NSObject;
 
-declare var kCTBaselineReferenceInfoAttributeName: string;
+declare var kCTFontAttributeName: NSObject;
 
-declare var kCTFontAttributeName: string;
+declare var kCTFontBaselineAdjustAttribute: NSObject;
 
-declare var kCTFontBaselineAdjustAttribute: string;
+declare var kCTFontCascadeListAttribute: NSObject;
 
-declare var kCTFontCascadeListAttribute: string;
+declare var kCTFontCharacterSetAttribute: NSObject;
 
-declare var kCTFontCharacterSetAttribute: string;
 
 declare const kCTFontClassMaskShift: number;
+declare var kCTFontCollectionDisallowAutoActivationOption: NSObject;
 
-declare var kCTFontCollectionDisallowAutoActivationOption: string;
+declare var kCTFontCollectionIncludeDisabledFontsOption: NSObject;
 
-declare var kCTFontCollectionIncludeDisabledFontsOption: string;
+declare var kCTFontCollectionRemoveDuplicatesOption: NSObject;
 
-declare var kCTFontCollectionRemoveDuplicatesOption: string;
+declare var kCTFontCopyrightNameKey: NSObject;
 
-declare var kCTFontCopyrightNameKey: string;
+declare var kCTFontDescriptionNameKey: NSObject;
 
-declare var kCTFontDescriptionNameKey: string;
+declare var kCTFontDescriptorMatchingCurrentAssetSize: NSObject;
 
-declare var kCTFontDescriptorMatchingCurrentAssetSize: string;
+declare var kCTFontDescriptorMatchingDescriptors: NSObject;
 
-declare var kCTFontDescriptorMatchingDescriptors: string;
+declare var kCTFontDescriptorMatchingError: NSObject;
 
-declare var kCTFontDescriptorMatchingError: string;
+declare var kCTFontDescriptorMatchingPercentage: NSObject;
 
-declare var kCTFontDescriptorMatchingPercentage: string;
+declare var kCTFontDescriptorMatchingResult: NSObject;
 
-declare var kCTFontDescriptorMatchingResult: string;
+declare var kCTFontDescriptorMatchingSourceDescriptor: NSObject;
 
-declare var kCTFontDescriptorMatchingSourceDescriptor: string;
+declare var kCTFontDescriptorMatchingTotalAssetSize: NSObject;
 
-declare var kCTFontDescriptorMatchingTotalAssetSize: string;
+declare var kCTFontDescriptorMatchingTotalDownloadedSize: NSObject;
 
-declare var kCTFontDescriptorMatchingTotalDownloadedSize: string;
+declare var kCTFontDesignerNameKey: NSObject;
 
-declare var kCTFontDesignerNameKey: string;
+declare var kCTFontDesignerURLNameKey: NSObject;
 
-declare var kCTFontDesignerURLNameKey: string;
+declare var kCTFontDisplayNameAttribute: NSObject;
 
-declare var kCTFontDisplayNameAttribute: string;
+declare var kCTFontDownloadableAttribute: NSObject;
 
-declare var kCTFontDownloadableAttribute: string;
+declare var kCTFontDownloadedAttribute: NSObject;
 
-declare var kCTFontDownloadedAttribute: string;
+declare var kCTFontEnabledAttribute: NSObject;
 
-declare var kCTFontEnabledAttribute: string;
+declare var kCTFontFamilyNameAttribute: NSObject;
 
-declare var kCTFontFamilyNameAttribute: string;
+declare var kCTFontFamilyNameKey: NSObject;
 
-declare var kCTFontFamilyNameKey: string;
+declare var kCTFontFeatureSampleTextKey: NSObject;
 
-declare var kCTFontFeatureSampleTextKey: string;
+declare var kCTFontFeatureSelectorDefaultKey: NSObject;
 
-declare var kCTFontFeatureSelectorDefaultKey: string;
+declare var kCTFontFeatureSelectorIdentifierKey: NSObject;
 
-declare var kCTFontFeatureSelectorIdentifierKey: string;
+declare var kCTFontFeatureSelectorNameKey: NSObject;
 
-declare var kCTFontFeatureSelectorNameKey: string;
+declare var kCTFontFeatureSelectorSettingKey: NSObject;
 
-declare var kCTFontFeatureSelectorSettingKey: string;
+declare var kCTFontFeatureSettingsAttribute: NSObject;
 
-declare var kCTFontFeatureSettingsAttribute: string;
+declare var kCTFontFeatureTooltipTextKey: NSObject;
 
-declare var kCTFontFeatureTooltipTextKey: string;
+declare var kCTFontFeatureTypeExclusiveKey: NSObject;
 
-declare var kCTFontFeatureTypeExclusiveKey: string;
+declare var kCTFontFeatureTypeIdentifierKey: NSObject;
 
-declare var kCTFontFeatureTypeIdentifierKey: string;
+declare var kCTFontFeatureTypeNameKey: NSObject;
 
-declare var kCTFontFeatureTypeNameKey: string;
+declare var kCTFontFeatureTypeSelectorsKey: NSObject;
 
-declare var kCTFontFeatureTypeSelectorsKey: string;
+declare var kCTFontFeaturesAttribute: NSObject;
 
-declare var kCTFontFeaturesAttribute: string;
+declare var kCTFontFixedAdvanceAttribute: NSObject;
 
-declare var kCTFontFixedAdvanceAttribute: string;
+declare var kCTFontFormatAttribute: NSObject;
 
-declare var kCTFontFormatAttribute: string;
+declare var kCTFontFullNameKey: NSObject;
 
-declare var kCTFontFullNameKey: string;
+declare var kCTFontLanguagesAttribute: NSObject;
 
-declare var kCTFontLanguagesAttribute: string;
+declare var kCTFontLicenseNameKey: NSObject;
 
-declare var kCTFontLicenseNameKey: string;
+declare var kCTFontLicenseURLNameKey: NSObject;
 
-declare var kCTFontLicenseURLNameKey: string;
+declare var kCTFontMacintoshEncodingsAttribute: NSObject;
 
-declare var kCTFontMacintoshEncodingsAttribute: string;
+declare var kCTFontManagerBundleIdentifier: NSObject;
 
-declare var kCTFontManagerBundleIdentifier: string;
+declare var kCTFontManagerErrorDomain: NSObject;
 
-declare var kCTFontManagerErrorDomain: string;
+declare var kCTFontManagerErrorFontURLsKey: NSObject;
 
-declare var kCTFontManagerErrorFontURLsKey: string;
+declare var kCTFontManagerRegisteredFontsChangedNotification: NSObject;
 
-declare var kCTFontManagerRegisteredFontsChangedNotification: string;
+declare var kCTFontManufacturerNameKey: NSObject;
 
-declare var kCTFontManufacturerNameKey: string;
+declare var kCTFontMatrixAttribute: NSObject;
 
-declare var kCTFontMatrixAttribute: string;
+declare var kCTFontNameAttribute: NSObject;
 
-declare var kCTFontNameAttribute: string;
+declare var kCTFontOpenTypeFeatureTag: NSObject;
 
-declare var kCTFontOpenTypeFeatureTag: string;
+declare var kCTFontOpenTypeFeatureValue: NSObject;
 
-declare var kCTFontOpenTypeFeatureValue: string;
+declare var kCTFontOrientationAttribute: NSObject;
 
-declare var kCTFontOrientationAttribute: string;
+declare var kCTFontPostScriptCIDNameKey: NSObject;
 
-declare var kCTFontPostScriptCIDNameKey: string;
+declare var kCTFontPostScriptNameKey: NSObject;
 
-declare var kCTFontPostScriptNameKey: string;
+declare var kCTFontPriorityAttribute: NSObject;
 
-declare var kCTFontPriorityAttribute: string;
 
 declare const kCTFontPriorityComputer: number;
 
@@ -1826,22 +1741,22 @@ declare const kCTFontPriorityProcess: number;
 declare const kCTFontPrioritySystem: number;
 
 declare const kCTFontPriorityUser: number;
+declare var kCTFontRegistrationScopeAttribute: NSObject;
 
-declare var kCTFontRegistrationScopeAttribute: string;
+declare var kCTFontSampleTextNameKey: NSObject;
 
-declare var kCTFontSampleTextNameKey: string;
+declare var kCTFontSizeAttribute: NSObject;
 
-declare var kCTFontSizeAttribute: string;
+declare var kCTFontSlantTrait: NSObject;
 
-declare var kCTFontSlantTrait: string;
+declare var kCTFontStyleNameAttribute: NSObject;
 
-declare var kCTFontStyleNameAttribute: string;
+declare var kCTFontStyleNameKey: NSObject;
 
-declare var kCTFontStyleNameKey: string;
+declare var kCTFontSubFamilyNameKey: NSObject;
 
-declare var kCTFontSubFamilyNameKey: string;
+declare var kCTFontSymbolicTrait: NSObject;
 
-declare var kCTFontSymbolicTrait: string;
 
 declare const kCTFontTableAcnt: number;
 
@@ -1990,96 +1905,96 @@ declare const kCTFontTableVmtx: number;
 declare const kCTFontTableXref: number;
 
 declare const kCTFontTableZapf: number;
+declare var kCTFontTrademarkNameKey: NSObject;
 
-declare var kCTFontTrademarkNameKey: string;
+declare var kCTFontTraitsAttribute: NSObject;
 
-declare var kCTFontTraitsAttribute: string;
+declare var kCTFontURLAttribute: NSObject;
 
-declare var kCTFontURLAttribute: string;
+declare var kCTFontUniqueNameKey: NSObject;
 
-declare var kCTFontUniqueNameKey: string;
+declare var kCTFontVariationAttribute: NSObject;
 
-declare var kCTFontVariationAttribute: string;
+declare var kCTFontVariationAxisDefaultValueKey: NSObject;
 
-declare var kCTFontVariationAxisDefaultValueKey: string;
+declare var kCTFontVariationAxisHiddenKey: NSObject;
 
-declare var kCTFontVariationAxisHiddenKey: string;
+declare var kCTFontVariationAxisIdentifierKey: NSObject;
 
-declare var kCTFontVariationAxisIdentifierKey: string;
+declare var kCTFontVariationAxisMaximumValueKey: NSObject;
 
-declare var kCTFontVariationAxisMaximumValueKey: string;
+declare var kCTFontVariationAxisMinimumValueKey: NSObject;
 
-declare var kCTFontVariationAxisMinimumValueKey: string;
+declare var kCTFontVariationAxisNameKey: NSObject;
 
-declare var kCTFontVariationAxisNameKey: string;
+declare var kCTFontVendorURLNameKey: NSObject;
 
-declare var kCTFontVendorURLNameKey: string;
+declare var kCTFontVersionNameKey: NSObject;
 
-declare var kCTFontVersionNameKey: string;
+declare var kCTFontWeightTrait: NSObject;
 
-declare var kCTFontWeightTrait: string;
+declare var kCTFontWidthTrait: NSObject;
 
-declare var kCTFontWidthTrait: string;
+declare var kCTForegroundColorAttributeName: NSObject;
 
-declare var kCTForegroundColorAttributeName: string;
+declare var kCTForegroundColorFromContextAttributeName: NSObject;
 
-declare var kCTForegroundColorFromContextAttributeName: string;
+declare var kCTFrameClippingPathsAttributeName: NSObject;
 
-declare var kCTFrameClippingPathsAttributeName: string;
+declare var kCTFramePathClippingPathAttributeName: NSObject;
 
-declare var kCTFramePathClippingPathAttributeName: string;
+declare var kCTFramePathFillRuleAttributeName: NSObject;
 
-declare var kCTFramePathFillRuleAttributeName: string;
+declare var kCTFramePathWidthAttributeName: NSObject;
 
-declare var kCTFramePathWidthAttributeName: string;
+declare var kCTFrameProgressionAttributeName: NSObject;
 
-declare var kCTFrameProgressionAttributeName: string;
+declare var kCTGlyphInfoAttributeName: NSObject;
 
-declare var kCTGlyphInfoAttributeName: string;
+declare var kCTHorizontalInVerticalFormsAttributeName: NSObject;
 
-declare var kCTHorizontalInVerticalFormsAttributeName: string;
+declare var kCTKernAttributeName: NSObject;
 
-declare var kCTKernAttributeName: string;
+declare var kCTLanguageAttributeName: NSObject;
 
-declare var kCTLanguageAttributeName: string;
+declare var kCTLigatureAttributeName: NSObject;
 
-declare var kCTLigatureAttributeName: string;
+declare var kCTParagraphStyleAttributeName: NSObject;
 
-declare var kCTParagraphStyleAttributeName: string;
+declare var kCTRubyAnnotationAttributeName: NSObject;
 
-declare var kCTRubyAnnotationAttributeName: string;
+declare var kCTRubyAnnotationScaleToFitAttributeName: NSObject;
 
-declare var kCTRubyAnnotationScaleToFitAttributeName: string;
+declare var kCTRubyAnnotationSizeFactorAttributeName: NSObject;
 
-declare var kCTRubyAnnotationSizeFactorAttributeName: string;
+declare var kCTRunDelegateAttributeName: NSObject;
 
-declare var kCTRunDelegateAttributeName: string;
 
 declare const kCTRunDelegateCurrentVersion: number;
 
 declare const kCTRunDelegateVersion1: number;
+declare var kCTStrokeColorAttributeName: NSObject;
 
-declare var kCTStrokeColorAttributeName: string;
+declare var kCTStrokeWidthAttributeName: NSObject;
 
-declare var kCTStrokeWidthAttributeName: string;
+declare var kCTSuperscriptAttributeName: NSObject;
 
-declare var kCTSuperscriptAttributeName: string;
+declare var kCTTabColumnTerminatorsAttributeName: NSObject;
 
-declare var kCTTabColumnTerminatorsAttributeName: string;
+declare var kCTTrackingAttributeName: NSObject;
 
-declare var kCTTrackingAttributeName: string;
+declare var kCTTypesetterOptionAllowUnboundedLayout: NSObject;
 
-declare var kCTTypesetterOptionAllowUnboundedLayout: string;
+declare var kCTTypesetterOptionForcedEmbeddingLevel: NSObject;
 
-declare var kCTTypesetterOptionForcedEmbeddingLevel: string;
+declare var kCTUnderlineColorAttributeName: NSObject;
 
-declare var kCTUnderlineColorAttributeName: string;
+declare var kCTUnderlineStyleAttributeName: NSObject;
 
-declare var kCTUnderlineStyleAttributeName: string;
+declare var kCTVerticalFormsAttributeName: NSObject;
 
-declare var kCTVerticalFormsAttributeName: string;
+declare var kCTWritingDirectionAttributeName: NSObject;
 
-declare var kCTWritingDirectionAttributeName: string;
 
 declare const kCTWritingDirectionEmbedding: number;
 
@@ -3358,146 +3273,163 @@ declare const nameFontTableTag: number;
 declare const nonGlyphID: number;
 
 declare const os2FontTableTag: number;
-
 interface sfntCMapEncoding {
-	platformID: number;
-	scriptID: number;
-	offset: number;
+  platformID: number;
+  scriptID: number;
+  offset: number;
 }
+
 declare var sfntCMapEncoding: sfntCMapEncoding;
 
 interface sfntCMapExtendedSubHeader {
-	format: number;
-	reserved: number;
-	length: number;
-	language: number;
+  format: number;
+  reserved: number;
+  length: number;
+  language: number;
 }
+
 declare var sfntCMapExtendedSubHeader: sfntCMapExtendedSubHeader;
 
 interface sfntCMapHeader {
-	version: number;
-	numTables: number;
-	encoding: sfntCMapEncoding;
+  version: number;
+  numTables: number;
+  encoding: sfntCMapEncoding;
 }
+
 declare var sfntCMapHeader: sfntCMapHeader;
 
 interface sfntCMapSubHeader {
-	format: number;
-	length: number;
-	languageID: number;
+  format: number;
+  length: number;
+  languageID: number;
 }
+
 declare var sfntCMapSubHeader: sfntCMapSubHeader;
 
 interface sfntDescriptorHeader {
-	version: number;
-	descriptorCount: number;
-	descriptor: sfntFontDescriptor;
+  version: number;
+  descriptorCount: number;
+  descriptor: sfntFontDescriptor;
 }
+
 declare var sfntDescriptorHeader: sfntDescriptorHeader;
 
 interface sfntDirectory {
-	format: number;
-	numOffsets: number;
-	searchRange: number;
-	entrySelector: number;
-	rangeShift: number;
-	table: sfntDirectoryEntry;
+  format: number;
+  numOffsets: number;
+  searchRange: number;
+  entrySelector: number;
+  rangeShift: number;
+  table: sfntDirectoryEntry;
 }
+
 declare var sfntDirectory: sfntDirectory;
 
 interface sfntDirectoryEntry {
-	tableTag: number;
-	checkSum: number;
-	offset: number;
-	length: number;
+  tableTag: number;
+  checkSum: number;
+  offset: number;
+  length: number;
 }
+
 declare var sfntDirectoryEntry: sfntDirectoryEntry;
 
 interface sfntFeatureHeader {
-	version: number;
-	featureNameCount: number;
-	featureSetCount: number;
-	reserved: number;
-	names: sfntFeatureName;
-	settings: sfntFontFeatureSetting;
-	runs: sfntFontRunFeature;
+  version: number;
+  featureNameCount: number;
+  featureSetCount: number;
+  reserved: number;
+  names: sfntFeatureName;
+  settings: sfntFontFeatureSetting;
+  runs: sfntFontRunFeature;
 }
+
 declare var sfntFeatureHeader: sfntFeatureHeader;
 
 interface sfntFeatureName {
-	featureType: number;
-	settingCount: number;
-	offsetToSettings: number;
-	featureFlags: number;
-	nameID: number;
+  featureType: number;
+  settingCount: number;
+  offsetToSettings: number;
+  featureFlags: number;
+  nameID: number;
 }
+
 declare var sfntFeatureName: sfntFeatureName;
 
 interface sfntFontDescriptor {
-	name: number;
-	value: number;
+  name: number;
+  value: number;
 }
+
 declare var sfntFontDescriptor: sfntFontDescriptor;
 
 interface sfntFontFeatureSetting {
-	setting: number;
-	nameID: number;
+  setting: number;
+  nameID: number;
 }
+
 declare var sfntFontFeatureSetting: sfntFontFeatureSetting;
 
 interface sfntFontRunFeature {
-	featureType: number;
-	setting: number;
+  featureType: number;
+  setting: number;
 }
+
 declare var sfntFontRunFeature: sfntFontRunFeature;
 
 interface sfntInstance {
-	nameID: number;
-	flags: number;
-	coord: number;
+  nameID: number;
+  flags: number;
+  coord: number;
 }
+
 declare var sfntInstance: sfntInstance;
 
 interface sfntNameHeader {
-	format: number;
-	count: number;
-	stringOffset: number;
-	rec: sfntNameRecord;
+  format: number;
+  count: number;
+  stringOffset: number;
+  rec: sfntNameRecord;
 }
+
 declare var sfntNameHeader: sfntNameHeader;
 
 interface sfntNameRecord {
-	platformID: number;
-	scriptID: number;
-	languageID: number;
-	nameID: number;
-	length: number;
-	offset: number;
+  platformID: number;
+  scriptID: number;
+  languageID: number;
+  nameID: number;
+  length: number;
+  offset: number;
 }
+
 declare var sfntNameRecord: sfntNameRecord;
 
 interface sfntVariationAxis {
-	axisTag: number;
-	minValue: number;
-	defaultValue: number;
-	maxValue: number;
-	flags: number;
-	nameID: number;
+  axisTag: number;
+  minValue: number;
+  defaultValue: number;
+  maxValue: number;
+  flags: number;
+  nameID: number;
 }
+
 declare var sfntVariationAxis: sfntVariationAxis;
 
 interface sfntVariationHeader {
-	version: number;
-	offsetToData: number;
-	countSizePairs: number;
-	axisCount: number;
-	axisSize: number;
-	instanceCount: number;
-	instanceSize: number;
-	axis: sfntVariationAxis;
-	instance: sfntInstance;
+  version: number;
+  offsetToData: number;
+  countSizePairs: number;
+  axisCount: number;
+  axisSize: number;
+  instanceCount: number;
+  instanceSize: number;
+  axis: sfntVariationAxis;
+  instance: sfntInstance;
 }
+
 declare var sfntVariationHeader: sfntVariationHeader;
+
 
 declare const sizeof_sfntCMapEncoding: number;
 
@@ -3522,3 +3454,331 @@ declare const sizeof_sfntVariationAxis: number;
 declare const sizeof_sfntVariationHeader: number;
 
 declare const variationFontTableTag: number;
+enum CTCharacterCollection {
+    kCTCharacterCollectionIdentityMapping = 0,
+    kCTCharacterCollectionAdobeCNS1 = 1,
+    kCTCharacterCollectionAdobeGB1 = 2,
+    kCTCharacterCollectionAdobeJapan1 = 3,
+    kCTCharacterCollectionAdobeJapan2 = 4,
+    kCTCharacterCollectionAdobeKorea1 = 5,
+    kCTIdentityMappingCharacterCollection = 0,
+    kCTAdobeCNS1CharacterCollection = 1,
+    kCTAdobeGB1CharacterCollection = 2,
+    kCTAdobeJapan1CharacterCollection = 3,
+    kCTAdobeJapan2CharacterCollection = 4,
+    kCTAdobeKorea1CharacterCollection = 5
+}
+
+enum CTFontCollectionCopyOptions {
+    kCTFontCollectionCopyDefaultOptions = 0,
+    kCTFontCollectionCopyUnique = 1,
+    kCTFontCollectionCopyStandardSort = 2
+}
+
+enum CTFontDescriptorMatchingState {
+    kCTFontDescriptorMatchingDidBegin = 0,
+    kCTFontDescriptorMatchingDidFinish = 1,
+    kCTFontDescriptorMatchingWillBeginQuerying = 2,
+    kCTFontDescriptorMatchingStalled = 3,
+    kCTFontDescriptorMatchingWillBeginDownloading = 4,
+    kCTFontDescriptorMatchingDownloading = 5,
+    kCTFontDescriptorMatchingDidFinishDownloading = 6,
+    kCTFontDescriptorMatchingDidMatch = 7,
+    kCTFontDescriptorMatchingDidFailWithError = 8
+}
+
+enum CTFontFormat {
+    kCTFontFormatUnrecognized = 0,
+    kCTFontFormatOpenTypePostScript = 1,
+    kCTFontFormatOpenTypeTrueType = 2,
+    kCTFontFormatTrueType = 3,
+    kCTFontFormatPostScript = 4,
+    kCTFontFormatBitmap = 5
+}
+
+enum CTFontManagerAutoActivationSetting {
+    kCTFontManagerAutoActivationDefault = 0,
+    kCTFontManagerAutoActivationDisabled = 1,
+    kCTFontManagerAutoActivationEnabled = 2,
+    kCTFontManagerAutoActivationPromptUser = 3
+}
+
+enum CTFontManagerError {
+    kCTFontManagerErrorFileNotFound = 101,
+    kCTFontManagerErrorInsufficientPermissions = 102,
+    kCTFontManagerErrorUnrecognizedFormat = 103,
+    kCTFontManagerErrorInvalidFontData = 104,
+    kCTFontManagerErrorAlreadyRegistered = 105,
+    kCTFontManagerErrorExceededResourceLimit = 106,
+    kCTFontManagerErrorAssetNotFound = 107,
+    kCTFontManagerErrorNotRegistered = 201,
+    kCTFontManagerErrorInUse = 202,
+    kCTFontManagerErrorSystemRequired = 203,
+    kCTFontManagerErrorRegistrationFailed = 301,
+    kCTFontManagerErrorMissingEntitlement = 302,
+    kCTFontManagerErrorInsufficientInfo = 303,
+    kCTFontManagerErrorCancelledByUser = 304,
+    kCTFontManagerErrorDuplicatedName = 305,
+    kCTFontManagerErrorInvalidFilePath = 306
+}
+
+enum CTFontManagerScope {
+    kCTFontManagerScopeNone = 0,
+    kCTFontManagerScopeProcess = 1,
+    kCTFontManagerScopePersistent = 2,
+    kCTFontManagerScopeSession = 3,
+    kCTFontManagerScopeUser = 2
+}
+
+enum CTFontOptions {
+    kCTFontOptionsDefault = 0,
+    kCTFontOptionsPreventAutoActivation = 1,
+    kCTFontOptionsPreferSystemFont = 4
+}
+
+enum CTFontOrientation {
+    kCTFontOrientationDefault = 0,
+    kCTFontOrientationHorizontal = 1,
+    kCTFontOrientationVertical = 2,
+    kCTFontDefaultOrientation = 0,
+    kCTFontHorizontalOrientation = 1,
+    kCTFontVerticalOrientation = 2
+}
+
+enum CTFontStylisticClass {
+    kCTFontClassUnknown = 0,
+    kCTFontClassOldStyleSerifs = 268435456,
+    kCTFontClassTransitionalSerifs = 536870912,
+    kCTFontClassModernSerifs = 805306368,
+    kCTFontClassClarendonSerifs = 1073741824,
+    kCTFontClassSlabSerifs = 1342177280,
+    kCTFontClassFreeformSerifs = 1879048192,
+    kCTFontClassSansSerif = 2147483648,
+    kCTFontClassOrnamentals = 2415919104,
+    kCTFontClassScripts = 2684354560,
+    kCTFontClassSymbolic = 3221225472,
+    kCTFontUnknownClass = 0,
+    kCTFontOldStyleSerifsClass = 268435456,
+    kCTFontTransitionalSerifsClass = 536870912,
+    kCTFontModernSerifsClass = 805306368,
+    kCTFontClarendonSerifsClass = 1073741824,
+    kCTFontSlabSerifsClass = 1342177280,
+    kCTFontFreeformSerifsClass = 1879048192,
+    kCTFontSansSerifClass = 2147483648,
+    kCTFontOrnamentalsClass = 2415919104,
+    kCTFontScriptsClass = 2684354560,
+    kCTFontSymbolicClass = 3221225472
+}
+
+enum CTFontSymbolicTraits {
+    kCTFontTraitItalic = 1,
+    kCTFontTraitBold = 2,
+    kCTFontTraitExpanded = 32,
+    kCTFontTraitCondensed = 64,
+    kCTFontTraitMonoSpace = 1024,
+    kCTFontTraitVertical = 2048,
+    kCTFontTraitUIOptimized = 4096,
+    kCTFontTraitColorGlyphs = 8192,
+    kCTFontTraitComposite = 16384,
+    kCTFontTraitClassMask = 4026531840,
+    kCTFontItalicTrait = 1,
+    kCTFontBoldTrait = 2,
+    kCTFontExpandedTrait = 32,
+    kCTFontCondensedTrait = 64,
+    kCTFontMonoSpaceTrait = 1024,
+    kCTFontVerticalTrait = 2048,
+    kCTFontUIOptimizedTrait = 4096,
+    kCTFontColorGlyphsTrait = 8192,
+    kCTFontCompositeTrait = 16384,
+    kCTFontClassMaskTrait = 4026531840
+}
+
+enum CTFontTableOptions {
+    kCTFontTableOptionNoOptions = 0,
+    kCTFontTableOptionExcludeSynthetic = 1
+}
+
+enum CTFontUIFontType {
+    kCTFontUIFontNone = 4294967295,
+    kCTFontUIFontUser = 0,
+    kCTFontUIFontUserFixedPitch = 1,
+    kCTFontUIFontSystem = 2,
+    kCTFontUIFontEmphasizedSystem = 3,
+    kCTFontUIFontSmallSystem = 4,
+    kCTFontUIFontSmallEmphasizedSystem = 5,
+    kCTFontUIFontMiniSystem = 6,
+    kCTFontUIFontMiniEmphasizedSystem = 7,
+    kCTFontUIFontViews = 8,
+    kCTFontUIFontApplication = 9,
+    kCTFontUIFontLabel = 10,
+    kCTFontUIFontMenuTitle = 11,
+    kCTFontUIFontMenuItem = 12,
+    kCTFontUIFontMenuItemMark = 13,
+    kCTFontUIFontMenuItemCmdKey = 14,
+    kCTFontUIFontWindowTitle = 15,
+    kCTFontUIFontPushButton = 16,
+    kCTFontUIFontUtilityWindowTitle = 17,
+    kCTFontUIFontAlertHeader = 18,
+    kCTFontUIFontSystemDetail = 19,
+    kCTFontUIFontEmphasizedSystemDetail = 20,
+    kCTFontUIFontToolbar = 21,
+    kCTFontUIFontSmallToolbar = 22,
+    kCTFontUIFontMessage = 23,
+    kCTFontUIFontPalette = 24,
+    kCTFontUIFontToolTip = 25,
+    kCTFontUIFontControlContent = 26,
+    kCTFontNoFontType = 4294967295,
+    kCTFontUserFontType = 0,
+    kCTFontUserFixedPitchFontType = 1,
+    kCTFontSystemFontType = 2,
+    kCTFontEmphasizedSystemFontType = 3,
+    kCTFontSmallSystemFontType = 4,
+    kCTFontSmallEmphasizedSystemFontType = 5,
+    kCTFontMiniSystemFontType = 6,
+    kCTFontMiniEmphasizedSystemFontType = 7,
+    kCTFontViewsFontType = 8,
+    kCTFontApplicationFontType = 9,
+    kCTFontLabelFontType = 10,
+    kCTFontMenuTitleFontType = 11,
+    kCTFontMenuItemFontType = 12,
+    kCTFontMenuItemMarkFontType = 13,
+    kCTFontMenuItemCmdKeyFontType = 14,
+    kCTFontWindowTitleFontType = 15,
+    kCTFontPushButtonFontType = 16,
+    kCTFontUtilityWindowTitleFontType = 17,
+    kCTFontAlertHeaderFontType = 18,
+    kCTFontSystemDetailFontType = 19,
+    kCTFontEmphasizedSystemDetailFontType = 20,
+    kCTFontToolbarFontType = 21,
+    kCTFontSmallToolbarFontType = 22,
+    kCTFontMessageFontType = 23,
+    kCTFontPaletteFontType = 24,
+    kCTFontToolTipFontType = 25,
+    kCTFontControlContentFontType = 26
+}
+
+enum CTFramePathFillRule {
+    kCTFramePathFillEvenOdd = 0,
+    kCTFramePathFillWindingNumber = 1
+}
+
+enum CTFrameProgression {
+    kCTFrameProgressionTopToBottom = 0,
+    kCTFrameProgressionRightToLeft = 1,
+    kCTFrameProgressionLeftToRight = 2
+}
+
+enum CTLineBoundsOptions {
+    kCTLineBoundsExcludeTypographicLeading = 1,
+    kCTLineBoundsExcludeTypographicShifts = 2,
+    kCTLineBoundsUseHangingPunctuation = 4,
+    kCTLineBoundsUseGlyphPathBounds = 8,
+    kCTLineBoundsUseOpticalBounds = 16,
+    kCTLineBoundsIncludeLanguageExtents = 32
+}
+
+enum CTLineBreakMode {
+    kCTLineBreakByWordWrapping = 0,
+    kCTLineBreakByCharWrapping = 1,
+    kCTLineBreakByClipping = 2,
+    kCTLineBreakByTruncatingHead = 3,
+    kCTLineBreakByTruncatingTail = 4,
+    kCTLineBreakByTruncatingMiddle = 5
+}
+
+enum CTLineTruncationType {
+    kCTLineTruncationStart = 0,
+    kCTLineTruncationEnd = 1,
+    kCTLineTruncationMiddle = 2
+}
+
+enum CTParagraphStyleSpecifier {
+    kCTParagraphStyleSpecifierAlignment = 0,
+    kCTParagraphStyleSpecifierFirstLineHeadIndent = 1,
+    kCTParagraphStyleSpecifierHeadIndent = 2,
+    kCTParagraphStyleSpecifierTailIndent = 3,
+    kCTParagraphStyleSpecifierTabStops = 4,
+    kCTParagraphStyleSpecifierDefaultTabInterval = 5,
+    kCTParagraphStyleSpecifierLineBreakMode = 6,
+    kCTParagraphStyleSpecifierLineHeightMultiple = 7,
+    kCTParagraphStyleSpecifierMaximumLineHeight = 8,
+    kCTParagraphStyleSpecifierMinimumLineHeight = 9,
+    kCTParagraphStyleSpecifierLineSpacing = 10,
+    kCTParagraphStyleSpecifierParagraphSpacing = 11,
+    kCTParagraphStyleSpecifierParagraphSpacingBefore = 12,
+    kCTParagraphStyleSpecifierBaseWritingDirection = 13,
+    kCTParagraphStyleSpecifierMaximumLineSpacing = 14,
+    kCTParagraphStyleSpecifierMinimumLineSpacing = 15,
+    kCTParagraphStyleSpecifierLineSpacingAdjustment = 16,
+    kCTParagraphStyleSpecifierLineBoundsOptions = 17,
+    kCTParagraphStyleSpecifierCount = 18
+}
+
+enum CTRubyAlignment {
+    kCTRubyAlignmentInvalid = 255,
+    kCTRubyAlignmentAuto = 0,
+    kCTRubyAlignmentStart = 1,
+    kCTRubyAlignmentCenter = 2,
+    kCTRubyAlignmentEnd = 3,
+    kCTRubyAlignmentDistributeLetter = 4,
+    kCTRubyAlignmentDistributeSpace = 5,
+    kCTRubyAlignmentLineEdge = 6
+}
+
+enum CTRubyOverhang {
+    kCTRubyOverhangInvalid = 255,
+    kCTRubyOverhangAuto = 0,
+    kCTRubyOverhangStart = 1,
+    kCTRubyOverhangEnd = 2,
+    kCTRubyOverhangNone = 3
+}
+
+enum CTRubyPosition {
+    kCTRubyPositionBefore = 0,
+    kCTRubyPositionAfter = 1,
+    kCTRubyPositionInterCharacter = 2,
+    kCTRubyPositionInline = 3,
+    kCTRubyPositionCount = 4
+}
+
+enum CTRunStatus {
+    kCTRunStatusNoStatus = 0,
+    kCTRunStatusRightToLeft = 1,
+    kCTRunStatusNonMonotonic = 2,
+    kCTRunStatusHasNonIdentityMatrix = 4
+}
+
+enum CTTextAlignment {
+    kCTTextAlignmentLeft = 0,
+    kCTTextAlignmentRight = 1,
+    kCTTextAlignmentCenter = 2,
+    kCTTextAlignmentJustified = 3,
+    kCTTextAlignmentNatural = 4,
+    kCTLeftTextAlignment = 0,
+    kCTRightTextAlignment = 1,
+    kCTCenterTextAlignment = 2,
+    kCTJustifiedTextAlignment = 3,
+    kCTNaturalTextAlignment = 4
+}
+
+enum CTUnderlineStyle {
+    kCTUnderlineStyleNone = 0,
+    kCTUnderlineStyleSingle = 1,
+    kCTUnderlineStyleThick = 2,
+    kCTUnderlineStyleDouble = 9
+}
+
+enum CTUnderlineStyleModifiers {
+    kCTUnderlinePatternSolid = 0,
+    kCTUnderlinePatternDot = 256,
+    kCTUnderlinePatternDash = 512,
+    kCTUnderlinePatternDashDot = 768,
+    kCTUnderlinePatternDashDotDot = 1024
+}
+
+enum CTWritingDirection {
+    kCTWritingDirectionNatural = -1,
+    kCTWritingDirectionLeftToRight = 0,
+    kCTWritingDirectionRightToLeft = 1
+}
+

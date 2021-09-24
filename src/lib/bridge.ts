@@ -103,10 +103,10 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string) {
     return;
   }
 
-  let eventName = NSEventType[eventType];
+  let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.log('Could not find event name in NSEventType enum for ', event);
+    console.log('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 
@@ -146,10 +146,10 @@ export function emitAction(node: VueKitNode, event: NSEvent, extended: string) {
     return;
   }
 
-  let eventName = NSEventType[eventType];
+  let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.log('Could not find event name in NSEventType enum for ', event);
+    console.log('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 

@@ -59,13 +59,11 @@ export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueK
 
 export function createView(type: string, vnodeProps?: VueKitNodeProps) {
   let view;
-
-  // TODO: make this case insensitive
-  let viewClass = globalThis[type]; //  || globalThis[`NS${type}`] || globalThis[`NS${type}View`];
+  let viewClass = globalThis[type];
 
   if (!viewClass) {
     // throw new Error(`Class ${type} not found.`);
-    console.log(`Class ${type} not found.`);
+    console.log(`Bridged Class ${type} not found.`);
     return null;
   }
 
@@ -141,8 +139,9 @@ function getMatchingPropKeys(propKeys, constructor, idx) {
 }
 
 export function getConstructor(className: string, vnodeProps?: VueKitNodeProps) {
-  let filteredCandidates = getCandidateConstructors(globalThis[className], vnodeProps);
   let viewClass = globalThis[className]; //  || globalThis[`NS${type}`] || globalThis[`NS${type}View`];
+
+  let filteredCandidates = getCandidateConstructors(viewClass, vnodeProps);
 
   if (!viewClass) {
     throw new Error(`Class ${className} not found.`);
@@ -283,7 +282,7 @@ export function setNodeValue(node: VueKitNode, key: string, value: any, fromPatc
       //   objectToSet[viewKey](value);
       // }
       // else {
-      console.log(`Types don't match for ${viewKey} on ${objectToSet}: Tried to set ${newType} but view is ${currentType}`);
+      console.log(`Types don't match for ${viewKey} on`, objectToSet, `Tried to set ${newType} but view is ${currentType}`);
       // }
     }
 
@@ -291,7 +290,7 @@ export function setNodeValue(node: VueKitNode, key: string, value: any, fromPatc
   }
 
   // Scenario #4 - no matching prop name nor setter, inform user
-  console.info(`Undefined property ${viewKey} and no setters with name ${setter} on ${objectToSet}, did not do anything`);
+  console.info(`"${viewKey}" is undefined and there are no setters with the name "${setter}":`, objectToSet);
 }
 
 // Get prop value using normalized key, so that snake vs camel case doesn't matter

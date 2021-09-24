@@ -1,12 +1,10 @@
 import { createRenderer, defineComponent } from '@vue/runtime-core';
 import { VueKitNodeProps } from './types/VueKit';
-import './types/macos/AppKit.d.ts';
-
 import {
   createView, getConstructor, getPropValues, setNodeValue
 } from './lib/node';
 import { emitAction, emitEvent } from './lib/bridge';
-import { snakeToCamel } from './lib/string';
+import { capitalize, snakeToCamel } from './lib/string';
 
 let windows = new Set();
 
@@ -25,8 +23,8 @@ function createWindow(vnodeProps: VueKitNodeProps = {}) {
     width: 320,
     height: 240
   };
-  let defaultStyleMask = NSWindowStyleMask.Resizable | NSWindowStyleMask.Titled | NSWindowStyleMask.Closable | NSWindowStyleMask.Miniaturizable;
-  let defaultBacking = NSBackingStoreType.Retained;
+  let defaultStyleMask = NSWindow.StyleMask.Resizable | NSWindow.StyleMask.Titled | NSWindow.StyleMask.Closable | NSWindow.StyleMask.Miniaturizable;
+  let defaultBacking = NSWindow.BackingStoreType.Retained;
 
   let nodeProps = getPropValues({
     contentRect: defaultContentRect,
@@ -77,7 +75,7 @@ function addToParentNode(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
 }
 
 // Adds an NSView to parent NSView
-function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode, gravityArea?: NSStackViewGravity) {
+function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode, gravityArea?: NSStackView.Gravity) {
   let parentView = parent.view;
   let view = el.view;
 
@@ -91,12 +89,12 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
     return;
   }
 
-  if (parentView instanceof NSStackView && parentView.distribution === NSStackViewDistribution.GravityAreas) {
+  if (parentView instanceof NSStackView && parentView.distribution === NSStackView.Distribution.GravityAreas) {
     // TODO: check anchor?
-    let area = gravityArea === undefined ? NSStackViewGravity.Center : gravityArea;
+    let area = gravityArea === undefined ? NSStackView.Gravity.Center : gravityArea;
 
     parentView.addViewInGravity(el.view, area);
-    // console.log('added ', el, 'to gravity area', NSStackViewGravity[area]);
+    // console.log('added ', el, 'to gravity area', NSStackView.Gravity[area]);
   }
   else if (parentView instanceof NSStackView || parentView instanceof NSSplitView) {
     if (!anchor) {
@@ -146,7 +144,7 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
   else if (anchor) {
     if (anchor.view) {
       console.log('insert after this view: ', anchor.view);
-      parentView.addSubviewPositionedRelativeTo(view, NSWindowOrderingMode.Below, anchor.view);
+      parentView.addSubviewPositionedRelativeTo(view, NSWindow.OrderingMode.Below, anchor.view);
     }
     else {
       console.log('Could not insert view because anchor has no view: ', view, anchor);
@@ -162,19 +160,53 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
   }
 }
 
+function findClass(type: string) {
+  if (globalThis[type]) {
+    console.log('Found globalThis.' + type + ' for type ' + type)
+    return type;
+  }
+
+  let formattedType = capitalize(snakeToCamel(type));
+  let prefixes = ['NS', 'AV', 'IK'];
+
+  if (globalThis[formattedType]) {
+    console.log('Found globalThis.' + formattedType + ' for type ' + type);
+    return formattedType;
+  }
+
+  for (const prefix of prefixes) {
+    if (globalThis[`${prefix}${formattedType}View`]) {
+      console.log(`Found globalThis.${prefix}${formattedType}View` + ' for type ' + type);
+      return `${prefix}${formattedType}View`;
+    }
+
+    if (globalThis[prefix + formattedType]) {
+      console.log('Found globalThis.' + prefix + formattedType + ' for type ' + type);
+      return prefix + formattedType;
+    }
+  }
+
+  throw new Error(`Bridged Class ${type} not found.`);
+}
+
 function createElement(type: string, _?: boolean, __?: string, vnodeProps?: VueKitNodeProps) {
   let node: VueKitNode;
 
-  // console.log(`Creating ${type}`, vnodeProps);
+  // button -> NSButton
+  // text -> NSTextView
+  // text-field -> NSTextField
+  let className = findClass(type);
 
-  let isWindow = snakeToCamel(type).toLowerCase() === 'nswindow';
+  // console.log(`Creating ${viewClass}`, vnodeProps);
 
-  if (isWindow) {
+  // Special case for non-NSView based vue component
+  // This may grow more in the future for NSDock, NSMenu, etc
+  if (className === 'NSWindow') {
     node = createWindow(vnodeProps);
   }
   else {
-    let view = createView(type, vnodeProps);
-    node = VueKitNode.create(view, `${type}-${Math.random().toString()}`, vnodeProps || {}, emitEvent, emitAction);
+    let view = createView(className, vnodeProps);
+    node = VueKitNode.create(view, `${className}-${Math.random().toString()}`, vnodeProps || {}, emitEvent, emitAction);
   }
 
   if (!node.props) {
@@ -187,7 +219,7 @@ function createElement(type: string, _?: boolean, __?: string, vnodeProps?: VueK
     return node;
   }
 
-  let { args } = getConstructor(type, vnodeProps);
+  let { args } = getConstructor(className, vnodeProps);
 
   for (let [key, value] of Object.entries(node.props)) {
     if (args.includes(key)) continue;
@@ -218,11 +250,11 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
     let gravity;
 
     if (el.props?.isBottomSlotChildP) {
-      gravity = NSStackViewGravity.Bottom;
+      gravity = NSStackView.Gravity.Bottom;
     }
 
     if (el.props?.isBottomSlotP) {
-      gravity = NSStackViewGravity.Bottom;
+      gravity = NSStackView.Gravity.Bottom;
     }
 
     addToParentView(el, parent, anchor, gravity);
@@ -311,6 +343,11 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
   }
 });
 
-export {
-  createApp, render, createElement, defineComponent
-};
+
+function create(App: any) {
+  let app = createApp(App);
+  // addEnums(app);
+  return app;
+}
+
+export { create as createApp, render, defineComponent };

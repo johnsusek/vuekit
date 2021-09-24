@@ -9,3 +9,5 @@ docs/.vuepress/dist
 *.xcodeproj
 *.framework
 *.framework.dSYM
+
+build/

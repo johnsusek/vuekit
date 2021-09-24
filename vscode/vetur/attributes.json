@@ -1,0 +1,2877 @@
+{
+  "av-capture/controls-style": {
+    "options": [
+      "Inline",
+      "Floating",
+      "InlineDeviceSelection",
+      "Default"
+    ]
+  },
+  "av-capture/delegate": {
+    "type": "AVCaptureViewDelegate"
+  },
+  "av-capture/file-output": {
+    "type": "AVCaptureFileOutput"
+  },
+  "av-capture/session": {
+    "type": "AVCaptureSession"
+  },
+  "av-capture/video-gravity": {
+    "type": "String"
+  },
+  "av-player/content-overlay-view": {
+    "type": "NSView"
+  },
+  "av-player/controls-style": {
+    "options": [
+      "None",
+      "Inline",
+      "Floating",
+      "Minimal",
+      "Default"
+    ]
+  },
+  "av-player/player": {
+    "type": "AVPlayer"
+  },
+  "av-player/is-ready-for-display": {
+    "type": "boolean"
+  },
+  "av-player/updates-now-playing-info-center": {
+    "type": "boolean"
+  },
+  "av-player/video-bounds": {
+    "type": "NSRect"
+  },
+  "av-player/video-gravity": {
+    "type": "String"
+  },
+  "av-player/action-pop-up-button-menu": {
+    "type": "NSMenu"
+  },
+  "av-player/shows-frame-stepping-buttons": {
+    "type": "boolean"
+  },
+  "av-player/shows-full-screen-toggle-button": {
+    "type": "boolean"
+  },
+  "av-player/shows-sharing-service-button": {
+    "type": "boolean"
+  },
+  "av-player/shows-timecodes": {
+    "type": "boolean"
+  },
+  "av-player/can-begin-trimming": {
+    "type": "boolean"
+  },
+  "av-player/allows-picture-in-picture-playback": {
+    "type": "boolean"
+  },
+  "av-player/picture-in-picture-delegate": {
+    "type": "AVPlayerViewPictureInPictureDelegate"
+  },
+  "av-route-picker/delegate": {
+    "type": "AVRoutePickerViewDelegate"
+  },
+  "av-route-picker/player": {
+    "type": "AVPlayer"
+  },
+  "av-route-picker/is-route-picker-button-bordered": {
+    "type": "boolean"
+  },
+  "ik-camera-device/camera-device": {
+    "type": "ICCameraDevice"
+  },
+  "ik-camera-device/can-delete-selected-items": {
+    "type": "boolean"
+  },
+  "ik-camera-device/can-download-selected-items": {
+    "type": "boolean"
+  },
+  "ik-camera-device/can-rotate-selected-items-left": {
+    "type": "boolean"
+  },
+  "ik-camera-device/can-rotate-selected-items-right": {
+    "type": "boolean"
+  },
+  "ik-camera-device/delegate": {
+    "type": "IKCameraDeviceViewDelegate"
+  },
+  "ik-camera-device/displays-downloads-directory-control": {
+    "type": "boolean"
+  },
+  "ik-camera-device/displays-post-process-application-control": {
+    "type": "boolean"
+  },
+  "ik-camera-device/download-all-control-label": {
+    "type": "String"
+  },
+  "ik-camera-device/downloads-directory": {
+    "type": "NSURL"
+  },
+  "ik-camera-device/download-selected-control-label": {
+    "type": "String"
+  },
+  "ik-camera-device/has-display-mode-icon": {
+    "type": "boolean"
+  },
+  "ik-camera-device/has-display-mode-table": {
+    "type": "boolean"
+  },
+  "ik-camera-device/icon-size": {
+    "type": "number"
+  },
+  "ik-camera-device/mode": {
+    "options": [
+      "None",
+      "Table",
+      "Icon"
+    ]
+  },
+  "ik-camera-device/post-process-application": {
+    "type": "NSURL"
+  },
+  "ik-camera-device/transfer-mode": {
+    "options": [
+      "FileBased",
+      "MemoryBased"
+    ]
+  },
+  "ik-device-browser/delegate": {
+    "type": "IKDeviceBrowserViewDelegate"
+  },
+  "ik-device-browser/displays-local-cameras": {
+    "type": "boolean"
+  },
+  "ik-device-browser/displays-local-scanners": {
+    "type": "boolean"
+  },
+  "ik-device-browser/displays-network-cameras": {
+    "type": "boolean"
+  },
+  "ik-device-browser/displays-network-scanners": {
+    "type": "boolean"
+  },
+  "ik-device-browser/mode": {
+    "options": [
+      "Table",
+      "Outline",
+      "Icon"
+    ]
+  },
+  "ik-device-browser/selected-device": {
+    "type": "ICDevice"
+  },
+  "ik-image/autohides-scrollers": {
+    "type": "boolean"
+  },
+  "ik-image/autoresizes": {
+    "type": "boolean"
+  },
+  "ik-image/background-color": {
+    "type": "NSColor"
+  },
+  "ik-image/current-tool-mode": {
+    "type": "String"
+  },
+  "ik-image/delegate": {
+    "type": "Id"
+  },
+  "ik-image/double-click-opens-image-edit-panel": {
+    "type": "boolean"
+  },
+  "ik-image/editable": {
+    "type": "boolean"
+  },
+  "ik-image/has-horizontal-scroller": {
+    "type": "boolean"
+  },
+  "ik-image/has-vertical-scroller": {
+    "type": "boolean"
+  },
+  "ik-image/image-correction": {
+    "type": "CIFilter"
+  },
+  "ik-image/rotation-angle": {
+    "type": "number"
+  },
+  "ik-image/supports-drag-and-drop": {
+    "type": "boolean"
+  },
+  "ik-image/zoom-factor": {
+    "type": "number"
+  },
+  "ik-scanner-device/delegate": {
+    "type": "IKScannerDeviceViewDelegate"
+  },
+  "ik-scanner-device/displays-downloads-directory-control": {
+    "type": "boolean"
+  },
+  "ik-scanner-device/displays-post-process-application-control": {
+    "type": "boolean"
+  },
+  "ik-scanner-device/document-name": {
+    "type": "String"
+  },
+  "ik-scanner-device/downloads-directory": {
+    "type": "NSURL"
+  },
+  "ik-scanner-device/has-display-mode-advanced": {
+    "type": "boolean"
+  },
+  "ik-scanner-device/has-display-mode-simple": {
+    "type": "boolean"
+  },
+  "ik-scanner-device/mode": {
+    "options": [
+      "None",
+      "Simple",
+      "Advanced"
+    ]
+  },
+  "ik-scanner-device/overview-control-label": {
+    "type": "String"
+  },
+  "ik-scanner-device/post-process-application": {
+    "type": "NSURL"
+  },
+  "ik-scanner-device/scan-control-label": {
+    "type": "String"
+  },
+  "ik-scanner-device/scanner-device": {
+    "type": "ICScannerDevice"
+  },
+  "ik-scanner-device/transfer-mode": {
+    "options": [
+      "FileBased",
+      "MemoryBased"
+    ]
+  },
+  "ql-preview/autostarts": {
+    "type": "boolean"
+  },
+  "ql-preview/display-state": {
+    "type": "Id"
+  },
+  "ql-preview/preview-item": {
+    "type": "QLPreviewItem"
+  },
+  "ql-preview/should-close-with-window": {
+    "type": "boolean"
+  },
+  "box/border-color": {
+    "type": "NSColor"
+  },
+  "box/border-rect": {
+    "type": "NSRect"
+  },
+  "box/border-width": {
+    "type": "number"
+  },
+  "box/box-type": {
+    "options": [
+      "Primary",
+      "Separator",
+      "Custom"
+    ]
+  },
+  "box/content-view": {
+    "type": "NSView"
+  },
+  "box/content-view-margins": {
+    "type": "NSSize"
+  },
+  "box/corner-radius": {
+    "type": "number"
+  },
+  "box/fill-color": {
+    "type": "NSColor"
+  },
+  "box/title": {
+    "type": "String"
+  },
+  "box/title-cell": {
+    "type": "Id"
+  },
+  "box/title-font": {
+    "type": "NSFont"
+  },
+  "box/title-position": {
+    "options": [
+      "NoTitle",
+      "AboveTop",
+      "AtTop",
+      "BelowTop",
+      "AboveBottom",
+      "AtBottom",
+      "BelowBottom"
+    ]
+  },
+  "box/title-rect": {
+    "type": "NSRect"
+  },
+  "box/is-transparent": {
+    "type": "boolean"
+  },
+  "browser/cell-class": {
+    "type": "class"
+  },
+  "browser/allows-branch-selection": {
+    "type": "boolean"
+  },
+  "browser/allows-empty-selection": {
+    "type": "boolean"
+  },
+  "browser/allows-multiple-selection": {
+    "type": "boolean"
+  },
+  "browser/allows-type-select": {
+    "type": "boolean"
+  },
+  "browser/autohides-scroller": {
+    "type": "boolean"
+  },
+  "browser/background-color": {
+    "type": "NSColor"
+  },
+  "browser/cell-prototype": {
+    "type": "Id"
+  },
+  "browser/clicked-column": {
+    "type": "number"
+  },
+  "browser/clicked-row": {
+    "type": "number"
+  },
+  "browser/column-resizing-type": {
+    "options": [
+      "NoColumnResizing",
+      "AutoColumnResizing",
+      "UserColumnResizing"
+    ]
+  },
+  "browser/columns-autosave-name": {
+    "type": "String"
+  },
+  "browser/delegate": {
+    "type": "NSBrowserDelegate"
+  },
+  "browser/double-action": {
+    "type": "string"
+  },
+  "browser/first-visible-column": {
+    "type": "number"
+  },
+  "browser/has-horizontal-scroller": {
+    "type": "boolean"
+  },
+  "browser/last-column": {
+    "type": "number"
+  },
+  "browser/last-visible-column": {
+    "type": "number"
+  },
+  "browser/is-loaded": {
+    "type": "boolean"
+  },
+  "browser/max-visible-columns": {
+    "type": "number"
+  },
+  "browser/min-column-width": {
+    "type": "number"
+  },
+  "browser/number-of-visible-columns": {
+    "type": "number"
+  },
+  "browser/path-separator": {
+    "type": "String"
+  },
+  "browser/prefers-all-column-user-resizing": {
+    "type": "boolean"
+  },
+  "browser/reuses-columns": {
+    "type": "boolean"
+  },
+  "browser/row-height": {
+    "type": "number"
+  },
+  "browser/selected-cell": {
+    "type": "Id"
+  },
+  "browser/selected-cells": {
+    "type": "NSArray"
+  },
+  "browser/selected-column": {
+    "type": "number"
+  },
+  "browser/selection-index-path": {
+    "type": "NSIndexPath"
+  },
+  "browser/selection-index-paths": {
+    "type": "NSArray"
+  },
+  "browser/sends-action-on-arrow-keys": {
+    "type": "boolean"
+  },
+  "browser/separates-columns": {
+    "type": "boolean"
+  },
+  "browser/takes-title-from-previous-column": {
+    "type": "boolean"
+  },
+  "browser/is-titled": {
+    "type": "boolean"
+  },
+  "browser/title-height": {
+    "type": "number"
+  },
+  "button/allows-mixed-state": {
+    "type": "boolean"
+  },
+  "button/alternate-image": {
+    "type": "NSImage"
+  },
+  "button/alternate-title": {
+    "type": "String"
+  },
+  "button/attributed-alternate-title": {
+    "type": "NSAttributedString"
+  },
+  "button/attributed-title": {
+    "type": "NSAttributedString"
+  },
+  "button/bezel-color": {
+    "type": "NSColor"
+  },
+  "button/bezel-style": {
+    "options": [
+      "Rounded",
+      "RegularSquare",
+      "Disclosure",
+      "ShadowlessSquare",
+      "Circular",
+      "TexturedSquare",
+      "HelpButton",
+      "SmallSquare",
+      "TexturedRounded",
+      "RoundRect",
+      "Recessed",
+      "RoundedDisclosure",
+      "Inline"
+    ]
+  },
+  "button/is-bordered": {
+    "type": "boolean"
+  },
+  "button/content-tint-color": {
+    "type": "NSColor"
+  },
+  "button/image": {
+    "type": "NSImage"
+  },
+  "button/image-hugs-title": {
+    "type": "boolean"
+  },
+  "button/image-position": {
+    "options": [
+      "NoImage",
+      "ImageOnly",
+      "ImageLeft",
+      "ImageRight",
+      "ImageBelow",
+      "ImageAbove",
+      "ImageOverlaps",
+      "ImageLeading",
+      "ImageTrailing"
+    ]
+  },
+  "button/image-scaling": {
+    "options": [
+      "ImageScaleProportionallyDown",
+      "ImageScaleAxesIndependently",
+      "ImageScaleNone",
+      "ImageScaleProportionallyUpOrDown",
+      "ScaleProportionally",
+      "ScaleToFit",
+      "ScaleNone"
+    ]
+  },
+  "button/key-equivalent": {
+    "type": "String"
+  },
+  "button/key-equivalent-modifier-mask": {
+    "options": [
+      "CapsLock",
+      "Shift",
+      "Control",
+      "Option",
+      "Command",
+      "NumericPad",
+      "Help",
+      "Function",
+      "DeviceIndependentFlagsMask"
+    ]
+  },
+  "button/max-accelerator-level": {
+    "type": "number"
+  },
+  "button/shows-border-only-while-mouse-inside": {
+    "type": "boolean"
+  },
+  "button/sound": {
+    "type": "NSSound"
+  },
+  "button/is-spring-loaded": {
+    "type": "boolean"
+  },
+  "button/state": {
+    "type": "number"
+  },
+  "button/title": {
+    "type": "String"
+  },
+  "button/is-transparent": {
+    "type": "boolean"
+  },
+  "clip/automatically-adjusts-content-insets": {
+    "type": "boolean"
+  },
+  "clip/background-color": {
+    "type": "NSColor"
+  },
+  "clip/content-insets": {
+    "type": "NSEdgeInsets"
+  },
+  "clip/document-cursor": {
+    "type": "NSCursor"
+  },
+  "clip/document-rect": {
+    "type": "NSRect"
+  },
+  "clip/document-view": {
+    "type": "NSView"
+  },
+  "clip/document-visible-rect": {
+    "type": "NSRect"
+  },
+  "clip/draws-background": {
+    "type": "boolean"
+  },
+  "collection/allows-empty-selection": {
+    "type": "boolean"
+  },
+  "collection/allows-multiple-selection": {
+    "type": "boolean"
+  },
+  "collection/background-colors": {
+    "type": "NSArray"
+  },
+  "collection/background-view": {
+    "type": "NSView"
+  },
+  "collection/background-view-scrolls-with-content": {
+    "type": "boolean"
+  },
+  "collection/collection-view-layout": {
+    "type": "NSCollectionViewLayout"
+  },
+  "collection/content": {
+    "type": "NSArray"
+  },
+  "collection/data-source": {
+    "type": "NSCollectionViewDataSource"
+  },
+  "collection/delegate": {
+    "type": "NSCollectionViewDelegate"
+  },
+  "collection/is-first-responder": {
+    "type": "boolean"
+  },
+  "collection/number-of-sections": {
+    "type": "number"
+  },
+  "collection/prefetch-data-source": {
+    "type": "NSCollectionViewPrefetching"
+  },
+  "collection/is-selectable": {
+    "type": "boolean"
+  },
+  "collection/selection-indexes": {
+    "type": "NSIndexSet"
+  },
+  "collection/selection-index-paths": {
+    "type": "NSSet"
+  },
+  "color-well/is-active": {
+    "type": "boolean"
+  },
+  "color-well/is-bordered": {
+    "type": "boolean"
+  },
+  "color-well/color": {
+    "type": "NSColor"
+  },
+  "combo-box/is-button-bordered": {
+    "type": "boolean"
+  },
+  "combo-box/completes": {
+    "type": "boolean"
+  },
+  "combo-box/data-source": {
+    "type": "NSComboBoxDataSource"
+  },
+  "combo-box/delegate": {
+    "type": "NSComboBoxDelegate"
+  },
+  "combo-box/has-vertical-scroller": {
+    "type": "boolean"
+  },
+  "combo-box/index-of-selected-item": {
+    "type": "number"
+  },
+  "combo-box/intercell-spacing": {
+    "type": "NSSize"
+  },
+  "combo-box/item-height": {
+    "type": "number"
+  },
+  "combo-box/number-of-items": {
+    "type": "number"
+  },
+  "combo-box/number-of-visible-items": {
+    "type": "number"
+  },
+  "combo-box/object-value-of-selected-item": {
+    "type": "Id"
+  },
+  "combo-box/object-values": {
+    "type": "NSArray"
+  },
+  "combo-box/uses-data-source": {
+    "type": "boolean"
+  },
+  "control/cell-class": {
+    "type": "class"
+  },
+  "control/action": {
+    "type": "string"
+  },
+  "control/attributed-string-value": {
+    "type": "NSAttributedString"
+  },
+  "control/is-continuous": {
+    "type": "boolean"
+  },
+  "control/control-size": {
+    "options": [
+      "Regular",
+      "Small",
+      "Mini"
+    ]
+  },
+  "control/double-value": {
+    "type": "number"
+  },
+  "control/is-enabled": {
+    "type": "boolean"
+  },
+  "control/float-value": {
+    "type": "number"
+  },
+  "control/formatter": {
+    "type": "NSFormatter"
+  },
+  "control/is-highlighted": {
+    "type": "boolean"
+  },
+  "control/ignores-multi-click": {
+    "type": "boolean"
+  },
+  "control/integer-value": {
+    "type": "number"
+  },
+  "control/int-value": {
+    "type": "number"
+  },
+  "control/object-value": {
+    "type": "Id"
+  },
+  "control/refuses-first-responder": {
+    "type": "boolean"
+  },
+  "control/string-value": {
+    "type": "String"
+  },
+  "control/tag": {
+    "type": "number"
+  },
+  "control/target": {
+    "type": "Id"
+  },
+  "control/alignment": {
+    "options": [
+      "Left",
+      "Right",
+      "Center",
+      "Justified",
+      "Natural"
+    ]
+  },
+  "control/allows-expansion-tool-tips": {
+    "type": "boolean"
+  },
+  "control/base-writing-direction": {
+    "options": [
+      "Natural",
+      "LeftToRight",
+      "RightToLeft"
+    ]
+  },
+  "control/font": {
+    "type": "NSFont"
+  },
+  "control/line-break-mode": {
+    "options": [
+      "ByWordWrapping",
+      "ByCharWrapping",
+      "ByClipping",
+      "ByTruncatingHead",
+      "ByTruncatingTail",
+      "ByTruncatingMiddle"
+    ]
+  },
+  "control/uses-single-line-mode": {
+    "type": "boolean"
+  },
+  "control/cell": {
+    "type": "NSCell"
+  },
+  "date-picker/background-color": {
+    "type": "NSColor"
+  },
+  "date-picker/is-bezeled": {
+    "type": "boolean"
+  },
+  "date-picker/is-bordered": {
+    "type": "boolean"
+  },
+  "date-picker/calendar": {
+    "type": "NSCalendar"
+  },
+  "date-picker/date-picker-elements": {
+    "options": [
+      "HourMinute",
+      "HourMinuteSecond",
+      "TimeZone",
+      "YearMonth",
+      "YearMonthDay",
+      "Era"
+    ]
+  },
+  "date-picker/date-picker-mode": {
+    "options": [
+      "Single",
+      "Range"
+    ]
+  },
+  "date-picker/date-picker-style": {
+    "options": [
+      "TextFieldAndStepper",
+      "ClockAndCalendar",
+      "TextField"
+    ]
+  },
+  "date-picker/date-value": {
+    "type": "NSDate"
+  },
+  "date-picker/delegate": {
+    "type": "NSDatePickerCellDelegate"
+  },
+  "date-picker/draws-background": {
+    "type": "boolean"
+  },
+  "date-picker/locale": {
+    "type": "NSLocale"
+  },
+  "date-picker/max-date": {
+    "type": "NSDate"
+  },
+  "date-picker/min-date": {
+    "type": "NSDate"
+  },
+  "date-picker/presents-calendar-overlay": {
+    "type": "boolean"
+  },
+  "date-picker/text-color": {
+    "type": "NSColor"
+  },
+  "date-picker/time-interval": {
+    "type": "number"
+  },
+  "date-picker/time-zone": {
+    "type": "NSTimeZone"
+  },
+  "grid/column-spacing": {
+    "type": "number"
+  },
+  "grid/number-of-columns": {
+    "type": "number"
+  },
+  "grid/number-of-rows": {
+    "type": "number"
+  },
+  "grid/row-alignment": {
+    "options": [
+      "Inherited",
+      "None",
+      "FirstBaseline",
+      "LastBaseline"
+    ]
+  },
+  "grid/row-spacing": {
+    "type": "number"
+  },
+  "grid/x-placement": {
+    "options": [
+      "Inherited",
+      "None",
+      "Leading",
+      "Top",
+      "Trailing",
+      "Bottom",
+      "Center",
+      "Fill"
+    ]
+  },
+  "grid/y-placement": {
+    "options": [
+      "Inherited",
+      "None",
+      "Leading",
+      "Top",
+      "Trailing",
+      "Bottom",
+      "Center",
+      "Fill"
+    ]
+  },
+  "image/allows-cut-copy-paste": {
+    "type": "boolean"
+  },
+  "image/animates": {
+    "type": "boolean"
+  },
+  "image/content-tint-color": {
+    "type": "NSColor"
+  },
+  "image/is-editable": {
+    "type": "boolean"
+  },
+  "image/image": {
+    "type": "NSImage"
+  },
+  "image/image-alignment": {
+    "options": [
+      "Center",
+      "Top",
+      "TopLeft",
+      "TopRight",
+      "Left",
+      "Bottom",
+      "BottomLeft",
+      "BottomRight",
+      "Right"
+    ]
+  },
+  "image/image-frame-style": {
+    "options": [
+      "None",
+      "Photo",
+      "GrayBezel",
+      "Groove",
+      "Button"
+    ]
+  },
+  "image/image-scaling": {
+    "options": [
+      "ImageScaleProportionallyDown",
+      "ImageScaleAxesIndependently",
+      "ImageScaleNone",
+      "ImageScaleProportionallyUpOrDown",
+      "ScaleProportionally",
+      "ScaleToFit",
+      "ScaleNone"
+    ]
+  },
+  "level-indicator/critical-fill-color": {
+    "type": "NSColor"
+  },
+  "level-indicator/critical-value": {
+    "type": "number"
+  },
+  "level-indicator/draws-tiered-capacity-levels": {
+    "type": "boolean"
+  },
+  "level-indicator/is-editable": {
+    "type": "boolean"
+  },
+  "level-indicator/fill-color": {
+    "type": "NSColor"
+  },
+  "level-indicator/level-indicator-style": {
+    "options": [
+      "Relevancy",
+      "ContinuousCapacity",
+      "DiscreteCapacity",
+      "Rating"
+    ]
+  },
+  "level-indicator/max-value": {
+    "type": "number"
+  },
+  "level-indicator/min-value": {
+    "type": "number"
+  },
+  "level-indicator/number-of-major-tick-marks": {
+    "type": "number"
+  },
+  "level-indicator/number-of-tick-marks": {
+    "type": "number"
+  },
+  "level-indicator/placeholder-visibility": {
+    "options": [
+      "Automatic",
+      "Always",
+      "WhileEditing"
+    ]
+  },
+  "level-indicator/rating-image": {
+    "type": "NSImage"
+  },
+  "level-indicator/rating-placeholder-image": {
+    "type": "NSImage"
+  },
+  "level-indicator/tick-mark-position": {
+    "options": [
+      "Below",
+      "Above",
+      "Leading",
+      "Trailing"
+    ]
+  },
+  "level-indicator/warning-fill-color": {
+    "type": "NSColor"
+  },
+  "level-indicator/warning-value": {
+    "type": "number"
+  },
+  "matrix/allows-empty-selection": {
+    "type": "boolean"
+  },
+  "matrix/autorecalculates-cell-size": {
+    "type": "boolean"
+  },
+  "matrix/is-autoscroll": {
+    "type": "boolean"
+  },
+  "matrix/autosizes-cells": {
+    "type": "boolean"
+  },
+  "matrix/background-color": {
+    "type": "NSColor"
+  },
+  "matrix/cell-background-color": {
+    "type": "NSColor"
+  },
+  "matrix/cell-class": {
+    "type": "class"
+  },
+  "matrix/cells": {
+    "type": "NSArray"
+  },
+  "matrix/cell-size": {
+    "type": "NSSize"
+  },
+  "matrix/delegate": {
+    "type": "NSMatrixDelegate"
+  },
+  "matrix/double-action": {
+    "type": "string"
+  },
+  "matrix/draws-background": {
+    "type": "boolean"
+  },
+  "matrix/draws-cell-background": {
+    "type": "boolean"
+  },
+  "matrix/intercell-spacing": {
+    "type": "NSSize"
+  },
+  "matrix/mode": {
+    "options": [
+      "RadioModeMatrix",
+      "HighlightModeMatrix",
+      "ListModeMatrix",
+      "TrackModeMatrix"
+    ]
+  },
+  "matrix/mouse-down-flags": {
+    "type": "number"
+  },
+  "matrix/number-of-columns": {
+    "type": "number"
+  },
+  "matrix/number-of-rows": {
+    "type": "number"
+  },
+  "matrix/prototype": {
+    "type": "NSCell"
+  },
+  "matrix/selected-cell": {
+    "type": "NSCell"
+  },
+  "matrix/selected-cells": {
+    "type": "NSArray"
+  },
+  "matrix/selected-column": {
+    "type": "number"
+  },
+  "matrix/selected-row": {
+    "type": "number"
+  },
+  "matrix/is-selection-by-rect": {
+    "type": "boolean"
+  },
+  "matrix/key-cell": {
+    "type": "NSCell"
+  },
+  "matrix/tab-key-traverses-cells": {
+    "type": "boolean"
+  },
+  "outline/autoresizes-outline-column": {
+    "type": "boolean"
+  },
+  "outline/autosave-expanded-items": {
+    "type": "boolean"
+  },
+  "outline/data-source": {
+    "type": "NSOutlineViewDataSource"
+  },
+  "outline/delegate": {
+    "type": "NSOutlineViewDelegate"
+  },
+  "outline/indentation-marker-follows-cell": {
+    "type": "boolean"
+  },
+  "outline/indentation-per-level": {
+    "type": "number"
+  },
+  "outline/outline-table-column": {
+    "type": "NSTableColumn"
+  },
+  "outline/strongly-references-items": {
+    "type": "boolean"
+  },
+  "path-control/allowed-types": {
+    "type": "NSArray"
+  },
+  "path-control/background-color": {
+    "type": "NSColor"
+  },
+  "path-control/clicked-path-item": {
+    "type": "NSPathControlItem"
+  },
+  "path-control/delegate": {
+    "type": "NSPathControlDelegate"
+  },
+  "path-control/double-action": {
+    "type": "string"
+  },
+  "path-control/is-editable": {
+    "type": "boolean"
+  },
+  "path-control/path-items": {
+    "type": "NSArray"
+  },
+  "path-control/path-style": {
+    "options": [
+      "Standard",
+      "PopUp",
+      "NavigationBar"
+    ]
+  },
+  "path-control/placeholder-attributed-string": {
+    "type": "NSAttributedString"
+  },
+  "path-control/placeholder-string": {
+    "type": "String"
+  },
+  "path-control/url": {
+    "type": "NSURL"
+  },
+  "pop-up-button/autoenables-items": {
+    "type": "boolean"
+  },
+  "pop-up-button/index-of-selected-item": {
+    "type": "number"
+  },
+  "pop-up-button/item-array": {
+    "type": "NSArray"
+  },
+  "pop-up-button/item-titles": {
+    "type": "NSArray"
+  },
+  "pop-up-button/last-item": {
+    "type": "NSMenuItem"
+  },
+  "pop-up-button/number-of-items": {
+    "type": "number"
+  },
+  "pop-up-button/preferred-edge": {
+    "options": [
+      "RectEdgeMinX",
+      "RectEdgeMinY",
+      "RectEdgeMaxX",
+      "RectEdgeMaxY",
+      "MinXEdge",
+      "MinYEdge",
+      "MaxXEdge",
+      "MaxYEdge"
+    ]
+  },
+  "pop-up-button/pulls-down": {
+    "type": "boolean"
+  },
+  "pop-up-button/selected-item": {
+    "type": "NSMenuItem"
+  },
+  "pop-up-button/selected-tag": {
+    "type": "number"
+  },
+  "pop-up-button/title-of-selected-item": {
+    "type": "String"
+  },
+  "predicate-editor/row-templates": {
+    "type": "NSArray"
+  },
+  "progress-indicator/is-bezeled": {
+    "type": "boolean"
+  },
+  "progress-indicator/control-size": {
+    "options": [
+      "Regular",
+      "Small",
+      "Mini"
+    ]
+  },
+  "progress-indicator/control-tint": {
+    "options": [
+      "DefaultControlTint",
+      "BlueControlTint",
+      "GraphiteControlTint",
+      "ClearControlTint"
+    ]
+  },
+  "progress-indicator/is-displayed-when-stopped": {
+    "type": "boolean"
+  },
+  "progress-indicator/double-value": {
+    "type": "number"
+  },
+  "progress-indicator/is-indeterminate": {
+    "type": "boolean"
+  },
+  "progress-indicator/max-value": {
+    "type": "number"
+  },
+  "progress-indicator/min-value": {
+    "type": "number"
+  },
+  "progress-indicator/style": {
+    "options": [
+      "Bar",
+      "Spinning"
+    ]
+  },
+  "progress-indicator/uses-threaded-animation": {
+    "type": "boolean"
+  },
+  "rule-editor/can-remove-all-rows": {
+    "type": "boolean"
+  },
+  "rule-editor/criteria-key-path": {
+    "type": "String"
+  },
+  "rule-editor/delegate": {
+    "type": "NSRuleEditorDelegate"
+  },
+  "rule-editor/display-values-key-path": {
+    "type": "String"
+  },
+  "rule-editor/is-editable": {
+    "type": "boolean"
+  },
+  "rule-editor/formatting-dictionary": {
+    "type": "NSDictionary"
+  },
+  "rule-editor/formatting-strings-filename": {
+    "type": "String"
+  },
+  "rule-editor/nesting-mode": {
+    "options": [
+      "Single",
+      "List",
+      "Compound",
+      "Simple"
+    ]
+  },
+  "rule-editor/number-of-rows": {
+    "type": "number"
+  },
+  "rule-editor/predicate": {
+    "type": "NSPredicate"
+  },
+  "rule-editor/row-class": {
+    "type": "class"
+  },
+  "rule-editor/row-height": {
+    "type": "number"
+  },
+  "rule-editor/row-type-key-path": {
+    "type": "String"
+  },
+  "rule-editor/selected-row-indexes": {
+    "type": "NSIndexSet"
+  },
+  "rule-editor/subrows-key-path": {
+    "type": "String"
+  },
+  "ruler/accessory-view": {
+    "type": "NSView"
+  },
+  "ruler/baseline-location": {
+    "type": "number"
+  },
+  "ruler/client-view": {
+    "type": "NSView"
+  },
+  "ruler/markers": {
+    "type": "NSArray"
+  },
+  "ruler/measurement-units": {
+    "type": "String"
+  },
+  "ruler/orientation": {
+    "options": [
+      "HorizontalRuler",
+      "VerticalRuler"
+    ]
+  },
+  "ruler/origin-offset": {
+    "type": "number"
+  },
+  "ruler/required-thickness": {
+    "type": "number"
+  },
+  "ruler/reserved-thickness-for-accessory-view": {
+    "type": "number"
+  },
+  "ruler/reserved-thickness-for-markers": {
+    "type": "number"
+  },
+  "ruler/rule-thickness": {
+    "type": "number"
+  },
+  "ruler/scroll-view": {
+    "type": "NSScrollView"
+  },
+  "scroll/ruler-view-class": {
+    "type": "class"
+  },
+  "scroll/allows-magnification": {
+    "type": "boolean"
+  },
+  "scroll/autohides-scrollers": {
+    "type": "boolean"
+  },
+  "scroll/automatically-adjusts-content-insets": {
+    "type": "boolean"
+  },
+  "scroll/background-color": {
+    "type": "NSColor"
+  },
+  "scroll/border-type": {
+    "options": [
+      "NoBorder",
+      "LineBorder",
+      "BezelBorder",
+      "GrooveBorder"
+    ]
+  },
+  "scroll/content-insets": {
+    "type": "NSEdgeInsets"
+  },
+  "scroll/content-size": {
+    "type": "NSSize"
+  },
+  "scroll/content-view": {
+    "type": "NSClipView"
+  },
+  "scroll/document-cursor": {
+    "type": "NSCursor"
+  },
+  "scroll/document-view": {
+    "type": "NSView"
+  },
+  "scroll/document-visible-rect": {
+    "type": "NSRect"
+  },
+  "scroll/draws-background": {
+    "type": "boolean"
+  },
+  "scroll/has-horizontal-scroller": {
+    "type": "boolean"
+  },
+  "scroll/has-vertical-scroller": {
+    "type": "boolean"
+  },
+  "scroll/horizontal-line-scroll": {
+    "type": "number"
+  },
+  "scroll/horizontal-page-scroll": {
+    "type": "number"
+  },
+  "scroll/horizontal-scroll-elasticity": {
+    "options": [
+      "Automatic",
+      "None",
+      "Allowed"
+    ]
+  },
+  "scroll/horizontal-scroller": {
+    "type": "NSScroller"
+  },
+  "scroll/line-scroll": {
+    "type": "number"
+  },
+  "scroll/magnification": {
+    "type": "number"
+  },
+  "scroll/max-magnification": {
+    "type": "number"
+  },
+  "scroll/min-magnification": {
+    "type": "number"
+  },
+  "scroll/page-scroll": {
+    "type": "number"
+  },
+  "scroll/scroller-insets": {
+    "type": "NSEdgeInsets"
+  },
+  "scroll/scroller-knob-style": {
+    "options": [
+      "Default",
+      "Dark",
+      "Light"
+    ]
+  },
+  "scroll/scroller-style": {
+    "options": [
+      "Legacy",
+      "Overlay"
+    ]
+  },
+  "scroll/scrolls-dynamically": {
+    "type": "boolean"
+  },
+  "scroll/uses-predominant-axis-scrolling": {
+    "type": "boolean"
+  },
+  "scroll/vertical-line-scroll": {
+    "type": "number"
+  },
+  "scroll/vertical-page-scroll": {
+    "type": "number"
+  },
+  "scroll/vertical-scroll-elasticity": {
+    "options": [
+      "Automatic",
+      "None",
+      "Allowed"
+    ]
+  },
+  "scroll/vertical-scroller": {
+    "type": "NSScroller"
+  },
+  "scroll/has-horizontal-ruler": {
+    "type": "boolean"
+  },
+  "scroll/has-vertical-ruler": {
+    "type": "boolean"
+  },
+  "scroll/horizontal-ruler-view": {
+    "type": "NSRulerView"
+  },
+  "scroll/rulers-visible": {
+    "type": "boolean"
+  },
+  "scroll/vertical-ruler-view": {
+    "type": "NSRulerView"
+  },
+  "scroll/find-bar-position": {
+    "options": [
+      "AboveHorizontalRuler",
+      "AboveContent",
+      "BelowContent"
+    ]
+  },
+  "scroller/is-compatible-with-overlay-scrollers": {
+    "type": "boolean"
+  },
+  "scroller/preferred-scroller-style": {
+    "options": [
+      "Legacy",
+      "Overlay"
+    ]
+  },
+  "scroller/hit-part": {
+    "options": [
+      "NoPart",
+      "DecrementPage",
+      "Knob",
+      "IncrementPage",
+      "DecrementLine",
+      "IncrementLine",
+      "KnobSlot"
+    ]
+  },
+  "scroller/knob-proportion": {
+    "type": "number"
+  },
+  "scroller/knob-style": {
+    "options": [
+      "Default",
+      "Dark",
+      "Light"
+    ]
+  },
+  "scroller/scroller-style": {
+    "options": [
+      "Legacy",
+      "Overlay"
+    ]
+  },
+  "scroller/usable-parts": {
+    "options": [
+      "NoScrollerParts",
+      "OnlyScrollerArrows",
+      "AllScrollerParts"
+    ]
+  },
+  "scrubber/background-color": {
+    "type": "NSColor"
+  },
+  "scrubber/background-view": {
+    "type": "NSView"
+  },
+  "scrubber/is-continuous": {
+    "type": "boolean"
+  },
+  "scrubber/data-source": {
+    "type": "NSScrubberDataSource"
+  },
+  "scrubber/delegate": {
+    "type": "NSScrubberDelegate"
+  },
+  "scrubber/floats-selection-views": {
+    "type": "boolean"
+  },
+  "scrubber/highlighted-index": {
+    "type": "number"
+  },
+  "scrubber/item-alignment": {
+    "options": [
+      "None",
+      "Leading",
+      "Trailing",
+      "Center"
+    ]
+  },
+  "scrubber/mode": {
+    "options": [
+      "Fixed",
+      "Free"
+    ]
+  },
+  "scrubber/number-of-items": {
+    "type": "number"
+  },
+  "scrubber/scrubber-layout": {
+    "type": "NSScrubberLayout"
+  },
+  "scrubber/selected-index": {
+    "type": "number"
+  },
+  "scrubber/selection-background-style": {
+    "type": "NSScrubberSelectionStyle"
+  },
+  "scrubber/selection-overlay-style": {
+    "type": "NSScrubberSelectionStyle"
+  },
+  "scrubber/shows-additional-content-indicators": {
+    "type": "boolean"
+  },
+  "scrubber/shows-arrow-buttons": {
+    "type": "boolean"
+  },
+  "scrubber-arranged/is-highlighted": {
+    "type": "boolean"
+  },
+  "scrubber-arranged/is-selected": {
+    "type": "boolean"
+  },
+  "scrubber-image-item/image": {
+    "type": "NSImage"
+  },
+  "scrubber-image-item/image-alignment": {
+    "options": [
+      "Center",
+      "Top",
+      "TopLeft",
+      "TopRight",
+      "Left",
+      "Bottom",
+      "BottomLeft",
+      "BottomRight",
+      "Right"
+    ]
+  },
+  "scrubber-image-item/image-view": {
+    "type": "NSImageView"
+  },
+  "scrubber-text-item/text-field": {
+    "type": "NSTextField"
+  },
+  "scrubber-text-item/title": {
+    "type": "String"
+  },
+  "search-field/delegate": {
+    "type": "NSSearchFieldDelegate"
+  },
+  "search-field/maximum-recents": {
+    "type": "number"
+  },
+  "search-field/recents-autosave-name": {
+    "type": "String"
+  },
+  "search-field/recent-searches": {
+    "type": "NSArray"
+  },
+  "search-field/search-menu-template": {
+    "type": "NSMenu"
+  },
+  "search-field/sends-search-string-immediately": {
+    "type": "boolean"
+  },
+  "search-field/sends-whole-search-string": {
+    "type": "boolean"
+  },
+  "segmented-control/double-value-for-selected-segment": {
+    "type": "number"
+  },
+  "segmented-control/index-of-selected-item": {
+    "type": "number"
+  },
+  "segmented-control/segment-count": {
+    "type": "number"
+  },
+  "segmented-control/segment-distribution": {
+    "options": [
+      "Fit",
+      "Fill",
+      "FillEqually",
+      "FillProportionally"
+    ]
+  },
+  "segmented-control/segment-style": {
+    "options": [
+      "Automatic",
+      "Rounded",
+      "RoundRect",
+      "TexturedSquare",
+      "SmallSquare",
+      "Separated",
+      "TexturedRounded",
+      "Capsule"
+    ]
+  },
+  "segmented-control/selected-segment": {
+    "type": "number"
+  },
+  "segmented-control/selected-segment-bezel-color": {
+    "type": "NSColor"
+  },
+  "segmented-control/is-spring-loaded": {
+    "type": "boolean"
+  },
+  "segmented-control/tracking-mode": {
+    "options": [
+      "SelectOne",
+      "SelectAny",
+      "Momentary",
+      "MomentaryAccelerator"
+    ]
+  },
+  "slider/alt-increment-value": {
+    "type": "number"
+  },
+  "slider/knob-thickness": {
+    "type": "number"
+  },
+  "slider/max-value": {
+    "type": "number"
+  },
+  "slider/min-value": {
+    "type": "number"
+  },
+  "slider/slider-type": {
+    "options": [
+      "Linear",
+      "Circular"
+    ]
+  },
+  "slider/track-fill-color": {
+    "type": "NSColor"
+  },
+  "slider/is-vertical": {
+    "type": "boolean"
+  },
+  "slider/allows-tick-mark-values-only": {
+    "type": "boolean"
+  },
+  "slider/number-of-tick-marks": {
+    "type": "number"
+  },
+  "slider/tick-mark-position": {
+    "options": [
+      "Below",
+      "Above",
+      "Leading",
+      "Trailing"
+    ]
+  },
+  "split/autosave-name": {
+    "type": "String"
+  },
+  "split/delegate": {
+    "type": "NSSplitViewDelegate"
+  },
+  "split/divider-color": {
+    "type": "NSColor"
+  },
+  "split/divider-style": {
+    "options": [
+      "Thick",
+      "Thin",
+      "PaneSplitter"
+    ]
+  },
+  "split/divider-thickness": {
+    "type": "number"
+  },
+  "split/is-vertical": {
+    "type": "boolean"
+  },
+  "split/arranged-subviews": {
+    "type": "NSArray"
+  },
+  "split/arranges-all-subviews": {
+    "type": "boolean"
+  },
+  "stack/alignment": {
+    "options": [
+      "Left",
+      "Right",
+      "Top",
+      "Bottom",
+      "Leading",
+      "Trailing",
+      "Width",
+      "Height",
+      "CenterX",
+      "CenterY",
+      "LastBaseline",
+      "Baseline",
+      "FirstBaseline",
+      "NotAnAttribute"
+    ]
+  },
+  "stack/arranged-subviews": {
+    "type": "NSArray"
+  },
+  "stack/delegate": {
+    "type": "NSStackViewDelegate"
+  },
+  "stack/detached-views": {
+    "type": "NSArray"
+  },
+  "stack/detaches-hidden-views": {
+    "type": "boolean"
+  },
+  "stack/distribution": {
+    "options": [
+      "GravityAreas",
+      "Fill",
+      "FillEqually",
+      "FillProportionally",
+      "EqualSpacing",
+      "EqualCentering"
+    ]
+  },
+  "stack/edge-insets": {
+    "type": "NSEdgeInsets"
+  },
+  "stack/orientation": {
+    "options": [
+      "Horizontal",
+      "Vertical"
+    ]
+  },
+  "stack/spacing": {
+    "type": "number"
+  },
+  "stack/views": {
+    "type": "NSArray"
+  },
+  "status-bar-button/appears-disabled": {
+    "type": "boolean"
+  },
+  "stepper/autorepeat": {
+    "type": "boolean"
+  },
+  "stepper/increment": {
+    "type": "number"
+  },
+  "stepper/max-value": {
+    "type": "number"
+  },
+  "stepper/min-value": {
+    "type": "number"
+  },
+  "stepper/value-wraps": {
+    "type": "boolean"
+  },
+  "switch/state": {
+    "type": "number"
+  },
+  "tab/allows-truncated-labels": {
+    "type": "boolean"
+  },
+  "tab/content-rect": {
+    "type": "NSRect"
+  },
+  "tab/control-size": {
+    "options": [
+      "Regular",
+      "Small",
+      "Mini"
+    ]
+  },
+  "tab/delegate": {
+    "type": "NSTabViewDelegate"
+  },
+  "tab/draws-background": {
+    "type": "boolean"
+  },
+  "tab/font": {
+    "type": "NSFont"
+  },
+  "tab/minimum-size": {
+    "type": "NSSize"
+  },
+  "tab/number-of-tab-view-items": {
+    "type": "number"
+  },
+  "tab/selected-tab-view-item": {
+    "type": "NSTabViewItem"
+  },
+  "tab/tab-position": {
+    "options": [
+      "None",
+      "Top",
+      "Left",
+      "Bottom",
+      "Right"
+    ]
+  },
+  "tab/tab-view-border-type": {
+    "options": [
+      "None",
+      "Line",
+      "Bezel"
+    ]
+  },
+  "tab/tab-view-items": {
+    "type": "NSArray"
+  },
+  "tab/tab-view-type": {
+    "options": [
+      "TopTabsBezelBorder",
+      "LeftTabsBezelBorder",
+      "BottomTabsBezelBorder",
+      "RightTabsBezelBorder",
+      "NoTabsBezelBorder",
+      "NoTabsLineBorder",
+      "NoTabsNoBorder"
+    ]
+  },
+  "table-cell/background-style": {
+    "options": [
+      "Normal",
+      "Emphasized",
+      "Raised",
+      "Lowered"
+    ]
+  },
+  "table-cell/dragging-image-components": {
+    "type": "NSArray"
+  },
+  "table-cell/image-view": {
+    "type": "NSImageView"
+  },
+  "table-cell/object-value": {
+    "type": "Id"
+  },
+  "table-cell/row-size-style": {
+    "options": [
+      "Default",
+      "Custom",
+      "Small",
+      "Medium",
+      "Large"
+    ]
+  },
+  "table-cell/text-field": {
+    "type": "NSTextField"
+  },
+  "table-header/dragged-column": {
+    "type": "number"
+  },
+  "table-header/dragged-distance": {
+    "type": "number"
+  },
+  "table-header/resized-column": {
+    "type": "number"
+  },
+  "table-header/table-view": {
+    "type": "NSTableView"
+  },
+  "table-row/background-color": {
+    "type": "NSColor"
+  },
+  "table-row/dragging-destination-feedback-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList",
+      "Gap"
+    ]
+  },
+  "table-row/is-emphasized": {
+    "type": "boolean"
+  },
+  "table-row/is-floating": {
+    "type": "boolean"
+  },
+  "table-row/is-group-row-style": {
+    "type": "boolean"
+  },
+  "table-row/indentation-for-drop-operation": {
+    "type": "number"
+  },
+  "table-row/interior-background-style": {
+    "options": [
+      "Normal",
+      "Emphasized",
+      "Raised",
+      "Lowered"
+    ]
+  },
+  "table-row/is-next-row-selected": {
+    "type": "boolean"
+  },
+  "table-row/number-of-columns": {
+    "type": "number"
+  },
+  "table-row/is-previous-row-selected": {
+    "type": "boolean"
+  },
+  "table-row/is-selected": {
+    "type": "boolean"
+  },
+  "table-row/selection-highlight-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList"
+    ]
+  },
+  "table-row/is-target-for-drop-operation": {
+    "type": "boolean"
+  },
+  "table/allows-column-reordering": {
+    "type": "boolean"
+  },
+  "table/allows-column-resizing": {
+    "type": "boolean"
+  },
+  "table/allows-column-selection": {
+    "type": "boolean"
+  },
+  "table/allows-empty-selection": {
+    "type": "boolean"
+  },
+  "table/allows-multiple-selection": {
+    "type": "boolean"
+  },
+  "table/allows-type-select": {
+    "type": "boolean"
+  },
+  "table/autosave-name": {
+    "type": "String"
+  },
+  "table/autosave-table-columns": {
+    "type": "boolean"
+  },
+  "table/background-color": {
+    "type": "NSColor"
+  },
+  "table/clicked-column": {
+    "type": "number"
+  },
+  "table/clicked-row": {
+    "type": "number"
+  },
+  "table/column-autoresizing-style": {
+    "options": [
+      "NoColumnAutoresizing",
+      "UniformColumnAutoresizingStyle",
+      "SequentialColumnAutoresizingStyle",
+      "ReverseSequentialColumnAutoresizingStyle",
+      "LastColumnOnlyAutoresizingStyle",
+      "FirstColumnOnlyAutoresizingStyle"
+    ]
+  },
+  "table/corner-view": {
+    "type": "NSView"
+  },
+  "table/data-source": {
+    "type": "NSTableViewDataSource"
+  },
+  "table/delegate": {
+    "type": "NSTableViewDelegate"
+  },
+  "table/double-action": {
+    "type": "string"
+  },
+  "table/dragging-destination-feedback-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList",
+      "Gap"
+    ]
+  },
+  "table/edited-column": {
+    "type": "number"
+  },
+  "table/edited-row": {
+    "type": "number"
+  },
+  "table/effective-row-size-style": {
+    "options": [
+      "Default",
+      "Custom",
+      "Small",
+      "Medium",
+      "Large"
+    ]
+  },
+  "table/floats-group-rows": {
+    "type": "boolean"
+  },
+  "table/grid-color": {
+    "type": "NSColor"
+  },
+  "table/grid-style-mask": {
+    "options": [
+      "GridNone",
+      "SolidVerticalGridLineMask",
+      "SolidHorizontalGridLineMask",
+      "DashedHorizontalGridLineMask"
+    ]
+  },
+  "table/header-view": {
+    "type": "NSTableHeaderView"
+  },
+  "table/hidden-row-indexes": {
+    "type": "NSIndexSet"
+  },
+  "table/highlighted-table-column": {
+    "type": "NSTableColumn"
+  },
+  "table/intercell-spacing": {
+    "type": "NSSize"
+  },
+  "table/number-of-columns": {
+    "type": "number"
+  },
+  "table/number-of-rows": {
+    "type": "number"
+  },
+  "table/number-of-selected-columns": {
+    "type": "number"
+  },
+  "table/number-of-selected-rows": {
+    "type": "number"
+  },
+  "table/registered-nibs-by-identifier": {
+    "type": "NSDictionary"
+  },
+  "table/row-actions-visible": {
+    "type": "boolean"
+  },
+  "table/row-height": {
+    "type": "number"
+  },
+  "table/row-size-style": {
+    "options": [
+      "Default",
+      "Custom",
+      "Small",
+      "Medium",
+      "Large"
+    ]
+  },
+  "table/selected-column": {
+    "type": "number"
+  },
+  "table/selected-column-indexes": {
+    "type": "NSIndexSet"
+  },
+  "table/selected-row": {
+    "type": "number"
+  },
+  "table/selected-row-indexes": {
+    "type": "NSIndexSet"
+  },
+  "table/selection-highlight-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList"
+    ]
+  },
+  "table/sort-descriptors": {
+    "type": "NSArray"
+  },
+  "table/table-columns": {
+    "type": "NSArray"
+  },
+  "table/uses-alternating-row-background-colors": {
+    "type": "boolean"
+  },
+  "table/uses-automatic-row-heights": {
+    "type": "boolean"
+  },
+  "table/uses-static-contents": {
+    "type": "boolean"
+  },
+  "table/vertical-motion-can-begin-drag": {
+    "type": "boolean"
+  },
+  "text/alignment": {
+    "options": [
+      "Left",
+      "Right",
+      "Center",
+      "Justified",
+      "Natural"
+    ]
+  },
+  "text/background-color": {
+    "type": "NSColor"
+  },
+  "text/base-writing-direction": {
+    "options": [
+      "Natural",
+      "LeftToRight",
+      "RightToLeft"
+    ]
+  },
+  "text/delegate": {
+    "type": "NSTextViewDelegate"
+  },
+  "text/draws-background": {
+    "type": "boolean"
+  },
+  "text/is-editable": {
+    "type": "boolean"
+  },
+  "text/is-field-editor": {
+    "type": "boolean"
+  },
+  "text/font": {
+    "type": "NSFont"
+  },
+  "text/is-horizontally-resizable": {
+    "type": "boolean"
+  },
+  "text/imports-graphics": {
+    "type": "boolean"
+  },
+  "text/max-size": {
+    "type": "NSSize"
+  },
+  "text/min-size": {
+    "type": "NSSize"
+  },
+  "text/is-rich-text": {
+    "type": "boolean"
+  },
+  "text/is-ruler-visible": {
+    "type": "boolean"
+  },
+  "text/is-selectable": {
+    "type": "boolean"
+  },
+  "text/selected-range": {
+    "type": "NSRange"
+  },
+  "text/string": {
+    "type": "String"
+  },
+  "text/text-color": {
+    "type": "NSColor"
+  },
+  "text/uses-font-panel": {
+    "type": "boolean"
+  },
+  "text/is-vertically-resizable": {
+    "type": "boolean"
+  },
+  "text-field/allows-default-tightening-for-truncation": {
+    "type": "boolean"
+  },
+  "text-field/background-color": {
+    "type": "NSColor"
+  },
+  "text-field/is-bezeled": {
+    "type": "boolean"
+  },
+  "text-field/bezel-style": {
+    "options": [
+      "SquareBezel",
+      "RoundedBezel"
+    ]
+  },
+  "text-field/is-bordered": {
+    "type": "boolean"
+  },
+  "text-field/delegate": {
+    "type": "NSTextFieldDelegate"
+  },
+  "text-field/draws-background": {
+    "type": "boolean"
+  },
+  "text-field/is-editable": {
+    "type": "boolean"
+  },
+  "text-field/maximum-number-of-lines": {
+    "type": "number"
+  },
+  "text-field/placeholder-attributed-string": {
+    "type": "NSAttributedString"
+  },
+  "text-field/placeholder-string": {
+    "type": "String"
+  },
+  "text-field/preferred-max-layout-width": {
+    "type": "number"
+  },
+  "text-field/is-selectable": {
+    "type": "boolean"
+  },
+  "text-field/text-color": {
+    "type": "NSColor"
+  },
+  "text-field/allows-character-picker-touch-bar-item": {
+    "type": "boolean"
+  },
+  "text-field/is-automatic-text-completion-enabled": {
+    "type": "boolean"
+  },
+  "text-field/allows-editing-text-attributes": {
+    "type": "boolean"
+  },
+  "text-field/imports-graphics": {
+    "type": "boolean"
+  },
+  "text/strongly-references-text-storage": {
+    "type": "boolean"
+  },
+  "text/layout-manager": {
+    "type": "NSLayoutManager"
+  },
+  "text/should-draw-insertion-point": {
+    "type": "boolean"
+  },
+  "text/text-container": {
+    "type": "NSTextContainer"
+  },
+  "text/text-container-inset": {
+    "type": "NSSize"
+  },
+  "text/text-container-origin": {
+    "type": "NSPoint"
+  },
+  "text/text-storage": {
+    "type": "NSTextStorage"
+  },
+  "text/uses-adaptive-color-mapping-for-dark-appearance": {
+    "type": "boolean"
+  },
+  "text/range-for-user-completion": {
+    "type": "NSRange"
+  },
+  "text/readable-pasteboard-types": {
+    "type": "NSArray"
+  },
+  "text/writable-pasteboard-types": {
+    "type": "NSArray"
+  },
+  "text/acceptable-drag-types": {
+    "type": "NSArray"
+  },
+  "text/accepts-glyph-info": {
+    "type": "boolean"
+  },
+  "text/allowed-input-source-locales": {
+    "type": "NSArray"
+  },
+  "text/allows-document-background-color-change": {
+    "type": "boolean"
+  },
+  "text/allows-image-editing": {
+    "type": "boolean"
+  },
+  "text/allows-undo": {
+    "type": "boolean"
+  },
+  "text/is-coalescing-undo": {
+    "type": "boolean"
+  },
+  "text/is-continuous-spell-checking-enabled": {
+    "type": "boolean"
+  },
+  "text/default-paragraph-style": {
+    "type": "NSParagraphStyle"
+  },
+  "text/displays-link-tool-tips": {
+    "type": "boolean"
+  },
+  "text/is-grammar-checking-enabled": {
+    "type": "boolean"
+  },
+  "text/insertion-point-color": {
+    "type": "NSColor"
+  },
+  "text/link-text-attributes": {
+    "type": "NSDictionary"
+  },
+  "text/marked-text-attributes": {
+    "type": "NSDictionary"
+  },
+  "text/range-for-user-character-attribute-change": {
+    "type": "NSRange"
+  },
+  "text/range-for-user-paragraph-attribute-change": {
+    "type": "NSRange"
+  },
+  "text/range-for-user-text-change": {
+    "type": "NSRange"
+  },
+  "text/ranges-for-user-character-attribute-change": {
+    "type": "NSArray"
+  },
+  "text/ranges-for-user-paragraph-attribute-change": {
+    "type": "NSArray"
+  },
+  "text/ranges-for-user-text-change": {
+    "type": "NSArray"
+  },
+  "text/selected-ranges": {
+    "type": "NSArray"
+  },
+  "text/selected-text-attributes": {
+    "type": "NSDictionary"
+  },
+  "text/selection-affinity": {
+    "options": [
+      "Upstream",
+      "Downstream"
+    ]
+  },
+  "text/selection-granularity": {
+    "options": [
+      "ByCharacter",
+      "ByWord",
+      "ByParagraph"
+    ]
+  },
+  "text/spell-checker-document-tag": {
+    "type": "number"
+  },
+  "text/typing-attributes": {
+    "type": "NSDictionary"
+  },
+  "text/uses-inspector-bar": {
+    "type": "boolean"
+  },
+  "text/uses-rollover-button-for-selection": {
+    "type": "boolean"
+  },
+  "text/uses-ruler": {
+    "type": "boolean"
+  },
+  "text/is-automatic-dash-substitution-enabled": {
+    "type": "boolean"
+  },
+  "text/is-automatic-data-detection-enabled": {
+    "type": "boolean"
+  },
+  "text/is-automatic-link-detection-enabled": {
+    "type": "boolean"
+  },
+  "text/is-automatic-quote-substitution-enabled": {
+    "type": "boolean"
+  },
+  "text/is-automatic-spelling-correction-enabled": {
+    "type": "boolean"
+  },
+  "text/is-automatic-text-replacement-enabled": {
+    "type": "boolean"
+  },
+  "text/enabled-text-checking-types": {
+    "type": "number"
+  },
+  "text/is-incremental-searching-enabled": {
+    "type": "boolean"
+  },
+  "text/smart-insert-delete-enabled": {
+    "type": "boolean"
+  },
+  "text/uses-find-bar": {
+    "type": "boolean"
+  },
+  "text/uses-find-panel": {
+    "type": "boolean"
+  },
+  "text/allows-character-picker-touch-bar-item": {
+    "type": "boolean"
+  },
+  "text/is-automatic-text-completion-enabled": {
+    "type": "boolean"
+  },
+  "token-field/default-completion-delay": {
+    "type": "number"
+  },
+  "token-field/default-tokenizing-character-set": {
+    "type": "NSCharacterSet"
+  },
+  "token-field/completion-delay": {
+    "type": "number"
+  },
+  "token-field/delegate": {
+    "type": "NSTokenFieldDelegate"
+  },
+  "token-field/tokenizing-character-set": {
+    "type": "NSCharacterSet"
+  },
+  "token-field/token-style": {
+    "options": [
+      "Default",
+      "None",
+      "Rounded",
+      "Squared",
+      "PlainSquared"
+    ]
+  },
+  "visual-effect/blending-mode": {
+    "options": [
+      "BehindWindow",
+      "WithinWindow"
+    ]
+  },
+  "visual-effect/is-emphasized": {
+    "type": "boolean"
+  },
+  "visual-effect/interior-background-style": {
+    "options": [
+      "Normal",
+      "Emphasized",
+      "Raised",
+      "Lowered"
+    ]
+  },
+  "visual-effect/mask-image": {
+    "type": "NSImage"
+  },
+  "visual-effect/material": {
+    "options": [
+      "Titlebar",
+      "Selection",
+      "Menu",
+      "Popover",
+      "Sidebar",
+      "HeaderView",
+      "Sheet",
+      "WindowBackground",
+      "HUDWindow",
+      "FullScreenUI",
+      "ToolTip",
+      "ContentBackground",
+      "UnderWindowBackground",
+      "UnderPageBackground",
+      "AppearanceBased",
+      "Light",
+      "Dark",
+      "MediumLight",
+      "UltraDark"
+    ]
+  },
+  "visual-effect/state": {
+    "options": [
+      "FollowsWindowActiveState",
+      "Active",
+      "Inactive"
+    ]
+  },
+  "window/allows-automatic-window-tabbing": {
+    "type": "boolean"
+  },
+  "window/default-depth-limit": {
+    "options": [
+      "TwentyfourBitRGB",
+      "SixtyfourBitRGB",
+      "OnehundredtwentyeightBitRGB"
+    ]
+  },
+  "window/user-tabbing-preference": {
+    "options": [
+      "Manual",
+      "Always",
+      "InFullScreen"
+    ]
+  },
+  "window/allows-concurrent-view-drawing": {
+    "type": "boolean"
+  },
+  "window/allows-tool-tips-when-application-is-inactive": {
+    "type": "boolean"
+  },
+  "window/alpha-value": {
+    "type": "number"
+  },
+  "window/animation-behavior": {
+    "options": [
+      "Default",
+      "None",
+      "DocumentWindow",
+      "UtilityWindow",
+      "AlertPanel"
+    ]
+  },
+  "window/appearance-source": {
+    "type": "NSObject"
+  },
+  "window/aspect-ratio": {
+    "type": "NSSize"
+  },
+  "window/attached-sheet": {
+    "type": "NSWindow"
+  },
+  "window/autorecalculates-key-view-loop": {
+    "type": "boolean"
+  },
+  "window/background-color": {
+    "type": "NSColor"
+  },
+  "window/backing-scale-factor": {
+    "type": "number"
+  },
+  "window/backing-type": {
+    "options": [
+      "Retained",
+      "Nonretained",
+      "Buffered"
+    ]
+  },
+  "window/can-become-key": {
+    "type": "boolean"
+  },
+  "window/can-become-main": {
+    "type": "boolean"
+  },
+  "window/can-become-visible-without-login": {
+    "type": "boolean"
+  },
+  "window/can-hide": {
+    "type": "boolean"
+  },
+  "window/child-windows": {
+    "type": "NSArray"
+  },
+  "window/collection-behavior": {
+    "options": [
+      "Default",
+      "CanJoinAllSpaces",
+      "MoveToActiveSpace",
+      "Managed",
+      "Transient",
+      "Stationary",
+      "ParticipatesInCycle",
+      "IgnoresCycle",
+      "FullScreenPrimary",
+      "FullScreenAuxiliary",
+      "FullScreenNone",
+      "FullScreenAllowsTiling",
+      "FullScreenDisallowsTiling"
+    ]
+  },
+  "window/color-space": {
+    "type": "NSColorSpace"
+  },
+  "window/content-aspect-ratio": {
+    "type": "NSSize"
+  },
+  "window/content-layout-guide": {
+    "type": "Id"
+  },
+  "window/content-layout-rect": {
+    "type": "NSRect"
+  },
+  "window/content-max-size": {
+    "type": "NSSize"
+  },
+  "window/content-min-size": {
+    "type": "NSSize"
+  },
+  "window/content-resize-increments": {
+    "type": "NSSize"
+  },
+  "window/content-view": {
+    "type": "NSView"
+  },
+  "window/content-view-controller": {
+    "type": "NSViewController"
+  },
+  "window/deepest-screen": {
+    "type": "NSScreen"
+  },
+  "window/default-button-cell": {
+    "type": "NSButtonCell"
+  },
+  "window/delegate": {
+    "type": "NSWindowDelegate"
+  },
+  "window/depth-limit": {
+    "options": [
+      "TwentyfourBitRGB",
+      "SixtyfourBitRGB",
+      "OnehundredtwentyeightBitRGB"
+    ]
+  },
+  "window/device-description": {
+    "type": "NSDictionary"
+  },
+  "window/displays-when-screen-profile-changes": {
+    "type": "boolean"
+  },
+  "window/dock-tile": {
+    "type": "NSDockTile"
+  },
+  "window/is-document-edited": {
+    "type": "boolean"
+  },
+  "window/is-excluded-from-windows-menu": {
+    "type": "boolean"
+  },
+  "window/first-responder": {
+    "type": "NSResponder"
+  },
+  "window/frame": {
+    "type": "NSRect"
+  },
+  "window/frame-autosave-name": {
+    "type": "String"
+  },
+  "window/has-dynamic-depth-limit": {
+    "type": "boolean"
+  },
+  "window/has-shadow": {
+    "type": "boolean"
+  },
+  "window/hides-on-deactivate": {
+    "type": "boolean"
+  },
+  "window/initial-first-responder": {
+    "type": "NSView"
+  },
+  "window/in-live-resize": {
+    "type": "boolean"
+  },
+  "window/key-view-selection-direction": {
+    "options": [
+      "DirectSelection",
+      "SelectingNext",
+      "SelectingPrevious"
+    ]
+  },
+  "window/is-key-window": {
+    "type": "boolean"
+  },
+  "window/level": {
+    "type": "number"
+  },
+  "window/is-main-window": {
+    "type": "boolean"
+  },
+  "window/max-full-screen-content-size": {
+    "type": "NSSize"
+  },
+  "window/max-size": {
+    "type": "NSSize"
+  },
+  "window/min-full-screen-content-size": {
+    "type": "NSSize"
+  },
+  "window/is-miniaturized": {
+    "type": "boolean"
+  },
+  "window/miniwindow-image": {
+    "type": "NSImage"
+  },
+  "window/miniwindow-title": {
+    "type": "String"
+  },
+  "window/min-size": {
+    "type": "NSSize"
+  },
+  "window/is-movable": {
+    "type": "boolean"
+  },
+  "window/is-movable-by-window-background": {
+    "type": "boolean"
+  },
+  "window/occlusion-state": {
+    "options": [
+      "Visible"
+    ]
+  },
+  "window/is-on-active-space": {
+    "type": "boolean"
+  },
+  "window/is-opaque": {
+    "type": "boolean"
+  },
+  "window/parent": {
+    "type": "NSWindow"
+  },
+  "window/preserves-content-during-live-resize": {
+    "type": "boolean"
+  },
+  "window/prevents-application-termination-when-modal": {
+    "type": "boolean"
+  },
+  "window/is-released-when-closed": {
+    "type": "boolean"
+  },
+  "window/represented-filename": {
+    "type": "String"
+  },
+  "window/represented-url": {
+    "type": "NSURL"
+  },
+  "window/resize-flags": {
+    "options": [
+      "CapsLock",
+      "Shift",
+      "Control",
+      "Option",
+      "Command",
+      "NumericPad",
+      "Help",
+      "Function",
+      "DeviceIndependentFlagsMask"
+    ]
+  },
+  "window/resize-increments": {
+    "type": "NSSize"
+  },
+  "window/screen": {
+    "type": "NSScreen"
+  },
+  "window/sharing-type": {
+    "options": [
+      "None",
+      "ReadOnly",
+      "ReadWrite"
+    ]
+  },
+  "window/is-sheet": {
+    "type": "boolean"
+  },
+  "window/sheet-parent": {
+    "type": "NSWindow"
+  },
+  "window/sheets": {
+    "type": "NSArray"
+  },
+  "window/shows-toolbar-button": {
+    "type": "boolean"
+  },
+  "window/frame-descriptor": {
+    "type": "String"
+  },
+  "window/style-mask": {
+    "options": [
+      "Borderless",
+      "Titled",
+      "Closable",
+      "Miniaturizable",
+      "Resizable",
+      "TexturedBackground",
+      "UnifiedTitleAndToolbar",
+      "FullScreen",
+      "FullSizeContentView",
+      "UtilityWindow",
+      "DocModalWindow",
+      "NonactivatingPanel",
+      "HUDWindow"
+    ]
+  },
+  "window/tab": {
+    "type": "NSWindowTab"
+  },
+  "window/tabbed-windows": {
+    "type": "NSArray"
+  },
+  "window/tabbing-identifier": {
+    "type": "String"
+  },
+  "window/tabbing-mode": {
+    "options": [
+      "Automatic",
+      "Preferred",
+      "Disallowed"
+    ]
+  },
+  "window/tab-group": {
+    "type": "NSWindowTabGroup"
+  },
+  "window/title": {
+    "type": "String"
+  },
+  "window/titlebar-accessory-view-controllers": {
+    "type": "NSArray"
+  },
+  "window/titlebar-appears-transparent": {
+    "type": "boolean"
+  },
+  "window/title-visibility": {
+    "options": [
+      "Visible",
+      "Hidden"
+    ]
+  },
+  "window/toolbar": {
+    "type": "NSToolbar"
+  },
+  "window/views-need-display": {
+    "type": "boolean"
+  },
+  "window/is-visible": {
+    "type": "boolean"
+  },
+  "window/window-controller": {
+    "type": "NSWindowController"
+  },
+  "window/window-number": {
+    "type": "number"
+  },
+  "window/window-titlebar-layout-direction": {
+    "options": [
+      "LeftToRight",
+      "RightToLeft"
+    ]
+  },
+  "window/works-when-modal": {
+    "type": "boolean"
+  },
+  "window/is-zoomed": {
+    "type": "boolean"
+  },
+  "window/accepts-mouse-moved-events": {
+    "type": "boolean"
+  },
+  "window/current-event": {
+    "type": "NSEvent"
+  },
+  "window/ignores-mouse-events": {
+    "type": "boolean"
+  },
+  "window/mouse-location-outside-of-event-stream": {
+    "type": "NSPoint"
+  },
+  "window/are-cursor-rects-enabled": {
+    "type": "boolean"
+  },
+  "window/window-ref": {
+    "type": "pointer"
+  },
+  "window/shows-resize-indicator": {
+    "type": "boolean"
+  },
+  "window/is-floating-panel": {
+    "type": "boolean"
+  },
+  "window/has-close-box": {
+    "type": "boolean"
+  },
+  "window/has-title-bar": {
+    "type": "boolean"
+  },
+  "window/is-miniaturizable": {
+    "type": "boolean"
+  },
+  "window/is-modal-panel": {
+    "type": "boolean"
+  },
+  "window/ordered-index": {
+    "type": "number"
+  },
+  "window/is-resizable": {
+    "type": "boolean"
+  },
+  "window/is-zoomable": {
+    "type": "boolean"
+  },
+  "window/is-restorable": {
+    "type": "boolean"
+  },
+  "window/restoration-class": {
+    "type": "class"
+  }
+}

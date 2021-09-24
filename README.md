@@ -12,3 +12,8 @@ A new way to create MacOS apps.
 
 * Viewing some classes in the Safari Inspector will crash the app because they send unsupported ObjC selectors to the class
 
+# FAQ
+
+> I see thousands of packages in node_modules, does my app need all of these?
+
+No, VueKit apps use only one package, `@vue/runtime-core`, which is a pared-down subset of the full `vue` package. The modules in node_modules are used for development tools. Take a look at the generated javascript in the build/ directory to see the entirety of your app with dependencies included.

@@ -1,0 +1,3598 @@
+{
+  "AVCaptureViewControlsStyle": {
+    "Inline": 0,
+    "Floating": 1,
+    "InlineDeviceSelection": 2,
+    "Default": 0
+  },
+  "AVPlayerViewControlsStyle": {
+    "None": 0,
+    "Inline": 1,
+    "Floating": 2,
+    "Minimal": 3,
+    "Default": 1
+  },
+  "AVPlayerViewTrimResult": {
+    "OKButton": 0,
+    "CancelButton": 1
+  },
+  "AVRoutePickerViewButtonState": {
+    "Normal": 0,
+    "NormalHighlighted": 1,
+    "Active": 2,
+    "ActiveHighlighted": 3
+  },
+  "IKCameraDeviceViewDisplayMode": {
+    "None": -1,
+    "Table": 0,
+    "Icon": 1
+  },
+  "IKCameraDeviceViewTransferMode": {
+    "FileBased": 0,
+    "MemoryBased": 1
+  },
+  "IKDeviceBrowserViewDisplayMode": {
+    "Table": 0,
+    "Outline": 1,
+    "Icon": 2
+  },
+  "IKImageBrowserCellState": {
+    "StateNoImage": 0,
+    "StateInvalid": 1,
+    "StateReady": 2
+  },
+  "IKImageBrowserDropOperation": {
+    "On": 0,
+    "Before": 1
+  },
+  "IKScannerDeviceViewDisplayMode": {
+    "None": -1,
+    "Simple": 0,
+    "Advanced": 1
+  },
+  "IKScannerDeviceViewTransferMode": {
+    "FileBased": 0,
+    "MemoryBased": 1
+  },
+  "QCPlugInExecutionMode": {},
+  "QCPlugInTimeMode": {},
+  "QLPreviewViewStyle": {
+    "Normal": 0,
+    "Compact": 1
+  },
+  "CKAccountStatus": {
+    "CouldNotDetermine": 0,
+    "Available": 1,
+    "Restricted": 2,
+    "NoAccount": 3
+  },
+  "CKContainer_Application_PermissionStatus": {
+    "InitialState": 0,
+    "CouldNotComplete": 1,
+    "Denied": 2,
+    "Granted": 3
+  },
+  "CKContainer_Application_Permissions": {
+    "UserDiscoverability": 1
+  },
+  "CKDatabase.Scope": {
+    "Public": 1,
+    "Private": 2,
+    "Shared": 3
+  },
+  "CKErrorCode": {
+    "InternalError": 1,
+    "PartialFailure": 2,
+    "NetworkUnavailable": 3,
+    "NetworkFailure": 4,
+    "BadContainer": 5,
+    "ServiceUnavailable": 6,
+    "RequestRateLimited": 7,
+    "MissingEntitlement": 8,
+    "NotAuthenticated": 9,
+    "PermissionFailure": 10,
+    "UnknownItem": 11,
+    "InvalidArguments": 12,
+    "ResultsTruncated": 13,
+    "ServerRecordChanged": 14,
+    "ServerRejectedRequest": 15,
+    "AssetFileNotFound": 16,
+    "AssetFileModified": 17,
+    "IncompatibleVersion": 18,
+    "ConstraintViolation": 19,
+    "OperationCancelled": 20,
+    "ChangeTokenExpired": 21,
+    "BatchRequestFailed": 22,
+    "ZoneBusy": 23,
+    "BadDatabase": 24,
+    "QuotaExceeded": 25,
+    "ZoneNotFound": 26,
+    "LimitExceeded": 27,
+    "UserDeletedZone": 28,
+    "TooManyParticipants": 29,
+    "AlreadyShared": 30,
+    "ReferenceViolation": 31,
+    "ManagedAccountRestricted": 32,
+    "ParticipantMayNeedVerification": 33,
+    "ServerResponseLost": 34,
+    "AssetNotAvailable": 35
+  },
+  "CKNotification.NotificationType": {
+    "Query": 1,
+    "RecordZone": 2,
+    "ReadNotification": 3,
+    "Database": 4
+  },
+  "CKOperationGroup.TransferSize": {
+    "Unknown": 0,
+    "Kilobytes": 1,
+    "Megabytes": 2,
+    "TensOfMegabytes": 3,
+    "HundredsOfMegabytes": 4,
+    "Gigabytes": 5,
+    "TensOfGigabytes": 6,
+    "HundredsOfGigabytes": 7
+  },
+  "CKQueryNotification.Reason": {
+    "RecordCreated": 1,
+    "RecordUpdated": 2,
+    "RecordDeleted": 3
+  },
+  "CKQuerySubscription.Options": {
+    "FiresOnRecordCreation": 1,
+    "FiresOnRecordUpdate": 2,
+    "FiresOnRecordDeletion": 4,
+    "FiresOnce": 8
+  },
+  "CKModifyRecordsOperation.RecordSavePolicy": {
+    "IfServerRecordUnchanged": 0,
+    "ChangedKeys": 1,
+    "AllKeys": 2
+  },
+  "CKRecordZone.Capabilities": {
+    "CapabilityFetchChanges": 1,
+    "CapabilityAtomic": 2,
+    "CapabilitySharing": 4
+  },
+  "CKRecord_Reference_Action": {
+    "None": 0,
+    "DeleteSelf": 1
+  },
+  "CKShare_Participant_AcceptanceStatus": {
+    "Unknown": 0,
+    "Pending": 1,
+    "Accepted": 2,
+    "Removed": 3
+  },
+  "CKShare_Participant_Permission": {
+    "Unknown": 0,
+    "None": 1,
+    "ReadOnly": 2,
+    "ReadWrite": 3
+  },
+  "CKShare_Participant_Role": {
+    "Unknown": 0,
+    "Owner": 1,
+    "PrivateUser": 3,
+    "PublicUser": 4
+  },
+  "CKSubscription.SubscriptionType": {
+    "Query": 1,
+    "RecordZone": 2,
+    "Database": 3
+  },
+  "CAAutoresizingMask": {},
+  "CAConstraintAttribute": {},
+  "CACornerMask": {},
+  "CAEdgeAntialiasingMask": {},
+  "CGBitmapInfo": {},
+  "CGBlendMode": {},
+  "CGCaptureOptions": {},
+  "CGColorConversionInfoTransformType": {},
+  "CGColorRenderingIntent": {},
+  "CGColorSpaceModel": {},
+  "CGConfigureOption": {},
+  "CGDisplayChangeSummaryFlags": {},
+  "CGDisplayStreamFrameStatus": {},
+  "CGDisplayStreamUpdateRectType": {},
+  "CGError": {},
+  "CGEventField": {},
+  "CGEventFilterMask": {},
+  "CGEventFlags": {},
+  "CGEventMouseSubtype": {},
+  "CGEventSourceStateID": {},
+  "CGEventSuppressionState": {},
+  "CGEventTapLocation": {},
+  "CGEventTapOptions": {},
+  "CGEventTapPlacement": {},
+  "CGEventType": {},
+  "CGFontPostScriptFormat": {},
+  "CGGesturePhase": {},
+  "CGGlyphDeprecatedEnum": {
+    "Min": 0,
+    "Max": 1
+  },
+  "CGGradientDrawingOptions": {},
+  "CGImageAlphaInfo": {},
+  "CGImageByteOrderInfo": {},
+  "CGImagePixelFormatInfo": {},
+  "CGInterpolationQuality": {},
+  "CGLineCap": {},
+  "CGLineJoin": {},
+  "CGMomentumScrollPhase": {},
+  "CGMouseButton": {},
+  "CGPDFAccessPermissions": {},
+  "CGPDFBox": {},
+  "CGPDFDataFormat": {
+    "Raw": 0,
+    "JPEGEncoded": 1,
+    "JPEG2000": 2
+  },
+  "CGPDFObjectType": {},
+  "CGPDFTagType": {
+    "Document": 100,
+    "Part": 101,
+    "Art": 102,
+    "Section": 103,
+    "Div": 104,
+    "BlockQuote": 105,
+    "Caption": 106,
+    "TOC": 107,
+    "TOCI": 108,
+    "Index": 109,
+    "NonStructure": 110,
+    "Private": 111,
+    "Paragraph": 200,
+    "Header": 201,
+    "Header1": 202,
+    "Header2": 203,
+    "Header3": 204,
+    "Header4": 205,
+    "Header5": 206,
+    "Header6": 207,
+    "List": 300,
+    "ListItem": 301,
+    "Label": 302,
+    "ListBody": 303,
+    "Table": 400,
+    "TableRow": 401,
+    "TableHeaderCell": 402,
+    "TableDataCell": 403,
+    "TableHeader": 404,
+    "TableBody": 405,
+    "TableFooter": 406,
+    "Span": 500,
+    "Quote": 501,
+    "Note": 502,
+    "Reference": 503,
+    "Bibliography": 504,
+    "Code": 505,
+    "Link": 506,
+    "Annotation": 507,
+    "Ruby": 600,
+    "RubyBaseText": 601,
+    "RubyAnnotationText": 602,
+    "RubyPunctuation": 603,
+    "Warichu": 604,
+    "WarichuText": 605,
+    "WarichuPunctiation": 606,
+    "Figure": 700,
+    "Formula": 701,
+    "Form": 702
+  },
+  "CGPathDrawingMode": {},
+  "CGPathElementType": {},
+  "CGPatternTiling": {},
+  "CGRectEdge": {
+    "MinXEdge": 0,
+    "MinYEdge": 1,
+    "MaxXEdge": 2,
+    "MaxYEdge": 3
+  },
+  "CGScreenUpdateOperation": {},
+  "CGScrollEventUnit": {},
+  "CGScrollPhase": {},
+  "CGTextDrawingMode": {},
+  "CGWindowBackingType": {},
+  "CGWindowImageOption": {},
+  "CGWindowLevelKey": {},
+  "CGWindowListOption": {},
+  "CGWindowSharingType": {},
+  "CFCalendarUnit": {},
+  "CFCharacterSetPredefinedSet": {},
+  "CFComparisonResult": {},
+  "CFDataSearchFlags": {},
+  "CFDateFormatterStyle": {},
+  "CFFileSecurityClearOptions": {},
+  "CFGregorianUnitFlags": {},
+  "CFISO8601DateFormatOptions": {},
+  "CFLocaleLanguageDirection": {},
+  "CFNotificationSuspensionBehavior": {
+    "Drop": 1,
+    "Coalesce": 2,
+    "Hold": 3,
+    "DeliverImmediately": 4
+  },
+  "CFNumberFormatterOptionFlags": {},
+  "CFNumberFormatterPadPosition": {},
+  "CFNumberFormatterRoundingMode": {},
+  "CFNumberFormatterStyle": {},
+  "CFNumberType": {},
+  "CFPropertyListFormat": {},
+  "CFPropertyListMutabilityOptions": {},
+  "CFRunLoopActivity": {},
+  "CFRunLoopRunResult": {},
+  "CFSocketCallBackType": {},
+  "CFSocketError": {},
+  "CFStreamErrorDomain": {},
+  "CFStreamEventType": {},
+  "CFStreamStatus": {},
+  "CFStringBuiltInEncodings": {},
+  "CFStringCompareFlags": {},
+  "CFStringEncodings": {},
+  "CFStringNormalizationForm": {},
+  "CFStringTokenizerTokenType": {},
+  "CFTimeZoneNameStyle": {},
+  "CFURLBookmarkCreationOptions": {},
+  "CFURLBookmarkResolutionOptions": {},
+  "CFURLComponentType": {},
+  "CFURLEnumeratorOptions": {},
+  "CFURLEnumeratorResult": {},
+  "CFURLPathStyle": {},
+  "CFXMLEntityTypeCode": {},
+  "CFXMLNodeTypeCode": {},
+  "CFXMLParserOptions": {},
+  "CFXMLParserStatusCode": {},
+  "__CFByteOrder": {},
+  "AVAssetExportSession.Status": {
+    "Unknown": 0,
+    "Waiting": 1,
+    "Exporting": 2,
+    "Completed": 3,
+    "Failed": 4,
+    "Cancelled": 5
+  },
+  "AVAssetImageGenerator.Result": {
+    "Succeeded": 0,
+    "Failed": 1,
+    "Cancelled": 2
+  },
+  "AVAssetReader.Status": {
+    "Unknown": 0,
+    "Reading": 1,
+    "Completed": 2,
+    "Failed": 3,
+    "Cancelled": 4
+  },
+  "AVAssetReferenceRestrictions": {
+    "ForbidNone": 0,
+    "ForbidRemoteReferenceToLocal": 1,
+    "ForbidLocalReferenceToRemote": 2,
+    "ForbidCrossSiteReference": 4,
+    "ForbidLocalReferenceToLocal": 8,
+    "ForbidAll": 65535,
+    "DefaultPolicy": 2
+  },
+  "AVAssetWriter.Status": {
+    "Unknown": 0,
+    "Writing": 1,
+    "Completed": 2,
+    "Failed": 3,
+    "Cancelled": 4
+  },
+  "AVAudio3DMixingPointSourceInHeadMode": {
+    "Mono": 0,
+    "Bypass": 1
+  },
+  "AVAudio3DMixingRenderingAlgorithm": {
+    "EqualPowerPanning": 0,
+    "SphericalHead": 1,
+    "HRTF": 2,
+    "SoundField": 3,
+    "StereoPassThrough": 5,
+    "HRTFHQ": 6,
+    "Auto": 7
+  },
+  "AVAudio3DMixingSourceMode": {
+    "SpatializeIfMono": 0,
+    "Bypass": 1,
+    "PointSource": 2,
+    "AmbienceBed": 3
+  },
+  "AVAudioCommonFormat": {
+    "OtherFormat": 0,
+    "PCMFormatFloat32": 1,
+    "PCMFormatFloat64": 2,
+    "PCMFormatInt16": 3,
+    "PCMFormatInt32": 4
+  },
+  "AVAudioConverterInputStatus": {
+    "HaveData": 0,
+    "NoDataNow": 1,
+    "EndOfStream": 2
+  },
+  "AVAudioConverterOutputStatus": {
+    "HaveData": 0,
+    "InputRanDry": 1,
+    "EndOfStream": 2,
+    "Error": 3
+  },
+  "AVAudioConverterPrimeMethod": {
+    "Pre": 0,
+    "Normal": 1,
+    "None": 2
+  },
+  "AVAudioEngineManualRenderingError": {
+    "InvalidMode": -80800,
+    "Initialized": -80801,
+    "NotRunning": -80802
+  },
+  "AVAudioEngineManualRenderingMode": {
+    "Offline": 0,
+    "Realtime": 1
+  },
+  "AVAudioEngineManualRenderingStatus": {
+    "Error": -1,
+    "Success": 0,
+    "InsufficientDataFromInputNode": 1,
+    "CannotDoInCurrentContext": 2
+  },
+  "AVAudioEnvironmentDistanceAttenuationModel": {
+    "Exponential": 1,
+    "Inverse": 2,
+    "Linear": 3
+  },
+  "AVAudioEnvironmentOutputType": {
+    "Auto": 0,
+    "Headphones": 1,
+    "BuiltInSpeakers": 2,
+    "ExternalSpeakers": 3
+  },
+  "AVAudioPlayerNodeBufferOptions": {
+    "Loops": 1,
+    "Interrupts": 2,
+    "InterruptsAtLoop": 4
+  },
+  "AVAudioPlayerNodeCompletionCallbackType": {
+    "DataConsumed": 0,
+    "DataRendered": 1,
+    "DataPlayedBack": 2
+  },
+  "AVAudioQuality": {
+    "Min": 0,
+    "Low": 32,
+    "Medium": 64,
+    "High": 96,
+    "Max": 127
+  },
+  "AVAudioSessionActivationOptions": {
+    "None": 0
+  },
+  "AVAudioSession.CategoryOptions": {
+    "MixWithOthers": 1,
+    "DuckOthers": 2,
+    "AllowBluetooth": 4,
+    "DefaultToSpeaker": 8,
+    "InterruptSpokenAudioAndMixWithOthers": 17,
+    "AllowBluetoothA2DP": 32,
+    "AllowAirPlay": 64
+  },
+  "AVAudioSession.IOType": {
+    "NotSpecified": 0,
+    "Aggregated": 1
+  },
+  "AVAudioSession.InterruptionOptions": {
+    "ShouldResume": 1
+  },
+  "AVAudioSession.InterruptionType": {
+    "Began": 1,
+    "Ended": 0
+  },
+  "AVAudioSession.PortOverride": {
+    "None": 0,
+    "Speaker": 1936747378
+  },
+  "AVAudioSession.PromptStyle": {
+    "None": 1852796517,
+    "Short": 1936224884,
+    "Normal": 1852992876
+  },
+  "AVAudioSession.RecordPermission": {
+    "Undetermined": 1970168948,
+    "Denied": 1684369017,
+    "Granted": 1735552628
+  },
+  "AVAudioSession.RouteChangeReason": {
+    "Unknown": 0,
+    "NewDeviceAvailable": 1,
+    "OldDeviceUnavailable": 2,
+    "CategoryChange": 3,
+    "Override": 4,
+    "WakeFromSleep": 6,
+    "NoSuitableRouteForCategory": 7,
+    "RouteConfigurationChange": 8
+  },
+  "AVAudioSession.RouteSharingPolicy": {
+    "Default": 0,
+    "LongFormAudio": 1,
+    "LongForm": 1,
+    "Independent": 2,
+    "LongFormVideo": 3
+  },
+  "AVAudioSession.SetActiveOptions": {
+    "NotifyOthersOnDeactivation": 1
+  },
+  "AVAudioSession.SilenceSecondaryAudioHintType": {
+    "Begin": 1,
+    "End": 0
+  },
+  "AVAudioUnitDistortionPreset": {
+    "DrumsBitBrush": 0,
+    "DrumsBufferBeats": 1,
+    "DrumsLoFi": 2,
+    "MultiBrokenSpeaker": 3,
+    "MultiCellphoneConcert": 4,
+    "MultiDecimated1": 5,
+    "MultiDecimated2": 6,
+    "MultiDecimated3": 7,
+    "MultiDecimated4": 8,
+    "MultiDistortedFunk": 9,
+    "MultiDistortedCubed": 10,
+    "MultiDistortedSquared": 11,
+    "MultiEcho1": 12,
+    "MultiEcho2": 13,
+    "MultiEchoTight1": 14,
+    "MultiEchoTight2": 15,
+    "MultiEverythingIsBroken": 16,
+    "SpeechAlienChatter": 17,
+    "SpeechCosmicInterference": 18,
+    "SpeechGoldenPi": 19,
+    "SpeechRadioTower": 20,
+    "SpeechWaves": 21
+  },
+  "AVAudioUnitEQFilterType": {
+    "Parametric": 0,
+    "LowPass": 1,
+    "HighPass": 2,
+    "ResonantLowPass": 3,
+    "ResonantHighPass": 4,
+    "BandPass": 5,
+    "BandStop": 6,
+    "LowShelf": 7,
+    "HighShelf": 8,
+    "ResonantLowShelf": 9,
+    "ResonantHighShelf": 10
+  },
+  "AVAudioUnitReverbPreset": {
+    "SmallRoom": 0,
+    "MediumRoom": 1,
+    "LargeRoom": 2,
+    "MediumHall": 3,
+    "LargeHall": 4,
+    "Plate": 5,
+    "MediumChamber": 6,
+    "LargeChamber": 7,
+    "Cathedral": 8,
+    "LargeRoom2": 9,
+    "MediumHall2": 10,
+    "MediumHall3": 11,
+    "LargeHall2": 12
+  },
+  "AVAuthorizationStatus": {
+    "NotDetermined": 0,
+    "Restricted": 1,
+    "Denied": 2,
+    "Authorized": 3
+  },
+  "AVCaptureDeviceFormat.AutoFocusSystem": {
+    "None": 0,
+    "ContrastDetection": 1,
+    "PhaseDetection": 2
+  },
+  "AVCaptureColorSpace": {
+    "sRGB": 0,
+    "P3_D65": 1
+  },
+  "AVCaptureDevice.Position": {
+    "Unspecified": 0,
+    "Back": 1,
+    "Front": 2
+  },
+  "AVCaptureDevice.TransportControlsPlaybackMode": {
+    "NotPlayingMode": 0,
+    "PlayingMode": 1
+  },
+  "AVCaptureDevice.ExposureMode": {
+    "Locked": 0,
+    "AutoExpose": 1,
+    "ContinuousAutoExposure": 2,
+    "Custom": 3
+  },
+  "AVCaptureDevice.FlashMode": {
+    "Off": 0,
+    "On": 1,
+    "Auto": 2
+  },
+  "AVCaptureDevice.FocusMode": {
+    "Locked": 0,
+    "AutoFocus": 1,
+    "ContinuousAutoFocus": 2
+  },
+  "AVCaptureOutput.DataDroppedReason": {
+    "None": 0,
+    "LateData": 1,
+    "OutOfBuffers": 2,
+    "Discontinuity": 3
+  },
+  "AVCaptureDevice.TorchMode": {
+    "Off": 0,
+    "On": 1,
+    "Auto": 2
+  },
+  "AVCaptureVideoOrientation": {
+    "Portrait": 1,
+    "PortraitUpsideDown": 2,
+    "LandscapeRight": 3,
+    "LandscapeLeft": 4
+  },
+  "AVCaptureDevice.WhiteBalanceMode": {
+    "Locked": 0,
+    "AutoWhiteBalance": 1,
+    "ContinuousAutoWhiteBalance": 2
+  },
+  "AVContentAuthorizationStatus": {
+    "Unknown": 0,
+    "Completed": 1,
+    "Cancelled": 2,
+    "TimedOut": 3,
+    "Busy": 4,
+    "NotAvailable": 5,
+    "NotPossible": 6
+  },
+  "AVContentKeyRequest.Status": {
+    "RequestingResponse": 0,
+    "ReceivedResponse": 1,
+    "Renewed": 2,
+    "Retried": 3,
+    "Cancelled": 4,
+    "Failed": 5
+  },
+  "AVDepthData.Accuracy": {
+    "Relative": 0,
+    "Absolute": 1
+  },
+  "AVDepthData.Quality": {
+    "Low": 0,
+    "High": 1
+  },
+  "AVError": {
+    "Unknown": -11800,
+    "OutOfMemory": -11801,
+    "SessionNotRunning": -11803,
+    "DeviceAlreadyUsedByAnotherSession": -11804,
+    "NoDataCaptured": -11805,
+    "SessionConfigurationChanged": -11806,
+    "DiskFull": -11807,
+    "DeviceWasDisconnected": -11808,
+    "MediaChanged": -11809,
+    "MaximumDurationReached": -11810,
+    "MaximumFileSizeReached": -11811,
+    "MediaDiscontinuity": -11812,
+    "MaximumNumberOfSamplesForFileFormatReached": -11813,
+    "DeviceNotConnected": -11814,
+    "DeviceInUseByAnotherApplication": -11815,
+    "DeviceLockedForConfigurationByAnotherProcess": -11817,
+    "ExportFailed": -11820,
+    "DecodeFailed": -11821,
+    "InvalidSourceMedia": -11822,
+    "FileAlreadyExists": -11823,
+    "CompositionTrackSegmentsNotContiguous": -11824,
+    "InvalidCompositionTrackSegmentDuration": -11825,
+    "InvalidCompositionTrackSegmentSourceStartTime": -11826,
+    "InvalidCompositionTrackSegmentSourceDuration": -11827,
+    "FileFormatNotRecognized": -11828,
+    "FileFailedToParse": -11829,
+    "MaximumStillImageCaptureRequestsExceeded": -11830,
+    "ContentIsProtected": -11831,
+    "NoImageAtTime": -11832,
+    "DecoderNotFound": -11833,
+    "EncoderNotFound": -11834,
+    "ContentIsNotAuthorized": -11835,
+    "ApplicationIsNotAuthorized": -11836,
+    "OperationNotSupportedForAsset": -11838,
+    "DecoderTemporarilyUnavailable": -11839,
+    "EncoderTemporarilyUnavailable": -11840,
+    "InvalidVideoComposition": -11841,
+    "ReferenceForbiddenByReferencePolicy": -11842,
+    "InvalidOutputURLPathExtension": -11843,
+    "ScreenCaptureFailed": -11844,
+    "DisplayWasDisabled": -11845,
+    "TorchLevelUnavailable": -11846,
+    "IncompatibleAsset": -11848,
+    "FailedToLoadMediaData": -11849,
+    "ServerIncorrectlyConfigured": -11850,
+    "ApplicationIsNotAuthorizedToUseDevice": -11852,
+    "FailedToParse": -11853,
+    "FileTypeDoesNotSupportSampleReferences": -11854,
+    "UndecodableMediaData": -11855,
+    "AirPlayControllerRequiresInternet": -11856,
+    "AirPlayReceiverRequiresInternet": -11857,
+    "VideoCompositorFailed": -11858,
+    "CreateContentKeyRequestFailed": -11860,
+    "UnsupportedOutputSettings": -11861,
+    "OperationNotAllowed": -11862,
+    "ContentIsUnavailable": -11863,
+    "FormatUnsupported": -11864,
+    "MalformedDepth": -11865,
+    "ContentNotUpdated": -11866,
+    "NoLongerPlayable": -11867,
+    "NoCompatibleAlternatesForExternalDisplay": -11868,
+    "NoSourceTrack": -11869,
+    "ExternalPlaybackNotSupportedForAsset": -11870,
+    "OperationNotSupportedForPreset": -11871,
+    "SessionHardwareCostOverage": -11872,
+    "UnsupportedDeviceActiveFormat": -11873
+  },
+  "AVKeyValueStatus": {
+    "Unknown": 0,
+    "Loading": 1,
+    "Loaded": 2,
+    "Failed": 3,
+    "Cancelled": 4
+  },
+  "AVMovieWritingOptions": {
+    "AddMovieHeaderToDestination": 0,
+    "TruncateDestinationToMovieHeaderOnly": 1
+  },
+  "AVMusicSequenceLoadOptions": {
+    "SMF_PreserveTracks": 0,
+    "SMF_ChannelsToTracks": 1
+  },
+  "AVMusicTrackLoopCount": {
+    "Forever": -1
+  },
+  "AVPlayer.ActionAtItemEnd": {
+    "Advance": 0,
+    "Pause": 1,
+    "None": 2
+  },
+  "AVPlayerItem.Status": {
+    "Unknown": 0,
+    "ReadyToPlay": 1,
+    "Failed": 2
+  },
+  "AVPlayerLooper.Status": {
+    "Unknown": 0,
+    "Ready": 1,
+    "Failed": 2,
+    "Cancelled": 3
+  },
+  "AVPlayer.Status": {
+    "Unknown": 0,
+    "ReadyToPlay": 1,
+    "Failed": 2
+  },
+  "AVPlayer.TimeControlStatus": {
+    "Paused": 0,
+    "WaitingToPlayAtSpecifiedRate": 1,
+    "Playing": 2
+  },
+  "AVQueuedSampleBufferRenderingStatus": {
+    "Unknown": 0,
+    "Rendering": 1,
+    "Failed": 2
+  },
+  "AVSampleBufferRequest.Direction": {
+    "Forward": 1,
+    "None": 0,
+    "Reverse": -1
+  },
+  "AVSampleBufferRequest.Mode": {
+    "Immediate": 0,
+    "Scheduled": 1,
+    "Opportunistic": 2
+  },
+  "AVSpeechBoundary": {
+    "Immediate": 0,
+    "Word": 1
+  },
+  "AVSpeechSynthesisVoiceGender": {
+    "Unspecified": 0,
+    "Male": 1,
+    "Female": 2
+  },
+  "AVSpeechSynthesisVoiceQuality": {
+    "Default": 1,
+    "Enhanced": 2
+  },
+  "AVVideoFieldMode": {
+    "Both": 0,
+    "TopOnly": 1,
+    "BottomOnly": 2,
+    "Deinterlace": 3
+  },
+  "ProcessInfo.ActivityOptions": {
+    "IdleDisplaySleepDisabled": 1099511627776,
+    "IdleSystemSleepDisabled": 1048576,
+    "SuddenTerminationDisabled": 16384,
+    "AutomaticTerminationDisabled": 32768,
+    "UserInitiated": 16777215,
+    "UserInitiatedAllowingIdleSystemSleep": 15728639,
+    "Background": 255,
+    "LatencyCritical": 1095216660480
+  },
+  "AlignmentOptions": {
+    "MinXInward": 1,
+    "MinYInward": 2,
+    "MaxXInward": 4,
+    "MaxYInward": 8,
+    "WidthInward": 16,
+    "HeightInward": 32,
+    "MinXOutward": 256,
+    "MinYOutward": 512,
+    "MaxXOutward": 1024,
+    "MaxYOutward": 2048,
+    "WidthOutward": 4096,
+    "HeightOutward": 8192,
+    "MinXNearest": 65536,
+    "MinYNearest": 131072,
+    "MaxXNearest": 262144,
+    "MaxYNearest": 524288,
+    "WidthNearest": 1048576,
+    "HeightNearest": 2097152,
+    "RectFlipped": -9223372036854776000,
+    "AllEdgesInward": 15,
+    "AllEdgesOutward": 3840,
+    "AllEdgesNearest": 983040
+  },
+  "NSAppleEventDescriptor.SendOptions": {
+    "NoReply": 1,
+    "QueueReply": 2,
+    "WaitForReply": 3,
+    "NeverInteract": 16,
+    "CanInteract": 32,
+    "AlwaysInteract": 48,
+    "CanSwitchLayer": 64,
+    "DontRecord": 4096,
+    "DontExecute": 8192,
+    "DontAnnotate": 65536,
+    "DefaultOptions": 35
+  },
+  "NSAttributedString.EnumerationOptions": {
+    "Reverse": 2,
+    "LongestEffectiveRangeNotRequired": 1048576
+  },
+  "NSBackgroundActivityScheduler.Result": {
+    "Finished": 1,
+    "Deferred": 2
+  },
+  "NSBinarySearchingOptions": {
+    "FirstEqual": 256,
+    "LastEqual": 512,
+    "InsertionIndex": 1024
+  },
+  "ByteCountFormatter.CountStyle": {
+    "File": 0,
+    "Memory": 1,
+    "Decimal": 2,
+    "Binary": 3
+  },
+  "ByteCountFormatter.Units": {
+    "UseDefault": 0,
+    "UseBytes": 1,
+    "UseKB": 2,
+    "UseMB": 4,
+    "UseGB": 8,
+    "UseTB": 16,
+    "UsePB": 32,
+    "UseEB": 64,
+    "UseZB": 128,
+    "UseYBOrHigher": 65280,
+    "UseAll": 65535
+  },
+  "NSDecimalNumber.CalculationError": {
+    "NoError": 0,
+    "LossOfPrecision": 1,
+    "Underflow": 2,
+    "Overflow": 3,
+    "DivideByZero": 4
+  },
+  "NSCalendar.Options": {
+    "WrapComponents": 1,
+    "MatchStrictly": 2,
+    "SearchBackwards": 4,
+    "MatchPreviousTimePreservingSmallerUnits": 256,
+    "MatchNextTimePreservingSmallerUnits": 512,
+    "MatchNextTime": 1024,
+    "MatchFirst": 4096,
+    "MatchLast": 8192
+  },
+  "NSCalendar.Unit": {
+    "CalendarUnitEra": 2,
+    "CalendarUnitYear": 4,
+    "CalendarUnitMonth": 8,
+    "CalendarUnitDay": 16,
+    "CalendarUnitHour": 32,
+    "CalendarUnitMinute": 64,
+    "CalendarUnitSecond": 128,
+    "CalendarUnitWeekday": 512,
+    "CalendarUnitWeekdayOrdinal": 1024,
+    "CalendarUnitQuarter": 2048,
+    "CalendarUnitWeekOfMonth": 4096,
+    "CalendarUnitWeekOfYear": 8192,
+    "CalendarUnitYearForWeekOfYear": 16384,
+    "CalendarUnitNanosecond": 32768,
+    "CalendarUnitCalendar": 1048576,
+    "CalendarUnitTimeZone": 2097152,
+    "EraCalendarUnit": 2,
+    "YearCalendarUnit": 4,
+    "MonthCalendarUnit": 8,
+    "DayCalendarUnit": 16,
+    "HourCalendarUnit": 32,
+    "MinuteCalendarUnit": 64,
+    "SecondCalendarUnit": 128,
+    "WeekCalendarUnit": 256,
+    "WeekdayCalendarUnit": 512,
+    "WeekdayOrdinalCalendarUnit": 1024,
+    "QuarterCalendarUnit": 2048,
+    "WeekOfMonthCalendarUnit": 4096,
+    "WeekOfYearCalendarUnit": 8192,
+    "YearForWeekOfYearCalendarUnit": 16384,
+    "CalendarCalendarUnit": 1048576,
+    "TimeZoneCalendarUnit": 2097152
+  },
+  "NSCollectionChangeType": {
+    "Insert": 0,
+    "Remove": 1
+  },
+  "NSComparisonPredicate.Modifier": {
+    "DirectPredicateModifier": 0,
+    "AllPredicateModifier": 1,
+    "AnyPredicateModifier": 2
+  },
+  "NSComparisonPredicate.Options": {
+    "CaseInsensitivePredicateOption": 1,
+    "DiacriticInsensitivePredicateOption": 2,
+    "NormalizedPredicateOption": 4
+  },
+  "ComparisonResult": {
+    "OrderedAscending": -1,
+    "OrderedSame": 0,
+    "OrderedDescending": 1
+  },
+  "NSCompoundPredicate.LogicalType": {
+    "NotPredicateType": 0,
+    "AndPredicateType": 1,
+    "OrPredicateType": 2
+  },
+  "NSData.Base64DecodingOptions": {
+    "IgnoreUnknownCharacters": 1
+  },
+  "NSData.Base64EncodingOptions": {
+    "Encoding64CharacterLineLength": 1,
+    "Encoding76CharacterLineLength": 2,
+    "EncodingEndLineWithCarriageReturn": 16,
+    "EncodingEndLineWithLineFeed": 32
+  },
+  "NSData.CompressionAlgorithm": {
+    "LZFSE": 0,
+    "LZ4": 1,
+    "LZMA": 2,
+    "Zlib": 3
+  },
+  "NSData.ReadingOptions": {
+    "DataReadingMappedIfSafe": 1,
+    "DataReadingUncached": 2,
+    "DataReadingMappedAlways": 8,
+    "DataReadingMapped": 1,
+    "MappedRead": 1,
+    "UncachedRead": 2
+  },
+  "NSData.SearchOptions": {
+    "Backwards": 1,
+    "Anchored": 2
+  },
+  "NSData.WritingOptions": {
+    "DataWritingAtomic": 1,
+    "DataWritingWithoutOverwriting": 2,
+    "DataWritingFileProtectionNone": 268435456,
+    "DataWritingFileProtectionComplete": 536870912,
+    "DataWritingFileProtectionCompleteUnlessOpen": 805306368,
+    "DataWritingFileProtectionCompleteUntilFirstUserAuthentication": 1073741824,
+    "DataWritingFileProtectionMask": 4026531840,
+    "AtomicWrite": 1
+  },
+  "DateComponentsFormatter.UnitsStyle": {
+    "Positional": 0,
+    "Abbreviated": 1,
+    "Short": 2,
+    "Full": 3,
+    "SpellOut": 4,
+    "Brief": 5
+  },
+  "DateComponentsFormatter.ZeroFormattingBehavior": {
+    "None": 0,
+    "Default": 1,
+    "DropLeading": 2,
+    "DropMiddle": 4,
+    "DropTrailing": 8,
+    "DropAll": 14,
+    "Pad": 65536
+  },
+  "DateFormatter.Behavior": {
+    "BehaviorDefault": 0,
+    "Behavior10_0": 1000,
+    "Behavior10_4": 1040
+  },
+  "DateFormatter.Style": {
+    "NoStyle": 0,
+    "ShortStyle": 1,
+    "MediumStyle": 2,
+    "LongStyle": 3,
+    "FullStyle": 4
+  },
+  "DateIntervalFormatter.Style": {
+    "NoStyle": 0,
+    "ShortStyle": 1,
+    "MediumStyle": 2,
+    "LongStyle": 3,
+    "FullStyle": 4
+  },
+  "NSCoder.DecodingFailurePolicy": {
+    "RaiseException": 0,
+    "SetErrorAndReturn": 1
+  },
+  "FileManager.DirectoryEnumerationOptions": {
+    "SkipsSubdirectoryDescendants": 1,
+    "SkipsPackageDescendants": 2,
+    "SkipsHiddenFiles": 4,
+    "IncludesDirectoriesPostOrder": 8,
+    "ProducesRelativePathURLs": 16
+  },
+  "DistributedNotificationCenter.Options": {
+    "DeliverImmediately": 1,
+    "PostToAllSessions": 2
+  },
+  "EnergyFormatter.Unit": {
+    "Joule": 11,
+    "Kilojoule": 14,
+    "Calorie": 1793,
+    "Kilocalorie": 1794
+  },
+  "NSEnumerationOptions": {
+    "Concurrent": 1,
+    "Reverse": 2
+  },
+  "NSExpression.ExpressionType": {
+    "ConstantValueExpressionType": 0,
+    "EvaluatedObjectExpressionType": 1,
+    "VariableExpressionType": 2,
+    "KeyPathExpressionType": 3,
+    "FunctionExpressionType": 4,
+    "UnionSetExpressionType": 5,
+    "IntersectSetExpressionType": 6,
+    "MinusSetExpressionType": 7,
+    "SubqueryExpressionType": 13,
+    "AggregateExpressionType": 14,
+    "AnyKeyExpressionType": 15,
+    "BlockExpressionType": 19,
+    "ConditionalExpressionType": 20
+  },
+  "NSFileCoordinator.ReadingOptions": {
+    "WithoutChanges": 1,
+    "ResolvesSymbolicLink": 2,
+    "ImmediatelyAvailableMetadataOnly": 4,
+    "ForUploading": 8
+  },
+  "NSFileCoordinator.WritingOptions": {
+    "ForDeleting": 1,
+    "ForMoving": 2,
+    "ForMerging": 4,
+    "ForReplacing": 8,
+    "ContentIndependentMetadataOnly": 16
+  },
+  "FileManager.ItemReplacementOptions": {
+    "UsingNewMetadataOnly": 1,
+    "WithoutDeletingBackupItem": 2
+  },
+  "FileManager.UnmountOptions": {
+    "AllPartitionsAndEjectDisk": 1,
+    "WithoutUI": 2
+  },
+  "NSFileVersion.AddingOptions": {
+    "ByMoving": 1
+  },
+  "NSFileVersion.ReplacingOptions": {
+    "ByMoving": 1
+  },
+  "FileWrapper.ReadingOptions": {
+    "Immediate": 1,
+    "WithoutMapping": 2
+  },
+  "FileWrapper.WritingOptions": {
+    "Atomic": 1,
+    "WithNameUpdating": 2
+  },
+  "Formatter.Context": {
+    "Unknown": 0,
+    "Dynamic": 1,
+    "Standalone": 2,
+    "ListItem": 3,
+    "BeginningOfSentence": 4,
+    "MiddleOfSentence": 5
+  },
+  "Formatter.UnitStyle": {
+    "Short": 1,
+    "Medium": 2,
+    "Long": 3
+  },
+  "HTTPCookie.AcceptPolicy": {
+    "Always": 0,
+    "Never": 1,
+    "OnlyFromMainDocumentDomain": 2
+  },
+  "ISO8601DateFormatter.Options": {
+    "WithYear": 1,
+    "WithMonth": 2,
+    "WithWeekOfYear": 4,
+    "WithDay": 16,
+    "WithTime": 32,
+    "WithTimeZone": 64,
+    "WithSpaceBetweenDateAndTime": 128,
+    "WithDashSeparatorInDate": 256,
+    "WithColonSeparatorInTime": 512,
+    "WithColonSeparatorInTimeZone": 1024,
+    "WithFractionalSeconds": 2048,
+    "WithFullDate": 275,
+    "WithFullTime": 1632,
+    "WithInternetDateTime": 1907
+  },
+  "NSPositionalSpecifier.InsertionPosition": {
+    "PositionAfter": 0,
+    "PositionBefore": 1,
+    "PositionBeginning": 2,
+    "PositionEnd": 3,
+    "PositionReplace": 4
+  },
+  "NSItemProvider.ErrorCode": {
+    "UnknownError": -1,
+    "ItemUnavailableError": -1000,
+    "UnexpectedValueClassError": -1100,
+    "UnavailableCoercionError": -1200
+  },
+  "NSItemProviderFileOptions": {
+    "OpenInPlace": 1
+  },
+  "NSItemProviderRepresentationVisibility": {
+    "All": 0,
+    "Team": 1,
+    "Group": 2,
+    "OwnProcess": 3
+  },
+  "JSONSerialization.ReadingOptions": {
+    "MutableContainers": 1,
+    "MutableLeaves": 2,
+    "FragmentsAllowed": 4,
+    "AllowFragments": 4
+  },
+  "JSONSerialization.WritingOptions": {
+    "PrettyPrinted": 1,
+    "SortedKeys": 2,
+    "FragmentsAllowed": 4,
+    "WithoutEscapingSlashes": 8
+  },
+  "NSKeyValueChange": {
+    "Setting": 1,
+    "Insertion": 2,
+    "Removal": 3,
+    "Replacement": 4
+  },
+  "NSKeyValueObservingOptions": {
+    "New": 1,
+    "Old": 2,
+    "Initial": 4,
+    "Prior": 8
+  },
+  "NSKeyValueSetMutationKind": {
+    "UnionSetMutation": 1,
+    "MinusSetMutation": 2,
+    "IntersectSetMutation": 3,
+    "SetSetMutation": 4
+  },
+  "LengthFormatter.Unit": {
+    "Millimeter": 8,
+    "Centimeter": 9,
+    "Meter": 11,
+    "Kilometer": 14,
+    "Inch": 1281,
+    "Foot": 1282,
+    "Yard": 1283,
+    "Mile": 1284
+  },
+  "NSLinguisticTagger.Options": {
+    "OmitWords": 1,
+    "OmitPunctuation": 2,
+    "OmitWhitespace": 4,
+    "OmitOther": 8,
+    "JoinNames": 16
+  },
+  "NSLinguisticTaggerUnit": {
+    "Word": 0,
+    "Sentence": 1,
+    "Paragraph": 2,
+    "Document": 3
+  },
+  "NSLocale.LanguageDirection": {
+    "Unknown": 0,
+    "LeftToRight": 1,
+    "RightToLeft": 2,
+    "TopToBottom": 3,
+    "BottomToTop": 4
+  },
+  "NSMachPort.Options": {
+    "DeallocateNone": 0,
+    "DeallocateSendRight": 1,
+    "DeallocateReceiveRight": 2
+  },
+  "MassFormatter.Unit": {
+    "Gram": 11,
+    "Kilogram": 14,
+    "Ounce": 1537,
+    "Pound": 1538,
+    "Stone": 1539
+  },
+  "NSRegularExpression.MatchingFlags": {
+    "Progress": 1,
+    "Completed": 2,
+    "HitEnd": 4,
+    "RequiredEnd": 8,
+    "InternalError": 16
+  },
+  "NSRegularExpression.MatchingOptions": {
+    "ReportProgress": 1,
+    "ReportCompletion": 2,
+    "Anchored": 4,
+    "WithTransparentBounds": 8,
+    "WithoutAnchoringBounds": 16
+  },
+  "MeasurementFormatter.UnitOptions": {
+    "ProvidedUnit": 1,
+    "NaturalScale": 2,
+    "TemperatureWithoutUnit": 4
+  },
+  "NSNetService.Options": {
+    "NoAutoRename": 1,
+    "ListenForConnections": 2
+  },
+  "NSNetService.ErrorCode": {
+    "UnknownError": -72000,
+    "CollisionError": -72001,
+    "NotFoundError": -72002,
+    "ActivityInProgress": -72003,
+    "BadArgumentError": -72004,
+    "CancelledError": -72005,
+    "InvalidError": -72006,
+    "TimeoutError": -72007
+  },
+  "NotificationQueue.NotificationCoalescing": {
+    "NoCoalescing": 0,
+    "CoalescingOnName": 1,
+    "CoalescingOnSender": 2
+  },
+  "DistributedNotificationCenter.SuspensionBehavior": {
+    "Drop": 1,
+    "Coalesce": 2,
+    "Hold": 3,
+    "DeliverImmediately": 4
+  },
+  "NumberFormatter.Behavior": {
+    "BehaviorDefault": 0,
+    "Behavior10_0": 1000,
+    "Behavior10_4": 1040
+  },
+  "NumberFormatter.PadPosition": {
+    "BeforePrefix": 0,
+    "AfterPrefix": 1,
+    "BeforeSuffix": 2,
+    "AfterSuffix": 3
+  },
+  "NumberFormatter.RoundingMode": {
+    "Ceiling": 0,
+    "Floor": 1,
+    "Down": 2,
+    "Up": 3,
+    "HalfEven": 4,
+    "HalfDown": 5,
+    "HalfUp": 6
+  },
+  "NumberFormatter.Style": {
+    "NoStyle": 0,
+    "DecimalStyle": 1,
+    "CurrencyStyle": 2,
+    "PercentStyle": 3,
+    "ScientificStyle": 4,
+    "SpellOutStyle": 5,
+    "OrdinalStyle": 6,
+    "CurrencyISOCodeStyle": 8,
+    "CurrencyPluralStyle": 9,
+    "CurrencyAccountingStyle": 10
+  },
+  "Operation.QueuePriority": {
+    "VeryLow": -8,
+    "Low": -4,
+    "Normal": 0,
+    "High": 4,
+    "VeryHigh": 8
+  },
+  "NSOrderedCollectionDifferenceCalculationOptions": {
+    "OmitInsertedObjects": 1,
+    "OmitRemovedObjects": 2,
+    "InferMoves": 4
+  },
+  "PersonNameComponentsFormatter.Options": {
+    "Phonetic": 2
+  },
+  "PersonNameComponentsFormatter.Style": {
+    "Default": 0,
+    "Short": 1,
+    "Medium": 2,
+    "Long": 3,
+    "Abbreviated": 4
+  },
+  "NSPointerFunctions.Options": {
+    "StrongMemory": 0,
+    "ZeroingWeakMemory": 1,
+    "OpaqueMemory": 2,
+    "MallocMemory": 3,
+    "MachVirtualMemory": 4,
+    "WeakMemory": 5,
+    "ObjectPersonality": 0,
+    "OpaquePersonality": 256,
+    "ObjectPointerPersonality": 512,
+    "CStringPersonality": 768,
+    "StructPersonality": 1024,
+    "IntegerPersonality": 1280,
+    "CopyIn": 65536
+  },
+  "NotificationQueue.PostingStyle": {
+    "WhenIdle": 1,
+    "ASAP": 2,
+    "Now": 3
+  },
+  "NSComparisonPredicate.Operator": {
+    "LessThanPredicateOperatorType": 0,
+    "LessThanOrEqualToPredicateOperatorType": 1,
+    "GreaterThanPredicateOperatorType": 2,
+    "GreaterThanOrEqualToPredicateOperatorType": 3,
+    "EqualToPredicateOperatorType": 4,
+    "NotEqualToPredicateOperatorType": 5,
+    "MatchesPredicateOperatorType": 6,
+    "LikePredicateOperatorType": 7,
+    "BeginsWithPredicateOperatorType": 8,
+    "EndsWithPredicateOperatorType": 9,
+    "InPredicateOperatorType": 10,
+    "CustomSelectorPredicateOperatorType": 11,
+    "ContainsPredicateOperatorType": 99,
+    "BetweenPredicateOperatorType": 100
+  },
+  "ProcessInfo.ThermalState": {
+    "Nominal": 0,
+    "Fair": 1,
+    "Serious": 2,
+    "Critical": 3
+  },
+  "PropertyListSerialization.PropertyListFormat": {
+    "OpenStepFormat": 1,
+    "XMLFormat_v1_0": 100,
+    "BinaryFormat_v1_0": 200
+  },
+  "PropertyListSerialization.MutabilityOptions": {
+    "Immutable": 0,
+    "MutableContainers": 1,
+    "MutableContainersAndLeaves": 2
+  },
+  "QualityOfService": {
+    "UserInteractive": 33,
+    "UserInitiated": 25,
+    "Utility": 17,
+    "Background": 9,
+    "Default": -1
+  },
+  "NSRectEdge": {
+    "RectEdgeMinX": 0,
+    "RectEdgeMinY": 1,
+    "RectEdgeMaxX": 2,
+    "RectEdgeMaxY": 3,
+    "MinXEdge": 0,
+    "MinYEdge": 1,
+    "MaxXEdge": 2,
+    "MaxYEdge": 3
+  },
+  "NSRegularExpression.Options": {
+    "CaseInsensitive": 1,
+    "AllowCommentsAndWhitespace": 2,
+    "IgnoreMetacharacters": 4,
+    "DotMatchesLineSeparators": 8,
+    "AnchorsMatchLines": 16,
+    "UseUnixLineSeparators": 32,
+    "UseUnicodeWordBoundaries": 64
+  },
+  "RelativeDateTimeFormatter.DateTimeStyle": {
+    "Numeric": 0,
+    "Named": 1
+  },
+  "RelativeDateTimeFormatter.UnitsStyle": {
+    "Full": 0,
+    "SpellOut": 1,
+    "Short": 2,
+    "Abbreviated": 3
+  },
+  "NSRelativeSpecifier.RelativePosition": {
+    "After": 0,
+    "Before": 1
+  },
+  "NSDecimalNumber.RoundingMode": {
+    "Plain": 0,
+    "Down": 1,
+    "Up": 2,
+    "Bankers": 3
+  },
+  "NSSaveOptions": {
+    "Yes": 0,
+    "No": 1,
+    "Ask": 2
+  },
+  "FileManager.SearchPathDirectory": {
+    "ApplicationDirectory": 1,
+    "DemoApplicationDirectory": 2,
+    "DeveloperApplicationDirectory": 3,
+    "AdminApplicationDirectory": 4,
+    "LibraryDirectory": 5,
+    "DeveloperDirectory": 6,
+    "UserDirectory": 7,
+    "DocumentationDirectory": 8,
+    "DocumentDirectory": 9,
+    "CoreServiceDirectory": 10,
+    "AutosavedInformationDirectory": 11,
+    "DesktopDirectory": 12,
+    "CachesDirectory": 13,
+    "ApplicationSupportDirectory": 14,
+    "DownloadsDirectory": 15,
+    "InputMethodsDirectory": 16,
+    "MoviesDirectory": 17,
+    "MusicDirectory": 18,
+    "PicturesDirectory": 19,
+    "PrinterDescriptionDirectory": 20,
+    "SharedPublicDirectory": 21,
+    "PreferencePanesDirectory": 22,
+    "ApplicationScriptsDirectory": 23,
+    "ItemReplacementDirectory": 99,
+    "AllApplicationsDirectory": 100,
+    "AllLibrariesDirectory": 101,
+    "TrashDirectory": 102
+  },
+  "FileManager.SearchPathDomainMask": {
+    "UserDomainMask": 1,
+    "LocalDomainMask": 2,
+    "NetworkDomainMask": 4,
+    "SystemDomainMask": 8,
+    "AllDomainsMask": 65535
+  },
+  "NSSortOptions": {
+    "Concurrent": 1,
+    "Stable": 16
+  },
+  "Stream.Event": {
+    "None": 0,
+    "OpenCompleted": 1,
+    "HasBytesAvailable": 2,
+    "HasSpaceAvailable": 4,
+    "ErrorOccurred": 8,
+    "EndEncountered": 16
+  },
+  "Stream.Status": {
+    "NotOpen": 0,
+    "Opening": 1,
+    "Open": 2,
+    "Reading": 3,
+    "Writing": 4,
+    "AtEnd": 5,
+    "Closed": 6,
+    "Error": 7
+  },
+  "NSString.CompareOptions": {
+    "CaseInsensitiveSearch": 1,
+    "LiteralSearch": 2,
+    "BackwardsSearch": 4,
+    "AnchoredSearch": 8,
+    "NumericSearch": 64,
+    "DiacriticInsensitiveSearch": 128,
+    "WidthInsensitiveSearch": 256,
+    "ForcedOrderingSearch": 512,
+    "RegularExpressionSearch": 1024
+  },
+  "NSString.EncodingConversionOptions": {
+    "AllowLossy": 1,
+    "ExternalRepresentation": 2
+  },
+  "NSString.EnumerationOptions": {
+    "ByLines": 0,
+    "ByParagraphs": 1,
+    "ByComposedCharacterSequences": 2,
+    "ByWords": 3,
+    "BySentences": 4,
+    "Reverse": 256,
+    "SubstringNotRequired": 512,
+    "Localized": 1024
+  },
+  "Process.TerminationReason": {
+    "Exit": 1,
+    "UncaughtSignal": 2
+  },
+  "NSSpecifierTest.TestComparisonOperation": {
+    "EqualToComparison": 0,
+    "LessThanOrEqualToComparison": 1,
+    "LessThanComparison": 2,
+    "GreaterThanOrEqualToComparison": 3,
+    "GreaterThanComparison": 4,
+    "BeginsWithComparison": 5,
+    "EndsWithComparison": 6,
+    "ContainsComparison": 7
+  },
+  "NSTextCheckingResult.CheckingType": {
+    "Orthography": 1,
+    "Spelling": 2,
+    "Grammar": 4,
+    "Date": 8,
+    "Address": 16,
+    "Link": 32,
+    "Quote": 64,
+    "Dash": 128,
+    "Replacement": 256,
+    "Correction": 512,
+    "RegularExpression": 1024,
+    "PhoneNumber": 2048,
+    "TransitInformation": 4096
+  },
+  "NSTimeZone.NameStyle": {
+    "Standard": 0,
+    "ShortStandard": 1,
+    "DaylightSaving": 2,
+    "ShortDaylightSaving": 3,
+    "Generic": 4,
+    "ShortGeneric": 5
+  },
+  "NSURL.BookmarkCreationOptions": {
+    "PreferFileIDResolution": 256,
+    "MinimalBookmark": 512,
+    "SuitableForBookmarkFile": 1024,
+    "WithSecurityScope": 2048,
+    "SecurityScopeAllowOnlyReadAccess": 4096
+  },
+  "NSURL.BookmarkResolutionOptions": {
+    "WithoutUI": 256,
+    "WithoutMounting": 512,
+    "WithSecurityScope": 1024
+  },
+  "URLCache.StoragePolicy": {
+    "Allowed": 0,
+    "AllowedInMemoryOnly": 1,
+    "NotAllowed": 2
+  },
+  "URLCredential.Persistence": {
+    "None": 0,
+    "ForSession": 1,
+    "Permanent": 2,
+    "Synchronizable": 3
+  },
+  "NSURLErrorNetworkUnavailableReason": {
+    "Cellular": 0,
+    "Expensive": 1,
+    "Constrained": 2
+  },
+  "NSURLHandle.Status": {
+    "NotLoaded": 0,
+    "LoadSucceeded": 1,
+    "LoadInProgress": 2,
+    "LoadFailed": 3
+  },
+  "FileManager.URLRelationship": {
+    "Contains": 0,
+    "Same": 1,
+    "Other": 2
+  },
+  "NSURLRequest.CachePolicy": {
+    "UseProtocolCachePolicy": 0,
+    "ReloadIgnoringLocalCacheData": 1,
+    "ReloadIgnoringLocalAndRemoteCacheData": 4,
+    "ReloadIgnoringCacheData": 1,
+    "ReturnCacheDataElseLoad": 2,
+    "ReturnCacheDataDontLoad": 3,
+    "ReloadRevalidatingCacheData": 5
+  },
+  "NSURLRequest.NetworkServiceType": {
+    "NetworkServiceTypeDefault": 0,
+    "NetworkServiceTypeVoIP": 1,
+    "NetworkServiceTypeVideo": 2,
+    "NetworkServiceTypeBackground": 3,
+    "NetworkServiceTypeVoice": 4,
+    "NetworkServiceTypeResponsiveData": 6,
+    "NetworkServiceTypeAVStreaming": 8,
+    "NetworkServiceTypeResponsiveAV": 9,
+    "NetworkServiceTypeCallSignaling": 11
+  },
+  "URLSession.AuthChallengeDisposition": {
+    "UseCredential": 0,
+    "PerformDefaultHandling": 1,
+    "CancelAuthenticationChallenge": 2,
+    "RejectProtectionSpace": 3
+  },
+  "NSURLSessionDelayedRequestDisposition": {
+    "ContinueLoading": 0,
+    "UseNewRequest": 1,
+    "Cancel": 2
+  },
+  "URLSession.ResponseDisposition": {
+    "Cancel": 0,
+    "Allow": 1,
+    "BecomeDownload": 2,
+    "BecomeStream": 3
+  },
+  "URLSessionTaskMetrics.ResourceFetchType": {
+    "Unknown": 0,
+    "NetworkLoad": 1,
+    "ServerPush": 2,
+    "LocalCache": 3
+  },
+  "URLSessionTask.State": {
+    "Running": 0,
+    "Suspended": 1,
+    "Canceling": 2,
+    "Completed": 3
+  },
+  "URLSessionWebSocketTask.CloseCode": {
+    "Invalid": 0,
+    "NormalClosure": 1000,
+    "GoingAway": 1001,
+    "ProtocolError": 1002,
+    "UnsupportedData": 1003,
+    "NoStatusReceived": 1005,
+    "AbnormalClosure": 1006,
+    "InvalidFramePayloadData": 1007,
+    "PolicyViolation": 1008,
+    "MessageTooBig": 1009,
+    "MandatoryExtensionMissing": 1010,
+    "InternalServerError": 1011,
+    "TLSHandshakeFailure": 1015
+  },
+  "NSURLSessionWebSocketMessageType": {
+    "Data": 0,
+    "String": 1
+  },
+  "NSUserNotification.ActivationType": {
+    "None": 0,
+    "ContentsClicked": 1,
+    "ActionButtonClicked": 2,
+    "Replied": 3,
+    "AdditionalActionClicked": 4
+  },
+  "FileManager.VolumeEnumerationOptions": {
+    "SkipHiddenVolumes": 2,
+    "ProduceFileReferenceURLs": 4
+  },
+  "NSWhoseSpecifier.SubelementIdentifier": {
+    "IndexSubelement": 0,
+    "EverySubelement": 1,
+    "MiddleSubelement": 2,
+    "RandomSubelement": 3,
+    "NoSubelement": 4
+  },
+  "XMLDTDNode.DTDKind": {
+    "EntityGeneralKind": 1,
+    "EntityParsedKind": 2,
+    "EntityUnparsedKind": 3,
+    "EntityParameterKind": 4,
+    "EntityPredefined": 5,
+    "AttributeCDATAKind": 6,
+    "AttributeIDKind": 7,
+    "AttributeIDRefKind": 8,
+    "AttributeIDRefsKind": 9,
+    "AttributeEntityKind": 10,
+    "AttributeEntitiesKind": 11,
+    "AttributeNMTokenKind": 12,
+    "AttributeNMTokensKind": 13,
+    "AttributeEnumerationKind": 14,
+    "AttributeNotationKind": 15,
+    "ElementDeclarationUndefinedKind": 16,
+    "ElementDeclarationEmptyKind": 17,
+    "ElementDeclarationAnyKind": 18,
+    "ElementDeclarationMixedKind": 19,
+    "ElementDeclarationElementKind": 20
+  },
+  "XMLDocument.ContentKind": {
+    "XMLKind": 0,
+    "XHTMLKind": 1,
+    "HTMLKind": 2,
+    "TextKind": 3
+  },
+  "XMLNode.Kind": {
+    "InvalidKind": 0,
+    "DocumentKind": 1,
+    "ElementKind": 2,
+    "AttributeKind": 3,
+    "NamespaceKind": 4,
+    "ProcessingInstructionKind": 5,
+    "CommentKind": 6,
+    "TextKind": 7,
+    "DTDKind": 8,
+    "EntityDeclarationKind": 9,
+    "AttributeDeclarationKind": 10,
+    "ElementDeclarationKind": 11,
+    "NotationDeclarationKind": 12
+  },
+  "XMLNode.Options": {
+    "NodeOptionsNone": 0,
+    "NodeIsCDATA": 1,
+    "NodeExpandEmptyElement": 2,
+    "NodeCompactEmptyElement": 4,
+    "NodeUseSingleQuotes": 8,
+    "NodeUseDoubleQuotes": 16,
+    "NodeNeverEscapeContents": 32,
+    "DocumentTidyHTML": 512,
+    "DocumentTidyXML": 1024,
+    "DocumentValidate": 8192,
+    "NodeLoadExternalEntitiesAlways": 16384,
+    "NodeLoadExternalEntitiesSameOriginOnly": 32768,
+    "NodeLoadExternalEntitiesNever": 524288,
+    "DocumentXInclude": 65536,
+    "NodePrettyPrint": 131072,
+    "DocumentIncludeContentTypeDeclaration": 262144,
+    "NodePreserveNamespaceOrder": 1048576,
+    "NodePreserveAttributeOrder": 2097152,
+    "NodePreserveEntities": 4194304,
+    "NodePreservePrefixes": 8388608,
+    "NodePreserveCDATA": 16777216,
+    "NodePreserveWhitespace": 33554432,
+    "NodePreserveDTD": 67108864,
+    "NodePreserveCharacterReferences": 134217728,
+    "NodePromoteSignificantWhitespace": 268435456,
+    "NodePreserveEmptyElements": 6,
+    "NodePreserveQuotes": 24,
+    "NodePreserveAll": 4293918750
+  },
+  "XMLParser.ErrorCode": {
+    "InternalError": 1,
+    "OutOfMemoryError": 2,
+    "DocumentStartError": 3,
+    "EmptyDocumentError": 4,
+    "PrematureDocumentEndError": 5,
+    "InvalidHexCharacterRefError": 6,
+    "InvalidDecimalCharacterRefError": 7,
+    "InvalidCharacterRefError": 8,
+    "InvalidCharacterError": 9,
+    "CharacterRefAtEOFError": 10,
+    "CharacterRefInPrologError": 11,
+    "CharacterRefInEpilogError": 12,
+    "CharacterRefInDTDError": 13,
+    "EntityRefAtEOFError": 14,
+    "EntityRefInPrologError": 15,
+    "EntityRefInEpilogError": 16,
+    "EntityRefInDTDError": 17,
+    "ParsedEntityRefAtEOFError": 18,
+    "ParsedEntityRefInPrologError": 19,
+    "ParsedEntityRefInEpilogError": 20,
+    "ParsedEntityRefInInternalSubsetError": 21,
+    "EntityReferenceWithoutNameError": 22,
+    "EntityReferenceMissingSemiError": 23,
+    "ParsedEntityRefNoNameError": 24,
+    "ParsedEntityRefMissingSemiError": 25,
+    "UndeclaredEntityError": 26,
+    "UnparsedEntityError": 28,
+    "EntityIsExternalError": 29,
+    "EntityIsParameterError": 30,
+    "UnknownEncodingError": 31,
+    "EncodingNotSupportedError": 32,
+    "StringNotStartedError": 33,
+    "StringNotClosedError": 34,
+    "NamespaceDeclarationError": 35,
+    "EntityNotStartedError": 36,
+    "EntityNotFinishedError": 37,
+    "LessThanSymbolInAttributeError": 38,
+    "AttributeNotStartedError": 39,
+    "AttributeNotFinishedError": 40,
+    "AttributeHasNoValueError": 41,
+    "AttributeRedefinedError": 42,
+    "LiteralNotStartedError": 43,
+    "LiteralNotFinishedError": 44,
+    "CommentNotFinishedError": 45,
+    "ProcessingInstructionNotStartedError": 46,
+    "ProcessingInstructionNotFinishedError": 47,
+    "NotationNotStartedError": 48,
+    "NotationNotFinishedError": 49,
+    "AttributeListNotStartedError": 50,
+    "AttributeListNotFinishedError": 51,
+    "MixedContentDeclNotStartedError": 52,
+    "MixedContentDeclNotFinishedError": 53,
+    "ElementContentDeclNotStartedError": 54,
+    "ElementContentDeclNotFinishedError": 55,
+    "XMLDeclNotStartedError": 56,
+    "XMLDeclNotFinishedError": 57,
+    "ConditionalSectionNotStartedError": 58,
+    "ConditionalSectionNotFinishedError": 59,
+    "ExternalSubsetNotFinishedError": 60,
+    "DOCTYPEDeclNotFinishedError": 61,
+    "MisplacedCDATAEndStringError": 62,
+    "CDATANotFinishedError": 63,
+    "MisplacedXMLDeclarationError": 64,
+    "SpaceRequiredError": 65,
+    "SeparatorRequiredError": 66,
+    "NMTOKENRequiredError": 67,
+    "NAMERequiredError": 68,
+    "PCDATARequiredError": 69,
+    "URIRequiredError": 70,
+    "PublicIdentifierRequiredError": 71,
+    "LTRequiredError": 72,
+    "GTRequiredError": 73,
+    "LTSlashRequiredError": 74,
+    "EqualExpectedError": 75,
+    "TagNameMismatchError": 76,
+    "UnfinishedTagError": 77,
+    "StandaloneValueError": 78,
+    "InvalidEncodingNameError": 79,
+    "CommentContainsDoubleHyphenError": 80,
+    "InvalidEncodingError": 81,
+    "ExternalStandaloneEntityError": 82,
+    "InvalidConditionalSectionError": 83,
+    "EntityValueRequiredError": 84,
+    "NotWellBalancedError": 85,
+    "ExtraContentError": 86,
+    "InvalidCharacterInEntityError": 87,
+    "ParsedEntityRefInInternalError": 88,
+    "EntityRefLoopError": 89,
+    "EntityBoundaryError": 90,
+    "InvalidURIError": 91,
+    "URIFragmentError": 92,
+    "NoDTDError": 94,
+    "DelegateAbortedParseError": 512
+  },
+  "XMLParser.ExternalEntityResolvingPolicy": {
+    "ResolveExternalEntitiesNever": 0,
+    "ResolveExternalEntitiesNoNetwork": 1,
+    "ResolveExternalEntitiesSameOriginOnly": 2,
+    "ResolveExternalEntitiesAlways": 3
+  },
+  "NSXPCConnection.Options": {
+    "Privileged": 4096
+  },
+  "NSAccessibility.AnnotationPosition": {
+    "FullRange": 0,
+    "Start": 1,
+    "End": 2
+  },
+  "NSAccessibilityCustomRotor.SearchDirection": {
+    "Previous": 0,
+    "Next": 1
+  },
+  "NSAccessibilityCustomRotor.RotorType": {
+    "Custom": 0,
+    "Any": 1,
+    "Annotation": 2,
+    "BoldText": 3,
+    "Heading": 4,
+    "HeadingLevel1": 5,
+    "HeadingLevel2": 6,
+    "HeadingLevel3": 7,
+    "HeadingLevel4": 8,
+    "HeadingLevel5": 9,
+    "HeadingLevel6": 10,
+    "Image": 11,
+    "ItalicText": 12,
+    "Landmark": 13,
+    "Link": 14,
+    "List": 15,
+    "MisspelledWord": 16,
+    "Table": 17,
+    "TextField": 18,
+    "UnderlinedText": 19,
+    "VisitedLink": 20
+  },
+  "NSAccessibility.Orientation": {
+    "Unknown": 0,
+    "Vertical": 1,
+    "Horizontal": 2
+  },
+  "NSAccessibilityPriorityLevel": {
+    "Low": 10,
+    "Medium": 50,
+    "High": 90
+  },
+  "NSAccessibility.RulerMarkerType": {
+    "Unknown": 0,
+    "TabStopLeft": 1,
+    "TabStopRight": 2,
+    "TabStopCenter": 3,
+    "TabStopDecimal": 4,
+    "IndentHead": 5,
+    "IndentTail": 6,
+    "IndentFirstLine": 7
+  },
+  "NSAccessibility.SortDirection": {
+    "Unknown": 0,
+    "Ascending": 1,
+    "Descending": 2
+  },
+  "NSAccessibility.Units": {
+    "Unknown": 0,
+    "Inches": 1,
+    "Centimeters": 2,
+    "Points": 3,
+    "Picas": 4
+  },
+  "NSAlert.Style": {
+    "Warning": 0,
+    "Informational": 1,
+    "Critical": 2
+  },
+  "NSAnimation.BlockingMode": {
+    "Blocking": 0,
+    "Nonblocking": 1,
+    "NonblockingThreaded": 2
+  },
+  "NSAnimation.Curve": {
+    "EaseInOut": 0,
+    "EaseIn": 1,
+    "EaseOut": 2,
+    "Linear": 3
+  },
+  "NSAnimationEffect": {
+    "DisappearingItemDefault": 0,
+    "Poof": 10
+  },
+  "NSApplication.ActivationOptions": {
+    "ActivateAllWindows": 1,
+    "ActivateIgnoringOtherApps": 2
+  },
+  "NSApplication.ActivationPolicy": {
+    "Regular": 0,
+    "Accessory": 1,
+    "Prohibited": 2
+  },
+  "NSApplication.DelegateReply": {
+    "Success": 0,
+    "Cancel": 1,
+    "Failure": 2
+  },
+  "NSApplication.OcclusionState": {
+    "Visible": 2
+  },
+  "NSApplication.PresentationOptions": {
+    "Default": 0,
+    "AutoHideDock": 1,
+    "HideDock": 2,
+    "AutoHideMenuBar": 4,
+    "HideMenuBar": 8,
+    "DisableAppleMenu": 16,
+    "DisableProcessSwitching": 32,
+    "DisableForceQuit": 64,
+    "DisableSessionTermination": 128,
+    "DisableHideApplication": 256,
+    "DisableMenuBarTransparency": 512,
+    "FullScreen": 1024,
+    "AutoHideToolbar": 2048,
+    "DisableCursorLocationAssistance": 4096
+  },
+  "NSApplication.PrintReply": {
+    "PrintingCancelled": 0,
+    "PrintingSuccess": 1,
+    "PrintingFailure": 3,
+    "PrintingReplyLater": 2
+  },
+  "NSApplication.TerminateReply": {
+    "TerminateCancel": 0,
+    "TerminateNow": 1,
+    "TerminateLater": 2
+  },
+  "NSView.AutoresizingMask": {
+    "ViewNotSizable": 0,
+    "ViewMinXMargin": 1,
+    "ViewWidthSizable": 2,
+    "ViewMaxXMargin": 4,
+    "ViewMinYMargin": 8,
+    "ViewHeightSizable": 16,
+    "ViewMaxYMargin": 32
+  },
+  "NSView.BackgroundStyle": {
+    "Normal": 0,
+    "Emphasized": 1,
+    "Raised": 2,
+    "Lowered": 3
+  },
+  "NSWindow.BackingStoreType": {
+    "Retained": 0,
+    "Nonretained": 1,
+    "Buffered": 2
+  },
+  "NSButton.BezelStyle": {
+    "Rounded": 1,
+    "RegularSquare": 2,
+    "Disclosure": 5,
+    "ShadowlessSquare": 6,
+    "Circular": 7,
+    "TexturedSquare": 8,
+    "HelpButton": 9,
+    "SmallSquare": 10,
+    "TexturedRounded": 11,
+    "RoundRect": 12,
+    "Recessed": 13,
+    "RoundedDisclosure": 14,
+    "Inline": 15
+  },
+  "NSBezierPath.ElementType": {
+    "MoveTo": 0,
+    "LineTo": 1,
+    "CurveTo": 2,
+    "ClosePath": 3
+  },
+  "NSBitmapImageRep.Format": {
+    "AlphaFirst": 1,
+    "AlphaNonpremultiplied": 2,
+    "FloatingPointSamples": 4,
+    "SixteenBitLittleEndian": 256,
+    "ThirtyTwoBitLittleEndian": 512,
+    "SixteenBitBigEndian": 1024,
+    "ThirtyTwoBitBigEndian": 2048
+  },
+  "NSBitmapImageRep.FileType": {
+    "TIFF": 0,
+    "BMP": 1,
+    "GIF": 2,
+    "JPEG": 3,
+    "PNG": 4,
+    "JPEG2000": 5
+  },
+  "NSBorderType": {
+    "NoBorder": 0,
+    "LineBorder": 1,
+    "BezelBorder": 2,
+    "GrooveBorder": 3
+  },
+  "NSBox.BoxType": {
+    "Primary": 0,
+    "Separator": 2,
+    "Custom": 4
+  },
+  "NSBrowser.ColumnResizingType": {
+    "NoColumnResizing": 0,
+    "AutoColumnResizing": 1,
+    "UserColumnResizing": 2
+  },
+  "NSBrowser.DropOperation": {
+    "On": 0,
+    "Above": 1
+  },
+  "NSButton.ButtonType": {
+    "MomentaryLight": 0,
+    "PushOnPushOff": 1,
+    "Toggle": 2,
+    "Switch": 3,
+    "Radio": 4,
+    "MomentaryChange": 5,
+    "OnOff": 6,
+    "MomentaryPushIn": 7,
+    "Accelerator": 8,
+    "MultiLevelAccelerator": 9
+  },
+  "NSCell.Attribute": {
+    "CellDisabled": 0,
+    "CellState": 1,
+    "PushInCell": 2,
+    "CellEditable": 3,
+    "ChangeGrayCell": 4,
+    "CellHighlighted": 5,
+    "CellLightsByContents": 6,
+    "CellLightsByGray": 7,
+    "ChangeBackgroundCell": 8,
+    "CellLightsByBackground": 9,
+    "CellIsBordered": 10,
+    "CellHasOverlappingImage": 11,
+    "CellHasImageHorizontal": 12,
+    "CellHasImageOnLeftOrBottom": 13,
+    "CellChangesContents": 14,
+    "CellIsInsetButton": 15,
+    "CellAllowsMixedState": 16
+  },
+  "NSCell.HitResult": {
+    "None": 0,
+    "ContentArea": 1,
+    "EditableTextArea": 2,
+    "TrackableArea": 4
+  },
+  "NSControl.ImagePosition": {
+    "NoImage": 0,
+    "ImageOnly": 1,
+    "ImageLeft": 2,
+    "ImageRight": 3,
+    "ImageBelow": 4,
+    "ImageAbove": 5,
+    "ImageOverlaps": 6,
+    "ImageLeading": 7,
+    "ImageTrailing": 8
+  },
+  "NSCell.StyleMask": {
+    "NoCellMask": 0,
+    "ContentsCellMask": 1,
+    "PushInCellMask": 2,
+    "ChangeGrayCellMask": 4,
+    "ChangeBackgroundCellMask": 8
+  },
+  "NSCell.CellType": {
+    "NullCellType": 0,
+    "TextCellType": 1,
+    "ImageCellType": 2
+  },
+  "NSCharacterCollection": {
+    "IdentityMappingCharacterCollection": 0,
+    "AdobeCNS1CharacterCollection": 1,
+    "AdobeGB1CharacterCollection": 2,
+    "AdobeJapan1CharacterCollection": 3,
+    "AdobeJapan2CharacterCollection": 4,
+    "AdobeKorea1CharacterCollection": 5
+  },
+  "NSSharingService.CloudKitOptions": {
+    "Standard": 0,
+    "AllowPublic": 1,
+    "AllowPrivate": 2,
+    "AllowReadOnly": 16,
+    "AllowReadWrite": 32
+  },
+  "NSCollectionElementCategory": {
+    "Item": 0,
+    "SupplementaryView": 1,
+    "DecorationView": 2,
+    "InterItemGap": 3
+  },
+  "NSCollectionLayoutSectionOrthogonalScrollingBehavior": {
+    "None": 0,
+    "Continuous": 1,
+    "ContinuousGroupLeadingBoundary": 2,
+    "Paging": 3,
+    "GroupPaging": 4,
+    "GroupPagingCentered": 5
+  },
+  "NSCollectionView.UpdateAction": {
+    "Insert": 0,
+    "Delete": 1,
+    "Reload": 2,
+    "Move": 3,
+    "None": 4
+  },
+  "NSCollectionView.DropOperation": {
+    "On": 0,
+    "Before": 1
+  },
+  "NSCollectionViewItem.HighlightState": {
+    "None": 0,
+    "ForSelection": 1,
+    "ForDeselection": 2,
+    "AsDropTarget": 3
+  },
+  "NSCollectionView.ScrollDirection": {
+    "Vertical": 0,
+    "Horizontal": 1
+  },
+  "NSCollectionView.ScrollPosition": {
+    "None": 0,
+    "Top": 1,
+    "CenteredVertically": 2,
+    "Bottom": 4,
+    "NearestHorizontalEdge": 512,
+    "Left": 8,
+    "CenteredHorizontally": 16,
+    "Right": 32,
+    "LeadingEdge": 64,
+    "TrailingEdge": 128,
+    "NearestVerticalEdge": 256
+  },
+  "NSColorPanel.Mode": {
+    "None": -1,
+    "Gray": 0,
+    "RGB": 1,
+    "CMYK": 2,
+    "HSB": 3,
+    "CustomPalette": 4,
+    "ColorList": 5,
+    "Wheel": 6,
+    "Crayon": 7
+  },
+  "NSColorPanel.Options": {
+    "GrayModeMask": 1,
+    "RGBModeMask": 2,
+    "CMYKModeMask": 4,
+    "HSBModeMask": 8,
+    "CustomPaletteModeMask": 16,
+    "ColorListModeMask": 32,
+    "WheelModeMask": 64,
+    "CrayonModeMask": 128,
+    "AllModesMask": 65535
+  },
+  "NSColorRenderingIntent": {
+    "Default": 0,
+    "AbsoluteColorimetric": 1,
+    "RelativeColorimetric": 2,
+    "Perceptual": 3,
+    "Saturation": 4
+  },
+  "NSColorSpace.Model": {
+    "Unknown": -1,
+    "Gray": 0,
+    "RGB": 1,
+    "CMYK": 2,
+    "LAB": 3,
+    "DeviceN": 4,
+    "Indexed": 5,
+    "Patterned": 6
+  },
+  "NSColor.SystemEffect": {
+    "None": 0,
+    "Pressed": 1,
+    "DeepPressed": 2,
+    "Disabled": 3,
+    "Rollover": 4
+  },
+  "NSColor.ColorType": {
+    "ComponentBased": 0,
+    "Pattern": 1,
+    "Catalog": 2
+  },
+  "NSCompositingOperation": {
+    "Clear": 0,
+    "Copy": 1,
+    "SourceOver": 2,
+    "SourceIn": 3,
+    "SourceOut": 4,
+    "SourceAtop": 5,
+    "DestinationOver": 6,
+    "DestinationIn": 7,
+    "DestinationOut": 8,
+    "DestinationAtop": 9,
+    "XOR": 10,
+    "PlusDarker": 11,
+    "Highlight": 12,
+    "PlusLighter": 13,
+    "Multiply": 14,
+    "Screen": 15,
+    "Overlay": 16,
+    "Darken": 17,
+    "Lighten": 18,
+    "ColorDodge": 19,
+    "ColorBurn": 20,
+    "SoftLight": 21,
+    "HardLight": 22,
+    "Difference": 23,
+    "Exclusion": 24,
+    "Hue": 25,
+    "Saturation": 26,
+    "Color": 27,
+    "Luminosity": 28
+  },
+  "NSLayoutManager.ControlCharacterAction": {
+    "ZeroAdvancement": 1,
+    "Whitespace": 2,
+    "HorizontalTab": 4,
+    "LineBreak": 8,
+    "ParagraphBreak": 16,
+    "ContainerBreak": 32
+  },
+  "NSControl.ControlSize": {
+    "Regular": 0,
+    "Small": 1,
+    "Mini": 2
+  },
+  "NSControlTint": {
+    "DefaultControlTint": 0,
+    "BlueControlTint": 1,
+    "GraphiteControlTint": 6,
+    "ClearControlTint": 7
+  },
+  "NSSpellChecker.CorrectionIndicatorType": {
+    "Default": 0,
+    "Reversion": 1,
+    "Guesses": 2
+  },
+  "NSSpellChecker.CorrectionResponse": {
+    "None": 0,
+    "Accepted": 1,
+    "Rejected": 2,
+    "Ignored": 3,
+    "Edited": 4,
+    "Reverted": 5
+  },
+  "NSDatePicker.ElementFlags": {
+    "HourMinute": 12,
+    "HourMinuteSecond": 14,
+    "TimeZone": 16,
+    "YearMonth": 192,
+    "YearMonthDay": 224,
+    "Era": 256
+  },
+  "NSDatePicker.Mode": {
+    "Single": 0,
+    "Range": 1
+  },
+  "NSDatePicker.Style": {
+    "TextFieldAndStepper": 0,
+    "ClockAndCalendar": 1,
+    "TextField": 2
+  },
+  "NSDirectionalRectEdge": {
+    "None": 0,
+    "Top": 1,
+    "Leading": 2,
+    "Bottom": 4,
+    "Trailing": 8,
+    "All": 15
+  },
+  "NSDisplayGamut": {
+    "SRGB": 1,
+    "P3": 2
+  },
+  "NSDocument.ChangeType": {
+    "ChangeDone": 0,
+    "ChangeUndone": 1,
+    "ChangeRedone": 5,
+    "ChangeCleared": 2,
+    "ChangeReadOtherContents": 3,
+    "ChangeAutosaved": 4,
+    "ChangeDiscardable": 256
+  },
+  "NSDragOperation": {
+    "None": 0,
+    "Copy": 1,
+    "Link": 2,
+    "Generic": 4,
+    "Private": 8,
+    "Move": 16,
+    "Delete": 32,
+    "Every": -1,
+    "All_Obsolete": 15,
+    "All": 15
+  },
+  "NSDraggingContext": {
+    "OutsideApplication": 0,
+    "WithinApplication": 1
+  },
+  "NSDraggingFormation": {
+    "Default": 0,
+    "None": 1,
+    "Pile": 2,
+    "List": 3,
+    "Stack": 4
+  },
+  "NSDraggingItemEnumerationOptions": {
+    "Concurrent": 1,
+    "ClearNonenumeratedImages": 65536
+  },
+  "NSDrawer.State": {
+    "ClosedState": 0,
+    "OpeningState": 1,
+    "OpenState": 2,
+    "ClosingState": 3
+  },
+  "NSEvent.ButtonMask": {
+    "PenTip": 1,
+    "PenLowerSide": 2,
+    "PenUpperSide": 4
+  },
+  "NSEvent.GestureAxis": {
+    "None": 0,
+    "Horizontal": 1,
+    "Vertical": 2
+  },
+  "NSEvent.EventTypeMask": {
+    "LeftMouseDown": 2,
+    "LeftMouseUp": 4,
+    "RightMouseDown": 8,
+    "RightMouseUp": 16,
+    "MouseMoved": 32,
+    "LeftMouseDragged": 64,
+    "RightMouseDragged": 128,
+    "MouseEntered": 256,
+    "MouseExited": 512,
+    "KeyDown": 1024,
+    "KeyUp": 2048,
+    "FlagsChanged": 4096,
+    "AppKitDefined": 8192,
+    "SystemDefined": 16384,
+    "ApplicationDefined": 32768,
+    "Periodic": 65536,
+    "CursorUpdate": 131072,
+    "ScrollWheel": 4194304,
+    "TabletPoint": 8388608,
+    "TabletProximity": 16777216,
+    "OtherMouseDown": 33554432,
+    "OtherMouseUp": 67108864,
+    "OtherMouseDragged": 134217728,
+    "Gesture": 536870912,
+    "Magnify": 1073741824,
+    "Swipe": 2147483648,
+    "Rotate": 262144,
+    "BeginGesture": 524288,
+    "EndGesture": 1048576,
+    "SmartMagnify": 4294967296,
+    "Pressure": 17179869184,
+    "DirectTouch": 137438953472,
+    "ChangeMode": 274877906944,
+    "Any": -1
+  },
+  "NSEvent.ModifierFlags": {
+    "CapsLock": 65536,
+    "Shift": 131072,
+    "Control": 262144,
+    "Option": 524288,
+    "Command": 1048576,
+    "NumericPad": 2097152,
+    "Help": 4194304,
+    "Function": 8388608,
+    "DeviceIndependentFlagsMask": 4294901760
+  },
+  "NSEvent.Phase": {
+    "None": 0,
+    "Began": 1,
+    "Stationary": 2,
+    "Changed": 4,
+    "Ended": 8,
+    "Cancelled": 16,
+    "MayBegin": 32
+  },
+  "NSEvent.EventSubtype": {
+    "WindowExposed": 0,
+    "ApplicationActivated": 1,
+    "ApplicationDeactivated": 2,
+    "WindowMoved": 4,
+    "ScreenChanged": 8,
+    "PowerOff": 1,
+    "MouseEvent": 0,
+    "TabletPoint": 1,
+    "TabletProximity": 2,
+    "Touch": 3
+  },
+  "NSEvent.SwipeTrackingOptions": {
+    "LockDirection": 1,
+    "ClampGestureAmount": 2
+  },
+  "NSEvent.EventType": {
+    "LeftMouseDown": 1,
+    "LeftMouseUp": 2,
+    "RightMouseDown": 3,
+    "RightMouseUp": 4,
+    "MouseMoved": 5,
+    "LeftMouseDragged": 6,
+    "RightMouseDragged": 7,
+    "MouseEntered": 8,
+    "MouseExited": 9,
+    "KeyDown": 10,
+    "KeyUp": 11,
+    "FlagsChanged": 12,
+    "AppKitDefined": 13,
+    "SystemDefined": 14,
+    "ApplicationDefined": 15,
+    "Periodic": 16,
+    "CursorUpdate": 17,
+    "ScrollWheel": 22,
+    "TabletPoint": 23,
+    "TabletProximity": 24,
+    "OtherMouseDown": 25,
+    "OtherMouseUp": 26,
+    "OtherMouseDragged": 27,
+    "Gesture": 29,
+    "Magnify": 30,
+    "Swipe": 31,
+    "Rotate": 18,
+    "BeginGesture": 19,
+    "EndGesture": 20,
+    "SmartMagnify": 32,
+    "QuickLook": 33,
+    "Pressure": 34,
+    "DirectTouch": 37,
+    "ChangeMode": 38
+  },
+  "NSFindPanelAction": {
+    "ShowFindPanel": 1,
+    "Next": 2,
+    "Previous": 3,
+    "ReplaceAll": 4,
+    "Replace": 5,
+    "ReplaceAndFind": 6,
+    "SetFindString": 7,
+    "ReplaceAllInSelection": 8,
+    "SelectAll": 9,
+    "SelectAllInSelection": 10
+  },
+  "NSFindPanelSubstringMatchType": {
+    "Contains": 0,
+    "StartsWith": 1,
+    "FullWord": 2,
+    "EndsWith": 3
+  },
+  "NSFocusRingPlacement": {
+    "Only": 0,
+    "Below": 1,
+    "Above": 2
+  },
+  "NSFocusRingType": {
+    "Default": 0,
+    "None": 1,
+    "Exterior": 2
+  },
+  "NSFontAction": {
+    "NoFontChangeAction": 0,
+    "ViaPanelFontAction": 1,
+    "AddTraitFontAction": 2,
+    "SizeUpFontAction": 3,
+    "SizeDownFontAction": 4,
+    "HeavierFontAction": 5,
+    "LighterFontAction": 6,
+    "RemoveTraitFontAction": 7
+  },
+  "NSFontAssetRequest.Options": {
+    "UsesStandardUI": 1
+  },
+  "NSFontCollectionOptions": {
+    "ApplicationOnlyMask": 1
+  },
+  "NSFontCollection.Visibility": {
+    "Process": 1,
+    "User": 2,
+    "Computer": 4
+  },
+  "NSFontDescriptor.SymbolicTraits": {
+    "TraitItalic": 1,
+    "TraitBold": 2,
+    "TraitExpanded": 32,
+    "TraitCondensed": 64,
+    "TraitMonoSpace": 1024,
+    "TraitVertical": 2048,
+    "TraitUIOptimized": 4096,
+    "TraitTightLeading": 32768,
+    "TraitLooseLeading": 65536,
+    "ClassMask": 4026531840,
+    "ClassUnknown": 0,
+    "ClassOldStyleSerifs": 268435456,
+    "ClassTransitionalSerifs": 536870912,
+    "ClassModernSerifs": 805306368,
+    "ClassClarendonSerifs": 1073741824,
+    "ClassSlabSerifs": 1342177280,
+    "ClassFreeformSerifs": 1879048192,
+    "ClassSansSerif": 2147483648,
+    "ClassOrnamentals": 2415919104,
+    "ClassScripts": 2684354560,
+    "ClassSymbolic": 3221225472
+  },
+  "NSFontPanel.ModeMask": {
+    "ModeMaskFace": 1,
+    "ModeMaskSize": 2,
+    "ModeMaskCollection": 4,
+    "ModeMaskUnderlineEffect": 256,
+    "ModeMaskStrikethroughEffect": 512,
+    "ModeMaskTextColorEffect": 1024,
+    "ModeMaskDocumentColorEffect": 2048,
+    "ModeMaskShadowEffect": 4096,
+    "ModeMaskAllEffects": 1048320,
+    "ModesMaskStandardModes": 65535,
+    "ModesMaskAllModes": 4294967295
+  },
+  "NSFontRenderingMode": {
+    "DefaultRenderingMode": 0,
+    "AntialiasedRenderingMode": 1,
+    "IntegerAdvancementsRenderingMode": 2,
+    "AntialiasedIntegerAdvancementsRenderingMode": 3
+  },
+  "NSFontTraitMask": {
+    "ItalicFontMask": 1,
+    "BoldFontMask": 2,
+    "UnboldFontMask": 4,
+    "NonStandardCharacterSetFontMask": 8,
+    "NarrowFontMask": 16,
+    "ExpandedFontMask": 32,
+    "CondensedFontMask": 64,
+    "SmallCapsFontMask": 128,
+    "PosterFontMask": 256,
+    "CompressedFontMask": 512,
+    "FixedPitchFontMask": 1024,
+    "UnitalicFontMask": 16777216
+  },
+  "NSGestureRecognizer.State": {
+    "Possible": 0,
+    "Began": 1,
+    "Changed": 2,
+    "Ended": 3,
+    "Cancelled": 4,
+    "Failed": 5,
+    "Recognized": 3
+  },
+  "NSLayoutManager.GlyphProperty": {
+    "": 1,
+    "ControlCharacter": 2,
+    "Elastic": 4,
+    "NonBaseCharacter": 8
+  },
+  "NSGradient.DrawingOptions": {
+    "DrawsBeforeStartingLocation": 1,
+    "DrawsAfterEndingLocation": 2
+  },
+  "NSGridCell.Placement": {
+    "Inherited": 0,
+    "None": 1,
+    "Leading": 2,
+    "Top": 2,
+    "Trailing": 3,
+    "Bottom": 3,
+    "Center": 4,
+    "Fill": 5
+  },
+  "NSGridRow.Alignment": {
+    "Inherited": 0,
+    "None": 1,
+    "FirstBaseline": 2,
+    "LastBaseline": 3
+  },
+  "NSHapticFeedbackManager.FeedbackPattern": {
+    "Generic": 0,
+    "Alignment": 1,
+    "LevelChange": 2
+  },
+  "NSHapticFeedbackManager.PerformanceTime": {
+    "Default": 0,
+    "Now": 1,
+    "DrawCompleted": 2
+  },
+  "NSImageAlignment": {
+    "Center": 0,
+    "Top": 1,
+    "TopLeft": 2,
+    "TopRight": 3,
+    "Left": 4,
+    "Bottom": 5,
+    "BottomLeft": 6,
+    "BottomRight": 7,
+    "Right": 8
+  },
+  "NSImage.CacheMode": {
+    "Default": 0,
+    "Always": 1,
+    "BySize": 2,
+    "Never": 3
+  },
+  "NSImageView.FrameStyle": {
+    "None": 0,
+    "Photo": 1,
+    "GrayBezel": 2,
+    "Groove": 3,
+    "Button": 4
+  },
+  "NSImageInterpolation": {
+    "Default": 0,
+    "None": 1,
+    "Low": 2,
+    "Medium": 4,
+    "High": 3
+  },
+  "NSImage.LayoutDirection": {
+    "Unspecified": -1,
+    "LeftToRight": 2,
+    "RightToLeft": 3
+  },
+  "NSImage.LoadStatus": {
+    "Completed": 0,
+    "Cancelled": 1,
+    "InvalidData": 2,
+    "UnexpectedEOF": 3,
+    "ReadError": 4
+  },
+  "NSBitmapImageRep.LoadStatus": {
+    "UnknownType": -1,
+    "ReadingHeader": -2,
+    "WillNeedAllData": -3,
+    "InvalidData": -4,
+    "UnexpectedEOF": -5,
+    "Completed": -6
+  },
+  "NSImage.ResizingMode": {
+    "Stretch": 0,
+    "Tile": 1
+  },
+  "NSImageScaling": {
+    "ImageScaleProportionallyDown": 0,
+    "ImageScaleAxesIndependently": 1,
+    "ImageScaleNone": 2,
+    "ImageScaleProportionallyUpOrDown": 3,
+    "ScaleProportionally": 0,
+    "ScaleToFit": 1,
+    "ScaleNone": 2
+  },
+  "NSLayoutConstraint.Attribute": {
+    "Left": 1,
+    "Right": 2,
+    "Top": 3,
+    "Bottom": 4,
+    "Leading": 5,
+    "Trailing": 6,
+    "Width": 7,
+    "Height": 8,
+    "CenterX": 9,
+    "CenterY": 10,
+    "LastBaseline": 11,
+    "Baseline": 11,
+    "FirstBaseline": 12,
+    "NotAnAttribute": 0
+  },
+  "NSLayoutConstraint.Orientation": {
+    "Horizontal": 0,
+    "Vertical": 1
+  },
+  "NSLayoutConstraint.FormatOptions": {
+    "AlignAllLeft": 2,
+    "AlignAllRight": 4,
+    "AlignAllTop": 8,
+    "AlignAllBottom": 16,
+    "AlignAllLeading": 32,
+    "AlignAllTrailing": 64,
+    "AlignAllCenterX": 512,
+    "AlignAllCenterY": 1024,
+    "AlignAllLastBaseline": 2048,
+    "AlignAllFirstBaseline": 4096,
+    "AlignAllBaseline": 2048,
+    "AlignmentMask": 65535,
+    "DirectionLeadingToTrailing": 0,
+    "DirectionLeftToRight": 65536,
+    "DirectionRightToLeft": 131072,
+    "DirectionMask": 196608
+  },
+  "NSLayoutConstraint.Relation": {
+    "LessThanOrEqual": -1,
+    "Equal": 0,
+    "GreaterThanOrEqual": 1
+  },
+  "NSLevelIndicator.PlaceholderVisibility": {
+    "Automatic": 0,
+    "Always": 1,
+    "WhileEditing": 2
+  },
+  "NSLevelIndicator.Style": {
+    "Relevancy": 0,
+    "ContinuousCapacity": 1,
+    "DiscreteCapacity": 2,
+    "Rating": 3
+  },
+  "NSLineBreakMode": {
+    "ByWordWrapping": 0,
+    "ByCharWrapping": 1,
+    "ByClipping": 2,
+    "ByTruncatingHead": 3,
+    "ByTruncatingTail": 4,
+    "ByTruncatingMiddle": 5
+  },
+  "NSBezierPath.LineCapStyle": {
+    "Butt": 0,
+    "Round": 1,
+    "Square": 2
+  },
+  "NSBezierPath.LineJoinStyle": {
+    "Miter": 0,
+    "Round": 1,
+    "Bevel": 2
+  },
+  "NSLineMovementDirection": {
+    "DoesntMove": 0,
+    "MovesLeft": 1,
+    "MovesRight": 2,
+    "MovesDown": 3,
+    "MovesUp": 4
+  },
+  "NSLineSweepDirection": {
+    "Left": 0,
+    "Right": 1,
+    "Down": 2,
+    "Up": 3
+  },
+  "NSMatrix.Mode": {
+    "RadioModeMatrix": 0,
+    "HighlightModeMatrix": 1,
+    "ListModeMatrix": 2,
+    "TrackModeMatrix": 3
+  },
+  "NSMediaLibraryBrowserController.Library": {
+    "Audio": 1,
+    "Image": 2,
+    "Movie": 4
+  },
+  "NSMenu.Properties": {
+    "PropertyItemTitle": 1,
+    "PropertyItemAttributedTitle": 2,
+    "PropertyItemKeyEquivalent": 4,
+    "PropertyItemImage": 8,
+    "PropertyItemEnabled": 16,
+    "PropertyItemAccessibilityDescription": 32
+  },
+  "NSPDFPanel.Options": {
+    "ShowsPaperSize": 4,
+    "ShowsOrientation": 8,
+    "RequestsParentDirectory": 16777216
+  },
+  "NSPageController.TransitionStyle": {
+    "StackHistory": 0,
+    "StackBook": 1,
+    "HorizontalStrip": 2
+  },
+  "NSPrintInfo.PaperOrientation": {
+    "Portrait": 0,
+    "Landscape": 1
+  },
+  "NSPasteboard.ContentsOptions": {
+    "CurrentHostOnly": 1
+  },
+  "NSPasteboard.ReadingOptions": {
+    "AsData": 0,
+    "AsString": 1,
+    "AsPropertyList": 2,
+    "AsKeyedArchive": 4
+  },
+  "NSPasteboard.WritingOptions": {
+    "Promised": 512
+  },
+  "NSPathControl.Style": {
+    "Standard": 0,
+    "PopUp": 2,
+    "NavigationBar": 1
+  },
+  "NSPickerTouchBarItem.ControlRepresentation": {
+    "Automatic": 0,
+    "Expanded": 1,
+    "Collapsed": 2
+  },
+  "NSPickerTouchBarItem.SelectionMode": {
+    "SelectOne": 0,
+    "SelectAny": 1,
+    "Momentary": 2
+  },
+  "NSEvent.PointingDeviceType": {
+    "Unknown": 0,
+    "Pen": 1,
+    "Cursor": 2,
+    "Eraser": 3
+  },
+  "NSPopUpButton.ArrowPosition": {
+    "NoArrow": 0,
+    "ArrowAtCenter": 1,
+    "ArrowAtBottom": 2
+  },
+  "NSPopover.Behavior": {
+    "ApplicationDefined": 0,
+    "Transient": 1,
+    "Semitransient": 2
+  },
+  "NSEvent.PressureBehavior": {
+    "Unknown": -1,
+    "PrimaryDefault": 0,
+    "PrimaryClick": 1,
+    "PrimaryGeneric": 2,
+    "PrimaryAccelerator": 3,
+    "PrimaryDeepClick": 5,
+    "PrimaryDeepDrag": 6
+  },
+  "NSPrintPanel.Options": {
+    "ShowsCopies": 1,
+    "ShowsPageRange": 2,
+    "ShowsPaperSize": 4,
+    "ShowsOrientation": 8,
+    "ShowsScaling": 16,
+    "ShowsPrintSelection": 32,
+    "ShowsPageSetupAccessory": 256,
+    "ShowsPreview": 131072
+  },
+  "NSPrintOperation.RenderingQuality": {
+    "Best": 0,
+    "Responsive": 1
+  },
+  "NSPrinter.TableStatus": {
+    "OK": 0,
+    "NotFound": 1,
+    "Error": 2
+  },
+  "NSPrintOperation.PageOrder": {
+    "DescendingPageOrder": -1,
+    "SpecialPageOrder": 0,
+    "AscendingPageOrder": 1,
+    "UnknownPageOrder": 2
+  },
+  "NSPrintInfo.PaginationMode": {
+    "Automatic": 0,
+    "Fit": 1,
+    "Clip": 2
+  },
+  "NSProgressIndicator.Style": {
+    "Bar": 0,
+    "Spinning": 1
+  },
+  "NSRectAlignment": {
+    "None": 0,
+    "Top": 1,
+    "TopLeading": 2,
+    "Leading": 3,
+    "BottomLeading": 4,
+    "Bottom": 5,
+    "BottomTrailing": 6,
+    "Trailing": 7,
+    "TopTrailing": 8
+  },
+  "NSApplication.RemoteNotificationType": {
+    "None": 0,
+    "Badge": 1,
+    "Sound": 2,
+    "Alert": 4
+  },
+  "NSApplication.RequestUserAttentionType": {
+    "CriticalRequest": 0,
+    "InformationalRequest": 10
+  },
+  "NSRuleEditor.NestingMode": {
+    "Single": 0,
+    "List": 1,
+    "Compound": 2,
+    "Simple": 3
+  },
+  "NSRuleEditor.RowType": {
+    "Simple": 0,
+    "Compound": 1
+  },
+  "NSRulerView.Orientation": {
+    "HorizontalRuler": 0,
+    "VerticalRuler": 1
+  },
+  "NSDocument.SaveOperationType": {
+    "SaveOperation": 0,
+    "SaveAsOperation": 1,
+    "SaveToOperation": 2,
+    "AutosaveInPlaceOperation": 4,
+    "AutosaveElsewhereOperation": 3,
+    "AutosaveAsOperation": 5,
+    "AutosaveOperation": 3
+  },
+  "NSScrollView.Elasticity": {
+    "Automatic": 0,
+    "None": 1,
+    "Allowed": 2
+  },
+  "NSScrollView.FindBarPosition": {
+    "AboveHorizontalRuler": 0,
+    "AboveContent": 1,
+    "BelowContent": 2
+  },
+  "NSScroller.KnobStyle": {
+    "Default": 0,
+    "Dark": 1,
+    "Light": 2
+  },
+  "NSScroller.Part": {
+    "NoPart": 0,
+    "DecrementPage": 1,
+    "Knob": 2,
+    "IncrementPage": 3,
+    "DecrementLine": 4,
+    "IncrementLine": 5,
+    "KnobSlot": 6
+  },
+  "NSScroller.Style": {
+    "Legacy": 0,
+    "Overlay": 1
+  },
+  "NSScrubber.Alignment": {
+    "None": 0,
+    "Leading": 1,
+    "Trailing": 2,
+    "Center": 3
+  },
+  "NSScrubber.Mode": {
+    "Fixed": 0,
+    "Free": 1
+  },
+  "NSSegmentedControl.Distribution": {
+    "Fit": 0,
+    "Fill": 1,
+    "FillEqually": 2,
+    "FillProportionally": 3
+  },
+  "NSSegmentedControl.Style": {
+    "Automatic": 0,
+    "Rounded": 1,
+    "RoundRect": 3,
+    "TexturedSquare": 4,
+    "SmallSquare": 6,
+    "Separated": 8,
+    "TexturedRounded": 2,
+    "Capsule": 5
+  },
+  "NSSegmentedControl.SwitchTracking": {
+    "SelectOne": 0,
+    "SelectAny": 1,
+    "Momentary": 2,
+    "MomentaryAccelerator": 3
+  },
+  "NSSelectionAffinity": {
+    "Upstream": 0,
+    "Downstream": 1
+  },
+  "NSWindow.SelectionDirection": {
+    "DirectSelection": 0,
+    "SelectingNext": 1,
+    "SelectingPrevious": 2
+  },
+  "NSSelectionGranularity": {
+    "ByCharacter": 0,
+    "ByWord": 1,
+    "ByParagraph": 2
+  },
+  "NSSharingService.SharingContentScope": {
+    "Item": 0,
+    "Partial": 1,
+    "Full": 2
+  },
+  "NSSlider.SliderType": {
+    "Linear": 0,
+    "Circular": 1
+  },
+  "NSSpeechSynthesizer.Boundary": {
+    "ImmediateBoundary": 0,
+    "WordBoundary": 1,
+    "SentenceBoundary": 2
+  },
+  "NSAttributedString.SpellingState": {
+    "SpellingFlag": 1,
+    "GrammarFlag": 2
+  },
+  "NSSplitView.DividerStyle": {
+    "Thick": 1,
+    "Thin": 2,
+    "PaneSplitter": 3
+  },
+  "NSSplitViewItem.Behavior": {
+    "Default": 0,
+    "Sidebar": 1,
+    "ContentList": 2
+  },
+  "NSSplitViewItem.CollapseBehavior": {
+    "Default": 0,
+    "PreferResizingSplitViewWithFixedSiblings": 1,
+    "PreferResizingSiblingsWithFixedSplitView": 2,
+    "UseConstraints": 3
+  },
+  "NSSpringLoadingHighlight": {
+    "None": 0,
+    "Standard": 1,
+    "Emphasized": 2
+  },
+  "NSSpringLoadingOptions": {
+    "Disabled": 0,
+    "Enabled": 1,
+    "ContinuousActivation": 2,
+    "NoHover": 8
+  },
+  "NSStackView.Distribution": {
+    "GravityAreas": -1,
+    "Fill": 0,
+    "FillEqually": 1,
+    "FillProportionally": 2,
+    "EqualSpacing": 3,
+    "EqualCentering": 4
+  },
+  "NSStackView.Gravity": {
+    "Top": 1,
+    "Leading": 1,
+    "Center": 2,
+    "Bottom": 3,
+    "Trailing": 3
+  },
+  "NSStatusItem.Behavior": {
+    "RemovalAllowed": 2,
+    "TerminationOnRemoval": 4
+  },
+  "NSString.DrawingOptions": {
+    "UsesLineFragmentOrigin": 1,
+    "UsesFontLeading": 2,
+    "UsesDeviceMetrics": 8,
+    "TruncatesLastVisibleLine": 32,
+    "DisableScreenFontSubstitution": 4,
+    "OneShot": 16
+  },
+  "NSBitmapImageRep.TIFFCompression": {
+    "None": 1,
+    "CCITTFAX3": 3,
+    "CCITTFAX4": 4,
+    "LZW": 5,
+    "JPEG": 6,
+    "NEXT": 32766,
+    "PackBits": 32773,
+    "OldJPEG": 32865
+  },
+  "NSTabView.TabPosition": {
+    "None": 0,
+    "Top": 1,
+    "Left": 2,
+    "Bottom": 3,
+    "Right": 4
+  },
+  "NSTabViewItem.State": {
+    "SelectedTab": 0,
+    "BackgroundTab": 1,
+    "PressedTab": 2
+  },
+  "NSTabView.TabViewBorderType": {
+    "None": 0,
+    "Line": 1,
+    "Bezel": 2
+  },
+  "NSTabViewController.TabStyle": {
+    "SegmentedControlOnTop": 0,
+    "SegmentedControlOnBottom": 1,
+    "Toolbar": 2,
+    "Unspecified": -1
+  },
+  "NSTabView.TabType": {
+    "TopTabsBezelBorder": 0,
+    "LeftTabsBezelBorder": 1,
+    "BottomTabsBezelBorder": 2,
+    "RightTabsBezelBorder": 3,
+    "NoTabsBezelBorder": 4,
+    "NoTabsLineBorder": 5,
+    "NoTabsNoBorder": 6
+  },
+  "NSTableColumn.ResizingOptions": {
+    "NoResizing": 0,
+    "AutoresizingMask": 1,
+    "UserResizingMask": 2
+  },
+  "NSTableView.RowActionEdge": {
+    "Leading": 0,
+    "Trailing": 1
+  },
+  "NSTableView.AnimationOptions": {
+    "EffectNone": 0,
+    "EffectFade": 1,
+    "EffectGap": 2,
+    "SlideUp": 16,
+    "SlideDown": 32,
+    "SlideLeft": 48,
+    "SlideRight": 64
+  },
+  "NSTableView.ColumnAutoresizingStyle": {
+    "NoColumnAutoresizing": 0,
+    "UniformColumnAutoresizingStyle": 1,
+    "SequentialColumnAutoresizingStyle": 2,
+    "ReverseSequentialColumnAutoresizingStyle": 3,
+    "LastColumnOnlyAutoresizingStyle": 4,
+    "FirstColumnOnlyAutoresizingStyle": 5
+  },
+  "NSTableView.DraggingDestinationFeedbackStyle": {
+    "None": -1,
+    "Regular": 0,
+    "SourceList": 1,
+    "Gap": 2
+  },
+  "NSTableView.DropOperation": {
+    "On": 0,
+    "Above": 1
+  },
+  "NSTableView.GridLineStyle": {
+    "GridNone": 0,
+    "SolidVerticalGridLineMask": 1,
+    "SolidHorizontalGridLineMask": 2,
+    "DashedHorizontalGridLineMask": 8
+  },
+  "NSTableViewRowAction.Style": {
+    "Regular": 0,
+    "Destructive": 1
+  },
+  "NSTableView.RowSizeStyle": {
+    "Default": -1,
+    "Custom": 0,
+    "Small": 1,
+    "Medium": 2,
+    "Large": 3
+  },
+  "NSTableView.SelectionHighlightStyle": {
+    "None": -1,
+    "Regular": 0,
+    "SourceList": 1
+  },
+  "NSTextAlignment": {
+    "Left": 0,
+    "Right": 1,
+    "Center": 2,
+    "Justified": 3,
+    "Natural": 4
+  },
+  "NSTextBlock.Dimension": {
+    "Width": 0,
+    "MinimumWidth": 1,
+    "MaximumWidth": 2,
+    "Height": 4,
+    "MinimumHeight": 5,
+    "MaximumHeight": 6
+  },
+  "NSTextBlock.Layer": {
+    "Padding": -1,
+    "Border": 0,
+    "Margin": 1
+  },
+  "NSTextBlock.ValueType": {
+    "AbsoluteValueType": 0,
+    "PercentageValueType": 1
+  },
+  "NSTextBlock.VerticalAlignment": {
+    "TopAlignment": 0,
+    "MiddleAlignment": 1,
+    "BottomAlignment": 2,
+    "BaselineAlignment": 3
+  },
+  "NSTextField.BezelStyle": {
+    "SquareBezel": 0,
+    "RoundedBezel": 1
+  },
+  "NSTextFinder.Action": {
+    "ShowFindInterface": 1,
+    "NextMatch": 2,
+    "PreviousMatch": 3,
+    "ReplaceAll": 4,
+    "Replace": 5,
+    "ReplaceAndFind": 6,
+    "SetSearchString": 7,
+    "ReplaceAllInSelection": 8,
+    "SelectAll": 9,
+    "SelectAllInSelection": 10,
+    "HideFindInterface": 11,
+    "ShowReplaceInterface": 12,
+    "HideReplaceInterface": 13
+  },
+  "NSTextFinder.MatchingType": {
+    "Contains": 0,
+    "StartsWith": 1,
+    "FullWord": 2,
+    "EndsWith": 3
+  },
+  "NSTextInputTraitType": {
+    "Default": 0,
+    "No": 1,
+    "Yes": 2
+  },
+  "NSLayoutManager.TextLayoutOrientation": {
+    "Horizontal": 0,
+    "Vertical": 1
+  },
+  "NSTextList.Options": {
+    "PrependEnclosingMarker": 1
+  },
+  "NSTextMovement": {
+    "Return": 16,
+    "Tab": 17,
+    "Backtab": 18,
+    "Left": 19,
+    "Right": 20,
+    "Up": 21,
+    "Down": 22,
+    "Cancel": 23,
+    "Other": 0
+  },
+  "NSTextScalingType": {
+    "Standard": 0,
+    "iOS": 1
+  },
+  "NSTextStorageEditActions": {
+    "EditedAttributes": 1,
+    "EditedCharacters": 2
+  },
+  "NSParagraphStyle.TextTabType": {
+    "LeftTabStopType": 0,
+    "RightTabStopType": 1,
+    "CenterTabStopType": 2,
+    "DecimalTabStopType": 3
+  },
+  "NSTextTable.LayoutAlgorithm": {
+    "AutomaticLayoutAlgorithm": 0,
+    "FixedLayoutAlgorithm": 1
+  },
+  "NSSlider.TickMarkPosition": {
+    "Below": 0,
+    "Above": 1,
+    "Leading": 1,
+    "Trailing": 0
+  },
+  "NSBox.TitlePosition": {
+    "NoTitle": 0,
+    "AboveTop": 1,
+    "AtTop": 2,
+    "BelowTop": 3,
+    "AboveBottom": 4,
+    "AtBottom": 5,
+    "BelowBottom": 6
+  },
+  "NSTokenField.TokenStyle": {
+    "Default": 0,
+    "None": 1,
+    "Rounded": 2,
+    "Squared": 3,
+    "PlainSquared": 4
+  },
+  "NSToolbar.DisplayMode": {
+    "Default": 0,
+    "IconAndLabel": 1,
+    "IconOnly": 2,
+    "LabelOnly": 3
+  },
+  "NSToolbarItemGroup.ControlRepresentation": {
+    "Automatic": 0,
+    "Expanded": 1,
+    "Collapsed": 2
+  },
+  "NSToolbarItemGroup.SelectionMode": {
+    "SelectOne": 0,
+    "SelectAny": 1,
+    "Momentary": 2
+  },
+  "NSToolbar.SizeMode": {
+    "Default": 0,
+    "Regular": 1,
+    "Small": 2
+  },
+  "NSTouch.Phase": {
+    "Began": 1,
+    "Moved": 2,
+    "Stationary": 4,
+    "Ended": 8,
+    "Cancelled": 16,
+    "Touching": 7,
+    "Any": -1
+  },
+  "NSTouch.TouchType": {
+    "Direct": 0,
+    "Indirect": 1
+  },
+  "NSTouch.TouchTypeMask": {
+    "Direct": 1,
+    "Indirect": 2
+  },
+  "NSTrackingArea.Options": {
+    "MouseEnteredAndExited": 1,
+    "MouseMoved": 2,
+    "CursorUpdate": 4,
+    "ActiveWhenFirstResponder": 16,
+    "ActiveInKeyWindow": 32,
+    "ActiveInActiveApp": 64,
+    "ActiveAlways": 128,
+    "AssumeInside": 256,
+    "InVisibleRect": 512,
+    "EnabledDuringMouseDrag": 1024
+  },
+  "NSLayoutManager.TypesetterBehavior": {
+    "LatestBehavior": -1,
+    "OriginalBehavior": 0,
+    "Behavior_10_2_WithCompatibility": 1,
+    "Behavior_10_2": 2,
+    "Behavior_10_3": 3,
+    "Behavior_10_4": 4
+  },
+  "NSTypesetterControlCharacterAction": {
+    "ZeroAdvancementAction": 1,
+    "WhitespaceAction": 2,
+    "HorizontalTabAction": 4,
+    "LineBreakAction": 8,
+    "ParagraphBreakAction": 16,
+    "ContainerBreakAction": 32
+  },
+  "NSUnderlineStyle": {
+    "None": 0,
+    "Single": 1,
+    "Thick": 2,
+    "Double": 9,
+    "PatternSolid": 0,
+    "PatternDot": 256,
+    "PatternDash": 512,
+    "PatternDashDot": 768,
+    "PatternDashDotDot": 1024,
+    "ByWord": 32768
+  },
+  "NSScroller.UsableParts": {
+    "NoScrollerParts": 0,
+    "OnlyScrollerArrows": 1,
+    "AllScrollerParts": 2
+  },
+  "NSUserInterfaceLayoutDirection": {
+    "LeftToRight": 0,
+    "RightToLeft": 1
+  },
+  "NSUserInterfaceLayoutOrientation": {
+    "Horizontal": 0,
+    "Vertical": 1
+  },
+  "NSViewController.TransitionOptions": {
+    "None": 0,
+    "Crossfade": 1,
+    "SlideUp": 16,
+    "SlideDown": 32,
+    "SlideLeft": 64,
+    "SlideRight": 128,
+    "SlideForward": 320,
+    "SlideBackward": 384,
+    "AllowUserInteraction": 4096
+  },
+  "NSView.LayerContentsPlacement": {
+    "ScaleAxesIndependently": 0,
+    "ScaleProportionallyToFit": 1,
+    "ScaleProportionallyToFill": 2,
+    "Center": 3,
+    "Top": 4,
+    "TopRight": 5,
+    "Right": 6,
+    "BottomRight": 7,
+    "Bottom": 8,
+    "BottomLeft": 9,
+    "Left": 10,
+    "TopLeft": 11
+  },
+  "NSView.LayerContentsRedrawPolicy": {
+    "Never": 0,
+    "OnSetNeedsDisplay": 1,
+    "DuringViewResize": 2,
+    "BeforeViewResize": 3,
+    "Crossfade": 4
+  },
+  "NSVisualEffectView.BlendingMode": {
+    "BehindWindow": 0,
+    "WithinWindow": 1
+  },
+  "NSVisualEffectView.Material": {
+    "Titlebar": 3,
+    "Selection": 4,
+    "Menu": 5,
+    "Popover": 6,
+    "Sidebar": 7,
+    "HeaderView": 10,
+    "Sheet": 11,
+    "WindowBackground": 12,
+    "HUDWindow": 13,
+    "FullScreenUI": 15,
+    "ToolTip": 17,
+    "ContentBackground": 18,
+    "UnderWindowBackground": 21,
+    "UnderPageBackground": 22,
+    "AppearanceBased": 0,
+    "Light": 1,
+    "Dark": 2,
+    "MediumLight": 8,
+    "UltraDark": 9
+  },
+  "NSVisualEffectView.State": {
+    "FollowsWindowActiveState": 0,
+    "Active": 1,
+    "Inactive": 2
+  },
+  "NSBezierPath.WindingRule": {
+    "NonZero": 0,
+    "EvenOdd": 1
+  },
+  "NSWindow.AnimationBehavior": {
+    "Default": 0,
+    "None": 2,
+    "DocumentWindow": 3,
+    "UtilityWindow": 4,
+    "AlertPanel": 5
+  },
+  "NSWindow.ButtonType": {
+    "CloseButton": 0,
+    "MiniaturizeButton": 1,
+    "ZoomButton": 2,
+    "ToolbarButton": 3,
+    "DocumentIconButton": 4,
+    "DocumentVersionsButton": 6
+  },
+  "NSWindow.CollectionBehavior": {
+    "Default": 0,
+    "CanJoinAllSpaces": 1,
+    "MoveToActiveSpace": 2,
+    "Managed": 4,
+    "Transient": 8,
+    "Stationary": 16,
+    "ParticipatesInCycle": 32,
+    "IgnoresCycle": 64,
+    "FullScreenPrimary": 128,
+    "FullScreenAuxiliary": 256,
+    "FullScreenNone": 512,
+    "FullScreenAllowsTiling": 2048,
+    "FullScreenDisallowsTiling": 4096
+  },
+  "NSWindow.Depth": {
+    "TwentyfourBitRGB": 520,
+    "SixtyfourBitRGB": 528,
+    "OnehundredtwentyeightBitRGB": 544
+  },
+  "NSApplication.WindowListOptions": {
+    "OrderedFrontToBack": 1
+  },
+  "NSWindow.NumberListOptions": {
+    "AllApplications": 1,
+    "AllSpaces": 16
+  },
+  "NSWindow.OcclusionState": {
+    "Visible": 2
+  },
+  "NSWindow.OrderingMode": {
+    "Above": 1,
+    "Below": -1,
+    "Out": 0
+  },
+  "NSWindow.SharingType": {
+    "None": 0,
+    "ReadOnly": 1,
+    "ReadWrite": 2
+  },
+  "NSWindow.StyleMask": {
+    "Borderless": 0,
+    "Titled": 1,
+    "Closable": 2,
+    "Miniaturizable": 4,
+    "Resizable": 8,
+    "TexturedBackground": 256,
+    "UnifiedTitleAndToolbar": 4096,
+    "FullScreen": 16384,
+    "FullSizeContentView": 32768,
+    "UtilityWindow": 16,
+    "DocModalWindow": 64,
+    "NonactivatingPanel": 128,
+    "HUDWindow": 8192
+  },
+  "NSWindow.TabbingMode": {
+    "Automatic": 0,
+    "Preferred": 1,
+    "Disallowed": 2
+  },
+  "NSWindow.TitleVisibility": {
+    "Visible": 0,
+    "Hidden": 1
+  },
+  "NSWindow.UserTabbingPreference": {
+    "Manual": 0,
+    "Always": 1,
+    "InFullScreen": 2
+  },
+  "NSWorkspace.AuthorizationType": {
+    "CreateSymbolicLink": 0,
+    "SetAttributes": 1,
+    "ReplaceFile": 2
+  },
+  "NSWorkspace.IconCreationOptions": {
+    "ExcludeQuickDrawElementsIconCreationOption": 2,
+    "Exclude10_4ElementsIconCreationOption": 4
+  },
+  "NSWorkspace.LaunchOptions": {
+    "AndPrint": 2,
+    "WithErrorPresentation": 64,
+    "InhibitingBackgroundOnly": 128,
+    "WithoutAddingToRecents": 256,
+    "WithoutActivation": 512,
+    "Async": 65536,
+    "NewInstance": 524288,
+    "AndHide": 1048576,
+    "AndHideOthers": 2097152,
+    "Default": 65536,
+    "AllowingClassicStartup": 131072,
+    "PreferringClassic": 262144
+  },
+  "NSWritingDirection": {
+    "Natural": -1,
+    "LeftToRight": 0,
+    "RightToLeft": 1
+  },
+  "NSWritingDirectionFormatType": {
+    "Embedding": 0,
+    "Override": 2
+  }
+}

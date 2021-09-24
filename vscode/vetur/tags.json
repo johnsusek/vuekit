@@ -1,0 +1,995 @@
+{
+  "av-capture": {
+    "description": "Introduced in 10.1",
+    "attributes": [
+      "controlsStyle",
+      "delegate",
+      "fileOutput",
+      "session",
+      "videoGravity"
+    ]
+  },
+  "av-player": {
+    "description": "Introduced in 10.9",
+    "attributes": [
+      "contentOverlayView",
+      "controlsStyle",
+      "player",
+      "isReadyForDisplay",
+      "updatesNowPlayingInfoCenter",
+      "videoBounds",
+      "videoGravity",
+      "actionPopUpButtonMenu",
+      "showsFrameSteppingButtons",
+      "showsFullScreenToggleButton",
+      "showsSharingServiceButton",
+      "showsTimecodes",
+      "canBeginTrimming",
+      "allowsPictureInPicturePlayback",
+      "pictureInPictureDelegate"
+    ]
+  },
+  "av-route-picker": {
+    "description": "Introduced in 10.15",
+    "attributes": [
+      "delegate",
+      "player",
+      "isRoutePickerButtonBordered"
+    ]
+  },
+  "ik-camera-device": {
+    "description": "Introduced in 10.6",
+    "attributes": [
+      "cameraDevice",
+      "canDeleteSelectedItems",
+      "canDownloadSelectedItems",
+      "canRotateSelectedItemsLeft",
+      "canRotateSelectedItemsRight",
+      "delegate",
+      "displaysDownloadsDirectoryControl",
+      "displaysPostProcessApplicationControl",
+      "downloadAllControlLabel",
+      "downloadsDirectory",
+      "downloadSelectedControlLabel",
+      "hasDisplayModeIcon",
+      "hasDisplayModeTable",
+      "iconSize",
+      "mode",
+      "postProcessApplication",
+      "transferMode"
+    ]
+  },
+  "ik-device-browser": {
+    "description": "Introduced in 10.6",
+    "attributes": [
+      "delegate",
+      "displaysLocalCameras",
+      "displaysLocalScanners",
+      "displaysNetworkCameras",
+      "displaysNetworkScanners",
+      "mode",
+      "selectedDevice"
+    ]
+  },
+  "ik-filter-browser": {
+    "attributes": []
+  },
+  "ik-filter-ui": {
+    "attributes": []
+  },
+  "ik-image": {
+    "description": "Introduced in 10.5",
+    "attributes": [
+      "autohidesScrollers",
+      "autoresizes",
+      "backgroundColor",
+      "currentToolMode",
+      "delegate",
+      "doubleClickOpensImageEditPanel",
+      "editable",
+      "hasHorizontalScroller",
+      "hasVerticalScroller",
+      "imageCorrection",
+      "rotationAngle",
+      "supportsDragAndDrop",
+      "zoomFactor"
+    ]
+  },
+  "ik-scanner-device": {
+    "description": "Introduced in 10.6",
+    "attributes": [
+      "delegate",
+      "displaysDownloadsDirectoryControl",
+      "displaysPostProcessApplicationControl",
+      "documentName",
+      "downloadsDirectory",
+      "hasDisplayModeAdvanced",
+      "hasDisplayModeSimple",
+      "mode",
+      "overviewControlLabel",
+      "postProcessApplication",
+      "scanControlLabel",
+      "scannerDevice",
+      "transferMode"
+    ]
+  },
+  "ql-preview": {
+    "description": "Introduced in 10.6",
+    "attributes": [
+      "autostarts",
+      "displayState",
+      "previewItem",
+      "shouldCloseWithWindow"
+    ]
+  },
+  "quartz-filter": {
+    "attributes": []
+  },
+  "box": {
+    "attributes": [
+      "borderColor",
+      "borderRect",
+      "borderWidth",
+      "boxType",
+      "contentView",
+      "contentViewMargins",
+      "cornerRadius",
+      "fillColor",
+      "title",
+      "titleCell",
+      "titleFont",
+      "titlePosition",
+      "titleRect",
+      "isTransparent"
+    ]
+  },
+  "browser": {
+    "attributes": [
+      "allowsBranchSelection",
+      "allowsEmptySelection",
+      "allowsMultipleSelection",
+      "allowsTypeSelect",
+      "autohidesScroller",
+      "backgroundColor",
+      "cellPrototype",
+      "clickedColumn",
+      "clickedRow",
+      "columnResizingType",
+      "columnsAutosaveName",
+      "delegate",
+      "doubleAction",
+      "firstVisibleColumn",
+      "hasHorizontalScroller",
+      "lastColumn",
+      "lastVisibleColumn",
+      "isLoaded",
+      "maxVisibleColumns",
+      "minColumnWidth",
+      "numberOfVisibleColumns",
+      "pathSeparator",
+      "prefersAllColumnUserResizing",
+      "reusesColumns",
+      "rowHeight",
+      "selectedCell",
+      "selectedCells",
+      "selectedColumn",
+      "selectionIndexPath",
+      "selectionIndexPaths",
+      "sendsActionOnArrowKeys",
+      "separatesColumns",
+      "takesTitleFromPreviousColumn",
+      "isTitled",
+      "titleHeight"
+    ]
+  },
+  "button": {
+    "attributes": [
+      "allowsMixedState",
+      "alternateImage",
+      "alternateTitle",
+      "attributedAlternateTitle",
+      "attributedTitle",
+      "bezelColor",
+      "bezelStyle",
+      "isBordered",
+      "contentTintColor",
+      "image",
+      "imageHugsTitle",
+      "imagePosition",
+      "imageScaling",
+      "keyEquivalent",
+      "keyEquivalentModifierMask",
+      "maxAcceleratorLevel",
+      "showsBorderOnlyWhileMouseInside",
+      "sound",
+      "isSpringLoaded",
+      "state",
+      "title",
+      "isTransparent"
+    ]
+  },
+  "clip": {
+    "attributes": [
+      "automaticallyAdjustsContentInsets",
+      "backgroundColor",
+      "contentInsets",
+      "documentCursor",
+      "documentRect",
+      "documentView",
+      "documentVisibleRect",
+      "drawsBackground"
+    ]
+  },
+  "collection": {
+    "description": "Introduced in 10.5",
+    "attributes": [
+      "allowsEmptySelection",
+      "allowsMultipleSelection",
+      "backgroundColors",
+      "backgroundView",
+      "backgroundViewScrollsWithContent",
+      "collectionViewLayout",
+      "content",
+      "dataSource",
+      "delegate",
+      "isFirstResponder",
+      "numberOfSections",
+      "prefetchDataSource",
+      "isSelectable",
+      "selectionIndexes",
+      "selectionIndexPaths"
+    ]
+  },
+  "color-well": {
+    "attributes": [
+      "isActive",
+      "isBordered",
+      "color"
+    ]
+  },
+  "combo-box": {
+    "attributes": [
+      "isButtonBordered",
+      "completes",
+      "dataSource",
+      "delegate",
+      "hasVerticalScroller",
+      "indexOfSelectedItem",
+      "intercellSpacing",
+      "itemHeight",
+      "numberOfItems",
+      "numberOfVisibleItems",
+      "objectValueOfSelectedItem",
+      "objectValues",
+      "usesDataSource"
+    ]
+  },
+  "control": {
+    "attributes": [
+      "action",
+      "attributedStringValue",
+      "isContinuous",
+      "controlSize",
+      "doubleValue",
+      "isEnabled",
+      "floatValue",
+      "formatter",
+      "isHighlighted",
+      "ignoresMultiClick",
+      "integerValue",
+      "intValue",
+      "objectValue",
+      "refusesFirstResponder",
+      "stringValue",
+      "tag",
+      "target",
+      "alignment",
+      "allowsExpansionToolTips",
+      "baseWritingDirection",
+      "font",
+      "lineBreakMode",
+      "usesSingleLineMode",
+      "cell"
+    ]
+  },
+  "date-picker": {
+    "attributes": [
+      "backgroundColor",
+      "isBezeled",
+      "isBordered",
+      "calendar",
+      "datePickerElements",
+      "datePickerMode",
+      "datePickerStyle",
+      "dateValue",
+      "delegate",
+      "drawsBackground",
+      "locale",
+      "maxDate",
+      "minDate",
+      "presentsCalendarOverlay",
+      "textColor",
+      "timeInterval",
+      "timeZone"
+    ]
+  },
+  "grid": {
+    "description": "Introduced in 10.12",
+    "attributes": [
+      "columnSpacing",
+      "numberOfColumns",
+      "numberOfRows",
+      "rowAlignment",
+      "rowSpacing",
+      "xPlacement",
+      "yPlacement"
+    ]
+  },
+  "image": {
+    "attributes": [
+      "allowsCutCopyPaste",
+      "animates",
+      "contentTintColor",
+      "isEditable",
+      "image",
+      "imageAlignment",
+      "imageFrameStyle",
+      "imageScaling"
+    ]
+  },
+  "level-indicator": {
+    "attributes": [
+      "criticalFillColor",
+      "criticalValue",
+      "drawsTieredCapacityLevels",
+      "isEditable",
+      "fillColor",
+      "levelIndicatorStyle",
+      "maxValue",
+      "minValue",
+      "numberOfMajorTickMarks",
+      "numberOfTickMarks",
+      "placeholderVisibility",
+      "ratingImage",
+      "ratingPlaceholderImage",
+      "tickMarkPosition",
+      "warningFillColor",
+      "warningValue"
+    ]
+  },
+  "matrix": {
+    "attributes": [
+      "allowsEmptySelection",
+      "autorecalculatesCellSize",
+      "isAutoscroll",
+      "autosizesCells",
+      "backgroundColor",
+      "cellBackgroundColor",
+      "cellClass",
+      "cells",
+      "cellSize",
+      "delegate",
+      "doubleAction",
+      "drawsBackground",
+      "drawsCellBackground",
+      "intercellSpacing",
+      "mode",
+      "mouseDownFlags",
+      "numberOfColumns",
+      "numberOfRows",
+      "prototype",
+      "selectedCell",
+      "selectedCells",
+      "selectedColumn",
+      "selectedRow",
+      "isSelectionByRect",
+      "keyCell",
+      "tabKeyTraversesCells"
+    ]
+  },
+  "outline": {
+    "attributes": [
+      "autoresizesOutlineColumn",
+      "autosaveExpandedItems",
+      "dataSource",
+      "delegate",
+      "indentationMarkerFollowsCell",
+      "indentationPerLevel",
+      "outlineTableColumn",
+      "stronglyReferencesItems"
+    ]
+  },
+  "path-control": {
+    "description": "Introduced in 10.5",
+    "attributes": [
+      "allowedTypes",
+      "backgroundColor",
+      "clickedPathItem",
+      "delegate",
+      "doubleAction",
+      "isEditable",
+      "pathItems",
+      "pathStyle",
+      "placeholderAttributedString",
+      "placeholderString",
+      "url"
+    ]
+  },
+  "pop-up-button": {
+    "attributes": [
+      "autoenablesItems",
+      "indexOfSelectedItem",
+      "itemArray",
+      "itemTitles",
+      "lastItem",
+      "numberOfItems",
+      "preferredEdge",
+      "pullsDown",
+      "selectedItem",
+      "selectedTag",
+      "titleOfSelectedItem"
+    ]
+  },
+  "predicate-editor": {
+    "description": "Introduced in 10.5",
+    "attributes": [
+      "rowTemplates"
+    ]
+  },
+  "progress-indicator": {
+    "attributes": [
+      "isBezeled",
+      "controlSize",
+      "controlTint",
+      "isDisplayedWhenStopped",
+      "doubleValue",
+      "isIndeterminate",
+      "maxValue",
+      "minValue",
+      "style",
+      "usesThreadedAnimation"
+    ]
+  },
+  "rule-editor": {
+    "attributes": [
+      "canRemoveAllRows",
+      "criteriaKeyPath",
+      "delegate",
+      "displayValuesKeyPath",
+      "isEditable",
+      "formattingDictionary",
+      "formattingStringsFilename",
+      "nestingMode",
+      "numberOfRows",
+      "predicate",
+      "rowClass",
+      "rowHeight",
+      "rowTypeKeyPath",
+      "selectedRowIndexes",
+      "subrowsKeyPath"
+    ]
+  },
+  "ruler": {
+    "attributes": [
+      "accessoryView",
+      "baselineLocation",
+      "clientView",
+      "markers",
+      "measurementUnits",
+      "orientation",
+      "originOffset",
+      "requiredThickness",
+      "reservedThicknessForAccessoryView",
+      "reservedThicknessForMarkers",
+      "ruleThickness",
+      "scrollView"
+    ]
+  },
+  "scroll": {
+    "attributes": [
+      "allowsMagnification",
+      "autohidesScrollers",
+      "automaticallyAdjustsContentInsets",
+      "backgroundColor",
+      "borderType",
+      "contentInsets",
+      "contentSize",
+      "contentView",
+      "documentCursor",
+      "documentView",
+      "documentVisibleRect",
+      "drawsBackground",
+      "hasHorizontalScroller",
+      "hasVerticalScroller",
+      "horizontalLineScroll",
+      "horizontalPageScroll",
+      "horizontalScrollElasticity",
+      "horizontalScroller",
+      "lineScroll",
+      "magnification",
+      "maxMagnification",
+      "minMagnification",
+      "pageScroll",
+      "scrollerInsets",
+      "scrollerKnobStyle",
+      "scrollerStyle",
+      "scrollsDynamically",
+      "usesPredominantAxisScrolling",
+      "verticalLineScroll",
+      "verticalPageScroll",
+      "verticalScrollElasticity",
+      "verticalScroller",
+      "hasHorizontalRuler",
+      "hasVerticalRuler",
+      "horizontalRulerView",
+      "rulersVisible",
+      "verticalRulerView",
+      "findBarPosition"
+    ]
+  },
+  "scroller": {
+    "attributes": [
+      "hitPart",
+      "knobProportion",
+      "knobStyle",
+      "scrollerStyle",
+      "usableParts"
+    ]
+  },
+  "scrubber": {
+    "description": "Introduced in 10.12.2",
+    "attributes": [
+      "backgroundColor",
+      "backgroundView",
+      "isContinuous",
+      "dataSource",
+      "delegate",
+      "floatsSelectionViews",
+      "highlightedIndex",
+      "itemAlignment",
+      "mode",
+      "numberOfItems",
+      "scrubberLayout",
+      "selectedIndex",
+      "selectionBackgroundStyle",
+      "selectionOverlayStyle",
+      "showsAdditionalContentIndicators",
+      "showsArrowButtons"
+    ]
+  },
+  "scrubber-arranged": {
+    "description": "Introduced in 10.12.2",
+    "attributes": [
+      "isHighlighted",
+      "isSelected"
+    ]
+  },
+  "scrubber-image-item": {
+    "description": "Introduced in 10.12.2",
+    "attributes": [
+      "image",
+      "imageAlignment",
+      "imageView"
+    ]
+  },
+  "scrubber-item": {
+    "description": "Introduced in 10.12.2",
+    "attributes": []
+  },
+  "scrubber-selection": {
+    "description": "Introduced in 10.12.2",
+    "attributes": []
+  },
+  "scrubber-text-item": {
+    "description": "Introduced in 10.12.2",
+    "attributes": [
+      "textField",
+      "title"
+    ]
+  },
+  "search-field": {
+    "attributes": [
+      "delegate",
+      "maximumRecents",
+      "recentsAutosaveName",
+      "recentSearches",
+      "searchMenuTemplate",
+      "sendsSearchStringImmediately",
+      "sendsWholeSearchString"
+    ]
+  },
+  "secure-text-field": {
+    "attributes": []
+  },
+  "segmented-control": {
+    "attributes": [
+      "doubleValueForSelectedSegment",
+      "indexOfSelectedItem",
+      "segmentCount",
+      "segmentDistribution",
+      "segmentStyle",
+      "selectedSegment",
+      "selectedSegmentBezelColor",
+      "isSpringLoaded",
+      "trackingMode"
+    ]
+  },
+  "slider": {
+    "attributes": [
+      "altIncrementValue",
+      "knobThickness",
+      "maxValue",
+      "minValue",
+      "sliderType",
+      "trackFillColor",
+      "isVertical",
+      "allowsTickMarkValuesOnly",
+      "numberOfTickMarks",
+      "tickMarkPosition"
+    ]
+  },
+  "split": {
+    "attributes": [
+      "autosaveName",
+      "delegate",
+      "dividerColor",
+      "dividerStyle",
+      "dividerThickness",
+      "isVertical",
+      "arrangedSubviews",
+      "arrangesAllSubviews"
+    ]
+  },
+  "stack": {
+    "description": "Introduced in 10.9",
+    "attributes": [
+      "alignment",
+      "arrangedSubviews",
+      "delegate",
+      "detachedViews",
+      "detachesHiddenViews",
+      "distribution",
+      "edgeInsets",
+      "orientation",
+      "spacing",
+      "views"
+    ]
+  },
+  "status-bar-button": {
+    "description": "Introduced in 10.1",
+    "attributes": [
+      "appearsDisabled"
+    ]
+  },
+  "stepper": {
+    "attributes": [
+      "autorepeat",
+      "increment",
+      "maxValue",
+      "minValue",
+      "valueWraps"
+    ]
+  },
+  "switch": {
+    "description": "Introduced in 10.15",
+    "attributes": [
+      "state"
+    ]
+  },
+  "tab": {
+    "attributes": [
+      "allowsTruncatedLabels",
+      "contentRect",
+      "controlSize",
+      "delegate",
+      "drawsBackground",
+      "font",
+      "minimumSize",
+      "numberOfTabViewItems",
+      "selectedTabViewItem",
+      "tabPosition",
+      "tabViewBorderType",
+      "tabViewItems",
+      "tabViewType"
+    ]
+  },
+  "table-cell": {
+    "description": "Introduced in 10.7",
+    "attributes": [
+      "backgroundStyle",
+      "draggingImageComponents",
+      "imageView",
+      "objectValue",
+      "rowSizeStyle",
+      "textField"
+    ]
+  },
+  "table-header": {
+    "attributes": [
+      "draggedColumn",
+      "draggedDistance",
+      "resizedColumn",
+      "tableView"
+    ]
+  },
+  "table-row": {
+    "description": "Introduced in 10.7",
+    "attributes": [
+      "backgroundColor",
+      "draggingDestinationFeedbackStyle",
+      "isEmphasized",
+      "isFloating",
+      "isGroupRowStyle",
+      "indentationForDropOperation",
+      "interiorBackgroundStyle",
+      "isNextRowSelected",
+      "numberOfColumns",
+      "isPreviousRowSelected",
+      "isSelected",
+      "selectionHighlightStyle",
+      "isTargetForDropOperation"
+    ]
+  },
+  "table": {
+    "attributes": [
+      "allowsColumnReordering",
+      "allowsColumnResizing",
+      "allowsColumnSelection",
+      "allowsEmptySelection",
+      "allowsMultipleSelection",
+      "allowsTypeSelect",
+      "autosaveName",
+      "autosaveTableColumns",
+      "backgroundColor",
+      "clickedColumn",
+      "clickedRow",
+      "columnAutoresizingStyle",
+      "cornerView",
+      "dataSource",
+      "delegate",
+      "doubleAction",
+      "draggingDestinationFeedbackStyle",
+      "editedColumn",
+      "editedRow",
+      "effectiveRowSizeStyle",
+      "floatsGroupRows",
+      "gridColor",
+      "gridStyleMask",
+      "headerView",
+      "hiddenRowIndexes",
+      "highlightedTableColumn",
+      "intercellSpacing",
+      "numberOfColumns",
+      "numberOfRows",
+      "numberOfSelectedColumns",
+      "numberOfSelectedRows",
+      "registeredNibsByIdentifier",
+      "rowActionsVisible",
+      "rowHeight",
+      "rowSizeStyle",
+      "selectedColumn",
+      "selectedColumnIndexes",
+      "selectedRow",
+      "selectedRowIndexes",
+      "selectionHighlightStyle",
+      "sortDescriptors",
+      "tableColumns",
+      "usesAlternatingRowBackgroundColors",
+      "usesAutomaticRowHeights",
+      "usesStaticContents",
+      "verticalMotionCanBeginDrag"
+    ]
+  },
+  "text": {
+    "attributes": [
+      "layoutManager",
+      "shouldDrawInsertionPoint",
+      "textContainer",
+      "textContainerInset",
+      "textContainerOrigin",
+      "textStorage",
+      "usesAdaptiveColorMappingForDarkAppearance",
+      "rangeForUserCompletion",
+      "readablePasteboardTypes",
+      "writablePasteboardTypes",
+      "acceptableDragTypes",
+      "acceptsGlyphInfo",
+      "allowedInputSourceLocales",
+      "allowsDocumentBackgroundColorChange",
+      "allowsImageEditing",
+      "allowsUndo",
+      "isCoalescingUndo",
+      "isContinuousSpellCheckingEnabled",
+      "defaultParagraphStyle",
+      "delegate",
+      "displaysLinkToolTips",
+      "isGrammarCheckingEnabled",
+      "insertionPointColor",
+      "linkTextAttributes",
+      "markedTextAttributes",
+      "rangeForUserCharacterAttributeChange",
+      "rangeForUserParagraphAttributeChange",
+      "rangeForUserTextChange",
+      "rangesForUserCharacterAttributeChange",
+      "rangesForUserParagraphAttributeChange",
+      "rangesForUserTextChange",
+      "isRulerVisible",
+      "selectedRanges",
+      "selectedTextAttributes",
+      "selectionAffinity",
+      "selectionGranularity",
+      "spellCheckerDocumentTag",
+      "typingAttributes",
+      "usesInspectorBar",
+      "usesRolloverButtonForSelection",
+      "usesRuler",
+      "isAutomaticDashSubstitutionEnabled",
+      "isAutomaticDataDetectionEnabled",
+      "isAutomaticLinkDetectionEnabled",
+      "isAutomaticQuoteSubstitutionEnabled",
+      "isAutomaticSpellingCorrectionEnabled",
+      "isAutomaticTextReplacementEnabled",
+      "enabledTextCheckingTypes",
+      "isIncrementalSearchingEnabled",
+      "smartInsertDeleteEnabled",
+      "usesFindBar",
+      "usesFindPanel",
+      "allowsCharacterPickerTouchBarItem",
+      "isAutomaticTextCompletionEnabled"
+    ]
+  },
+  "text-field": {
+    "attributes": [
+      "allowsDefaultTighteningForTruncation",
+      "backgroundColor",
+      "isBezeled",
+      "bezelStyle",
+      "isBordered",
+      "delegate",
+      "drawsBackground",
+      "isEditable",
+      "maximumNumberOfLines",
+      "placeholderAttributedString",
+      "placeholderString",
+      "preferredMaxLayoutWidth",
+      "isSelectable",
+      "textColor",
+      "allowsCharacterPickerTouchBarItem",
+      "isAutomaticTextCompletionEnabled",
+      "allowsEditingTextAttributes",
+      "importsGraphics"
+    ]
+  },
+  "token-field": {
+    "attributes": [
+      "completionDelay",
+      "delegate",
+      "tokenizingCharacterSet",
+      "tokenStyle"
+    ]
+  },
+  "visual-effect": {
+    "description": "Introduced in 10.1",
+    "attributes": [
+      "blendingMode",
+      "isEmphasized",
+      "interiorBackgroundStyle",
+      "maskImage",
+      "material",
+      "state"
+    ]
+  },
+  "window": {
+    "attributes": [
+      "allowsConcurrentViewDrawing",
+      "allowsToolTipsWhenApplicationIsInactive",
+      "alphaValue",
+      "animationBehavior",
+      "appearanceSource",
+      "aspectRatio",
+      "attachedSheet",
+      "autorecalculatesKeyViewLoop",
+      "backgroundColor",
+      "backingScaleFactor",
+      "backingType",
+      "canBecomeKey",
+      "canBecomeMain",
+      "canBecomeVisibleWithoutLogin",
+      "canHide",
+      "childWindows",
+      "collectionBehavior",
+      "colorSpace",
+      "contentAspectRatio",
+      "contentLayoutGuide",
+      "contentLayoutRect",
+      "contentMaxSize",
+      "contentMinSize",
+      "contentResizeIncrements",
+      "contentView",
+      "contentViewController",
+      "deepestScreen",
+      "defaultButtonCell",
+      "delegate",
+      "depthLimit",
+      "deviceDescription",
+      "displaysWhenScreenProfileChanges",
+      "dockTile",
+      "isDocumentEdited",
+      "isExcludedFromWindowsMenu",
+      "firstResponder",
+      "frame",
+      "frameAutosaveName",
+      "hasDynamicDepthLimit",
+      "hasShadow",
+      "hidesOnDeactivate",
+      "initialFirstResponder",
+      "inLiveResize",
+      "keyViewSelectionDirection",
+      "isKeyWindow",
+      "level",
+      "isMainWindow",
+      "maxFullScreenContentSize",
+      "maxSize",
+      "minFullScreenContentSize",
+      "isMiniaturized",
+      "miniwindowImage",
+      "miniwindowTitle",
+      "minSize",
+      "isMovable",
+      "isMovableByWindowBackground",
+      "occlusionState",
+      "isOnActiveSpace",
+      "isOpaque",
+      "parent",
+      "preservesContentDuringLiveResize",
+      "preventsApplicationTerminationWhenModal",
+      "isReleasedWhenClosed",
+      "representedFilename",
+      "representedURL",
+      "resizeFlags",
+      "resizeIncrements",
+      "screen",
+      "sharingType",
+      "isSheet",
+      "sheetParent",
+      "sheets",
+      "showsToolbarButton",
+      "frameDescriptor",
+      "styleMask",
+      "tab",
+      "tabbedWindows",
+      "tabbingIdentifier",
+      "tabbingMode",
+      "tabGroup",
+      "title",
+      "titlebarAccessoryViewControllers",
+      "titlebarAppearsTransparent",
+      "titleVisibility",
+      "toolbar",
+      "viewsNeedDisplay",
+      "isVisible",
+      "windowController",
+      "windowNumber",
+      "windowTitlebarLayoutDirection",
+      "worksWhenModal",
+      "isZoomed",
+      "acceptsMouseMovedEvents",
+      "currentEvent",
+      "ignoresMouseEvents",
+      "mouseLocationOutsideOfEventStream",
+      "areCursorRectsEnabled",
+      "windowRef",
+      "showsResizeIndicator",
+      "isFloatingPanel",
+      "hasCloseBox",
+      "hasTitleBar",
+      "isMiniaturizable",
+      "isModalPanel",
+      "orderedIndex",
+      "isResizable",
+      "isZoomable",
+      "isRestorable",
+      "restorationClass"
+    ]
+  }
+}

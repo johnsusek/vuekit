@@ -17,7 +17,7 @@
   },
   "bin": {
     "vuekit-setup": "./scripts/vuekit-setup.sh",
-    "xcodegen": "./scripts/run-xcodegen.sh"
+    "xcodegenerate": "./scripts/run-xcodegen.sh"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "4.30.*",
@@ -45,6 +45,11 @@
     "templates",
     "tsconfig.json",
     "framework/VueKit.framework",
-    "framework/VueKit.framework.dSYM"
-  ]
+    "framework/VueKit.framework.dSYM",
+    "vscode/vetur"
+  ],
+  "vetur": {
+    "tags": "vscode/vetur/tags.json",
+    "attributes": "vscode/vetur/attributes.json"
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "VueKit",
+  "options": {
+    "deploymentTarget": {
+      "macOS": "10.15"
+    }
+  },
+  "configs": {
+    "Debug": "debug",
+    "Release": "release"
+  },
+  "targets": {
+    "VueKit": {
+      "type": "framework",
+      "platform": "macOS",
+      "sources": [
+        "Sources"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vuekit-template",
+  "version": "0.0.1",
+  "author": "",
+  "license": "",
+  "scripts": {
+    "setup": "vuekit-setup",
+    "lint": "eslint --ext vue,ts --quiet .",
+    "tsc": "vue-tsc -p ./tsconfig.json -noEmit",
+    "bundle": "vite build -l error --config .config/vite.config.ts",
+    "xcodegen": "xcodegenerate -s $PWD/.config/xcodeproj.json -p $PWD",
+    "build": "npm run lint && npm run tsc && npm run bundle",
+    "watch": "nodemon -e 'ts,vue' -w './src' --exec 'npm run build'"
+  },
+  "eslintConfig": {
+    "extends": ".config/.eslintrc.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vuekit-vue": "0.0.*"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": false,
+    "noImplicitThis": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "lib": [
+      "esnext"
+    ]
+  },
+  "include": [
+    "src",
+    "vetur.config.js"
+  ],
+  "exclude": [
+    ".config",
+    "build",
+    "node_modules"
+  ]
+}

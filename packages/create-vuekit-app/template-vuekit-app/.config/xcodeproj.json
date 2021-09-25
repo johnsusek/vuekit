@@ -1,0 +1,52 @@
+{
+  "name": "VueKitApp",
+  "options": {
+    "deploymentTarget": {
+      "macOS": "10.15"
+    }
+  },
+  "configs": {
+    "Debug": "debug",
+    "Release": "release",
+    "Adhoc": "release",
+    "Beta": "release"
+  },
+  "targets": {
+    "VueKitApp": {
+      "type": "application",
+      "platform": "macOS",
+      "sources": [
+        "../node_modules/vuekit-vue/templates/xcode/Sources",
+        {
+          "path": "../build/vuekit-bundle.es.js",
+          "optional": true
+        }
+      ],
+      "dependencies": [
+        {
+          "framework": "node_modules/vuekit-vue/framework/VueKit.framework",
+          "embed": true
+        }
+      ],
+      "scheme": {
+        "testTargets": [
+          {
+            "name": "VueKitAppTests"
+          }
+        ]
+      }
+    },
+    "VueKitAppTests": {
+      "type": "bundle.unit-test",
+      "platform": "macOS",
+      "sources": [
+        "../node_modules/vuekit-vue/templates/xcode/Tests"
+      ],
+      "dependencies": [
+        {
+          "target": "VueKitApp"
+        }
+      ]
+    }
+  }
+}

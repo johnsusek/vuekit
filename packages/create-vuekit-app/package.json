@@ -1,0 +1,25 @@
+{
+  "name": "create-vuekit-app",
+  "version": "0.0.20",
+  "license": "MIT",
+  "author": "John Susek",
+  "scripts": {
+    "test": "true"
+  },
+  "bin": {
+    "create-vuekit-app": "index.js"
+  },
+  "files": [
+    "index.js",
+    "template-vuekit-app/*"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "kolorist": "1.5.0",
+    "minimist": "1.2.5",
+    "prompts": "2.4.1"
+  }
+}

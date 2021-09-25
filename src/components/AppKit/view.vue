@@ -19,10 +19,6 @@ export default defineComponent({
       type: String as PropType<keyof typeof NSView.AutoresizingMask>,
       default: () => undefined
     },
-    'background-filters': {
-      type: Object as PropType<CIFilter[]>,
-      default: () => undefined
-    },
     'bounds': {
       type: Object as PropType<CGRect>,
       default: () => undefined
@@ -37,14 +33,6 @@ export default defineComponent({
     },
     'can-draw-subviews-into-layer': {
       type: Boolean,
-      default: () => undefined
-    },
-    'compositing-filter': {
-      type: Object as PropType<CIFilter>,
-      default: () => undefined
-    },
-    'content-filters': {
-      type: Object as PropType<CIFilter[]>,
       default: () => undefined
     },
     'focus-ring-type': {
@@ -177,16 +165,16 @@ export default defineComponent({
     },
   },
 
-	computed: {
-		attrs() {
-			let attrs = { ...this.$props, ...this.$attrs };
+  computed: {
+    attrs() {
+      let attrs = { ...this.$props, ...this.$attrs };
 
-			return attrs;
-		}
-	},
+      return attrs;
+    }
+  },
 
-	render() {
-		return h('View', this.attrs, this.$slots);
-	}
+  render() {
+    return h('View', this.attrs, this.$slots);
+  }
 });
 </script>

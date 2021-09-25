@@ -15,3 +15,4 @@ xcuserdata
 dist/
 build/
 data/
+tmp/

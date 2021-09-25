@@ -3,12 +3,15 @@ node_modules
 .temp
 .cache
 .vscode
-
-docs/.vuepress/dist
+.swiftpm
+.DS_Store
+.build
 
 *.xcodeproj
 *.framework
 *.framework.dSYM
+xcuserdata
 
+dist/
 build/
 data/

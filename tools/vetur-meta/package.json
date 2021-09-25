@@ -1,0 +1,16 @@
+{
+  "name": "vetur-meta",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "John Susek",
+  "license": "MIT",
+  "dependencies": {
+    "concurrent-queue": "^7.0.2"
+  },
+  "devDependencies": {
+    "change-case": "^4.1.2",
+    "kebab-case": "^1.0.1",
+    "snake-case": "^3.0.4",
+    "yaml": "^1.10.2"
+  }
+}

@@ -41,7 +41,7 @@
   "files": [
     "src",
     "scripts",
-    "tools",
+    "vendor",
     "templates",
     "tsconfig.json",
     "framework/VueKit.framework",

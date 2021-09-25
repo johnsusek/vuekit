@@ -45,7 +45,6 @@
     "templates",
     "tsconfig.json",
     "framework/VueKit.framework",
-    "framework/VueKit.framework.dSYM",
     "vscode/vetur"
   ],
   "vetur": {

@@ -3,7 +3,8 @@
   "options": {
     "deploymentTarget": {
       "macOS": "10.15"
-    }
+    },
+    "defaultConfig": "Release"
   },
   "configs": {
     "Debug": "debug",

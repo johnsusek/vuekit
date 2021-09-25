@@ -1,8 +1,9 @@
 {
   "name": "create-vuekit-app",
   "version": "0.0.20",
-  "license": "MIT",
   "author": "John Susek",
+  "license": "MIT",
+  "repository": "https://github.com/johnsusek/vuekit.git",
   "scripts": {
     "test": "true"
   },

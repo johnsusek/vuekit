@@ -134,12 +134,17 @@ let allClasses = [
   "AVCaptureAudioFileOutput",
   "AVCaptureAudioPreviewOutput",
   "AVCaptureConnection",
+  "AVCaptureDevice.DiscoverySession",
+  "AVCaptureDevice.Format",
+  "AVCaptureDevice.InputSource",
+  "AVCaptureDevice.SystemPressureState",
   "AVCaptureDevice",
   "AVCaptureDeviceDiscoverySession",
   "AVCaptureDeviceFormat",
   "AVCaptureDeviceInput",
   "AVCaptureDeviceInputSource",
   "AVCaptureFileOutput",
+  "AVCaptureInput.Port",
   "AVCaptureInput",
   "AVCaptureInputPort",
   "AVCaptureMovieFileOutput",
@@ -152,6 +157,7 @@ let allClasses = [
   "AVCaptureSession",
   "AVCaptureVideoDataOutput",
   "AVCaptureVideoPreviewLayer",
+  "AVCaptureView",
   "AVComposition",
   "AVCompositionTrack",
   "AVCompositionTrackFormatDescriptionReplacement",
@@ -203,6 +209,7 @@ let allClasses = [
   "AVMutableVideoCompositionLayerInstruction",
   "AVOutputSettingsAssistant",
   "AVPersistableContentKeyRequest",
+  "AVPictureInPictureController",
   "AVPlayer",
   "AVPlayerItem",
   "AVPlayerItemAccessLog",
@@ -223,6 +230,7 @@ let allClasses = [
   "AVPortraitEffectsMatte",
   "AVQueuePlayer",
   "AVRouteDetector",
+  "AVRoutePickerView",
   "AVSampleBufferAudioRenderer",
   "AVSampleBufferDisplayLayer",
   "AVSampleBufferGenerator",
@@ -243,9 +251,13 @@ let allClasses = [
   "AVVideoCompositionLayerInstruction",
   "AVVideoCompositionRenderContext",
   "AVVideoCompositionRenderHint",
+  "BlockOperation",
+  "Bundle",
+  "ByteCountFormatter",
   "CAAnimation",
   "CAAnimationGroup",
   "CABasicAnimation",
+  "CachedURLResponse",
   "CAConstraint",
   "CAConstraintLayoutManager",
   "CAEDRMetadata",
@@ -270,6 +282,51 @@ let allClasses = [
   "CATransformLayer",
   "CATransition",
   "CAValueFunction",
+  "CIAztecCodeDescriptor",
+  "CIBarcodeDescriptor",
+  "CIBlendKernel",
+  "CIColor",
+  "CIColorKernel",
+  "CIContext",
+  "CIDataMatrixCodeDescriptor",
+  "CIDetector",
+  "CIFaceFeature",
+  "CIFeature",
+  "CIFilter",
+  "CIFilterGenerator",
+  "CIFilterShape",
+  "CIImage",
+  "CIImageAccumulator",
+  "CIImageProcessorKernel",
+  "CIKernel",
+  "CIPDF417CodeDescriptor",
+  "CIPlugIn",
+  "CIQRCodeDescriptor",
+  "CIQRCodeFeature",
+  "CIRectangleFeature",
+  "CIRenderDestination",
+  "CIRenderInfo",
+  "CIRenderTask",
+  "CISampler",
+  "CITextFeature",
+  "CIVector",
+  "CIWarpKernel",
+  "CoreImage",
+  "DateComponentsFormatter",
+  "DateFormatter",
+  "DateIntervalFormatter",
+  "Dimension",
+  "DistributedNotificationCenter",
+  "EnergyFormatter",
+  "FileHandle",
+  "FileManager.DirectoryEnumerator",
+  "FileManager",
+  "FileWrapper",
+  "Formatter",
+  "Host",
+  "HTTPCookie",
+  "HTTPCookieStorage",
+  "HTTPURLResponse",
   "IKCameraDeviceView",
   "IKDeviceBrowserView",
   "IKFilterBrowserPanel",
@@ -282,11 +339,26 @@ let allClasses = [
   "IKSaveOptions",
   "IKScannerDeviceView",
   "IKSlideshow",
+  "InputStream",
+  "ISO8601DateFormatter",
+  "JSONSerialization",
+  "LengthFormatter",
+  "ListFormatter",
+  "MassFormatter",
+  "MeasurementFormatter",
+  "MessagePort",
+  "NetService",
+  "NetServiceBrowser",
+  "NotificationCenter",
+  "NotificationQueue",
   "NSAccessibilityCustomAction",
+  "NSAccessibilityCustomRotor.ItemResult",
+  "NSAccessibilityCustomRotor.SearchParameters",
   "NSAccessibilityCustomRotor",
   "NSAccessibilityCustomRotorItemResult",
   "NSAccessibilityCustomRotorSearchParameters",
   "NSAccessibilityElement",
+  "NSActionCell",
   "NSAffineTransform",
   "NSAlert",
   "NSAlignmentFeedbackFilter",
@@ -345,6 +417,7 @@ let allClasses = [
   "NSCollectionViewCompositionalLayout",
   "NSCollectionViewCompositionalLayoutConfiguration",
   "NSCollectionViewDiffableDataSource",
+  "NSCollectionViewDiffableDataSourceReference",
   "NSCollectionViewFlowLayout",
   "NSCollectionViewFlowLayoutInvalidationContext",
   "NSCollectionViewGridLayout",
@@ -370,6 +443,7 @@ let allClasses = [
   "NSConditionLock",
   "NSControl",
   "NSController",
+  "NSCountCommand",
   "NSCountedSet",
   "NSCreateCommand",
   "NSCursor",
@@ -393,6 +467,7 @@ let allClasses = [
   "NSDictionaryController",
   "NSDictionaryControllerKeyValuePair",
   "NSDiffableDataSourceSnapshot",
+  "NSDiffableDataSourceSnapshotReference",
   "NSDimension",
   "NSDirectoryEnumerator",
   "NSDistributedLock",
@@ -409,6 +484,7 @@ let allClasses = [
   "NSError",
   "NSEvent",
   "NSException",
+  "NSExistsCommand",
   "NSExpression",
   "NSExtensionContext",
   "NSExtensionItem",
@@ -419,6 +495,7 @@ let allClasses = [
   "NSFilePromiseProvider",
   "NSFilePromiseReceiver",
   "NSFileProviderService",
+  "NSFileSecurity",
   "NSFileVersion",
   "NSFileWrapper",
   "NSFont",
@@ -430,6 +507,7 @@ let allClasses = [
   "NSFormatter",
   "NSFormCell",
   "NSGestureRecognizer",
+  "NSGetCommand",
   "NSGlyphGenerator",
   "NSGlyphInfo",
   "NSGradient",
@@ -490,6 +568,7 @@ let allClasses = [
   "NSMetadataQuery",
   "NSMetadataQueryAttributeValueTuple",
   "NSMetadataQueryResultGroup",
+  "NSMiddleSpecifier",
   "NSMoveCommand",
   "NSMutableArray",
   "NSMutableAttributedString",
@@ -513,7 +592,6 @@ let allClasses = [
   "NSNull",
   "NSNumber",
   "NSNumberFormatter",
-  // "NSObject",
   "NSObjectController",
   "NSOpenPanel",
   "NSOperation",
@@ -566,10 +644,12 @@ let allClasses = [
   "NSProgress",
   "NSProgressIndicator",
   "NSPropertyListSerialization",
+  "NSPropertySpecifier",
   "NSProtocolChecker",
   "NSProxy",
   "NSPurgeableData",
   "NSQuitCommand",
+  "NSRandomSpecifier",
   "NSRangeSpecifier",
   "NSRecursiveLock",
   "NSRegularExpression",
@@ -599,10 +679,12 @@ let allClasses = [
   "NSScrubberArrangedView",
   "NSScrubberFlowLayout",
   "NSScrubberImageItemView",
+  "NSScrubberItemView",
   "NSScrubberLayout",
   "NSScrubberLayoutAttributes",
   "NSScrubberProportionalLayout",
   "NSScrubberSelectionStyle",
+  "NSScrubberSelectionView",
   "NSScrubberTextItemView",
   "NSSearchField",
   "NSSearchFieldCell",
@@ -661,6 +743,7 @@ let allClasses = [
   "NSText",
   "NSTextAlternatives",
   "NSTextAttachment",
+  "NSTextAttachmentCell",
   "NSTextBlock",
   "NSTextCheckingController",
   "NSTextCheckingResult",
@@ -727,6 +810,7 @@ let allClasses = [
   "NSURLCredential",
   "NSURLCredentialStorage",
   "NSURLDownload",
+  "NSURLHandle",
   "NSURLProtectionSpace",
   "NSURLProtocol",
   "NSURLQueryItem",
@@ -764,6 +848,8 @@ let allClasses = [
   "NSWindowController",
   "NSWindowTab",
   "NSWindowTabGroup",
+  "NSWorkspace.Authorization",
+  "NSWorkspace.OpenConfiguration",
   "NSWorkspace",
   "NSWorkspaceOpenConfiguration",
   "NSXMLDocument",
@@ -776,11 +862,34 @@ let allClasses = [
   "NSXPCConnection",
   "NSXPCInterface",
   "NSXPCListener",
+  "NSXPCListenerEndpoint",
+  "NumberFormatter",
+  "Operation",
+  "OperationQueue",
+  "OutputStream",
+  "PersonNameComponentsFormatter",
+  "Pipe",
+  "Port",
+  "PortMessage",
+  "Process",
+  "ProcessInfo",
+  "Progress",
+  "PropertyListSerialization",
   "QLPreviewPanel",
   "QLPreviewView",
   "QuartzFilter",
   "QuartzFilterManager",
-  "QuartzFilterView"
+  "QuartzFilterView",
+  "RelativeDateTimeFormatter",
+  "RunLoop",
+  "Scanner",
+  "SocketPort",
+  "Stream",
+  "Thread",
+  "Timer",
+  "UndoManager",
+  "UserDefaults",
+  "ValueTransformer"
 ]
 
 class VueKitRegistration {
@@ -813,7 +922,7 @@ class VueKitRegistration {
       classOrProto,
       forKeyedSubscript: bridgedName as (NSCopying & NSObjectProtocol)?)
 
-    print(out)
+    // print(out)
   }
 
   func registerClasses() {
@@ -822,6 +931,7 @@ class VueKitRegistration {
 
     for className in allClasses {
       let classType = classOrProtoFromString(className)
+
       // We subclass views so that we can override draw() etc
       if subclassed.contains(className) {
         let subclassName = String(className.dropFirst(2))
@@ -842,7 +952,6 @@ class VueKitRegistration {
       }
     }
 
-    // TODO: build this list automatically + use subclasses like SegmentedControl below
     let tenderClasses = [
       // This is a HostElement/HostNode in Vue parlance
       //
@@ -857,25 +966,6 @@ class VueKitRegistration {
 
     for (bridgedName, className) in tenderClasses {
       registerClassOrProto(classOrProto: className, bridgedName: bridgedName)
-    }
-
-    do {
-      let frameworks = try fm.contentsOfDirectory(atPath: path + "/swift")
-
-      for framework in frameworks {
-        if framework.hasSuffix(".swift") { continue }
-
-        let jsExportFilenames = try fm.contentsOfDirectory(atPath: path + "/swift/" + framework)
-
-        for jsExportFilename in jsExportFilenames {
-          let nameParts = jsExportFilename.split(separator: "+")
-          let className = "\(nameParts[0])"
-
-          registerClassOrProto(classOrProto: classOrProtoFromString(className).self as Any, bridgedName: className)
-        }
-      }
-    } catch {
-      print("! Failed to read directory \(path)")
     }
   }
 

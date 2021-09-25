@@ -11,3 +11,4 @@ docs/.vuepress/dist
 *.framework.dSYM
 
 build/
+data/

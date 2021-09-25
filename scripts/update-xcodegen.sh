@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p ../tools/xcodegen
-cd ../tools/xcodegen
+mkdir -p ../vendor/xcodegen
+cd ../vendor/xcodegen
 
 curl -s -o xcodegen.zip -L https://github.com/yonaskolb/XcodeGen/releases/download/$1/xcodegen.zip
 

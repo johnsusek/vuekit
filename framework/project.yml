@@ -4,7 +4,7 @@
     "deploymentTarget": {
       "macOS": "10.15"
     },
-    "defaultConfig": "Release"
+    "defaultConfig": "Debug"
   },
   "configs": {
     "Debug": "debug",

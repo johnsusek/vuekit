@@ -28,7 +28,7 @@ module.exports = {
 
   rules: {
     // VueKit specific opinionated rules that differ from airbnb-base
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': ['warn', 'never'],
 
     // Relax some of the airbnb-base rules
     'max-len': 'off',

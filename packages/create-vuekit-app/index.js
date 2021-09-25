@@ -10,21 +10,29 @@ let { lightYellow, red } = require('kolorist');
 
 let cwd = process.cwd();
 
-let FRAMEWORKS = [
-  {
-    name: 'VueKit MacOS App',
-    template: 'vuekit-app',
-    color: lightYellow
-  }
-];
-
-let TEMPLATES = FRAMEWORKS.map(
-  f => (f.variants && f.variants.map(v => v.name)) || [f.name]
-).reduce((a, b) => a.concat(b), []);
+let framework = {
+  name: 'VueKit MacOS App',
+  template: 'vuekit-app',
+  color: lightYellow
+};
 
 let renameFiles = {
   _gitignore: '.gitignore'
 };
+
+function updateXcodeProj(templateDir, pkgName, write) {
+  let prj = require(path.join(templateDir, '.config/xcodeproj.json'));
+
+  prj.name = pkgName;
+  prj.targets.VueKitApp.scheme.testTargets[0].name = `${pkgName}-tests`;
+  prj.targets.VueKitAppTests.dependencies[0].target = pkgName;
+  prj.targets[pkgName] = prj.targets.VueKitApp;
+  prj.targets[`${pkgName}-tests`] = prj.targets.VueKitAppTests;
+  delete prj.targets.VueKitApp;
+  delete prj.targets.VueKitAppTests;
+
+  write('.config/xcodeproj.json', JSON.stringify(prj, null, 2));
+}
 
 function copy(src, dest) {
   let stat = fs.statSync(src);
@@ -95,91 +103,73 @@ function pkgFromUserAgent(userAgent) {
 
 async function init() {
   let targetDir = argv._[0];
-  let template = argv.template || argv.t;
+  let projectName = argv._[1];
 
   let defaultProjectName = !targetDir ? 'vuekit-app' : targetDir;
 
-  let result = { };
+  let result = {};
 
-  try {
-    result = await prompts(
-      [
-        {
-          type: targetDir ? null : 'text',
-          name: 'projectName',
-          message: 'Project name:',
-          initial: defaultProjectName,
-          onState: state => (targetDir = state.value.trim() || defaultProjectName)
-        },
-        {
-          type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'confirm'),
-          name: 'overwrite',
-          message: () => `${targetDir === '.'
-            ? 'Current directory'
-            : `Target directory "${targetDir}"`
-            } is not empty. Remove existing files and continue?`
-        },
-        {
-          type: (_, { overwrite } = { }) => {
-            if (overwrite === false) {
-              throw new Error(`${red('✖')} Operation cancelled`);
-            }
-            return null;
+  if (projectName) {
+    result = { overwrite: true, packageName: projectName };
+  } else {
+    try {
+      result = await prompts(
+        [
+          {
+            type: targetDir ? null : 'text',
+            name: 'projectName',
+            message: 'Project name:',
+            initial: defaultProjectName,
+            onState: state => (targetDir = state.value.trim() || defaultProjectName)
           },
-          name: 'overwriteChecker'
-        },
+          {
+            type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'confirm'),
+            name: 'overwrite',
+            message: () => `${targetDir === '.'
+              ? 'Current directory'
+              : `Target directory "${targetDir}"`} is not empty. Remove existing files and continue?`
+          },
+          {
+            type: (_, { overwrite } = {}) => {
+              if (overwrite === false) {
+                throw new Error(`${red('✖')} Operation cancelled`);
+              }
+              return null;
+            },
+            name: 'overwriteChecker'
+          },
+          {
+            type: () => (isValidPackageName(targetDir) ? null : 'text'),
+            name: 'packageName',
+            message: 'Package name:',
+            initial: () => toValidPackageName(targetDir),
+            validate: dir => isValidPackageName(dir) || 'Invalid package.json name'
+          }
+        ],
         {
-          type: () => (isValidPackageName(targetDir) ? null : 'text'),
-          name: 'packageName',
-          message: 'Package name:',
-          initial: () => toValidPackageName(targetDir),
-          validate: dir => isValidPackageName(dir) || 'Invalid package.json name'
-        },
-        {
-          type: template && TEMPLATES.includes(template) ? null : 'select',
-          name: 'framework',
-          message:
-            typeof template === 'string' && !TEMPLATES.includes(template)
-              ? `"${template}" isn't a valid template. Please choose from below: `
-              : 'Select a framework:',
-          initial: 0,
-          choices: FRAMEWORKS.map((framework) => {
-            let frameworkColor = framework.color;
-            return {
-              title: frameworkColor(framework.name),
-              value: framework
-            };
-          })
-        },
-        {
-          type: framework => (framework && framework.variants ? 'select' : null),
-          name: 'variant',
-          message: 'Select a variant:',
-          // @ts-ignore
-          choices: framework => framework.variants.map((variant) => {
-            let variantColor = variant.color;
-            return {
-              title: variantColor(variant.name),
-              value: variant.name
-            };
-          })
+          onCancel: () => {
+            throw new Error(`${red('✖')} Operation cancelled`);
+          }
         }
-      ],
-      {
-        onCancel: () => {
-          throw new Error(`${red('✖')} Operation cancelled`);
-        }
-      }
-    );
-  } catch (cancelled) {
-    console.log(cancelled.message);
-    return;
+      );
+    } catch (cancelled) {
+      console.log(cancelled.message);
+      return;
+    }
   }
 
   // user choice associated with prompts
-  let { overwrite, packageName, framework } = result;
+  let { overwrite, packageName } = result;
 
   let root = path.join(cwd, targetDir);
+
+  // For testing, when passed a second param (projectName)
+  if (targetDir && projectName) {
+    root = targetDir;
+    if (!fs.existsSync(root)) fs.mkdirSync(root);
+  }
+
+  console.log(root);
 
   if (overwrite) {
     emptyDir(root);
@@ -215,17 +205,7 @@ async function init() {
 
   write('package.json', JSON.stringify(pkg, null, 2));
 
-  let prj = require(path.join(templateDir, '.config/xcodeproj.json'));
-
-  prj.name = pkgName;
-  prj.targets.VueKitApp.scheme.testTargets[0].name = `${pkgName}-tests`;
-  prj.targets.VueKitAppTests.dependencies[0].target = pkgName;
-  prj.targets[pkgName] = prj.targets.VueKitApp;
-  prj.targets[`${pkgName}-tests`] = prj.targets.VueKitAppTests;
-  delete prj.targets.VueKitApp;
-  delete prj.targets.VueKitAppTests;
-
-  write('.config/xcodeproj.json', JSON.stringify(prj, null, 2));
+  updateXcodeProj(templateDir, pkgName, write);
 
   let pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
   let pkgManager = pkgInfo ? pkgInfo.name : 'npm';
@@ -236,10 +216,10 @@ async function init() {
   }
   switch (pkgManager) {
     case 'yarn':
-      console.log('  yarn run setup');
+      console.log('  yarn && yarn run setup');
       break;
     default:
-      console.log(`  ${pkgManager} run setup`);
+      console.log(`  npm install && ${pkgManager} run setup`);
       break;
   }
   console.log();

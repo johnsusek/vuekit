@@ -3,41 +3,41 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-  extends: { Control },
+	extends: { Control },
 
-  props: {
-    'autorepeat': {
-      type: Boolean,
-      default: () => undefined
-    },
-    'increment': {
-      type: Number,
-      default: () => undefined
-    },
-    'max-value': {
-      type: Number,
-      default: () => undefined
-    },
-    'min-value': {
-      type: Number,
-      default: () => undefined
-    },
-    'value-wraps': {
-      type: Boolean,
-      default: () => undefined
-    },
-  },
+	props: {
+		'autorepeat': {
+			type: Boolean,
+			default: () => undefined
+		},
+		'increment': {
+			type: Number,
+			default: () => undefined
+		},
+		'max-value': {
+			type: Number,
+			default: () => undefined
+		},
+		'min-value': {
+			type: Number,
+			default: () => undefined
+		},
+		'value-wraps': {
+			type: Boolean,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSStepper', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('Stepper', this.attrs, this.$slots);
+	}
 });
 </script>

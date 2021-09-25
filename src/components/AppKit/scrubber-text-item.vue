@@ -3,25 +3,25 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import ScrubberItemView from './scrubber-item.vue';
 
 export default defineComponent({
-  extends: { ScrubberItemView },
+	extends: { ScrubberItemView },
 
-  props: {
-    'title': {
-      type: String,
-      default: () => undefined
-    },
-  },
+	props: {
+		'title': {
+			type: String,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSScrubberTextItemView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('ScrubberTextItemView', this.attrs, this.$slots);
+	}
 });
 </script>

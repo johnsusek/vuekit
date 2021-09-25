@@ -3,33 +3,33 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-  extends: { View },
+	extends: { View },
 
-  props: {
-    'delegate': {
-      type: Object as PropType<AVRoutePickerViewDelegate>,
-      default: () => undefined
-    },
-    'player': {
-      type: Object as PropType<AVPlayer>,
-      default: () => undefined
-    },
-    'is-route-picker-button-bordered': {
-      type: Boolean,
-      default: () => undefined
-    },
-  },
+	props: {
+		'delegate': {
+			type: Object as PropType<AVRoutePickerViewDelegate>,
+			default: () => undefined
+		},
+		'player': {
+			type: Object as PropType<AVPlayer>,
+			default: () => undefined
+		},
+		'is-route-picker-button-bordered': {
+			type: Boolean,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('AVRoutePickerView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('RoutePickerView', this.attrs, this.$slots);
+	}
 });
 </script>

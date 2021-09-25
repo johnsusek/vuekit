@@ -3,25 +3,25 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Button from './button.vue';
 
 export default defineComponent({
-  extends: { Button },
+	extends: { Button },
 
-  props: {
-    'appears-disabled': {
-      type: Boolean,
-      default: () => undefined
-    },
-  },
+	props: {
+		'appears-disabled': {
+			type: Boolean,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSStatusBarButton', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('StatusBarButton', this.attrs, this.$slots);
+	}
 });
 </script>

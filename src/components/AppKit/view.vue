@@ -177,16 +177,16 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = { ...this.$props, ...this.$attrs };
 
-      return attrs;
-    }
-  },
+			return attrs;
+		}
+	},
 
-  render() {
-    return h('NSView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('View', this.attrs, this.$slots);
+	}
 });
 </script>

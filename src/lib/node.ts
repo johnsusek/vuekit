@@ -139,8 +139,7 @@ function getMatchingPropKeys(propKeys, constructor, idx) {
 }
 
 export function getConstructor(className: string, vnodeProps?: VueKitNodeProps) {
-  let viewClass = globalThis[className]; //  || globalThis[`NS${type}`] || globalThis[`NS${type}View`];
-
+  let viewClass = globalThis[className];
   let filteredCandidates = getCandidateConstructors(viewClass, vnodeProps);
 
   if (!viewClass) {
@@ -273,7 +272,17 @@ export function setNodeValue(node: VueKitNode, key: string, value: any, fromPatc
     let currentType = getTypeAsString(objectToSet[viewKey]);
     let newType = getTypeAsString(value);
 
-    if (currentType === 'Undefined' || newType === currentType) {
+    // Undefined means the prop doesn't have any value,
+    // so we leave the property alone on the object
+    if (newType === 'Undefined') {
+      return;
+    }
+
+    if (currentType === 'Undefined') {
+      console.log(`Setting previously undefined key '${viewKey}' on ${objectToSet} to ${value}`);
+      objectToSet[viewKey] = value;
+    }
+    else if (newType === currentType) {
       objectToSet[viewKey] = value;
     }
     else {

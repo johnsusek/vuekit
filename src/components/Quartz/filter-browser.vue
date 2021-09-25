@@ -3,25 +3,25 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-  extends: { View },
+	extends: { View },
 
-  props: {
-    'preview-state': {
-      type: Boolean,
-      default: () => undefined
-    },
-  },
+	props: {
+  	'preview-state': {
+			type: Boolean,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('IKFilterBrowserView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('FilterBrowserView', this.attrs, this.$slots);
+	}
 });
 </script>

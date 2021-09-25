@@ -3,21 +3,21 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import TextField from './text-field.vue';
 
 export default defineComponent({
-  extends: { TextField },
+	extends: { TextField },
 
-  props: {
-  },
+	props: {
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSSecureTextField', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('SecureTextField', this.attrs, this.$slots);
+	}
 });
 </script>

@@ -3,45 +3,45 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-  extends: { View },
+	extends: { View },
 
-  props: {
-    'automatically-adjusts-content-insets': {
-      type: Boolean,
-      default: () => undefined
-    },
-    'background-color': {
-      type: Object as PropType<NSColor>,
-      default: () => undefined
-    },
-    'content-insets': {
-      type: Object as PropType<NSEdgeInsets>,
-      default: () => undefined
-    },
-    'document-cursor': {
-      type: Object as PropType<NSCursor>,
-      default: () => undefined
-    },
-    'document-view': {
-      type: Object as PropType<NSView>,
-      default: () => undefined
-    },
-    'draws-background': {
-      type: Boolean,
-      default: () => undefined
-    },
-  },
+	props: {
+		'automatically-adjusts-content-insets': {
+			type: Boolean,
+			default: () => undefined
+		},
+		'background-color': {
+			type: Object as PropType<NSColor>,
+			default: () => undefined
+		},
+		'content-insets': {
+			type: Object as PropType<NSEdgeInsets>,
+			default: () => undefined
+		},
+		'document-cursor': {
+			type: Object as PropType<NSCursor>,
+			default: () => undefined
+		},
+		'document-view': {
+			type: Object as PropType<NSView>,
+			default: () => undefined
+		},
+		'draws-background': {
+			type: Boolean,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSClipView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('ClipView', this.attrs, this.$slots);
+	}
 });
 </script>

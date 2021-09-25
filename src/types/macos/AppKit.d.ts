@@ -20035,6 +20035,12 @@ enum NSCompositingOperation {
 }
 
 module NSControl {
+  enum StateValue {
+    mixed = 0,
+    off = 1,
+    on = 2
+  }
+
   enum ControlSize {
     Regular = 0,
     Small = 1,

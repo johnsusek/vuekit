@@ -3,25 +3,25 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-  extends: { View },
+	extends: { View },
 
-  props: {
-    'table-view': {
-      type: Object as PropType<NSTableView>,
-      default: () => undefined
-    },
-  },
+	props: {
+		'table-view': {
+			type: Object as PropType<NSTableView>,
+			default: () => undefined
+		},
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSTableHeaderView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('TableHeaderView', this.attrs, this.$slots);
+	}
 });
 </script>

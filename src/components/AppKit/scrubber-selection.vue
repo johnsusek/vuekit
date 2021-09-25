@@ -3,21 +3,21 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import ScrubberArrangedView from './scrubber-arranged.vue';
 
 export default defineComponent({
-  extends: { ScrubberArrangedView },
+	extends: { ScrubberArrangedView },
 
-  props: {
-  },
+	props: {
+	},
 
-  computed: {
-    attrs() {
-      let attrs = { ...this.$attrs };
+	computed: {
+		attrs() {
+			let attrs = {};
 
-      return attrs;
-    }
-  },
+			return { ...this.$props, ...this.$attrs, ...attrs };
+		}
+	},
 
-  render() {
-    return h('NSScrubberSelectionView', this.$attrs, this.$slots);
-  }
+	render() {
+		return h('ScrubberSelectionView', this.attrs, this.$slots);
+	}
 });
 </script>

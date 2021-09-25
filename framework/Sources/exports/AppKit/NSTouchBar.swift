@@ -29,7 +29,12 @@ import AppKit
 	@objc var isVisible: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSTouchBar
 }
 
 extension NSTouchBar: NSTouchBarExports {
+	@objc class func create() -> NSTouchBar {
+		return NSTouchBar()
+	}
+
 }

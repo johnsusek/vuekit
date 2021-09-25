@@ -26,7 +26,12 @@ import AppKit
 	@objc @available(OSX 10.5, *) var printInfo: NSPrintInfo { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPrintPanel
 }
 
 extension NSPrintPanel: NSPrintPanelExports {
+	@objc class func create() -> NSPrintPanel {
+		return NSPrintPanel()
+	}
+
 }

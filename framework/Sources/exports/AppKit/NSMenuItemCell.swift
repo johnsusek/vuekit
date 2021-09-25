@@ -30,7 +30,12 @@ import AppKit
 	@objc var titleWidth: CGFloat { get }
 
 	// Constructors
+	@objc static func create() -> NSMenuItemCell
 }
 
 extension NSMenuItemCell: NSMenuItemCellExports {
+	@objc override class func create() -> NSMenuItemCell {
+		return NSMenuItemCell()
+	}
+
 }

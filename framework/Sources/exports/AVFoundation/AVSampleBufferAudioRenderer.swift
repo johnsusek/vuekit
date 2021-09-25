@@ -22,7 +22,12 @@ import AVFoundation
 	@objc var volume: Float { @objc get @objc (setVolume:) set }
 
 	// Constructors
+	@objc static func create() -> AVSampleBufferAudioRenderer
 }
 
 extension AVSampleBufferAudioRenderer: AVSampleBufferAudioRendererExports {
+	@objc class func create() -> AVSampleBufferAudioRenderer {
+		return AVSampleBufferAudioRenderer()
+	}
+
 }

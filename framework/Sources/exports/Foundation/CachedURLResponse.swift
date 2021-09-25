@@ -19,11 +19,16 @@ import Foundation
 	@objc var userInfo: [AnyHashable: Any]? { @objc get }
 
 	// Constructors
+	@objc static func create() -> CachedURLResponse
 	@objc static func create(response: URLResponse, data: Data) -> CachedURLResponse
 	@objc static func create(response: URLResponse, data: Data, userInfo: [AnyHashable: Any]?, storagePolicy: URLCache.StoragePolicy) -> CachedURLResponse
 }
 
 extension CachedURLResponse: CachedURLResponseExports {
+	@objc class func create() -> CachedURLResponse {
+		return CachedURLResponse()
+	}
+
 	@objc class func create(response: URLResponse, data: Data) -> CachedURLResponse {
 		return CachedURLResponse(response: response, data: data)
 	}

@@ -22,7 +22,12 @@ import AVFoundation
 	@objc var isSpeaking: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVSpeechSynthesizer
 }
 
 extension AVSpeechSynthesizer: AVSpeechSynthesizerExports {
+	@objc class func create() -> AVSpeechSynthesizer {
+		return AVSpeechSynthesizer()
+	}
+
 }

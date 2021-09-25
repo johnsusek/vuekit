@@ -20,7 +20,12 @@ import AppKit
 	@objc var size: NSSize { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSDockTile
 }
 
 extension NSDockTile: NSDockTileExports {
+	@objc class func create() -> NSDockTile {
+		return NSDockTile()
+	}
+
 }

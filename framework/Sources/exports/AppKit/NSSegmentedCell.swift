@@ -41,7 +41,12 @@ import AppKit
 	@objc var trackingMode: NSSegmentedControl.SwitchTracking { @objc get @objc (setTrackingMode:) set }
 
 	// Constructors
+	@objc static func create() -> NSSegmentedCell
 }
 
 extension NSSegmentedCell: NSSegmentedCellExports {
+	@objc override class func create() -> NSSegmentedCell {
+		return NSSegmentedCell()
+	}
+
 }

@@ -10,7 +10,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSExistsCommand
 }
 
 extension NSExistsCommand: NSExistsCommandExports {
+	@objc override class func create() -> NSExistsCommand {
+		return NSExistsCommand()
+	}
+
 }

@@ -14,7 +14,12 @@ import AVFoundation
 	@objc var trackIDs: [NSNumber] { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAssetTrackGroup
 }
 
 extension AVAssetTrackGroup: AVAssetTrackGroupExports {
+	@objc class func create() -> AVAssetTrackGroup {
+		return AVAssetTrackGroup()
+	}
+
 }

@@ -17,7 +17,12 @@ import AppKit
 	@objc var itemSpacing: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> NSScrubberFlowLayout
 }
 
 extension NSScrubberFlowLayout: NSScrubberFlowLayoutExports {
+	@objc override class func create() -> NSScrubberFlowLayout {
+		return NSScrubberFlowLayout()
+	}
+
 }

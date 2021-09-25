@@ -22,7 +22,12 @@ import Foundation
 	@objc @available(OSX 10.8, *) var originalRequest: URLRequest { get }
 
 	// Constructors
+	@objc static func create() -> NSURLConnection
 }
 
 extension NSURLConnection: NSURLConnectionExports {
+	@objc class func create() -> NSURLConnection {
+		return NSURLConnection()
+	}
+
 }

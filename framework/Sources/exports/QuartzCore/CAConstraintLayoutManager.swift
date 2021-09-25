@@ -11,7 +11,12 @@ import QuartzCore
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> CAConstraintLayoutManager
 }
 
 extension CAConstraintLayoutManager: CAConstraintLayoutManagerExports {
+	@objc class func create() -> CAConstraintLayoutManager {
+		return CAConstraintLayoutManager()
+	}
+
 }

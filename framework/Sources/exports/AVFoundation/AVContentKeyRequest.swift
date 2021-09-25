@@ -25,7 +25,12 @@ import AVFoundation
 	@objc var status: AVContentKeyRequest.Status { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVContentKeyRequest
 }
 
 extension AVContentKeyRequest: AVContentKeyRequestExports {
+	@objc class func create() -> AVContentKeyRequest {
+		return AVContentKeyRequest()
+	}
+
 }

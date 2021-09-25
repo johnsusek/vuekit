@@ -36,7 +36,12 @@ import AVFoundation
 	@objc var sessionPreset: AVCaptureSession.Preset { @objc get @objc (setSessionPreset:) set }
 
 	// Constructors
+	@objc static func create() -> AVCaptureSession
 }
 
 extension AVCaptureSession: AVCaptureSessionExports {
+	@objc class func create() -> AVCaptureSession {
+		return AVCaptureSession()
+	}
+
 }

@@ -18,7 +18,12 @@ import Foundation
 	@objc var inputItems: [Any] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSExtensionContext
 }
 
 extension NSExtensionContext: NSExtensionContextExports {
+	@objc class func create() -> NSExtensionContext {
+		return NSExtensionContext()
+	}
+
 }

@@ -21,6 +21,7 @@ import AppKit
 	@objc var zIndex: Int { @objc get @objc (setZIndex:) set }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewLayoutAttributes
 	@objc static func create(forDecorationViewOfKind: NSCollectionView.DecorationElementKind, with: IndexPath) -> NSCollectionViewLayoutAttributes
 	@objc static func create(forInterItemGapBefore: IndexPath) -> NSCollectionViewLayoutAttributes
 	@objc static func create(forItemWith: IndexPath) -> NSCollectionViewLayoutAttributes
@@ -28,6 +29,10 @@ import AppKit
 }
 
 extension NSCollectionViewLayoutAttributes: NSCollectionViewLayoutAttributesExports {
+	@objc class func create() -> NSCollectionViewLayoutAttributes {
+		return NSCollectionViewLayoutAttributes()
+	}
+
 	@objc class func create(forItemWith: IndexPath) -> NSCollectionViewLayoutAttributes {
 		return NSCollectionViewLayoutAttributes(forItemWith: forItemWith)
 	}

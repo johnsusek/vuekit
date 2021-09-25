@@ -11,7 +11,12 @@ import AVFoundation
 	@objc (metadataItemFilterForSharing) static func forSharing() -> AVMetadataItemFilter
 
 	// Constructors
+	@objc static func create() -> AVMetadataItemFilter
 }
 
 extension AVMetadataItemFilter: AVMetadataItemFilterExports {
+	@objc class func create() -> AVMetadataItemFilter {
+		return AVMetadataItemFilter()
+	}
+
 }

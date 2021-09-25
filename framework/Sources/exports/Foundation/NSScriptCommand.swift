@@ -32,10 +32,15 @@ import Foundation
 	@objc var isWellFormed: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSScriptCommand
 	@objc static func create(commandDescription: NSScriptCommandDescription) -> NSScriptCommand
 }
 
 extension NSScriptCommand: NSScriptCommandExports {
+	@objc class func create() -> NSScriptCommand {
+		return NSScriptCommand()
+	}
+
 	@objc class func create(commandDescription: NSScriptCommandDescription) -> NSScriptCommand {
 		return NSScriptCommand(commandDescription: commandDescription)
 	}

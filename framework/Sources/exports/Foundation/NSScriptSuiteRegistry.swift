@@ -29,7 +29,12 @@ import Foundation
 	@objc var suiteNames: [String] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSScriptSuiteRegistry
 }
 
 extension NSScriptSuiteRegistry: NSScriptSuiteRegistryExports {
+	@objc class func create() -> NSScriptSuiteRegistry {
+		return NSScriptSuiteRegistry()
+	}
+
 }

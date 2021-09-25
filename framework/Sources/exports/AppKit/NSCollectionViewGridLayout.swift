@@ -20,7 +20,12 @@ import AppKit
 	@objc var minimumLineSpacing: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewGridLayout
 }
 
 extension NSCollectionViewGridLayout: NSCollectionViewGridLayoutExports {
+	@objc override class func create() -> NSCollectionViewGridLayout {
+		return NSCollectionViewGridLayout()
+	}
+
 }

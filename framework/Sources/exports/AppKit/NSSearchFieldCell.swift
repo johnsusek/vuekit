@@ -27,7 +27,12 @@ import AppKit
 	@objc var sendsWholeSearchString: Bool { @objc get @objc (setSendsWholeSearchString:) set }
 
 	// Constructors
+	@objc static func create() -> NSSearchFieldCell
 }
 
 extension NSSearchFieldCell: NSSearchFieldCellExports {
+	@objc override class func create() -> NSSearchFieldCell {
+		return NSSearchFieldCell()
+	}
+
 }

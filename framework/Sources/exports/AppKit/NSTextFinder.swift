@@ -26,7 +26,12 @@ import AppKit
 	@objc var incrementalSearchingShouldDimContentView: Bool { @objc get @objc (setIncrementalSearchingShouldDimContentView:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextFinder
 }
 
 extension NSTextFinder: NSTextFinderExports {
+	@objc class func create() -> NSTextFinder {
+		return NSTextFinder()
+	}
+
 }

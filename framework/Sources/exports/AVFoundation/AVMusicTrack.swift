@@ -23,7 +23,12 @@ import AVFoundation
 	@objc var timeResolution: Int { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVMusicTrack
 }
 
 extension AVMusicTrack: AVMusicTrackExports {
+	@objc class func create() -> AVMusicTrack {
+		return AVMusicTrack()
+	}
+
 }

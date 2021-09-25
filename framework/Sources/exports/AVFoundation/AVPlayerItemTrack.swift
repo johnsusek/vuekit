@@ -16,7 +16,12 @@ import AVFoundation
 	@objc @available(OSX 10.10, *) var videoFieldMode: String? { @objc get @objc (setVideoFieldMode:) set }
 
 	// Constructors
+	@objc static func create() -> AVPlayerItemTrack
 }
 
 extension AVPlayerItemTrack: AVPlayerItemTrackExports {
+	@objc class func create() -> AVPlayerItemTrack {
+		return AVPlayerItemTrack()
+	}
+
 }

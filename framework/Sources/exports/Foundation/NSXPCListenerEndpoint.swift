@@ -11,7 +11,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSXPCListenerEndpoint
 }
 
 extension NSXPCListenerEndpoint: NSXPCListenerEndpointExports {
+	@objc class func create() -> NSXPCListenerEndpoint {
+		return NSXPCListenerEndpoint()
+	}
+
 }

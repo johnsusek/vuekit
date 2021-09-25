@@ -37,10 +37,15 @@ import AppKit
 	@objc @available(OSX 10.5, *) var volume: Float { @objc get @objc (setVolume:) set }
 
 	// Constructors
+	@objc static func create() -> NSSpeechSynthesizer
 	@objc static func create(voice: NSSpeechSynthesizer.VoiceName?) -> NSSpeechSynthesizer?
 }
 
 extension NSSpeechSynthesizer: NSSpeechSynthesizerExports {
+	@objc class func create() -> NSSpeechSynthesizer {
+		return NSSpeechSynthesizer()
+	}
+
 	@objc class func create(voice: NSSpeechSynthesizer.VoiceName?) -> NSSpeechSynthesizer? {
 		return NSSpeechSynthesizer(voice: voice)
 	}

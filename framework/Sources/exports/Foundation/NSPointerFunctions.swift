@@ -21,10 +21,15 @@ import Foundation
 	@objc var sizeFunction: (@convention(c) (UnsafeRawPointer) -> Int)? { get set }
 
 	// Constructors
+	@objc static func create() -> NSPointerFunctions
 	@objc static func create(options: NSPointerFunctions.Options) -> NSPointerFunctions
 }
 
 extension NSPointerFunctions: NSPointerFunctionsExports {
+	@objc class func create() -> NSPointerFunctions {
+		return NSPointerFunctions()
+	}
+
 	@objc class func create(options: NSPointerFunctions.Options) -> NSPointerFunctions {
 		return NSPointerFunctions(options: options)
 	}

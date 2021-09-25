@@ -25,7 +25,12 @@ import QuartzCore
 	@objc (valueForKey:) static func value(forKey: String) -> Any?
 
 	// Constructors
+	@objc static func create() -> CATransaction
 }
 
 extension CATransaction: CATransactionExports {
+	@objc class func create() -> CATransaction {
+		return CATransaction()
+	}
+
 }

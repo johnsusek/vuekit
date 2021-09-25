@@ -19,10 +19,15 @@ import AppKit
 	@objc var transitionProgress: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewTransitionLayout
 	@objc static func create(currentLayout: NSCollectionViewLayout, nextLayout: NSCollectionViewLayout) -> NSCollectionViewTransitionLayout
 }
 
 extension NSCollectionViewTransitionLayout: NSCollectionViewTransitionLayoutExports {
+	@objc override class func create() -> NSCollectionViewTransitionLayout {
+		return NSCollectionViewTransitionLayout()
+	}
+
 	@objc class func create(currentLayout: NSCollectionViewLayout, nextLayout: NSCollectionViewLayout) -> NSCollectionViewTransitionLayout {
 		return NSCollectionViewTransitionLayout(currentLayout: currentLayout, nextLayout: nextLayout)
 	}

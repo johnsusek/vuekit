@@ -26,10 +26,15 @@ import AVKit
 	@objc var playerLayer: AVPlayerLayer { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVPictureInPictureController
 	@objc static func create(playerLayer: AVPlayerLayer) -> AVPictureInPictureController?
 }
 
 extension AVPictureInPictureController: AVPictureInPictureControllerExports {
+	@objc class func create() -> AVPictureInPictureController {
+		return AVPictureInPictureController()
+	}
+
 	@objc class func create(playerLayer: AVPlayerLayer) -> AVPictureInPictureController? {
 		return AVPictureInPictureController(playerLayer: playerLayer)
 	}

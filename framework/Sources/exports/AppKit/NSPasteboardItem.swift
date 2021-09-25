@@ -24,7 +24,12 @@ import AppKit
 	@objc var types: [NSPasteboard.PasteboardType] { get }
 
 	// Constructors
+	@objc static func create() -> NSPasteboardItem
 }
 
 extension NSPasteboardItem: NSPasteboardItemExports {
+	@objc class func create() -> NSPasteboardItem {
+		return NSPasteboardItem()
+	}
+
 }

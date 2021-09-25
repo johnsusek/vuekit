@@ -24,7 +24,12 @@ import QuartzCore
 	@objc var strokeStart: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> CAShapeLayer
 }
 
 extension CAShapeLayer: CAShapeLayerExports {
+	@objc override class func create() -> CAShapeLayer {
+		return CAShapeLayer()
+	}
+
 }

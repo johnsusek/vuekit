@@ -42,7 +42,12 @@ import AppKit
 	@objc var usesDataSource: Bool { @objc get @objc (setUsesDataSource:) set }
 
 	// Constructors
+	@objc static func create() -> NSComboBoxCell
 }
 
 extension NSComboBoxCell: NSComboBoxCellExports {
+	@objc override class func create() -> NSComboBoxCell {
+		return NSComboBoxCell()
+	}
+
 }

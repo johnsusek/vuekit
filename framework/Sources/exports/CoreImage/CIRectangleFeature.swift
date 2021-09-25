@@ -16,7 +16,12 @@ import CoreImage
 	@objc var topRight: NSPoint { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIRectangleFeature
 }
 
 extension CIRectangleFeature: CIRectangleFeatureExports {
+	@objc override class func create() -> CIRectangleFeature {
+		return CIRectangleFeature()
+	}
+
 }

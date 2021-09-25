@@ -18,7 +18,12 @@ import AVFoundation
 	@objc var asset: AVAsset? { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVMediaSelection
 }
 
 extension AVMediaSelection: AVMediaSelectionExports {
+	@objc class func create() -> AVMediaSelection {
+		return AVMediaSelection()
+	}
+
 }

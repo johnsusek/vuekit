@@ -15,7 +15,12 @@ import Foundation
 	@objc var value: Any? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSMetadataQueryAttributeValueTuple
 }
 
 extension NSMetadataQueryAttributeValueTuple: NSMetadataQueryAttributeValueTupleExports {
+	@objc class func create() -> NSMetadataQueryAttributeValueTuple {
+		return NSMetadataQueryAttributeValueTuple()
+	}
+
 }

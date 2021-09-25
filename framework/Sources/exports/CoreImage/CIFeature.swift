@@ -14,7 +14,12 @@ import CoreImage
 	@objc var type: String { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIFeature
 }
 
 extension CIFeature: CIFeatureExports {
+	@objc class func create() -> CIFeature {
+		return CIFeature()
+	}
+
 }

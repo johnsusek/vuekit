@@ -29,7 +29,12 @@ import AppKit
 	@objc var visibleRect: NSRect { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSScrubberLayout
 }
 
 extension NSScrubberLayout: NSScrubberLayoutExports {
+	@objc class func create() -> NSScrubberLayout {
+		return NSScrubberLayout()
+	}
+
 }

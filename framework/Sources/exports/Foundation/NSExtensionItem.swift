@@ -17,7 +17,12 @@ import Foundation
 	@objc var userInfo: [AnyHashable: Any]? { @objc get @objc (setUserInfo:) set }
 
 	// Constructors
+	@objc static func create() -> NSExtensionItem
 }
 
 extension NSExtensionItem: NSExtensionItemExports {
+	@objc class func create() -> NSExtensionItem {
+		return NSExtensionItem()
+	}
+
 }

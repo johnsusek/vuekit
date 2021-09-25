@@ -16,7 +16,12 @@ import AppKit
 	@objc var imageScaling: NSImageScaling { @objc get @objc (setImageScaling:) set }
 
 	// Constructors
+	@objc static func create() -> NSImageCell
 }
 
 extension NSImageCell: NSImageCellExports {
+	@objc override class func create() -> NSImageCell {
+		return NSImageCell()
+	}
+
 }

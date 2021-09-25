@@ -21,7 +21,12 @@ import AppKit
 	@objc (updateWithPanRecognizer:) func update(withPanRecognizer: NSPanGestureRecognizer)
 
 	// Constructors
+	@objc static func create() -> NSAlignmentFeedbackFilter
 }
 
 extension NSAlignmentFeedbackFilter: NSAlignmentFeedbackFilterExports {
+	@objc class func create() -> NSAlignmentFeedbackFilter {
+		return NSAlignmentFeedbackFilter()
+	}
+
 }

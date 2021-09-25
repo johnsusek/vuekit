@@ -51,7 +51,12 @@ import AVFoundation
 	@objc var tracks: [AVAssetTrack] { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAsset
 }
 
 extension AVAsset: AVAssetExports {
+	@objc class func create() -> AVAsset {
+		return AVAsset()
+	}
+
 }

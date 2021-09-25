@@ -27,7 +27,12 @@ import AppKit
 	@objc var sectionInset: NSEdgeInsets { @objc get @objc (setSectionInset:) set }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewFlowLayout
 }
 
 extension NSCollectionViewFlowLayout: NSCollectionViewFlowLayoutExports {
+	@objc override class func create() -> NSCollectionViewFlowLayout {
+		return NSCollectionViewFlowLayout()
+	}
+
 }

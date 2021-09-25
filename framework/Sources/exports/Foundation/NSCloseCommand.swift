@@ -13,7 +13,12 @@ import Foundation
 	@objc var saveOptions: NSSaveOptions { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSCloseCommand
 }
 
 extension NSCloseCommand: NSCloseCommandExports {
+	@objc override class func create() -> NSCloseCommand {
+		return NSCloseCommand()
+	}
+
 }

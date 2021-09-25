@@ -17,7 +17,12 @@ import QuartzCore
 	@objc var scrollMode: CAScrollLayerScrollMode { @objc get @objc (setScrollMode:) set }
 
 	// Constructors
+	@objc static func create() -> CAScrollLayer
 }
 
 extension CAScrollLayer: CAScrollLayerExports {
+	@objc override class func create() -> CAScrollLayer {
+		return CAScrollLayer()
+	}
+
 }

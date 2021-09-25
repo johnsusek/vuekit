@@ -14,7 +14,12 @@ import AppKit
 	@objc (sortIndicatorRectForBounds:) func sortIndicatorRect(forBounds: NSRect) -> NSRect
 
 	// Constructors
+	@objc static func create() -> NSTableHeaderCell
 }
 
 extension NSTableHeaderCell: NSTableHeaderCellExports {
+	@objc override class func create() -> NSTableHeaderCell {
+		return NSTableHeaderCell()
+	}
+
 }

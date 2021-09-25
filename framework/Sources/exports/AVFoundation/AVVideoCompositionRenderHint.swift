@@ -14,7 +14,12 @@ import AVFoundation
 	@objc var startCompositionTime: CMTime { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVVideoCompositionRenderHint
 }
 
 extension AVVideoCompositionRenderHint: AVVideoCompositionRenderHintExports {
+	@objc class func create() -> AVVideoCompositionRenderHint {
+		return AVVideoCompositionRenderHint()
+	}
+
 }

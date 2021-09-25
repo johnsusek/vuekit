@@ -17,7 +17,12 @@ import AppKit
 	@objc var provideNewButtonImage: NSImage { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSColorPicker
 }
 
 extension NSColorPicker: NSColorPickerExports {
+	@objc class func create() -> NSColorPicker {
+		return NSColorPicker()
+	}
+
 }

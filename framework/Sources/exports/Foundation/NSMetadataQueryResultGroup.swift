@@ -20,7 +20,12 @@ import Foundation
 	@objc var value: Any { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSMetadataQueryResultGroup
 }
 
 extension NSMetadataQueryResultGroup: NSMetadataQueryResultGroupExports {
+	@objc class func create() -> NSMetadataQueryResultGroup {
+		return NSMetadataQueryResultGroup()
+	}
+
 }

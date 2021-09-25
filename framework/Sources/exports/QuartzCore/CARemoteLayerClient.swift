@@ -17,10 +17,15 @@ import QuartzCore
 	@objc var layer: CALayer? { @objc get @objc (setLayer:) set }
 
 	// Constructors
+	@objc static func create() -> CARemoteLayerClient
 	@objc static func create(serverPort: mach_port_t) -> CARemoteLayerClient
 }
 
 extension CARemoteLayerClient: CARemoteLayerClientExports {
+	@objc class func create() -> CARemoteLayerClient {
+		return CARemoteLayerClient()
+	}
+
 	@objc class func create(serverPort: mach_port_t) -> CARemoteLayerClient {
 		return CARemoteLayerClient(serverPort: serverPort)
 	}

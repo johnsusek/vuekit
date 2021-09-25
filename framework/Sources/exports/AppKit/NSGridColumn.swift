@@ -24,7 +24,12 @@ import AppKit
 	@objc var xPlacement: NSGridCell.Placement { @objc get @objc (setXPlacement:) set }
 
 	// Constructors
+	@objc static func create() -> NSGridColumn
 }
 
 extension NSGridColumn: NSGridColumnExports {
+	@objc class func create() -> NSGridColumn {
+		return NSGridColumn()
+	}
+
 }

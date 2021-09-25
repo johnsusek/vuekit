@@ -22,10 +22,15 @@ import CoreImage
 	@objc var extent: NSRect { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIFilterShape
 	@objc static func create(rect: NSRect) -> CIFilterShape
 }
 
 extension CIFilterShape: CIFilterShapeExports {
+	@objc class func create() -> CIFilterShape {
+		return CIFilterShape()
+	}
+
 	@objc class func create(rect: NSRect) -> CIFilterShape {
 		return CIFilterShape(rect: rect)
 	}

@@ -25,7 +25,12 @@ import Quartz
 	@objc func titleFrame() -> NSRect
 
 	// Constructors
+	@objc static func create() -> IKImageBrowserCell
 }
 
 extension IKImageBrowserCell: IKImageBrowserCellExports {
+	@objc class func create() -> IKImageBrowserCell {
+		return IKImageBrowserCell()
+	}
+
 }

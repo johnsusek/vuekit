@@ -10,7 +10,12 @@ import QuartzCore
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> CATransformLayer
 }
 
 extension CATransformLayer: CATransformLayerExports {
+	@objc override class func create() -> CATransformLayer {
+		return CATransformLayer()
+	}
+
 }

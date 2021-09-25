@@ -21,11 +21,16 @@ import AVFoundation
 	@objc var packetDescriptions: UnsafeMutablePointer<AudioStreamPacketDescription>? { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioCompressedBuffer
 	@objc static func create(format: AVAudioFormat, packetCapacity: AVAudioPacketCount) -> AVAudioCompressedBuffer
 	@objc static func create(format: AVAudioFormat, packetCapacity: AVAudioPacketCount, maximumPacketSize: Int) -> AVAudioCompressedBuffer
 }
 
 extension AVAudioCompressedBuffer: AVAudioCompressedBufferExports {
+	@objc override class func create() -> AVAudioCompressedBuffer {
+		return AVAudioCompressedBuffer()
+	}
+
 	@objc class func create(format: AVAudioFormat, packetCapacity: AVAudioPacketCount) -> AVAudioCompressedBuffer {
 		return AVAudioCompressedBuffer(format: format, packetCapacity: packetCapacity)
 	}

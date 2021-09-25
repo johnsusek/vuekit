@@ -13,7 +13,12 @@ import AVFoundation
 	@objc (selectMediaOption:inMediaSelectionGroup:) func select(_: AVMediaSelectionOption?, in: AVMediaSelectionGroup)
 
 	// Constructors
+	@objc static func create() -> AVMutableMediaSelection
 }
 
 extension AVMutableMediaSelection: AVMutableMediaSelectionExports {
+	@objc override class func create() -> AVMutableMediaSelection {
+		return AVMutableMediaSelection()
+	}
+
 }

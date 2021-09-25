@@ -10,7 +10,12 @@ import AppKit
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSActionCell
 }
 
 extension NSActionCell: NSActionCellExports {
+	@objc override class func create() -> NSActionCell {
+		return NSActionCell()
+	}
+
 }

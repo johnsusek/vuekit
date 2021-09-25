@@ -18,10 +18,15 @@ import AppKit
 	@objc var primaryString: String { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSTextAlternatives
 	@objc static func create(primaryString: String, alternativeStrings: [String]) -> NSTextAlternatives
 }
 
 extension NSTextAlternatives: NSTextAlternativesExports {
+	@objc class func create() -> NSTextAlternatives {
+		return NSTextAlternatives()
+	}
+
 	@objc class func create(primaryString: String, alternativeStrings: [String]) -> NSTextAlternatives {
 		return NSTextAlternatives(primaryString: primaryString, alternativeStrings: alternativeStrings)
 	}

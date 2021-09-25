@@ -14,7 +14,12 @@ import AVFoundation
 	@objc var isRouteDetectionEnabled: Bool { @objc get @objc (setRouteDetectionEnabled:) set }
 
 	// Constructors
+	@objc static func create() -> AVRouteDetector
 }
 
 extension AVRouteDetector: AVRouteDetectorExports {
+	@objc class func create() -> AVRouteDetector {
+		return AVRouteDetector()
+	}
+
 }

@@ -34,7 +34,12 @@ import AVFoundation
 	@objc var versionString: String { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioUnitComponent
 }
 
 extension AVAudioUnitComponent: AVAudioUnitComponentExports {
+	@objc class func create() -> AVAudioUnitComponent {
+		return AVAudioUnitComponent()
+	}
+
 }

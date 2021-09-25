@@ -11,7 +11,12 @@ import AppKit
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSTextAttachmentCell
 }
 
 extension NSTextAttachmentCell: NSTextAttachmentCellExports {
+	@objc override class func create() -> NSTextAttachmentCell {
+		return NSTextAttachmentCell()
+	}
+
 }

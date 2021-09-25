@@ -33,7 +33,12 @@ import AppKit
 	@objc var verticalAlignment: NSTextBlock.VerticalAlignment { @objc get @objc (setVerticalAlignment:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextBlock
 }
 
 extension NSTextBlock: NSTextBlockExports {
+	@objc class func create() -> NSTextBlock {
+		return NSTextBlock()
+	}
+
 }

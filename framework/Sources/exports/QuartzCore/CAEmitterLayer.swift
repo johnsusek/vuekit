@@ -27,7 +27,12 @@ import QuartzCore
 	@objc var velocity: Float { @objc get @objc (setVelocity:) set }
 
 	// Constructors
+	@objc static func create() -> CAEmitterLayer
 }
 
 extension CAEmitterLayer: CAEmitterLayerExports {
+	@objc override class func create() -> CAEmitterLayer {
+		return CAEmitterLayer()
+	}
+
 }

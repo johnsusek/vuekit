@@ -12,7 +12,12 @@ import Foundation
 	@objc (registerClassDescription:forClass:) static func register(_: NSClassDescription, `for`: AnyClass)
 
 	// Constructors
+	@objc static func create() -> NSClassDescription
 }
 
 extension NSClassDescription: NSClassDescriptionExports {
+	@objc class func create() -> NSClassDescription {
+		return NSClassDescription()
+	}
+
 }

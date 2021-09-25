@@ -33,10 +33,15 @@ import AppKit
 	@objc var runLoopModesForAnimating: [RunLoop.Mode]? { get }
 
 	// Constructors
+	@objc static func create() -> NSAnimation
 	@objc static func create(duration: TimeInterval, animationCurve: NSAnimation.Curve) -> NSAnimation
 }
 
 extension NSAnimation: NSAnimationExports {
+	@objc class func create() -> NSAnimation {
+		return NSAnimation()
+	}
+
 	@objc class func create(duration: TimeInterval, animationCurve: NSAnimation.Curve) -> NSAnimation {
 		return NSAnimation(duration: duration, animationCurve: animationCurve)
 	}

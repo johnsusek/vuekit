@@ -14,7 +14,12 @@ import QuartzCore
 	@objc var name: CAValueFunctionName { @objc get }
 
 	// Constructors
+	@objc static func create() -> CAValueFunction
 }
 
 extension CAValueFunction: CAValueFunctionExports {
+	@objc class func create() -> CAValueFunction {
+		return CAValueFunction()
+	}
+
 }

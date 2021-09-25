@@ -17,7 +17,12 @@ import AVFoundation
 	@objc var metadataItem: AVMetadataItem? { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVMetadataItemValueRequest
 }
 
 extension AVMetadataItemValueRequest: AVMetadataItemValueRequestExports {
+	@objc class func create() -> AVMetadataItemValueRequest {
+		return AVMetadataItemValueRequest()
+	}
+
 }

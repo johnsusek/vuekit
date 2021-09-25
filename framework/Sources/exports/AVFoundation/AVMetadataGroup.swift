@@ -15,7 +15,12 @@ import AVFoundation
 	@objc @available(OSX 10.11.3, *) var uniqueID: String? { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVMetadataGroup
 }
 
 extension AVMetadataGroup: AVMetadataGroupExports {
+	@objc class func create() -> AVMetadataGroup {
+		return AVMetadataGroup()
+	}
+
 }

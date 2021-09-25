@@ -14,7 +14,12 @@ import Foundation
 	@objc var resolvedKeyDictionary: [String: Any] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSCreateCommand
 }
 
 extension NSCreateCommand: NSCreateCommandExports {
+	@objc override class func create() -> NSCreateCommand {
+		return NSCreateCommand()
+	}
+
 }

@@ -24,10 +24,15 @@ import AppKit
 	@objc var warningValue: Double { @objc get @objc (setWarningValue:) set }
 
 	// Constructors
+	@objc static func create() -> NSLevelIndicatorCell
 	@objc static func create(levelIndicatorStyle: NSLevelIndicator.Style) -> NSLevelIndicatorCell
 }
 
 extension NSLevelIndicatorCell: NSLevelIndicatorCellExports {
+	@objc override class func create() -> NSLevelIndicatorCell {
+		return NSLevelIndicatorCell()
+	}
+
 	@objc class func create(levelIndicatorStyle: NSLevelIndicator.Style) -> NSLevelIndicatorCell {
 		return NSLevelIndicatorCell(levelIndicatorStyle: levelIndicatorStyle)
 	}

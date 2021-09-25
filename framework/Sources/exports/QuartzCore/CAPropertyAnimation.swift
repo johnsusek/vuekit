@@ -16,10 +16,15 @@ import QuartzCore
 	@objc var valueFunction: CAValueFunction? { @objc get @objc (setValueFunction:) set }
 
 	// Constructors
+	@objc static func create() -> CAPropertyAnimation
 	@objc static func create(keyPath: String?) -> CAPropertyAnimation
 }
 
 extension CAPropertyAnimation: CAPropertyAnimationExports {
+	@objc override class func create() -> CAPropertyAnimation {
+		return CAPropertyAnimation()
+	}
+
 	@objc class func create(keyPath: String?) -> CAPropertyAnimation {
 		return CAPropertyAnimation(keyPath: keyPath)
 	}

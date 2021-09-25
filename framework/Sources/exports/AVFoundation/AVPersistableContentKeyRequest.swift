@@ -13,7 +13,12 @@ import AVFoundation
 	// throws - @objc func persistableContentKeyFromKeyVendorResponse(options: Data, error: [String: Any]?) -> Data?
 
 	// Constructors
+	@objc static func create() -> AVPersistableContentKeyRequest
 }
 
 extension AVPersistableContentKeyRequest: AVPersistableContentKeyRequestExports {
+	@objc override class func create() -> AVPersistableContentKeyRequest {
+		return AVPersistableContentKeyRequest()
+	}
+
 }

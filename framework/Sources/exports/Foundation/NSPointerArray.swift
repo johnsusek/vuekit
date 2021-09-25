@@ -26,11 +26,16 @@ import Foundation
 	@objc var pointerFunctions: NSPointerFunctions { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPointerArray
 	@objc static func create(options: NSPointerFunctions.Options) -> NSPointerArray
 	@objc static func create(pointerFunctions: NSPointerFunctions) -> NSPointerArray
 }
 
 extension NSPointerArray: NSPointerArrayExports {
+	@objc class func create() -> NSPointerArray {
+		return NSPointerArray()
+	}
+
 	@objc class func create(options: NSPointerFunctions.Options) -> NSPointerArray {
 		return NSPointerArray(options: options)
 	}

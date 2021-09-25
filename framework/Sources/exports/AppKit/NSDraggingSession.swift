@@ -21,7 +21,12 @@ import AppKit
 	@objc var draggingSequenceNumber: Int { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSDraggingSession
 }
 
 extension NSDraggingSession: NSDraggingSessionExports {
+	@objc class func create() -> NSDraggingSession {
+		return NSDraggingSession()
+	}
+
 }

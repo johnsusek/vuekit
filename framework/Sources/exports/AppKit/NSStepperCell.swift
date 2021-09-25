@@ -17,7 +17,12 @@ import AppKit
 	@objc var valueWraps: Bool { @objc get @objc (setValueWraps:) set }
 
 	// Constructors
+	@objc static func create() -> NSStepperCell
 }
 
 extension NSStepperCell: NSStepperCellExports {
+	@objc override class func create() -> NSStepperCell {
+		return NSStepperCell()
+	}
+
 }

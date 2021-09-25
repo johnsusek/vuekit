@@ -27,10 +27,15 @@ import AppKit
 	@objc @available(OSX 10.10, *) var viewController: NSViewController? { @objc get @objc (setViewController:) set }
 
 	// Constructors
+	@objc static func create() -> NSTabViewItem
 	@objc static func create(identifier: Any?) -> NSTabViewItem
 }
 
 extension NSTabViewItem: NSTabViewItemExports {
+	@objc class func create() -> NSTabViewItem {
+		return NSTabViewItem()
+	}
+
 	@objc class func create(identifier: Any?) -> NSTabViewItem {
 		return NSTabViewItem(identifier: identifier)
 	}

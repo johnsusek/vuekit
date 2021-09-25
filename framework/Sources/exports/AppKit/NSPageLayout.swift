@@ -21,7 +21,12 @@ import AppKit
 	@objc var printInfo: NSPrintInfo? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPageLayout
 }
 
 extension NSPageLayout: NSPageLayoutExports {
+	@objc class func create() -> NSPageLayout {
+		return NSPageLayout()
+	}
+
 }

@@ -28,12 +28,17 @@ import AppKit
 	@objc var templateViews: [NSView] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPredicateEditorRowTemplate
 	@objc static func create(compoundTypes: [NSNumber]) -> NSPredicateEditorRowTemplate
 	@objc static func create(leftExpressions: [NSExpression], rightExpressionAttributeType: NSAttributeType, modifier: NSComparisonPredicate.Modifier, operators: [NSNumber], options: Int) -> NSPredicateEditorRowTemplate
 	@objc static func create(leftExpressions: [NSExpression], rightExpressions: [NSExpression], modifier: NSComparisonPredicate.Modifier, operators: [NSNumber], options: Int) -> NSPredicateEditorRowTemplate
 }
 
 extension NSPredicateEditorRowTemplate: NSPredicateEditorRowTemplateExports {
+	@objc class func create() -> NSPredicateEditorRowTemplate {
+		return NSPredicateEditorRowTemplate()
+	}
+
 	@objc class func create(compoundTypes: [NSNumber]) -> NSPredicateEditorRowTemplate {
 		return NSPredicateEditorRowTemplate(compoundTypes: compoundTypes)
 	}

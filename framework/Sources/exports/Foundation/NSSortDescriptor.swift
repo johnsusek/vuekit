@@ -22,12 +22,17 @@ import Foundation
 	@objc var selector: Selector? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSSortDescriptor
 	@objc static func create(key: String?, ascending: Bool) -> NSSortDescriptor
 // 	@objc @available(OSX 10.6, *) static func create(key: String?, ascending: Bool, comparator: JSValue) -> NSSortDescriptor
 	@objc static func create(key: String?, ascending: Bool, selector: Selector?) -> NSSortDescriptor
 }
 
 extension NSSortDescriptor: NSSortDescriptorExports {
+	@objc class func create() -> NSSortDescriptor {
+		return NSSortDescriptor()
+	}
+
 	@objc class func create(key: String?, ascending: Bool) -> NSSortDescriptor {
 		return NSSortDescriptor(key: key, ascending: ascending)
 	}

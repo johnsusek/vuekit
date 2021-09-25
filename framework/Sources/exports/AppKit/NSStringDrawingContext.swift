@@ -15,7 +15,12 @@ import AppKit
 	@objc var totalBounds: NSRect { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSStringDrawingContext
 }
 
 extension NSStringDrawingContext: NSStringDrawingContextExports {
+	@objc class func create() -> NSStringDrawingContext {
+		return NSStringDrawingContext()
+	}
+
 }

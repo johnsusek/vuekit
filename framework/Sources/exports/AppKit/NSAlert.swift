@@ -30,7 +30,12 @@ import AppKit
 	@objc var window: NSWindow { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSAlert
 }
 
 extension NSAlert: NSAlertExports {
+	@objc class func create() -> NSAlert {
+		return NSAlert()
+	}
+
 }

@@ -11,7 +11,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSFileSecurity
 }
 
 extension NSFileSecurity: NSFileSecurityExports {
+	@objc class func create() -> NSFileSecurity {
+		return NSFileSecurity()
+	}
+
 }

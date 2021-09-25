@@ -16,7 +16,12 @@ import Foundation
 	@objc var keySpecifier: NSScriptObjectSpecifier { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSCloneCommand
 }
 
 extension NSCloneCommand: NSCloneCommandExports {
+	@objc override class func create() -> NSCloneCommand {
+		return NSCloneCommand()
+	}
+
 }

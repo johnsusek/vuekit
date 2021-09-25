@@ -13,7 +13,12 @@ import Foundation
 	@objc var saveOptions: NSSaveOptions { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSQuitCommand
 }
 
 extension NSQuitCommand: NSQuitCommandExports {
+	@objc override class func create() -> NSQuitCommand {
+		return NSQuitCommand()
+	}
+
 }

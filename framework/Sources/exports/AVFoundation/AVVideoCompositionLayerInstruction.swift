@@ -19,7 +19,12 @@ import AVFoundation
 	@objc var trackID: CMPersistentTrackID { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVVideoCompositionLayerInstruction
 }
 
 extension AVVideoCompositionLayerInstruction: AVVideoCompositionLayerInstructionExports {
+	@objc class func create() -> AVVideoCompositionLayerInstruction {
+		return AVVideoCompositionLayerInstruction()
+	}
+
 }

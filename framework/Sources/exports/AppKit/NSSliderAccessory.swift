@@ -15,7 +15,12 @@ import AppKit
 	@objc var isEnabled: Bool { @objc get @objc (setEnabled:) set }
 
 	// Constructors
+	@objc static func create() -> NSSliderAccessory
 }
 
 extension NSSliderAccessory: NSSliderAccessoryExports {
+	@objc class func create() -> NSSliderAccessory {
+		return NSSliderAccessory()
+	}
+
 }

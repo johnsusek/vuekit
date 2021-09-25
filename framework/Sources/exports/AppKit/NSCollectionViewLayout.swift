@@ -55,7 +55,12 @@ import AppKit
 	@objc var collectionViewContentSize: NSSize { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewLayout
 }
 
 extension NSCollectionViewLayout: NSCollectionViewLayoutExports {
+	@objc class func create() -> NSCollectionViewLayout {
+		return NSCollectionViewLayout()
+	}
+
 }

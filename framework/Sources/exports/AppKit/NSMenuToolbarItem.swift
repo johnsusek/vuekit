@@ -14,7 +14,12 @@ import AppKit
 	@objc var showsIndicator: Bool { @objc get @objc (setShowsIndicator:) set }
 
 	// Constructors
+	@objc static func create() -> NSMenuToolbarItem
 }
 
 extension NSMenuToolbarItem: NSMenuToolbarItemExports {
+	@objc override class func create() -> NSMenuToolbarItem {
+		return NSMenuToolbarItem()
+	}
+
 }

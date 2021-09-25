@@ -51,10 +51,15 @@ import AppKit
 	@objc var usesItemFromMenu: Bool { @objc get @objc (setUsesItemFromMenu:) set }
 
 	// Constructors
+	@objc static func create() -> NSPopUpButtonCell
 	@objc static func create(textCell: String, pullsDown: Bool) -> NSPopUpButtonCell
 }
 
 extension NSPopUpButtonCell: NSPopUpButtonCellExports {
+	@objc override class func create() -> NSPopUpButtonCell {
+		return NSPopUpButtonCell()
+	}
+
 	@objc class func create(textCell: String, pullsDown: Bool) -> NSPopUpButtonCell {
 		return NSPopUpButtonCell(textCell: textCell, pullsDown: pullsDown)
 	}

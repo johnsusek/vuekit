@@ -20,7 +20,12 @@ import Foundation
 	@objc var resumeData: Data? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSURLDownload
 }
 
 extension NSURLDownload: NSURLDownloadExports {
+	@objc class func create() -> NSURLDownload {
+		return NSURLDownload()
+	}
+
 }

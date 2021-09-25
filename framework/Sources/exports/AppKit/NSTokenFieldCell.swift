@@ -20,7 +20,12 @@ import AppKit
 	@objc var tokenizingCharacterSet: CharacterSet! { @objc get @objc (setTokenizingCharacterSet:) set }
 
 	// Constructors
+	@objc static func create() -> NSTokenFieldCell
 }
 
 extension NSTokenFieldCell: NSTokenFieldCellExports {
+	@objc override class func create() -> NSTokenFieldCell {
+		return NSTokenFieldCell()
+	}
+
 }

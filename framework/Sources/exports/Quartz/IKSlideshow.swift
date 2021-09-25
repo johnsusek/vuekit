@@ -23,7 +23,12 @@ import Quartz
 	@objc var autoPlayDelay: TimeInterval { @objc get @objc (setAutoPlayDelay:) set }
 
 	// Constructors
+	@objc static func create() -> IKSlideshow
 }
 
 extension IKSlideshow: IKSlideshowExports {
+	@objc class func create() -> IKSlideshow {
+		return IKSlideshow()
+	}
+
 }

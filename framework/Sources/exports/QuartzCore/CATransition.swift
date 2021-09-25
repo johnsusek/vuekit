@@ -17,7 +17,12 @@ import QuartzCore
 	@objc var type: CATransitionType { @objc get @objc (setType:) set }
 
 	// Constructors
+	@objc static func create() -> CATransition
 }
 
 extension CATransition: CATransitionExports {
+	@objc override class func create() -> CATransition {
+		return CATransition()
+	}
+
 }

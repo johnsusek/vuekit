@@ -39,7 +39,12 @@ import Foundation
 	@objc var valueLists: [String: [NSMetadataQueryAttributeValueTuple]] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSMetadataQuery
 }
 
 extension NSMetadataQuery: NSMetadataQueryExports {
+	@objc class func create() -> NSMetadataQuery {
+		return NSMetadataQuery()
+	}
+
 }

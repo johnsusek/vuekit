@@ -17,7 +17,12 @@ import QuartzCore
 	@objc var stiffness: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> CASpringAnimation
 }
 
 extension CASpringAnimation: CASpringAnimationExports {
+	@objc override class func create() -> CASpringAnimation {
+		return CASpringAnimation()
+	}
+
 }

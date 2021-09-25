@@ -18,20 +18,25 @@ import Foundation
 	@objc @available(OSX 10.6, *) func waitUntilFinished()
 
 	// Own Instance Properties
-	// 	@objc @available(OSX 10.8, *) var asynchronous: Bool { @objc (isAsynchronous) get }
-	// 	@objc var cancelled: Bool { @objc (isCancelled) get }
+	@objc @available(OSX 10.8, *) var isAsynchronous: Bool { @objc (isAsynchronous) get }
+	@objc var isCancelled: Bool { @objc (isCancelled) get }
 	@objc @available(OSX 10.6, *) var completionBlock: (() -> Void)? { get set }
-	// 	@objc var concurrent: Bool { @objc (isConcurrent) get }
+	@objc var isConcurrent: Bool { @objc (isConcurrent) get }
 	@objc var dependencies: [Operation] { @objc get }
-	// 	@objc var executing: Bool { @objc (isExecuting) get }
-	// 	@objc var finished: Bool { @objc (isFinished) get }
+	@objc var isExecuting: Bool { @objc (isExecuting) get }
+	@objc var isFinished: Bool { @objc (isFinished) get }
 	@objc @available(OSX 10.10, *) var name: String? { @objc get @objc (setName:) set }
 	@objc @available(OSX 10.10, *) var qualityOfService: QualityOfService { @objc get @objc (setQualityOfService:) set }
 	@objc var queuePriority: Operation.QueuePriority { @objc get @objc (setQueuePriority:) set }
-	// 	@objc var ready: Bool { @objc (isReady) get }
+	@objc var isReady: Bool { @objc (isReady) get }
 
 	// Constructors
+	@objc static func create() -> Operation
 }
 
 extension Operation: OperationExports {
+	@objc class func create() -> Operation {
+		return Operation()
+	}
+
 }

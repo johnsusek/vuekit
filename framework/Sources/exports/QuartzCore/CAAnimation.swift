@@ -20,7 +20,12 @@ import QuartzCore
 	@objc var timingFunction: CAMediaTimingFunction? { @objc get @objc (setTimingFunction:) set }
 
 	// Constructors
+	@objc static func create() -> CAAnimation
 }
 
 extension CAAnimation: CAAnimationExports {
+	@objc class func create() -> CAAnimation {
+		return CAAnimation()
+	}
+
 }

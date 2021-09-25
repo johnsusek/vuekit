@@ -21,7 +21,12 @@ import QuartzCore
 	@objc var values: [Any]? { @objc get @objc (setValues:) set }
 
 	// Constructors
+	@objc static func create() -> CAKeyframeAnimation
 }
 
 extension CAKeyframeAnimation: CAKeyframeAnimationExports {
+	@objc override class func create() -> CAKeyframeAnimation {
+		return CAKeyframeAnimation()
+	}
+
 }

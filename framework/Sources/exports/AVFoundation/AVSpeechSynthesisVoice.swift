@@ -23,9 +23,14 @@ import AVFoundation
 	@objc @available(OSX 10.14, *) var quality: AVSpeechSynthesisVoiceQuality { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVSpeechSynthesisVoice
 }
 
 extension AVSpeechSynthesisVoice: AVSpeechSynthesisVoiceExports {
+	@objc class func create() -> AVSpeechSynthesisVoice {
+		return AVSpeechSynthesisVoice()
+	}
+
 	@objc class func create(language: String?) -> AVSpeechSynthesisVoice? {
 		return AVSpeechSynthesisVoice(language: language)
 	}

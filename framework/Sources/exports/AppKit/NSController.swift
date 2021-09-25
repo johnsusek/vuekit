@@ -14,7 +14,12 @@ import AppKit
 	@objc var isEditing: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSController
 }
 
 extension NSController: NSControllerExports {
+	@objc class func create() -> NSController {
+		return NSController()
+	}
+
 }

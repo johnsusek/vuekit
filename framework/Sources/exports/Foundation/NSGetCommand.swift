@@ -10,7 +10,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSGetCommand
 }
 
 extension NSGetCommand: NSGetCommandExports {
+	@objc override class func create() -> NSGetCommand {
+		return NSGetCommand()
+	}
+
 }

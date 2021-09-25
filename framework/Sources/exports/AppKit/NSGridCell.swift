@@ -23,7 +23,12 @@ import AppKit
 	@objc var yPlacement: NSGridCell.Placement { @objc get @objc (setYPlacement:) set }
 
 	// Constructors
+	@objc static func create() -> NSGridCell
 }
 
 extension NSGridCell: NSGridCellExports {
+	@objc class func create() -> NSGridCell {
+		return NSGridCell()
+	}
+
 }

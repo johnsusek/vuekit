@@ -10,12 +10,17 @@ import AVFoundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> AVContentKeyResponse
 	@objc @available(OSX 10.15, *) static func create(authorizationTokenData: Data) -> AVContentKeyResponse
 	@objc @available(OSX 10.13, *) static func create(clearKeyData: Data, initializationVector: Data?) -> AVContentKeyResponse
 	@objc static func create(fairPlayStreamingKeyResponseData: Data) -> AVContentKeyResponse
 }
 
 extension AVContentKeyResponse: AVContentKeyResponseExports {
+	@objc class func create() -> AVContentKeyResponse {
+		return AVContentKeyResponse()
+	}
+
 	@objc class func create(fairPlayStreamingKeyResponseData: Data) -> AVContentKeyResponse {
 		return AVContentKeyResponse(fairPlayStreamingKeyResponseData: fairPlayStreamingKeyResponseData)
 	}

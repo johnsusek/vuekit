@@ -20,7 +20,12 @@ import Quartz
 	@objc func setDelegate(_: Any)
 
 	// Constructors
+	@objc static func create() -> QuartzFilterManager
 }
 
 extension QuartzFilterManager: QuartzFilterManagerExports {
+	@objc class func create() -> QuartzFilterManager {
+		return QuartzFilterManager()
+	}
+
 }

@@ -17,7 +17,12 @@ import CoreImage
 	@objc var topRight: NSPoint { @objc get }
 
 	// Constructors
+	@objc static func create() -> CITextFeature
 }
 
 extension CITextFeature: CITextFeatureExports {
+	@objc override class func create() -> CITextFeature {
+		return CITextFeature()
+	}
+
 }

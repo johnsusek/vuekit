@@ -24,11 +24,16 @@ import AppKit
 	@objc var viewController: NSViewController { @objc get @objc (setViewController:) set }
 
 	// Constructors
+	@objc static func create() -> NSSplitViewItem
 	@objc @available(OSX 10.11, *) static func create(contentListWithViewController: NSViewController) -> NSSplitViewItem
 	@objc @available(OSX 10.11, *) static func create(sidebarWithViewController: NSViewController) -> NSSplitViewItem
 }
 
 extension NSSplitViewItem: NSSplitViewItemExports {
+	@objc class func create() -> NSSplitViewItem {
+		return NSSplitViewItem()
+	}
+
 	@objc @available(OSX 10.11, *) class func create(sidebarWithViewController: NSViewController) -> NSSplitViewItem {
 		return NSSplitViewItem(sidebarWithViewController: sidebarWithViewController)
 	}

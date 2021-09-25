@@ -14,7 +14,12 @@ import QuartzCore
 	@objc var serverPort: mach_port_t { @objc get }
 
 	// Constructors
+	@objc static func create() -> CARemoteLayerServer
 }
 
 extension CARemoteLayerServer: CARemoteLayerServerExports {
+	@objc class func create() -> CARemoteLayerServer {
+		return CARemoteLayerServer()
+	}
+
 }

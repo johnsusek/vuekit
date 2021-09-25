@@ -52,7 +52,12 @@ import QuartzCore
 	@objc var zAcceleration: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> CAEmitterCell
 }
 
 extension CAEmitterCell: CAEmitterCellExports {
+	@objc class func create() -> CAEmitterCell {
+		return CAEmitterCell()
+	}
+
 }

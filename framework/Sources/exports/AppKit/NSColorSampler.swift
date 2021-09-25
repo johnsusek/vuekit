@@ -13,7 +13,12 @@ import AppKit
 	// jsvalue - @objc (showSamplerWithSelectionHandler:) func show(selectionHandler: JSValue)
 
 	// Constructors
+	@objc static func create() -> NSColorSampler
 }
 
 extension NSColorSampler: NSColorSamplerExports {
+	@objc class func create() -> NSColorSampler {
+		return NSColorSampler()
+	}
+
 }

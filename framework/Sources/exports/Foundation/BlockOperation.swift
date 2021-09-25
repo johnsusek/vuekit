@@ -10,10 +10,19 @@ import Foundation
 	// Static Methods
 
 	// Instance Methods
-	@objc func addExecutionBlock(_ block: @escaping () -> Void)
+	// jsvalue - @objc func addExecutionBlock(_: JSValue)
 
 	// Own Instance Properties
 	@objc var executionBlocks: [@convention(block) () -> Void] { get }
+
+	// Constructors
+	@objc static func create() -> BlockOperation
+// 	// jsvalue - @objc static func blockOperationWithBlock(_: JSValue) -> BlockOperation
 }
 
-extension BlockOperation: BlockOperationExports {}
+extension BlockOperation: BlockOperationExports {
+	@objc override class func create() -> BlockOperation {
+		return BlockOperation()
+	}
+
+}

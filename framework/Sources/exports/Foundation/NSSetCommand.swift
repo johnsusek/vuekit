@@ -16,7 +16,12 @@ import Foundation
 	@objc var keySpecifier: NSScriptObjectSpecifier { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSSetCommand
 }
 
 extension NSSetCommand: NSSetCommandExports {
+	@objc override class func create() -> NSSetCommand {
+		return NSSetCommand()
+	}
+
 }

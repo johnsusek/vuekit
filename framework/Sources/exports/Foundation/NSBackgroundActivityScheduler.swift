@@ -22,10 +22,15 @@ import Foundation
 	@objc var tolerance: TimeInterval { @objc get @objc (setTolerance:) set }
 
 	// Constructors
+	@objc static func create() -> NSBackgroundActivityScheduler
 	@objc static func create(identifier: String) -> NSBackgroundActivityScheduler
 }
 
 extension NSBackgroundActivityScheduler: NSBackgroundActivitySchedulerExports {
+	@objc class func create() -> NSBackgroundActivityScheduler {
+		return NSBackgroundActivityScheduler()
+	}
+
 	@objc class func create(identifier: String) -> NSBackgroundActivityScheduler {
 		return NSBackgroundActivityScheduler(identifier: identifier)
 	}

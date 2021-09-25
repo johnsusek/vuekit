@@ -22,7 +22,12 @@ import AppKit
 	@objc var textColor: NSColor? { @objc get @objc (setTextColor:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextFieldCell
 }
 
 extension NSTextFieldCell: NSTextFieldCellExports {
+	@objc override class func create() -> NSTextFieldCell {
+		return NSTextFieldCell()
+	}
+
 }

@@ -24,7 +24,12 @@ import AppKit
 	@objc var type: NSPrinter.TypeName { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPrinter
 }
 
 extension NSPrinter: NSPrinterExports {
+	@objc class func create() -> NSPrinter {
+		return NSPrinter()
+	}
+
 }

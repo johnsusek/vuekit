@@ -23,7 +23,12 @@ import AppKit
 	@objc var titleWidth: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> NSFormCell
 }
 
 extension NSFormCell: NSFormCellExports {
+	@objc override class func create() -> NSFormCell {
+		return NSFormCell()
+	}
+
 }

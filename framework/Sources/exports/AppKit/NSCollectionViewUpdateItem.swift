@@ -15,7 +15,12 @@ import AppKit
 	@objc var updateAction: NSCollectionView.UpdateAction { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewUpdateItem
 }
 
 extension NSCollectionViewUpdateItem: NSCollectionViewUpdateItemExports {
+	@objc class func create() -> NSCollectionViewUpdateItem {
+		return NSCollectionViewUpdateItem()
+	}
+
 }

@@ -32,12 +32,17 @@ import Foundation
 	@objc var serviceName: String? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSXPCConnection
 	@objc static func create(listenerEndpoint: NSXPCListenerEndpoint) -> NSXPCConnection
 	@objc static func create(machServiceName: String, options: NSXPCConnection.Options) -> NSXPCConnection
 	@objc static func create(serviceName: String) -> NSXPCConnection
 }
 
 extension NSXPCConnection: NSXPCConnectionExports {
+	@objc class func create() -> NSXPCConnection {
+		return NSXPCConnection()
+	}
+
 	@objc class func create(listenerEndpoint: NSXPCListenerEndpoint) -> NSXPCConnection {
 		return NSXPCConnection(listenerEndpoint: listenerEndpoint)
 	}

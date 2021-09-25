@@ -21,10 +21,15 @@ import Foundation
 	@objc var endpoint: NSXPCListenerEndpoint { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSXPCListener
 	@objc static func create(machServiceName: String) -> NSXPCListener
 }
 
 extension NSXPCListener: NSXPCListenerExports {
+	@objc class func create() -> NSXPCListener {
+		return NSXPCListener()
+	}
+
 	@objc class func create(machServiceName: String) -> NSXPCListener {
 		return NSXPCListener(machServiceName: machServiceName)
 	}

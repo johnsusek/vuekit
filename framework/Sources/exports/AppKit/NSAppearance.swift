@@ -18,10 +18,15 @@ import AppKit
 	@objc @available(OSX 10.9, *) var name: NSAppearance.Name { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSAppearance
 	@objc static func create(appearanceNamed: NSAppearance.Name, bundle: Bundle?) -> NSAppearance?
 }
 
 extension NSAppearance: NSAppearanceExports {
+	@objc class func create() -> NSAppearance {
+		return NSAppearance()
+	}
+
 	@objc class func create(appearanceNamed: NSAppearance.Name, bundle: Bundle?) -> NSAppearance? {
 		return NSAppearance(appearanceNamed: appearanceNamed, bundle: bundle)
 	}

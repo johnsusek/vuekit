@@ -20,7 +20,12 @@ import QuartzCore
 	@objc var isWrapped: Bool { @objc get @objc (setWrapped:) set }
 
 	// Constructors
+	@objc static func create() -> CATextLayer
 }
 
 extension CATextLayer: CATextLayerExports {
+	@objc override class func create() -> CATextLayer {
+		return CATextLayer()
+	}
+
 }

@@ -10,7 +10,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSCountCommand
 }
 
 extension NSCountCommand: NSCountCommandExports {
+	@objc override class func create() -> NSCountCommand {
+		return NSCountCommand()
+	}
+
 }

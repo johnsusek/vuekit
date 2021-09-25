@@ -17,7 +17,12 @@ import QuartzCore
 	@objc var type: CAGradientLayerType { @objc get @objc (setType:) set }
 
 	// Constructors
+	@objc static func create() -> CAGradientLayer
 }
 
 extension CAGradientLayer: CAGradientLayerExports {
+	@objc override class func create() -> CAGradientLayer {
+		return CAGradientLayer()
+	}
+
 }

@@ -20,7 +20,12 @@ import AVFoundation
 	@objc var sourceImage: CIImage { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAsynchronousCIImageFilteringRequest
 }
 
 extension AVAsynchronousCIImageFilteringRequest: AVAsynchronousCIImageFilteringRequestExports {
+	@objc class func create() -> AVAsynchronousCIImageFilteringRequest {
+		return AVAsynchronousCIImageFilteringRequest()
+	}
+
 }

@@ -67,7 +67,12 @@ import AppKit
 	@objc var usesFontLeading: Bool { @objc get @objc (setUsesFontLeading:) set }
 
 	// Constructors
+	@objc static func create() -> NSTypesetter
 }
 
 extension NSTypesetter: NSTypesetterExports {
+	@objc class func create() -> NSTypesetter {
+		return NSTypesetter()
+	}
+
 }

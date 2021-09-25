@@ -37,7 +37,12 @@ import Foundation
 	@objc @available(OSX 10.7, *) var yearForWeekOfYear: Int { @objc get @objc (setYearForWeekOfYear:) set }
 
 	// Constructors
+	@objc static func create() -> NSDateComponents
 }
 
 extension NSDateComponents: NSDateComponentsExports {
+	@objc class func create() -> NSDateComponents {
+		return NSDateComponents()
+	}
+
 }

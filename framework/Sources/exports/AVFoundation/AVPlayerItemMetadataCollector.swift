@@ -17,10 +17,15 @@ import AVFoundation
 	@objc var delegateQueue: DispatchQueue? { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVPlayerItemMetadataCollector
 	@objc static func create(identifiers: [String]?, classifyingLabels: [String]?) -> AVPlayerItemMetadataCollector
 }
 
 extension AVPlayerItemMetadataCollector: AVPlayerItemMetadataCollectorExports {
+	@objc override class func create() -> AVPlayerItemMetadataCollector {
+		return AVPlayerItemMetadataCollector()
+	}
+
 	@objc class func create(identifiers: [String]?, classifyingLabels: [String]?) -> AVPlayerItemMetadataCollector {
 		return AVPlayerItemMetadataCollector(identifiers: identifiers, classifyingLabels: classifyingLabels)
 	}

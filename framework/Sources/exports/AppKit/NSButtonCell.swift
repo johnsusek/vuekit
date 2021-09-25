@@ -37,7 +37,12 @@ import AppKit
 	@objc var isTransparent: Bool { @objc get @objc (setTransparent:) set }
 
 	// Constructors
+	@objc static func create() -> NSButtonCell
 }
 
 extension NSButtonCell: NSButtonCellExports {
+	@objc override class func create() -> NSButtonCell {
+		return NSButtonCell()
+	}
+
 }

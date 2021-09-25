@@ -112,11 +112,16 @@ import AppKit
 	@objc var wraps: Bool { @objc get @objc (setWraps:) set }
 
 	// Constructors
+	@objc static func create() -> NSCell
 	@objc static func create(imageCell: NSImage?) -> NSCell
 	@objc static func create(textCell: String) -> NSCell
 }
 
 extension NSCell: NSCellExports {
+	@objc class func create() -> NSCell {
+		return NSCell()
+	}
+
 	@objc class func create(imageCell: NSImage?) -> NSCell {
 		return NSCell(imageCell: imageCell)
 	}

@@ -20,7 +20,12 @@ import Foundation
 	@objc @available(OSX 10.5, *) var name: String? { @objc get @objc (setName:) set }
 
 	// Constructors
+	@objc static func create() -> NSCondition
 }
 
 extension NSCondition: NSConditionExports {
+	@objc class func create() -> NSCondition {
+		return NSCondition()
+	}
+
 }

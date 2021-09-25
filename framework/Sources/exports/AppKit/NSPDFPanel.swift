@@ -18,7 +18,12 @@ import AppKit
 	@objc var options: NSPDFPanel.Options { @objc get @objc (setOptions:) set }
 
 	// Constructors
+	@objc static func create() -> NSPDFPanel
 }
 
 extension NSPDFPanel: NSPDFPanelExports {
+	@objc class func create() -> NSPDFPanel {
+		return NSPDFPanel()
+	}
+
 }

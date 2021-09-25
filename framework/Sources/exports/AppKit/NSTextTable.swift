@@ -21,7 +21,12 @@ import AppKit
 	@objc var numberOfColumns: Int { @objc get @objc (setNumberOfColumns:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextTable
 }
 
 extension NSTextTable: NSTextTableExports {
+	@objc override class func create() -> NSTextTable {
+		return NSTextTable()
+	}
+
 }

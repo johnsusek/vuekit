@@ -21,11 +21,16 @@ import AppKit
 	@objc @available(OSX 10.11, *) var image: NSImage? { @objc get @objc (setImage:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextAttachment
 	@objc @available(OSX 10.11, *) static func create(data: Data?, ofType: String?) -> NSTextAttachment
 	@objc static func create(fileWrapper: FileWrapper?) -> NSTextAttachment
 }
 
 extension NSTextAttachment: NSTextAttachmentExports {
+	@objc class func create() -> NSTextAttachment {
+		return NSTextAttachment()
+	}
+
 	@objc @available(OSX 10.11, *) class func create(data: Data?, ofType: String?) -> NSTextAttachment {
 		return NSTextAttachment(data: data, ofType: ofType)
 	}

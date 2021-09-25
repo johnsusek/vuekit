@@ -19,10 +19,15 @@ import AppKit
 	@objc var table: NSTextTable { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSTextTableBlock
 	@objc static func create(table: NSTextTable, startingRow: Int, rowSpan: Int, startingColumn: Int, columnSpan: Int) -> NSTextTableBlock
 }
 
 extension NSTextTableBlock: NSTextTableBlockExports {
+	@objc override class func create() -> NSTextTableBlock {
+		return NSTextTableBlock()
+	}
+
 	@objc class func create(table: NSTextTable, startingRow: Int, rowSpan: Int, startingColumn: Int, columnSpan: Int) -> NSTextTableBlock {
 		return NSTextTableBlock(table: table, startingRow: startingRow, rowSpan: rowSpan, startingColumn: startingColumn, columnSpan: columnSpan)
 	}

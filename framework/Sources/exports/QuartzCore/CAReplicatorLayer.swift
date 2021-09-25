@@ -21,7 +21,12 @@ import QuartzCore
 	@objc var preservesDepth: Bool { @objc get @objc (setPreservesDepth:) set }
 
 	// Constructors
+	@objc static func create() -> CAReplicatorLayer
 }
 
 extension CAReplicatorLayer: CAReplicatorLayerExports {
+	@objc override class func create() -> CAReplicatorLayer {
+		return CAReplicatorLayer()
+	}
+
 }

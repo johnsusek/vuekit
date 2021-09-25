@@ -24,7 +24,12 @@ import AppKit
 	@objc var isLoaded: Bool { @objc get @objc (setLoaded:) set }
 
 	// Constructors
+	@objc static func create() -> NSBrowserCell
 }
 
 extension NSBrowserCell: NSBrowserCellExports {
+	@objc override class func create() -> NSBrowserCell {
+		return NSBrowserCell()
+	}
+
 }

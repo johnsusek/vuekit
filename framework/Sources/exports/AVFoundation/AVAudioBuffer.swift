@@ -16,7 +16,12 @@ import AVFoundation
 	@objc var mutableAudioBufferList: UnsafeMutablePointer<AudioBufferList> { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioBuffer
 }
 
 extension AVAudioBuffer: AVAudioBufferExports {
+	@objc class func create() -> AVAudioBuffer {
+		return AVAudioBuffer()
+	}
+
 }

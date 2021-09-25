@@ -16,7 +16,12 @@ import Foundation
 	@objc var name: NSFileProviderServiceName { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSFileProviderService
 }
 
 extension NSFileProviderService: NSFileProviderServiceExports {
+	@objc class func create() -> NSFileProviderService {
+		return NSFileProviderService()
+	}
+
 }

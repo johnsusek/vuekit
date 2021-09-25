@@ -13,7 +13,12 @@ import AppKit
 	@objc var echosBullets: Bool { @objc get @objc (setEchosBullets:) set }
 
 	// Constructors
+	@objc static func create() -> NSSecureTextFieldCell
 }
 
 extension NSSecureTextFieldCell: NSSecureTextFieldCellExports {
+	@objc override class func create() -> NSSecureTextFieldCell {
+		return NSSecureTextFieldCell()
+	}
+
 }

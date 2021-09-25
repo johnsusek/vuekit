@@ -32,10 +32,15 @@ import AVFoundation
 	@objc var userInfo: [String: Any] { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioSequencer
 	@objc static func create(audioEngine: AVAudioEngine) -> AVAudioSequencer
 }
 
 extension AVAudioSequencer: AVAudioSequencerExports {
+	@objc class func create() -> AVAudioSequencer {
+		return AVAudioSequencer()
+	}
+
 	@objc class func create(audioEngine: AVAudioEngine) -> AVAudioSequencer {
 		return AVAudioSequencer(audioEngine: audioEngine)
 	}

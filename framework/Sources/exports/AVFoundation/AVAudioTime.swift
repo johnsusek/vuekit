@@ -23,6 +23,7 @@ import AVFoundation
 	@objc var isSampleTimeValid: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioTime
 	@objc static func create(audioTimeStamp: UnsafePointer<AudioTimeStamp>, sampleRate: Double) -> AVAudioTime
 	@objc static func create(hostTime: UInt64) -> AVAudioTime
 	@objc static func create(hostTime: UInt64, sampleTime: AVAudioFramePosition, atRate: Double) -> AVAudioTime
@@ -30,6 +31,10 @@ import AVFoundation
 }
 
 extension AVAudioTime: AVAudioTimeExports {
+	@objc class func create() -> AVAudioTime {
+		return AVAudioTime()
+	}
+
 	@objc class func create(audioTimeStamp: UnsafePointer<AudioTimeStamp>, sampleRate: Double) -> AVAudioTime {
 		return AVAudioTime(audioTimeStamp: audioTimeStamp, sampleRate: sampleRate)
 	}

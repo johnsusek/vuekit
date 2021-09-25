@@ -16,7 +16,12 @@ import QuartzCore
 	@objc var tileSize: NSSize { @objc get @objc (setTileSize:) set }
 
 	// Constructors
+	@objc static func create() -> CATiledLayer
 }
 
 extension CATiledLayer: CATiledLayerExports {
+	@objc override class func create() -> CATiledLayer {
+		return CATiledLayer()
+	}
+
 }

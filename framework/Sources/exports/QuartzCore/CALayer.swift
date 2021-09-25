@@ -118,12 +118,17 @@ import QuartzCore
 	@objc var zPosition: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> CALayer
 	@objc static func create(layer: Any) -> CALayer
 	@objc (modelLayer) static func model() -> CALayer
 	@objc (presentationLayer) static func presentation() -> CALayer?
 }
 
 extension CALayer: CALayerExports {
+	@objc class func create() -> CALayer {
+		return CALayer()
+	}
+
 	@objc class func create(remoteClientId: UInt32) -> CALayer {
 		return CALayer(remoteClientId: remoteClientId)
 	}

@@ -16,7 +16,12 @@ import AppKit
 	@objc var toolTip: String! { @objc get @objc (setToolTip:) set }
 
 	// Constructors
+	@objc static func create() -> NSWindowTab
 }
 
 extension NSWindowTab: NSWindowTabExports {
+	@objc class func create() -> NSWindowTab {
+		return NSWindowTab()
+	}
+
 }

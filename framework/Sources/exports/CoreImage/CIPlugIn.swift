@@ -12,7 +12,12 @@ import CoreImage
 	@objc static func loadNonExecutablePlugIns()
 
 	// Constructors
+	@objc static func create() -> CIPlugIn
 }
 
 extension CIPlugIn: CIPlugInExports {
+	@objc class func create() -> CIPlugIn {
+		return CIPlugIn()
+	}
+
 }

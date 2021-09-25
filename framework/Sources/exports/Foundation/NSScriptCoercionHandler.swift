@@ -15,7 +15,12 @@ import Foundation
 	@objc (registerCoercer:selector:toConvertFromClass:toClass:) func registerCoercer(_: Any, selector: Selector, toConvertFrom: AnyClass, to: AnyClass)
 
 	// Constructors
+	@objc static func create() -> NSScriptCoercionHandler
 }
 
 extension NSScriptCoercionHandler: NSScriptCoercionHandlerExports {
+	@objc class func create() -> NSScriptCoercionHandler {
+		return NSScriptCoercionHandler()
+	}
+
 }

@@ -14,7 +14,12 @@ import Foundation
 	@objc func isTrue() -> Bool
 
 	// Constructors
+	@objc static func create() -> NSScriptWhoseTest
 }
 
 extension NSScriptWhoseTest: NSScriptWhoseTestExports {
+	@objc class func create() -> NSScriptWhoseTest {
+		return NSScriptWhoseTest()
+	}
+
 }

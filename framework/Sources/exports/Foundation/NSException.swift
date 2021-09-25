@@ -21,10 +21,15 @@ import Foundation
 	@objc var userInfo: [AnyHashable: Any]? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSException
 	@objc static func create(name: NSExceptionName, reason: String?, userInfo: [AnyHashable: Any]?) -> NSException
 }
 
 extension NSException: NSExceptionExports {
+	@objc class func create() -> NSException {
+		return NSException()
+	}
+
 	@objc class func create(name: NSExceptionName, reason: String?, userInfo: [AnyHashable: Any]?) -> NSException {
 		return NSException(name: name, reason: reason, userInfo: userInfo)
 	}

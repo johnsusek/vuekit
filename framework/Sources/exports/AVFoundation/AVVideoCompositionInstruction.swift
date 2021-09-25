@@ -15,7 +15,12 @@ import AVFoundation
 	@objc var layerInstructions: [AVVideoCompositionLayerInstruction] { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVVideoCompositionInstruction
 }
 
 extension AVVideoCompositionInstruction: AVVideoCompositionInstructionExports {
+	@objc class func create() -> AVVideoCompositionInstruction {
+		return AVVideoCompositionInstruction()
+	}
+
 }

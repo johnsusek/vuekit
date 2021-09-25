@@ -35,7 +35,12 @@ import Foundation
 	@objc var userInfo: [String: Any]? { @objc get @objc (setUserInfo:) set }
 
 	// Constructors
+	@objc static func create() -> NSUserNotification
 }
 
 extension NSUserNotification: NSUserNotificationExports {
+	@objc class func create() -> NSUserNotification {
+		return NSUserNotification()
+	}
+
 }

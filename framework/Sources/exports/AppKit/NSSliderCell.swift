@@ -34,7 +34,12 @@ import AppKit
 	@objc @available(OSX 10.0, *) var isVertical: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSSliderCell
 }
 
 extension NSSliderCell: NSSliderCellExports {
+	@objc override class func create() -> NSSliderCell {
+		return NSSliderCell()
+	}
+
 }

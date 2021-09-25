@@ -11,7 +11,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSNull
 }
 
 extension NSNull: NSNullExports {
+	@objc class func create() -> NSNull {
+		return NSNull()
+	}
+
 }

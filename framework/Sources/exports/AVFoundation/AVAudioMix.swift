@@ -14,7 +14,12 @@ import AVFoundation
 	@objc var inputParameters: [AVAudioMixInputParameters] { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVAudioMix
 }
 
 extension AVAudioMix: AVAudioMixExports {
+	@objc class func create() -> AVAudioMix {
+		return AVAudioMix()
+	}
+
 }

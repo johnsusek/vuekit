@@ -29,7 +29,12 @@ import AppKit
 	@objc var widthAnchor: NSLayoutDimension { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSLayoutGuide
 }
 
 extension NSLayoutGuide: NSLayoutGuideExports {
+	@objc class func create() -> NSLayoutGuide {
+		return NSLayoutGuide()
+	}
+
 }

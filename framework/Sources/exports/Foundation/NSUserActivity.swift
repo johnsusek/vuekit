@@ -35,10 +35,15 @@ import Foundation
 	@objc var webpageURL: URL? { get set }
 
 	// Constructors
+	@objc static func create() -> NSUserActivity
 	@objc static func create(activityType: String) -> NSUserActivity
 }
 
 extension NSUserActivity: NSUserActivityExports {
+	@objc class func create() -> NSUserActivity {
+		return NSUserActivity()
+	}
+
 	@objc class func create(activityType: String) -> NSUserActivity {
 		return NSUserActivity(activityType: activityType)
 	}

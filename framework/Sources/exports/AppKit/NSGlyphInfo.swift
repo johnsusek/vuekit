@@ -18,7 +18,12 @@ import AppKit
 	@objc var glyphName: String? { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSGlyphInfo
 }
 
 extension NSGlyphInfo: NSGlyphInfoExports {
+	@objc class func create() -> NSGlyphInfo {
+		return NSGlyphInfo()
+	}
+
 }

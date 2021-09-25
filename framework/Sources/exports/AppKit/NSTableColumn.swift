@@ -29,10 +29,15 @@ import AppKit
 	@objc var width: CGFloat { get set }
 
 	// Constructors
+	@objc static func create() -> NSTableColumn
 	@objc static func create(identifier: NSUserInterfaceItemIdentifier) -> NSTableColumn
 }
 
 extension NSTableColumn: NSTableColumnExports {
+	@objc class func create() -> NSTableColumn {
+		return NSTableColumn()
+	}
+
 	@objc class func create(identifier: NSUserInterfaceItemIdentifier) -> NSTableColumn {
 		return NSTableColumn(identifier: identifier)
 	}

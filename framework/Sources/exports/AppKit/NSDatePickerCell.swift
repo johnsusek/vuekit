@@ -26,7 +26,12 @@ import AppKit
 	@objc var timeZone: TimeZone? { get set }
 
 	// Constructors
+	@objc static func create() -> NSDatePickerCell
 }
 
 extension NSDatePickerCell: NSDatePickerCellExports {
+	@objc override class func create() -> NSDatePickerCell {
+		return NSDatePickerCell()
+	}
+
 }

@@ -22,7 +22,12 @@ import AppKit
 	@objc var windows: [NSWindow] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSWindowTabGroup
 }
 
 extension NSWindowTabGroup: NSWindowTabGroupExports {
+	@objc class func create() -> NSWindowTabGroup {
+		return NSWindowTabGroup()
+	}
+
 }

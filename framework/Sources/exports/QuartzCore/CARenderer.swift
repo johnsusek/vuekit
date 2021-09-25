@@ -23,7 +23,12 @@ import QuartzCore
 	@objc var layer: CALayer? { @objc get @objc (setLayer:) set }
 
 	// Constructors
+	@objc static func create() -> CARenderer
 }
 
 extension CARenderer: CARendererExports {
+	@objc class func create() -> CARenderer {
+		return CARenderer()
+	}
+
 }

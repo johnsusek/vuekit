@@ -16,7 +16,12 @@ import AppKit
 	@objc var scrollDirection: NSCollectionView.ScrollDirection { @objc get @objc (setScrollDirection:) set }
 
 	// Constructors
+	@objc static func create() -> NSCollectionViewCompositionalLayoutConfiguration
 }
 
 extension NSCollectionViewCompositionalLayoutConfiguration: NSCollectionViewCompositionalLayoutConfigurationExports {
+	@objc class func create() -> NSCollectionViewCompositionalLayoutConfiguration {
+		return NSCollectionViewCompositionalLayoutConfiguration()
+	}
+
 }

@@ -15,7 +15,12 @@ import Foundation
 	@objc var transactionMetrics: [URLSessionTaskTransactionMetrics] { @objc get }
 
 	// Constructors
+	@objc static func create() -> URLSessionTaskMetrics
 }
 
 extension URLSessionTaskMetrics: URLSessionTaskMetricsExports {
+	@objc class func create() -> URLSessionTaskMetrics {
+		return URLSessionTaskMetrics()
+	}
+
 }

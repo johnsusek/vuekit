@@ -10,7 +10,12 @@ import Foundation
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> NSURLHandle
 }
 
 extension NSURLHandle: NSURLHandleExports {
+	@objc class func create() -> NSURLHandle {
+		return NSURLHandle()
+	}
+
 }

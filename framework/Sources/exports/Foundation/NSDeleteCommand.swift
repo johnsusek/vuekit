@@ -16,7 +16,12 @@ import Foundation
 	@objc var keySpecifier: NSScriptObjectSpecifier { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSDeleteCommand
 }
 
 extension NSDeleteCommand: NSDeleteCommandExports {
+	@objc override class func create() -> NSDeleteCommand {
+		return NSDeleteCommand()
+	}
+
 }

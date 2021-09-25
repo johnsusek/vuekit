@@ -27,7 +27,12 @@ import CoreImage
 	@objc var trackingID: Int32 { get }
 
 	// Constructors
+	@objc static func create() -> CIFaceFeature
 }
 
 extension CIFaceFeature: CIFaceFeatureExports {
+	@objc override class func create() -> CIFaceFeature {
+		return CIFaceFeature()
+	}
+
 }

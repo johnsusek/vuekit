@@ -16,7 +16,12 @@ import Foundation
 	@objc var keySpecifier: NSScriptObjectSpecifier { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSMoveCommand
 }
 
 extension NSMoveCommand: NSMoveCommandExports {
+	@objc override class func create() -> NSMoveCommand {
+		return NSMoveCommand()
+	}
+
 }

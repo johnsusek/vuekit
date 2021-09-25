@@ -16,7 +16,12 @@ import Foundation
 	@objc var topLevelObject: Any? { @objc get @objc (setTopLevelObject:) set }
 
 	// Constructors
+	@objc static func create() -> NSScriptExecutionContext
 }
 
 extension NSScriptExecutionContext: NSScriptExecutionContextExports {
+	@objc class func create() -> NSScriptExecutionContext {
+		return NSScriptExecutionContext()
+	}
+
 }

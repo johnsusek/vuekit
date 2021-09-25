@@ -15,7 +15,12 @@ import CoreImage
 	@objc var pixelsProcessed: Int { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIRenderInfo
 }
 
 extension CIRenderInfo: CIRenderInfoExports {
+	@objc class func create() -> CIRenderInfo {
+		return CIRenderInfo()
+	}
+
 }

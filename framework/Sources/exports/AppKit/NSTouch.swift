@@ -24,7 +24,12 @@ import AppKit
 	@objc @available(OSX 10.12.2, *) var type: NSTouch.TouchType { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSTouch
 }
 
 extension NSTouch: NSTouchExports {
+	@objc class func create() -> NSTouch {
+		return NSTouch()
+	}
+
 }

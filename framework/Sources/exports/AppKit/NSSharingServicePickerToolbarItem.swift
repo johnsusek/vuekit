@@ -13,7 +13,12 @@ import AppKit
 	@objc var delegate: NSSharingServicePickerToolbarItemDelegate? { @objc get @objc (setDelegate:) set }
 
 	// Constructors
+	@objc static func create() -> NSSharingServicePickerToolbarItem
 }
 
 extension NSSharingServicePickerToolbarItem: NSSharingServicePickerToolbarItemExports {
+	@objc override class func create() -> NSSharingServicePickerToolbarItem {
+		return NSSharingServicePickerToolbarItem()
+	}
+
 }

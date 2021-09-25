@@ -21,7 +21,12 @@ import AppKit
 	@objc var fileTypes: [String] { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSFilePromiseReceiver
 }
 
 extension NSFilePromiseReceiver: NSFilePromiseReceiverExports {
+	@objc class func create() -> NSFilePromiseReceiver {
+		return NSFilePromiseReceiver()
+	}
+
 }

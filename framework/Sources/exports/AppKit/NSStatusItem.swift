@@ -19,7 +19,12 @@ import AppKit
 	@objc @available(OSX 10.12, *) var isVisible: Bool { @objc get @objc (setVisible:) set }
 
 	// Constructors
+	@objc static func create() -> NSStatusItem
 }
 
 extension NSStatusItem: NSStatusItemExports {
+	@objc class func create() -> NSStatusItem {
+		return NSStatusItem()
+	}
+
 }

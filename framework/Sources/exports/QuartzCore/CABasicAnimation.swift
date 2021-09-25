@@ -15,7 +15,12 @@ import QuartzCore
 	@objc var toValue: Any? { @objc get @objc (setToValue:) set }
 
 	// Constructors
+	@objc static func create() -> CABasicAnimation
 }
 
 extension CABasicAnimation: CABasicAnimationExports {
+	@objc override class func create() -> CABasicAnimation {
+		return CABasicAnimation()
+	}
+
 }

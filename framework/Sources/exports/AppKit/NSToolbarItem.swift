@@ -22,7 +22,9 @@ import AppKit
 	@objc var image: NSImage? { @objc get @objc (setImage:) set }
 	@objc var itemIdentifier: NSToolbarItem.Identifier { @objc get }
 	@objc var label: String { @objc get @objc (setLabel:) set }
+	@objc var maxSize: NSSize { @objc get @objc (setMaxSize:) set }
 	@objc var menuFormRepresentation: NSMenuItem? { @objc get @objc (setMenuFormRepresentation:) set }
+	@objc var minSize: NSSize { @objc get @objc (setMinSize:) set }
 	@objc var paletteLabel: String { @objc get @objc (setPaletteLabel:) set }
 	@objc var tag: Int { @objc get @objc (setTag:) set }
 	@objc var target: AnyObject? { @objc get @objc (setTarget:) set }
@@ -33,10 +35,15 @@ import AppKit
 	@objc var visibilityPriority: NSToolbarItem.VisibilityPriority { @objc get @objc (setVisibilityPriority:) set }
 
 	// Constructors
+	@objc static func create() -> NSToolbarItem
 	@objc static func create(itemIdentifier: NSToolbarItem.Identifier) -> NSToolbarItem
 }
 
 extension NSToolbarItem: NSToolbarItemExports {
+	@objc class func create() -> NSToolbarItem {
+		return NSToolbarItem()
+	}
+
 	@objc class func create(itemIdentifier: NSToolbarItem.Identifier) -> NSToolbarItem {
 		return NSToolbarItem(itemIdentifier: itemIdentifier)
 	}

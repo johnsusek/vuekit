@@ -28,7 +28,12 @@ import AVFoundation
 	@objc var isPlayable: Bool { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVMediaSelectionOption
 }
 
 extension AVMediaSelectionOption: AVMediaSelectionOptionExports {
+	@objc class func create() -> AVMediaSelectionOption {
+		return AVMediaSelectionOption()
+	}
+
 }

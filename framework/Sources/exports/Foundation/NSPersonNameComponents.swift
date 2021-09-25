@@ -20,7 +20,12 @@ import Foundation
 	@objc var phoneticRepresentation: PersonNameComponents? { get set }
 
 	// Constructors
+	@objc static func create() -> NSPersonNameComponents
 }
 
 extension NSPersonNameComponents: NSPersonNameComponentsExports {
+	@objc class func create() -> NSPersonNameComponents {
+		return NSPersonNameComponents()
+	}
+
 }

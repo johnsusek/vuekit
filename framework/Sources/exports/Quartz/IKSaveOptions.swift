@@ -20,10 +20,15 @@ import Quartz
 	@objc var userSelection: [AnyHashable: Any] { @objc get }
 
 	// Constructors
+	@objc static func create() -> IKSaveOptions
 	@objc static func create(imageProperties: [AnyHashable: Any], imageUTType: String) -> IKSaveOptions
 }
 
 extension IKSaveOptions: IKSaveOptionsExports {
+	@objc class func create() -> IKSaveOptions {
+		return IKSaveOptions()
+	}
+
 	@objc class func create(imageProperties: [AnyHashable: Any], imageUTType: String) -> IKSaveOptions {
 		return IKSaveOptions(imageProperties: imageProperties, imageUTType: imageUTType)
 	}

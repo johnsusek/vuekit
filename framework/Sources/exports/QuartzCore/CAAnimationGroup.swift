@@ -13,7 +13,12 @@ import QuartzCore
 	@objc var animations: [CAAnimation]? { @objc get @objc (setAnimations:) set }
 
 	// Constructors
+	@objc static func create() -> CAAnimationGroup
 }
 
 extension CAAnimationGroup: CAAnimationGroupExports {
+	@objc override class func create() -> CAAnimationGroup {
+		return CAAnimationGroup()
+	}
+
 }

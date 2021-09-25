@@ -19,7 +19,12 @@ import AppKit
 	@objc var shadowOffset: NSSize { @objc get @objc (setShadowOffset:) set }
 
 	// Constructors
+	@objc static func create() -> NSShadow
 }
 
 extension NSShadow: NSShadowExports {
+	@objc class func create() -> NSShadow {
+		return NSShadow()
+	}
+
 }

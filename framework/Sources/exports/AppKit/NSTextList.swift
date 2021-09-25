@@ -19,10 +19,15 @@ import AppKit
 	@objc @available(OSX 10.6, *) var startingItemNumber: Int { @objc get @objc (setStartingItemNumber:) set }
 
 	// Constructors
+	@objc static func create() -> NSTextList
 	@objc static func create(markerFormat: NSTextList.MarkerFormat, options: Int) -> NSTextList
 }
 
 extension NSTextList: NSTextListExports {
+	@objc class func create() -> NSTextList {
+		return NSTextList()
+	}
+
 	@objc class func create(markerFormat: NSTextList.MarkerFormat, options: Int) -> NSTextList {
 		return NSTextList(markerFormat: markerFormat, options: options)
 	}

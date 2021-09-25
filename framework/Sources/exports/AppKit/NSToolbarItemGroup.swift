@@ -20,7 +20,12 @@ import AppKit
 	@objc var subitems: [NSToolbarItem] { @objc get @objc (setSubitems:) set }
 
 	// Constructors
+	@objc static func create() -> NSToolbarItemGroup
 }
 
 extension NSToolbarItemGroup: NSToolbarItemGroupExports {
+	@objc override class func create() -> NSToolbarItemGroup {
+		return NSToolbarItemGroup()
+	}
+
 }

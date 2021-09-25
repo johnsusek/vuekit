@@ -12,7 +12,7 @@ import AppKit
 	@objc (detachDrawingThread:toTarget:withObject:) static func detachDrawingThread(_: Selector, toTarget: Any, with: Any?)
 
 	// Own Static Properties
-	@objc (sharedApplication) static var shared: NSApplication { @objc (sharedApplication) get }
+	// @objc (sharedApplication) static var sharedApplication: NSApplication { @objc (sharedApplication) get }
 
 	// Instance Methods
 	@objc func abortModal()
@@ -21,7 +21,7 @@ import AppKit
 	@objc @available(OSX 10.6, *) func activationPolicy() -> NSApplication.ActivationPolicy
 	@objc func addWindowsItem(_: NSWindow, title: String, filename: Bool)
 	@objc func arrangeInFront(_: Any?)
-	// 	@objc (beginModalSessionForWindow:) func beginModalSession(`for`: NSWindow) -> UnsafeMutableRawPointer
+	@objc (beginModalSessionForWindow:) func beginModalSession(`for`: NSWindow) -> NSApplication.ModalSession
 	@objc func cancelUserAttentionRequest(_: Int)
 	@objc func changeWindowsItem(_: NSWindow, title: String, filename: Bool)
 	@objc @available(OSX 10.7, *) func completeStateRestoration()
@@ -30,7 +30,7 @@ import AppKit
 	@objc (discardEventsMatchingMask:beforeEvent:) func discardEvents(matching: NSEvent.EventTypeMask, before: NSEvent?)
 	@objc @available(OSX 10.7, *) func enableRelaunchOnLogin()
 	@objc (endModalSession:) func endModalSession(_ session: NSApplication.ModalSession)
-	@objc (enumerateWindowsWithOptions:usingBlock:) @available(OSX 10.12, *) func enumerateWindows(options: NSApplication.WindowListOptions, using block: (NSWindow, UnsafeMutablePointer<ObjCBool>) -> Void)
+	// jsvalue - @objc (enumerateWindowsWithOptions:usingBlock:) @available(OSX 10.12, *) func enumerateWindows(options: NSApplication.WindowListOptions, using: JSValue)
 	@objc @available(OSX 10.7, *) func extendStateRestoration()
 	@objc func finishLaunching()
 	@objc func hide(_: Any?)
@@ -52,7 +52,7 @@ import AppKit
 	@objc (replyToOpenOrPrint:) func reply(toOpenOrPrint: NSApplication.DelegateReply)
 	@objc (reportException:) func reportException(_: NSException)
 	@objc func requestUserAttention(_: NSApplication.RequestUserAttentionType) -> Int
-	@objc (restoreWindowWithIdentifier:state:completionHandler:) @available(OSX 10.7, *) func restoreWindow(withIdentifier identifier: NSUserInterfaceItemIdentifier, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void) -> Bool
+	// jsvalue - @objc (restoreWindowWithIdentifier:state:completionHandler:) @available(OSX 10.7, *) func restoreWindow(withIdentifier: NSUserInterfaceItemIdentifier, state: NSCoder, completionHandler: JSValue) -> Bool
 	@objc func run()
 	@objc (runModalForWindow:) func runModal(`for`: NSWindow) -> NSApplication.ModalResponse
 	@objc (runModalSession:) func runModalSession(_ session: NSApplication.ModalSession) -> NSApplication.ModalResponse
@@ -108,7 +108,12 @@ import AppKit
 	@objc var windowsMenu: NSMenu? { @objc get @objc (setWindowsMenu:) set }
 
 	// Constructors
+	@objc static func create() -> NSApplication
 }
 
 extension NSApplication: NSApplicationExports {
+	@objc class func create() -> NSApplication {
+		return NSApplication()
+	}
+
 }

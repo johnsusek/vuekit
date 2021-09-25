@@ -18,7 +18,12 @@ import Foundation
 	@objc var delegate: NSSpellServerDelegate? { @objc get @objc (setDelegate:) set }
 
 	// Constructors
+	@objc static func create() -> NSSpellServer
 }
 
 extension NSSpellServer: NSSpellServerExports {
+	@objc class func create() -> NSSpellServer {
+		return NSSpellServer()
+	}
+
 }

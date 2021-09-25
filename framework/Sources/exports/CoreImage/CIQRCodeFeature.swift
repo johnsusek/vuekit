@@ -19,7 +19,12 @@ import CoreImage
 	@objc var topRight: NSPoint { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIQRCodeFeature
 }
 
 extension CIQRCodeFeature: CIQRCodeFeatureExports {
+	@objc override class func create() -> CIQRCodeFeature {
+		return CIQRCodeFeature()
+	}
+
 }

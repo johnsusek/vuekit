@@ -16,10 +16,15 @@ import AppKit
 	@objc var itemIndex: Int { @objc get @objc (setItemIndex:) set }
 
 	// Constructors
+	@objc static func create() -> NSScrubberLayoutAttributes
 	@objc static func create(forItemAt: Int) -> NSScrubberLayoutAttributes
 }
 
 extension NSScrubberLayoutAttributes: NSScrubberLayoutAttributesExports {
+	@objc class func create() -> NSScrubberLayoutAttributes {
+		return NSScrubberLayoutAttributes()
+	}
+
 	@objc class func create(forItemAt: Int) -> NSScrubberLayoutAttributes {
 		return NSScrubberLayoutAttributes(forItemAt: forItemAt)
 	}

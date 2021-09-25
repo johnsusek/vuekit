@@ -20,11 +20,16 @@ import CoreImage
 	@objc var format: CIFormat { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIImageAccumulator
 	@objc static func create(extent: NSRect, format: CIFormat) -> CIImageAccumulator?
 	@objc @available(OSX 10.7, *) static func create(extent: NSRect, format: CIFormat, colorSpace: CGColorSpace) -> CIImageAccumulator?
 }
 
 extension CIImageAccumulator: CIImageAccumulatorExports {
+	@objc class func create() -> CIImageAccumulator {
+		return CIImageAccumulator()
+	}
+
 	@objc class func create(extent: NSRect, format: CIFormat) -> CIImageAccumulator? {
 		return CIImageAccumulator(extent: extent, format: format)
 	}

@@ -26,7 +26,12 @@ import AVFoundation
 	@objc @available(OSX 10.13, *) var sourceTrackIDForFrameTiming: CMPersistentTrackID { @objc get }
 
 	// Constructors
+	@objc static func create() -> AVVideoComposition
 }
 
 extension AVVideoComposition: AVVideoCompositionExports {
+	@objc class func create() -> AVVideoComposition {
+		return AVVideoComposition()
+	}
+
 }

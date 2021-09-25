@@ -17,7 +17,12 @@ import AppKit
 	@objc var title: String { @objc get @objc (setTitle:) set }
 
 	// Constructors
+	@objc static func create() -> NSTableViewRowAction
 }
 
 extension NSTableViewRowAction: NSTableViewRowActionExports {
+	@objc class func create() -> NSTableViewRowAction {
+		return NSTableViewRowAction()
+	}
+
 }

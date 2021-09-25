@@ -17,11 +17,16 @@ import CoreImage
 	@objc @available(OSX 10.4, *) var name: String { @objc get }
 
 	// Constructors
+	@objc static func create() -> CIKernel
 	@objc @available(OSX 10.13, *) static func kernelWithFunctionName(fromMetalLibraryData: String, error: Data) -> CIKernel?
 	@objc @available(OSX 10.13, *) static func kernelWithFunctionName(fromMetalLibraryData: String, outputPixelFormat: Data, error: CIFormat) -> CIKernel?
 }
 
 extension CIKernel: CIKernelExports {
+	@objc class func create() -> CIKernel {
+		return CIKernel()
+	}
+
 	@objc @available(OSX 10.13, *) class func kernelWithFunctionName(fromMetalLibraryData: String, error: Data) -> CIKernel? {
 		return kernelWithFunctionName(fromMetalLibraryData: fromMetalLibraryData, error: error)
 	}

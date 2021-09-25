@@ -11,7 +11,12 @@ import CoreImage
 	// Static Methods
 
 	// Constructors
+	@objc static func create() -> CIBarcodeDescriptor
 }
 
 extension CIBarcodeDescriptor: CIBarcodeDescriptorExports {
+	@objc class func create() -> CIBarcodeDescriptor {
+		return CIBarcodeDescriptor()
+	}
+
 }

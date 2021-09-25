@@ -16,10 +16,15 @@ import AppKit
 	@objc var pressureBehavior: NSEvent.PressureBehavior { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSPressureConfiguration
 	@objc static func create(pressureBehavior: NSEvent.PressureBehavior) -> NSPressureConfiguration
 }
 
 extension NSPressureConfiguration: NSPressureConfigurationExports {
+	@objc class func create() -> NSPressureConfiguration {
+		return NSPressureConfiguration()
+	}
+
 	@objc class func create(pressureBehavior: NSEvent.PressureBehavior) -> NSPressureConfiguration {
 		return NSPressureConfiguration(pressureBehavior: pressureBehavior)
 	}

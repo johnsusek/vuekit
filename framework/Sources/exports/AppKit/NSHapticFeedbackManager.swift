@@ -13,7 +13,12 @@ import AppKit
 	@objc static var defaultPerformer: NSHapticFeedbackPerformer { @objc get }
 
 	// Constructors
+	@objc static func create() -> NSHapticFeedbackManager
 }
 
 extension NSHapticFeedbackManager: NSHapticFeedbackManagerExports {
+	@objc class func create() -> NSHapticFeedbackManager {
+		return NSHapticFeedbackManager()
+	}
+
 }

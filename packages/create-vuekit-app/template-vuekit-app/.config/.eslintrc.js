@@ -11,7 +11,7 @@ module.exports = {
     es2020: true
   },
 
-  ignorePatterns: ["src/components/**/*.vue"],
+  ignorePatterns: ["node_modules/**/*.vue"],
 
   parserOptions: {
     parser: '@typescript-eslint/parser',

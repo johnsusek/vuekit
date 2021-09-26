@@ -6,8 +6,6 @@
   "repository": "https://github.com/johnsusek/vuekit.git",
   "main": "src/index.ts",
   "scripts": {
-    "vuekit-setup": "./scripts/vuekit-setup.sh",
-    "build:framework": "cd framework && xcodebuild -quiet && cp -LR build/Release/* . && rm -rf build/",
     "test": "true",
     "tsc": "tsc --noEmit",
     "prepublish": "npm run tsc",
@@ -16,7 +14,6 @@
     "docs:build": "vuepress build docs"
   },
   "bin": {
-    "vuekit-setup": "./scripts/vuekit-setup.sh",
     "xcodegenerate": "./scripts/run-xcodegen.sh"
   },
   "dependencies": {

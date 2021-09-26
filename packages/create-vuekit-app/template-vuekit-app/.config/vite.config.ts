@@ -7,10 +7,8 @@ export default defineConfig({
   plugins: [
     Vue(),
     Components({
-      dirs: [
-        'src',
-        'node_modules/vuekit-vue/src/components/**/*.vue'
-      ]
+      dirs: ['src/components', 'node_modules/vuekit-vue/src/components'],
+      extensions: ['vue']
     })
   ],
   resolve: {
@@ -28,6 +26,6 @@ export default defineConfig({
     brotliSize: false,
     polyfillModulePreload: false,
     chunkSizeWarningLimit: 5000,
-    outDir: 'build'
+    outDir: 'build/js'
   }
 })

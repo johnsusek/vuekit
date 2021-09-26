@@ -5,7 +5,6 @@ Welcome to your VueKit App!
 ```bash
 npm install
 npm run build
-npm run xcodegen
 ```
 
 # Tips

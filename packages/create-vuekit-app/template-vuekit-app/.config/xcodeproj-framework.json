@@ -5,9 +5,15 @@
       "macOS": "10.15"
     }
   },
+  "settings": {
+    "DEVELOPMENT_TEAM": "",
+    "CODE_SIGN_STYLE": "Automatic"
+  },
   "configs": {
     "Debug": "debug",
-    "Release": "release"
+    "Release": "release",
+    "Adhoc": "debug",
+    "Beta": "debug"
   },
   "targets": {
     "VueKit": {
@@ -15,7 +21,10 @@
       "platform": "macOS",
       "sources": [
         "../node_modules/vuekit-vue/framework/Sources"
-      ]
+      ],
+      "settings": {
+        "INFOPLIST_FILE": "../node_modules/vuekit-vue/framework/Info.plist"
+      }
     }
   }
 }

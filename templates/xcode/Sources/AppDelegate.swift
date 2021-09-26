@@ -7,9 +7,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_: Notification) {
     let context = JSContext()!
     let vueKit = VueKit(context: context)
-    
+
     guard let bundleUrl = Bundle.main.url(forResource: "vuekit-bundle.es", withExtension: "js") else {
-      print("Could not find bundle js at app bundle root. Make sure build/vuekit-bundle.es.js exists. (Hint: `npm run build`)")
+      print("Could not find bundle js at app bundle root. Please run `npm run build:js`")
       NSApp.terminate(self)
       return
     }

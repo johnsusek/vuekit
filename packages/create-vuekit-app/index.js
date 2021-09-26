@@ -21,7 +21,7 @@ let renameFiles = {
 };
 
 function updateXcodeProj(templateDir, pkgName, write) {
-  let prj = require(path.join(templateDir, '.config/xcodeproj.json'));
+  let prj = require(path.join(templateDir, '.config/xcodeproj-app.json'));
 
   prj.name = pkgName;
   prj.targets.VueKitApp.scheme.testTargets[0].name = `${pkgName}-tests`;
@@ -31,7 +31,7 @@ function updateXcodeProj(templateDir, pkgName, write) {
   delete prj.targets.VueKitApp;
   delete prj.targets.VueKitAppTests;
 
-  write('.config/xcodeproj.json', JSON.stringify(prj, null, 2));
+  write('.config/xcodeproj-app.json', JSON.stringify(prj, null, 2));
 }
 
 function copy(src, dest) {
@@ -169,8 +169,6 @@ async function init() {
     if (!fs.existsSync(root)) fs.mkdirSync(root);
   }
 
-  console.log(root);
-
   if (overwrite) {
     emptyDir(root);
   } else if (!fs.existsSync(root)) {
@@ -216,10 +214,10 @@ async function init() {
   }
   switch (pkgManager) {
     case 'yarn':
-      console.log('  yarn && yarn run setup');
+      console.log('  yarn && yarn run build');
       break;
     default:
-      console.log(`  npm install && ${pkgManager} run setup`);
+      console.log(`  npm install && ${pkgManager} run build`);
       break;
   }
   console.log();

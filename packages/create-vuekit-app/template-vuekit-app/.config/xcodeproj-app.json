@@ -16,29 +16,19 @@
     "Beta": "debug"
   },
   "targets": {
-    "VueKit": {
-      "type": "framework",
-      "platform": "macOS",
-      "sources": [
-        "../node_modules/vuekit-vue/framework/Sources"
-      ],
-      "settings": {
-        "INFOPLIST_FILE": "node_modules/vuekit-vue/framework/Info.plist"
-      }
-    },
     "my-vuekit-app": {
       "type": "application",
       "platform": "macOS",
       "sources": [
         "../node_modules/vuekit-vue/templates/xcode/Sources",
         {
-          "path": "../build/vuekit-bundle.es.js",
+          "path": "../build/js/vuekit-bundle.es.js",
           "optional": true
         }
       ],
       "dependencies": [
         {
-          "target": "VueKit"
+          "framework": "../build/framework/Build/Products/Debug/VueKit.framework"
         }
       ],
       "scheme": {

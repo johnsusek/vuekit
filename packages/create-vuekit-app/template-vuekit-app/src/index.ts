@@ -1,4 +1,3 @@
-import '@vue/runtime-core';
 import { createApp } from 'vuekit-vue';
 import App from './App.vue';
 

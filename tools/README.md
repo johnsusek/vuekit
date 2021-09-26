@@ -32,7 +32,7 @@ See README in subfolder for more details.
 
 Attempts to compile swift jsexport classes and copies those that build to ../../vuekit/framework/Sources/exports,
 the endpoint of this entire process. The jsexport classes will be compiled into a .framework (using vuekit/framework/build.sh)
-that is published to npm w/ the vuekit-vue package and referenced in vuekit apps from their .config/xcodeproj.json file.
+that is published to npm w/ the vuekit-vue package and referenced in vuekit apps from their .config/xcodeproj-app.json file.
 
 `node index.js`
 

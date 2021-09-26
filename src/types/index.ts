@@ -14,4 +14,15 @@
 /// <reference path="macos/Quartz.d.ts" />
 /// <reference path="macos/QuartzCore.d.ts" />
 
+import './macos/AppKit.d.ts';
+import './macos/AVFoundation.d.ts';
+import './macos/AVKit.d.ts';
+import './macos/CloudKit.d.ts';
+import './macos/CoreFoundation.d.ts';
+import './macos/CoreGraphics.d.ts';
+import './macos/Foundation.d.ts';
+import './macos/ObjectiveC.d.ts';
+import './macos/Quartz.d.ts';
+import './macos/QuartzCore.d.ts';
+
 export default {}

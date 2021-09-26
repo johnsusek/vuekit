@@ -1,6 +1,6 @@
 {
   "name": "create-vuekit-app",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "author": "John Susek",
   "license": "MIT",
   "repository": "https://github.com/johnsusek/vuekit.git",
@@ -12,7 +12,7 @@
   },
   "files": [
     "index.js",
-    "template-vuekit-app/*"
+    "template-vuekit-app"
   ],
   "main": "index.js",
   "engines": {

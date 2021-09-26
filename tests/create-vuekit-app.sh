@@ -11,8 +11,8 @@ cd tmp/$APP_NAME
 # Tests any post-install scripts
 npm install
 
-# Tests setup script, xcodegen, and vite build
-npm run setup
+# Tests xcodegen, and vite build
+npm run build
 
 echo "Test successful"
 

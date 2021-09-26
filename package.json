@@ -43,8 +43,7 @@
     "scripts",
     "vendor",
     "templates",
-    "tsconfig.json",
-    "framework/VueKit.framework",
+    "framework",
     "vscode/vetur"
   ],
   "vetur": {

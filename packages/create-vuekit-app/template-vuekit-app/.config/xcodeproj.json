@@ -1,18 +1,32 @@
 {
-  "name": "VueKitApp",
+  "name": "my-vuekit-app",
   "options": {
     "deploymentTarget": {
       "macOS": "10.15"
     }
   },
+  "settings": {
+    "DEVELOPMENT_TEAM": "",
+    "CODE_SIGN_STYLE": "Automatic"
+  },
   "configs": {
     "Debug": "debug",
     "Release": "release",
-    "Adhoc": "release",
-    "Beta": "release"
+    "Adhoc": "debug",
+    "Beta": "debug"
   },
   "targets": {
-    "VueKitApp": {
+    "VueKit": {
+      "type": "framework",
+      "platform": "macOS",
+      "sources": [
+        "../node_modules/vuekit-vue/framework/Sources"
+      ],
+      "settings": {
+        "INFOPLIST_FILE": "node_modules/vuekit-vue/framework/Info.plist"
+      }
+    },
+    "my-vuekit-app": {
       "type": "application",
       "platform": "macOS",
       "sources": [
@@ -24,19 +38,18 @@
       ],
       "dependencies": [
         {
-          "framework": "node_modules/vuekit-vue/framework/VueKit.framework",
-          "embed": true
+          "target": "VueKit"
         }
       ],
       "scheme": {
         "testTargets": [
           {
-            "name": "VueKitAppTests"
+            "name": "my-vuekit-app-tests"
           }
         ]
       }
     },
-    "VueKitAppTests": {
+    "my-vuekit-app-tests": {
       "type": "bundle.unit-test",
       "platform": "macOS",
       "sources": [
@@ -44,7 +57,7 @@
       ],
       "dependencies": [
         {
-          "target": "VueKitApp"
+          "target": "my-vuekit-app"
         }
       ]
     }

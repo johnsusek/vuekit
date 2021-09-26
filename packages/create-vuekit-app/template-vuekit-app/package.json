@@ -8,7 +8,9 @@
     "lint": "eslint --ext vue,ts --quiet .",
     "tsc": "vue-tsc -p ./tsconfig.json -noEmit",
     "bundle": "vite build -l error --config .config/vite.config.ts",
+    "clean": "rm -rf build && mkdir build",
     "xcodegen": "xcodegenerate -s $PWD/.config/xcodeproj.json -p $PWD",
+    "xcodebuild": "xcodebuild -quiet -allowProvisioningUpdates -derivedDataPath build/app -scheme my-vuekit-app",
     "build": "npm run lint && npm run tsc && npm run bundle",
     "watch": "nodemon -e 'ts,vue' -w './src' --exec 'npm run build'"
   },

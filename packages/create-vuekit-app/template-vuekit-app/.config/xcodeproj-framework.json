@@ -3,8 +3,7 @@
   "options": {
     "deploymentTarget": {
       "macOS": "10.15"
-    },
-    "defaultConfig": "Debug"
+    }
   },
   "configs": {
     "Debug": "debug",
@@ -15,7 +14,7 @@
       "type": "framework",
       "platform": "macOS",
       "sources": [
-        "Sources"
+        "../node_modules/vuekit-vue/framework/Sources"
       ]
     }
   }

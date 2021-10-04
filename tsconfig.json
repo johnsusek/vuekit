@@ -1,24 +1,23 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true, // don't typecheck .d.ts headers
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "preserveConstEnums": false,
+    "allowSyntheticDefaultImports": true,
     "strict": false,
+    "skipLibCheck": true,
     "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "lib": [
-      "esnext"
-    ],
-    "typeRoots": [
-      "src/types"
-    ],
-    "types": []
+      "es2020"
+    ]
   },
   "include": [
-    "src"
+    "src",
+    ".eslintrc.js"
   ],
   "exclude": [
     "node_modules"

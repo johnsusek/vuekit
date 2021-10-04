@@ -21,32 +21,19 @@
   "bin": {
     "xcodegenerate": "./scripts/run-xcodegen.sh"
   },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "4.30.*",
-    "@typescript-eslint/parser": "4.30.*",
-    "@vitejs/plugin-vue": "~1.9.2",
-    "eslint": "7.32.*",
-    "eslint-config-airbnb-base": "14.2.*",
-    "eslint-plugin-import": "2.24.*",
-    "eslint-plugin-vue": "7.17.*",
-    "nodemon": "2.0.*",
-    "typescript": "~4.*",
-    "unplugin-vue-components": "0.14.11",
-    "vite": "2.6.*",
-    "vue": "3.*",
-    "vue-tsc": "*"
-  },
   "devDependencies": {
-    "@rollup/pluginutils": "^4.1.1",
-    "@types/hash-sum": "^1.0.0",
-    "debug": "^4.3.2",
-    "hash-sum": "^2.0.0",
-    "rollup": "^2.57.0",
-    "slash": "^3.0.0",
-    "source-map": "^0.6.1",
-    "vue": "^3.2.19",
-    "@vue/compiler-sfc": "^3.2.19",
-    "vuepress": "~2.0.0-beta.25"
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "@vitejs/plugin-vue": "^1.9.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-vue": "^7.17.0",
+    "nodemon": "^2.0.13",
+    "typescript": "^4.4.3",
+    "unplugin-vue-components": "^0.15.6",
+    "vite": "^2.6.0",
+    "vuepress": "^2.0.0-beta.26"
   },
   "files": [
     "dist",

@@ -16,9 +16,9 @@ declare global {
 
     destroy();
 
-    emitEvent(VueKitNode, NSEvent, string): void;
+    emitEvent(VueKitNode, any, string): void;
 
-    emitAction(VueKitNode, NSEvent, string): void;
+    emitAction(VueKitNode, any, string): void;
 
     view?: NSView;
 
@@ -33,7 +33,5 @@ declare global {
     children: VueKitNode[];
   }
 }
-
-Object.assign((globalThis as any).VueKitNode, VueKitNode);
 
 export { VueKitNode };

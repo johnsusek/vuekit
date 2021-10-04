@@ -23,7 +23,7 @@ interface Console {
   warn(...data: any[]): void;
 }
 
-declare let console: Console
+declare let console: Console;
 declare function clearTimeout(id: number): void
 declare function setTimeout(block: any, timeout: number): number;
 

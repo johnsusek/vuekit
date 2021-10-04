@@ -12,6 +12,7 @@ if (args.length < 3) {
 let frameworksPath = args[0];
 let astPath = args[1];
 let outPath = args[2];
+let lastNamespace = '';
 
 if (!fs.existsSync(frameworksPath)) {
   console.log(frameworksPath + ' does not exist.');
@@ -20,27 +21,147 @@ if (!fs.existsSync(frameworksPath)) {
 
 let frameworks = JSON.parse(fs.readFileSync(frameworksPath));
 let vlist = {};
+let structs = {};
+let globalStructs = {};
+let goodStructs = {};
+let typeAliases = {};
 
-for (let framework of Object.keys(frameworks)) {
-  let swiftSyntaxFile = path.join(astPath, `${framework}+SwiftSyntax.json`);
+let values;
+let moduleName;
+let className;
+let enumName;
+let enumType;
 
-  if (!fs.existsSync(swiftSyntaxFile)) {
-    console.log(swiftSyntaxFile + ' does not exist.');
-    continue;
+function doAddStruct(type, framework) {
+  let kIdx = type.children.findIndex(c => c.text === 'struct');
+  containerName = type.children[kIdx + 1]?.text;
+
+  let isTypeInheritenceClause = type.children[kIdx + 2]?.text == "TypeInheritanceClause";
+
+  if (!isTypeInheritenceClause) {
+    lastNamespace = containerName;
+    return;
   }
 
-  let swiftSyntaxContext = fs.readFileSync(swiftSyntaxFile);
-  let swiftSyntax = JSON.parse(swiftSyntaxContext);
+  let memberDeclBlock = type.children.find(c => c.text === 'MemberDeclBlock')
+  let memberDeclList = memberDeclBlock.children.find(c => c.text === 'MemberDeclList')
+  let memberDeclListItems = memberDeclList.children.map(c => c.children[0])
 
-  for (let codeBlockItem of swiftSyntax[0].children[0].children) {
-    let type = codeBlockItem.children[0];
-    if (!type) continue;
-    decideAdd(type, null, framework);
+  function doNextStruct() {
+    if (className && enumName) {
+      // New struct, set the one we've been building...
+      if (!moduleName) moduleName = "_global";
+      if (!goodStructs[moduleName]) goodStructs[moduleName] = {};
+      if (!goodStructs[moduleName][className]) goodStructs[moduleName][className] = {};
+      goodStructs[moduleName][className][enumName] = { values, type: enumType };
+
+      // console.log('Resetting after ', className, enumName);
+
+      // ...and then reset for the next one
+      values = null;
+      moduleName = '';
+      className = '';
+      enumName = '';
+      enumType = {};
+    }
   }
 
-  let yamlFilename = `${framework}-AttributeList.yaml`
-  fs.writeFileSync(outPath + "/" + yamlFilename, JSON.stringify(vlist[framework], null, 2));
-  console.log('Wrote', yamlFilename)
+  for (const decl of memberDeclListItems) {
+    switch (decl.text) {
+      case "InitializerDecl":
+        doNextStruct();
+        break;
+      case "VariableDecl":
+        let patternBindingList = decl.children.find(c => c.text === "PatternBindingList");
+        let id = jsonata(`**[text="IdentifierPattern"]`).evaluate(patternBindingList.children);
+        let name = id?.children?.[0].text
+
+        let attributeList = decl.children.find(c => c.text === "AttributeList");
+
+        if (attributeList) {
+          let attrs = buildFromAttributeListParent(decl);
+
+          if (attrs) {
+            if (attrs.obsoleted || attrs.unavailable) {
+              // console.log(`Skipping obsolete/unavailable var ${name} in class: ${className}, enum: ${enumName}`);
+              break;
+            }
+          }
+
+        }
+
+        if (!name) {
+          // console.log('Could not find name to push!', flatString(decl));
+          break;
+        }
+
+        if (!values) values = [];
+
+        if (!name.startsWith('_') && name !== "rawValue") {
+          // console.log('Pushing value for ', name, className, enumName);
+          let cleanName = name.replace(/`/g, '');
+          // let escape = ["delete"];
+          // if (escape.includes(cleanName)) {
+          //   cleanName = "`" + cleanName + "`";
+          // }
+          if (!values.includes(cleanName)) {
+            values.push(cleanName);
+          }
+        }
+
+        break;
+      case "TypealiasDecl":
+        let simpleTypeIdentifier = jsonata("**[text='SimpleTypeIdentifier'].children").evaluate(decl.children).map(c => c.text);
+        let memberTypeIdentifiers = jsonata("**[text='MemberTypeIdentifier']").evaluate(decl.children);
+
+        if (decl.children[1].text === "RawValue") {
+          let simpleType = memberTypeIdentifiers.children.find(c => c.text !== '.' && c.text !== 'SimpleTypeIdentifier');
+          if (simpleType.text == "String") {
+            enumType = "string";
+          }
+          else {
+            enumType = "number";
+          }
+        }
+
+        if (decl.children[1].text !== "Element") break;
+
+        moduleName = simpleTypeIdentifier[0];
+
+        if (memberTypeIdentifiers?.length) {
+          let memberTypeIdentifier = memberTypeIdentifiers.map(c => c.children[2].text);
+          enumName = memberTypeIdentifier[0];
+          className = memberTypeIdentifier[1];
+        }
+        else if (memberTypeIdentifiers?.children?.length) {
+          let simpleTypeIdentifier2 = memberTypeIdentifiers.children[2].text;
+          enumName = simpleTypeIdentifier2;
+          className = "_global"
+        }
+        else {
+          enumName = "unknown";
+          className = "_global (" + simpleTypeIdentifier + ")";
+        }
+
+        break;
+      case "FunctionDecl":
+        break;
+      case "StructDecl":
+        doAddStruct(decl, framework);
+        break;
+      default:
+        break;
+    }
+  }
+  if (lastNamespace) {
+    if (!structs[lastNamespace]) structs[lastNamespace] = {};
+    structs[lastNamespace][containerName] = type;
+  }
+  else {
+    globalStructs[containerName] = type;
+  }
+
+  lastNamespace = '';
 }
 
 function doAddContainer(containerType, type, framework) {
@@ -67,8 +188,6 @@ function doAddContainer(containerType, type, framework) {
     // console.log("Skipping, could not find container name.");
     return;
   }
-
-  console.log(`${framework} - ${containerName} - ${type.text}`);
 
   let memberDeclBlock = type.children.find(v => v.text === 'MemberDeclBlock');
   let memberDeclListItems = memberDeclBlock.children.find(v => v.text === 'MemberDeclList').children
@@ -123,7 +242,7 @@ function textFromAv(availabilityText, availabilityArgument) {
   return { text, addl };
 }
 
-function buildFromOuterAttrs(type) {
+function buildFromAttributeListParent(type) {
   let outerAttrs = type.children.find(v => v.text === 'AttributeList')?.children;
 
   if (!outerAttrs) return;
@@ -249,21 +368,76 @@ function decideAdd(type, prefix, framework) {
     case "ImportDecl":
     case "SubscriptDecl":
     case "SequenceExpr":
+      break;
     case "StructDecl":
-    case "EnumDecl":
+      doAddStruct(type, framework);
     case "TypealiasDecl":
+      if (type.children[0].text != 'typealias') break;
+
+      let name = type.children[1].text;
+
+      if (name.startsWith('_')) break;
+
+      let typeInit = type.children.find(c => c.text === "TypeInitializerClause");
+      let memberType = typeInit.children.find(c => c.text === "MemberTypeIdentifier");
+
+      if (memberType) {
+        let memberTypeInner = memberType.children.find(c => c.text === "MemberTypeIdentifier") || memberType;
+        let simpleTypeInnerIdx = memberTypeInner.children.findIndex(c => c.text === ".");
+        let simpleTypeInner = memberTypeInner.children[simpleTypeInnerIdx + 1];
+
+        if (!typeAliases[prefix]) typeAliases[prefix] = {};;
+        typeAliases[prefix][name] = simpleTypeInner.text;
+      }
+      else {
+        console.log(flatString(type));
+      }
+      break;
     case "InitializerDecl":
       break;
     case "UnknownDecl": {
-      addToVlist(framework, nameFromType(type), prefix, buildFromOuterAttrs(type));
+      addToVlist(framework, nameFromType(type), prefix, buildFromAttributeListParent(type));
       break;
     }
     case "VariableDecl":
     case "FunctionDecl":
-      addToVlist(framework, nameFromType(type, true), prefix, buildFromOuterAttrs(type));
+      addToVlist(framework, nameFromType(type, true), prefix, buildFromAttributeListParent(type));
       break;
+    case "UnknownExpr":
+    case "EnumDecl":
     default:
-      debugger;
       break;
   }
+}
+
+for (let framework of Object.keys(frameworks)) {
+  let swiftSyntaxFile = path.join(astPath, `${framework}+SwiftSyntax.json`);
+
+  if (!fs.existsSync(swiftSyntaxFile)) {
+    console.log(swiftSyntaxFile + ' does not exist.');
+    continue;
+  }
+
+  let swiftSyntaxContext = fs.readFileSync(swiftSyntaxFile);
+  let swiftSyntax = JSON.parse(swiftSyntaxContext);
+
+  for (let codeBlockItem of swiftSyntax[0].children[0].children) {
+    let type = codeBlockItem.children[0];
+    if (!type) continue;
+    decideAdd(type, null, framework);
+  }
+
+  // let yamlFilename = `${framework}-AttributeList.yaml`
+  // fs.writeFileSync(outPath + "/" + yamlFilename, JSON.stringify(vlist[framework], null, 2));
+  // console.log('Wrote', yamlFilename)
+}
+
+fs.writeFileSync(outPath + "/../structs.json", JSON.stringify(goodStructs, null, 2));
+console.log('Wrote', outPath + "/../structs.json")
+fs.writeFileSync(outPath + "/../aliases.json", JSON.stringify(typeAliases, null, 2));
+console.log('Wrote', outPath + "/../aliases.json")
+
+
+function flatString(nodeWithChildren) {
+  return jsonata("**[text]").evaluate(nodeWithChildren).filter(t => !t.children).map(t => t.text).join(' ');
 }

@@ -38,15 +38,15 @@ class VueKitNodeEvents {
     .directTouch,
     .changeMode
   ]
-  
+
   func startMonitoring() {
     NSEvent.addLocalMonitorForEvents(matching: eventsToMonitor) {
       event in
-      
+
       let point = event.locationInWindow
       guard let view = event.window?.contentView?.hitTest(point) else { return event }
       guard let viewNode = VueKitNode.Nodes[view] else { return event }
-      
+
       // Todo: fill in addl info from NSEvent
       // passing an NSEvent itself causes this error:
       // Invalid message sent to event "NSEvent" ....
@@ -54,7 +54,7 @@ class VueKitNodeEvents {
       var payload: [String: Any] = [:]
       payload["type"] = event.type.rawValue
       viewNode.emitEvent.value.call(withArguments: [viewNode, event, "\(event)"])
-      
+
       return event
     }
   }

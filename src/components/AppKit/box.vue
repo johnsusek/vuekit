@@ -3,77 +3,70 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'box',
 
-	props: {
-		'border-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'border-width': {
-			type: Number,
-			default: () => undefined
-		},
-		'box-type': {
-			type: String as PropType<keyof typeof NSBox.BoxType>,
-			default: () => undefined
-		},
-		'content-view': {
-			type: Object as PropType<NSView>,
-			default: () => undefined
-		},
-		'content-view-margins': {
-			type: Object as PropType<CGSize>,
-			default: () => undefined
-		},
-		'corner-radius': {
-			type: Number,
-			default: () => undefined
-		},
-		'fill-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'title': {
-			type: String,
-			default: () => undefined
-		},
-		'title-font': {
-			type: Object as PropType<NSFont>,
-			default: () => undefined
-		},
-		'title-position': {
-			type: String as PropType<keyof typeof NSBox.TitlePosition>,
-			default: () => undefined
-		},
-		'is-transparent': {
-			type: Boolean,
-			default: () => undefined
-		},
-  	'frame-from-content-frame': {
-			type: Object as PropType<CGRect>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'border-color': {
+      type: Object as PropType<NSColor>
+    },
+    'border-width': {
+      type: Object as PropType<number>
+    },
+    'box-type': {
+      type: String as PropType<keyof typeof NSBox.BoxType>
+    },
+    'content-view': {
+      type: Object as PropType<typeof NSView>
+    },
+    'content-view-margins': {
+      type: Object as PropType<CGSize>
+    },
+    'corner-radius': {
+      type: Object as PropType<number>
+    },
+    'fill-color': {
+      type: Object as PropType<NSColor>
+    },
+    'title': {
+      type: String
+    },
+    'title-font': {
+      type: Object as PropType<NSFont>
+    },
+    'title-position': {
+      type: String as PropType<keyof typeof NSBox.TitlePosition>
+    },
+    'is-transparent': {
+      type: Object as PropType<boolean>
+    },
+    'frame-from-content-frame': {
+      type: Object as PropType<CGRect>
+    },
+  },
 
-			if (this['box-type'] !== undefined) {
-				attrs['box-type'] = NSBox.BoxType[this['box-type']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['title-position'] !== undefined) {
-				attrs['title-position'] = NSBox.TitlePosition[this['title-position']];
-			}
+      let types = {
+        boxType: NSBox.BoxType,
+        titlePosition: NSBox.TitlePosition,
+      };
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
-	render() {
-		return h('Box', this.attrs, this.$slots);
-	}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('Box', this.attrs, this.$slots);
+  }
 });
 </script>

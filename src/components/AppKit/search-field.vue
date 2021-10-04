@@ -3,49 +3,56 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import TextField from './text-field.vue';
 
 export default defineComponent({
-	extends: { TextField },
+  name: 'search-field',
 
-	props: {
-		'delegate': {
-			type: Object as PropType<NSSearchFieldDelegate>,
-			default: () => undefined
-		},
-		'maximum-recents': {
-			type: Number,
-			default: () => undefined
-		},
-		'recent-searches': {
-			type: Object as PropType<string[]>,
-			default: () => undefined
-		},
-		'recents-autosave-name': {
-			type: String,
-			default: () => undefined
-		},
-		'search-menu-template': {
-			type: Object as PropType<NSMenu>,
-			default: () => undefined
-		},
-		'sends-search-string-immediately': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'sends-whole-search-string': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { TextField },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'centers-placeholder': {
+      type: Object as PropType<boolean>
+    },
+    'delegate': {
+      type: Object as PropType<NSSearchFieldDelegate>
+    },
+    'maximum-recents': {
+      type: Object as PropType<number>
+    },
+    'recent-searches': {
+      type: Object as PropType<string[]>
+    },
+    'recents-autosave-name': {
+      type: String
+    },
+    'search-menu-template': {
+      type: Object as PropType<NSMenu>
+    },
+    'sends-search-string-immediately': {
+      type: Object as PropType<boolean>
+    },
+    'sends-whole-search-string': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('SearchField', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('SearchField', this.attrs, this.$slots);
+  }
 });
 </script>

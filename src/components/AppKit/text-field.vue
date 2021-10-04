@@ -3,97 +3,87 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'text-field',
 
-	props: {
-		'allows-character-picker-touch-bar-item': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'allows-default-tightening-for-truncation': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'allows-editing-text-attributes': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-automatic-text-completion-enabled': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'bezel-style': {
-			type: String as PropType<keyof typeof NSTextField.BezelStyle>,
-			default: () => undefined
-		},
-		'is-bezeled': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-bordered': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSTextFieldDelegate>,
-			default: () => undefined
-		},
-		'draws-background': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-editable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'imports-graphics': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'maximum-number-of-lines': {
-			type: Number,
-			default: () => undefined
-		},
-		'placeholder-attributed-string': {
-			type: Object as PropType<NSAttributedString>,
-			default: () => undefined
-		},
-		'placeholder-string': {
-			type: String,
-			default: () => undefined
-		},
-		'preferred-max-layout-width': {
-			type: Number,
-			default: () => undefined
-		},
-		'is-selectable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'text-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'allows-character-picker-touch-bar-item': {
+      type: Object as PropType<boolean>
+    },
+    'allows-default-tightening-for-truncation': {
+      type: Object as PropType<boolean>
+    },
+    'allows-editing-text-attributes': {
+      type: Object as PropType<boolean>
+    },
+    'is-automatic-text-completion-enabled': {
+      type: Object as PropType<boolean>
+    },
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'bezel-style': {
+      type: String as PropType<keyof typeof NSTextField.BezelStyle>
+    },
+    'is-bezeled': {
+      type: Object as PropType<boolean>
+    },
+    'is-bordered': {
+      type: Object as PropType<boolean>
+    },
+    'delegate': {
+      type: Object as PropType<NSTextFieldDelegate>
+    },
+    'draws-background': {
+      type: Object as PropType<boolean>
+    },
+    'is-editable': {
+      type: Object as PropType<boolean>
+    },
+    'imports-graphics': {
+      type: Object as PropType<boolean>
+    },
+    'maximum-number-of-lines': {
+      type: Object as PropType<number>
+    },
+    'placeholder-attributed-string': {
+      type: Object as PropType<NSAttributedString>
+    },
+    'placeholder-string': {
+      type: String
+    },
+    'preferred-max-layout-width': {
+      type: Object as PropType<number>
+    },
+    'is-selectable': {
+      type: Object as PropType<boolean>
+    },
+    'text-color': {
+      type: Object as PropType<NSColor>
+    },
+  },
 
-			if (this['bezel-style'] !== undefined) {
-				attrs['bezel-style'] = NSTextField.BezelStyle[this['bezel-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        bezelStyle: NSTextField.BezelStyle,
+      };
 
-	render() {
-		return h('TextField', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('TextField', this.attrs, this.$slots);
+  }
 });
 </script>

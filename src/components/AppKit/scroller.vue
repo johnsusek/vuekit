@@ -3,41 +3,43 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'scroller',
 
-	props: {
-		'knob-proportion': {
-			type: Number,
-			default: () => undefined
-		},
-		'knob-style': {
-			type: String as PropType<keyof typeof NSScroller.KnobStyle>,
-			default: () => undefined
-		},
-		'scroller-style': {
-			type: String as PropType<keyof typeof NSScroller.Style>,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'knob-proportion': {
+      type: Object as PropType<number>
+    },
+    'knob-style': {
+      type: String as PropType<keyof typeof NSScroller.KnobStyle>
+    },
+    'scroller-style': {
+      type: String as PropType<keyof typeof NSScroller.Style>
+    },
+  },
 
-			if (this['knob-style'] !== undefined) {
-				attrs['knob-style'] = NSScroller.KnobStyle[this['knob-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['scroller-style'] !== undefined) {
-				attrs['scroller-style'] = NSScroller.Style[this['scroller-style']];
-			}
+      let types = {
+        knobStyle: NSScroller.KnobStyle,
+        scrollerStyle: NSScroller.Style,
+      };
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
-	render() {
-		return h('Scroller', this.attrs, this.$slots);
-	}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('Scroller', this.attrs, this.$slots);
+  }
 });
 </script>

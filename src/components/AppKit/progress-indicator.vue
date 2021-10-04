@@ -3,73 +3,65 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'progress-indicator',
 
-	props: {
-		'is-bezeled': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'control-size': {
-			type: String as PropType<keyof typeof NSControl.ControlSize>,
-			default: () => undefined
-		},
-		'control-tint': {
-			type: String as PropType<keyof typeof NSControlTint>,
-			default: () => undefined
-		},
-		'is-displayed-when-stopped': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'double-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'is-indeterminate': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'max-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'min-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'style': {
-			type: String as PropType<keyof typeof NSProgressIndicator.Style>,
-			default: () => undefined
-		},
-		'uses-threaded-animation': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'is-bezeled': {
+      type: Object as PropType<boolean>
+    },
+    'control-size': {
+      type: String as PropType<keyof typeof NSControl.ControlSize>
+    },
+    'control-tint': {
+      type: String as PropType<keyof typeof NSControlTint>
+    },
+    'is-displayed-when-stopped': {
+      type: Object as PropType<boolean>
+    },
+    'double-value': {
+      type: Object as PropType<number>
+    },
+    'is-indeterminate': {
+      type: Object as PropType<boolean>
+    },
+    'max-value': {
+      type: Object as PropType<number>
+    },
+    'min-value': {
+      type: Object as PropType<number>
+    },
+    'style': {
+      type: String as PropType<keyof typeof NSProgressIndicator.Style>
+    },
+    'uses-threaded-animation': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			if (this['control-size'] !== undefined) {
-				attrs['control-size'] = NSControl.ControlSize[this['control-size']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['control-tint'] !== undefined) {
-				attrs['control-tint'] = NSControlTint[this['control-tint']];
-			}
+      let types = {
+        controlSize: NSControl.ControlSize,
+        controlTint: NSControlTint,
+        style: NSProgressIndicator.Style,
+      };
 
- 			if (this['style'] !== undefined) {
-				attrs['style'] = NSProgressIndicator.Style[this['style']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
-	render() {
-		return h('ProgressIndicator', this.attrs, this.$slots);
-	}
+  render() {
+    return h('ProgressIndicator', this.attrs, this.$slots);
+  }
 });
 </script>

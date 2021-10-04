@@ -3,125 +3,100 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
+  name: 'control',
+
   extends: { View },
 
   props: {
     'action': {
-      type: String,
-      default: () => undefined
+      type: Object as PropType<string>
     },
     'alignment': {
-      type: String as PropType<keyof typeof NSTextAlignment>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSTextAlignment>
     },
     'allows-expansion-tool-tips': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'attributed-string-value': {
-      type: Object as PropType<NSAttributedString>,
-      default: () => undefined
+      type: Object as PropType<NSAttributedString>
     },
     'base-writing-direction': {
-      type: String as PropType<keyof typeof NSWritingDirection>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSWritingDirection>
     },
     'cell': {
-      type: Object as PropType<NSCell>,
-      default: () => undefined
+      type: Object as PropType<typeof NSCell>
     },
     'is-continuous': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSControl.ControlSize>
     },
     'double-value': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'is-enabled': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'float-value': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'font': {
-      type: Object as PropType<NSFont>,
-      default: () => undefined
+      type: Object as PropType<NSFont>
     },
     'formatter': {
-      type: Object as PropType<NSFormatter>,
-      default: () => undefined
+      type: Object as PropType<typeof Formatter>
     },
     'is-highlighted': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'ignores-multi-click': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'int-value': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'integer-value': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'line-break-mode': {
-      type: String as PropType<keyof typeof NSLineBreakMode>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSLineBreakMode>
     },
     'object-value': {
-      type: Object,
-      default: () => undefined
+      type: Object as PropType<any>
     },
     'refuses-first-responder': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'string-value': {
-      type: String,
-      default: () => undefined
+      type: String
     },
     'tag': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'target': {
-      type: Object,
-      default: () => undefined
+      type: Object as PropType<any>
     },
     'uses-single-line-mode': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
   },
 
   computed: {
     attrs() {
-      let attrs = {};
+      let attrs: any = {};
 
-      if (this['alignment'] !== undefined) {
-        attrs['alignment'] = NSTextAlignment[this['alignment']];
-      }
+      let types = {
+        alignment: NSTextAlignment,
+        baseWritingDirection: NSWritingDirection,
+        controlSize: NSControl.ControlSize,
+        lineBreakMode: NSLineBreakMode,
+      };
 
-      if (this['base-writing-direction'] !== undefined) {
-        attrs['base-writing-direction'] = NSWritingDirection[this['base-writing-direction']];
-      }
-
-      if (this['control-size'] !== undefined) {
-        attrs['control-size'] = NSControl.ControlSize[this['control-size']];
-      }
-
-      if (this['line-break-mode'] !== undefined) {
-        attrs['line-break-mode'] = NSLineBreakMode[this['line-break-mode']];
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
       }
 
       return { ...this.$props, ...this.$attrs, ...attrs };

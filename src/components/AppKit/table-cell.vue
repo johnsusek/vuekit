@@ -3,49 +3,49 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'table-cell',
 
-	props: {
-		'background-style': {
-			type: String as PropType<keyof typeof NSView.BackgroundStyle>,
-			default: () => undefined
-		},
-		'image-view': {
-			type: Object as PropType<NSImageView>,
-			default: () => undefined
-		},
-		'object-value': {
-			type: Object,
-			default: () => undefined
-		},
-		'row-size-style': {
-			type: String as PropType<keyof typeof NSTableView.RowSizeStyle>,
-			default: () => undefined
-		},
-		'text-field': {
-			type: Object as PropType<NSTextField>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'background-style': {
+      type: String as PropType<keyof typeof NSView.BackgroundStyle>
+    },
+    'image-view': {
+      type: Object as PropType<NSImageView>
+    },
+    'object-value': {
+      type: Object as PropType<any>
+    },
+    'row-size-style': {
+      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>
+    },
+    'text-field': {
+      type: Object as PropType<NSTextField>
+    },
+  },
 
-			if (this['background-style'] !== undefined) {
-				attrs['background-style'] = NSView.BackgroundStyle[this['background-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['row-size-style'] !== undefined) {
-				attrs['row-size-style'] = NSTableView.RowSizeStyle[this['row-size-style']];
-			}
+      let types = {
+        backgroundStyle: NSView.BackgroundStyle,
+        rowSizeStyle: NSTableView.RowSizeStyle,
+      };
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
-	render() {
-		return h('TableCellView', this.attrs, this.$slots);
-	}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('TableCellView', this.attrs, this.$slots);
+  }
 });
 </script>

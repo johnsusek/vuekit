@@ -3,53 +3,50 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'visual-effect',
 
-	props: {
-		'blending-mode': {
-			type: String as PropType<keyof typeof NSVisualEffectView.BlendingMode>,
-			default: () => undefined
-		},
-		'is-emphasized': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'mask-image': {
-			type: Object as PropType<NSImage>,
-			default: () => undefined
-		},
-		'material': {
-			type: String as PropType<keyof typeof NSVisualEffectView.Material>,
-			default: () => undefined
-		},
-		'state': {
-			type: String as PropType<keyof typeof NSVisualEffectView.State>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'blending-mode': {
+      type: String as PropType<keyof typeof NSVisualEffectView.BlendingMode>
+    },
+    'is-emphasized': {
+      type: Object as PropType<boolean>
+    },
+    'mask-image': {
+      type: Object as PropType<NSImage>
+    },
+    'material': {
+      type: String as PropType<keyof typeof NSVisualEffectView.Material>
+    },
+    'state': {
+      type: String as PropType<keyof typeof NSVisualEffectView.State>
+    },
+  },
 
-			if (this['blending-mode'] !== undefined) {
-				attrs['blending-mode'] = NSVisualEffectView.BlendingMode[this['blending-mode']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['material'] !== undefined) {
-				attrs['material'] = NSVisualEffectView.Material[this['material']];
-			}
+      let types = {
+        blendingMode: NSVisualEffectView.BlendingMode,
+        material: NSVisualEffectView.Material,
+        state: NSVisualEffectView.State,
+      };
 
- 			if (this['state'] !== undefined) {
-				attrs['state'] = NSVisualEffectView.State[this['state']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
-	render() {
-		return h('VisualEffectView', this.attrs, this.$slots);
-	}
+  render() {
+    return h('VisualEffectView', this.attrs, this.$slots);
+  }
 });
 </script>

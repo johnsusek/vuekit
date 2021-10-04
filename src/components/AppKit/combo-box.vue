@@ -3,57 +3,59 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import TextField from './text-field.vue';
 
 export default defineComponent({
-	extends: { TextField },
+  name: 'combo-box',
 
-	props: {
-		'is-button-bordered': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'completes': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'data-source': {
-			type: Object as PropType<NSComboBoxDataSource>,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSComboBoxDelegate>,
-			default: () => undefined
-		},
-		'has-vertical-scroller': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'intercell-spacing': {
-			type: Object as PropType<CGSize>,
-			default: () => undefined
-		},
-		'item-height': {
-			type: Number,
-			default: () => undefined
-		},
-		'number-of-visible-items': {
-			type: Number,
-			default: () => undefined
-		},
-		'uses-data-source': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { TextField },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'is-button-bordered': {
+      type: Object as PropType<boolean>
+    },
+    'completes': {
+      type: Object as PropType<boolean>
+    },
+    'data-source': {
+      type: Object as PropType<NSComboBoxDataSource>
+    },
+    'delegate': {
+      type: Object as PropType<NSComboBoxDelegate>
+    },
+    'has-vertical-scroller': {
+      type: Object as PropType<boolean>
+    },
+    'intercell-spacing': {
+      type: Object as PropType<CGSize>
+    },
+    'item-height': {
+      type: Object as PropType<number>
+    },
+    'number-of-visible-items': {
+      type: Object as PropType<number>
+    },
+    'uses-data-source': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('ComboBox', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('ComboBox', this.attrs, this.$slots);
+  }
 });
 </script>

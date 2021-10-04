@@ -3,25 +3,35 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'table-header',
 
-	props: {
-		'table-view': {
-			type: Object as PropType<NSTableView>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'table-view': {
+      type: Object as PropType<NSTableView>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('TableHeaderView', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('TableHeaderView', this.attrs, this.$slots);
+  }
 });
 </script>

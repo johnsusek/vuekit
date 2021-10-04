@@ -3,189 +3,146 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'scroll',
 
-	props: {
-		'allows-magnification': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'autohides-scrollers': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'automatically-adjusts-content-insets': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'border-type': {
-			type: String as PropType<keyof typeof NSBorderType>,
-			default: () => undefined
-		},
-		'content-insets': {
-			type: Object as PropType<NSEdgeInsets>,
-			default: () => undefined
-		},
-		'content-view': {
-			type: Object as PropType<NSClipView>,
-			default: () => undefined
-		},
-		'document-cursor': {
-			type: Object as PropType<NSCursor>,
-			default: () => undefined
-		},
-		'document-view': {
-			type: Object as PropType<NSView>,
-			default: () => undefined
-		},
-		'draws-background': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'find-bar-position': {
-			type: String as PropType<keyof typeof NSScrollView.FindBarPosition>,
-			default: () => undefined
-		},
-		'has-horizontal-ruler': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'has-horizontal-scroller': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'has-vertical-ruler': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'has-vertical-scroller': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'horizontal-line-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'horizontal-page-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'horizontal-ruler-view': {
-			type: Object as PropType<NSRulerView>,
-			default: () => undefined
-		},
-		'horizontal-scroll-elasticity': {
-			type: String as PropType<keyof typeof NSScrollView.Elasticity>,
-			default: () => undefined
-		},
-		'horizontal-scroller': {
-			type: Object as PropType<NSScroller>,
-			default: () => undefined
-		},
-		'line-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'magnification': {
-			type: Number,
-			default: () => undefined
-		},
-		'max-magnification': {
-			type: Number,
-			default: () => undefined
-		},
-		'min-magnification': {
-			type: Number,
-			default: () => undefined
-		},
-		'page-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'rulers-visible': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'scroller-insets': {
-			type: Object as PropType<NSEdgeInsets>,
-			default: () => undefined
-		},
-		'scroller-knob-style': {
-			type: String as PropType<keyof typeof NSScroller.KnobStyle>,
-			default: () => undefined
-		},
-		'scroller-style': {
-			type: String as PropType<keyof typeof NSScroller.Style>,
-			default: () => undefined
-		},
-		'scrolls-dynamically': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'uses-predominant-axis-scrolling': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'vertical-line-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'vertical-page-scroll': {
-			type: Number,
-			default: () => undefined
-		},
-		'vertical-ruler-view': {
-			type: Object as PropType<NSRulerView>,
-			default: () => undefined
-		},
-		'vertical-scroll-elasticity': {
-			type: String as PropType<keyof typeof NSScrollView.Elasticity>,
-			default: () => undefined
-		},
-		'vertical-scroller': {
-			type: Object as PropType<NSScroller>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'allows-magnification': {
+      type: Object as PropType<boolean>
+    },
+    'autohides-scrollers': {
+      type: Object as PropType<boolean>
+    },
+    'automatically-adjusts-content-insets': {
+      type: Object as PropType<boolean>
+    },
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'border-type': {
+      type: String as PropType<keyof typeof NSBorderType>
+    },
+    'content-insets': {
+      type: Object as PropType<NSEdgeInsets>
+    },
+    'content-view': {
+      type: Object as PropType<NSClipView>
+    },
+    'document-cursor': {
+      type: Object as PropType<NSCursor>
+    },
+    'document-view': {
+      type: Object as PropType<typeof NSView>
+    },
+    'draws-background': {
+      type: Object as PropType<boolean>
+    },
+    'find-bar-position': {
+      type: String as PropType<keyof typeof NSScrollView.FindBarPosition>
+    },
+    'has-horizontal-ruler': {
+      type: Object as PropType<boolean>
+    },
+    'has-horizontal-scroller': {
+      type: Object as PropType<boolean>
+    },
+    'has-vertical-ruler': {
+      type: Object as PropType<boolean>
+    },
+    'has-vertical-scroller': {
+      type: Object as PropType<boolean>
+    },
+    'horizontal-line-scroll': {
+      type: Object as PropType<number>
+    },
+    'horizontal-page-scroll': {
+      type: Object as PropType<number>
+    },
+    'horizontal-ruler-view': {
+      type: Object as PropType<NSRulerView>
+    },
+    'horizontal-scroll-elasticity': {
+      type: String as PropType<keyof typeof NSScrollView.Elasticity>
+    },
+    'horizontal-scroller': {
+      type: Object as PropType<NSScroller>
+    },
+    'line-scroll': {
+      type: Object as PropType<number>
+    },
+    'magnification': {
+      type: Object as PropType<number>
+    },
+    'max-magnification': {
+      type: Object as PropType<number>
+    },
+    'min-magnification': {
+      type: Object as PropType<number>
+    },
+    'page-scroll': {
+      type: Object as PropType<number>
+    },
+    'rulers-visible': {
+      type: Object as PropType<boolean>
+    },
+    'scroller-insets': {
+      type: Object as PropType<NSEdgeInsets>
+    },
+    'scroller-knob-style': {
+      type: String as PropType<keyof typeof NSScroller.KnobStyle>
+    },
+    'scroller-style': {
+      type: String as PropType<keyof typeof NSScroller.Style>
+    },
+    'scrolls-dynamically': {
+      type: Object as PropType<boolean>
+    },
+    'uses-predominant-axis-scrolling': {
+      type: Object as PropType<boolean>
+    },
+    'vertical-line-scroll': {
+      type: Object as PropType<number>
+    },
+    'vertical-page-scroll': {
+      type: Object as PropType<number>
+    },
+    'vertical-ruler-view': {
+      type: Object as PropType<NSRulerView>
+    },
+    'vertical-scroll-elasticity': {
+      type: String as PropType<keyof typeof NSScrollView.Elasticity>
+    },
+    'vertical-scroller': {
+      type: Object as PropType<NSScroller>
+    },
+  },
 
-			if (this['border-type'] !== undefined) {
-				attrs['border-type'] = NSBorderType[this['border-type']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['find-bar-position'] !== undefined) {
-				attrs['find-bar-position'] = NSScrollView.FindBarPosition[this['find-bar-position']];
-			}
+      let types = {
+        borderType: NSBorderType,
+        findBarPosition: NSScrollView.FindBarPosition,
+        horizontalScrollElasticity: NSScrollView.Elasticity,
+        scrollerKnobStyle: NSScroller.KnobStyle,
+        scrollerStyle: NSScroller.Style,
+        verticalScrollElasticity: NSScrollView.Elasticity,
+      };
 
- 			if (this['horizontal-scroll-elasticity'] !== undefined) {
-				attrs['horizontal-scroll-elasticity'] = NSScrollView.Elasticity[this['horizontal-scroll-elasticity']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			if (this['scroller-knob-style'] !== undefined) {
-				attrs['scroller-knob-style'] = NSScroller.KnobStyle[this['scroller-knob-style']];
-			}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
- 			if (this['scroller-style'] !== undefined) {
-				attrs['scroller-style'] = NSScroller.Style[this['scroller-style']];
-			}
-
- 			if (this['vertical-scroll-elasticity'] !== undefined) {
-				attrs['vertical-scroll-elasticity'] = NSScrollView.Elasticity[this['vertical-scroll-elasticity']];
-			}
-
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
-
-	render() {
-		return h('ScrollView', this.attrs, this.$slots);
-	}
+  render() {
+    return h('ScrollView', this.attrs, this.$slots);
+  }
 });
 </script>

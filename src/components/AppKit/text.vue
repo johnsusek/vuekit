@@ -3,105 +3,91 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'text',
 
-	props: {
-		'alignment': {
-			type: String as PropType<keyof typeof NSTextAlignment>,
-			default: () => undefined
-		},
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'base-writing-direction': {
-			type: String as PropType<keyof typeof NSWritingDirection>,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSTextDelegate>,
-			default: () => undefined
-		},
-		'draws-background': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-editable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-field-editor': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'font': {
-			type: Object as PropType<NSFont>,
-			default: () => undefined
-		},
-		'is-horizontally-resizable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'imports-graphics': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'max-size': {
-			type: Object as PropType<CGSize>,
-			default: () => undefined
-		},
-		'min-size': {
-			type: Object as PropType<CGSize>,
-			default: () => undefined
-		},
-		'is-rich-text': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-selectable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'selected-range': {
-			type: Object as PropType<NSRange>,
-			default: () => undefined
-		},
-		'string': {
-			type: String,
-			default: () => undefined
-		},
-		'text-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'uses-font-panel': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-vertically-resizable': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'alignment': {
+      type: String as PropType<keyof typeof NSTextAlignment>
+    },
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'base-writing-direction': {
+      type: String as PropType<keyof typeof NSWritingDirection>
+    },
+    'delegate': {
+      type: Object as PropType<NSTextDelegate>
+    },
+    'draws-background': {
+      type: Object as PropType<boolean>
+    },
+    'is-editable': {
+      type: Object as PropType<boolean>
+    },
+    'is-field-editor': {
+      type: Object as PropType<boolean>
+    },
+    'font': {
+      type: Object as PropType<NSFont>
+    },
+    'is-horizontally-resizable': {
+      type: Object as PropType<boolean>
+    },
+    'imports-graphics': {
+      type: Object as PropType<boolean>
+    },
+    'max-size': {
+      type: Object as PropType<CGSize>
+    },
+    'min-size': {
+      type: Object as PropType<CGSize>
+    },
+    'is-rich-text': {
+      type: Object as PropType<boolean>
+    },
+    'is-selectable': {
+      type: Object as PropType<boolean>
+    },
+    'selected-range': {
+      type: Object as PropType<NSRange>
+    },
+    'string': {
+      type: String
+    },
+    'text-color': {
+      type: Object as PropType<NSColor>
+    },
+    'uses-font-panel': {
+      type: Object as PropType<boolean>
+    },
+    'is-vertically-resizable': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			if (this['alignment'] !== undefined) {
-				attrs['alignment'] = NSTextAlignment[this['alignment']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['base-writing-direction'] !== undefined) {
-				attrs['base-writing-direction'] = NSWritingDirection[this['base-writing-direction']];
-			}
+      let types = {
+        alignment: NSTextAlignment,
+        baseWritingDirection: NSWritingDirection,
+      };
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
-	render() {
-		return h('Text', this.attrs, this.$slots);
-	}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('Text', this.attrs, this.$slots);
+  }
 });
 </script>

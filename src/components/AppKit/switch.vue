@@ -3,25 +3,35 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'switch',
 
-	props: {
-		'state': {
-			type: Object as PropType<NSControl.StateValue>,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'state': {
+      type: Object as PropType<number>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('Switch', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('Switch', this.attrs, this.$slots);
+  }
 });
 </script>

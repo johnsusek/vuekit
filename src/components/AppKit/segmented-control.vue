@@ -3,61 +3,56 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'segmented-control',
 
-	props: {
-		'segment-count': {
-			type: Number,
-			default: () => undefined
-		},
-		'segment-distribution': {
-			type: String as PropType<keyof typeof NSSegmentedControl.Distribution>,
-			default: () => undefined
-		},
-		'segment-style': {
-			type: String as PropType<keyof typeof NSSegmentedControl.Style>,
-			default: () => undefined
-		},
-		'selected-segment': {
-			type: Number,
-			default: () => undefined
-		},
-		'selected-segment-bezel-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'is-spring-loaded': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'tracking-mode': {
-			type: String as PropType<keyof typeof NSSegmentedControl.SwitchTracking>,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'segment-count': {
+      type: Object as PropType<number>
+    },
+    'segment-distribution': {
+      type: String as PropType<keyof typeof NSSegmentedControl.Distribution>
+    },
+    'segment-style': {
+      type: String as PropType<keyof typeof NSSegmentedControl.Style>
+    },
+    'selected-segment': {
+      type: Object as PropType<number>
+    },
+    'selected-segment-bezel-color': {
+      type: Object as PropType<NSColor>
+    },
+    'is-spring-loaded': {
+      type: Object as PropType<boolean>
+    },
+    'tracking-mode': {
+      type: String as PropType<keyof typeof NSSegmentedControl.SwitchTracking>
+    },
+  },
 
-			if (this['segment-distribution'] !== undefined) {
-				attrs['segment-distribution'] = NSSegmentedControl.Distribution[this['segment-distribution']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['segment-style'] !== undefined) {
-				attrs['segment-style'] = NSSegmentedControl.Style[this['segment-style']];
-			}
+      let types = {
+        segmentDistribution: NSSegmentedControl.Distribution,
+        segmentStyle: NSSegmentedControl.Style,
+        trackingMode: NSSegmentedControl.SwitchTracking,
+      };
 
- 			if (this['tracking-mode'] !== undefined) {
-				attrs['tracking-mode'] = NSSegmentedControl.SwitchTracking[this['tracking-mode']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
-	render() {
-		return h('SegmentedControl', this.attrs, this.$slots);
-	}
+  render() {
+    return h('SegmentedControl', this.attrs, this.$slots);
+  }
 });
 </script>

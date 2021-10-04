@@ -3,26 +3,28 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from '../AppKit/view.vue';
 
 export default defineComponent({
+  name: 'av-capture',
+
   extends: { View },
 
   props: {
     'controls-style': {
       type: String as PropType<keyof typeof AVCaptureViewControlsStyle>,
-      default: () => undefined
+      default: () => undefined,
     },
     'delegate': {
       type: Object as PropType<AVCaptureViewDelegate>,
-      default: () => undefined
+      default: () => undefined,
     },
     'video-gravity': {
       type: String,
-      default: () => undefined
+      default: () => undefined,
     },
   },
 
   computed: {
     attrs() {
-      let attrs = {};
+      let attrs: any = {};
 
       if (this['controls-style'] !== undefined) {
         attrs['controls-style'] = AVCaptureViewControlsStyle[this['controls-style']];

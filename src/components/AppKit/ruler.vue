@@ -3,65 +3,63 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'ruler',
 
-	props: {
-		'accessory-view': {
-			type: Object as PropType<NSView>,
-			default: () => undefined
-		},
-		'client-view': {
-			type: Object as PropType<NSView>,
-			default: () => undefined
-		},
-		'markers': {
-			type: Object as PropType<NSRulerMarker[]>,
-			default: () => undefined
-		},
-		'measurement-units': {
-			type: String,
-			default: () => undefined
-		},
-		'orientation': {
-			type: String as PropType<keyof typeof NSRulerView.Orientation>,
-			default: () => undefined
-		},
-		'origin-offset': {
-			type: Number,
-			default: () => undefined
-		},
-		'reserved-thickness-for-accessory-view': {
-			type: Number,
-			default: () => undefined
-		},
-		'reserved-thickness-for-markers': {
-			type: Number,
-			default: () => undefined
-		},
-		'rule-thickness': {
-			type: Number,
-			default: () => undefined
-		},
-		'scroll-view': {
-			type: Object as PropType<NSScrollView>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'accessory-view': {
+      type: Object as PropType<NSView>
+    },
+    'client-view': {
+      type: Object as PropType<NSView>
+    },
+    'markers': {
+      type: Object as PropType<NSRulerMarker[]>
+    },
+    'measurement-units': {
+      type: String
+    },
+    'orientation': {
+      type: String as PropType<keyof typeof NSRulerView.Orientation>
+    },
+    'origin-offset': {
+      type: Object as PropType<number>
+    },
+    'reserved-thickness-for-accessory-view': {
+      type: Object as PropType<number>
+    },
+    'reserved-thickness-for-markers': {
+      type: Object as PropType<number>
+    },
+    'rule-thickness': {
+      type: Object as PropType<number>
+    },
+    'scroll-view': {
+      type: Object as PropType<NSScrollView>
+    },
+  },
 
-			if (this['orientation'] !== undefined) {
-				attrs['orientation'] = NSRulerView.Orientation[this['orientation']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        orientation: NSRulerView.Orientation,
+      };
 
-	render() {
-		return h('RulerView', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('RulerView', this.attrs, this.$slots);
+  }
 });
 </script>

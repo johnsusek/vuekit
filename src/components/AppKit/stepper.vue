@@ -3,41 +3,47 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'stepper',
 
-	props: {
-		'autorepeat': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'increment': {
-			type: Number,
-			default: () => undefined
-		},
-		'max-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'min-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'value-wraps': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'autorepeat': {
+      type: Object as PropType<boolean>
+    },
+    'increment': {
+      type: Object as PropType<number>
+    },
+    'max-value': {
+      type: Object as PropType<number>
+    },
+    'min-value': {
+      type: Object as PropType<number>
+    },
+    'value-wraps': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('Stepper', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('Stepper', this.attrs, this.$slots);
+  }
 });
 </script>

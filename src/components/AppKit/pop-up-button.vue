@@ -3,37 +3,42 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Button from './button.vue';
 
 export default defineComponent({
-	extends: { Button },
+  name: 'pop-up-button',
 
-	props: {
-		'autoenables-items': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'preferred-edge': {
-			type: String as PropType<keyof typeof NSRectEdge>,
-			default: () => undefined
-		},
-		'pulls-down': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { Button },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'autoenables-items': {
+      type: Object as PropType<boolean>
+    },
+    'preferred-edge': {
+      type: String as PropType<keyof typeof NSRectEdge>
+    },
+    'pulls-down': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			if (this['preferred-edge'] !== undefined) {
-				attrs['preferred-edge'] = NSRectEdge[this['preferred-edge']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        preferredEdge: NSRectEdge,
+      };
 
-	render() {
-		return h('PopUpButton', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('PopUpButton', this.attrs, this.$slots);
+  }
 });
 </script>

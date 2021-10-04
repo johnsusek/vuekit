@@ -3,65 +3,63 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'path-control',
 
-	props: {
-		'url': {
-			type: Object as PropType<NSURL>,
-			default: () => undefined
-		},
-		'allowed-types': {
-			type: Object as PropType<string[]>,
-			default: () => undefined
-		},
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSPathControlDelegate>,
-			default: () => undefined
-		},
-		'double-action': {
-			type: String,
-			default: () => undefined
-		},
-		'is-editable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'path-items': {
-			type: Object as PropType<NSPathControlItem[]>,
-			default: () => undefined
-		},
-		'path-style': {
-			type: String as PropType<keyof typeof NSPathControl.Style>,
-			default: () => undefined
-		},
-		'placeholder-attributed-string': {
-			type: Object as PropType<NSAttributedString>,
-			default: () => undefined
-		},
-		'placeholder-string': {
-			type: String,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'url': {
+      type: Object as PropType<NSURL>
+    },
+    'allowed-types': {
+      type: Object as PropType<string[]>
+    },
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'delegate': {
+      type: Object as PropType<NSPathControlDelegate>
+    },
+    'double-action': {
+      type: Object as PropType<string>
+    },
+    'is-editable': {
+      type: Object as PropType<boolean>
+    },
+    'path-items': {
+      type: Object as PropType<NSPathControlItem[]>
+    },
+    'path-style': {
+      type: String as PropType<keyof typeof NSPathControl.Style>
+    },
+    'placeholder-attributed-string': {
+      type: Object as PropType<NSAttributedString>
+    },
+    'placeholder-string': {
+      type: String
+    },
+  },
 
-			if (this['path-style'] !== undefined) {
-				attrs['path-style'] = NSPathControl.Style[this['path-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        pathStyle: NSPathControl.Style,
+      };
 
-	render() {
-		return h('PathControl', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('PathControl', this.attrs, this.$slots);
+  }
 });
 </script>

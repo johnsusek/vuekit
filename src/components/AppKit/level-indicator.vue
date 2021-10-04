@@ -3,97 +3,83 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
-	extends: { Control },
+  name: 'level-indicator',
 
-	props: {
-		'critical-fill-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'critical-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'draws-tiered-capacity-levels': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-editable': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'fill-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'level-indicator-style': {
-			type: String as PropType<keyof typeof NSLevelIndicator.Style>,
-			default: () => undefined
-		},
-		'max-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'min-value': {
-			type: Number,
-			default: () => undefined
-		},
-		'number-of-major-tick-marks': {
-			type: Number,
-			default: () => undefined
-		},
-		'number-of-tick-marks': {
-			type: Number,
-			default: () => undefined
-		},
-		'placeholder-visibility': {
-			type: String as PropType<keyof typeof NSLevelIndicator.PlaceholderVisibility>,
-			default: () => undefined
-		},
-		'rating-image': {
-			type: Object as PropType<NSImage>,
-			default: () => undefined
-		},
-		'rating-placeholder-image': {
-			type: Object as PropType<NSImage>,
-			default: () => undefined
-		},
-		'tick-mark-position': {
-			type: String as PropType<keyof typeof NSSlider.TickMarkPosition>,
-			default: () => undefined
-		},
-		'warning-fill-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'warning-value': {
-			type: Number,
-			default: () => undefined
-		},
-	},
+  extends: { Control },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'critical-fill-color': {
+      type: Object as PropType<NSColor>
+    },
+    'critical-value': {
+      type: Object as PropType<number>
+    },
+    'draws-tiered-capacity-levels': {
+      type: Object as PropType<boolean>
+    },
+    'is-editable': {
+      type: Object as PropType<boolean>
+    },
+    'fill-color': {
+      type: Object as PropType<NSColor>
+    },
+    'level-indicator-style': {
+      type: String as PropType<keyof typeof NSLevelIndicator.Style>
+    },
+    'max-value': {
+      type: Object as PropType<number>
+    },
+    'min-value': {
+      type: Object as PropType<number>
+    },
+    'number-of-major-tick-marks': {
+      type: Object as PropType<number>
+    },
+    'number-of-tick-marks': {
+      type: Object as PropType<number>
+    },
+    'placeholder-visibility': {
+      type: String as PropType<keyof typeof NSLevelIndicator.PlaceholderVisibility>
+    },
+    'rating-image': {
+      type: Object as PropType<NSImage>
+    },
+    'rating-placeholder-image': {
+      type: Object as PropType<NSImage>
+    },
+    'tick-mark-position': {
+      type: String as PropType<keyof typeof NSSlider.TickMarkPosition>
+    },
+    'warning-fill-color': {
+      type: Object as PropType<NSColor>
+    },
+    'warning-value': {
+      type: Object as PropType<number>
+    },
+  },
 
-			if (this['level-indicator-style'] !== undefined) {
-				attrs['level-indicator-style'] = NSLevelIndicator.Style[this['level-indicator-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['placeholder-visibility'] !== undefined) {
-				attrs['placeholder-visibility'] = NSLevelIndicator.PlaceholderVisibility[this['placeholder-visibility']];
-			}
+      let types = {
+        levelIndicatorStyle: NSLevelIndicator.Style,
+        placeholderVisibility: NSLevelIndicator.PlaceholderVisibility,
+        tickMarkPosition: NSSlider.TickMarkPosition,
+      };
 
- 			if (this['tick-mark-position'] !== undefined) {
-				attrs['tick-mark-position'] = NSSlider.TickMarkPosition[this['tick-mark-position']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
-	render() {
-		return h('LevelIndicator', this.attrs, this.$slots);
-	}
+  render() {
+    return h('LevelIndicator', this.attrs, this.$slots);
+  }
 });
 </script>

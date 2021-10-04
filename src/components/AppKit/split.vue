@@ -3,45 +3,48 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'split',
 
-	props: {
-		'arranges-all-subviews': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'autosave-name': {
-			type: String,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSSplitViewDelegate>,
-			default: () => undefined
-		},
-		'divider-style': {
-			type: String as PropType<keyof typeof NSSplitView.DividerStyle>,
-			default: () => undefined
-		},
-		'is-vertical': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'arranges-all-subviews': {
+      type: Object as PropType<boolean>
+    },
+    'autosave-name': {
+      type: String
+    },
+    'delegate': {
+      type: Object as PropType<NSSplitViewDelegate>
+    },
+    'divider-style': {
+      type: String as PropType<keyof typeof NSSplitView.DividerStyle>
+    },
+    'is-vertical': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			if (this['divider-style'] !== undefined) {
-				attrs['divider-style'] = NSSplitView.DividerStyle[this['divider-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        dividerStyle: NSSplitView.DividerStyle,
+      };
 
-	render() {
-		return h('SplitView', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('SplitView', this.attrs, this.$slots);
+  }
 });
 </script>

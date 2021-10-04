@@ -3,73 +3,67 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'table-row',
 
-	props: {
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'dragging-destination-feedback-style': {
-			type: String as PropType<keyof typeof NSTableView.DraggingDestinationFeedbackStyle>,
-			default: () => undefined
-		},
-		'is-emphasized': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-floating': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-group-row-style': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'indentation-for-drop-operation': {
-			type: Number,
-			default: () => undefined
-		},
-		'is-next-row-selected': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-previous-row-selected': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'is-selected': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'selection-highlight-style': {
-			type: String as PropType<keyof typeof NSTableView.SelectionHighlightStyle>,
-			default: () => undefined
-		},
-		'is-target-for-drop-operation': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'dragging-destination-feedback-style': {
+      type: String as PropType<keyof typeof NSTableView.DraggingDestinationFeedbackStyle>
+    },
+    'is-emphasized': {
+      type: Object as PropType<boolean>
+    },
+    'is-floating': {
+      type: Object as PropType<boolean>
+    },
+    'is-group-row-style': {
+      type: Object as PropType<boolean>
+    },
+    'indentation-for-drop-operation': {
+      type: Object as PropType<number>
+    },
+    'is-next-row-selected': {
+      type: Object as PropType<boolean>
+    },
+    'is-previous-row-selected': {
+      type: Object as PropType<boolean>
+    },
+    'is-selected': {
+      type: Object as PropType<boolean>
+    },
+    'selection-highlight-style': {
+      type: String as PropType<keyof typeof NSTableView.SelectionHighlightStyle>
+    },
+    'is-target-for-drop-operation': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			if (this['dragging-destination-feedback-style'] !== undefined) {
-				attrs['dragging-destination-feedback-style'] = NSTableView.DraggingDestinationFeedbackStyle[this['dragging-destination-feedback-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['selection-highlight-style'] !== undefined) {
-				attrs['selection-highlight-style'] = NSTableView.SelectionHighlightStyle[this['selection-highlight-style']];
-			}
+      let types = {
+        draggingDestinationFeedbackStyle: NSTableView.DraggingDestinationFeedbackStyle,
+        selectionHighlightStyle: NSTableView.SelectionHighlightStyle,
+      };
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
-	render() {
-		return h('TableRowView', this.attrs, this.$slots);
-	}
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('TableRowView', this.attrs, this.$slots);
+  }
 });
 </script>

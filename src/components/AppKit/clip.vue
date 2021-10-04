@@ -3,45 +3,50 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'clip',
 
-	props: {
-		'automatically-adjusts-content-insets': {
-			type: Boolean,
-			default: () => undefined
-		},
-		'background-color': {
-			type: Object as PropType<NSColor>,
-			default: () => undefined
-		},
-		'content-insets': {
-			type: Object as PropType<NSEdgeInsets>,
-			default: () => undefined
-		},
-		'document-cursor': {
-			type: Object as PropType<NSCursor>,
-			default: () => undefined
-		},
-		'document-view': {
-			type: Object as PropType<NSView>,
-			default: () => undefined
-		},
-		'draws-background': {
-			type: Boolean,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'automatically-adjusts-content-insets': {
+      type: Object as PropType<boolean>
+    },
+    'background-color': {
+      type: Object as PropType<NSColor>
+    },
+    'content-insets': {
+      type: Object as PropType<NSEdgeInsets>
+    },
+    'document-cursor': {
+      type: Object as PropType<NSCursor>
+    },
+    'document-view': {
+      type: Object as PropType<typeof NSView>
+    },
+    'draws-background': {
+      type: Object as PropType<boolean>
+    },
+  },
 
-			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
-	render() {
-		return h('ClipView', this.attrs, this.$slots);
-	}
+      let types = {
+      };
+
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('ClipView', this.attrs, this.$slots);
+  }
 });
 </script>

@@ -3,41 +3,45 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import TextField from './text-field.vue';
 
 export default defineComponent({
-	extends: { TextField },
+  name: 'token-field',
 
-	props: {
-		'completion-delay': {
-			type: Number,
-			default: () => undefined
-		},
-		'delegate': {
-			type: Object as PropType<NSTokenFieldDelegate>,
-			default: () => undefined
-		},
-		'token-style': {
-			type: String as PropType<keyof typeof NSTokenField.TokenStyle>,
-			default: () => undefined
-		},
-		'tokenizing-character-set': {
-			type: Object as PropType<NSCharacterSet>,
-			default: () => undefined
-		},
-	},
+  extends: { TextField },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'completion-delay': {
+      type: Object as PropType<number>
+    },
+    'delegate': {
+      type: Object as PropType<NSTokenFieldDelegate>
+    },
+    'token-style': {
+      type: String as PropType<keyof typeof NSTokenField.TokenStyle>
+    },
+    'tokenizing-character-set': {
+      type: Object as PropType<NSCharacterSet>
+    },
+  },
 
-			if (this['token-style'] !== undefined) {
-				attrs['token-style'] = NSTokenField.TokenStyle[this['token-style']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      let types = {
+        tokenStyle: NSTokenField.TokenStyle,
+      };
 
-	render() {
-		return h('TokenField', this.attrs, this.$slots);
-	}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
+
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
+
+  render() {
+    return h('TokenField', this.attrs, this.$slots);
+  }
 });
 </script>

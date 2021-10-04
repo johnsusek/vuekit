@@ -3,53 +3,50 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from './view.vue';
 
 export default defineComponent({
-	extends: { View },
+  name: 'grid',
 
-	props: {
-		'column-spacing': {
-			type: Number,
-			default: () => undefined
-		},
-		'row-alignment': {
-			type: String as PropType<keyof typeof NSGridRow.Alignment>,
-			default: () => undefined
-		},
-		'row-spacing': {
-			type: Number,
-			default: () => undefined
-		},
-		'x-placement': {
-			type: String as PropType<keyof typeof NSGridCell.Placement>,
-			default: () => undefined
-		},
-		'y-placement': {
-			type: String as PropType<keyof typeof NSGridCell.Placement>,
-			default: () => undefined
-		},
-	},
+  extends: { View },
 
-	computed: {
-		attrs() {
-			let attrs = {};
+  props: {
+    'column-spacing': {
+      type: Object as PropType<number>
+    },
+    'row-alignment': {
+      type: String as PropType<keyof typeof NSGridRow.Alignment>
+    },
+    'row-spacing': {
+      type: Object as PropType<number>
+    },
+    'x-placement': {
+      type: String as PropType<keyof typeof NSGridCell.Placement>
+    },
+    'y-placement': {
+      type: String as PropType<keyof typeof NSGridCell.Placement>
+    },
+  },
 
-			if (this['row-alignment'] !== undefined) {
-				attrs['row-alignment'] = NSGridRow.Alignment[this['row-alignment']];
-			}
+  computed: {
+    attrs() {
+      let attrs: any = {};
 
- 			if (this['x-placement'] !== undefined) {
-				attrs['x-placement'] = NSGridCell.Placement[this['x-placement']];
-			}
+      let types = {
+        rowAlignment: NSGridRow.Alignment,
+        xPlacement: NSGridCell.Placement,
+        yPlacement: NSGridCell.Placement,
+      };
 
- 			if (this['y-placement'] !== undefined) {
-				attrs['y-placement'] = NSGridCell.Placement[this['y-placement']];
-			}
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
+      }
 
- 			return { ...this.$props, ...this.$attrs, ...attrs };
-		}
-	},
+      return { ...this.$props, ...this.$attrs, ...attrs };
+    }
+  },
 
-	render() {
-		return h('GridView', this.attrs, this.$slots);
-	}
+  render() {
+    return h('GridView', this.attrs, this.$slots);
+  }
 });
 </script>

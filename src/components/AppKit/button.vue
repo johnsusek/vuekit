@@ -3,125 +3,98 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import Control from './control.vue';
 
 export default defineComponent({
+  name: 'button',
+
   extends: { Control },
 
   props: {
     'allows-mixed-state': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'alternate-image': {
-      type: Object as PropType<NSImage>,
-      default: () => undefined
+      type: Object as PropType<NSImage>
     },
     'alternate-title': {
-      type: String,
-      default: () => undefined
+      type: String
     },
     'attributed-alternate-title': {
-      type: Object as PropType<NSAttributedString>,
-      default: () => undefined
+      type: Object as PropType<NSAttributedString>
     },
     'attributed-title': {
-      type: Object as PropType<NSAttributedString>,
-      default: () => undefined
+      type: Object as PropType<NSAttributedString>
     },
     'bezel-color': {
-      type: Object as PropType<NSColor>,
-      default: () => undefined
+      type: Object as PropType<NSColor>
     },
     'bezel-style': {
-      type: String as PropType<keyof typeof NSButton.BezelStyle>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSButton.BezelStyle>
     },
     'is-bordered': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'content-tint-color': {
-      type: Object as PropType<NSColor>,
-      default: () => undefined
+      type: Object as PropType<NSColor>
     },
     'image': {
-      type: Object as PropType<NSImage>,
-      default: () => undefined
+      type: Object as PropType<NSImage>
     },
     'image-hugs-title': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'image-position': {
-      type: String as PropType<keyof typeof NSControl.ImagePosition>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSControl.ImagePosition>
     },
     'image-scaling': {
-      type: String as PropType<keyof typeof NSImageScaling>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSImageScaling>
     },
     'key-equivalent': {
-      type: String,
-      default: () => undefined
+      type: String
     },
     'key-equivalent-modifier-mask': {
-      type: String as PropType<keyof typeof NSEvent.ModifierFlags>,
-      default: () => undefined
+      type: String as PropType<keyof typeof NSEvent.ModifierFlags>
     },
     'max-accelerator-level': {
-      type: Number,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'shows-border-only-while-mouse-inside': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'sound': {
-      type: Object as PropType<NSSound>,
-      default: () => undefined
+      type: Object as PropType<NSSound>
     },
     'is-spring-loaded': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'state': {
-      type: Object as PropType<NSControl.StateValue>,
-      default: () => undefined
+      type: Object as PropType<number>
     },
     'title': {
-      type: String,
-      default: () => undefined
+      type: String
     },
     'is-transparent': {
-      type: Boolean,
-      default: () => undefined
+      type: Object as PropType<boolean>
     },
     'button-type': {
-      type: Object as PropType<NSButton.ButtonType>,
-      default: () => undefined
+      type: Object as PropType<NSButton.ButtonType>
     },
   },
 
   computed: {
     attrs() {
-      let attrs = {};
+      let attrs: any = {};
 
-      if (this['bezel-style'] !== undefined) {
-        attrs['bezel-style'] = NSButton.BezelStyle[this['bezel-style']];
-      }
+      let types = {
+        bezelStyle: NSButton.BezelStyle,
+        imagePosition: NSControl.ImagePosition,
+        imageScaling: NSImageScaling,
+        keyEquivalentModifierMask: NSEvent.ModifierFlags,
+        buttonType: NSButton.ButtonType,
+      };
 
-      if (this['image-position'] !== undefined) {
-        attrs['image-position'] = NSControl.ImagePosition[this['image-position']];
-      }
-
-      if (this['image-scaling'] !== undefined) {
-        attrs['image-scaling'] = NSImageScaling[this['image-scaling']];
-      }
-
-      if (this['key-equivalent-modifier-mask'] !== undefined) {
-        attrs['key-equivalent-modifier-mask'] = NSEvent.ModifierFlags[this['key-equivalent-modifier-mask']];
-      }
-
-      if (this['setButtonType'] !== undefined) {
-        attrs['setButtonType'] = NSButton.ButtonType[this['setButtonType']];
+      for (const [propName, propType] of Object.entries(types)) {
+        if (this[propName] !== undefined) {
+          attrs[propName] = propType[this[propName]];
+        }
       }
 
       return { ...this.$props, ...this.$attrs, ...attrs };

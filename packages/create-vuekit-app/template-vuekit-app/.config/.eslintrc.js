@@ -1,6 +1,6 @@
 // This file is used by your editor to ensure consistent
 // formatting of your VueKit code.
-
+//
 // You can also run `npm run lint` to check formatting
 // from the command line (e.g. as part of an automated workflow).
 
@@ -27,20 +27,26 @@ module.exports = {
   ],
 
   rules: {
-    // VueKit specific opinionated rules that differ from airbnb-base
+    // Rather than create our own config for VueKit, we start with
+    // the airbnb base config and modify what we need, typically
+    // turning off or relaxing rules.
     'comma-dangle': ['warn', 'never'],
-
-    // Relax some of the airbnb-base rules
+    'consistent-return': 'off',
+    'dot-notation': 'warn',
+    'import/prefer-default-export': 'off',
+    'lines-between-class-members': 'off',
     'max-len': 'off',
-    'no-plusplus': 'off',
-    'no-param-reassign': 'off',
-    'no-restricted-syntax': 'off',
+    'no-bitwise': 'off',
     'no-console': 'off',
     'no-continue': 'off',
+    'no-debugger': 'warn',
+    'no-param-reassign': 'off',
     'no-plusplus': 'off',
-    'no-debugger': 'error',
+    'no-restricted-syntax': 'off',
+    'no-return-assign': 'warn',
     'prefer-const': 'off',
-    'lines-between-class-members': 'off',
+    'prefer-destructuring': 'off',
+    'quote-props': 'warn',
 
     // Relax some typescript-eslint rules
     '@typescript-eslint/no-explicit-any': 'off',

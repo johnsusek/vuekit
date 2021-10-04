@@ -3,23 +3,19 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": false,
-    "noImplicitThis": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true,
+    "strict": false,
+    "noImplicitThis": true,
     "lib": [
-      "esnext"
+      "es2020"
     ]
   },
   "include": [
     "src",
-    "vetur.config.js"
-  ],
-  "exclude": [
     ".config",
-    "build",
-    "node_modules"
+    "vetur.config.js"
   ]
 }

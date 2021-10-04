@@ -16,7 +16,7 @@
     "Beta": "debug"
   },
   "targets": {
-    "my-vuekit-app": {
+    "VueKitApp": {
       "type": "application",
       "platform": "macOS",
       "sources": [
@@ -39,7 +39,7 @@
         ]
       }
     },
-    "my-vuekit-app-tests": {
+    "VueKitAppTests": {
       "type": "bundle.unit-test",
       "platform": "macOS",
       "sources": [

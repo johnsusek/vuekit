@@ -5,6 +5,7 @@ Welcome to your VueKit App!
 ```bash
 npm install
 npm run build
+npm run app
 ```
 
 # Tips

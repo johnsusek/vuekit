@@ -8,7 +8,7 @@ let {
 
 let args = process.argv.slice(2);
 let fileName = args[0];
-let jsePath = path.join(__dirname, '../data/swift');
+let jsePath = path.join(__dirname, '../../data/swift');
 let queue = cq().limit({ concurrency: os.cpus().length - 1 }).process(runTypecheck);
 let frameworks = fs.readdirSync(jsePath).filter((framework) => {
   let frameworkPath = path.join(jsePath, framework);

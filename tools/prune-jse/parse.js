@@ -4,8 +4,8 @@ let { spawn } = require('child_process');
 let fsPromise = require('fs').promises;
 let inheritence = require('../../data/inheritence.json');
 
-let jsePath = path.join(__dirname, '../data/swift');
-let libPath = path.join(__dirname, '../../vuekit/framework/Sources/*.swift');
+let jsePath = path.join(__dirname, '../../data/swift');
+let libPath = path.join(__dirname, '../../framework/Sources/*.swift');
 
 let allFixes = {};
 

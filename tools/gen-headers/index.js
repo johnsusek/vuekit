@@ -83,8 +83,6 @@ async function enqueue(framework) {
 
   fs.writeFileSync(outFile, output);
 
-  numDone++;
-
   console.log(`${framework} done`);
 }
 

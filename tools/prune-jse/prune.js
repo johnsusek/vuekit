@@ -8,8 +8,8 @@ let cq = require('concurrent-queue');
 let cores = require('os').cpus().length;
 let inheritence = require('../../data/inheritence.json');
 
-let rpath = path.join(__dirname, '..', 'metadata');
-let bridgePath = path.join(__dirname, '../../vuekit/framework/Sources');
+let rpath = path.join(__dirname, '../../data');
+let bridgePath = path.join(__dirname, '../../framework/Sources');
 let jsePath = path.join(rpath, 'swift');
 let dstPath = path.join(bridgePath, 'exports');
 if (!fs.existsSync(dstPath)) fs.mkdirSync(dstPath);

@@ -6,21 +6,22 @@ Tools used to generate Vuekit bridge and type files.
 
 Generates swift headers for AppKit classes. This data is used by ast-builder
 
-`node index.js ../data/frameworks.json ../data/headers`
+`node index.js ../../data/frameworks.json ../../data/headers`
 
 # ast-builder
 
 Parses swift headers into an ast and store is json.
 
-`swift run ast-builder ../data/frameworks.json ../data/headers ../data/ast`
+`swift run ast-builder ../../data/frameworks.json ../../data/headers ../../data/ast`
 
 # attribute-list-builder
 
 Parses swift headers into a list of attributes (i.e. unavailable, renamed, etc).
 
-This data is used by macos-metadata-builder to build the swift jsexport classes.
+This data is used by macos-metadata-builder to build the swift jsexport
+classes (specifically to hide unavailable or obsoleted decls).
 
-`node index.js ../data/frameworks.json ../data/ast ../data/attributes`
+`node index.js ../../data/frameworks.json ../../data/ast ../../data/attributes`
 
 # macos-metadata-generator
 

@@ -1,4 +1,4 @@
-export const valueTypeForJSType = (valueType: string) => {
+export const valueTypeForJSType = (valueType: string): string => {
   switch (valueType) {
     // case 'boolean':
     //   return 'booleanValue';
@@ -16,12 +16,12 @@ export const valueTypeForJSType = (valueType: string) => {
   }
 };
 
-export function getTypeAsString(value: any) {
+export function getTypeAsString(value: any): string {
   let type = ({}.toString.call(value));
 
   // "[object FooBar]" -> "FooBar"
   let parts = type.split(/[ [\]]/);
-  if (parts.length === 4 && parts[1] === 'object') return parts[2];
+  if (parts.length === 4 && parts[1] === 'object') return parts[2].replace(/Constructor$/, '');
 
   throw new Error(`Malformed type when attempted to parse to string: ${type}`);
 }

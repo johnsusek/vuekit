@@ -1,5 +1,6 @@
 import { valueTypeForJSType } from './type';
 import { snakeToPascal } from './string';
+import { VueKitNode } from '../types/VueKit';
 
 const ignoredKeys = ['flags', 'time', 'type', 'win', 'winNum', 'ctxt', 'NSEvent'];
 const keyLookup = {
@@ -30,8 +31,7 @@ export function decorateEvent(eventDetails: NSEvent, serialized: string): NSEven
       }
 
       keyName = '';
-    }
-    else if (buffer.trim()) {
+    } else if (buffer.trim()) {
       keyName = buffer;
     }
 
@@ -63,8 +63,7 @@ export function decorateEvent(eventDetails: NSEvent, serialized: string): NSEven
         if (insideValue) {
           valueBuffer.push(parsedValue(buffer));
           buffer = '';
-        }
-        else {
+        } else {
           buffer += char;
         }
         break;
@@ -95,7 +94,7 @@ export function decorateEvent(eventDetails: NSEvent, serialized: string): NSEven
 //
 // Note that Vue adds the "on" prefix to @ event handlers, so:
 // @leftMouseDown="" becomes node.props.onLeftMouseDown
-export function emitEvent(node: VueKitNode, event: NSEvent, extended: string) {
+export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): void {
   let eventType = event.type?.toString();
 
   if (!eventType) {
@@ -124,8 +123,8 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string) {
 
 // View actions
 // @action=""
-export function emitAction(node: VueKitNode, event: NSEvent, extended: string) {
-  let view = node.view;
+export function emitAction(node: VueKitNode, event: NSEvent, extended: string): void {
+  let { view } = node;
 
   let vModelUpdateFn = node.props['onUpdate:modelValue'];
 

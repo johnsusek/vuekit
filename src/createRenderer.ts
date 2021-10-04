@@ -1,12 +1,13 @@
-import { createRenderer, defineComponent } from '@vue/runtime-core';
-import { VueKitNodeProps } from './types/VueKit';
+import { createRenderer } from '@vue/runtime-core';
+import { VueKitNode, VueKitNodeProps } from './types/VueKit';
 import {
-  createView, getConstructor, getPropValues, setNodeValue
+  createView, getPropValues, setNodeValue
 } from './lib/node';
 import { emitAction, emitEvent } from './lib/bridge';
 import { capitalize, snakeToCamel } from './lib/string';
 
 let windows = new Set();
+let global = globalThis as any;
 
 function fillParentView(view: NSView, parent: NSView) {
   view.translatesAutoresizingMaskIntoConstraints = false;
@@ -33,8 +34,8 @@ function createWindow(vnodeProps: VueKitNodeProps = {}) {
     defer: true
   }, vnodeProps);
 
-  let win = (globalThis as any).NSWindow.createWithContentRectStyleMaskBackingDefer(nodeProps.contentRect, nodeProps.styleMask, nodeProps.backing, nodeProps.defer);
-  let node = VueKitNode.create(win.contentView, `window-${Math.random().toString()}`, {}, emitEvent, emitAction);
+  let win = NSWindow.createWithContentRectStyleMaskBackingDefer(nodeProps.contentRect, nodeProps.styleMask, nodeProps.backing, nodeProps.defer);
+  let node = global.VueKitNode.create(win.contentView, `window-${Math.random().toString()}`, {}, emitEvent, emitAction);
 
   for (let [key, value] of Object.entries(nodeProps)) {
     // Don't set values that were used in constructor
@@ -42,42 +43,38 @@ function createWindow(vnodeProps: VueKitNodeProps = {}) {
     setNodeValue(node, key, value);
   }
 
-  // TODO put into Window component
   win.makeKeyAndOrderFront(null);
   win.center();
 
   return node;
 }
 
-// Adds a VueKitNode to parent.children
-function addToParentNode(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode) {
+function addToParentNode(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode) {
   if (!parent) {
-    console.warn('Undefined parent (top level component) - skipping', el);
+    console.warn('Undefined parent (top level component) - skipping', node);
     return;
   }
 
-  el.parent = parent;
+  node.parent = parent;
 
   // Root node
   if (!parent.children) return;
 
-  let children = parent.children;
+  let { children } = parent;
   let anchorIdx = children.indexOf(anchor);
 
   if (anchorIdx > -1) {
-    parent.children = [...children.slice(0, anchorIdx), el, ...children.slice(anchorIdx)];
-  }
-  else {
-    parent.children = parent.children.concat([el]);
+    parent.children = [...children.slice(0, anchorIdx), node, ...children.slice(anchorIdx)];
+  } else {
+    parent.children = parent.children.concat([node]);
   }
 
   // console.info('parent.children is now', parent.children);
 }
 
-// Adds an NSView to parent NSView
-function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode, gravityArea?: NSStackView.Gravity) {
+function addToParentView(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode, gravityArea?: NSStackView.Gravity) {
   let parentView = parent.view;
-  let view = el.view;
+  let { view } = node;
 
   if (!parentView) {
     // console.warn('Parent does not have an NSView, skipping insertion of this NSView', el);
@@ -93,14 +90,12 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
     // TODO: check anchor?
     let area = gravityArea === undefined ? NSStackView.Gravity.Center : gravityArea;
 
-    parentView.addViewInGravity(el.view, area);
+    parentView.addViewInGravity(node.view, area);
     // console.log('added ', el, 'to gravity area', NSStackView.Gravity[area]);
-  }
-  else if (parentView instanceof NSStackView || parentView instanceof NSSplitView) {
+  } else if (parentView instanceof NSStackView || parentView instanceof NSSplitView) {
     if (!anchor) {
       parentView.addArrangedSubview(view);
-    }
-    else {
+    } else {
       // console.info('Inserting ', el, 'into', parent);
 
       // The position in the parent's list of child VueKitNodes (includes text/comment nodes)
@@ -125,7 +120,7 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
       let nearestViewInParentNode = parent.children[nearestPosInParentNodeWithView];
 
       // The position in the parent NSView hierarchy (does not include text/comment nodes)
-      let childrenWithViews = parent.children.filter(c => c.view);
+      let childrenWithViews = parent.children.filter((c) => c.view);
       let anchorViewPosition = childrenWithViews.indexOf(nearestViewInParentNode);
 
       anchorViewPosition = anchorViewPosition < 0 ? 0 : anchorViewPosition;
@@ -134,24 +129,20 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
 
       parentView.insertArrangedSubviewAtIndex(view, anchorViewPosition);
     }
-  }
-  else if (parentView instanceof NSScrollView) {
+  } else if (parentView instanceof NSScrollView) {
     // TODO: NSScrollView can only have one child, need to enforce this in template
     // or otherwise abstract scrollviews
     console.log('setting documentView of NSScrollView to view');
     parentView.documentView = view;
-  }
-  else if (anchor) {
+  } else if (anchor) {
     if (anchor.view) {
       console.log('insert after this view: ', anchor.view);
       parentView.addSubviewPositionedRelativeTo(view, NSWindow.OrderingMode.Below, anchor.view);
-    }
-    else {
+    } else {
       console.log('Could not insert view because anchor has no view: ', view, anchor);
       // TODO: loop index backwards from anchor until we find a el with a view
     }
-  }
-  else {
+  } else {
     parentView.addSubview(view);
 
     if (parentView === parentView.window.contentView) {
@@ -161,53 +152,70 @@ function addToParentView(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode
 }
 
 function findClass(type: string) {
-  if (globalThis[type]) {
-    console.log('Found globalThis.' + type + ' for type ' + type)
-    return type;
-  }
-
   let formattedType = capitalize(snakeToCamel(type));
-  let prefixes = ['NS', 'AV', 'IK'];
 
-  if (globalThis[formattedType]) {
-    console.log('Found globalThis.' + formattedType + ' for type ' + type);
-    return formattedType;
-  }
+  // This will try the prefixed version first
+  // av-capture -> AvCapture
 
-  for (const prefix of prefixes) {
-    if (globalThis[`${prefix}${formattedType}View`]) {
-      console.log(`Found globalThis.${prefix}${formattedType}View` + ' for type ' + type);
-      return `${prefix}${formattedType}View`;
-    }
+  // Strip framework prefixes and try again
+  // av-capture -> Capture
+  let unprefixedType = type.replace(/[(av|ns|ik)]-/, '');
+  let unprefixedFormattedType = capitalize(snakeToCamel(unprefixedType));
 
-    if (globalThis[prefix + formattedType]) {
-      console.log('Found globalThis.' + prefix + formattedType + ' for type ' + type);
-      return prefix + formattedType;
+  let namesToTry = [
+    formattedType,
+    unprefixedFormattedType,
+    `${formattedType}View`,
+    `${unprefixedFormattedType}View`,
+    `NS${unprefixedFormattedType}` // for non-view components like Window
+  ];
+
+  // Try adding `View` suffix and try again
+  // av-capture -> AvCaptureView
+
+  // Strip prefix and add `View` suffix
+  // av-capture -> CaptureView
+
+  for (const nameToTry of namesToTry) {
+    if (globalThis[nameToTry]) {
+      // console.log(`Found globalThis.${nameToTry} for type ${type}`);
+      return nameToTry;
     }
   }
 
   throw new Error(`Bridged Class ${type} not found.`);
 }
 
+function createNode(className: string, vnodeProps: VueKitNodeProps = {}) {
+  let node: VueKitNode;
+
+  if (className === 'NSWindow') {
+    node = createWindow(vnodeProps);
+  } else {
+    let view = createView(className, vnodeProps);
+    let viewId = `${className}-${Math.random().toString()}`;
+    node = global.VueKitNode.create(view, viewId, vnodeProps, emitEvent, emitAction);
+  }
+
+  return node;
+}
+
 function createElement(type: string, _?: boolean, __?: string, vnodeProps?: VueKitNodeProps) {
   let node: VueKitNode;
 
-  // button -> NSButton
-  // text -> NSTextView
-  // text-field -> NSTextField
+  // button -> Button
+  // text -> Text
+  // stack -> StackView
+  // text-field -> TextField
+  // window -> NSWindow
+  // av-player -> PlayerView
+  // av-capture -> CaptureView
+  // ik-camera-device -> CameraDeviceView
   let className = findClass(type);
 
   // console.log(`Creating ${viewClass}`, vnodeProps);
 
-  // Special case for non-NSView based vue component
-  // This may grow more in the future for NSDock, NSMenu, etc
-  if (className === 'NSWindow') {
-    node = createWindow(vnodeProps);
-  }
-  else {
-    let view = createView(className, vnodeProps);
-    node = VueKitNode.create(view, `${className}-${Math.random().toString()}`, vnodeProps || {}, emitEvent, emitAction);
-  }
+  node = createNode(className, vnodeProps);
 
   if (!node.props) {
     console.log('Could not find node.props to set');
@@ -219,75 +227,62 @@ function createElement(type: string, _?: boolean, __?: string, vnodeProps?: VueK
     return node;
   }
 
-  let { args } = getConstructor(className, vnodeProps);
-
-  for (let [key, value] of Object.entries(node.props)) {
-    if (args.includes(key)) continue;
-    setNodeValue(node, key, value);
-  }
-
   return node;
 }
 
 //
-// A VueKitNode is any NSView
+// A VueKitNode is an element like a <button> or a <window>
 //
-// Anything subclass specific is a Component
-// All NSView subclasses get a vue component generated
+// Nodes conceptually correspond to a single bridged instance
+// of a native class.
 //
 
-const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
+const { createApp } = createRenderer<VueKitNode, VueKitNode>({
   createElement,
 
-  insert(el: VueKitNode, parent: VueKitNode, anchor?: VueKitNode | null) {
-    if (!el) {
-      console.log('No el!', el, parent, anchor);
-      return;
-    }
-
+  insert(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode | null) {
     // console.log(`Inserting ${el.key}`, el);
 
     let gravity;
 
-    if (el.props?.isBottomSlotChildP) {
+    if (node.props?.isBottomSlotChildP) {
       gravity = NSStackView.Gravity.Bottom;
     }
 
-    if (el.props?.isBottomSlotP) {
+    if (node.props?.isBottomSlotP) {
       gravity = NSStackView.Gravity.Bottom;
     }
 
-    addToParentView(el, parent, anchor, gravity);
+    addToParentView(node, parent, anchor, gravity);
 
-    if (el.type === 'NSWindow') {
-      windows.add(el);
-    }
-    else {
-      addToParentNode(el, parent, anchor);
+    if (node.type === 'NSWindow') {
+      windows.add(node);
+    } else {
+      addToParentNode(node, parent, anchor);
     }
   },
 
-  remove(el: VueKitNode) {
-    if (el.type === 'NSWindow') {
-      windows.delete(el);
+  remove(node: VueKitNode) {
+    if (node.type === 'NSWindow') {
+      windows.delete(node);
       // TODO: additional window cleanup
     }
 
-    if (el.view) el.view.removeFromSuperview();
+    if (node.view) node.view.removeFromSuperview();
 
-    if (el.parent && el.parent?.children.length > 0) {
-      let children = el.parent.children;
-      let idx = el.parent.children.indexOf(el);
+    if (node.parent && node.parent?.children.length > 0) {
+      let { children } = node.parent;
+      let idx = node.parent.children.indexOf(node);
       // console.log('Before remove... el.parent.children is', el.parent.children);
-      el.parent.children = [...children.slice(0, idx), ...children.slice(idx + 1)];
+      node.parent.children = [...children.slice(0, idx), ...children.slice(idx + 1)];
       // console.log('After remove... el.parent.children is now', el.parent.children);
     }
 
-    el.destroy();
+    node.destroy();
   },
 
-  patchProp(el: VueKitNode, key: string, _: any, nextValue: any) {
-    setNodeValue(el, key, nextValue, true);
+  patchProp(node: VueKitNode, key: string, _: any, nextValue: any) {
+    setNodeValue(node, key, nextValue, true);
   },
 
   nextSibling(node: VueKitNode) {
@@ -309,11 +304,11 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
   // We create an empty node for text/comments, even though we don't create
   // NSViews from them, because vue uses them for anchors when inserting nodes
   createText() {
-    return VueKitNode.create(null, `text-${Math.random().toString()}`, {}, null, null);
+    return global.VueKitNode.create(null, `text-${Math.random().toString()}`, {}, null, null);
   },
 
   createComment() {
-    return VueKitNode.create(null, `comment-${Math.random().toString()}`, {}, null, null);
+    return global.VueKitNode.create(null, `comment-${Math.random().toString()}`, {}, null, null);
   },
 
   setElementText() {
@@ -329,8 +324,8 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
     throw new Error('setText not supported');
   },
 
-  setScopeId(el: VueKitNode, id: string) {
-    console.log('setScopeId', el, id);
+  setScopeId(node: VueKitNode, id: string) {
+    console.log('setScopeId', node, id);
     throw new Error('setScopeId not supported');
   },
 
@@ -343,11 +338,4 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>({
   }
 });
 
-
-function create(App: any) {
-  let app = createApp(App);
-  // addEnums(app);
-  return app;
-}
-
-export { create as createApp, render, defineComponent };
+export { createApp };

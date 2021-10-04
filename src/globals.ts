@@ -6,3 +6,5 @@ if (globalThis.hostLog) {
     globalThis.hostLog(...data);
   };
 }
+
+export { };

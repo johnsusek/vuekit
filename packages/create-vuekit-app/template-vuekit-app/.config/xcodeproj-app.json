@@ -1,5 +1,5 @@
 {
-  "name": "my-vuekit-app",
+  "name": "VueKitApp",
   "options": {
     "deploymentTarget": {
       "macOS": "10.15"
@@ -24,6 +24,9 @@
         {
           "path": "../build/js/vuekit-bundle.es.js",
           "optional": true
+        },
+        {
+          "path": "../support"
         }
       ],
       "dependencies": [
@@ -34,9 +37,12 @@
       "scheme": {
         "testTargets": [
           {
-            "name": "my-vuekit-app-tests"
+            "name": "VueKitAppTests"
           }
         ]
+      },
+      "entitlements": {
+        "path": "support/App.entitlements"
       }
     },
     "VueKitAppTests": {
@@ -47,7 +53,7 @@
       ],
       "dependencies": [
         {
-          "target": "my-vuekit-app"
+          "target": "VueKitApp"
         }
       ]
     }

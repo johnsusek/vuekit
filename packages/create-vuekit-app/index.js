@@ -24,6 +24,11 @@ function updateXcodeProj(templateDir, pkgName, write) {
   let prj = require(path.join(templateDir, '.config/xcodeproj-app.json'));
 
   prj.name = pkgName;
+
+  if (!prj.targets.VueKitApp || !prj.targets.VueKitAppTests) {
+    throw new Error('Invalid xcodeproj-app.json template (could not find targets to update)')
+  }
+
   prj.targets.VueKitApp.scheme.testTargets[0].name = `${pkgName}-tests`;
   prj.targets.VueKitAppTests.dependencies[0].target = pkgName;
   prj.targets[pkgName] = prj.targets.VueKitApp;
@@ -214,10 +219,10 @@ async function init() {
   }
   switch (pkgManager) {
     case 'yarn':
-      console.log('  yarn && yarn run build');
+      console.log('  yarn');
       break;
     default:
-      console.log(`  npm install && ${pkgManager} run build`);
+      console.log(`  npm install`);
       break;
   }
   console.log();

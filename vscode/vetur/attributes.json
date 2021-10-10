@@ -1,5 +1,5 @@
 {
-  "av-capture/controls-style": {
+  "AVCapture/controls-style": {
     "options": [
       "Inline",
       "Floating",
@@ -7,22 +7,22 @@
       "Default"
     ]
   },
-  "av-capture/delegate": {
+  "AVCapture/delegate": {
     "type": "AVCaptureViewDelegate"
   },
-  "av-capture/file-output": {
+  "AVCapture/file-output": {
     "type": "AVCaptureFileOutput"
   },
-  "av-capture/session": {
+  "AVCapture/session": {
     "type": "AVCaptureSession"
   },
-  "av-capture/video-gravity": {
+  "AVCapture/video-gravity": {
     "type": "String"
   },
-  "av-player/content-overlay-view": {
+  "AVPlayer/content-overlay-view": {
     "type": "NSView"
   },
-  "av-player/controls-style": {
+  "AVPlayer/controls-style": {
     "options": [
       "None",
       "Inline",
@@ -31,272 +31,281 @@
       "Default"
     ]
   },
-  "av-player/player": {
+  "AVPlayer/player": {
     "type": "AVPlayer"
   },
-  "av-player/is-ready-for-display": {
+  "AVPlayer/is-ready-for-display": {
     "type": "boolean"
   },
-  "av-player/updates-now-playing-info-center": {
+  "AVPlayer/updates-now-playing-info-center": {
     "type": "boolean"
   },
-  "av-player/video-bounds": {
+  "AVPlayer/video-bounds": {
     "type": "NSRect"
   },
-  "av-player/video-gravity": {
+  "AVPlayer/video-gravity": {
     "type": "String"
   },
-  "av-player/action-pop-up-button-menu": {
+  "AVPlayer/action-pop-up-button-menu": {
     "type": "NSMenu"
   },
-  "av-player/shows-frame-stepping-buttons": {
+  "AVPlayer/shows-frame-stepping-buttons": {
     "type": "boolean"
   },
-  "av-player/shows-full-screen-toggle-button": {
+  "AVPlayer/shows-full-screen-toggle-button": {
     "type": "boolean"
   },
-  "av-player/shows-sharing-service-button": {
+  "AVPlayer/shows-sharing-service-button": {
     "type": "boolean"
   },
-  "av-player/shows-timecodes": {
+  "AVPlayer/shows-timecodes": {
     "type": "boolean"
   },
-  "av-player/can-begin-trimming": {
+  "AVPlayer/can-begin-trimming": {
     "type": "boolean"
   },
-  "av-player/allows-picture-in-picture-playback": {
+  "AVPlayer/allows-picture-in-picture-playback": {
     "type": "boolean"
   },
-  "av-player/picture-in-picture-delegate": {
+  "AVPlayer/picture-in-picture-delegate": {
     "type": "AVPlayerViewPictureInPictureDelegate"
   },
-  "av-route-picker/delegate": {
+  "AVRoutePicker/delegate": {
     "type": "AVRoutePickerViewDelegate"
   },
-  "av-route-picker/player": {
+  "AVRoutePicker/player": {
     "type": "AVPlayer"
   },
-  "av-route-picker/is-route-picker-button-bordered": {
+  "AVRoutePicker/is-route-picker-button-bordered": {
     "type": "boolean"
   },
-  "ik-camera-device/camera-device": {
+  "AUGeneric/audio-unit": {
+    "type": "pointer"
+  },
+  "AUGeneric/shows-expert-parameters": {
+    "type": "boolean"
+  },
+  "AUPanner/audio-unit": {
+    "type": "pointer"
+  },
+  "IKCameraDevice/camera-device": {
     "type": "ICCameraDevice"
   },
-  "ik-camera-device/can-delete-selected-items": {
+  "IKCameraDevice/can-delete-selected-items": {
     "type": "boolean"
   },
-  "ik-camera-device/can-download-selected-items": {
+  "IKCameraDevice/can-download-selected-items": {
     "type": "boolean"
   },
-  "ik-camera-device/can-rotate-selected-items-left": {
+  "IKCameraDevice/can-rotate-selected-items-left": {
     "type": "boolean"
   },
-  "ik-camera-device/can-rotate-selected-items-right": {
+  "IKCameraDevice/can-rotate-selected-items-right": {
     "type": "boolean"
   },
-  "ik-camera-device/delegate": {
+  "IKCameraDevice/delegate": {
     "type": "IKCameraDeviceViewDelegate"
   },
-  "ik-camera-device/displays-downloads-directory-control": {
+  "IKCameraDevice/displays-downloads-directory-control": {
     "type": "boolean"
   },
-  "ik-camera-device/displays-post-process-application-control": {
+  "IKCameraDevice/displays-post-process-application-control": {
     "type": "boolean"
   },
-  "ik-camera-device/download-all-control-label": {
+  "IKCameraDevice/download-all-control-label": {
     "type": "String"
   },
-  "ik-camera-device/downloads-directory": {
+  "IKCameraDevice/downloads-directory": {
     "type": "NSURL"
   },
-  "ik-camera-device/download-selected-control-label": {
+  "IKCameraDevice/download-selected-control-label": {
     "type": "String"
   },
-  "ik-camera-device/has-display-mode-icon": {
+  "IKCameraDevice/has-display-mode-icon": {
     "type": "boolean"
   },
-  "ik-camera-device/has-display-mode-table": {
+  "IKCameraDevice/has-display-mode-table": {
     "type": "boolean"
   },
-  "ik-camera-device/icon-size": {
+  "IKCameraDevice/icon-size": {
     "type": "number"
   },
-  "ik-camera-device/mode": {
+  "IKCameraDevice/mode": {
     "options": [
       "None",
       "Table",
       "Icon"
     ]
   },
-  "ik-camera-device/post-process-application": {
+  "IKCameraDevice/post-process-application": {
     "type": "NSURL"
   },
-  "ik-camera-device/transfer-mode": {
+  "IKCameraDevice/transfer-mode": {
     "options": [
       "FileBased",
       "MemoryBased"
     ]
   },
-  "ik-device-browser/delegate": {
+  "IKDeviceBrowser/delegate": {
     "type": "IKDeviceBrowserViewDelegate"
   },
-  "ik-device-browser/displays-local-cameras": {
+  "IKDeviceBrowser/displays-local-cameras": {
     "type": "boolean"
   },
-  "ik-device-browser/displays-local-scanners": {
+  "IKDeviceBrowser/displays-local-scanners": {
     "type": "boolean"
   },
-  "ik-device-browser/displays-network-cameras": {
+  "IKDeviceBrowser/displays-network-cameras": {
     "type": "boolean"
   },
-  "ik-device-browser/displays-network-scanners": {
+  "IKDeviceBrowser/displays-network-scanners": {
     "type": "boolean"
   },
-  "ik-device-browser/mode": {
+  "IKDeviceBrowser/mode": {
     "options": [
       "Table",
       "Outline",
       "Icon"
     ]
   },
-  "ik-device-browser/selected-device": {
+  "IKDeviceBrowser/selected-device": {
     "type": "ICDevice"
   },
-  "ik-image/autohides-scrollers": {
+  "IKImage/autohides-scrollers": {
     "type": "boolean"
   },
-  "ik-image/autoresizes": {
+  "IKImage/autoresizes": {
     "type": "boolean"
   },
-  "ik-image/background-color": {
+  "IKImage/background-color": {
     "type": "NSColor"
   },
-  "ik-image/current-tool-mode": {
+  "IKImage/current-tool-mode": {
     "type": "String"
   },
-  "ik-image/delegate": {
+  "IKImage/delegate": {
     "type": "Id"
   },
-  "ik-image/double-click-opens-image-edit-panel": {
+  "IKImage/double-click-opens-image-edit-panel": {
     "type": "boolean"
   },
-  "ik-image/editable": {
+  "IKImage/editable": {
     "type": "boolean"
   },
-  "ik-image/has-horizontal-scroller": {
+  "IKImage/has-horizontal-scroller": {
     "type": "boolean"
   },
-  "ik-image/has-vertical-scroller": {
+  "IKImage/has-vertical-scroller": {
     "type": "boolean"
   },
-  "ik-image/image-correction": {
+  "IKImage/image-correction": {
     "type": "CIFilter"
   },
-  "ik-image/rotation-angle": {
+  "IKImage/rotation-angle": {
     "type": "number"
   },
-  "ik-image/supports-drag-and-drop": {
+  "IKImage/supports-drag-and-drop": {
     "type": "boolean"
   },
-  "ik-image/zoom-factor": {
+  "IKImage/zoom-factor": {
     "type": "number"
   },
-  "ik-scanner-device/delegate": {
+  "IKScannerDevice/delegate": {
     "type": "IKScannerDeviceViewDelegate"
   },
-  "ik-scanner-device/displays-downloads-directory-control": {
+  "IKScannerDevice/displays-downloads-directory-control": {
     "type": "boolean"
   },
-  "ik-scanner-device/displays-post-process-application-control": {
+  "IKScannerDevice/displays-post-process-application-control": {
     "type": "boolean"
   },
-  "ik-scanner-device/document-name": {
+  "IKScannerDevice/document-name": {
     "type": "String"
   },
-  "ik-scanner-device/downloads-directory": {
+  "IKScannerDevice/downloads-directory": {
     "type": "NSURL"
   },
-  "ik-scanner-device/has-display-mode-advanced": {
+  "IKScannerDevice/has-display-mode-advanced": {
     "type": "boolean"
   },
-  "ik-scanner-device/has-display-mode-simple": {
+  "IKScannerDevice/has-display-mode-simple": {
     "type": "boolean"
   },
-  "ik-scanner-device/mode": {
+  "IKScannerDevice/mode": {
     "options": [
       "None",
       "Simple",
       "Advanced"
     ]
   },
-  "ik-scanner-device/overview-control-label": {
+  "IKScannerDevice/overview-control-label": {
     "type": "String"
   },
-  "ik-scanner-device/post-process-application": {
+  "IKScannerDevice/post-process-application": {
     "type": "NSURL"
   },
-  "ik-scanner-device/scan-control-label": {
+  "IKScannerDevice/scan-control-label": {
     "type": "String"
   },
-  "ik-scanner-device/scanner-device": {
+  "IKScannerDevice/scanner-device": {
     "type": "ICScannerDevice"
   },
-  "ik-scanner-device/transfer-mode": {
+  "IKScannerDevice/transfer-mode": {
     "options": [
       "FileBased",
       "MemoryBased"
     ]
   },
-  "ql-preview/autostarts": {
+  "QLPreview/autostarts": {
     "type": "boolean"
   },
-  "ql-preview/display-state": {
+  "QLPreview/display-state": {
     "type": "Id"
   },
-  "ql-preview/preview-item": {
+  "QLPreview/preview-item": {
     "type": "QLPreviewItem"
   },
-  "ql-preview/should-close-with-window": {
+  "QLPreview/should-close-with-window": {
     "type": "boolean"
   },
-  "box/border-color": {
+  "Box/border-color": {
     "type": "NSColor"
   },
-  "box/border-rect": {
+  "Box/border-rect": {
     "type": "NSRect"
   },
-  "box/border-width": {
+  "Box/border-width": {
     "type": "number"
   },
-  "box/box-type": {
+  "Box/box-type": {
     "options": [
       "Primary",
       "Separator",
       "Custom"
     ]
   },
-  "box/content-view": {
+  "Box/content-view": {
     "type": "NSView"
   },
-  "box/content-view-margins": {
+  "Box/content-view-margins": {
     "type": "NSSize"
   },
-  "box/corner-radius": {
+  "Box/corner-radius": {
     "type": "number"
   },
-  "box/fill-color": {
+  "Box/fill-color": {
     "type": "NSColor"
   },
-  "box/title": {
+  "Box/title": {
     "type": "String"
   },
-  "box/title-cell": {
+  "Box/title-cell": {
     "type": "Id"
   },
-  "box/title-font": {
+  "Box/title-font": {
     "type": "NSFont"
   },
-  "box/title-position": {
+  "Box/title-position": {
     "options": [
       "NoTitle",
       "AboveTop",
@@ -307,143 +316,143 @@
       "BelowBottom"
     ]
   },
-  "box/title-rect": {
+  "Box/title-rect": {
     "type": "NSRect"
   },
-  "box/is-transparent": {
+  "Box/is-transparent": {
     "type": "boolean"
   },
-  "browser/cell-class": {
+  "Browser/cell-class": {
     "type": "class"
   },
-  "browser/allows-branch-selection": {
+  "Browser/allows-branch-selection": {
     "type": "boolean"
   },
-  "browser/allows-empty-selection": {
+  "Browser/allows-empty-selection": {
     "type": "boolean"
   },
-  "browser/allows-multiple-selection": {
+  "Browser/allows-multiple-selection": {
     "type": "boolean"
   },
-  "browser/allows-type-select": {
+  "Browser/allows-type-select": {
     "type": "boolean"
   },
-  "browser/autohides-scroller": {
+  "Browser/autohides-scroller": {
     "type": "boolean"
   },
-  "browser/background-color": {
+  "Browser/background-color": {
     "type": "NSColor"
   },
-  "browser/cell-prototype": {
+  "Browser/cell-prototype": {
     "type": "Id"
   },
-  "browser/clicked-column": {
+  "Browser/clicked-column": {
     "type": "number"
   },
-  "browser/clicked-row": {
+  "Browser/clicked-row": {
     "type": "number"
   },
-  "browser/column-resizing-type": {
+  "Browser/column-resizing-type": {
     "options": [
       "NoColumnResizing",
       "AutoColumnResizing",
       "UserColumnResizing"
     ]
   },
-  "browser/columns-autosave-name": {
+  "Browser/columns-autosave-name": {
     "type": "String"
   },
-  "browser/delegate": {
+  "Browser/delegate": {
     "type": "NSBrowserDelegate"
   },
-  "browser/double-action": {
+  "Browser/double-action": {
     "type": "string"
   },
-  "browser/first-visible-column": {
+  "Browser/first-visible-column": {
     "type": "number"
   },
-  "browser/has-horizontal-scroller": {
+  "Browser/has-horizontal-scroller": {
     "type": "boolean"
   },
-  "browser/last-column": {
+  "Browser/last-column": {
     "type": "number"
   },
-  "browser/last-visible-column": {
+  "Browser/last-visible-column": {
     "type": "number"
   },
-  "browser/is-loaded": {
+  "Browser/is-loaded": {
     "type": "boolean"
   },
-  "browser/max-visible-columns": {
+  "Browser/max-visible-columns": {
     "type": "number"
   },
-  "browser/min-column-width": {
+  "Browser/min-column-width": {
     "type": "number"
   },
-  "browser/number-of-visible-columns": {
+  "Browser/number-of-visible-columns": {
     "type": "number"
   },
-  "browser/path-separator": {
+  "Browser/path-separator": {
     "type": "String"
   },
-  "browser/prefers-all-column-user-resizing": {
+  "Browser/prefers-all-column-user-resizing": {
     "type": "boolean"
   },
-  "browser/reuses-columns": {
+  "Browser/reuses-columns": {
     "type": "boolean"
   },
-  "browser/row-height": {
+  "Browser/row-height": {
     "type": "number"
   },
-  "browser/selected-cell": {
+  "Browser/selected-cell": {
     "type": "Id"
   },
-  "browser/selected-cells": {
+  "Browser/selected-cells": {
     "type": "NSArray"
   },
-  "browser/selected-column": {
+  "Browser/selected-column": {
     "type": "number"
   },
-  "browser/selection-index-path": {
+  "Browser/selection-index-path": {
     "type": "NSIndexPath"
   },
-  "browser/selection-index-paths": {
+  "Browser/selection-index-paths": {
     "type": "NSArray"
   },
-  "browser/sends-action-on-arrow-keys": {
+  "Browser/sends-action-on-arrow-keys": {
     "type": "boolean"
   },
-  "browser/separates-columns": {
+  "Browser/separates-columns": {
     "type": "boolean"
   },
-  "browser/takes-title-from-previous-column": {
+  "Browser/takes-title-from-previous-column": {
     "type": "boolean"
   },
-  "browser/is-titled": {
+  "Browser/is-titled": {
     "type": "boolean"
   },
-  "browser/title-height": {
+  "Browser/title-height": {
     "type": "number"
   },
-  "button/allows-mixed-state": {
+  "Button/allows-mixed-state": {
     "type": "boolean"
   },
-  "button/alternate-image": {
+  "Button/alternate-image": {
     "type": "NSImage"
   },
-  "button/alternate-title": {
+  "Button/alternate-title": {
     "type": "String"
   },
-  "button/attributed-alternate-title": {
+  "Button/attributed-alternate-title": {
     "type": "NSAttributedString"
   },
-  "button/attributed-title": {
+  "Button/attributed-title": {
     "type": "NSAttributedString"
   },
-  "button/bezel-color": {
+  "Button/bezel-color": {
     "type": "NSColor"
   },
-  "button/bezel-style": {
+  "Button/bezel-style": {
     "options": [
       "Rounded",
       "RegularSquare",
@@ -460,19 +469,19 @@
       "Inline"
     ]
   },
-  "button/is-bordered": {
+  "Button/is-bordered": {
     "type": "boolean"
   },
-  "button/content-tint-color": {
+  "Button/content-tint-color": {
     "type": "NSColor"
   },
-  "button/image": {
+  "Button/image": {
     "type": "NSImage"
   },
-  "button/image-hugs-title": {
+  "Button/image-hugs-title": {
     "type": "boolean"
   },
-  "button/image-position": {
+  "Button/image-position": {
     "options": [
       "NoImage",
       "ImageOnly",
@@ -485,7 +494,7 @@
       "ImageTrailing"
     ]
   },
-  "button/image-scaling": {
+  "Button/image-scaling": {
     "options": [
       "ImageScaleProportionallyDown",
       "ImageScaleAxesIndependently",
@@ -496,10 +505,10 @@
       "ScaleNone"
     ]
   },
-  "button/key-equivalent": {
+  "Button/key-equivalent": {
     "type": "String"
   },
-  "button/key-equivalent-modifier-mask": {
+  "Button/key-equivalent-modifier-mask": {
     "options": [
       "CapsLock",
       "Shift",
@@ -512,203 +521,203 @@
       "DeviceIndependentFlagsMask"
     ]
   },
-  "button/max-accelerator-level": {
+  "Button/max-accelerator-level": {
     "type": "number"
   },
-  "button/shows-border-only-while-mouse-inside": {
+  "Button/shows-border-only-while-mouse-inside": {
     "type": "boolean"
   },
-  "button/sound": {
+  "Button/sound": {
     "type": "NSSound"
   },
-  "button/is-spring-loaded": {
+  "Button/is-spring-loaded": {
     "type": "boolean"
   },
-  "button/state": {
+  "Button/state": {
     "type": "number"
   },
-  "button/title": {
+  "Button/title": {
     "type": "String"
   },
-  "button/is-transparent": {
+  "Button/is-transparent": {
     "type": "boolean"
   },
-  "clip/automatically-adjusts-content-insets": {
+  "Clip/automatically-adjusts-content-insets": {
     "type": "boolean"
   },
-  "clip/background-color": {
+  "Clip/background-color": {
     "type": "NSColor"
   },
-  "clip/content-insets": {
+  "Clip/content-insets": {
     "type": "NSEdgeInsets"
   },
-  "clip/document-cursor": {
+  "Clip/document-cursor": {
     "type": "NSCursor"
   },
-  "clip/document-rect": {
+  "Clip/document-rect": {
     "type": "NSRect"
   },
-  "clip/document-view": {
+  "Clip/document-view": {
     "type": "NSView"
   },
-  "clip/document-visible-rect": {
+  "Clip/document-visible-rect": {
     "type": "NSRect"
   },
-  "clip/draws-background": {
+  "Clip/draws-background": {
     "type": "boolean"
   },
-  "collection/allows-empty-selection": {
+  "Collection/allows-empty-selection": {
     "type": "boolean"
   },
-  "collection/allows-multiple-selection": {
+  "Collection/allows-multiple-selection": {
     "type": "boolean"
   },
-  "collection/background-colors": {
+  "Collection/background-colors": {
     "type": "NSArray"
   },
-  "collection/background-view": {
+  "Collection/background-view": {
     "type": "NSView"
   },
-  "collection/background-view-scrolls-with-content": {
+  "Collection/background-view-scrolls-with-content": {
     "type": "boolean"
   },
-  "collection/collection-view-layout": {
+  "Collection/collection-view-layout": {
     "type": "NSCollectionViewLayout"
   },
-  "collection/content": {
+  "Collection/content": {
     "type": "NSArray"
   },
-  "collection/data-source": {
+  "Collection/data-source": {
     "type": "NSCollectionViewDataSource"
   },
-  "collection/delegate": {
+  "Collection/delegate": {
     "type": "NSCollectionViewDelegate"
   },
-  "collection/is-first-responder": {
+  "Collection/is-first-responder": {
     "type": "boolean"
   },
-  "collection/number-of-sections": {
+  "Collection/number-of-sections": {
     "type": "number"
   },
-  "collection/prefetch-data-source": {
+  "Collection/prefetch-data-source": {
     "type": "NSCollectionViewPrefetching"
   },
-  "collection/is-selectable": {
+  "Collection/is-selectable": {
     "type": "boolean"
   },
-  "collection/selection-indexes": {
+  "Collection/selection-indexes": {
     "type": "NSIndexSet"
   },
-  "collection/selection-index-paths": {
+  "Collection/selection-index-paths": {
     "type": "NSSet"
   },
-  "color-well/is-active": {
+  "ColorWell/is-active": {
     "type": "boolean"
   },
-  "color-well/is-bordered": {
+  "ColorWell/is-bordered": {
     "type": "boolean"
   },
-  "color-well/color": {
+  "ColorWell/color": {
     "type": "NSColor"
   },
-  "combo-box/is-button-bordered": {
+  "ComboBox/is-button-bordered": {
     "type": "boolean"
   },
-  "combo-box/completes": {
+  "ComboBox/completes": {
     "type": "boolean"
   },
-  "combo-box/data-source": {
+  "ComboBox/data-source": {
     "type": "NSComboBoxDataSource"
   },
-  "combo-box/delegate": {
+  "ComboBox/delegate": {
     "type": "NSComboBoxDelegate"
   },
-  "combo-box/has-vertical-scroller": {
+  "ComboBox/has-vertical-scroller": {
     "type": "boolean"
   },
-  "combo-box/index-of-selected-item": {
+  "ComboBox/index-of-selected-item": {
     "type": "number"
   },
-  "combo-box/intercell-spacing": {
+  "ComboBox/intercell-spacing": {
     "type": "NSSize"
   },
-  "combo-box/item-height": {
+  "ComboBox/item-height": {
     "type": "number"
   },
-  "combo-box/number-of-items": {
+  "ComboBox/number-of-items": {
     "type": "number"
   },
-  "combo-box/number-of-visible-items": {
+  "ComboBox/number-of-visible-items": {
     "type": "number"
   },
-  "combo-box/object-value-of-selected-item": {
+  "ComboBox/object-value-of-selected-item": {
     "type": "Id"
   },
-  "combo-box/object-values": {
+  "ComboBox/object-values": {
     "type": "NSArray"
   },
-  "combo-box/uses-data-source": {
+  "ComboBox/uses-data-source": {
     "type": "boolean"
   },
-  "control/cell-class": {
+  "Control/cell-class": {
     "type": "class"
   },
-  "control/action": {
+  "Control/action": {
     "type": "string"
   },
-  "control/attributed-string-value": {
+  "Control/attributed-string-value": {
     "type": "NSAttributedString"
   },
-  "control/is-continuous": {
+  "Control/is-continuous": {
     "type": "boolean"
   },
-  "control/control-size": {
+  "Control/control-size": {
     "options": [
       "Regular",
       "Small",
       "Mini"
     ]
   },
-  "control/double-value": {
+  "Control/double-value": {
     "type": "number"
   },
-  "control/is-enabled": {
+  "Control/is-enabled": {
     "type": "boolean"
   },
-  "control/float-value": {
+  "Control/float-value": {
     "type": "number"
   },
-  "control/formatter": {
+  "Control/formatter": {
     "type": "NSFormatter"
   },
-  "control/is-highlighted": {
+  "Control/is-highlighted": {
     "type": "boolean"
   },
-  "control/ignores-multi-click": {
+  "Control/ignores-multi-click": {
     "type": "boolean"
   },
-  "control/integer-value": {
+  "Control/integer-value": {
     "type": "number"
   },
-  "control/int-value": {
+  "Control/int-value": {
     "type": "number"
   },
-  "control/object-value": {
+  "Control/object-value": {
     "type": "Id"
   },
-  "control/refuses-first-responder": {
+  "Control/refuses-first-responder": {
     "type": "boolean"
   },
-  "control/string-value": {
+  "Control/string-value": {
     "type": "String"
   },
-  "control/tag": {
+  "Control/tag": {
     "type": "number"
   },
-  "control/target": {
+  "Control/target": {
     "type": "Id"
   },
-  "control/alignment": {
+  "Control/alignment": {
     "options": [
       "Left",
       "Right",
@@ -717,20 +726,20 @@
       "Natural"
     ]
   },
-  "control/allows-expansion-tool-tips": {
+  "Control/allows-expansion-tool-tips": {
     "type": "boolean"
   },
-  "control/base-writing-direction": {
+  "Control/base-writing-direction": {
     "options": [
       "Natural",
       "LeftToRight",
       "RightToLeft"
     ]
   },
-  "control/font": {
+  "Control/font": {
     "type": "NSFont"
   },
-  "control/line-break-mode": {
+  "Control/line-break-mode": {
     "options": [
       "ByWordWrapping",
       "ByCharWrapping",
@@ -740,25 +749,25 @@
       "ByTruncatingMiddle"
     ]
   },
-  "control/uses-single-line-mode": {
+  "Control/uses-single-line-mode": {
     "type": "boolean"
   },
-  "control/cell": {
+  "Control/cell": {
     "type": "NSCell"
   },
-  "date-picker/background-color": {
+  "DatePicker/background-color": {
     "type": "NSColor"
   },
-  "date-picker/is-bezeled": {
+  "DatePicker/is-bezeled": {
     "type": "boolean"
   },
-  "date-picker/is-bordered": {
+  "DatePicker/is-bordered": {
     "type": "boolean"
   },
-  "date-picker/calendar": {
+  "DatePicker/calendar": {
     "type": "NSCalendar"
   },
-  "date-picker/date-picker-elements": {
+  "DatePicker/date-picker-elements": {
     "options": [
       "HourMinute",
       "HourMinuteSecond",
@@ -768,59 +777,59 @@
       "Era"
     ]
   },
-  "date-picker/date-picker-mode": {
+  "DatePicker/date-picker-mode": {
     "options": [
       "Single",
       "Range"
     ]
   },
-  "date-picker/date-picker-style": {
+  "DatePicker/date-picker-style": {
     "options": [
       "TextFieldAndStepper",
       "ClockAndCalendar",
       "TextField"
     ]
   },
-  "date-picker/date-value": {
+  "DatePicker/date-value": {
     "type": "NSDate"
   },
-  "date-picker/delegate": {
+  "DatePicker/delegate": {
     "type": "NSDatePickerCellDelegate"
   },
-  "date-picker/draws-background": {
+  "DatePicker/draws-background": {
     "type": "boolean"
   },
-  "date-picker/locale": {
+  "DatePicker/locale": {
     "type": "NSLocale"
   },
-  "date-picker/max-date": {
+  "DatePicker/max-date": {
     "type": "NSDate"
   },
-  "date-picker/min-date": {
+  "DatePicker/min-date": {
     "type": "NSDate"
   },
-  "date-picker/presents-calendar-overlay": {
+  "DatePicker/presents-calendar-overlay": {
     "type": "boolean"
   },
-  "date-picker/text-color": {
+  "DatePicker/text-color": {
     "type": "NSColor"
   },
-  "date-picker/time-interval": {
+  "DatePicker/time-interval": {
     "type": "number"
   },
-  "date-picker/time-zone": {
+  "DatePicker/time-zone": {
     "type": "NSTimeZone"
   },
-  "grid/column-spacing": {
+  "Grid/column-spacing": {
     "type": "number"
   },
-  "grid/number-of-columns": {
+  "Grid/number-of-columns": {
     "type": "number"
   },
-  "grid/number-of-rows": {
+  "Grid/number-of-rows": {
     "type": "number"
   },
-  "grid/row-alignment": {
+  "Grid/row-alignment": {
     "options": [
       "Inherited",
       "None",
@@ -828,10 +837,10 @@
       "LastBaseline"
     ]
   },
-  "grid/row-spacing": {
+  "Grid/row-spacing": {
     "type": "number"
   },
-  "grid/x-placement": {
+  "Grid/x-placement": {
     "options": [
       "Inherited",
       "None",
@@ -843,7 +852,7 @@
       "Fill"
     ]
   },
-  "grid/y-placement": {
+  "Grid/y-placement": {
     "options": [
       "Inherited",
       "None",
@@ -855,22 +864,22 @@
       "Fill"
     ]
   },
-  "image/allows-cut-copy-paste": {
+  "Image/allows-cut-copy-paste": {
     "type": "boolean"
   },
-  "image/animates": {
+  "Image/animates": {
     "type": "boolean"
   },
-  "image/content-tint-color": {
+  "Image/content-tint-color": {
     "type": "NSColor"
   },
-  "image/is-editable": {
+  "Image/is-editable": {
     "type": "boolean"
   },
-  "image/image": {
+  "Image/image": {
     "type": "NSImage"
   },
-  "image/image-alignment": {
+  "Image/image-alignment": {
     "options": [
       "Center",
       "Top",
@@ -883,7 +892,7 @@
       "Right"
     ]
   },
-  "image/image-frame-style": {
+  "Image/image-frame-style": {
     "options": [
       "None",
       "Photo",
@@ -892,7 +901,7 @@
       "Button"
     ]
   },
-  "image/image-scaling": {
+  "Image/image-scaling": {
     "options": [
       "ImageScaleProportionallyDown",
       "ImageScaleAxesIndependently",
@@ -903,22 +912,22 @@
       "ScaleNone"
     ]
   },
-  "level-indicator/critical-fill-color": {
+  "LevelIndicator/critical-fill-color": {
     "type": "NSColor"
   },
-  "level-indicator/critical-value": {
+  "LevelIndicator/critical-value": {
     "type": "number"
   },
-  "level-indicator/draws-tiered-capacity-levels": {
+  "LevelIndicator/draws-tiered-capacity-levels": {
     "type": "boolean"
   },
-  "level-indicator/is-editable": {
+  "LevelIndicator/is-editable": {
     "type": "boolean"
   },
-  "level-indicator/fill-color": {
+  "LevelIndicator/fill-color": {
     "type": "NSColor"
   },
-  "level-indicator/level-indicator-style": {
+  "LevelIndicator/level-indicator-style": {
     "options": [
       "Relevancy",
       "ContinuousCapacity",
@@ -926,32 +935,32 @@
       "Rating"
     ]
   },
-  "level-indicator/max-value": {
+  "LevelIndicator/max-value": {
     "type": "number"
   },
-  "level-indicator/min-value": {
+  "LevelIndicator/min-value": {
     "type": "number"
   },
-  "level-indicator/number-of-major-tick-marks": {
+  "LevelIndicator/number-of-major-tick-marks": {
     "type": "number"
   },
-  "level-indicator/number-of-tick-marks": {
+  "LevelIndicator/number-of-tick-marks": {
     "type": "number"
   },
-  "level-indicator/placeholder-visibility": {
+  "LevelIndicator/placeholder-visibility": {
     "options": [
       "Automatic",
       "Always",
       "WhileEditing"
     ]
   },
-  "level-indicator/rating-image": {
+  "LevelIndicator/rating-image": {
     "type": "NSImage"
   },
-  "level-indicator/rating-placeholder-image": {
+  "LevelIndicator/rating-placeholder-image": {
     "type": "NSImage"
   },
-  "level-indicator/tick-mark-position": {
+  "LevelIndicator/tick-mark-position": {
     "options": [
       "Below",
       "Above",
@@ -959,55 +968,55 @@
       "Trailing"
     ]
   },
-  "level-indicator/warning-fill-color": {
+  "LevelIndicator/warning-fill-color": {
     "type": "NSColor"
   },
-  "level-indicator/warning-value": {
+  "LevelIndicator/warning-value": {
     "type": "number"
   },
-  "matrix/allows-empty-selection": {
+  "Matrix/allows-empty-selection": {
     "type": "boolean"
   },
-  "matrix/autorecalculates-cell-size": {
+  "Matrix/autorecalculates-cell-size": {
     "type": "boolean"
   },
-  "matrix/is-autoscroll": {
+  "Matrix/is-autoscroll": {
     "type": "boolean"
   },
-  "matrix/autosizes-cells": {
+  "Matrix/autosizes-cells": {
     "type": "boolean"
   },
-  "matrix/background-color": {
+  "Matrix/background-color": {
     "type": "NSColor"
   },
-  "matrix/cell-background-color": {
+  "Matrix/cell-background-color": {
     "type": "NSColor"
   },
-  "matrix/cell-class": {
+  "Matrix/cell-class": {
     "type": "class"
   },
-  "matrix/cells": {
+  "Matrix/cells": {
     "type": "NSArray"
   },
-  "matrix/cell-size": {
+  "Matrix/cell-size": {
     "type": "NSSize"
   },
-  "matrix/delegate": {
+  "Matrix/delegate": {
     "type": "NSMatrixDelegate"
   },
-  "matrix/double-action": {
+  "Matrix/double-action": {
     "type": "string"
   },
-  "matrix/draws-background": {
+  "Matrix/draws-background": {
     "type": "boolean"
   },
-  "matrix/draws-cell-background": {
+  "Matrix/draws-cell-background": {
     "type": "boolean"
   },
-  "matrix/intercell-spacing": {
+  "Matrix/intercell-spacing": {
     "type": "NSSize"
   },
-  "matrix/mode": {
+  "Matrix/mode": {
     "options": [
       "RadioModeMatrix",
       "HighlightModeMatrix",
@@ -1015,119 +1024,119 @@
       "TrackModeMatrix"
     ]
   },
-  "matrix/mouse-down-flags": {
+  "Matrix/mouse-down-flags": {
     "type": "number"
   },
-  "matrix/number-of-columns": {
+  "Matrix/number-of-columns": {
     "type": "number"
   },
-  "matrix/number-of-rows": {
+  "Matrix/number-of-rows": {
     "type": "number"
   },
-  "matrix/prototype": {
+  "Matrix/prototype": {
     "type": "NSCell"
   },
-  "matrix/selected-cell": {
+  "Matrix/selected-cell": {
     "type": "NSCell"
   },
-  "matrix/selected-cells": {
+  "Matrix/selected-cells": {
     "type": "NSArray"
   },
-  "matrix/selected-column": {
+  "Matrix/selected-column": {
     "type": "number"
   },
-  "matrix/selected-row": {
+  "Matrix/selected-row": {
     "type": "number"
   },
-  "matrix/is-selection-by-rect": {
+  "Matrix/is-selection-by-rect": {
     "type": "boolean"
   },
-  "matrix/key-cell": {
+  "Matrix/key-cell": {
     "type": "NSCell"
   },
-  "matrix/tab-key-traverses-cells": {
+  "Matrix/tab-key-traverses-cells": {
     "type": "boolean"
   },
-  "outline/autoresizes-outline-column": {
+  "Outline/autoresizes-outline-column": {
     "type": "boolean"
   },
-  "outline/autosave-expanded-items": {
+  "Outline/autosave-expanded-items": {
     "type": "boolean"
   },
-  "outline/data-source": {
+  "Outline/data-source": {
     "type": "NSOutlineViewDataSource"
   },
-  "outline/delegate": {
+  "Outline/delegate": {
     "type": "NSOutlineViewDelegate"
   },
-  "outline/indentation-marker-follows-cell": {
+  "Outline/indentation-marker-follows-cell": {
     "type": "boolean"
   },
-  "outline/indentation-per-level": {
+  "Outline/indentation-per-level": {
     "type": "number"
   },
-  "outline/outline-table-column": {
+  "Outline/outline-table-column": {
     "type": "NSTableColumn"
   },
-  "outline/strongly-references-items": {
+  "Outline/strongly-references-items": {
     "type": "boolean"
   },
-  "path-control/allowed-types": {
+  "PathControl/allowed-types": {
     "type": "NSArray"
   },
-  "path-control/background-color": {
+  "PathControl/background-color": {
     "type": "NSColor"
   },
-  "path-control/clicked-path-item": {
+  "PathControl/clicked-path-item": {
     "type": "NSPathControlItem"
   },
-  "path-control/delegate": {
+  "PathControl/delegate": {
     "type": "NSPathControlDelegate"
   },
-  "path-control/double-action": {
+  "PathControl/double-action": {
     "type": "string"
   },
-  "path-control/is-editable": {
+  "PathControl/is-editable": {
     "type": "boolean"
   },
-  "path-control/path-items": {
+  "PathControl/path-items": {
     "type": "NSArray"
   },
-  "path-control/path-style": {
+  "PathControl/path-style": {
     "options": [
       "Standard",
       "PopUp",
       "NavigationBar"
     ]
   },
-  "path-control/placeholder-attributed-string": {
+  "PathControl/placeholder-attributed-string": {
     "type": "NSAttributedString"
   },
-  "path-control/placeholder-string": {
+  "PathControl/placeholder-string": {
     "type": "String"
   },
-  "path-control/url": {
+  "PathControl/url": {
     "type": "NSURL"
   },
-  "pop-up-button/autoenables-items": {
+  "PopUpButton/autoenables-items": {
     "type": "boolean"
   },
-  "pop-up-button/index-of-selected-item": {
+  "PopUpButton/index-of-selected-item": {
     "type": "number"
   },
-  "pop-up-button/item-array": {
+  "PopUpButton/item-array": {
     "type": "NSArray"
   },
-  "pop-up-button/item-titles": {
+  "PopUpButton/item-titles": {
     "type": "NSArray"
   },
-  "pop-up-button/last-item": {
+  "PopUpButton/last-item": {
     "type": "NSMenuItem"
   },
-  "pop-up-button/number-of-items": {
+  "PopUpButton/number-of-items": {
     "type": "number"
   },
-  "pop-up-button/preferred-edge": {
+  "PopUpButton/preferred-edge": {
     "options": [
       "RectEdgeMinX",
       "RectEdgeMinY",
@@ -1139,32 +1148,32 @@
       "MaxYEdge"
     ]
   },
-  "pop-up-button/pulls-down": {
+  "PopUpButton/pulls-down": {
     "type": "boolean"
   },
-  "pop-up-button/selected-item": {
+  "PopUpButton/selected-item": {
     "type": "NSMenuItem"
   },
-  "pop-up-button/selected-tag": {
+  "PopUpButton/selected-tag": {
     "type": "number"
   },
-  "pop-up-button/title-of-selected-item": {
+  "PopUpButton/title-of-selected-item": {
     "type": "String"
   },
-  "predicate-editor/row-templates": {
+  "PredicateEditor/row-templates": {
     "type": "NSArray"
   },
-  "progress-indicator/is-bezeled": {
+  "ProgressIndicator/is-bezeled": {
     "type": "boolean"
   },
-  "progress-indicator/control-size": {
+  "ProgressIndicator/control-size": {
     "options": [
       "Regular",
       "Small",
       "Mini"
     ]
   },
-  "progress-indicator/control-tint": {
+  "ProgressIndicator/control-tint": {
     "options": [
       "DefaultControlTint",
       "BlueControlTint",
@@ -1172,52 +1181,52 @@
       "ClearControlTint"
     ]
   },
-  "progress-indicator/is-displayed-when-stopped": {
+  "ProgressIndicator/is-displayed-when-stopped": {
     "type": "boolean"
   },
-  "progress-indicator/double-value": {
+  "ProgressIndicator/double-value": {
     "type": "number"
   },
-  "progress-indicator/is-indeterminate": {
+  "ProgressIndicator/is-indeterminate": {
     "type": "boolean"
   },
-  "progress-indicator/max-value": {
+  "ProgressIndicator/max-value": {
     "type": "number"
   },
-  "progress-indicator/min-value": {
+  "ProgressIndicator/min-value": {
     "type": "number"
   },
-  "progress-indicator/style": {
+  "ProgressIndicator/style": {
     "options": [
       "Bar",
       "Spinning"
     ]
   },
-  "progress-indicator/uses-threaded-animation": {
+  "ProgressIndicator/uses-threaded-animation": {
     "type": "boolean"
   },
-  "rule-editor/can-remove-all-rows": {
+  "RuleEditor/can-remove-all-rows": {
     "type": "boolean"
   },
-  "rule-editor/criteria-key-path": {
+  "RuleEditor/criteria-key-path": {
     "type": "String"
   },
-  "rule-editor/delegate": {
+  "RuleEditor/delegate": {
     "type": "NSRuleEditorDelegate"
   },
-  "rule-editor/display-values-key-path": {
+  "RuleEditor/display-values-key-path": {
     "type": "String"
   },
-  "rule-editor/is-editable": {
+  "RuleEditor/is-editable": {
     "type": "boolean"
   },
-  "rule-editor/formatting-dictionary": {
+  "RuleEditor/formatting-dictionary": {
     "type": "NSDictionary"
   },
-  "rule-editor/formatting-strings-filename": {
+  "RuleEditor/formatting-strings-filename": {
     "type": "String"
   },
-  "rule-editor/nesting-mode": {
+  "RuleEditor/nesting-mode": {
     "options": [
       "Single",
       "List",
@@ -1225,82 +1234,82 @@
       "Simple"
     ]
   },
-  "rule-editor/number-of-rows": {
+  "RuleEditor/number-of-rows": {
     "type": "number"
   },
-  "rule-editor/predicate": {
+  "RuleEditor/predicate": {
     "type": "NSPredicate"
   },
-  "rule-editor/row-class": {
+  "RuleEditor/row-class": {
     "type": "class"
   },
-  "rule-editor/row-height": {
+  "RuleEditor/row-height": {
     "type": "number"
   },
-  "rule-editor/row-type-key-path": {
+  "RuleEditor/row-type-key-path": {
     "type": "String"
   },
-  "rule-editor/selected-row-indexes": {
+  "RuleEditor/selected-row-indexes": {
     "type": "NSIndexSet"
   },
-  "rule-editor/subrows-key-path": {
+  "RuleEditor/subrows-key-path": {
     "type": "String"
   },
-  "ruler/accessory-view": {
+  "Ruler/accessory-view": {
     "type": "NSView"
   },
-  "ruler/baseline-location": {
+  "Ruler/baseline-location": {
     "type": "number"
   },
-  "ruler/client-view": {
+  "Ruler/client-view": {
     "type": "NSView"
   },
-  "ruler/markers": {
+  "Ruler/markers": {
     "type": "NSArray"
   },
-  "ruler/measurement-units": {
+  "Ruler/measurement-units": {
     "type": "String"
   },
-  "ruler/orientation": {
+  "Ruler/orientation": {
     "options": [
       "HorizontalRuler",
       "VerticalRuler"
     ]
   },
-  "ruler/origin-offset": {
+  "Ruler/origin-offset": {
     "type": "number"
   },
-  "ruler/required-thickness": {
+  "Ruler/required-thickness": {
     "type": "number"
   },
-  "ruler/reserved-thickness-for-accessory-view": {
+  "Ruler/reserved-thickness-for-accessory-view": {
     "type": "number"
   },
-  "ruler/reserved-thickness-for-markers": {
+  "Ruler/reserved-thickness-for-markers": {
     "type": "number"
   },
-  "ruler/rule-thickness": {
+  "Ruler/rule-thickness": {
     "type": "number"
   },
-  "ruler/scroll-view": {
+  "Ruler/scroll-view": {
     "type": "NSScrollView"
   },
-  "scroll/ruler-view-class": {
+  "Scroll/ruler-view-class": {
     "type": "class"
   },
-  "scroll/allows-magnification": {
+  "Scroll/allows-magnification": {
     "type": "boolean"
   },
-  "scroll/autohides-scrollers": {
+  "Scroll/autohides-scrollers": {
     "type": "boolean"
   },
-  "scroll/automatically-adjusts-content-insets": {
+  "Scroll/automatically-adjusts-content-insets": {
     "type": "boolean"
   },
-  "scroll/background-color": {
+  "Scroll/background-color": {
     "type": "NSColor"
   },
-  "scroll/border-type": {
+  "Scroll/border-type": {
     "options": [
       "NoBorder",
       "LineBorder",
@@ -1308,134 +1317,134 @@
       "GrooveBorder"
     ]
   },
-  "scroll/content-insets": {
+  "Scroll/content-insets": {
     "type": "NSEdgeInsets"
   },
-  "scroll/content-size": {
+  "Scroll/content-size": {
     "type": "NSSize"
   },
-  "scroll/content-view": {
+  "Scroll/content-view": {
     "type": "NSClipView"
   },
-  "scroll/document-cursor": {
+  "Scroll/document-cursor": {
     "type": "NSCursor"
   },
-  "scroll/document-view": {
+  "Scroll/document-view": {
     "type": "NSView"
   },
-  "scroll/document-visible-rect": {
+  "Scroll/document-visible-rect": {
     "type": "NSRect"
   },
-  "scroll/draws-background": {
+  "Scroll/draws-background": {
     "type": "boolean"
   },
-  "scroll/has-horizontal-scroller": {
+  "Scroll/has-horizontal-scroller": {
     "type": "boolean"
   },
-  "scroll/has-vertical-scroller": {
+  "Scroll/has-vertical-scroller": {
     "type": "boolean"
   },
-  "scroll/horizontal-line-scroll": {
+  "Scroll/horizontal-line-scroll": {
     "type": "number"
   },
-  "scroll/horizontal-page-scroll": {
+  "Scroll/horizontal-page-scroll": {
     "type": "number"
   },
-  "scroll/horizontal-scroll-elasticity": {
+  "Scroll/horizontal-scroll-elasticity": {
     "options": [
       "Automatic",
       "None",
       "Allowed"
     ]
   },
-  "scroll/horizontal-scroller": {
+  "Scroll/horizontal-scroller": {
     "type": "NSScroller"
   },
-  "scroll/line-scroll": {
+  "Scroll/line-scroll": {
     "type": "number"
   },
-  "scroll/magnification": {
+  "Scroll/magnification": {
     "type": "number"
   },
-  "scroll/max-magnification": {
+  "Scroll/max-magnification": {
     "type": "number"
   },
-  "scroll/min-magnification": {
+  "Scroll/min-magnification": {
     "type": "number"
   },
-  "scroll/page-scroll": {
+  "Scroll/page-scroll": {
     "type": "number"
   },
-  "scroll/scroller-insets": {
+  "Scroll/scroller-insets": {
     "type": "NSEdgeInsets"
   },
-  "scroll/scroller-knob-style": {
+  "Scroll/scroller-knob-style": {
     "options": [
       "Default",
       "Dark",
       "Light"
     ]
   },
-  "scroll/scroller-style": {
+  "Scroll/scroller-style": {
     "options": [
       "Legacy",
       "Overlay"
     ]
   },
-  "scroll/scrolls-dynamically": {
+  "Scroll/scrolls-dynamically": {
     "type": "boolean"
   },
-  "scroll/uses-predominant-axis-scrolling": {
+  "Scroll/uses-predominant-axis-scrolling": {
     "type": "boolean"
   },
-  "scroll/vertical-line-scroll": {
+  "Scroll/vertical-line-scroll": {
     "type": "number"
   },
-  "scroll/vertical-page-scroll": {
+  "Scroll/vertical-page-scroll": {
     "type": "number"
   },
-  "scroll/vertical-scroll-elasticity": {
+  "Scroll/vertical-scroll-elasticity": {
     "options": [
       "Automatic",
       "None",
       "Allowed"
     ]
   },
-  "scroll/vertical-scroller": {
+  "Scroll/vertical-scroller": {
     "type": "NSScroller"
   },
-  "scroll/has-horizontal-ruler": {
+  "Scroll/has-horizontal-ruler": {
     "type": "boolean"
   },
-  "scroll/has-vertical-ruler": {
+  "Scroll/has-vertical-ruler": {
     "type": "boolean"
   },
-  "scroll/horizontal-ruler-view": {
+  "Scroll/horizontal-ruler-view": {
     "type": "NSRulerView"
   },
-  "scroll/rulers-visible": {
+  "Scroll/rulers-visible": {
     "type": "boolean"
   },
-  "scroll/vertical-ruler-view": {
+  "Scroll/vertical-ruler-view": {
     "type": "NSRulerView"
   },
-  "scroll/find-bar-position": {
+  "Scroll/find-bar-position": {
     "options": [
       "AboveHorizontalRuler",
       "AboveContent",
       "BelowContent"
     ]
   },
-  "scroller/is-compatible-with-overlay-scrollers": {
+  "Scroller/is-compatible-with-overlay-scrollers": {
     "type": "boolean"
   },
-  "scroller/preferred-scroller-style": {
+  "Scroller/preferred-scroller-style": {
     "options": [
       "Legacy",
       "Overlay"
     ]
   },
-  "scroller/hit-part": {
+  "Scroller/hit-part": {
     "options": [
       "NoPart",
       "DecrementPage",
@@ -1446,51 +1455,51 @@
       "KnobSlot"
     ]
   },
-  "scroller/knob-proportion": {
+  "Scroller/knob-proportion": {
     "type": "number"
   },
-  "scroller/knob-style": {
+  "Scroller/knob-style": {
     "options": [
       "Default",
       "Dark",
       "Light"
     ]
   },
-  "scroller/scroller-style": {
+  "Scroller/scroller-style": {
     "options": [
       "Legacy",
       "Overlay"
     ]
   },
-  "scroller/usable-parts": {
+  "Scroller/usable-parts": {
     "options": [
       "NoScrollerParts",
       "OnlyScrollerArrows",
       "AllScrollerParts"
     ]
   },
-  "scrubber/background-color": {
+  "Scrubber/background-color": {
     "type": "NSColor"
   },
-  "scrubber/background-view": {
+  "Scrubber/background-view": {
     "type": "NSView"
   },
-  "scrubber/is-continuous": {
+  "Scrubber/is-continuous": {
     "type": "boolean"
   },
-  "scrubber/data-source": {
+  "Scrubber/data-source": {
     "type": "NSScrubberDataSource"
   },
-  "scrubber/delegate": {
+  "Scrubber/delegate": {
     "type": "NSScrubberDelegate"
   },
-  "scrubber/floats-selection-views": {
+  "Scrubber/floats-selection-views": {
     "type": "boolean"
   },
-  "scrubber/highlighted-index": {
+  "Scrubber/highlighted-index": {
     "type": "number"
   },
-  "scrubber/item-alignment": {
+  "Scrubber/item-alignment": {
     "options": [
       "None",
       "Leading",
@@ -1498,43 +1507,43 @@
       "Center"
     ]
   },
-  "scrubber/mode": {
+  "Scrubber/mode": {
     "options": [
       "Fixed",
       "Free"
     ]
   },
-  "scrubber/number-of-items": {
+  "Scrubber/number-of-items": {
     "type": "number"
   },
-  "scrubber/scrubber-layout": {
+  "Scrubber/scrubber-layout": {
     "type": "NSScrubberLayout"
   },
-  "scrubber/selected-index": {
+  "Scrubber/selected-index": {
     "type": "number"
   },
-  "scrubber/selection-background-style": {
+  "Scrubber/selection-background-style": {
     "type": "NSScrubberSelectionStyle"
   },
-  "scrubber/selection-overlay-style": {
+  "Scrubber/selection-overlay-style": {
     "type": "NSScrubberSelectionStyle"
   },
-  "scrubber/shows-additional-content-indicators": {
+  "Scrubber/shows-additional-content-indicators": {
     "type": "boolean"
   },
-  "scrubber/shows-arrow-buttons": {
+  "Scrubber/shows-arrow-buttons": {
     "type": "boolean"
   },
-  "scrubber-arranged/is-highlighted": {
+  "ScrubberArranged/is-highlighted": {
     "type": "boolean"
   },
-  "scrubber-arranged/is-selected": {
+  "ScrubberArranged/is-selected": {
     "type": "boolean"
   },
-  "scrubber-image-item/image": {
+  "ScrubberImageItem/image": {
     "type": "NSImage"
   },
-  "scrubber-image-item/image-alignment": {
+  "ScrubberImageItem/image-alignment": {
     "options": [
       "Center",
       "Top",
@@ -1547,46 +1556,46 @@
       "Right"
     ]
   },
-  "scrubber-image-item/image-view": {
+  "ScrubberImageItem/image-view": {
     "type": "NSImageView"
   },
-  "scrubber-text-item/text-field": {
+  "ScrubberTextItem/text-field": {
     "type": "NSTextField"
   },
-  "scrubber-text-item/title": {
+  "ScrubberTextItem/title": {
     "type": "String"
   },
-  "search-field/delegate": {
+  "SearchField/delegate": {
     "type": "NSSearchFieldDelegate"
   },
-  "search-field/maximum-recents": {
+  "SearchField/maximum-recents": {
     "type": "number"
   },
-  "search-field/recents-autosave-name": {
+  "SearchField/recents-autosave-name": {
     "type": "String"
   },
-  "search-field/recent-searches": {
+  "SearchField/recent-searches": {
     "type": "NSArray"
   },
-  "search-field/search-menu-template": {
+  "SearchField/search-menu-template": {
     "type": "NSMenu"
   },
-  "search-field/sends-search-string-immediately": {
+  "SearchField/sends-search-string-immediately": {
     "type": "boolean"
   },
-  "search-field/sends-whole-search-string": {
+  "SearchField/sends-whole-search-string": {
     "type": "boolean"
   },
-  "segmented-control/double-value-for-selected-segment": {
+  "SegmentedControl/double-value-for-selected-segment": {
     "type": "number"
   },
-  "segmented-control/index-of-selected-item": {
+  "SegmentedControl/index-of-selected-item": {
     "type": "number"
   },
-  "segmented-control/segment-count": {
+  "SegmentedControl/segment-count": {
     "type": "number"
   },
-  "segmented-control/segment-distribution": {
+  "SegmentedControl/segment-distribution": {
     "options": [
       "Fit",
       "Fill",
@@ -1594,7 +1603,7 @@
       "FillProportionally"
     ]
   },
-  "segmented-control/segment-style": {
+  "SegmentedControl/segment-style": {
     "options": [
       "Automatic",
       "Rounded",
@@ -1606,16 +1615,16 @@
       "Capsule"
     ]
   },
-  "segmented-control/selected-segment": {
+  "SegmentedControl/selected-segment": {
     "type": "number"
   },
-  "segmented-control/selected-segment-bezel-color": {
+  "SegmentedControl/selected-segment-bezel-color": {
     "type": "NSColor"
   },
-  "segmented-control/is-spring-loaded": {
+  "SegmentedControl/is-spring-loaded": {
     "type": "boolean"
   },
-  "segmented-control/tracking-mode": {
+  "SegmentedControl/tracking-mode": {
     "options": [
       "SelectOne",
       "SelectAny",
@@ -1623,37 +1632,37 @@
       "MomentaryAccelerator"
     ]
   },
-  "slider/alt-increment-value": {
+  "Slider/alt-increment-value": {
     "type": "number"
   },
-  "slider/knob-thickness": {
+  "Slider/knob-thickness": {
     "type": "number"
   },
-  "slider/max-value": {
+  "Slider/max-value": {
     "type": "number"
   },
-  "slider/min-value": {
+  "Slider/min-value": {
     "type": "number"
   },
-  "slider/slider-type": {
+  "Slider/slider-type": {
     "options": [
       "Linear",
       "Circular"
     ]
   },
-  "slider/track-fill-color": {
+  "Slider/track-fill-color": {
     "type": "NSColor"
   },
-  "slider/is-vertical": {
+  "Slider/is-vertical": {
     "type": "boolean"
   },
-  "slider/allows-tick-mark-values-only": {
+  "Slider/allows-tick-mark-values-only": {
     "type": "boolean"
   },
-  "slider/number-of-tick-marks": {
+  "Slider/number-of-tick-marks": {
     "type": "number"
   },
-  "slider/tick-mark-position": {
+  "Slider/tick-mark-position": {
     "options": [
       "Below",
       "Above",
@@ -1661,35 +1670,35 @@
       "Trailing"
     ]
   },
-  "split/autosave-name": {
+  "Split/autosave-name": {
     "type": "String"
   },
-  "split/delegate": {
+  "Split/delegate": {
     "type": "NSSplitViewDelegate"
   },
-  "split/divider-color": {
+  "Split/divider-color": {
     "type": "NSColor"
   },
-  "split/divider-style": {
+  "Split/divider-style": {
     "options": [
       "Thick",
       "Thin",
       "PaneSplitter"
     ]
   },
-  "split/divider-thickness": {
+  "Split/divider-thickness": {
     "type": "number"
   },
-  "split/is-vertical": {
+  "Split/is-vertical": {
     "type": "boolean"
   },
-  "split/arranged-subviews": {
+  "Split/arranged-subviews": {
     "type": "NSArray"
   },
-  "split/arranges-all-subviews": {
+  "Split/arranges-all-subviews": {
     "type": "boolean"
   },
-  "stack/alignment": {
+  "Stack/alignment": {
     "options": [
       "Left",
       "Right",
@@ -1707,19 +1716,19 @@
       "NotAnAttribute"
     ]
   },
-  "stack/arranged-subviews": {
+  "Stack/arranged-subviews": {
     "type": "NSArray"
   },
-  "stack/delegate": {
+  "Stack/delegate": {
     "type": "NSStackViewDelegate"
   },
-  "stack/detached-views": {
+  "Stack/detached-views": {
     "type": "NSArray"
   },
-  "stack/detaches-hidden-views": {
+  "Stack/detaches-hidden-views": {
     "type": "boolean"
   },
-  "stack/distribution": {
+  "Stack/distribution": {
     "options": [
       "GravityAreas",
       "Fill",
@@ -1729,74 +1738,74 @@
       "EqualCentering"
     ]
   },
-  "stack/edge-insets": {
+  "Stack/edge-insets": {
     "type": "NSEdgeInsets"
   },
-  "stack/orientation": {
+  "Stack/orientation": {
     "options": [
       "Horizontal",
       "Vertical"
     ]
   },
-  "stack/spacing": {
+  "Stack/spacing": {
     "type": "number"
   },
-  "stack/views": {
+  "Stack/views": {
     "type": "NSArray"
   },
-  "status-bar-button/appears-disabled": {
+  "StatusBarButton/appears-disabled": {
     "type": "boolean"
   },
-  "stepper/autorepeat": {
+  "Stepper/autorepeat": {
     "type": "boolean"
   },
-  "stepper/increment": {
+  "Stepper/increment": {
     "type": "number"
   },
-  "stepper/max-value": {
+  "Stepper/max-value": {
     "type": "number"
   },
-  "stepper/min-value": {
+  "Stepper/min-value": {
     "type": "number"
   },
-  "stepper/value-wraps": {
+  "Stepper/value-wraps": {
     "type": "boolean"
   },
-  "switch/state": {
+  "Switch/state": {
     "type": "number"
   },
-  "tab/allows-truncated-labels": {
+  "Tab/allows-truncated-labels": {
     "type": "boolean"
   },
-  "tab/content-rect": {
+  "Tab/content-rect": {
     "type": "NSRect"
   },
-  "tab/control-size": {
+  "Tab/control-size": {
     "options": [
       "Regular",
       "Small",
       "Mini"
     ]
   },
-  "tab/delegate": {
+  "Tab/delegate": {
     "type": "NSTabViewDelegate"
   },
-  "tab/draws-background": {
+  "Tab/draws-background": {
     "type": "boolean"
   },
-  "tab/font": {
+  "Tab/font": {
     "type": "NSFont"
   },
-  "tab/minimum-size": {
+  "Tab/minimum-size": {
     "type": "NSSize"
   },
-  "tab/number-of-tab-view-items": {
+  "Tab/number-of-tab-view-items": {
     "type": "number"
   },
-  "tab/selected-tab-view-item": {
+  "Tab/selected-tab-view-item": {
     "type": "NSTabViewItem"
   },
-  "tab/tab-position": {
+  "Tab/tab-position": {
     "options": [
       "None",
       "Top",
@@ -1805,17 +1814,17 @@
       "Right"
     ]
   },
-  "tab/tab-view-border-type": {
+  "Tab/tab-view-border-type": {
     "options": [
       "None",
       "Line",
       "Bezel"
     ]
   },
-  "tab/tab-view-items": {
+  "Tab/tab-view-items": {
     "type": "NSArray"
   },
-  "tab/tab-view-type": {
+  "Tab/tab-view-type": {
     "options": [
       "TopTabsBezelBorder",
       "LeftTabsBezelBorder",
@@ -1826,7 +1835,7 @@
       "NoTabsNoBorder"
     ]
   },
-  "table-cell/background-style": {
+  "TableCell/background-style": {
     "options": [
       "Normal",
       "Emphasized",
@@ -1834,16 +1843,16 @@
       "Lowered"
     ]
   },
-  "table-cell/dragging-image-components": {
+  "TableCell/dragging-image-components": {
     "type": "NSArray"
   },
-  "table-cell/image-view": {
+  "TableCell/image-view": {
     "type": "NSImageView"
   },
-  "table-cell/object-value": {
+  "TableCell/object-value": {
     "type": "Id"
   },
-  "table-cell/row-size-style": {
+  "TableCell/row-size-style": {
     "options": [
       "Default",
       "Custom",
@@ -1852,25 +1861,25 @@
       "Large"
     ]
   },
-  "table-cell/text-field": {
+  "TableCell/text-field": {
     "type": "NSTextField"
   },
-  "table-header/dragged-column": {
+  "TableHeader/dragged-column": {
     "type": "number"
   },
-  "table-header/dragged-distance": {
+  "TableHeader/dragged-distance": {
     "type": "number"
   },
-  "table-header/resized-column": {
+  "TableHeader/resized-column": {
     "type": "number"
   },
-  "table-header/table-view": {
+  "TableHeader/table-view": {
     "type": "NSTableView"
   },
-  "table-row/background-color": {
+  "TableRow/background-color": {
     "type": "NSColor"
   },
-  "table-row/dragging-destination-feedback-style": {
+  "TableRow/dragging-destination-feedback-style": {
     "options": [
       "None",
       "Regular",
@@ -1878,19 +1887,19 @@
       "Gap"
     ]
   },
-  "table-row/is-emphasized": {
+  "TableRow/is-emphasized": {
     "type": "boolean"
   },
-  "table-row/is-floating": {
+  "TableRow/is-floating": {
     "type": "boolean"
   },
-  "table-row/is-group-row-style": {
+  "TableRow/is-group-row-style": {
     "type": "boolean"
   },
-  "table-row/indentation-for-drop-operation": {
+  "TableRow/indentation-for-drop-operation": {
     "type": "number"
   },
-  "table-row/interior-background-style": {
+  "TableRow/interior-background-style": {
     "options": [
       "Normal",
       "Emphasized",
@@ -1898,62 +1907,62 @@
       "Lowered"
     ]
   },
-  "table-row/is-next-row-selected": {
+  "TableRow/is-next-row-selected": {
     "type": "boolean"
   },
-  "table-row/number-of-columns": {
+  "TableRow/number-of-columns": {
     "type": "number"
   },
-  "table-row/is-previous-row-selected": {
+  "TableRow/is-previous-row-selected": {
     "type": "boolean"
   },
-  "table-row/is-selected": {
+  "TableRow/is-selected": {
     "type": "boolean"
   },
-  "table-row/selection-highlight-style": {
+  "TableRow/selection-highlight-style": {
     "options": [
       "None",
       "Regular",
       "SourceList"
     ]
   },
-  "table-row/is-target-for-drop-operation": {
+  "TableRow/is-target-for-drop-operation": {
     "type": "boolean"
   },
-  "table/allows-column-reordering": {
+  "Table/allows-column-reordering": {
     "type": "boolean"
   },
-  "table/allows-column-resizing": {
+  "Table/allows-column-resizing": {
     "type": "boolean"
   },
-  "table/allows-column-selection": {
+  "Table/allows-column-selection": {
     "type": "boolean"
   },
-  "table/allows-empty-selection": {
+  "Table/allows-empty-selection": {
     "type": "boolean"
   },
-  "table/allows-multiple-selection": {
+  "Table/allows-multiple-selection": {
     "type": "boolean"
   },
-  "table/allows-type-select": {
+  "Table/allows-type-select": {
     "type": "boolean"
   },
-  "table/autosave-name": {
+  "Table/autosave-name": {
     "type": "String"
   },
-  "table/autosave-table-columns": {
+  "Table/autosave-table-columns": {
     "type": "boolean"
   },
-  "table/background-color": {
+  "Table/background-color": {
     "type": "NSColor"
   },
-  "table/clicked-column": {
+  "Table/clicked-column": {
     "type": "number"
   },
-  "table/clicked-row": {
+  "Table/clicked-row": {
     "type": "number"
   },
-  "table/column-autoresizing-style": {
+  "Table/column-autoresizing-style": {
     "options": [
       "NoColumnAutoresizing",
       "UniformColumnAutoresizingStyle",
@@ -1963,19 +1972,19 @@
       "FirstColumnOnlyAutoresizingStyle"
     ]
   },
-  "table/corner-view": {
+  "Table/corner-view": {
     "type": "NSView"
   },
-  "table/data-source": {
+  "Table/data-source": {
     "type": "NSTableViewDataSource"
   },
-  "table/delegate": {
+  "Table/delegate": {
     "type": "NSTableViewDelegate"
   },
-  "table/double-action": {
+  "Table/double-action": {
     "type": "string"
   },
-  "table/dragging-destination-feedback-style": {
+  "Table/dragging-destination-feedback-style": {
     "options": [
       "None",
       "Regular",
@@ -1983,13 +1992,13 @@
       "Gap"
     ]
   },
-  "table/edited-column": {
+  "Table/edited-column": {
     "type": "number"
   },
-  "table/edited-row": {
+  "Table/edited-row": {
     "type": "number"
   },
-  "table/effective-row-size-style": {
+  "Table/effective-row-size-style": {
     "options": [
       "Default",
       "Custom",
@@ -1998,13 +2007,13 @@
       "Large"
     ]
   },
-  "table/floats-group-rows": {
+  "Table/floats-group-rows": {
     "type": "boolean"
   },
-  "table/grid-color": {
+  "Table/grid-color": {
     "type": "NSColor"
   },
-  "table/grid-style-mask": {
+  "Table/grid-style-mask": {
     "options": [
       "GridNone",
       "SolidVerticalGridLineMask",
@@ -2012,40 +2021,40 @@
       "DashedHorizontalGridLineMask"
     ]
   },
-  "table/header-view": {
+  "Table/header-view": {
     "type": "NSTableHeaderView"
   },
-  "table/hidden-row-indexes": {
+  "Table/hidden-row-indexes": {
     "type": "NSIndexSet"
   },
-  "table/highlighted-table-column": {
+  "Table/highlighted-table-column": {
     "type": "NSTableColumn"
   },
-  "table/intercell-spacing": {
+  "Table/intercell-spacing": {
     "type": "NSSize"
   },
-  "table/number-of-columns": {
+  "Table/number-of-columns": {
     "type": "number"
   },
-  "table/number-of-rows": {
+  "Table/number-of-rows": {
     "type": "number"
   },
-  "table/number-of-selected-columns": {
+  "Table/number-of-selected-columns": {
     "type": "number"
   },
-  "table/number-of-selected-rows": {
+  "Table/number-of-selected-rows": {
     "type": "number"
   },
-  "table/registered-nibs-by-identifier": {
+  "Table/registered-nibs-by-identifier": {
     "type": "NSDictionary"
   },
-  "table/row-actions-visible": {
+  "Table/row-actions-visible": {
     "type": "boolean"
   },
-  "table/row-height": {
+  "Table/row-height": {
     "type": "number"
   },
-  "table/row-size-style": {
+  "Table/row-size-style": {
     "options": [
       "Default",
       "Custom",
@@ -2054,44 +2063,44 @@
       "Large"
     ]
   },
-  "table/selected-column": {
+  "Table/selected-column": {
     "type": "number"
   },
-  "table/selected-column-indexes": {
+  "Table/selected-column-indexes": {
     "type": "NSIndexSet"
   },
-  "table/selected-row": {
+  "Table/selected-row": {
     "type": "number"
   },
-  "table/selected-row-indexes": {
+  "Table/selected-row-indexes": {
     "type": "NSIndexSet"
   },
-  "table/selection-highlight-style": {
+  "Table/selection-highlight-style": {
     "options": [
       "None",
       "Regular",
       "SourceList"
     ]
   },
-  "table/sort-descriptors": {
+  "Table/sort-descriptors": {
     "type": "NSArray"
   },
-  "table/table-columns": {
+  "Table/table-columns": {
     "type": "NSArray"
   },
-  "table/uses-alternating-row-background-colors": {
+  "Table/uses-alternating-row-background-colors": {
     "type": "boolean"
   },
-  "table/uses-automatic-row-heights": {
+  "Table/uses-automatic-row-heights": {
     "type": "boolean"
   },
-  "table/uses-static-contents": {
+  "Table/uses-static-contents": {
     "type": "boolean"
   },
-  "table/vertical-motion-can-begin-drag": {
+  "Table/vertical-motion-can-begin-drag": {
     "type": "boolean"
   },
-  "text/alignment": {
+  "Text/alignment": {
     "options": [
       "Left",
       "Right",
@@ -2100,306 +2109,312 @@
       "Natural"
     ]
   },
-  "text/background-color": {
+  "Text/background-color": {
     "type": "NSColor"
   },
-  "text/base-writing-direction": {
+  "Text/base-writing-direction": {
     "options": [
       "Natural",
       "LeftToRight",
       "RightToLeft"
     ]
   },
-  "text/delegate": {
-    "type": "NSTextViewDelegate"
+  "Text/delegate": {
+    "type": "NSTextDelegate"
   },
-  "text/draws-background": {
+  "Text/draws-background": {
     "type": "boolean"
   },
-  "text/is-editable": {
+  "Text/is-editable": {
     "type": "boolean"
   },
-  "text/is-field-editor": {
+  "Text/is-field-editor": {
     "type": "boolean"
   },
-  "text/font": {
+  "Text/font": {
     "type": "NSFont"
   },
-  "text/is-horizontally-resizable": {
+  "Text/is-horizontally-resizable": {
     "type": "boolean"
   },
-  "text/imports-graphics": {
+  "Text/imports-graphics": {
     "type": "boolean"
   },
-  "text/max-size": {
+  "Text/max-size": {
     "type": "NSSize"
   },
-  "text/min-size": {
+  "Text/min-size": {
     "type": "NSSize"
   },
-  "text/is-rich-text": {
+  "Text/is-rich-text": {
     "type": "boolean"
   },
-  "text/is-ruler-visible": {
+  "Text/is-ruler-visible": {
     "type": "boolean"
   },
-  "text/is-selectable": {
+  "Text/is-selectable": {
     "type": "boolean"
   },
-  "text/selected-range": {
+  "Text/selected-range": {
     "type": "NSRange"
   },
-  "text/string": {
+  "Text/string": {
     "type": "String"
   },
-  "text/text-color": {
+  "Text/text-color": {
     "type": "NSColor"
   },
-  "text/uses-font-panel": {
+  "Text/uses-font-panel": {
     "type": "boolean"
   },
-  "text/is-vertically-resizable": {
+  "Text/is-vertically-resizable": {
     "type": "boolean"
   },
-  "text-field/allows-default-tightening-for-truncation": {
+  "TextField/allows-default-tightening-for-truncation": {
     "type": "boolean"
   },
-  "text-field/background-color": {
+  "TextField/background-color": {
     "type": "NSColor"
   },
-  "text-field/is-bezeled": {
+  "TextField/is-bezeled": {
     "type": "boolean"
   },
-  "text-field/bezel-style": {
+  "TextField/bezel-style": {
     "options": [
       "SquareBezel",
       "RoundedBezel"
     ]
   },
-  "text-field/is-bordered": {
+  "TextField/is-bordered": {
     "type": "boolean"
   },
-  "text-field/delegate": {
+  "TextField/delegate": {
     "type": "NSTextFieldDelegate"
   },
-  "text-field/draws-background": {
+  "TextField/draws-background": {
     "type": "boolean"
   },
-  "text-field/is-editable": {
+  "TextField/is-editable": {
     "type": "boolean"
   },
-  "text-field/maximum-number-of-lines": {
+  "TextField/maximum-number-of-lines": {
     "type": "number"
   },
-  "text-field/placeholder-attributed-string": {
+  "TextField/placeholder-attributed-string": {
     "type": "NSAttributedString"
   },
-  "text-field/placeholder-string": {
+  "TextField/placeholder-string": {
     "type": "String"
   },
-  "text-field/preferred-max-layout-width": {
+  "TextField/preferred-max-layout-width": {
     "type": "number"
   },
-  "text-field/is-selectable": {
+  "TextField/is-selectable": {
     "type": "boolean"
   },
-  "text-field/text-color": {
+  "TextField/text-color": {
     "type": "NSColor"
   },
-  "text-field/allows-character-picker-touch-bar-item": {
+  "TextField/allows-character-picker-touch-bar-item": {
     "type": "boolean"
   },
-  "text-field/is-automatic-text-completion-enabled": {
+  "TextField/is-automatic-text-completion-enabled": {
     "type": "boolean"
   },
-  "text-field/allows-editing-text-attributes": {
+  "TextField/allows-editing-text-attributes": {
     "type": "boolean"
   },
-  "text-field/imports-graphics": {
+  "TextField/imports-graphics": {
     "type": "boolean"
   },
-  "text/strongly-references-text-storage": {
+  "TextView/strongly-references-text-storage": {
     "type": "boolean"
   },
-  "text/layout-manager": {
+  "TextView/layout-manager": {
     "type": "NSLayoutManager"
   },
-  "text/should-draw-insertion-point": {
+  "TextView/should-draw-insertion-point": {
     "type": "boolean"
   },
-  "text/text-container": {
+  "TextView/text-container": {
     "type": "NSTextContainer"
   },
-  "text/text-container-inset": {
+  "TextView/text-container-inset": {
     "type": "NSSize"
   },
-  "text/text-container-origin": {
+  "TextView/text-container-origin": {
     "type": "NSPoint"
   },
-  "text/text-storage": {
+  "TextView/text-storage": {
     "type": "NSTextStorage"
   },
-  "text/uses-adaptive-color-mapping-for-dark-appearance": {
+  "TextView/uses-adaptive-color-mapping-for-dark-appearance": {
     "type": "boolean"
   },
-  "text/range-for-user-completion": {
+  "TextView/range-for-user-completion": {
     "type": "NSRange"
   },
-  "text/readable-pasteboard-types": {
+  "TextView/readable-pasteboard-types": {
     "type": "NSArray"
   },
-  "text/writable-pasteboard-types": {
+  "TextView/writable-pasteboard-types": {
     "type": "NSArray"
   },
-  "text/acceptable-drag-types": {
+  "TextView/acceptable-drag-types": {
     "type": "NSArray"
   },
-  "text/accepts-glyph-info": {
+  "TextView/accepts-glyph-info": {
     "type": "boolean"
   },
-  "text/allowed-input-source-locales": {
+  "TextView/allowed-input-source-locales": {
     "type": "NSArray"
   },
-  "text/allows-document-background-color-change": {
+  "TextView/allows-document-background-color-change": {
     "type": "boolean"
   },
-  "text/allows-image-editing": {
+  "TextView/allows-image-editing": {
     "type": "boolean"
   },
-  "text/allows-undo": {
+  "TextView/allows-undo": {
     "type": "boolean"
   },
-  "text/is-coalescing-undo": {
+  "TextView/is-coalescing-undo": {
     "type": "boolean"
   },
-  "text/is-continuous-spell-checking-enabled": {
+  "TextView/is-continuous-spell-checking-enabled": {
     "type": "boolean"
   },
-  "text/default-paragraph-style": {
+  "TextView/default-paragraph-style": {
     "type": "NSParagraphStyle"
   },
-  "text/displays-link-tool-tips": {
+  "TextView/delegate": {
+    "type": "NSTextViewDelegate"
+  },
+  "TextView/displays-link-tool-tips": {
     "type": "boolean"
   },
-  "text/is-grammar-checking-enabled": {
+  "TextView/is-grammar-checking-enabled": {
     "type": "boolean"
   },
-  "text/insertion-point-color": {
+  "TextView/insertion-point-color": {
     "type": "NSColor"
   },
-  "text/link-text-attributes": {
+  "TextView/link-text-attributes": {
     "type": "NSDictionary"
   },
-  "text/marked-text-attributes": {
+  "TextView/marked-text-attributes": {
     "type": "NSDictionary"
   },
-  "text/range-for-user-character-attribute-change": {
+  "TextView/range-for-user-character-attribute-change": {
     "type": "NSRange"
   },
-  "text/range-for-user-paragraph-attribute-change": {
+  "TextView/range-for-user-paragraph-attribute-change": {
     "type": "NSRange"
   },
-  "text/range-for-user-text-change": {
+  "TextView/range-for-user-text-change": {
     "type": "NSRange"
   },
-  "text/ranges-for-user-character-attribute-change": {
+  "TextView/ranges-for-user-character-attribute-change": {
     "type": "NSArray"
   },
-  "text/ranges-for-user-paragraph-attribute-change": {
+  "TextView/ranges-for-user-paragraph-attribute-change": {
     "type": "NSArray"
   },
-  "text/ranges-for-user-text-change": {
+  "TextView/ranges-for-user-text-change": {
     "type": "NSArray"
   },
-  "text/selected-ranges": {
+  "TextView/is-ruler-visible": {
+    "type": "boolean"
+  },
+  "TextView/selected-ranges": {
     "type": "NSArray"
   },
-  "text/selected-text-attributes": {
+  "TextView/selected-text-attributes": {
     "type": "NSDictionary"
   },
-  "text/selection-affinity": {
+  "TextView/selection-affinity": {
     "options": [
       "Upstream",
       "Downstream"
     ]
   },
-  "text/selection-granularity": {
+  "TextView/selection-granularity": {
     "options": [
       "ByCharacter",
       "ByWord",
       "ByParagraph"
     ]
   },
-  "text/spell-checker-document-tag": {
+  "TextView/spell-checker-document-tag": {
     "type": "number"
   },
-  "text/typing-attributes": {
+  "TextView/typing-attributes": {
     "type": "NSDictionary"
   },
-  "text/uses-inspector-bar": {
+  "TextView/uses-inspector-bar": {
     "type": "boolean"
   },
-  "text/uses-rollover-button-for-selection": {
+  "TextView/uses-rollover-button-for-selection": {
     "type": "boolean"
   },
-  "text/uses-ruler": {
+  "TextView/uses-ruler": {
     "type": "boolean"
   },
-  "text/is-automatic-dash-substitution-enabled": {
+  "TextView/is-automatic-dash-substitution-enabled": {
     "type": "boolean"
   },
-  "text/is-automatic-data-detection-enabled": {
+  "TextView/is-automatic-data-detection-enabled": {
     "type": "boolean"
   },
-  "text/is-automatic-link-detection-enabled": {
+  "TextView/is-automatic-link-detection-enabled": {
     "type": "boolean"
   },
-  "text/is-automatic-quote-substitution-enabled": {
+  "TextView/is-automatic-quote-substitution-enabled": {
     "type": "boolean"
   },
-  "text/is-automatic-spelling-correction-enabled": {
+  "TextView/is-automatic-spelling-correction-enabled": {
     "type": "boolean"
   },
-  "text/is-automatic-text-replacement-enabled": {
+  "TextView/is-automatic-text-replacement-enabled": {
     "type": "boolean"
   },
-  "text/enabled-text-checking-types": {
+  "TextView/enabled-text-checking-types": {
     "type": "number"
   },
-  "text/is-incremental-searching-enabled": {
+  "TextView/is-incremental-searching-enabled": {
     "type": "boolean"
   },
-  "text/smart-insert-delete-enabled": {
+  "TextView/smart-insert-delete-enabled": {
     "type": "boolean"
   },
-  "text/uses-find-bar": {
+  "TextView/uses-find-bar": {
     "type": "boolean"
   },
-  "text/uses-find-panel": {
+  "TextView/uses-find-panel": {
     "type": "boolean"
   },
-  "text/allows-character-picker-touch-bar-item": {
+  "TextView/allows-character-picker-touch-bar-item": {
     "type": "boolean"
   },
-  "text/is-automatic-text-completion-enabled": {
+  "TextView/is-automatic-text-completion-enabled": {
     "type": "boolean"
   },
-  "token-field/default-completion-delay": {
+  "TokenField/default-completion-delay": {
     "type": "number"
   },
-  "token-field/default-tokenizing-character-set": {
+  "TokenField/default-tokenizing-character-set": {
     "type": "NSCharacterSet"
   },
-  "token-field/completion-delay": {
+  "TokenField/completion-delay": {
     "type": "number"
   },
-  "token-field/delegate": {
+  "TokenField/delegate": {
     "type": "NSTokenFieldDelegate"
   },
-  "token-field/tokenizing-character-set": {
+  "TokenField/tokenizing-character-set": {
     "type": "NSCharacterSet"
   },
-  "token-field/token-style": {
+  "TokenField/token-style": {
     "options": [
       "Default",
       "None",
@@ -2408,16 +2423,16 @@
       "PlainSquared"
     ]
   },
-  "visual-effect/blending-mode": {
+  "VisualEffect/blending-mode": {
     "options": [
       "BehindWindow",
       "WithinWindow"
     ]
   },
-  "visual-effect/is-emphasized": {
+  "VisualEffect/is-emphasized": {
     "type": "boolean"
   },
-  "visual-effect/interior-background-style": {
+  "VisualEffect/interior-background-style": {
     "options": [
       "Normal",
       "Emphasized",
@@ -2425,10 +2440,10 @@
       "Lowered"
     ]
   },
-  "visual-effect/mask-image": {
+  "VisualEffect/mask-image": {
     "type": "NSImage"
   },
-  "visual-effect/material": {
+  "VisualEffect/material": {
     "options": [
       "Titlebar",
       "Selection",
@@ -2451,40 +2466,40 @@
       "UltraDark"
     ]
   },
-  "visual-effect/state": {
+  "VisualEffect/state": {
     "options": [
       "FollowsWindowActiveState",
       "Active",
       "Inactive"
     ]
   },
-  "window/allows-automatic-window-tabbing": {
+  "Window/allows-automatic-window-tabbing": {
     "type": "boolean"
   },
-  "window/default-depth-limit": {
+  "Window/default-depth-limit": {
     "options": [
       "TwentyfourBitRGB",
       "SixtyfourBitRGB",
       "OnehundredtwentyeightBitRGB"
     ]
   },
-  "window/user-tabbing-preference": {
+  "Window/user-tabbing-preference": {
     "options": [
       "Manual",
       "Always",
       "InFullScreen"
     ]
   },
-  "window/allows-concurrent-view-drawing": {
+  "Window/allows-concurrent-view-drawing": {
     "type": "boolean"
   },
-  "window/allows-tool-tips-when-application-is-inactive": {
+  "Window/allows-tool-tips-when-application-is-inactive": {
     "type": "boolean"
   },
-  "window/alpha-value": {
+  "Window/alpha-value": {
     "type": "number"
   },
-  "window/animation-behavior": {
+  "Window/animation-behavior": {
     "options": [
       "Default",
       "None",
@@ -2493,47 +2508,47 @@
       "AlertPanel"
     ]
   },
-  "window/appearance-source": {
+  "Window/appearance-source": {
     "type": "NSObject"
   },
-  "window/aspect-ratio": {
+  "Window/aspect-ratio": {
     "type": "NSSize"
   },
-  "window/attached-sheet": {
+  "Window/attached-sheet": {
     "type": "NSWindow"
   },
-  "window/autorecalculates-key-view-loop": {
+  "Window/autorecalculates-key-view-loop": {
     "type": "boolean"
   },
-  "window/background-color": {
+  "Window/background-color": {
     "type": "NSColor"
   },
-  "window/backing-scale-factor": {
+  "Window/backing-scale-factor": {
     "type": "number"
   },
-  "window/backing-type": {
+  "Window/backing-type": {
     "options": [
       "Retained",
       "Nonretained",
       "Buffered"
     ]
   },
-  "window/can-become-key": {
+  "Window/can-become-key": {
     "type": "boolean"
   },
-  "window/can-become-main": {
+  "Window/can-become-main": {
     "type": "boolean"
   },
-  "window/can-become-visible-without-login": {
+  "Window/can-become-visible-without-login": {
     "type": "boolean"
   },
-  "window/can-hide": {
+  "Window/can-hide": {
     "type": "boolean"
   },
-  "window/child-windows": {
+  "Window/child-windows": {
     "type": "NSArray"
   },
-  "window/collection-behavior": {
+  "Window/collection-behavior": {
     "options": [
       "Default",
       "CanJoinAllSpaces",
@@ -2550,161 +2565,161 @@
       "FullScreenDisallowsTiling"
     ]
   },
-  "window/color-space": {
+  "Window/color-space": {
     "type": "NSColorSpace"
   },
-  "window/content-aspect-ratio": {
+  "Window/content-aspect-ratio": {
     "type": "NSSize"
   },
-  "window/content-layout-guide": {
+  "Window/content-layout-guide": {
     "type": "Id"
   },
-  "window/content-layout-rect": {
+  "Window/content-layout-rect": {
     "type": "NSRect"
   },
-  "window/content-max-size": {
+  "Window/content-max-size": {
     "type": "NSSize"
   },
-  "window/content-min-size": {
+  "Window/content-min-size": {
     "type": "NSSize"
   },
-  "window/content-resize-increments": {
+  "Window/content-resize-increments": {
     "type": "NSSize"
   },
-  "window/content-view": {
+  "Window/content-view": {
     "type": "NSView"
   },
-  "window/content-view-controller": {
+  "Window/content-view-controller": {
     "type": "NSViewController"
   },
-  "window/deepest-screen": {
+  "Window/deepest-screen": {
     "type": "NSScreen"
   },
-  "window/default-button-cell": {
+  "Window/default-button-cell": {
     "type": "NSButtonCell"
   },
-  "window/delegate": {
+  "Window/delegate": {
     "type": "NSWindowDelegate"
   },
-  "window/depth-limit": {
+  "Window/depth-limit": {
     "options": [
       "TwentyfourBitRGB",
       "SixtyfourBitRGB",
       "OnehundredtwentyeightBitRGB"
     ]
   },
-  "window/device-description": {
+  "Window/device-description": {
     "type": "NSDictionary"
   },
-  "window/displays-when-screen-profile-changes": {
+  "Window/displays-when-screen-profile-changes": {
     "type": "boolean"
   },
-  "window/dock-tile": {
+  "Window/dock-tile": {
     "type": "NSDockTile"
   },
-  "window/is-document-edited": {
+  "Window/is-document-edited": {
     "type": "boolean"
   },
-  "window/is-excluded-from-windows-menu": {
+  "Window/is-excluded-from-windows-menu": {
     "type": "boolean"
   },
-  "window/first-responder": {
+  "Window/first-responder": {
     "type": "NSResponder"
   },
-  "window/frame": {
+  "Window/frame": {
     "type": "NSRect"
   },
-  "window/frame-autosave-name": {
+  "Window/frame-autosave-name": {
     "type": "String"
   },
-  "window/has-dynamic-depth-limit": {
+  "Window/has-dynamic-depth-limit": {
     "type": "boolean"
   },
-  "window/has-shadow": {
+  "Window/has-shadow": {
     "type": "boolean"
   },
-  "window/hides-on-deactivate": {
+  "Window/hides-on-deactivate": {
     "type": "boolean"
   },
-  "window/initial-first-responder": {
+  "Window/initial-first-responder": {
     "type": "NSView"
   },
-  "window/in-live-resize": {
+  "Window/in-live-resize": {
     "type": "boolean"
   },
-  "window/key-view-selection-direction": {
+  "Window/key-view-selection-direction": {
     "options": [
       "DirectSelection",
       "SelectingNext",
       "SelectingPrevious"
     ]
   },
-  "window/is-key-window": {
+  "Window/is-key-window": {
     "type": "boolean"
   },
-  "window/level": {
+  "Window/level": {
     "type": "number"
   },
-  "window/is-main-window": {
+  "Window/is-main-window": {
     "type": "boolean"
   },
-  "window/max-full-screen-content-size": {
+  "Window/max-full-screen-content-size": {
     "type": "NSSize"
   },
-  "window/max-size": {
+  "Window/max-size": {
     "type": "NSSize"
   },
-  "window/min-full-screen-content-size": {
+  "Window/min-full-screen-content-size": {
     "type": "NSSize"
   },
-  "window/is-miniaturized": {
+  "Window/is-miniaturized": {
     "type": "boolean"
   },
-  "window/miniwindow-image": {
+  "Window/miniwindow-image": {
     "type": "NSImage"
   },
-  "window/miniwindow-title": {
+  "Window/miniwindow-title": {
     "type": "String"
   },
-  "window/min-size": {
+  "Window/min-size": {
     "type": "NSSize"
   },
-  "window/is-movable": {
+  "Window/is-movable": {
     "type": "boolean"
   },
-  "window/is-movable-by-window-background": {
+  "Window/is-movable-by-window-background": {
     "type": "boolean"
   },
-  "window/occlusion-state": {
+  "Window/occlusion-state": {
     "options": [
       "Visible"
     ]
   },
-  "window/is-on-active-space": {
+  "Window/is-on-active-space": {
     "type": "boolean"
   },
-  "window/is-opaque": {
+  "Window/is-opaque": {
     "type": "boolean"
   },
-  "window/parent": {
+  "Window/parent": {
     "type": "NSWindow"
   },
-  "window/preserves-content-during-live-resize": {
+  "Window/preserves-content-during-live-resize": {
     "type": "boolean"
   },
-  "window/prevents-application-termination-when-modal": {
+  "Window/prevents-application-termination-when-modal": {
     "type": "boolean"
   },
-  "window/is-released-when-closed": {
+  "Window/is-released-when-closed": {
     "type": "boolean"
   },
-  "window/represented-filename": {
+  "Window/represented-filename": {
     "type": "String"
   },
-  "window/represented-url": {
+  "Window/represented-url": {
     "type": "NSURL"
   },
-  "window/resize-flags": {
+  "Window/resize-flags": {
     "options": [
       "CapsLock",
       "Shift",
@@ -2717,35 +2732,35 @@
       "DeviceIndependentFlagsMask"
     ]
   },
-  "window/resize-increments": {
+  "Window/resize-increments": {
     "type": "NSSize"
   },
-  "window/screen": {
+  "Window/screen": {
     "type": "NSScreen"
   },
-  "window/sharing-type": {
+  "Window/sharing-type": {
     "options": [
       "None",
       "ReadOnly",
       "ReadWrite"
     ]
   },
-  "window/is-sheet": {
+  "Window/is-sheet": {
     "type": "boolean"
   },
-  "window/sheet-parent": {
+  "Window/sheet-parent": {
     "type": "NSWindow"
   },
-  "window/sheets": {
+  "Window/sheets": {
     "type": "NSArray"
   },
-  "window/shows-toolbar-button": {
+  "Window/shows-toolbar-button": {
     "type": "boolean"
   },
-  "window/frame-descriptor": {
+  "Window/frame-descriptor": {
     "type": "String"
   },
-  "window/style-mask": {
+  "Window/style-mask": {
     "options": [
       "Borderless",
       "Titled",
@@ -2762,116 +2777,116 @@
       "HUDWindow"
     ]
   },
-  "window/tab": {
+  "Window/tab": {
     "type": "NSWindowTab"
   },
-  "window/tabbed-windows": {
+  "Window/tabbed-windows": {
     "type": "NSArray"
   },
-  "window/tabbing-identifier": {
+  "Window/tabbing-identifier": {
     "type": "String"
   },
-  "window/tabbing-mode": {
+  "Window/tabbing-mode": {
     "options": [
       "Automatic",
       "Preferred",
       "Disallowed"
     ]
   },
-  "window/tab-group": {
+  "Window/tab-group": {
     "type": "NSWindowTabGroup"
   },
-  "window/title": {
+  "Window/title": {
     "type": "String"
   },
-  "window/titlebar-accessory-view-controllers": {
+  "Window/titlebar-accessory-view-controllers": {
     "type": "NSArray"
   },
-  "window/titlebar-appears-transparent": {
+  "Window/titlebar-appears-transparent": {
     "type": "boolean"
   },
-  "window/title-visibility": {
+  "Window/title-visibility": {
     "options": [
       "Visible",
       "Hidden"
     ]
   },
-  "window/toolbar": {
+  "Window/toolbar": {
     "type": "NSToolbar"
   },
-  "window/views-need-display": {
+  "Window/views-need-display": {
     "type": "boolean"
   },
-  "window/is-visible": {
+  "Window/is-visible": {
     "type": "boolean"
   },
-  "window/window-controller": {
+  "Window/window-controller": {
     "type": "NSWindowController"
   },
-  "window/window-number": {
+  "Window/window-number": {
     "type": "number"
   },
-  "window/window-titlebar-layout-direction": {
+  "Window/window-titlebar-layout-direction": {
     "options": [
       "LeftToRight",
       "RightToLeft"
     ]
   },
-  "window/works-when-modal": {
+  "Window/works-when-modal": {
     "type": "boolean"
   },
-  "window/is-zoomed": {
+  "Window/is-zoomed": {
     "type": "boolean"
   },
-  "window/accepts-mouse-moved-events": {
+  "Window/accepts-mouse-moved-events": {
     "type": "boolean"
   },
-  "window/current-event": {
+  "Window/current-event": {
     "type": "NSEvent"
   },
-  "window/ignores-mouse-events": {
+  "Window/ignores-mouse-events": {
     "type": "boolean"
   },
-  "window/mouse-location-outside-of-event-stream": {
+  "Window/mouse-location-outside-of-event-stream": {
     "type": "NSPoint"
   },
-  "window/are-cursor-rects-enabled": {
+  "Window/are-cursor-rects-enabled": {
     "type": "boolean"
   },
-  "window/window-ref": {
+  "Window/window-ref": {
     "type": "pointer"
   },
-  "window/shows-resize-indicator": {
+  "Window/shows-resize-indicator": {
     "type": "boolean"
   },
-  "window/is-floating-panel": {
+  "Window/is-floating-panel": {
     "type": "boolean"
   },
-  "window/has-close-box": {
+  "Window/has-close-box": {
     "type": "boolean"
   },
-  "window/has-title-bar": {
+  "Window/has-title-bar": {
     "type": "boolean"
   },
-  "window/is-miniaturizable": {
+  "Window/is-miniaturizable": {
     "type": "boolean"
   },
-  "window/is-modal-panel": {
+  "Window/is-modal-panel": {
     "type": "boolean"
   },
-  "window/ordered-index": {
+  "Window/ordered-index": {
     "type": "number"
   },
-  "window/is-resizable": {
+  "Window/is-resizable": {
     "type": "boolean"
   },
-  "window/is-zoomable": {
+  "Window/is-zoomable": {
     "type": "boolean"
   },
-  "window/is-restorable": {
+  "Window/is-restorable": {
     "type": "boolean"
   },
-  "window/restoration-class": {
+  "Window/restoration-class": {
     "type": "class"
   }
 }

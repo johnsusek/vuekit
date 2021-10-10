@@ -10,7 +10,8 @@
     "strict": false,
     "noImplicitThis": true,
     "lib": [
-      "es2020"
+      "es2020",
+      "dom"
     ]
   },
   "include": [

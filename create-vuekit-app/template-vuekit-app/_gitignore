@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+
+build/*
+
+# Uncomment this line if you want to keep your
+# generated .xcodeproj files in git
+# !build/*.xcodeproj
+
+logs/

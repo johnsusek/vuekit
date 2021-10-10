@@ -1,21 +1,15 @@
-import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    Vue({
-      template: {
-        compilerOptions: {
-          isNativeTag: (tag: string) => tag === "script"
-        }
-      }
-    }),
+    Vue(),
     Components({
       dirs: [
         'src/components',
-        'node_modules/vuekit-vue/src/components'
+        'node_modules/vuekit-vue/components'
       ],
       extensions: ['vue']
     })

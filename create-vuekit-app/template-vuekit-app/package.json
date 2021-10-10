@@ -1,0 +1,31 @@
+{
+  "name": "vuekit-template",
+  "version": "0.0.1",
+  "author": "",
+  "license": "",
+  "scripts": {
+    "clean": "rm -rf build logs node_modules",
+    "app": "fkill -s $npm_package_name && ./build/app/Build/Products/Debug/$npm_package_name.app/Contents/MacOS/$npm_package_name",
+    "build": "mkdir -p logs && run-s build:framework build:app build:vue",
+    "build:app": "rm -rf build/app && run-s xcodegen --for=app && run-s xcodebuild:app",
+    "build:framework": "rm -rf build/framework && run-s xcodegen --for=framework && run-s xcodebuild:framework",
+    "build:vue": "run-p vue:lint vue:tsc && run-s vue:bundle",
+    "xcodegen": "mkdir -p $npm_config_local_prefix/build/$npm_config_for && xcodegenerate -s $npm_config_local_prefix/.config/xcodeproj-$npm_config_for.json -p $npm_config_local_prefix/build 1> logs/xcodegen-$npm_config_for.log",
+    "xcodebuild": "xcodebuild -allowProvisioningUpdates -derivedDataPath build/$npm_config_for -scheme $npm_config_scheme -project build/$npm_config_project.xcodeproj 1> logs/xcodebuild-$npm_config_for.log",
+    "xcodebuild:app": "run-s xcodebuild --for=app --scheme=$npm_package_name --project=$npm_package_name",
+    "xcodebuild:framework": "run-s xcodebuild --for=framework --scheme=VueKit --project=VueKit",
+    "vue:lint": "eslint --ext vue,ts --quiet src",
+    "vue:tsc": "vue-tsc -noEmit",
+    "vue:bundle": "vite build -l error --config .config/vite.config.ts",
+    "vue:bundle:copy": "cp build/js/vuekit-bundle.es.js build/app/Build/Products/Debug/$npm_package_name.app/Contents/Resources/vuekit-bundle.es.js",
+    "watch:app": "nodemon -w build --exec run-s app",
+    "watch:vue": "nodemon -e 'ts,vue' -w src --exec run-s build:vue vue:bundle:copy"
+  },
+  "eslintConfig": {
+    "extends": ".config/.eslintrc.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vuekit-vue": "^0.0.1"
+  }
+}

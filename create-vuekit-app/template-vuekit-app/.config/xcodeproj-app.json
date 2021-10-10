@@ -19,6 +19,13 @@
     "VueKitApp": {
       "type": "application",
       "platform": "macOS",
+      "info": {
+        "path": "../assets/Info.plist",
+        "properties": {
+          "NSMainNibFile": "MainMenu",
+          "NSPrincipalClass": "NSApplication"
+        }
+      },
       "sources": [
         "../node_modules/vuekit-vue/templates/xcode/Sources",
         {
@@ -26,7 +33,7 @@
           "optional": true
         },
         {
-          "path": "../support"
+          "path": "../assets"
         }
       ],
       "dependencies": [
@@ -40,9 +47,6 @@
             "name": "VueKitAppTests"
           }
         ]
-      },
-      "entitlements": {
-        "path": "support/App.entitlements"
       }
     },
     "VueKitAppTests": {

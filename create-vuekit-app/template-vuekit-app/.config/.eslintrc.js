@@ -31,6 +31,8 @@ module.exports = {
     // the airbnb base config and modify what we need, typically
     // turning off or relaxing rules.
     'comma-dangle': ['warn', 'never'],
+    'brace-style': ['error', 'stroustrup'],
+    'arrow-parens': ['warn', 'as-needed'],
     'consistent-return': 'off',
     'dot-notation': 'warn',
     'import/prefer-default-export': 'off',
@@ -40,13 +42,38 @@ module.exports = {
     'no-console': 'off',
     'no-continue': 'off',
     'no-debugger': 'warn',
+    'no-empty': 'off',
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-return-assign': 'warn',
+    'no-shadow': 'off',
+    'no-underscore-dangle': 'off',
     'prefer-const': 'off',
     'prefer-destructuring': 'off',
     'quote-props': 'warn',
+    'object-curly-newline': ['error', {
+      ObjectExpression: {
+        minProperties: 4,
+        multiline: true,
+        consistent: true
+      },
+      ObjectPattern: {
+        minProperties: 5,
+        multiline: true,
+        consistent: true
+      },
+      ImportDeclaration: {
+        minProperties: 5,
+        multiline: true,
+        consistent: true
+      },
+      ExportDeclaration: {
+        minProperties: 5,
+        multiline: true,
+        consistent: true
+      },
+    }],
 
     // Relax some typescript-eslint rules
     '@typescript-eslint/no-explicit-any': 'off',
@@ -77,6 +104,7 @@ module.exports = {
     'vue/html-closing-bracket-newline': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/component-definition-name-casing': 'off',
+    'vue/no-unused-components': 'warn',
     'vue/prop-name-casing': 'off'
   }
 };

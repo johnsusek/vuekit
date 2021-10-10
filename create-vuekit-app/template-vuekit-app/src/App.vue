@@ -1,9 +1,9 @@
 <template>
-  <window title="App">
-    <stack alignment="CenterX" distribution="EqualSpacing" orientation="Vertical">
-      <text-field v-model="message" />
-    </stack>
-  </window>
+  <Window title="App">
+    <Stack alignment="CenterX" distribution="EqualSpacing" orientation="Vertical">
+      <TextField v-model="message" />
+    </Stack>
+  </Window>
 </template>
 
 <script lang='ts'>

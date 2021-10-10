@@ -9,7 +9,11 @@ function buildVetur(frameworks, enums) {
     for (let item of framework.Items) {
       if (!item.isView && item.SwiftName !== "NSWindow") continue;
 
-      let itemSwiftName = headerCase(item.SwiftName).toLowerCase().replace(/(^ns-|-view$)/g, '');
+      let itemSwiftName = item.SwiftName.replace(/^NS/, '');
+
+      if (itemSwiftName !== "TextView") {
+        itemSwiftName = itemSwiftName.replace(/View$/, '');
+      }
 
       tags[itemSwiftName] = tags[itemSwiftName] || {};
       console.log("  item: " + itemSwiftName);
@@ -17,7 +21,7 @@ function buildVetur(frameworks, enums) {
       let tag = {};
       if (item.IntroducedIn)
         tag.description = "Introduced in " + item.IntroducedIn;
-      tag.attributes = item.InstanceProperties?.filter(p => p).map(p => p.SwiftName);
+      tag.attributes = item.InstanceProperties?.filter(p => p).map(p => headerCase(p.SwiftName).toLowerCase());
       tags[itemSwiftName] = tag;
 
       if (item.StaticProperties) {

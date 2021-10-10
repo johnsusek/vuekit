@@ -1,3 +1,11 @@
+import * as Constraint from './constraint';
+
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $constraints: Constraint.Definitions
+  }
+}
+
 declare global {
   export type VueKitNodeProps = {
     [key: string]: any;

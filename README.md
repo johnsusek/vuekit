@@ -16,4 +16,4 @@ A new way to create MacOS apps.
 
 > I see thousands of packages in node_modules, does my app need all of these?
 
-No, VueKit apps use only one package, `@vue/runtime-core`, which is a pared-down subset of the full `vue` package. The modules in node_modules are used for development tools. Take a look at the generated javascript in the build/ directory to see the entirety of your app with dependencies included.
+No, the modules in node_modules are used for development tools, including linting (ESLint), typing (Typescript), and building (Vite/ESBuild). VueKit apps use only one external dependency at runtime, `@vue/runtime-core`.

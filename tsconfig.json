@@ -3,22 +3,21 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "lib": [
+      "es2020"
+    ],
+    "outDir": "dist",
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "skipLibCheck": true,
-    "outDir": "dist",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "lib": [
-      "es2020"
-    ],
-    "types": []
   },
   "include": [
-    "src",
-    ".eslintrc.js"
+    "lib",
+    "types"
   ],
   "exclude": [
     "node_modules"

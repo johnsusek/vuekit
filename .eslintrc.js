@@ -28,12 +28,15 @@ module.exports = {
 
   rules: {
     // vuekit-vue rules
+    'brace-style': ['error', 'stroustrup'],
+    'arrow-parens': ['warn', 'as-needed'],
     'no-bitwise': 'off',
     'prefer-destructuring': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'vue/require-default-prop': 'off',
     'quote-props': 'off',
     'dot-notation': 'off',
@@ -44,6 +47,7 @@ module.exports = {
 
     // Relax some of the airbnb-base rules
     'max-len': 'off',
+    'max-classes-per-file': 'off',
     'no-plusplus': 'off',
     'no-param-reassign': 'off',
     'no-restricted-syntax': 'off',
@@ -53,6 +57,7 @@ module.exports = {
     'no-debugger': 'warn',
     'prefer-const': 'off',
     'no-return-assign': 'warn',
+    'no-use-before-define': 'off',
     'lines-between-class-members': 'off',
 
     // Relax some typescript-eslint rules

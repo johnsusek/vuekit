@@ -14,5 +14,9 @@ node_modules
 xcuserdata
 
 build/
-data/
+dist/
+data/*
+!data/frameworks.json
+!data/inheritence.json
+
 tmp/

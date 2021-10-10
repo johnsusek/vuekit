@@ -1,54 +1,2268 @@
 declare global {
-    export class K {
+    class AVAsset extends NSObject {
+        allMediaSelections: AVMediaSelection[];
+        availableChapterLocales: NSLocale[];
+        availableMediaCharacteristicsWithMediaSelectionOptions: string[];
+        availableMetadataFormats: string[];
+        canContainFragments: boolean;
+        commonMetadata: AVMetadataItem[];
+        isCompatibleWithAirPlayVideo: boolean;
+        isComposable: boolean;
+        containsFragments: boolean;
+        creationDate: AVMetadataItem;
+        duration: CMTime;
+        isExportable: boolean;
+        hasProtectedContent: boolean;
+        lyrics: string;
+        metadata: AVMetadataItem[];
+        minimumTimeOffsetFromLive: CMTime;
+        overallDurationHint: CMTime;
+        isPlayable: boolean;
+        preferredMediaSelection: AVMediaSelection;
+        preferredRate: number;
+        preferredTransform: CGAffineTransform;
+        preferredVolume: number;
+        providesPreciseDurationAndTiming: boolean;
+        isReadable: boolean;
+        referenceRestrictions: AVAssetReferenceRestrictions;
+        trackGroups: AVAssetTrackGroup[];
+        tracks: AVAssetTrack[];
+        cancelLoading(): void;
+        chapterMetadataGroupsBestMatchingPreferredLanguages(bestMatchingPreferredLanguages: string[]): AVTimedMetadataGroup[];
+        chapterMetadataGroupsWithTitleLocaleContainingItemsWithCommonKeys(withTitleLocale: NSLocale, containingItemsWithCommonKeys?: string[]): AVTimedMetadataGroup[];
+        mediaSelectionGroupForMediaCharacteristic(forMediaCharacteristic: string): AVMediaSelectionGroup;
+        metadataForFormat(forFormat: string): AVMetadataItem[];
+        trackWithTrackID(withTrackID: number): AVAssetTrack;
+        tracksWithMediaCharacteristic(withMediaCharacteristic: string): AVAssetTrack[];
+        tracksWithMediaType(withMediaType: string): AVAssetTrack[];
+        unusedTrackID(): number;
     }
-    export class NSObject {
+    class AVAssetCache extends NSObject {
+        isPlayableOffline: boolean;
+        mediaSelectionOptionsInMediaSelectionGroup(in_: AVMediaSelectionGroup): AVMediaSelectionOption[];
     }
-    export class SSLProtocol {
+    class AVAssetExportSession extends NSObject {
+        static allExportPresets(): string[];
+        static determineCompatibilityWithOfExportPresetWithOutputFileTypeCompletionHandler(ofExportPreset: string, with_: AVAsset, outputFileType?: string, completionHandler?: (p1: boolean) => void): void;
+        static exportPresetsCompatibleWithAsset(compatibleWith: AVAsset): string[];
+        asset: AVAsset;
+        audioMix: AVAudioMix;
+        setAudioMix(_: AVAudioMix): any;
+        audioTimePitchAlgorithm: string;
+        setAudioTimePitchAlgorithm(_: string): any;
+        canPerformMultiplePassesOverSourceMediaData: boolean;
+        setCanPerformMultiplePassesOverSourceMediaData(_: boolean): any;
+        customVideoCompositor: AVVideoCompositing;
+        directoryForTemporaryFiles: NSURL;
+        setDirectoryForTemporaryFiles(_: NSURL): any;
+        error: NSError;
+        estimatedOutputFileLength: number;
+        fileLengthLimit: number;
+        setFileLengthLimit(_: number): any;
+        maxDuration: CMTime;
+        metadata: AVMetadataItem[];
+        setMetadata(_: AVMetadataItem[]): any;
+        metadataItemFilter: AVMetadataItemFilter;
+        setMetadataItemFilter(_: AVMetadataItemFilter): any;
+        outputFileType: string;
+        setOutputFileType(_: string): any;
+        outputURL: NSURL;
+        setOutputURL(_: NSURL): any;
+        presetName: string;
+        progress: number;
+        shouldOptimizeForNetworkUse: boolean;
+        setShouldOptimizeForNetworkUse(_: boolean): any;
+        status: AVAssetExportSession.Status;
+        supportedFileTypes: string[];
+        timeRange: CMTimeRange;
+        setTimeRange(_: CMTimeRange): any;
+        videoComposition: AVVideoComposition;
+        setVideoComposition(_: AVVideoComposition): any;
+        cancelExport(): void;
+        determineCompatibleFileTypesWithCompletionHandler(completionHandler: (p1: string[]) => void): void;
+        estimateMaximumDurationWithCompletionHandler(completionHandler?: (p1: CMTime, p2: NSError) => void): void;
+        estimateOutputFileLengthWithCompletionHandler(completionHandler?: (p1: number, p2: NSError) => void): void;
+        exportAsynchronouslyWithCompletionHandler(completionHandler: () => void): void;
+        static createWithAssetPresetName(asset: AVAsset, presetName: string): AVAssetExportSession;
     }
-    export class tls_protocol_version_t {
+    class AVAssetImageGenerator extends NSObject {
+        apertureMode: string;
+        setApertureMode(_: string): any;
+        appliesPreferredTrackTransform: boolean;
+        setAppliesPreferredTrackTransform(_: boolean): any;
+        asset: AVAsset;
+        customVideoCompositor: AVVideoCompositing;
+        maximumSize: CGSize;
+        setMaximumSize(_: CGSize): any;
+        requestedTimeToleranceAfter: CMTime;
+        setRequestedTimeToleranceAfter(_: CMTime): any;
+        requestedTimeToleranceBefore: CMTime;
+        setRequestedTimeToleranceBefore(_: CMTime): any;
+        videoComposition: AVVideoComposition;
+        setVideoComposition(_: AVVideoComposition): any;
+        cancelAllCGImageGeneration(): void;
+        copyCGImageAtTimeActualTimeError(actualTime: CMTime, error?: CMTime): any;
+        generateCGImagesAsynchronouslyWithForTimesCompletionHandler(forTimes: NSValue[], completionHandler: (p1: CMTime, p2: any, p3: CMTime, p4: AVAssetImageGenerator.Result, p5: NSError) => void): void;
+        static createWithAsset(asset: AVAsset): AVAssetImageGenerator;
     }
-    export class CALayer {
+    class AVAssetReader extends NSObject {
+        static assetReaderWithAssetError(error: AVAsset): AVAssetReader;
+        asset: AVAsset;
+        error: NSError;
+        outputs: AVAssetReaderOutput[];
+        status: AVAssetReader.Status;
+        timeRange: CMTimeRange;
+        setTimeRange(_: CMTimeRange): any;
+        addOutput(_: AVAssetReaderOutput): void;
+        canAddOutput(_: AVAssetReaderOutput): boolean;
+        cancelReading(): void;
+        static createWithAsset(asset: AVAsset): AVAssetReader;
+        startReading(): boolean;
     }
-    export class CAMediaTimingFunction {
+    class AVAssetReaderAudioMixOutput extends AVAssetReaderOutput {
+        static assetReaderAudioMixOutputWithAudioTracksAudioSettings(audioTracks: AVAssetTrack[], audioSettings?: Map<string, any>): AVAssetReaderAudioMixOutput;
+        audioMix: AVAudioMix;
+        setAudioMix(_: AVAudioMix): any;
+        audioSettings: Map<string, any>;
+        audioTimePitchAlgorithm: string;
+        setAudioTimePitchAlgorithm(_: string): any;
+        audioTracks: AVAssetTrack[];
+        static createWithAudioTracksAudioSettings(audioTracks: AVAssetTrack[], audioSettings?: Map<string, any>): AVAssetReaderAudioMixOutput;
     }
-    export class CGAffineTransform {
+    class AVAssetReaderOutput extends NSObject {
+        alwaysCopiesSampleData: boolean;
+        setAlwaysCopiesSampleData(_: boolean): any;
+        mediaType: string;
+        supportsRandomAccess: boolean;
+        setSupportsRandomAccess(_: boolean): any;
+        copyNextSampleBuffer(): any;
+        markConfigurationAsFinal(): void;
+        resetForReadingTimeRanges(forReadingTimeRanges: NSValue[]): void;
     }
-    export class CIContext {
+    class AVAssetReaderOutputMetadataAdaptor extends NSObject {
+        static assetReaderOutputMetadataAdaptorWithAssetReaderTrackOutput(assetReaderTrackOutput: AVAssetReaderTrackOutput): AVAssetReaderOutputMetadataAdaptor;
+        assetReaderTrackOutput: AVAssetReaderTrackOutput;
+        static createWithAssetReaderTrackOutput(assetReaderTrackOutput: AVAssetReaderTrackOutput): AVAssetReaderOutputMetadataAdaptor;
+        nextTimedMetadataGroup(): AVTimedMetadataGroup;
     }
-    export class CIFilter {
+    class AVAssetReaderSampleReferenceOutput extends AVAssetReaderOutput {
+        static assetReaderSampleReferenceOutputWithTrack(track: AVAssetTrack): AVAssetReaderSampleReferenceOutput;
+        track: AVAssetTrack;
+        static createWithTrack(track: AVAssetTrack): AVAssetReaderSampleReferenceOutput;
     }
-    export class CIImage {
+    class AVAssetReaderTrackOutput extends AVAssetReaderOutput {
+        static assetReaderTrackOutputWithTrackOutputSettings(track: AVAssetTrack, outputSettings?: Map<string, any>): AVAssetReaderTrackOutput;
+        audioTimePitchAlgorithm: string;
+        setAudioTimePitchAlgorithm(_: string): any;
+        outputSettings: Map<string, any>;
+        track: AVAssetTrack;
+        static createWithTrackOutputSettings(track: AVAssetTrack, outputSettings?: Map<string, any>): AVAssetReaderTrackOutput;
     }
-    export class CKContainer {
+    class AVAssetReaderVideoCompositionOutput extends AVAssetReaderOutput {
+        static assetReaderVideoCompositionOutputWithVideoTracksVideoSettings(videoTracks: AVAssetTrack[], videoSettings?: Map<string, any>): AVAssetReaderVideoCompositionOutput;
+        customVideoCompositor: AVVideoCompositing;
+        videoComposition: AVVideoComposition;
+        setVideoComposition(_: AVVideoComposition): any;
+        videoSettings: Map<string, any>;
+        videoTracks: AVAssetTrack[];
+        static createWithVideoTracksVideoSettings(videoTracks: AVAssetTrack[], videoSettings?: Map<string, any>): AVAssetReaderVideoCompositionOutput;
     }
-    export class CKShare {
+    class AVAssetResourceLoader extends NSObject {
+        delegate: AVAssetResourceLoaderDelegate;
+        delegateQueue: NSObject;
+        preloadsEligibleContentKeys: boolean;
+        setPreloadsEligibleContentKeys(_: boolean): any;
+        setDelegateQueue(_?: AVAssetResourceLoaderDelegate, queue?: NSObject): void;
     }
-    export class IndexPath {
+    interface AVAssetResourceLoaderDelegate extends NSObject {
+        resourceLoaderDidCancelLoadingRequest?(_: AVAssetResourceLoader, didCancel: AVAssetResourceLoadingRequest): void;
+        resourceLoaderShouldWaitForResponseToAuthenticationChallenge?(_: AVAssetResourceLoader, shouldWaitForResponseTo: URLAuthenticationChallenge): boolean;
+        resourceLoaderDidCancelAuthenticationChallenge?(_: AVAssetResourceLoader, didCancel: URLAuthenticationChallenge): void;
+        resourceLoaderShouldWaitForLoadingOfRequestedResource?(_: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource: AVAssetResourceLoadingRequest): boolean;
+        resourceLoaderShouldWaitForRenewalOfRequestedResource?(_: AVAssetResourceLoader, shouldWaitForRenewalOfRequestedResource: AVAssetResourceRenewalRequest): boolean;
     }
-    export class Metadata {
+    class AVAssetResourceLoadingContentInformationRequest extends NSObject {
+        allowedContentTypes: string[];
+        isByteRangeAccessSupported: boolean;
+        setByteRangeAccessSupported(_: boolean): any;
+        contentLength: number;
+        setContentLength(_: number): any;
+        contentType: string;
+        setContentType(_: string): any;
+        renewalDate: Date;
+        setRenewalDate(_: Date): any;
     }
-    export class NSAttributeType {
+    class AVAssetResourceLoadingDataRequest extends NSObject {
+        currentOffset: number;
+        requestedLength: number;
+        requestedOffset: number;
+        requestsAllDataToEndOfResource: boolean;
+        respondWithData(with_: NSData): void;
     }
-    export class NSEntityDescription {
+    class AVAssetResourceLoadingRequest extends NSObject {
+        isCancelled: boolean;
+        contentInformationRequest: AVAssetResourceLoadingContentInformationRequest;
+        dataRequest: AVAssetResourceLoadingDataRequest;
+        isFinished: boolean;
+        redirect: NSURLRequest;
+        setRedirect(_: NSURLRequest): any;
+        request: NSURLRequest;
+        requestor: AVAssetResourceLoadingRequestor;
+        response: URLResponse;
+        setResponse(_: URLResponse): any;
+        finishLoading(): void;
+        finishLoadingWithError(with_?: NSError): void;
+        persistentContentKeyFromKeyVendorResponseOptionsError(options: NSData, error?: Map<string, any>): NSData;
+        streamingContentKeyRequestDataForAppContentIdentifierOptionsError(contentIdentifier: NSData, options: NSData, error?: Map<string, any>): NSData;
     }
-    export class NSFetchRequest {
+    class AVAssetResourceLoadingRequestor extends NSObject {
+        providesExpiredSessionReports: boolean;
     }
-    export class NSManagedObjectContext {
+    class AVAssetResourceRenewalRequest extends AVAssetResourceLoadingRequest {
     }
-    export class NSManagedObjectModel {
+    class AVAssetTrack extends NSObject {
+        asset: AVAsset;
+        availableMetadataFormats: string[];
+        availableTrackAssociationTypes: string[];
+        canProvideSampleCursors: boolean;
+        commonMetadata: AVMetadataItem[];
+        isDecodable: boolean;
+        isEnabled: boolean;
+        estimatedDataRate: number;
+        extendedLanguageTag: string;
+        formatDescriptions: any[];
+        hasAudioSampleDependencies: boolean;
+        languageCode: string;
+        mediaType: string;
+        metadata: AVMetadataItem[];
+        minFrameDuration: CMTime;
+        naturalSize: CGSize;
+        naturalTimeScale: number;
+        nominalFrameRate: number;
+        isPlayable: boolean;
+        preferredTransform: CGAffineTransform;
+        preferredVolume: number;
+        requiresFrameReordering: boolean;
+        segments: AVAssetTrackSegment[];
+        isSelfContained: boolean;
+        timeRange: CMTimeRange;
+        totalSampleDataLength: number;
+        trackID: number;
+        associatedTracksOfType(ofType: string): AVAssetTrack[];
+        hasMediaCharacteristic(_: string): boolean;
+        makeSampleCursorAtFirstSampleInDecodeOrder(): AVSampleCursor;
+        makeSampleCursorAtLastSampleInDecodeOrder(): AVSampleCursor;
+        makeSampleCursorWithPresentationTimeStamp(presentationTimeStamp: CMTime): AVSampleCursor;
+        metadataForFormat(forFormat: string): AVMetadataItem[];
+        samplePresentationTimeForTrackTime(forTrackTime: CMTime): CMTime;
+        segmentForTrackTime(forTrackTime: CMTime): AVAssetTrackSegment;
     }
-    export class QLPreviewItem {
+    class AVAssetTrackGroup extends NSObject {
+        trackIDs: number[];
     }
-    export enum NSURLSessionDelayedRequestDisposition {
+    class AVAssetTrackSegment extends NSObject {
+        isEmpty: boolean;
+        timeMapping: CMTimeMapping;
     }
-    export type OpaquePointer = any;
-    export type NSFastEnumerationIterator = any;
-    export type NSIndexSetIterator = any;
-    export type IndexingIterator = any;
-    export type Slice = any;
-    export type CGPoint = NSPoint;
-    export type CGRect = NSRect;
-    export type CGSize = NSSize;
+    class AVAssetWriter extends NSObject {
+        static assetWriterWithURLFileTypeError(fileType: NSURL, error: string): AVAssetWriter;
+        availableMediaTypes: string[];
+        directoryForTemporaryFiles: NSURL;
+        setDirectoryForTemporaryFiles(_: NSURL): any;
+        error: NSError;
+        inputGroups: AVAssetWriterInputGroup[];
+        inputs: AVAssetWriterInput[];
+        metadata: AVMetadataItem[];
+        setMetadata(_: AVMetadataItem[]): any;
+        movieFragmentInterval: CMTime;
+        setMovieFragmentInterval(_: CMTime): any;
+        movieTimeScale: number;
+        setMovieTimeScale(_: number): any;
+        outputFileType: string;
+        outputURL: NSURL;
+        overallDurationHint: CMTime;
+        setOverallDurationHint(_: CMTime): any;
+        shouldOptimizeForNetworkUse: boolean;
+        setShouldOptimizeForNetworkUse(_: boolean): any;
+        status: AVAssetWriter.Status;
+        addInput(_: AVAssetWriterInput): void;
+        addInputGroup(_: AVAssetWriterInputGroup): void;
+        canAddInput(_: AVAssetWriterInput): boolean;
+        canAddInputGroup(_: AVAssetWriterInputGroup): boolean;
+        canApplyOutputSettingsForMediaType(outputSettings?: Map<string, any>, forMediaType?: string): boolean;
+        cancelWriting(): void;
+        endSessionAtSourceTime(atSourceTime: CMTime): void;
+        finishWritingWithCompletionHandler(completionHandler: () => void): void;
+        static createWithUrlFileType(URL: NSURL, fileType: string): AVAssetWriter;
+        startSessionAtSourceTime(atSourceTime: CMTime): void;
+        startWriting(): boolean;
+    }
+    class AVAssetWriterInput extends NSObject {
+        canPerformMultiplePasses: boolean;
+        currentPassDescription: AVAssetWriterInputPassDescription;
+        expectsMediaDataInRealTime: boolean;
+        setExpectsMediaDataInRealTime(_: boolean): any;
+        extendedLanguageTag: string;
+        setExtendedLanguageTag(_: string): any;
+        languageCode: string;
+        setLanguageCode(_: string): any;
+        marksOutputTrackAsEnabled: boolean;
+        setMarksOutputTrackAsEnabled(_: boolean): any;
+        mediaDataLocation: string;
+        setMediaDataLocation(_: string): any;
+        mediaTimeScale: number;
+        setMediaTimeScale(_: number): any;
+        mediaType: string;
+        metadata: AVMetadataItem[];
+        setMetadata(_: AVMetadataItem[]): any;
+        naturalSize: CGSize;
+        setNaturalSize(_: CGSize): any;
+        outputSettings: Map<string, any>;
+        performsMultiPassEncodingIfSupported: boolean;
+        setPerformsMultiPassEncodingIfSupported(_: boolean): any;
+        preferredMediaChunkAlignment: number;
+        setPreferredMediaChunkAlignment(_: number): any;
+        preferredMediaChunkDuration: CMTime;
+        setPreferredMediaChunkDuration(_: CMTime): any;
+        preferredVolume: number;
+        setPreferredVolume(_: number): any;
+        isReadyForMoreMediaData: boolean;
+        sampleReferenceBaseURL: NSURL;
+        setSampleReferenceBaseURL(_: NSURL): any;
+        sourceFormatHint: any;
+        transform: CGAffineTransform;
+        setTransform(_: CGAffineTransform): any;
+        addTrackAssociationWithTrackOfInputType(withTrackOf: AVAssetWriterInput, type: string): void;
+        appendSampleBuffer(_: any): boolean;
+        canAddTrackAssociationWithTrackOfInputType(withTrackOf: AVAssetWriterInput, type: string): boolean;
+        static createWithMediaTypeOutputSettings(mediaType: string, outputSettings?: Map<string, any>): AVAssetWriterInput;
+        static createWithMediaTypeOutputSettingsSourceFormatHint(mediaType: string, outputSettings?: Map<string, any>, sourceFormatHint?: any): AVAssetWriterInput;
+        markAsFinished(): void;
+        markCurrentPassAsFinished(): void;
+        requestMediaDataWhenReadyWithOnUsing(on: NSObject, using: () => void): void;
+        respondToEachPassDescriptionWithOnUsing(on: NSObject, using: () => void): void;
+    }
+    class AVAssetWriterInputGroup extends AVMediaSelectionGroup {
+        static assetWriterInputGroupWithInputsDefaultInput(inputs: AVAssetWriterInput[], defaultInput?: AVAssetWriterInput): AVAssetWriterInputGroup;
+        defaultInput: AVAssetWriterInput;
+        inputs: AVAssetWriterInput[];
+        static createWithInputsDefaultInput(inputs: AVAssetWriterInput[], defaultInput?: AVAssetWriterInput): AVAssetWriterInputGroup;
+    }
+    class AVAssetWriterInputMetadataAdaptor extends NSObject {
+        static assetWriterInputMetadataAdaptorWithAssetWriterInput(assetWriterInput: AVAssetWriterInput): AVAssetWriterInputMetadataAdaptor;
+        assetWriterInput: AVAssetWriterInput;
+        appendTimedMetadataGroup(_: AVTimedMetadataGroup): boolean;
+        static createWithAssetWriterInput(assetWriterInput: AVAssetWriterInput): AVAssetWriterInputMetadataAdaptor;
+    }
+    class AVAssetWriterInputPassDescription extends NSObject {
+        sourceTimeRanges: NSValue[];
+    }
+    class AVAssetWriterInputPixelBufferAdaptor extends NSObject {
+        static assetWriterInputPixelBufferAdaptorWithAssetWriterInputSourcePixelBufferAttributes(assetWriterInput: AVAssetWriterInput, sourcePixelBufferAttributes?: Map<string, any>): AVAssetWriterInputPixelBufferAdaptor;
+        assetWriterInput: AVAssetWriterInput;
+        pixelBufferPool: any;
+        sourcePixelBufferAttributes: Map<string, any>;
+        appendPixelBufferWithPresentationTime(_: any, withPresentationTime: CMTime): boolean;
+        static createWithAssetWriterInputSourcePixelBufferAttributes(assetWriterInput: AVAssetWriterInput, sourcePixelBufferAttributes?: Map<string, any>): AVAssetWriterInputPixelBufferAdaptor;
+    }
+    class AVAsynchronousCIImageFilteringRequest extends NSObject {
+        compositionTime: CMTime;
+        renderSize: CGSize;
+        sourceImage: CIImage;
+        finishWithError(with_: NSError): void;
+        finishWithImageContext(with_: CIImage, context?: CIContext): void;
+    }
+    interface AVAsynchronousKeyValueLoading {
+        loadValuesAsynchronouslyWithForKeysCompletionHandler(forKeys: string[], completionHandler?: () => void): void;
+        statusOfValueForKeyError(forKey: string): AVKeyValueStatus;
+    }
+    class AVAsynchronousVideoCompositionRequest extends NSObject {
+        compositionTime: CMTime;
+        renderContext: AVVideoCompositionRenderContext;
+        sourceTrackIDs: number[];
+        videoCompositionInstruction: AVVideoCompositionInstruction;
+        finishCancelledRequest(): void;
+        finishWithComposedVideoFrame(withComposedVideoFrame: any): void;
+        finishWithError(with_: NSError): void;
+        sourceFrameByTrackID(byTrackID: number): any;
+    }
+    interface AVAudio3DMixing extends NSObject {
+        obstruction: number;
+        setObstruction(_: number): any;
+        occlusion: number;
+        setOcclusion(_: number): any;
+        pointSourceInHeadMode: AVAudio3DMixingPointSourceInHeadMode;
+        setPointSourceInHeadMode(_: AVAudio3DMixingPointSourceInHeadMode): any;
+        rate: number;
+        setRate(_: number): any;
+        renderingAlgorithm: AVAudio3DMixingRenderingAlgorithm;
+        setRenderingAlgorithm(_: AVAudio3DMixingRenderingAlgorithm): any;
+        reverbBlend: number;
+        setReverbBlend(_: number): any;
+        sourceMode: AVAudio3DMixingSourceMode;
+        setSourceMode(_: AVAudio3DMixingSourceMode): any;
+    }
+    class AVAudioBuffer extends NSObject {
+        audioBufferList: AudioBufferList;
+        format: AVAudioFormat;
+        mutableAudioBufferList: AudioBufferList;
+    }
+    class AVAudioChannelLayout extends NSObject {
+        channelCount: number;
+        layout: AudioChannelLayout;
+        layoutTag: number;
+        static createWithLayout(layout: AudioChannelLayout): AVAudioChannelLayout;
+        static createWithLayoutTag(layoutTag: number): AVAudioChannelLayout;
+    }
+    class AVAudioCompressedBuffer extends AVAudioBuffer {
+        byteCapacity: number;
+        byteLength: number;
+        setByteLength(_: number): any;
+        data: any;
+        maximumPacketSize: number;
+        packetCapacity: number;
+        packetCount: number;
+        setPacketCount(_: number): any;
+        packetDescriptions: AudioStreamPacketDescription;
+        static createWithFormatPacketCapacity(format: AVAudioFormat, packetCapacity: number): AVAudioCompressedBuffer;
+        static createWithFormatPacketCapacityMaximumPacketSize(format: AVAudioFormat, packetCapacity: number, maximumPacketSize: number): AVAudioCompressedBuffer;
+    }
+    class AVAudioConnectionPoint extends NSObject {
+        bus: number;
+        node: AVAudioNode;
+        static createWithNodeBus(node: AVAudioNode, bus: number): AVAudioConnectionPoint;
+    }
+    class AVAudioConverter extends NSObject {
+        applicableEncodeBitRates: number[];
+        applicableEncodeSampleRates: number[];
+        availableEncodeBitRates: number[];
+        availableEncodeChannelLayoutTags: number[];
+        availableEncodeSampleRates: number[];
+        bitRate: number;
+        setBitRate(_: number): any;
+        bitRateStrategy: string;
+        setBitRateStrategy(_: string): any;
+        channelMap: number[];
+        setChannelMap(_: number[]): any;
+        dither: boolean;
+        setDither(_: boolean): any;
+        downmix: boolean;
+        setDownmix(_: boolean): any;
+        inputFormat: AVAudioFormat;
+        magicCookie: NSData;
+        setMagicCookie(_: NSData): any;
+        maximumOutputPacketSize: number;
+        outputFormat: AVAudioFormat;
+        primeInfo: AVAudioConverter;
+        setPrimeInfo(_: AVAudioConverter): any;
+        primeMethod: AVAudioConverterPrimeMethod;
+        setPrimeMethod(_: AVAudioConverterPrimeMethod): any;
+        sampleRateConverterAlgorithm: string;
+        setSampleRateConverterAlgorithm(_: string): any;
+        sampleRateConverterQuality: number;
+        setSampleRateConverterQuality(_: number): any;
+        convertWithToErrorWithInputFrom(to: AVAudioBuffer, error?: Error, withInputFrom?: (p1: number, p2: AVAudioConverterInputStatus) => AVAudioBuffer): AVAudioConverterOutputStatus;
+        convertToBufferFromBufferError(fromBuffer: AVAudioPCMBuffer, error: AVAudioPCMBuffer): boolean;
+        static createWithFromFormatToFormat(fromFormat: AVAudioFormat, toFormat: AVAudioFormat): AVAudioConverter;
+        reset(): void;
+    }
+    class AVAudioEngine extends NSObject {
+        attachedNodes: NSSet<AVAudioNode>;
+        isAutoShutdownEnabled: boolean;
+        setAutoShutdownEnabled(_: boolean): any;
+        inputNode: AVAudioInputNode;
+        isInManualRenderingMode: boolean;
+        mainMixerNode: AVAudioMixerNode;
+        manualRenderingBlock: (p1: number, p2: AudioBufferList, p3: number) => AVAudioEngineManualRenderingStatus;
+        manualRenderingFormat: AVAudioFormat;
+        manualRenderingMaximumFrameCount: number;
+        manualRenderingMode: AVAudioEngineManualRenderingMode;
+        manualRenderingSampleTime: number;
+        musicSequence: any;
+        setMusicSequence(_: any): any;
+        outputNode: AVAudioOutputNode;
+        isRunning: boolean;
+        attachNode(_: AVAudioNode): void;
+        connectToFormat(_: AVAudioNode, to: AVAudioNode, format?: AVAudioFormat): void;
+        connectToFromBusToBusFormat(_: AVAudioNode, to: AVAudioNode, fromBus: number, toBus: number, format?: AVAudioFormat): void;
+        connectToConnectionPointsFromBusFormat(_: AVAudioNode, to: AVAudioConnectionPoint[], fromBus: number, format?: AVAudioFormat): void;
+        connectMIDIWithToFormatBlock(_: AVAudioNode, to: AVAudioNode, format?: AVAudioFormat, block?: (p1: number, p2: number, p3: number, p4: string) => number): void;
+        connectMIDIToFormatBlock(_: AVAudioNode, to: AVAudioNode[], format?: AVAudioFormat, block?: (p1: number, p2: number, p3: number, p4: string) => number): void;
+        detachNode(_: AVAudioNode): void;
+        disableManualRenderingMode(): void;
+        disconnectMIDIFrom(_: AVAudioNode, from: AVAudioNode): void;
+        disconnectMIDIFromNodes(_: AVAudioNode, from: AVAudioNode[]): void;
+        disconnectMIDIInput(_: AVAudioNode): void;
+        disconnectMIDIOutput(_: AVAudioNode): void;
+        disconnectNodeInput(_: AVAudioNode): void;
+        disconnectNodeInputBus(_: AVAudioNode, bus: number): void;
+        disconnectNodeOutput(_: AVAudioNode): void;
+        disconnectNodeOutputBus(_: AVAudioNode, bus: number): void;
+        enableManualRenderingModeFormatMaximumFrameCountError(format: AVAudioEngineManualRenderingMode, maximumFrameCount: AVAudioFormat, error: number): boolean;
+        inputConnectionPointForNodeInputBus(for_: AVAudioNode, inputBus: number): AVAudioConnectionPoint;
+        outputConnectionPointsForNodeOutputBus(for_: AVAudioNode, outputBus: number): AVAudioConnectionPoint[];
+        pause(): void;
+        prepare(): void;
+        renderOfflineToBufferError(toBuffer: number, error: AVAudioPCMBuffer): AVAudioEngineManualRenderingStatus;
+        reset(): void;
+        startAndReturnError(): boolean;
+        stop(): void;
+    }
+    class AVAudioEnvironmentDistanceAttenuationParameters extends NSObject {
+        distanceAttenuationModel: AVAudioEnvironmentDistanceAttenuationModel;
+        setDistanceAttenuationModel(_: AVAudioEnvironmentDistanceAttenuationModel): any;
+        maximumDistance: number;
+        setMaximumDistance(_: number): any;
+        referenceDistance: number;
+        setReferenceDistance(_: number): any;
+        rolloffFactor: number;
+        setRolloffFactor(_: number): any;
+    }
+    class AVAudioEnvironmentNode extends AVAudioNode {
+        applicableRenderingAlgorithms: number[];
+        distanceAttenuationParameters: AVAudioEnvironmentDistanceAttenuationParameters;
+        nextAvailableInputBus: number;
+        outputType: AVAudioEnvironmentOutputType;
+        setOutputType(_: AVAudioEnvironmentOutputType): any;
+        outputVolume: number;
+        setOutputVolume(_: number): any;
+        reverbParameters: AVAudioEnvironmentReverbParameters;
+    }
+    class AVAudioEnvironmentReverbParameters extends NSObject {
+        enable: boolean;
+        setEnable(_: boolean): any;
+        filterParameters: AVAudioUnitEQFilterParameters;
+        level: number;
+        setLevel(_: number): any;
+        loadFactoryReverbPreset(_: AVAudioUnitReverbPreset): void;
+    }
+    class AVAudioFile extends NSObject {
+        fileFormat: AVAudioFormat;
+        framePosition: number;
+        setFramePosition(_: number): any;
+        length: number;
+        processingFormat: AVAudioFormat;
+        url: NSURL;
+        static createWithForReadingCommonFormatInterleaved(forReading: NSURL, commonFormat: AVAudioCommonFormat, interleaved: boolean): AVAudioFile;
+        static createWithForReading(forReading: NSURL): AVAudioFile;
+        static createWithForWritingSettingsCommonFormatInterleaved(forWriting: NSURL, settings: Map<string, any>, commonFormat: AVAudioCommonFormat, interleaved: boolean): AVAudioFile;
+        static createWithForWritingSettings(forWriting: NSURL, settings: Map<string, any>): AVAudioFile;
+        readIntoBufferError(error: AVAudioPCMBuffer): boolean;
+        readIntoBufferFrameCountError(frameCount: AVAudioPCMBuffer, error: number): boolean;
+        writeFromBufferError(error: AVAudioPCMBuffer): boolean;
+    }
+    class AVAudioFormat extends NSObject {
+        channelCount: number;
+        channelLayout: AVAudioChannelLayout;
+        commonFormat: AVAudioCommonFormat;
+        formatDescription: any;
+        isInterleaved: boolean;
+        magicCookie: NSData;
+        setMagicCookie(_: NSData): any;
+        sampleRate: number;
+        settings: Map<string, any>;
+        isStandard: boolean;
+        streamDescription: AudioStreamBasicDescription;
+        static createWithStandardFormatWithSampleRateChannelLayout(standardFormatWithSampleRate: number, channelLayout: AVAudioChannelLayout): AVAudioFormat;
+        static createWithStandardFormatWithSampleRateChannels(standardFormatWithSampleRate: number, channels: number): AVAudioFormat;
+        static createWithCMAudioFormatDescription(CMAudioFormatDescription: any): AVAudioFormat;
+        static createWithCommonFormatSampleRateChannelsInterleaved(commonFormat: AVAudioCommonFormat, sampleRate: number, channels: number, interleaved: boolean): AVAudioFormat;
+        static createWithCommonFormatSampleRateInterleavedChannelLayout(commonFormat: AVAudioCommonFormat, sampleRate: number, interleaved: boolean, channelLayout: AVAudioChannelLayout): AVAudioFormat;
+        static createWithSettings(settings: Map<string, any>): AVAudioFormat;
+        static createWithStreamDescription(streamDescription: AudioStreamBasicDescription): AVAudioFormat;
+        static createWithStreamDescriptionChannelLayout(streamDescription: AudioStreamBasicDescription, channelLayout?: AVAudioChannelLayout): AVAudioFormat;
+    }
+    class AVAudioIONode extends AVAudioNode {
+        presentationLatency: number;
+        isVoiceProcessingEnabled: boolean;
+        setVoiceProcessingEnabledError(error: boolean): boolean;
+    }
+    class AVAudioInputNode extends AVAudioIONode {
+        isVoiceProcessingAGCEnabled: boolean;
+        setVoiceProcessingAGCEnabled(_: boolean): any;
+        isVoiceProcessingBypassed: boolean;
+        setVoiceProcessingBypassed(_: boolean): any;
+        isVoiceProcessingInputMuted: boolean;
+        setVoiceProcessingInputMuted(_: boolean): any;
+        setManualRenderingInputPCMFormatWithInputBlock(_: AVAudioFormat, inputBlock: (p1: number) => AudioBufferList): boolean;
+    }
+    class AVAudioMix extends NSObject {
+        inputParameters: AVAudioMixInputParameters[];
+    }
+    class AVAudioMixInputParameters extends NSObject {
+        audioTapProcessor: any;
+        audioTimePitchAlgorithm: string;
+        trackID: number;
+        getVolumeRampForTimeStartVolumeEndVolumeTimeRange(for_: CMTime, startVolume?: number, endVolume?: number, timeRange?: CMTimeRange): boolean;
+    }
+    class AVAudioMixerNode extends AVAudioNode {
+        nextAvailableInputBus: number;
+        outputVolume: number;
+        setOutputVolume(_: number): any;
+    }
+    interface AVAudioMixing extends AVAudio3DMixing, AVAudioStereoMixing {
+        volume: number;
+        setVolume(_: number): any;
+        destinationForMixerBus(forMixer: AVAudioNode, bus: number): AVAudioMixingDestination;
+    }
+    class AVAudioMixingDestination extends NSObject {
+        connectionPoint: AVAudioConnectionPoint;
+    }
+    class AVAudioNode extends NSObject {
+        AUAudioUnit: AUAudioUnit;
+        engine: AVAudioEngine;
+        lastRenderTime: AVAudioTime;
+        latency: number;
+        numberOfInputs: number;
+        numberOfOutputs: number;
+        outputPresentationLatency: number;
+        inputFormatForBus(forBus: number): AVAudioFormat;
+        installTapWithOnBusBufferSizeFormatBlock(onBus: number, bufferSize: number, format?: AVAudioFormat, block?: (p1: AVAudioPCMBuffer, p2: AVAudioTime) => void): void;
+        nameForInputBus(forInputBus: number): string;
+        nameForOutputBus(forOutputBus: number): string;
+        outputFormatForBus(forBus: number): AVAudioFormat;
+        removeTapOnBus(onBus: number): void;
+        reset(): void;
+    }
+    class AVAudioOutputNode extends AVAudioIONode {
+    }
+    class AVAudioPCMBuffer extends AVAudioBuffer {
+        floatChannelData: number;
+        frameCapacity: number;
+        frameLength: number;
+        setFrameLength(_: number): any;
+        int16ChannelData: number;
+        int32ChannelData: number;
+        stride: number;
+        static createWithPCMFormatFrameCapacity(PCMFormat: AVAudioFormat, frameCapacity: number): AVAudioPCMBuffer;
+    }
+    class AVAudioPlayer extends NSObject {
+        currentDevice: string;
+        setCurrentDevice(_: string): any;
+        currentTime: number;
+        setCurrentTime(_: number): any;
+        data: NSData;
+        delegate: AVAudioPlayerDelegate;
+        setDelegate(_: AVAudioPlayerDelegate): any;
+        deviceCurrentTime: number;
+        duration: number;
+        enableRate: boolean;
+        setEnableRate(_: boolean): any;
+        format: AVAudioFormat;
+        isMeteringEnabled: boolean;
+        setMeteringEnabled(_: boolean): any;
+        numberOfChannels: number;
+        numberOfLoops: number;
+        setNumberOfLoops(_: number): any;
+        pan: number;
+        setPan(_: number): any;
+        isPlaying: boolean;
+        rate: number;
+        setRate(_: number): any;
+        settings: Map<string, any>;
+        url: NSURL;
+        volume: number;
+        setVolume(_: number): any;
+        averagePowerForChannel(forChannel: number): number;
+        static createWithContentsOfURL(contentsOfURL: NSURL): AVAudioPlayer;
+        static createWithContentsOfURLFileTypeHint(contentsOfURL: NSURL, fileTypeHint?: string): AVAudioPlayer;
+        static createWithData(data: NSData): AVAudioPlayer;
+        static createWithDataFileTypeHint(data: NSData, fileTypeHint?: string): AVAudioPlayer;
+        pause(): void;
+        peakPowerForChannel(forChannel: number): number;
+        play(): boolean;
+        playAtTime(atTime: number): boolean;
+        prepareToPlay(): boolean;
+        setVolumeFadeDuration(_: number, fadeDuration: number): void;
+        stop(): void;
+        updateMeters(): void;
+    }
+    interface AVAudioPlayerDelegate extends NSObject {
+        audioPlayerDecodeErrorDidOccurError?(_: AVAudioPlayer, error?: NSError): void;
+        audioPlayerDidFinishPlayingSuccessfully?(_: AVAudioPlayer, successfully: boolean): void;
+    }
+    class AVAudioPlayerNode extends AVAudioNode {
+        isPlaying: boolean;
+        nodeTimeForPlayerTime(forPlayerTime: AVAudioTime): AVAudioTime;
+        pause(): void;
+        play(): void;
+        playAtTime(at?: AVAudioTime): void;
+        playerTimeForNodeTime(forNodeTime: AVAudioTime): AVAudioTime;
+        prepareWithFrameCount(withFrameCount: number): void;
+        scheduleBufferAtOptionsCompletionCallbackTypeCompletionHandler(_: AVAudioPCMBuffer, at?: AVAudioTime, options?: AVAudioPlayerNodeBufferOptions, completionCallbackType?: AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNodeCompletionCallbackType) => void): void;
+        scheduleBufferAtOptionsCompletionHandler(_: AVAudioPCMBuffer, at?: AVAudioTime, options?: AVAudioPlayerNodeBufferOptions, completionHandler?: () => void): void;
+        scheduleBufferWithCompletionCallbackTypeCompletionHandler(_: AVAudioPCMBuffer, completionCallbackType: AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNodeCompletionCallbackType) => void): void;
+        scheduleBufferWithCompletionHandler(_: AVAudioPCMBuffer, completionHandler?: () => void): void;
+        scheduleFileAtCompletionCallbackTypeCompletionHandler(_: AVAudioFile, at?: AVAudioTime, completionCallbackType?: AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNodeCompletionCallbackType) => void): void;
+        scheduleFileAtCompletionHandler(_: AVAudioFile, at?: AVAudioTime, completionHandler?: () => void): void;
+        scheduleSegmentStartingFrameFrameCountAtCompletionCallbackTypeCompletionHandler(_: AVAudioFile, startingFrame: number, frameCount: number, at?: AVAudioTime, completionCallbackType?: AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNodeCompletionCallbackType) => void): void;
+        scheduleSegmentStartingFrameFrameCountAtCompletionHandler(_: AVAudioFile, startingFrame: number, frameCount: number, at?: AVAudioTime, completionHandler?: () => void): void;
+        stop(): void;
+    }
+    class AVAudioRecorder extends NSObject {
+        currentTime: number;
+        delegate: AVAudioRecorderDelegate;
+        setDelegate(_: AVAudioRecorderDelegate): any;
+        deviceCurrentTime: number;
+        format: AVAudioFormat;
+        isMeteringEnabled: boolean;
+        setMeteringEnabled(_: boolean): any;
+        isRecording: boolean;
+        settings: Map<string, any>;
+        url: NSURL;
+        averagePowerForChannel(forChannel: number): number;
+        deleteRecording(): boolean;
+        static createWithUrlFormat(URL: NSURL, format: AVAudioFormat): AVAudioRecorder;
+        static createWithUrlSettings(URL: NSURL, settings: Map<string, any>): AVAudioRecorder;
+        pause(): void;
+        peakPowerForChannel(forChannel: number): number;
+        prepareToRecord(): boolean;
+        record(): boolean;
+        recordAtTime(atTime: number): boolean;
+        recordAtTimeForDuration(atTime: number, forDuration: number): boolean;
+        recordForDuration(forDuration: number): boolean;
+        stop(): void;
+        updateMeters(): void;
+    }
+    interface AVAudioRecorderDelegate extends NSObject {
+        audioRecorderDidFinishRecordingSuccessfully?(_: AVAudioRecorder, successfully: boolean): void;
+        audioRecorderEncodeErrorDidOccurError?(_: AVAudioRecorder, error?: NSError): void;
+    }
+    class AVAudioSequencer extends NSObject {
+        currentPositionInBeats: number;
+        setCurrentPositionInBeats(_: number): any;
+        currentPositionInSeconds: number;
+        setCurrentPositionInSeconds(_: number): any;
+        isPlaying: boolean;
+        rate: number;
+        setRate(_: number): any;
+        tempoTrack: AVMusicTrack;
+        tracks: AVMusicTrack[];
+        userInfo: Map<string, any>;
+        beatsForHostTimeError(forHostTime: number): number;
+        beatsForSeconds(forSeconds: number): number;
+        dataWithSMPTEResolutionError(withSMPTEResolution: number): NSData;
+        hostTimeForBeatsError(forBeats: number): number;
+        static createWithAudioEngine(audioEngine: AVAudioEngine): AVAudioSequencer;
+        loadFromDataOptionsError(options: NSData, error: AVMusicSequenceLoadOptions): boolean;
+        loadFromURLOptionsError(options: NSURL, error: AVMusicSequenceLoadOptions): boolean;
+        prepareToPlay(): void;
+        secondsForBeats(forBeats: number): number;
+        startAndReturnError(): boolean;
+        stop(): void;
+        writeToURLSMPTEResolutionReplaceExistingError(SMPTEResolution: NSURL, replaceExisting: number, error: boolean): boolean;
+    }
+    class AVAudioSinkNode extends AVAudioNode {
+        static createWithReceiverBlock(receiverBlock: (p1: AudioTimeStamp, p2: number, p3: AudioBufferList) => number): AVAudioSinkNode;
+    }
+    class AVAudioSourceNode extends AVAudioNode {
+        static createWithFormatRenderBlock(format: AVAudioFormat, renderBlock: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
+        static createWithRenderBlock(renderBlock: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
+    }
+    interface AVAudioStereoMixing extends NSObject {
+        pan: number;
+        setPan(_: number): any;
+    }
+    class AVAudioTime extends NSObject {
+        static hostTimeForSeconds(forSeconds: number): number;
+        static secondsForHostTime(forHostTime: number): number;
+        audioTimeStamp: AudioTimeStamp;
+        hostTime: number;
+        isHostTimeValid: boolean;
+        sampleRate: number;
+        sampleTime: number;
+        isSampleTimeValid: boolean;
+        extrapolateTimeFromAnchor(fromAnchor: AVAudioTime): AVAudioTime;
+        static createWithAudioTimeStampSampleRate(audioTimeStamp: AudioTimeStamp, sampleRate: number): AVAudioTime;
+        static createWithHostTime(hostTime: number): AVAudioTime;
+        static createWithHostTimeSampleTimeAtRate(hostTime: number, sampleTime: number, atRate: number): AVAudioTime;
+        static createWithSampleTimeAtRate(sampleTime: number, atRate: number): AVAudioTime;
+    }
+    class AVAudioUnit extends AVAudioNode {
+        static instantiateWithWithOptionsCompletionHandler(with_: AudioComponentDescription, options: AudioComponentInstantiationOptions, completionHandler?: (p1: AVAudioUnit, p2: NSError) => void): void;
+        audioComponentDescription: AudioComponentDescription;
+        manufacturerName: string;
+        name: string;
+        loadAudioUnitPresetAtURLError(error: NSURL): boolean;
+    }
+    class AVAudioUnitComponent extends NSObject {
+        allTagNames: string[];
+        audioComponent: any;
+        audioComponentDescription: AudioComponentDescription;
+        availableArchitectures: number[];
+        configurationDictionary: Map<string, any>;
+        hasCustomView: boolean;
+        hasMIDIInput: boolean;
+        hasMIDIOutput: boolean;
+        icon: NSImage;
+        iconURL: NSURL;
+        localizedTypeName: string;
+        manufacturerName: string;
+        name: string;
+        passesAUVal: boolean;
+        isSandboxSafe: boolean;
+        typeName: string;
+        userTagNames: string[];
+        setUserTagNames(_: string[]): any;
+        versionString: string;
+        supportsNumberInputChannelsOutputChannels(_: number, outputChannels: number): boolean;
+    }
+    class AVAudioUnitComponentManager extends NSObject {
+        static sharedAudioUnitComponentManager(): AVAudioUnitComponentManager;
+        standardLocalizedTagNames: string[];
+        tagNames: string[];
+        componentsMatchingDescription(matching: AudioComponentDescription): AVAudioUnitComponent[];
+        componentsMatchingPredicate(matching: NSPredicate): AVAudioUnitComponent[];
+        componentsWithPassingTest(passingTest: (p1: AVAudioUnitComponent, p2: boolean) => boolean): AVAudioUnitComponent[];
+    }
+    class AVAudioUnitDelay extends AVAudioUnitEffect {
+        delayTime: number;
+        setDelayTime(_: number): any;
+        feedback: number;
+        setFeedback(_: number): any;
+        lowPassCutoff: number;
+        setLowPassCutoff(_: number): any;
+        wetDryMix: number;
+        setWetDryMix(_: number): any;
+    }
+    class AVAudioUnitDistortion extends AVAudioUnitEffect {
+        preGain: number;
+        setPreGain(_: number): any;
+        wetDryMix: number;
+        setWetDryMix(_: number): any;
+        loadFactoryPreset(_: AVAudioUnitDistortionPreset): void;
+    }
+    class AVAudioUnitEQ extends AVAudioUnitEffect {
+        bands: AVAudioUnitEQFilterParameters[];
+        globalGain: number;
+        setGlobalGain(_: number): any;
+        static createWithNumberOfBands(numberOfBands: number): AVAudioUnitEQ;
+    }
+    class AVAudioUnitEQFilterParameters extends NSObject {
+        bandwidth: number;
+        setBandwidth(_: number): any;
+        bypass: boolean;
+        setBypass(_: boolean): any;
+        filterType: AVAudioUnitEQFilterType;
+        setFilterType(_: AVAudioUnitEQFilterType): any;
+        frequency: number;
+        setFrequency(_: number): any;
+        gain: number;
+        setGain(_: number): any;
+    }
+    class AVAudioUnitEffect extends AVAudioUnit {
+        bypass: boolean;
+        setBypass(_: boolean): any;
+        static createWithAudioComponentDescription(audioComponentDescription: AudioComponentDescription): AVAudioUnitEffect;
+    }
+    class AVAudioUnitGenerator extends AVAudioUnit {
+        bypass: boolean;
+        setBypass(_: boolean): any;
+        static createWithAudioComponentDescription(audioComponentDescription: AudioComponentDescription): AVAudioUnitGenerator;
+    }
+    class AVAudioUnitMIDIInstrument extends AVAudioUnit {
+        static createWithAudioComponentDescription(audioComponentDescription: AudioComponentDescription): AVAudioUnitMIDIInstrument;
+        sendControllerWithValueOnChannel(_: number, withValue: number, onChannel: number): void;
+        sendMIDIEventData1(_: number, data1: number): void;
+        sendMIDIEventData1Data2(_: number, data1: number, data2: number): void;
+        sendMIDISysExEvent(_: NSData): void;
+        sendPitchBendOnChannel(_: number, onChannel: number): void;
+        sendPressureOnChannel(_: number, onChannel: number): void;
+        sendPressureForKeyWithValueOnChannel(forKey: number, withValue: number, onChannel: number): void;
+        sendProgramChangeBankMSBBankLSBOnChannel(_: number, bankMSB: number, bankLSB: number, onChannel: number): void;
+        sendProgramChangeOnChannel(_: number, onChannel: number): void;
+        startNoteWithVelocityOnChannel(_: number, withVelocity: number, onChannel: number): void;
+        stopNoteOnChannel(_: number, onChannel: number): void;
+    }
+    class AVAudioUnitReverb extends AVAudioUnitEffect {
+        wetDryMix: number;
+        setWetDryMix(_: number): any;
+        loadFactoryPreset(_: AVAudioUnitReverbPreset): void;
+    }
+    class AVAudioUnitSampler extends AVAudioUnitMIDIInstrument {
+        globalTuning: number;
+        setGlobalTuning(_: number): any;
+        masterGain: number;
+        setMasterGain(_: number): any;
+        stereoPan: number;
+        setStereoPan(_: number): any;
+        loadAudioFilesAtURLsError(error: NSURL[]): boolean;
+        loadInstrumentAtURLError(error: NSURL): boolean;
+        loadSoundBankInstrumentAtURLProgramBankMSBBankLSBError(program: NSURL, bankMSB: number, bankLSB: number, error: number): boolean;
+    }
+    class AVAudioUnitTimeEffect extends AVAudioUnit {
+        bypass: boolean;
+        setBypass(_: boolean): any;
+        static createWithAudioComponentDescription(audioComponentDescription: AudioComponentDescription): AVAudioUnitTimeEffect;
+    }
+    class AVAudioUnitTimePitch extends AVAudioUnitTimeEffect {
+        overlap: number;
+        setOverlap(_: number): any;
+        pitch: number;
+        setPitch(_: number): any;
+        rate: number;
+        setRate(_: number): any;
+    }
+    class AVAudioUnitVarispeed extends AVAudioUnitTimeEffect {
+        rate: number;
+        setRate(_: number): any;
+    }
+    class AVCameraCalibrationData extends NSObject {
+        extrinsicMatrix: simd_float4x3;
+        intrinsicMatrix: simd_float3x3;
+        intrinsicMatrixReferenceDimensions: CGSize;
+        inverseLensDistortionLookupTable: NSData;
+        lensDistortionCenter: CGPoint;
+        lensDistortionLookupTable: NSData;
+        pixelSize: number;
+    }
+    class AVCaptureAudioChannel extends NSObject {
+        averagePowerLevel: number;
+        isEnabled: boolean;
+        setEnabled(_: boolean): any;
+        peakHoldLevel: number;
+        volume: number;
+        setVolume(_: number): any;
+    }
+    class AVCaptureAudioDataOutput extends AVCaptureOutput {
+        audioSettings: Map<string, any>;
+        setAudioSettings(_: Map<string, any>): any;
+        sampleBufferCallbackQueue: NSObject;
+        sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate;
+        recommendedAudioSettingsForAssetWriterWithOutputFileType(writingTo: string): Map<any, any>;
+        setSampleBufferDelegateQueue(_?: AVCaptureAudioDataOutputSampleBufferDelegate, queue?: NSObject): void;
+    }
+    interface AVCaptureAudioDataOutputSampleBufferDelegate extends NSObject {
+        captureOutputDidOutputSampleBufferFromConnection?(_: AVCaptureOutput, didOutput: any, from: AVCaptureConnection): void;
+    }
+    class AVCaptureAudioFileOutput extends AVCaptureFileOutput {
+        static availableOutputFileTypes(): string[];
+        audioSettings: Map<string, any>;
+        setAudioSettings(_: Map<string, any>): any;
+        metadata: AVMetadataItem[];
+        setMetadata(_: AVMetadataItem[]): any;
+        startRecordingToOutputFileURLOutputFileTypeRecordingDelegate(to: NSURL, outputFileType: string, recordingDelegate: AVCaptureFileOutputRecordingDelegate): void;
+    }
+    class AVCaptureAudioPreviewOutput extends AVCaptureOutput {
+        outputDeviceUniqueID: string;
+        setOutputDeviceUniqueID(_: string): any;
+        volume: number;
+        setVolume(_: number): any;
+    }
+    class AVCaptureConnection extends NSObject {
+        static connectionWithInputPortVideoPreviewLayer(inputPort: Port, videoPreviewLayer: AVCaptureVideoPreviewLayer): AVCaptureConnection;
+        static connectionWithInputPortsOutput(inputPorts: Port[], output: AVCaptureOutput): AVCaptureConnection;
+        isActive: boolean;
+        audioChannels: AVCaptureAudioChannel[];
+        automaticallyAdjustsVideoMirroring: boolean;
+        setAutomaticallyAdjustsVideoMirroring(_: boolean): any;
+        isEnabled: boolean;
+        setEnabled(_: boolean): any;
+        inputPorts: Port[];
+        output: AVCaptureOutput;
+        isVideoFieldModeSupported: boolean;
+        isVideoMaxFrameDurationSupported: boolean;
+        isVideoMinFrameDurationSupported: boolean;
+        isVideoMirroringSupported: boolean;
+        isVideoOrientationSupported: boolean;
+        videoFieldMode: AVVideoFieldMode;
+        setVideoFieldMode(_: AVVideoFieldMode): any;
+        videoMaxFrameDuration: CMTime;
+        setVideoMaxFrameDuration(_: CMTime): any;
+        videoMinFrameDuration: CMTime;
+        setVideoMinFrameDuration(_: CMTime): any;
+        isVideoMirrored: boolean;
+        setVideoMirrored(_: boolean): any;
+        videoOrientation: AVCaptureVideoOrientation;
+        setVideoOrientation(_: AVCaptureVideoOrientation): any;
+        videoPreviewLayer: AVCaptureVideoPreviewLayer;
+        static createWithInputPortVideoPreviewLayer(inputPort: Port, videoPreviewLayer: AVCaptureVideoPreviewLayer): AVCaptureConnection;
+        static createWithInputPortsOutput(inputPorts: Port[], output: AVCaptureOutput): AVCaptureConnection;
+    }
+    class AVCaptureDevice extends NSObject {
+        static authorizationStatusForMediaType(for_: string): AVAuthorizationStatus;
+        static defaultDeviceWithDeviceTypeMediaTypePosition(_: string, for_?: string, position?: AVCaptureDevice.Position): AVCaptureDevice;
+        static defaultDeviceWithMediaType(for_: string): AVCaptureDevice;
+        static requestAccessForCompletionHandler(for_: string, completionHandler: (p1: boolean) => void): void;
+        activeColorSpace: AVCaptureColorSpace;
+        setActiveColorSpace(_: AVCaptureColorSpace): any;
+        activeFormat: Format;
+        setActiveFormat(_: Format): any;
+        activeInputSource: InputSource;
+        setActiveInputSource(_: InputSource): any;
+        activeVideoMaxFrameDuration: CMTime;
+        setActiveVideoMaxFrameDuration(_: CMTime): any;
+        activeVideoMinFrameDuration: CMTime;
+        setActiveVideoMinFrameDuration(_: CMTime): any;
+        isAdjustingExposure: boolean;
+        isAdjustingFocus: boolean;
+        isAdjustingWhiteBalance: boolean;
+        isConnected: boolean;
+        deviceType: string;
+        exposureMode: AVCaptureDevice.ExposureMode;
+        setExposureMode(_: AVCaptureDevice.ExposureMode): any;
+        exposurePointOfInterest: CGPoint;
+        setExposurePointOfInterest(_: CGPoint): any;
+        isExposurePointOfInterestSupported: boolean;
+        isFlashAvailable: boolean;
+        flashMode: AVCaptureDevice.FlashMode;
+        setFlashMode(_: AVCaptureDevice.FlashMode): any;
+        focusMode: AVCaptureDevice.FocusMode;
+        setFocusMode(_: AVCaptureDevice.FocusMode): any;
+        focusPointOfInterest: CGPoint;
+        setFocusPointOfInterest(_: CGPoint): any;
+        isFocusPointOfInterestSupported: boolean;
+        formats: Format[];
+        hasFlash: boolean;
+        hasTorch: boolean;
+        isInUseByAnotherApplication: boolean;
+        inputSources: InputSource[];
+        linkedDevices: AVCaptureDevice[];
+        localizedName: string;
+        manufacturer: string;
+        modelID: string;
+        position: AVCaptureDevice.Position;
+        isSuspended: boolean;
+        isTorchActive: boolean;
+        isTorchAvailable: boolean;
+        torchLevel: number;
+        torchMode: AVCaptureDevice.TorchMode;
+        setTorchMode(_: AVCaptureDevice.TorchMode): any;
+        transportControlsPlaybackMode: AVCaptureDevice.TransportControlsPlaybackMode;
+        transportControlsSpeed: number;
+        transportControlsSupported: boolean;
+        transportType: number;
+        uniqueID: string;
+        whiteBalanceMode: AVCaptureDevice.WhiteBalanceMode;
+        setWhiteBalanceMode(_: AVCaptureDevice.WhiteBalanceMode): any;
+        hasMediaType(_: string): boolean;
+        isExposureModeSupported(_: AVCaptureDevice.ExposureMode): boolean;
+        isFlashModeSupported(_: AVCaptureDevice.FlashMode): boolean;
+        isFocusModeSupported(_: AVCaptureDevice.FocusMode): boolean;
+        isTorchModeSupported(_: AVCaptureDevice.TorchMode): boolean;
+        isWhiteBalanceModeSupported(_: AVCaptureDevice.WhiteBalanceMode): boolean;
+        lockForConfiguration(): boolean;
+        setTorchModeOnWithLevelError(level: number): boolean;
+        setTransportControlsPlaybackModeSpeed(_: AVCaptureDevice.TransportControlsPlaybackMode, speed: number): void;
+        supportsAVCaptureSessionPreset(_: string): boolean;
+        unlockForConfiguration(): void;
+    }
+    class DiscoverySession extends NSObject {
+        static discoverySessionWithDeviceTypesMediaTypePosition(_: string[], mediaType?: string, position?: AVCaptureDevice.Position): DiscoverySession;
+    }
+    class Format extends NSObject {
+        formatDescription: any;
+        mediaType: string;
+        supportedColorSpaces: number[];
+        videoSupportedFrameRateRanges: AVFrameRateRange[];
+    }
+    class AVCaptureDeviceInput extends AVCaptureInput {
+        static deviceInputWithDeviceError(error: AVCaptureDevice): AVCaptureDeviceInput;
+        device: AVCaptureDevice;
+        static createWithDevice(device: AVCaptureDevice): AVCaptureDeviceInput;
+    }
+    class InputSource extends NSObject {
+        inputSourceID: string;
+        localizedName: string;
+    }
+    class AVCaptureFileOutput extends AVCaptureOutput {
+        delegate: AVCaptureFileOutputDelegate;
+        setDelegate(_: AVCaptureFileOutputDelegate): any;
+        maxRecordedDuration: CMTime;
+        setMaxRecordedDuration(_: CMTime): any;
+        maxRecordedFileSize: number;
+        setMaxRecordedFileSize(_: number): any;
+        minFreeDiskSpaceLimit: number;
+        setMinFreeDiskSpaceLimit(_: number): any;
+        outputFileURL: NSURL;
+        recordedDuration: CMTime;
+        recordedFileSize: number;
+        isRecording: boolean;
+        isRecordingPaused: boolean;
+        pauseRecording(): void;
+        resumeRecording(): void;
+        startRecordingToOutputFileURLRecordingDelegate(to: NSURL, recordingDelegate: AVCaptureFileOutputRecordingDelegate): void;
+        stopRecording(): void;
+    }
+    interface AVCaptureFileOutputDelegate extends NSObject {
+        captureOutputDidOutputSampleBufferFromConnection?(_: AVCaptureFileOutput, didOutputSampleBuffer: any, from: AVCaptureConnection): void;
+        captureOutputShouldProvideSampleAccurateRecordingStart(_: AVCaptureOutput): boolean;
+    }
+    interface AVCaptureFileOutputRecordingDelegate extends NSObject {
+        captureOutputDidStartRecordingToOutputFileAtURLFromConnections?(_: AVCaptureFileOutput, didStartRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+        captureOutputDidPauseRecordingToOutputFileAtURLFromConnections?(_: AVCaptureFileOutput, didPauseRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+        captureOutputDidResumeRecordingToOutputFileAtURLFromConnections?(_: AVCaptureFileOutput, didResumeRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+        captureOutputWillFinishRecordingToOutputFileAtURLFromConnectionsError?(_: AVCaptureFileOutput, willFinishRecordingTo: NSURL, from: AVCaptureConnection[], error?: NSError): void;
+        captureOutputDidFinishRecordingToOutputFileAtURLFromConnectionsError(_: AVCaptureFileOutput, didFinishRecordingTo: NSURL, from: AVCaptureConnection[], error?: NSError): void;
+    }
+    class AVCaptureInput extends NSObject {
+        ports: Port[];
+    }
+    class AVCaptureMovieFileOutput extends AVCaptureFileOutput {
+        metadata: AVMetadataItem[];
+        setMetadata(_: AVMetadataItem[]): any;
+        movieFragmentInterval: CMTime;
+        setMovieFragmentInterval(_: CMTime): any;
+        outputSettingsForConnection(for_: AVCaptureConnection): Map<string, any>;
+        setOutputSettingsForConnection(_?: Map<string, any>, for_?: AVCaptureConnection): void;
+    }
+    class AVCaptureOutput extends NSObject {
+        connections: AVCaptureConnection[];
+        connectionWithMediaType(with_: string): AVCaptureConnection;
+        metadataOutputRectOfInterestForRect(fromOutputRect: CGRect): CGRect;
+        rectForMetadataOutputRectOfInterest(fromMetadataOutputRect: CGRect): CGRect;
+        transformedMetadataObjectForMetadataObjectConnection(for_: AVMetadataObject, connection: AVCaptureConnection): AVMetadataObject;
+    }
+    class AVCapturePhoto extends NSObject {
+        photoCount: number;
+        pixelBuffer: any;
+        resolvedSettings: AVCaptureResolvedPhotoSettings;
+        timestamp: CMTime;
+        CGImageRepresentation(): any;
+        fileDataRepresentation(): NSData;
+    }
+    interface AVCapturePhotoCaptureDelegate extends NSObject {
+        captureOutputWillBeginCaptureForResolvedSettings?(_: AVCapturePhotoOutput, willBeginCaptureFor: AVCaptureResolvedPhotoSettings): void;
+        captureOutputWillCapturePhotoForResolvedSettings?(_: AVCapturePhotoOutput, willCapturePhotoFor: AVCaptureResolvedPhotoSettings): void;
+        captureOutputDidCapturePhotoForResolvedSettings?(_: AVCapturePhotoOutput, didCapturePhotoFor: AVCaptureResolvedPhotoSettings): void;
+        captureOutputDidFinishProcessingPhotoError?(_: AVCapturePhotoOutput, didFinishProcessingPhoto: AVCapturePhoto, error?: NSError): void;
+        captureOutputDidFinishCaptureForResolvedSettingsError?(_: AVCapturePhotoOutput, didFinishCaptureFor: AVCaptureResolvedPhotoSettings, error?: NSError): void;
+    }
+    class AVCapturePhotoOutput extends AVCaptureOutput {
+        availablePhotoCodecTypes: string[];
+        availablePhotoFileTypes: string[];
+        availablePhotoPixelFormatTypes: number[];
+        capturePhotoWithSettingsDelegate(with_: AVCapturePhotoSettings, delegate: AVCapturePhotoCaptureDelegate): void;
+        supportedPhotoCodecTypesForFileType(for_: string): string[];
+        supportedPhotoPixelFormatTypesForFileType(for_: string): number[];
+    }
+    class AVCapturePhotoSettings extends NSObject {
+        static photoSettings(): AVCapturePhotoSettings;
+        static photoSettingsFromPhotoSettings(from: AVCapturePhotoSettings): AVCapturePhotoSettings;
+        static photoSettingsWithFormat(format?: Map<string, any>): AVCapturePhotoSettings;
+        format: Map<string, any>;
+        processedFileType: string;
+        uniqueID: number;
+    }
+    class AVCaptureResolvedPhotoSettings extends NSObject {
+        expectedPhotoCount: number;
+        photoDimensions: CMVideoDimensions;
+        uniqueID: number;
+    }
+    class AVCaptureScreenInput extends AVCaptureInput {
+        capturesCursor: boolean;
+        setCapturesCursor(_: boolean): any;
+        capturesMouseClicks: boolean;
+        setCapturesMouseClicks(_: boolean): any;
+        cropRect: CGRect;
+        setCropRect(_: CGRect): any;
+        minFrameDuration: CMTime;
+        setMinFrameDuration(_: CMTime): any;
+        scaleFactor: number;
+        setScaleFactor(_: number): any;
+        static createWithDisplayID(displayID: number): AVCaptureScreenInput;
+    }
+    class AVCaptureSession extends NSObject {
+        connections: AVCaptureConnection[];
+        inputs: AVCaptureInput[];
+        masterClock: any;
+        outputs: AVCaptureOutput[];
+        isRunning: boolean;
+        sessionPreset: string;
+        setSessionPreset(_: string): any;
+        addConnection(_: AVCaptureConnection): void;
+        addInput(_: AVCaptureInput): void;
+        addInputWithNoConnections(_: AVCaptureInput): void;
+        addOutput(_: AVCaptureOutput): void;
+        addOutputWithNoConnections(_: AVCaptureOutput): void;
+        beginConfiguration(): void;
+        canAddConnection(_: AVCaptureConnection): boolean;
+        canAddInput(_: AVCaptureInput): boolean;
+        canAddOutput(_: AVCaptureOutput): boolean;
+        canSetSessionPreset(_: string): boolean;
+        commitConfiguration(): void;
+        removeConnection(_: AVCaptureConnection): void;
+        removeInput(_: AVCaptureInput): void;
+        removeOutput(_: AVCaptureOutput): void;
+        startRunning(): void;
+        stopRunning(): void;
+    }
+    class SystemPressureState extends NSObject {
+        level: string;
+    }
+    class AVCaptureVideoDataOutput extends AVCaptureOutput {
+        alwaysDiscardsLateVideoFrames: boolean;
+        setAlwaysDiscardsLateVideoFrames(_: boolean): any;
+        availableVideoCVPixelFormatTypes: number[];
+        availableVideoCodecTypes: string[];
+        sampleBufferCallbackQueue: NSObject;
+        sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate;
+        videoSettings: Map<string, any>;
+        setVideoSettings(_: Map<string, any>): any;
+        availableVideoCodecTypesForAssetWriterWithOutputFileType(writingTo: string): string[];
+        recommendedVideoSettingsForAssetWriterWithOutputFileType(writingTo: string): Map<string, any>;
+        recommendedVideoSettingsForVideoCodecTypeAssetWriterOutputFileType(forVideoCodecType: string, assetWriterOutputFileType: string): Map<any, any>;
+        setSampleBufferDelegateQueue(_?: AVCaptureVideoDataOutputSampleBufferDelegate, queue?: NSObject): void;
+    }
+    interface AVCaptureVideoDataOutputSampleBufferDelegate extends NSObject {
+        captureOutputDidOutputSampleBufferFromConnection?(_: AVCaptureOutput, didOutput: any, from: AVCaptureConnection): void;
+        captureOutputDidDropSampleBufferFromConnection?(_: AVCaptureOutput, didDrop: any, from: AVCaptureConnection): void;
+    }
+    class AVCaptureVideoPreviewLayer extends CALayer {
+        connection: AVCaptureConnection;
+        session: AVCaptureSession;
+        setSession(_: AVCaptureSession): any;
+        videoGravity: string;
+        setVideoGravity(_: string): any;
+        captureDevicePointOfInterestForPoint(fromLayerPoint: CGPoint): CGPoint;
+        static createWithSession(session: AVCaptureSession): AVCaptureVideoPreviewLayer;
+        static createWithSessionWithNoConnection(sessionWithNoConnection: AVCaptureSession): AVCaptureVideoPreviewLayer;
+        metadataOutputRectOfInterestForRect(fromLayerRect: CGRect): CGRect;
+        pointForCaptureDevicePointOfInterest(fromCaptureDevicePoint: CGPoint): CGPoint;
+        rectForMetadataOutputRectOfInterest(fromMetadataOutputRect: CGRect): CGRect;
+        setSessionWithNoConnection(_: AVCaptureSession): void;
+        transformedMetadataObjectForMetadataObject(for_: AVMetadataObject): AVMetadataObject;
+    }
+    class AVComposition extends AVAsset {
+        URLAssetInitializationOptions: Map<string, any>;
+        naturalSize: CGSize;
+    }
+    class AVCompositionTrack extends AVAssetTrack {
+        formatDescriptionReplacements: AVCompositionTrackFormatDescriptionReplacement[];
+    }
+    class AVCompositionTrackFormatDescriptionReplacement extends NSObject {
+        originalFormatDescription: any;
+        replacementFormatDescription: any;
+    }
+    class AVCompositionTrackSegment extends AVAssetTrackSegment {
+        sourceTrackID: number;
+        sourceURL: NSURL;
+        static createWithTimeRange(timeRange: CMTimeRange): AVCompositionTrackSegment;
+        static createWithUrlTrackIDSourceTimeRangeTargetTimeRange(URL: NSURL, trackID: number, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange): AVCompositionTrackSegment;
+    }
+    interface AVContentKeyRecipient {
+        mayRequireContentKeysForMediaDataProcessing: boolean;
+    }
+    class AVContentKeyRequest extends NSObject {
+        canProvidePersistableContentKey: boolean;
+        error: NSError;
+        identifier: any;
+        initializationData: NSData;
+        options: Map<string, any>;
+        renewsExpiringResponseData: boolean;
+        status: AVContentKeyRequest.Status;
+        makeStreamingContentKeyRequestDataWithForAppContentIdentifierOptionsCompletionHandler(forApp: NSData, contentIdentifier?: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+        processContentKeyResponse(_: AVContentKeyResponse): void;
+        processContentKeyResponseError(_: NSError): void;
+        respondByRequestingPersistableContentKeyRequestAndReturnError(): boolean;
+    }
+    class AVContentKeyResponse extends NSObject {
+        static contentKeyResponseWithAuthorizationTokenData(authorizationTokenData: NSData): AVContentKeyResponse;
+        static contentKeyResponseWithClearKeyDataInitializationVector(clearKeyData: NSData, initializationVector?: NSData): AVContentKeyResponse;
+        static contentKeyResponseWithFairPlayStreamingKeyResponseData(fairPlayStreamingKeyResponseData: NSData): AVContentKeyResponse;
+    }
+    class AVContentKeySession extends NSObject {
+        static pendingExpiredSessionReportsWithAppIdentifierStorageDirectoryAtURL(withAppIdentifier: NSData, storageDirectoryAt: NSURL): NSData[];
+        static removePendingExpiredSessionReportsWithAppIdentifierStorageDirectoryAtURL(_: NSData[], withAppIdentifier: NSData, storageDirectoryAt: NSURL): void;
+        contentKeyRecipients: AVContentKeyRecipient[];
+        contentProtectionSessionIdentifier: NSData;
+        delegate: AVContentKeySessionDelegate;
+        delegateQueue: NSObject;
+        keySystem: string;
+        storageURL: NSURL;
+        addContentKeyRecipient(_: AVContentKeyRecipient): void;
+        expire(): void;
+        invalidateAllPersistableContentKeysWithForAppOptionsCompletionHandler(forApp: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+        invalidatePersistableContentKeyWithOptionsCompletionHandler(_: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+        makeSecureTokenForExpirationDateWithOfPersistableContentKeyCompletionHandler(ofPersistableContentKey: NSData, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+        processContentKeyRequestWithIdentifierInitializationDataOptions(withIdentifier?: any, initializationData?: NSData, options?: Map<string, any>): void;
+        removeContentKeyRecipient(_: AVContentKeyRecipient): void;
+        renewExpiringResponseDataForContentKeyRequest(for_: AVContentKeyRequest): void;
+        setDelegateQueue(_?: AVContentKeySessionDelegate, queue?: NSObject): void;
+    }
+    interface AVContentKeySessionDelegate extends NSObject {
+        contentKeySessionDidProvideContentKeyRequest(_: AVContentKeySession, didProvide: AVContentKeyRequest): void;
+        contentKeySessionDidProvidePersistableContentKeyRequest?(_: AVContentKeySession, didProvide: AVPersistableContentKeyRequest): void;
+        contentKeySessionShouldRetryContentKeyRequestReason?(_: AVContentKeySession, shouldRetry: AVContentKeyRequest, reason: string): boolean;
+        contentKeySessionContentKeyRequestDidFailWithError?(_: AVContentKeySession, contentKeyRequest: AVContentKeyRequest, didFailWithError: NSError): void;
+        contentKeySessionContentKeyRequestDidSucceed?(_: AVContentKeySession, contentKeyRequestDidSucceed: AVContentKeyRequest): void;
+        contentKeySessionDidProvideRenewingContentKeyRequest?(_: AVContentKeySession, didProvideRenewingContentKeyRequest: AVContentKeyRequest): void;
+        contentKeySessionDidUpdatePersistableContentKeyForContentKeyIdentifier?(_: AVContentKeySession, didUpdatePersistableContentKey: NSData, forContentKeyIdentifier: any): void;
+        contentKeySessionContentProtectionSessionIdentifierDidChange?(_: AVContentKeySession): void;
+        contentKeySessionDidGenerateExpiredSessionReport?(_: AVContentKeySession): void;
+    }
+    class AVDateRangeMetadataGroup extends AVMetadataGroup {
+        endDate: Date;
+        startDate: Date;
+        static createWithItemsStartDateEndDate(items: AVMetadataItem[], startDate: Date, endDate?: Date): AVDateRangeMetadataGroup;
+    }
+    class AVDepthData extends NSObject {
+        static depthDataFromDictionaryRepresentationError(error: Map<any, any>): AVDepthData;
+        availableDepthDataTypes: number[];
+        cameraCalibrationData: AVCameraCalibrationData;
+        depthDataAccuracy: AVDepthData.Accuracy;
+        isDepthDataFiltered: boolean;
+        depthDataMap: any;
+        depthDataQuality: AVDepthData.Quality;
+        depthDataType: number;
+        depthDataByApplyingExifOrientation(_: CGImagePropertyOrientation): AVDepthData;
+        depthDataByConvertingToDepthDataType(toDepthDataType: number): AVDepthData;
+        depthDataByReplacingDepthDataMapWithPixelBufferError(error: any): AVDepthData;
+        dictionaryRepresentationForAuxiliaryDataType(forAuxiliaryDataType?: string): Map<any, any>;
+    }
+    interface AVFragmentMinding {
+        isAssociatedWithFragmentMinder: boolean;
+    }
+    class AVFragmentedAsset extends AVURLAsset {
+        static fragmentedAssetWithURLOptions(url: NSURL, options?: Map<string, any>): AVFragmentedAsset;
+    }
+    class AVFragmentedAssetMinder extends NSObject {
+        static fragmentedAssetMinderWithAssetMindingInterval(asset: AVAsset, mindingInterval: number): AVFragmentedAssetMinder;
+        assets: AVAsset[];
+        mindingInterval: number;
+        setMindingInterval(_: number): any;
+        addFragmentedAsset(_: AVAsset): void;
+        static createWithAssetMindingInterval(asset: AVAsset, mindingInterval: number): AVFragmentedAssetMinder;
+        removeFragmentedAsset(_: AVAsset): void;
+    }
+    class AVFragmentedAssetTrack extends AVAssetTrack {
+    }
+    class AVFragmentedMovie extends AVMovie {
+    }
+    class AVFragmentedMovieMinder extends AVFragmentedAssetMinder {
+        static fragmentedMovieMinderWithMovieMindingInterval(movie: AVFragmentedMovie, mindingInterval: number): AVFragmentedMovieMinder;
+        movies: AVFragmentedMovie[];
+        addFragmentedMovie(_: AVFragmentedMovie): void;
+        static createWithMovieMindingInterval(movie: AVFragmentedMovie, mindingInterval: number): AVFragmentedMovieMinder;
+        removeFragmentedMovie(_: AVFragmentedMovie): void;
+    }
+    class AVFragmentedMovieTrack extends AVMovieTrack {
+    }
+    class AVFrameRateRange extends NSObject {
+        maxFrameDuration: CMTime;
+        maxFrameRate: number;
+        minFrameDuration: CMTime;
+        minFrameRate: number;
+    }
+    class AVMIDIPlayer extends NSObject {
+        currentPosition: number;
+        setCurrentPosition(_: number): any;
+        duration: number;
+        isPlaying: boolean;
+        rate: number;
+        setRate(_: number): any;
+        static createWithContentsOfURLSoundBankURL(contentsOfURL: NSURL, soundBankURL?: NSURL): AVMIDIPlayer;
+        static createWithDataSoundBankURL(data: NSData, soundBankURL?: NSURL): AVMIDIPlayer;
+        play(_?: () => void): void;
+        prepareToPlay(): void;
+        stop(): void;
+    }
+    class AVMediaDataStorage extends NSObject {
+        URL(): NSURL;
+        static createWithUrlOptions(URL: NSURL, options?: Map<string, any>): AVMediaDataStorage;
+    }
+    class AVMediaSelection extends NSObject {
+        asset: AVAsset;
+        mediaSelectionCriteriaCanBeAppliedAutomaticallyToMediaSelectionGroup(to: AVMediaSelectionGroup): boolean;
+        selectedMediaOptionInMediaSelectionGroup(in_: AVMediaSelectionGroup): AVMediaSelectionOption;
+    }
+    class AVMediaSelectionGroup extends NSObject {
+        static mediaSelectionOptionsFromArrayFilteredAndSortedAccordingToPreferredLanguages(from: AVMediaSelectionOption[], filteredAndSortedAccordingToPreferredLanguages: string[]): AVMediaSelectionOption[];
+        static mediaSelectionOptionsFromArrayWithLocale(from: AVMediaSelectionOption[], with_: NSLocale): AVMediaSelectionOption[];
+        static mediaSelectionOptionsFromArrayWithMediaCharacteristics(from: AVMediaSelectionOption[], withMediaCharacteristics: string[]): AVMediaSelectionOption[];
+        static mediaSelectionOptionsFromArrayWithoutMediaCharacteristics(from: AVMediaSelectionOption[], withoutMediaCharacteristics: string[]): AVMediaSelectionOption[];
+        static playableMediaSelectionOptionsFromArray(from: AVMediaSelectionOption[]): AVMediaSelectionOption[];
+        allowsEmptySelection: boolean;
+        defaultOption: AVMediaSelectionOption;
+        options: AVMediaSelectionOption[];
+        mediaSelectionOptionWithPropertyList(withPropertyList: any): AVMediaSelectionOption;
+    }
+    class AVMediaSelectionOption extends NSObject {
+        availableMetadataFormats: string[];
+        commonMetadata: AVMetadataItem[];
+        displayName: string;
+        extendedLanguageTag: string;
+        locale: NSLocale;
+        mediaSubTypes: number[];
+        mediaType: string;
+        isPlayable: boolean;
+        associatedMediaSelectionOptionInMediaSelectionGroup(in_: AVMediaSelectionGroup): AVMediaSelectionOption;
+        displayNameWithLocale(with_: NSLocale): string;
+        hasMediaCharacteristic(_: string): boolean;
+        metadataForFormat(forFormat: string): AVMetadataItem[];
+        propertyList(): any;
+    }
+    class AVMetadataBodyObject extends AVMetadataObject {
+        bodyID: number;
+    }
+    class AVMetadataCatBodyObject extends AVMetadataBodyObject {
+    }
+    class AVMetadataDogBodyObject extends AVMetadataBodyObject {
+    }
+    class AVMetadataFaceObject extends AVMetadataObject {
+        faceID: number;
+        hasRollAngle: boolean;
+        hasYawAngle: boolean;
+        rollAngle: number;
+        yawAngle: number;
+    }
+    class AVMetadataGroup extends NSObject {
+        classifyingLabel: string;
+        items: AVMetadataItem[];
+        uniqueID: string;
+    }
+    class AVMetadataHumanBodyObject extends AVMetadataBodyObject {
+    }
+    class AVMetadataItem extends NSObject {
+        static identifierForKeyKeySpace(forKey: any, keySpace: string): string;
+        static keyForIdentifier(forIdentifier: string): any;
+        static keySpaceForIdentifier(forIdentifier: string): string;
+        static metadataItemsFromArrayFilteredAndSortedAccordingToPreferredLanguages(from: AVMetadataItem[], filteredAndSortedAccordingToPreferredLanguages: string[]): AVMetadataItem[];
+        static metadataItemsFromArrayFilteredByIdentifier(from: AVMetadataItem[], filteredByIdentifier: string): AVMetadataItem[];
+        static metadataItemsFromArrayFilteredByMetadataItemFilter(from: AVMetadataItem[], filteredBy: AVMetadataItemFilter): AVMetadataItem[];
+        static metadataItemsFromArrayWithKeyKeySpace(from: AVMetadataItem[], withKey?: any, keySpace?: string): AVMetadataItem[];
+        static metadataItemsFromArrayWithLocale(from: AVMetadataItem[], with_: NSLocale): AVMetadataItem[];
+        commonKey: string;
+        dataType: string;
+        dataValue: NSData;
+        dateValue: Date;
+        duration: CMTime;
+        extendedLanguageTag: string;
+        extraAttributes: Map<string, any>;
+        identifier: string;
+        key: any;
+        keySpace: string;
+        locale: NSLocale;
+        numberValue: number;
+        startDate: Date;
+        stringValue: string;
+        time: CMTime;
+        value: any;
+    }
+    class AVMetadataItemFilter extends NSObject {
+        static metadataItemFilterForSharing(): AVMetadataItemFilter;
+    }
+    class AVMetadataItemValueRequest extends NSObject {
+        metadataItem: AVMetadataItem;
+        respondWithError(error: NSError): void;
+        respondWithValue(value: any): void;
+    }
+    class AVMetadataMachineReadableCodeObject extends AVMetadataObject {
+        corners: Map<any, any>[];
+        descriptor: CIBarcodeDescriptor;
+        stringValue: string;
+    }
+    class AVMetadataObject extends NSObject {
+        bounds: CGRect;
+        duration: CMTime;
+        time: CMTime;
+        type: string;
+    }
+    class AVMetadataSalientObject extends AVMetadataObject {
+        objectID: number;
+    }
+    class AVMovie extends AVAsset {
+        static movieTypes(): string[];
+        URL: NSURL;
+        canContainMovieFragments: boolean;
+        containsMovieFragments: boolean;
+        data: NSData;
+        defaultMediaDataStorage: AVMediaDataStorage;
+        static createWithDataOptions(data: NSData, options?: Map<string, any>): AVMovie;
+        static createWithUrlOptions(URL: NSURL, options?: Map<string, any>): AVMovie;
+        isCompatibleWithFileType(compatibleWithFileType: string): boolean;
+        movieHeaderWithFileTypeError(fileType: string): NSData;
+        writeMovieHeaderToURLFileTypeOptionsError(fileType: NSURL, options: string, error: AVMovieWritingOptions): boolean;
+    }
+    class AVMovieTrack extends AVAssetTrack {
+        alternateGroupID: number;
+        mediaDataStorage: AVMediaDataStorage;
+        mediaDecodeTimeRange: CMTimeRange;
+        mediaPresentationTimeRange: CMTimeRange;
+    }
+    class AVMusicTrack extends NSObject {
+        destinationAudioUnit: AVAudioUnit;
+        setDestinationAudioUnit(_: AVAudioUnit): any;
+        destinationMIDIEndpoint: number;
+        setDestinationMIDIEndpoint(_: number): any;
+        lengthInBeats: number;
+        setLengthInBeats(_: number): any;
+        lengthInSeconds: number;
+        setLengthInSeconds(_: number): any;
+        loopRange: AVAudioSequencer;
+        setLoopRange(_: AVAudioSequencer): any;
+        isLoopingEnabled: boolean;
+        setLoopingEnabled(_: boolean): any;
+        isMuted: boolean;
+        setMuted(_: boolean): any;
+        numberOfLoops: number;
+        setNumberOfLoops(_: number): any;
+        offsetTime: number;
+        setOffsetTime(_: number): any;
+        isSoloed: boolean;
+        setSoloed(_: boolean): any;
+        timeResolution: number;
+    }
+    class AVMutableAudioMix extends AVAudioMix {
+        static audioMix(): AVMutableAudioMix;
+    }
+    class AVMutableAudioMixInputParameters extends AVAudioMixInputParameters {
+        static audioMixInputParameters(): AVMutableAudioMixInputParameters;
+        static audioMixInputParametersWithTrack(track?: AVAssetTrack): AVMutableAudioMixInputParameters;
+        setVolumeAtTime(_: number, at: CMTime): void;
+        setVolumeRampFromStartVolumeToEndVolumeTimeRange(fromStartVolume: number, toEndVolume: number, timeRange: CMTimeRange): void;
+    }
+    class AVMutableComposition extends AVComposition {
+        static composition(): AVMutableComposition;
+        static compositionWithURLAssetInitializationOptions(urlAssetInitializationOptions?: Map<string, any>): AVMutableComposition;
+        addMutableTrackWithMediaTypePreferredTrackID(withMediaType: string, preferredTrackID: number): AVMutableCompositionTrack;
+        insertEmptyTimeRange(_: CMTimeRange): void;
+        insertTimeRangeOfAssetAtTimeError(_: CMTimeRange, of: AVAsset, at: CMTime): boolean;
+        mutableTrackCompatibleWithTrack(compatibleWith: AVAssetTrack): AVMutableCompositionTrack;
+        removeTimeRange(_: CMTimeRange): void;
+        removeTrack(_: AVCompositionTrack): void;
+        scaleTimeRangeToDuration(_: CMTimeRange, toDuration: CMTime): void;
+    }
+    class AVMutableCompositionTrack extends AVCompositionTrack {
+        addTrackAssociationToTrackType(to: AVCompositionTrack, type: string): void;
+        insertEmptyTimeRange(_: CMTimeRange): void;
+        insertTimeRangeOfTrackAtTimeError(ofTrack: CMTimeRange, atTime: AVAssetTrack, error: CMTime): boolean;
+        insertTimeRangesOfTracksAtTimeError(ofTracks: NSValue[], atTime: AVAssetTrack[], error: CMTime): boolean;
+        removeTimeRange(_: CMTimeRange): void;
+        removeTrackAssociationToTrackType(to: AVCompositionTrack, type: string): void;
+        replaceFormatDescriptionWithFormatDescription(_: any, with_?: any): void;
+        scaleTimeRangeToDuration(_: CMTimeRange, toDuration: CMTime): void;
+        validateTrackSegmentsError(error: AVCompositionTrackSegment[]): boolean;
+    }
+    class AVMutableDateRangeMetadataGroup extends AVDateRangeMetadataGroup {
+    }
+    class AVMutableMediaSelection extends AVMediaSelection {
+        selectMediaOptionInMediaSelectionGroup(_?: AVMediaSelectionOption, in_?: AVMediaSelectionGroup): void;
+    }
+    class AVMutableMetadataItem extends AVMetadataItem {
+        static metadataItem(): AVMutableMetadataItem;
+    }
+    class AVMutableMovie extends AVMovie {
+        static movieWithDataOptionsError(data: NSData, options?: Map<string, any>): AVMutableMovie;
+        static movieWithSettingsFromMovieOptionsError(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
+        static movieWithURLOptionsError(url: NSURL, options?: Map<string, any>): AVMutableMovie;
+        interleavingPeriod: CMTime;
+        setInterleavingPeriod(_: CMTime): any;
+        isModified: boolean;
+        setModified(_: boolean): any;
+        timescale: number;
+        setTimescale(_: number): any;
+        addMutableTrackWithMediaTypeCopySettingsFromTrackOptions(withMediaType: string, copySettingsFrom?: AVAssetTrack, options?: Map<string, any>): AVMutableMovieTrack;
+        addMutableTracksCopyingSettingsFromTracksOptions(from: AVAssetTrack[], options?: Map<string, any>): AVMutableMovieTrack[];
+        static createWithSettingsFromMovieOptions(settingsFromMovie?: AVMovie, options?: Map<string, any>): AVMutableMovie;
+        insertEmptyTimeRange(_: CMTimeRange): void;
+        insertTimeRangeOfAssetAtTimeCopySampleDataError(_: CMTimeRange, of: AVAsset, at: CMTime, copySampleData: boolean): boolean;
+        mutableTrackCompatibleWithTrack(compatibleWith: AVAssetTrack): AVMutableMovieTrack;
+        removeTimeRange(_: CMTimeRange): void;
+        removeTrack(_: AVMovieTrack): void;
+        scaleTimeRangeToDuration(_: CMTimeRange, toDuration: CMTime): void;
+    }
+    class AVMutableMovieTrack extends AVMovieTrack {
+        cleanApertureDimensions: CGSize;
+        setCleanApertureDimensions(_: CGSize): any;
+        encodedPixelsDimensions: CGSize;
+        setEncodedPixelsDimensions(_: CGSize): any;
+        hasProtectedContent: boolean;
+        layer: number;
+        setLayer(_: number): any;
+        isModified: boolean;
+        setModified(_: boolean): any;
+        preferredMediaChunkAlignment: number;
+        setPreferredMediaChunkAlignment(_: number): any;
+        preferredMediaChunkDuration: CMTime;
+        setPreferredMediaChunkDuration(_: CMTime): any;
+        preferredMediaChunkSize: number;
+        setPreferredMediaChunkSize(_: number): any;
+        productionApertureDimensions: CGSize;
+        setProductionApertureDimensions(_: CGSize): any;
+        sampleReferenceBaseURL: NSURL;
+        setSampleReferenceBaseURL(_: NSURL): any;
+        timescale: number;
+        setTimescale(_: number): any;
+        addTrackAssociationToTrackType(to: AVMovieTrack, type: string): void;
+        appendSampleBufferDecodeTimePresentationTimeError(_: any, decodeTime?: CMTime, presentationTime?: CMTime): boolean;
+        insertEmptyTimeRange(_: CMTimeRange): void;
+        insertMediaTimeRangeIntoTimeRange(_: CMTimeRange, into: CMTimeRange): boolean;
+        insertTimeRangeOfTrackAtTimeCopySampleDataError(ofTrack: CMTimeRange, atTime: AVAssetTrack, copySampleData: CMTime, error: boolean): boolean;
+        removeTimeRange(_: CMTimeRange): void;
+        removeTrackAssociationToTrackType(to: AVMovieTrack, type: string): void;
+        replaceFormatDescriptionWithFormatDescription(_: any, with_: any): void;
+        scaleTimeRangeToDuration(_: CMTimeRange, toDuration: CMTime): void;
+    }
+    class AVMutableTimedMetadataGroup extends AVTimedMetadataGroup {
+    }
+    class AVMutableVideoComposition extends AVVideoComposition {
+        static videoComposition(): AVMutableVideoComposition;
+        static videoCompositionWithPropertiesOfAssetPrototypeInstruction(propertiesOf: AVAsset, prototypeInstruction: AVVideoCompositionInstruction): AVMutableVideoComposition;
+    }
+    class AVMutableVideoCompositionInstruction extends AVVideoCompositionInstruction {
+        static videoCompositionInstruction(): AVMutableVideoCompositionInstruction;
+        enablePostProcessing: boolean;
+        setEnablePostProcessing(_: boolean): any;
+        timeRange: CMTimeRange;
+        setTimeRange(_: CMTimeRange): any;
+    }
+    class AVMutableVideoCompositionLayerInstruction extends AVVideoCompositionLayerInstruction {
+        static videoCompositionLayerInstruction(): AVMutableVideoCompositionLayerInstruction;
+        static videoCompositionLayerInstructionWithAssetTrack(assetTrack: AVAssetTrack): AVMutableVideoCompositionLayerInstruction;
+        setCropRectangleAtTime(_: CGRect, at: CMTime): void;
+        setCropRectangleRampFromStartCropRectangleToEndCropRectangleTimeRange(fromStartCropRectangle: CGRect, toEndCropRectangle: CGRect, timeRange: CMTimeRange): void;
+        setOpacityAtTime(_: number, at: CMTime): void;
+        setOpacityRampFromStartOpacityToEndOpacityTimeRange(fromStartOpacity: number, toEndOpacity: number, timeRange: CMTimeRange): void;
+        setTransformAtTime(_: CGAffineTransform, at: CMTime): void;
+        setTransformRampFromStartTransformToEndTransformTimeRange(fromStart: CGAffineTransform, toEnd: CGAffineTransform, timeRange: CMTimeRange): void;
+    }
+    class AVOutputSettingsAssistant extends NSObject {
+        static availableOutputSettingsPresets(): string[];
+        audioSettings: Map<string, any>;
+        outputFileType: string;
+        sourceAudioFormat: any;
+        setSourceAudioFormat(_: any): any;
+        sourceVideoAverageFrameDuration: CMTime;
+        setSourceVideoAverageFrameDuration(_: CMTime): any;
+        sourceVideoFormat: any;
+        setSourceVideoFormat(_: any): any;
+        sourceVideoMinFrameDuration: CMTime;
+        setSourceVideoMinFrameDuration(_: CMTime): any;
+        videoSettings: Map<string, any>;
+    }
+    class AVPersistableContentKeyRequest extends AVContentKeyRequest {
+        persistableContentKeyFromKeyVendorResponseOptionsError(options: NSData, error?: Map<string, any>): NSData;
+    }
+    class AVPlayer extends NSObject {
+        actionAtItemEnd: AVPlayer.ActionAtItemEnd;
+        setActionAtItemEnd(_: AVPlayer.ActionAtItemEnd): any;
+        allowsExternalPlayback: boolean;
+        setAllowsExternalPlayback(_: boolean): any;
+        appliesMediaSelectionCriteriaAutomatically: boolean;
+        setAppliesMediaSelectionCriteriaAutomatically(_: boolean): any;
+        audioOutputDeviceUniqueID: string;
+        setAudioOutputDeviceUniqueID(_: string): any;
+        automaticallyWaitsToMinimizeStalling: boolean;
+        setAutomaticallyWaitsToMinimizeStalling(_: boolean): any;
+        currentItem: AVPlayerItem;
+        error: NSError;
+        isExternalPlaybackActive: boolean;
+        masterClock: any;
+        setMasterClock(_: any): any;
+        isMuted: boolean;
+        setMuted(_: boolean): any;
+        outputObscuredDueToInsufficientExternalProtection: boolean;
+        preferredVideoDecoderGPURegistryID: number;
+        setPreferredVideoDecoderGPURegistryID(_: number): any;
+        preventsDisplaySleepDuringVideoPlayback: boolean;
+        setPreventsDisplaySleepDuringVideoPlayback(_: boolean): any;
+        rate: number;
+        setRate(_: number): any;
+        reasonForWaitingToPlay: string;
+        status: AVPlayer.Status;
+        timeControlStatus: AVPlayer.TimeControlStatus;
+        volume: number;
+        setVolume(_: number): any;
+        static eligibleForHDRPlayback: boolean;
+        addBoundaryTimeObserverWithForTimesQueueUsing(forTimes: NSValue[], queue?: NSObject, using?: () => void): any;
+        addPeriodicTimeObserverWithForIntervalQueueUsing(forInterval: CMTime, queue?: NSObject, using?: (p1: CMTime) => void): any;
+        cancelPendingPrerolls(): void;
+        currentTime(): CMTime;
+        static createWithPlayerItem(playerItem?: AVPlayerItem): AVPlayer;
+        static createWithUrl(URL: NSURL): AVPlayer;
+        mediaSelectionCriteriaForMediaCharacteristic(forMediaCharacteristic: string): AVPlayerMediaSelectionCriteria;
+        pause(): void;
+        play(): void;
+        playImmediatelyAtRate(atRate: number): void;
+        prerollWithAtRateCompletionHandler(atRate: number, completionHandler?: (p1: boolean) => void): void;
+        removeTimeObserver(_: any): void;
+        replaceCurrentItemWithPlayerItem(with_?: AVPlayerItem): void;
+        seekToDate(to: Date): void;
+        seekWithToCompletionHandler(to: Date, completionHandler: (p1: boolean) => void): void;
+        seekToTime(to: CMTime): void;
+        seekWithToCompletionHandler(to: CMTime, completionHandler: (p1: boolean) => void): void;
+        seekToTimeToleranceBeforeToleranceAfter(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime): void;
+        seekWithToToleranceBeforeToleranceAfterCompletionHandler(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (p1: boolean) => void): void;
+        setMediaSelectionCriteriaForMediaCharacteristic(_?: AVPlayerMediaSelectionCriteria, forMediaCharacteristic?: string): void;
+        setRateTimeAtHostTime(_: number, time: CMTime, atHostTime: CMTime): void;
+    }
+    class AVPlayerItem extends NSObject {
+        isApplicationAuthorizedForPlayback: boolean;
+        asset: AVAsset;
+        audioMix: AVAudioMix;
+        setAudioMix(_: AVAudioMix): any;
+        isAudioSpatializationAllowed: boolean;
+        setAudioSpatializationAllowed(_: boolean): any;
+        audioTimePitchAlgorithm: string;
+        setAudioTimePitchAlgorithm(_: string): any;
+        isAuthorizationRequiredForPlayback: boolean;
+        automaticallyLoadedAssetKeys: string[];
+        automaticallyPreservesTimeOffsetFromLive: boolean;
+        setAutomaticallyPreservesTimeOffsetFromLive(_: boolean): any;
+        canPlayFastForward: boolean;
+        canPlayFastReverse: boolean;
+        canPlayReverse: boolean;
+        canPlaySlowForward: boolean;
+        canPlaySlowReverse: boolean;
+        canStepBackward: boolean;
+        canStepForward: boolean;
+        canUseNetworkResourcesForLiveStreamingWhilePaused: boolean;
+        setCanUseNetworkResourcesForLiveStreamingWhilePaused(_: boolean): any;
+        configuredTimeOffsetFromLive: CMTime;
+        setConfiguredTimeOffsetFromLive(_: CMTime): any;
+        contentAuthorizationRequestStatus: AVContentAuthorizationStatus;
+        isContentAuthorizedForPlayback: boolean;
+        currentMediaSelection: AVMediaSelection;
+        customVideoCompositor: AVVideoCompositing;
+        duration: CMTime;
+        error: NSError;
+        forwardPlaybackEndTime: CMTime;
+        setForwardPlaybackEndTime(_: CMTime): any;
+        loadedTimeRanges: NSValue[];
+        mediaDataCollectors: AVPlayerItemMediaDataCollector[];
+        outputs: AVPlayerItemOutput[];
+        isPlaybackBufferEmpty: boolean;
+        isPlaybackBufferFull: boolean;
+        isPlaybackLikelyToKeepUp: boolean;
+        preferredForwardBufferDuration: number;
+        setPreferredForwardBufferDuration(_: number): any;
+        preferredMaximumResolution: CGSize;
+        setPreferredMaximumResolution(_: CGSize): any;
+        preferredPeakBitRate: number;
+        setPreferredPeakBitRate(_: number): any;
+        presentationSize: CGSize;
+        recommendedTimeOffsetFromLive: CMTime;
+        reversePlaybackEndTime: CMTime;
+        setReversePlaybackEndTime(_: CMTime): any;
+        seekableTimeRanges: NSValue[];
+        seekingWaitsForVideoCompositionRendering: boolean;
+        setSeekingWaitsForVideoCompositionRendering(_: boolean): any;
+        status: AVPlayerItem.Status;
+        textStyleRules: AVTextStyleRule[];
+        setTextStyleRules(_: AVTextStyleRule[]): any;
+        timebase: any;
+        tracks: AVPlayerItemTrack[];
+        videoApertureMode: string;
+        setVideoApertureMode(_: string): any;
+        videoComposition: AVVideoComposition;
+        setVideoComposition(_: AVVideoComposition): any;
+        accessLog(): AVPlayerItemAccessLog;
+        addMediaDataCollector(_: AVPlayerItemMediaDataCollector): void;
+        addOutput(_: AVPlayerItemOutput): void;
+        cancelContentAuthorizationRequest(): void;
+        cancelPendingSeeks(): void;
+        currentDate(): Date;
+        currentTime(): CMTime;
+        errorLog(): AVPlayerItemErrorLog;
+        static createWithAsset(asset: AVAsset): AVPlayerItem;
+        static createWithAssetAutomaticallyLoadedAssetKeys(asset: AVAsset, automaticallyLoadedAssetKeys?: string[]): AVPlayerItem;
+        static createWithUrl(URL: NSURL): AVPlayerItem;
+        removeMediaDataCollector(_: AVPlayerItemMediaDataCollector): void;
+        removeOutput(_: AVPlayerItemOutput): void;
+        requestContentAuthorizationAsynchronouslyWithWithTimeoutIntervalCompletionHandler(withTimeoutInterval: number, completionHandler: () => void): void;
+        seekWithToCompletionHandler(to: Date, completionHandler?: (p1: boolean) => void): boolean;
+        seekWithToCompletionHandler(to: CMTime, completionHandler?: (p1: boolean) => void): void;
+        seekWithToToleranceBeforeToleranceAfterCompletionHandler(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler?: (p1: boolean) => void): void;
+        selectMediaOptionInMediaSelectionGroup(_?: AVMediaSelectionOption, in_?: AVMediaSelectionGroup): void;
+        selectMediaOptionAutomaticallyInMediaSelectionGroup(in_: AVMediaSelectionGroup): void;
+        stepByCount(byCount: number): void;
+    }
+    class AVPlayerItemAccessLog extends NSObject {
+        events: AVPlayerItemAccessLogEvent[];
+        extendedLogDataStringEncoding: number;
+        extendedLogData(): NSData;
+    }
+    class AVPlayerItemAccessLogEvent extends NSObject {
+        URI: string;
+        averageAudioBitrate: number;
+        averageVideoBitrate: number;
+        downloadOverdue: number;
+        durationWatched: number;
+        indicatedAverageBitrate: number;
+        indicatedBitrate: number;
+        mediaRequestsWWAN: number;
+        numberOfBytesTransferred: number;
+        numberOfDroppedVideoFrames: number;
+        numberOfMediaRequests: number;
+        numberOfServerAddressChanges: number;
+        numberOfStalls: number;
+        observedBitrate: number;
+        observedBitrateStandardDeviation: number;
+        observedMaxBitrate: number;
+        observedMinBitrate: number;
+        playbackSessionID: string;
+        playbackStartDate: Date;
+        playbackStartOffset: number;
+        playbackType: string;
+        segmentsDownloadedDuration: number;
+        serverAddress: string;
+        startupTime: number;
+        switchBitrate: number;
+        transferDuration: number;
+    }
+    class AVPlayerItemErrorLog extends NSObject {
+        events: AVPlayerItemErrorLogEvent[];
+        extendedLogDataStringEncoding: number;
+        extendedLogData(): NSData;
+    }
+    class AVPlayerItemErrorLogEvent extends NSObject {
+        URI: string;
+        date: Date;
+        errorComment: string;
+        errorDomain: string;
+        errorStatusCode: number;
+        playbackSessionID: string;
+        serverAddress: string;
+    }
+    class AVPlayerItemLegibleOutput extends AVPlayerItemOutput {
+        advanceIntervalForDelegateInvocation: number;
+        setAdvanceIntervalForDelegateInvocation(_: number): any;
+        delegate: AVPlayerItemLegibleOutputPushDelegate;
+        delegateQueue: NSObject;
+        textStylingResolution: string;
+        setTextStylingResolution(_: string): any;
+        static createWithMediaSubtypesForNativeRepresentation(mediaSubtypesForNativeRepresentation: number[]): AVPlayerItemLegibleOutput;
+        setDelegateQueue(_?: AVPlayerItemLegibleOutputPushDelegate, queue?: NSObject): void;
+    }
+    interface AVPlayerItemLegibleOutputPushDelegate extends AVPlayerItemOutputPushDelegate {
+        legibleOutputDidOutputAttributedStringsNativeSampleBuffersForItemTime?(_: AVPlayerItemLegibleOutput, didOutputAttributedStrings: NSAttributedString[], nativeSampleBuffers: any[], forItemTime: CMTime): void;
+    }
+    class AVPlayerItemMediaDataCollector extends NSObject {
+    }
+    class AVPlayerItemMetadataCollector extends AVPlayerItemMediaDataCollector {
+        delegate: AVPlayerItemMetadataCollectorPushDelegate;
+        delegateQueue: NSObject;
+        static createWithIdentifiersClassifyingLabels(identifiers?: string[], classifyingLabels?: string[]): AVPlayerItemMetadataCollector;
+        setDelegateQueue(_?: AVPlayerItemMetadataCollectorPushDelegate, queue?: NSObject): void;
+    }
+    interface AVPlayerItemMetadataCollectorPushDelegate extends NSObject {
+        metadataCollectorDidCollectDateRangeMetadataGroupsIndexesOfNewGroupsIndexesOfModifiedGroups(_: AVPlayerItemMetadataCollector, didCollect: AVDateRangeMetadataGroup[], indexesOfNewGroups: NSIndexSet, indexesOfModifiedGroups: NSIndexSet): void;
+    }
+    class AVPlayerItemMetadataOutput extends AVPlayerItemOutput {
+        advanceIntervalForDelegateInvocation: number;
+        setAdvanceIntervalForDelegateInvocation(_: number): any;
+        delegate: AVPlayerItemMetadataOutputPushDelegate;
+        delegateQueue: NSObject;
+        static createWithIdentifiers(identifiers?: string[]): AVPlayerItemMetadataOutput;
+        setDelegateQueue(_?: AVPlayerItemMetadataOutputPushDelegate, queue?: NSObject): void;
+    }
+    interface AVPlayerItemMetadataOutputPushDelegate extends AVPlayerItemOutputPushDelegate {
+        metadataOutputDidOutputTimedMetadataGroupsFromPlayerItemTrack?(_: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups: AVTimedMetadataGroup[], from?: AVPlayerItemTrack): void;
+    }
+    class AVPlayerItemOutput extends NSObject {
+        suppressesPlayerRendering: boolean;
+        setSuppressesPlayerRendering(_: boolean): any;
+        itemTimeForCVTimeStamp(for_: CVTimeStamp): CMTime;
+        itemTimeForHostTime(forHostTime: number): CMTime;
+        itemTimeForMachAbsoluteTime(forMachAbsoluteTime: number): CMTime;
+    }
+    interface AVPlayerItemOutputPullDelegate extends NSObject {
+        outputMediaDataWillChange?(_: AVPlayerItemOutput): void;
+        outputSequenceWasFlushed?(_: AVPlayerItemOutput): void;
+    }
+    interface AVPlayerItemOutputPushDelegate extends NSObject {
+        outputSequenceWasFlushed?(_: AVPlayerItemOutput): void;
+    }
+    class AVPlayerItemTrack extends NSObject {
+        assetTrack: AVAssetTrack;
+        currentVideoFrameRate: number;
+        isEnabled: boolean;
+        setEnabled(_: boolean): any;
+        videoFieldMode: string;
+        setVideoFieldMode(_: string): any;
+    }
+    class AVPlayerItemVideoOutput extends AVPlayerItemOutput {
+        delegate: AVPlayerItemOutputPullDelegate;
+        delegateQueue: NSObject;
+        copyPixelBufferForItemTimeItemTimeForDisplay(forItemTime: CMTime, itemTimeForDisplay?: CMTime): any;
+        hasNewPixelBufferForItemTime(forItemTime: CMTime): boolean;
+        static createWithOutputSettings(outputSettings?: Map<string, any>): AVPlayerItemVideoOutput;
+        static createWithPixelBufferAttributes(pixelBufferAttributes?: Map<string, any>): AVPlayerItemVideoOutput;
+        requestNotificationOfMediaDataChangeWithAdvanceInterval(withAdvanceInterval: number): void;
+        setDelegateQueue(_?: AVPlayerItemOutputPullDelegate, queue?: NSObject): void;
+    }
+    class AVPlayerLayer extends CALayer {
+        pixelBufferAttributes: Map<string, any>;
+        setPixelBufferAttributes(_: Map<string, any>): any;
+        player: AVPlayer;
+        setPlayer(_: AVPlayer): any;
+        isReadyForDisplay: boolean;
+        videoGravity: string;
+        setVideoGravity(_: string): any;
+        videoRect: CGRect;
+    }
+    class AVPlayerLooper extends NSObject {
+        error: NSError;
+        loopCount: number;
+        loopingPlayerItems: AVPlayerItem[];
+        status: AVPlayerLooper.Status;
+        disableLooping(): void;
+        static createWithPlayerTemplateItemTimeRange(player: AVQueuePlayer, templateItem: AVPlayerItem, timeRange: CMTimeRange): AVPlayerLooper;
+    }
+    class AVPlayerMediaSelectionCriteria extends NSObject {
+        preferredLanguages: string[];
+        preferredMediaCharacteristics: string[];
+        principalMediaCharacteristics: string[];
+        static createWithPreferredLanguagesPreferredMediaCharacteristics(preferredLanguages?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
+        static createWithPrincipalMediaCharacteristicsPreferredLanguagesPreferredMediaCharacteristics(principalMediaCharacteristics?: string[], preferredLanguages?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
+    }
+    class AVPortraitEffectsMatte extends NSObject {
+        static portraitEffectsMatteFromDictionaryRepresentationError(error: Map<any, any>): AVPortraitEffectsMatte;
+        mattingImage: any;
+        pixelFormatType: number;
+        dictionaryRepresentationForAuxiliaryDataType(forAuxiliaryDataType?: string): Map<any, any>;
+        portraitEffectsMatteByApplyingExifOrientation(_: CGImagePropertyOrientation): AVPortraitEffectsMatte;
+        portraitEffectsMatteByReplacingPortraitEffectsMatteWithPixelBufferError(error: any): AVPortraitEffectsMatte;
+    }
+    class AVQueuePlayer extends AVPlayer {
+        static queuePlayerWithItems(items: AVPlayerItem[]): AVQueuePlayer;
+        advanceToNextItem(): void;
+        canInsertItemAfterItem(_: AVPlayerItem, after?: AVPlayerItem): boolean;
+        static createWithItems(items: AVPlayerItem[]): AVQueuePlayer;
+        insertItemAfterItem(_: AVPlayerItem, after?: AVPlayerItem): void;
+        items(): AVPlayerItem[];
+        removeAllItems(): void;
+        removeItem(_: AVPlayerItem): void;
+    }
+    interface AVQueuedSampleBufferRendering extends NSObject {
+        isReadyForMoreMediaData: boolean;
+        timebase: any;
+        enqueueSampleBuffer(_: any): void;
+        flush(): void;
+        requestMediaDataWhenReadyWithOnUsing(on: NSObject, using: () => void): void;
+        stopRequestingMediaData(): void;
+    }
+    class AVRouteDetector extends NSObject {
+        multipleRoutesDetected: boolean;
+        isRouteDetectionEnabled: boolean;
+        setRouteDetectionEnabled(_: boolean): any;
+    }
+    class AVSampleBufferAudioRenderer extends NSObject {
+        audioOutputDeviceUniqueID: string;
+        setAudioOutputDeviceUniqueID(_: string): any;
+        audioTimePitchAlgorithm: string;
+        setAudioTimePitchAlgorithm(_: string): any;
+        error: NSError;
+        isMuted: boolean;
+        setMuted(_: boolean): any;
+        status: AVQueuedSampleBufferRenderingStatus;
+        volume: number;
+        setVolume(_: number): any;
+        flushWithFromSourceTimeCompletionHandler(fromSourceTime: CMTime, completionHandler: (p1: boolean) => void): void;
+    }
+    class AVSampleBufferDisplayLayer extends CALayer {
+        controlTimebase: any;
+        setControlTimebase(_: any): any;
+        error: NSError;
+        preventsCapture: boolean;
+        setPreventsCapture(_: boolean): any;
+        preventsDisplaySleepDuringVideoPlayback: boolean;
+        setPreventsDisplaySleepDuringVideoPlayback(_: boolean): any;
+        status: AVQueuedSampleBufferRenderingStatus;
+        videoGravity: string;
+        setVideoGravity(_: string): any;
+        flushAndRemoveImage(): void;
+    }
+    class AVSampleBufferGenerator extends NSObject {
+        static notifyOfDataReadyForCompletionHandler(for_: any, completionHandler: (p1: boolean, p2: NSError) => void): void;
+        createSampleBufferForRequest(for_: AVSampleBufferRequest): any;
+        static createWithAssetTimebase(asset: AVAsset, timebase?: any): AVSampleBufferGenerator;
+    }
+    class AVSampleBufferRenderSynchronizer extends NSObject {
+        rate: number;
+        setRate(_: number): any;
+        renderers: AVQueuedSampleBufferRendering[];
+        timebase: any;
+        addBoundaryTimeObserverWithForTimesQueueUsing(forTimes: NSValue[], queue?: NSObject, using?: () => void): any;
+        addPeriodicTimeObserverWithForIntervalQueueUsing(forInterval: CMTime, queue?: NSObject, using?: (p1: CMTime) => void): any;
+        addRenderer(_: AVQueuedSampleBufferRendering): void;
+        currentTime(): CMTime;
+        removeRendererAtCompletionHandler(_: AVQueuedSampleBufferRendering, at: CMTime, completionHandler?: (p1: boolean) => void): void;
+        removeTimeObserver(_: any): void;
+        setRateTime(_: number, time: CMTime): void;
+    }
+    class AVSampleBufferRequest extends NSObject {
+        direction: AVSampleBufferRequest.Direction;
+        setDirection(_: AVSampleBufferRequest.Direction): any;
+        limitCursor: AVSampleCursor;
+        setLimitCursor(_: AVSampleCursor): any;
+        maxSampleCount: number;
+        setMaxSampleCount(_: number): any;
+        mode: AVSampleBufferRequest.Mode;
+        setMode(_: AVSampleBufferRequest.Mode): any;
+        overrideTime: CMTime;
+        setOverrideTime(_: CMTime): any;
+        preferredMinSampleCount: number;
+        setPreferredMinSampleCount(_: number): any;
+        startCursor: AVSampleCursor;
+        static createWithStartCursor(startCursor: AVSampleCursor): AVSampleBufferRequest;
+    }
+    class AVSampleCursor extends NSObject {
+        currentChunkInfo: AVSampleCursorChunkInfo;
+        currentChunkStorageRange: AVSampleCursorStorageRange;
+        currentChunkStorageURL: NSURL;
+        currentSampleAudioDependencyInfo: AVSampleCursorAudioDependencyInfo;
+        currentSampleDependencyInfo: AVSampleCursorDependencyInfo;
+        currentSampleDuration: CMTime;
+        currentSampleIndexInChunk: number;
+        currentSampleStorageRange: AVSampleCursorStorageRange;
+        currentSampleSyncInfo: AVSampleCursorSyncInfo;
+        decodeTimeStamp: CMTime;
+        presentationTimeStamp: CMTime;
+        samplesRequiredForDecoderRefresh: number;
+        comparePositionInDecodeOrderWithPositionOfCursor(withPositionOf: AVSampleCursor): ComparisonResult;
+        copyCurrentSampleFormatDescription(): any;
+        samplesWithEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor(laterThan: AVSampleCursor): boolean;
+        samplesWithLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor(earlierThan: AVSampleCursor): boolean;
+        stepByDecodeTimeWasPinned(byDecodeTime: CMTime, wasPinned?: boolean): CMTime;
+        stepByPresentationTimeWasPinned(byPresentationTime: CMTime, wasPinned?: boolean): CMTime;
+        stepInDecodeOrderByCount(byCount: number): number;
+        stepInPresentationOrderByCount(byCount: number): number;
+    }
+    class AVSemanticSegmentationMatte extends NSObject {
+        static semanticSegmentationMatteFromImageSourceAuxiliaryDataTypeDictionaryRepresentationError(dictionaryRepresentation: string, error: Map<any, any>): AVSemanticSegmentationMatte;
+        matteType: string;
+        mattingImage: any;
+        pixelFormatType: number;
+        dictionaryRepresentationForAuxiliaryDataType(forAuxiliaryDataType?: string): Map<any, any>;
+        semanticSegmentationMatteByApplyingExifOrientation(_: CGImagePropertyOrientation): AVSemanticSegmentationMatte;
+        semanticSegmentationMatteByReplacingSemanticSegmentationMatteWithPixelBufferError(error: any): AVSemanticSegmentationMatte;
+    }
+    class AVSpeechSynthesisVoice extends NSObject {
+        static currentLanguageCode(): string;
+        static speechVoices(): AVSpeechSynthesisVoice[];
+        static voiceWithIdentifier(identifier: string): AVSpeechSynthesisVoice;
+        static voiceWithLanguage(language?: string): AVSpeechSynthesisVoice;
+        audioFileSettings: Map<string, any>;
+        gender: AVSpeechSynthesisVoiceGender;
+        identifier: string;
+        language: string;
+        name: string;
+        quality: AVSpeechSynthesisVoiceQuality;
+    }
+    class AVSpeechSynthesizer extends NSObject {
+        delegate: AVSpeechSynthesizerDelegate;
+        setDelegate(_: AVSpeechSynthesizerDelegate): any;
+        isPaused: boolean;
+        isSpeaking: boolean;
+        continueSpeaking(): boolean;
+        pauseSpeakingAtBoundary(at: AVSpeechBoundary): boolean;
+        speakUtterance(_: AVSpeechUtterance): void;
+        stopSpeakingAtBoundary(at: AVSpeechBoundary): boolean;
+        writeToBufferCallback(_: AVSpeechUtterance, toBufferCallback: (p1: AVAudioBuffer) => void): void;
+    }
+    interface AVSpeechSynthesizerDelegate extends NSObject {
+        speechSynthesizerDidStartSpeechUtterance?(_: AVSpeechSynthesizer, didStart: AVSpeechUtterance): void;
+        speechSynthesizerDidFinishSpeechUtterance?(_: AVSpeechSynthesizer, didFinish: AVSpeechUtterance): void;
+        speechSynthesizerDidPauseSpeechUtterance?(_: AVSpeechSynthesizer, didPause: AVSpeechUtterance): void;
+        speechSynthesizerDidContinueSpeechUtterance?(_: AVSpeechSynthesizer, didContinue: AVSpeechUtterance): void;
+        speechSynthesizerDidCancelSpeechUtterance?(_: AVSpeechSynthesizer, didCancel: AVSpeechUtterance): void;
+        speechSynthesizerWillSpeakRangeOfSpeechStringUtterance?(_: AVSpeechSynthesizer, willSpeakRangeOfSpeechString: NSRange, utterance: AVSpeechUtterance): void;
+    }
+    class AVSpeechUtterance extends NSObject {
+        static speechUtteranceWithAttributedString(attributedString: NSAttributedString): AVSpeechUtterance;
+        static speechUtteranceWithString(string: string): AVSpeechUtterance;
+        attributedSpeechString: NSAttributedString;
+        pitchMultiplier: number;
+        setPitchMultiplier(_: number): any;
+        postUtteranceDelay: number;
+        setPostUtteranceDelay(_: number): any;
+        preUtteranceDelay: number;
+        setPreUtteranceDelay(_: number): any;
+        rate: number;
+        setRate(_: number): any;
+        speechString: string;
+        voice: AVSpeechSynthesisVoice;
+        setVoice(_: AVSpeechSynthesisVoice): any;
+        volume: number;
+        setVolume(_: number): any;
+        static createWithAttributedString(attributedString: NSAttributedString): AVSpeechUtterance;
+        static createWithString(string: string): AVSpeechUtterance;
+    }
+    class AVSynchronizedLayer extends CALayer {
+        playerItem: AVPlayerItem;
+        setPlayerItem(_: AVPlayerItem): any;
+    }
+    class AVTextStyleRule extends NSObject {
+        static propertyListForTextStyleRules(for_: AVTextStyleRule[]): any;
+        static textStyleRulesFromPropertyList(fromPropertyList: any): AVTextStyleRule[];
+        textMarkupAttributes: Map<string, any>;
+        textSelector: string;
+        static createWithTextMarkupAttributes(textMarkupAttributes: Map<string, any>): AVTextStyleRule;
+        static createWithTextMarkupAttributesTextSelector(textMarkupAttributes: Map<string, any>, textSelector?: string): AVTextStyleRule;
+    }
+    class AVTimedMetadataGroup extends AVMetadataGroup {
+        timeRange: CMTimeRange;
+        copyFormatDescription(): any;
+        static createWithItemsTimeRange(items: AVMetadataItem[], timeRange: CMTimeRange): AVTimedMetadataGroup;
+        static createWithSampleBuffer(sampleBuffer: any): AVTimedMetadataGroup;
+    }
+    class AVURLAsset extends AVAsset {
+        static URLAssetWithURLOptions(url: NSURL, options?: Map<string, any>): AVURLAsset;
+        static audiovisualMIMETypes(): string[];
+        static audiovisualTypes(): string[];
+        static isPlayableExtendedMIMEType(_: string): boolean;
+        URL: NSURL;
+        assetCache: AVAssetCache;
+        resourceLoader: AVAssetResourceLoader;
+        compatibleTrackForCompositionTrack(for_: AVCompositionTrack): AVAssetTrack;
+        static createWithUrlOptions(URL: NSURL, options?: Map<string, any>): AVURLAsset;
+    }
+    interface AVVideoCompositing extends NSObject {
+        requiredPixelBufferAttributesForRenderContext: Map<string, any>;
+        sourcePixelBufferAttributes: Map<string, any>;
+        supportsWideColorSourceFrames?: boolean;
+        anticipateRenderingUsingHint?(using: AVVideoCompositionRenderHint): void;
+        cancelAllPendingVideoCompositionRequests?(): void;
+        prerollForRenderingUsingHint?(using: AVVideoCompositionRenderHint): void;
+        renderContextChanged(_: AVVideoCompositionRenderContext): void;
+        startVideoCompositionRequest(_: AVAsynchronousVideoCompositionRequest): void;
+    }
+    class AVVideoComposition extends NSObject {
+        animationTool: AVVideoCompositionCoreAnimationTool;
+        colorPrimaries: string;
+        colorTransferFunction: string;
+        colorYCbCrMatrix: string;
+        customVideoCompositorClass: typeof NSObject;
+        frameDuration: CMTime;
+        instructions: AVVideoCompositionInstruction[];
+        renderScale: number;
+        renderSize: CGSize;
+        sourceTrackIDForFrameTiming: number;
+        isValidForAssetTimeRangeValidationDelegate(for_?: AVAsset, timeRange?: CMTimeRange, validationDelegate?: AVVideoCompositionValidationHandling): boolean;
+    }
+    class AVVideoCompositionCoreAnimationTool extends NSObject {
+        static videoCompositionCoreAnimationToolWithAdditionalLayerAsTrackID(additionalLayer: CALayer, asTrackID: number): AVVideoCompositionCoreAnimationTool;
+        static videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayerInLayer(postProcessingAsVideoLayer: CALayer, in_: CALayer): AVVideoCompositionCoreAnimationTool;
+        static videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayersInLayer(postProcessingAsVideoLayers: CALayer[], in_: CALayer): AVVideoCompositionCoreAnimationTool;
+    }
+    class AVVideoCompositionInstruction extends NSObject {
+        backgroundColor: any;
+        layerInstructions: AVVideoCompositionLayerInstruction[];
+    }
+    interface AVVideoCompositionInstruction extends NSObject {
+        containsTweening: boolean;
+        enablePostProcessing: boolean;
+        passthroughTrackID: number;
+        requiredSourceTrackIDs: NSValue[];
+        timeRange: CMTimeRange;
+    }
+    class AVVideoCompositionLayerInstruction extends NSObject {
+        trackID: number;
+        getCropRectangleRampForTimeStartCropRectangleEndCropRectangleTimeRange(for_: CMTime, startCropRectangle?: NSRect, endCropRectangle?: NSRect, timeRange?: CMTimeRange): boolean;
+        getOpacityRampForTimeStartOpacityEndOpacityTimeRange(for_: CMTime, startOpacity?: number, endOpacity?: number, timeRange?: CMTimeRange): boolean;
+        getTransformRampForTimeStartTransformEndTransformTimeRange(for_: CMTime, start?: CGAffineTransform, end?: CGAffineTransform, timeRange?: CMTimeRange): boolean;
+    }
+    class AVVideoCompositionRenderContext extends NSObject {
+        edgeWidths: AVEdgeWidths;
+        highQualityRendering: boolean;
+        pixelAspectRatio: AVPixelAspectRatio;
+        renderScale: number;
+        renderTransform: CGAffineTransform;
+        size: CGSize;
+        videoComposition: AVVideoComposition;
+        newPixelBuffer(): any;
+    }
+    class AVVideoCompositionRenderHint extends NSObject {
+        endCompositionTime: CMTime;
+        startCompositionTime: CMTime;
+    }
+    interface AVVideoCompositionValidationHandling extends NSObject {
+        videoCompositionShouldContinueValidatingAfterFindingInvalidTimeRangeInInstruction?(_: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTimeRangeIn: AVVideoCompositionInstruction): boolean;
+        videoCompositionShouldContinueValidatingAfterFindingInvalidTrackIDInInstructionLayerInstructionAsset?(_: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidTrackIDIn: AVVideoCompositionInstruction, layerInstruction: AVVideoCompositionLayerInstruction, asset: AVAsset): boolean;
+        videoCompositionShouldContinueValidatingAfterFindingEmptyTimeRange?(_: AVVideoComposition, shouldContinueValidatingAfterFindingEmptyTimeRange: CMTimeRange): boolean;
+        videoCompositionShouldContinueValidatingAfterFindingInvalidValueForKey?(_: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidValueForKey: string): boolean;
+    }
+    class AVCaptureView extends NSView {
+        controlsStyle: AVCaptureViewControlsStyle;
+        setControlsStyle(_: AVCaptureViewControlsStyle): any;
+        delegate: AVCaptureViewDelegate;
+        setDelegate(_: AVCaptureViewDelegate): any;
+        fileOutput: AVCaptureFileOutput;
+        session: AVCaptureSession;
+        videoGravity: string;
+        setVideoGravity(_: string): any;
+        setSessionShowVideoPreviewShowAudioPreview(_?: AVCaptureSession, showVideoPreview?: boolean, showAudioPreview?: boolean): void;
+    }
+    interface AVCaptureViewDelegate extends NSObject {
+        captureViewStartRecordingToFileOutput(_: AVCaptureView, startRecordingTo: AVCaptureFileOutput): void;
+    }
+    class AVPictureInPictureController extends NSObject {
+        static isPictureInPictureSupported(): boolean;
+        delegate: AVPictureInPictureControllerDelegate;
+        setDelegate(_: AVPictureInPictureControllerDelegate): any;
+        isPictureInPictureActive: boolean;
+        isPictureInPicturePossible: boolean;
+        isPictureInPictureSuspended: boolean;
+        playerLayer: AVPlayerLayer;
+        static pictureInPictureButtonStartImage: NSImage;
+        static pictureInPictureButtonStopImage: NSImage;
+        static createWithPlayerLayer(playerLayer: AVPlayerLayer): AVPictureInPictureController;
+        startPictureInPicture(): void;
+        stopPictureInPicture(): void;
+    }
+    interface AVPictureInPictureControllerDelegate extends NSObject {
+        pictureInPictureControllerFailedToStartPictureInPictureWithError?(_: AVPictureInPictureController, failedToStartPictureInPictureWithError: NSError): void;
+        pictureInPictureControllerWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
+        pictureInPictureControllerDidStartPictureInPicture?(_: AVPictureInPictureController): void;
+        pictureInPictureControllerDidStopPictureInPicture?(_: AVPictureInPictureController): void;
+        pictureInPictureControllerWillStartPictureInPicture?(_: AVPictureInPictureController): void;
+        pictureInPictureControllerWillStopPictureInPicture?(_: AVPictureInPictureController): void;
+    }
+    class AVPlayerView extends NSView {
+        actionPopUpButtonMenu: NSMenu;
+        setActionPopUpButtonMenu(_: NSMenu): any;
+        allowsPictureInPicturePlayback: boolean;
+        setAllowsPictureInPicturePlayback(_: boolean): any;
+        canBeginTrimming: boolean;
+        contentOverlayView: NSView;
+        controlsStyle: AVPlayerViewControlsStyle;
+        setControlsStyle(_: AVPlayerViewControlsStyle): any;
+        pictureInPictureDelegate: AVPlayerViewPictureInPictureDelegate;
+        setPictureInPictureDelegate(_: AVPlayerViewPictureInPictureDelegate): any;
+        player: AVPlayer;
+        setPlayer(_: AVPlayer): any;
+        isReadyForDisplay: boolean;
+        showsFrameSteppingButtons: boolean;
+        setShowsFrameSteppingButtons(_: boolean): any;
+        showsFullScreenToggleButton: boolean;
+        setShowsFullScreenToggleButton(_: boolean): any;
+        showsSharingServiceButton: boolean;
+        setShowsSharingServiceButton(_: boolean): any;
+        showsTimecodes: boolean;
+        setShowsTimecodes(_: boolean): any;
+        updatesNowPlayingInfoCenter: boolean;
+        setUpdatesNowPlayingInfoCenter(_: boolean): any;
+        videoBounds: CGRect;
+        videoGravity: string;
+        setVideoGravity(_: string): any;
+        beginTrimmingWithCompletionHandler(completionHandler?: (p1: AVPlayerViewTrimResult) => void): void;
+        flashChapterNumberChapterTitle(_: number, chapterTitle?: string): void;
+    }
+    interface AVPlayerViewPictureInPictureDelegate extends NSObject {
+        playerViewFailedToStartPictureInPictureWithError?(_: AVPlayerView, failedToStartPictureInPictureWithError: NSError): void;
+        playerViewWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler?(_: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
+        playerViewDidStartPictureInPicture?(inPicture: AVPlayerView): void;
+        playerViewDidStopPictureInPicture?(inPicture: AVPlayerView): void;
+        playerViewShouldAutomaticallyDismissAtPictureInPictureStart?(inPictureStart: AVPlayerView): boolean;
+        playerViewWillStartPictureInPicture?(inPicture: AVPlayerView): void;
+        playerViewWillStopPictureInPicture?(inPicture: AVPlayerView): void;
+    }
+    class AVRoutePickerView extends NSView {
+        delegate: AVRoutePickerViewDelegate;
+        setDelegate(_: AVRoutePickerViewDelegate): any;
+        player: AVPlayer;
+        setPlayer(_: AVPlayer): any;
+        isRoutePickerButtonBordered: boolean;
+        setRoutePickerButtonBordered(_: boolean): any;
+        routePickerButtonColorForState(for_: AVRoutePickerViewButtonState): NSColor;
+        setRoutePickerButtonColorForState(_?: NSColor, for_?: AVRoutePickerViewButtonState): void;
+    }
+    interface AVRoutePickerViewDelegate extends NSObject {
+        routePickerViewDidEndPresentingRoutes?(_: AVRoutePickerView): void;
+        routePickerViewWillBeginPresentingRoutes?(_: AVRoutePickerView): void;
+    }
     class NSATSTypesetter extends NSTypesetter {
         static sharedTypesetter: NSATSTypesetter;
     }
@@ -397,8 +2611,7 @@ declare global {
         accessibilityParent(): any;
         isAccessibilityFocused?(): boolean;
     }
-    interface NSAccessibilityGroup extends NSAccessibilityElement {
-    }
+    type NSAccessibilityGroup = NSAccessibilityElement;
     interface NSAccessibilityImage extends NSAccessibilityElement {
         accessibilityLabel(): string;
     }
@@ -411,16 +2624,14 @@ declare global {
     interface NSAccessibilityLayoutItem extends NSAccessibilityGroup {
         setAccessibilityFrame?(_: CGRect): void;
     }
-    interface NSAccessibilityList extends NSAccessibilityTable {
-    }
+    type NSAccessibilityList = NSAccessibilityTable;
     interface NSAccessibilityNavigableStaticText extends NSAccessibilityStaticText {
         accessibilityFrameForRange(for_: NSRange): CGRect;
         accessibilityLineForIndex(for_: number): number;
         accessibilityRangeForLine(forLine: number): NSRange;
         accessibilityStringForRange(for_: NSRange): string;
     }
-    interface NSAccessibilityOutline extends NSAccessibilityTable {
-    }
+    type NSAccessibilityOutline = NSAccessibilityTable;
     interface NSAccessibilityProgressIndicator extends NSAccessibilityGroup {
         accessibilityValue(): number;
     }
@@ -508,8 +2719,7 @@ declare global {
         updateWithEvent(with_: NSEvent): void;
         updateWithPanRecognizer(withPanRecognizer: NSPanGestureRecognizer): void;
     }
-    interface NSAlignmentFeedbackToken extends NSObject {
-    }
+    type NSAlignmentFeedbackToken = NSObject;
     interface NSAnimatablePropertyContainer {
         animations: Map<string, any>;
         setAnimations(_: Map<string, any>): any;
@@ -2394,12 +4604,6 @@ declare global {
         reloadSectionsWithIdentifiers(_: SectionIdentifierType[]): void;
         sectionIdentifierForSectionContainingItemIdentifier(_: ItemIdentifierType): SectionIdentifierType;
     }
-    interface NSDirectionalEdgeInsets {
-        top: number;
-        leading: number;
-        bottom: number;
-        trailing: number;
-    }
     class NSDockTile extends NSObject {
         badgeLabel: string;
         setBadgeLabel(_: string): any;
@@ -2670,8 +4874,7 @@ declare global {
         draggingSessionEndedAtPointOperation?(_: NSDraggingSession, endedAt: CGPoint, operation: NSDragOperation): void;
         ignoreModifierKeysForDraggingSession?(for_: NSDraggingSession): boolean;
     }
-    interface NSDrawerDelegate extends NSObject {
-    }
+    type NSDrawerDelegate = NSObject;
     class NSEPSImageRep extends NSImageRep {
         EPSRepresentation: NSData;
         boundingBox: CGRect;
@@ -3703,8 +5906,7 @@ declare global {
         textShouldEndEditing(_: NSText): boolean;
         toolTipForCell(for_: NSCell): string;
     }
-    interface NSMatrixDelegate extends NSControlTextEditingDelegate {
-    }
+    type NSMatrixDelegate = NSControlTextEditingDelegate;
     class NSMediaLibraryBrowserController extends NSObject {
         frame: CGRect;
         setFrame(_: CGRect): any;
@@ -3904,9 +6106,9 @@ declare global {
         setUsesLazyFetching(_: boolean): any;
         add(_?: any): void;
         addObject(_: any): void;
-        defaultFetchRequest(): NSFetchRequest;
+        defaultFetchRequest(): NSFetchRequest<any>;
         fetch(_?: any): void;
-        fetchWithRequestMergeError(merge?: NSFetchRequest, error?: boolean): boolean;
+        fetchWithRequestMergeError(merge?: NSFetchRequest<any>, error?: boolean): boolean;
         static createWithContent(content?: any): NSObjectController;
         newObject(): any;
         prepareContent(): void;
@@ -4181,8 +6383,7 @@ declare global {
         pasteboardItemProvideDataForType(_?: NSPasteboard, item?: NSPasteboardItem, provideDataForType?: string): void;
         pasteboardFinishedWithDataProvider?(_: NSPasteboard): void;
     }
-    interface NSPasteboardReading extends NSObject {
-    }
+    type NSPasteboardReading = NSObject;
     interface NSPasteboardTypeOwner extends NSObject {
         pasteboardProvideDataForType(_: NSPasteboard, provideDataForType: string): void;
         pasteboardChangedOwner?(_: NSPasteboard): void;
@@ -7988,8 +10189,7 @@ declare global {
         windowWillStartLiveResize?(_: NSNotification): void;
         windowWillUseStandardFrameDefaultFrame?(_: NSWindow, defaultFrame: CGRect): CGRect;
     }
-    interface NSWindowRestoration extends NSObject {
-    }
+    type NSWindowRestoration = NSObject;
     class NSWindowTab extends NSObject {
         accessoryView: NSView;
         setAccessoryView(_: NSView): any;
@@ -8094,306 +10294,2564 @@ declare global {
         requiresUniversalLinks: boolean;
         setRequiresUniversalLinks(_: boolean): any;
     }
-    interface _OVFlags {
-        unused3: number;
-        dataSourceObjectValueByItem: number;
-        allowAutomaticAnimations: number;
-        dontRedisplayOnFrameChange: number;
-        unused2: number;
-        delegateShouldAutoExpandItem: number;
-        delegateAutoCollapseItem: number;
-        delegateAutoExpandItem: number;
-        delegateShouldShowOutlineCellForItem: number;
-        dataSourceDraggedImageMovedTo: number;
-        dataSourceDraggingEndedAt: number;
-        reloadingData: number;
-        validDataSourceMethods: number;
-        numberOfRowsDataExpandEntered: number;
-        delayRowEntryFreeDisabled: number;
-        delegateHeightOfRowByItem: number;
-        animateExpandAndCollapse: number;
-        stronglyReferencesItems: number;
-        selectionAdjustmentDisabled: number;
-        subclassRowForItem: number;
-        delegateWillDisplayOutlineCell: number;
-        enableExpandNotifications: number;
-        autoSaveExpandItems: number;
-        autoresizesOutlineColumn: number;
-        delegateShouldExpandItem: number;
-        delegateShouldCollapseItem: number;
-        delegateSelectionShouldChangeInOutlineView: number;
-        delegateShouldSelectTableColumn: number;
-        delegateShouldSelectItem: number;
-        delegateShouldEditTableColumn: number;
-        delegateWillDisplayCell: number;
+    class NSAsynchronousFetchRequest<ResultType> extends NSPersistentStoreRequest {
+        completionBlock: (p1: NSAsynchronousFetchResult<any>) => void;
+        estimatedResultCount: number;
+        setEstimatedResultCount(_: number): any;
+        fetchRequest: NSFetchRequest<ResultType>;
     }
-    interface CFAllocatorContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
-        allocate: (p1: number, p2: number, p3: any) => any;
-        reallocate: (p1: any, p2: number, p3: number, p4: any) => any;
-        deallocate: (p1: any, p2: any) => void;
-        preferredSize: (p1: number, p2: number, p3: any) => number;
+    class NSAsynchronousFetchResult<ResultType> extends NSPersistentStoreAsynchronousResult {
+        fetchRequest: NSAsynchronousFetchRequest<ResultType>;
+        finalResult: ResultType[];
     }
-    interface CFArrayCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
+    class NSAtomicStore extends NSPersistentStore {
+        addCacheNodes(_: NSSet<NSAtomicStoreCacheNode>): void;
+        cacheNodeForObjectID(_: NSManagedObjectID): NSAtomicStoreCacheNode;
+        cacheNodes(): NSSet<NSAtomicStoreCacheNode>;
+        load(): boolean;
+        newCacheNodeForManagedObject(_: NSManagedObject): NSAtomicStoreCacheNode;
+        newReferenceObjectForManagedObject(_: NSManagedObject): any;
+        objectIDForEntityReferenceObject(for_: NSEntityDescription, withReferenceObject: any): NSManagedObjectID;
+        referenceObjectForObjectID(_: NSManagedObjectID): any;
+        save(): boolean;
+        updateCacheNodeFromManagedObject(_: NSAtomicStoreCacheNode, fromManagedObject: NSManagedObject): void;
+        willRemoveCacheNodes(_: NSSet<NSAtomicStoreCacheNode>): void;
     }
-    interface CFBagCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
-        hash: (p1: any) => number;
+    class NSAtomicStoreCacheNode extends NSObject {
+        objectID: NSManagedObjectID;
+        propertyCache: NSMutableDictionary<string, any>;
+        setPropertyCache(_: NSMutableDictionary<string, any>): any;
+        static createWithObjectID(objectID: NSManagedObjectID): NSAtomicStoreCacheNode;
     }
-    interface CFBinaryHeapCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        compare: (p1: any, p2: any, p3: any) => CFComparisonResult;
+    class NSAttributeDescription extends NSPropertyDescription {
+        allowsExternalBinaryDataStorage: boolean;
+        setAllowsExternalBinaryDataStorage(_: boolean): any;
+        attributeType: NSAttributeType;
+        setAttributeType(_: NSAttributeType): any;
+        attributeValueClassName: string;
+        setAttributeValueClassName(_: string): any;
+        defaultValue: any;
+        setDefaultValue(_: any): any;
+        preservesValueInHistoryOnDeletion: boolean;
+        setPreservesValueInHistoryOnDeletion(_: boolean): any;
+        valueTransformerName: string;
+        setValueTransformerName(_: string): any;
     }
-    interface CFBinaryHeapCompareContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSBatchDeleteRequest extends NSPersistentStoreRequest {
+        fetchRequest: NSFetchRequest<any>;
+        resultType: NSBatchDeleteRequestResultType;
+        setResultType(_: NSBatchDeleteRequestResultType): any;
+        static createWithFetchRequest(fetchRequest: NSFetchRequest<any>): NSBatchDeleteRequest;
+        static createWithObjectIDs(objectIDs: NSManagedObjectID[]): NSBatchDeleteRequest;
     }
-    interface CFDictionaryKeyCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
-        hash: (p1: any) => number;
+    class NSBatchDeleteResult extends NSPersistentStoreResult {
+        result: any;
+        resultType: NSBatchDeleteRequestResultType;
     }
-    interface CFDictionaryValueCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
+    class NSBatchInsertRequest extends NSPersistentStoreRequest {
+        static batchInsertRequestWithEntityNameObjects(_: string, objects: Map<string, any>[]): NSBatchInsertRequest;
+        entity: NSEntityDescription;
+        entityName: string;
+        objectsToInsert: Map<string, any>[];
+        setObjectsToInsert(_: Map<string, any>[]): any;
+        resultType: NSBatchInsertRequestResultType;
+        setResultType(_: NSBatchInsertRequestResultType): any;
+        static createWithEntityObjects(entity: NSEntityDescription, objects: Map<string, any>[]): NSBatchInsertRequest;
+        static createWithEntityNameObjects(entityName: string, objects: Map<string, any>[]): NSBatchInsertRequest;
     }
-    interface CFFileDescriptorContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSBatchInsertResult extends NSPersistentStoreResult {
+        result: any;
+        resultType: NSBatchInsertRequestResultType;
     }
-    interface CFGregorianDate {
-        year: number;
-        month: number;
-        day: number;
-        hour: number;
-        minute: number;
-        second: number;
+    class NSBatchUpdateRequest extends NSPersistentStoreRequest {
+        static batchUpdateRequestWithEntityName(_: string): NSBatchUpdateRequest;
+        entity: NSEntityDescription;
+        entityName: string;
+        includesSubentities: boolean;
+        setIncludesSubentities(_: boolean): any;
+        predicate: NSPredicate;
+        setPredicate(_: NSPredicate): any;
+        propertiesToUpdate: Map<any, any>;
+        setPropertiesToUpdate(_: Map<any, any>): any;
+        resultType: NSBatchUpdateRequestResultType;
+        setResultType(_: NSBatchUpdateRequestResultType): any;
+        static createWithEntity(entity: NSEntityDescription): NSBatchUpdateRequest;
+        static createWithEntityName(entityName: string): NSBatchUpdateRequest;
     }
-    interface CFGregorianUnits {
-        years: number;
-        months: number;
-        days: number;
-        hours: number;
-        minutes: number;
-        seconds: number;
+    class NSBatchUpdateResult extends NSPersistentStoreResult {
+        result: any;
+        resultType: NSBatchUpdateRequestResultType;
     }
-    interface CFMachPortContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSConstraintConflict extends NSObject {
+        conflictingObjects: NSManagedObject[];
+        conflictingSnapshots: Map<any, any>[];
+        constraint: string[];
+        constraintValues: Map<string, any>;
+        databaseObject: NSManagedObject;
+        databaseSnapshot: Map<string, any>;
+        static createWithConstraintDatabaseObjectDatabaseSnapshotConflictingObjectsConflictingSnapshots(constraint: string[], databaseObject?: NSManagedObject, databaseSnapshot?: Map<any, any>, conflictingObjects?: NSManagedObject[], conflictingSnapshots?: any[]): NSConstraintConflict;
     }
-    interface CFMessagePortContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSCoreDataCoreSpotlightDelegate extends NSObject {
+        attributeSetForObject(_: NSManagedObject): CSSearchableItemAttributeSet;
+        domainIdentifier(): string;
+        indexName(): string;
+        static createWithForStoreWithDescriptionModel(forStoreWithDescription: NSPersistentStoreDescription, model: NSManagedObjectModel): NSCoreDataCoreSpotlightDelegate;
+        searchableIndexWithReindexAllSearchableItemsWithAcknowledgementHandler(_: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler: () => void): void;
+        searchableIndexWithReindexSearchableItemsWithIdentifiersAcknowledgementHandler(_: CSSearchableIndex, reindexSearchableItemsWithIdentifiers: string[], acknowledgementHandler: () => void): void;
     }
-    interface CFRange {
-        location: number;
-        length: number;
+    class NSDerivedAttributeDescription extends NSAttributeDescription {
+        derivationExpression: NSExpression;
+        setDerivationExpression(_: NSExpression): any;
     }
-    interface CFRunLoopObserverContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSEntityDescription extends NSObject {
+        static entityForNameInManagedObjectContext(forEntityName: string, in_: NSManagedObjectContext): NSEntityDescription;
+        static insertNewObjectForEntityForNameInManagedObjectContext(forEntityName: string, into: NSManagedObjectContext): NSManagedObject;
+        isAbstract: boolean;
+        setAbstract(_: boolean): any;
+        attributesByName: Map<string, NSAttributeDescription>;
+        coreSpotlightDisplayNameExpression: NSExpression;
+        setCoreSpotlightDisplayNameExpression(_: NSExpression): any;
+        indexes: NSFetchIndexDescription[];
+        setIndexes(_: NSFetchIndexDescription[]): any;
+        managedObjectClassName: string;
+        setManagedObjectClassName(_: string): any;
+        managedObjectModel: NSManagedObjectModel;
+        name: string;
+        setName(_: string): any;
+        properties: NSPropertyDescription[];
+        setProperties(_: NSPropertyDescription[]): any;
+        propertiesByName: Map<string, NSPropertyDescription>;
+        relationshipsByName: Map<string, NSRelationshipDescription>;
+        renamingIdentifier: string;
+        setRenamingIdentifier(_: string): any;
+        subentities: NSEntityDescription[];
+        setSubentities(_: NSEntityDescription[]): any;
+        subentitiesByName: Map<string, NSEntityDescription>;
+        superentity: NSEntityDescription;
+        uniquenessConstraints: any[][];
+        setUniquenessConstraints(_: any[][]): any;
+        userInfo: Map<any, any>;
+        setUserInfo(_: Map<any, any>): any;
+        versionHash: NSData;
+        versionHashModifier: string;
+        setVersionHashModifier(_: string): any;
+        isKindOfEntity(entity: NSEntityDescription): boolean;
+        relationshipsWithDestinationEntity(forDestination: NSEntityDescription): NSRelationshipDescription[];
     }
-    interface CFRunLoopSourceContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
-        hash: (p1: any) => number;
-        schedule: (p1: any, p2: any, p3: any) => void;
-        cancel: (p1: any, p2: any, p3: any) => void;
-        perform: (p1: any) => void;
+    class NSEntityMapping extends NSObject {
+        attributeMappings: NSPropertyMapping[];
+        setAttributeMappings(_: NSPropertyMapping[]): any;
+        destinationEntityName: string;
+        setDestinationEntityName(_: string): any;
+        destinationEntityVersionHash: NSData;
+        setDestinationEntityVersionHash(_: NSData): any;
+        entityMigrationPolicyClassName: string;
+        setEntityMigrationPolicyClassName(_: string): any;
+        mappingType: NSEntityMappingType;
+        setMappingType(_: NSEntityMappingType): any;
+        name: string;
+        setName(_: string): any;
+        relationshipMappings: NSPropertyMapping[];
+        setRelationshipMappings(_: NSPropertyMapping[]): any;
+        sourceEntityName: string;
+        setSourceEntityName(_: string): any;
+        sourceEntityVersionHash: NSData;
+        setSourceEntityVersionHash(_: NSData): any;
+        sourceExpression: NSExpression;
+        setSourceExpression(_: NSExpression): any;
+        userInfo: Map<any, any>;
+        setUserInfo(_: Map<any, any>): any;
     }
-    interface CFRunLoopSourceContext1 {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
-        hash: (p1: any) => number;
-        getPort: (p1: any) => number;
-        perform: (p1: any, p2: number, p3: any, p4: any) => any;
+    class NSEntityMigrationPolicy extends NSObject {
+        beginEntityMappingManagerError(_: NSEntityMapping, with_: NSMigrationManager): boolean;
+        createDestinationInstancesForSourceInstanceEntityMappingManagerError(forSource: NSManagedObject, in_: NSEntityMapping, manager: NSMigrationManager): boolean;
+        createRelationshipsForDestinationInstanceEntityMappingManagerError(forDestination: NSManagedObject, in_: NSEntityMapping, manager: NSMigrationManager): boolean;
+        endEntityMappingManagerError(manager: NSEntityMapping, error: NSMigrationManager): boolean;
+        endInstanceCreationForEntityMappingManagerError(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
+        endRelationshipCreationForEntityMappingManagerError(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
+        performCustomValidationForEntityMappingManagerError(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
     }
-    interface CFRunLoopTimerContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSExpressionDescription extends NSPropertyDescription {
+        expression: NSExpression;
+        setExpression(_: NSExpression): any;
+        expressionResultType: NSAttributeType;
+        setExpressionResultType(_: NSAttributeType): any;
     }
-    interface CFSetCallBacks {
-        version: number;
-        retain: (p1: any, p2: any) => any;
-        release: (p1: any, p2: any) => void;
-        copyDescription: (p1: any) => string;
-        equal: (p1: any, p2: any) => boolean;
-        hash: (p1: any) => number;
+    class NSFetchIndexDescription extends NSObject {
+        elements: NSFetchIndexElementDescription[];
+        setElements(_: NSFetchIndexElementDescription[]): any;
+        entity: NSEntityDescription;
+        name: string;
+        setName(_: string): any;
+        partialIndexPredicate: NSPredicate;
+        setPartialIndexPredicate(_: NSPredicate): any;
+        static createWithNameElements(name: string, elements?: NSFetchIndexElementDescription[]): NSFetchIndexDescription;
     }
-    interface CFSocketContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSFetchIndexElementDescription extends NSObject {
+        isAscending: boolean;
+        setAscending(_: boolean): any;
+        collationType: NSFetchIndexElementType;
+        setCollationType(_: NSFetchIndexElementType): any;
+        indexDescription: NSFetchIndexDescription;
+        property: NSPropertyDescription;
+        propertyName: string;
+        static createWithPropertyCollationType(property: NSPropertyDescription, collationType: NSFetchIndexElementType): NSFetchIndexElementDescription;
     }
-    interface CFSocketSignature {
-        protocolFamily: number;
-        socketType: number;
-        protocol: number;
-        address: NSData;
+    class NSFetchRequest<ResultType> extends NSPersistentStoreRequest {
+        static fetchRequestWithEntityName<ResultType>(_: string): NSFetchRequest<ResultType>;
+        entity: NSEntityDescription;
+        setEntity(_: NSEntityDescription): any;
+        entityName: string;
+        fetchBatchSize: number;
+        setFetchBatchSize(_: number): any;
+        fetchLimit: number;
+        setFetchLimit(_: number): any;
+        fetchOffset: number;
+        setFetchOffset(_: number): any;
+        havingPredicate: NSPredicate;
+        setHavingPredicate(_: NSPredicate): any;
+        includesPendingChanges: boolean;
+        setIncludesPendingChanges(_: boolean): any;
+        includesPropertyValues: boolean;
+        setIncludesPropertyValues(_: boolean): any;
+        includesSubentities: boolean;
+        setIncludesSubentities(_: boolean): any;
+        predicate: NSPredicate;
+        setPredicate(_: NSPredicate): any;
+        propertiesToFetch: any[];
+        setPropertiesToFetch(_: any[]): any;
+        propertiesToGroupBy: any[];
+        setPropertiesToGroupBy(_: any[]): any;
+        relationshipKeyPathsForPrefetching: string[];
+        setRelationshipKeyPathsForPrefetching(_: string[]): any;
+        resultType: NSFetchRequestResultType;
+        setResultType(_: NSFetchRequestResultType): any;
+        returnsDistinctResults: boolean;
+        setReturnsDistinctResults(_: boolean): any;
+        returnsObjectsAsFaults: boolean;
+        setReturnsObjectsAsFaults(_: boolean): any;
+        shouldRefreshRefetchedObjects: boolean;
+        setShouldRefreshRefetchedObjects(_: boolean): any;
+        sortDescriptors: NSSortDescriptor[];
+        setSortDescriptors(_: NSSortDescriptor[]): any;
+        execute(): ResultType[];
     }
-    interface CFStreamClientContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSFetchRequestExpression extends NSExpression {
+        static expressionForFetchContextCountOnly(_: NSExpression, context: NSExpression, countOnly: boolean): NSExpression;
+        contextExpression: NSExpression;
+        isCountOnlyRequest: boolean;
+        requestExpression: NSExpression;
     }
-    interface CFStreamError {
-        domain: number;
-        error: number;
+    type NSFetchRequestResult = NSObject;
+    class NSFetchedPropertyDescription extends NSPropertyDescription {
+        fetchRequest: NSFetchRequest<any>;
+        setFetchRequest(_: NSFetchRequest<any>): any;
     }
-    interface CFStringInlineBuffer {
-        buffer: number;
-        theString: string;
-        directUniCharBuffer: number;
-        directCStringBuffer: string;
-        rangeToBuffer: CFRange;
-        bufferedRangeStart: number;
-        bufferedRangeEnd: number;
+    class NSFetchedResultsController<ResultType> extends NSObject {
+        static deleteCacheWithName(_?: string): void;
+        cacheName: string;
+        delegate: NSFetchedResultsControllerDelegate;
+        setDelegate(_: NSFetchedResultsControllerDelegate): any;
+        fetchRequest: NSFetchRequest<ResultType>;
+        fetchedObjects: ResultType[];
+        managedObjectContext: NSManagedObjectContext;
+        sectionIndexTitles: string[];
+        sectionNameKeyPath: string;
+        sections: NSFetchedResultsSectionInfo[];
+        indexPathForObject(_: ResultType): NSIndexPath;
+        objectAtIndexPath(_: NSIndexPath): ResultType;
+        performFetch(): boolean;
+        sectionForSectionIndexTitleAtIndex(_: string, atIndex: number): number;
+        sectionIndexTitleForSectionName(_: string): string;
     }
-    interface CFSwappedFloat32 {
-        v: number;
+    interface NSFetchedResultsControllerDelegate extends NSObject {
+        controllerWithDidChangeContentWithDifference?(_: NSFetchedResultsController<any>, didChangeContentWithDifference: NSOrderedCollectionDifference<NSManagedObjectID>): void;
+        controllerWithDidChangeContentWithSnapshot?(_: NSFetchedResultsController<any>, didChangeContentWithSnapshot: NSDiffableDataSourceSnapshotReference<string, NSManagedObjectID>): void;
+        controllerDidChangeObjectAtIndexPathForChangeTypeNewIndexPath?(_: NSFetchedResultsController<any>, didChangeObject: any, atIndexPath?: NSIndexPath, forChangeType?: NSFetchedResultsChangeType, newIndexPath?: NSIndexPath): void;
+        controllerDidChangeSectionAtIndexForChangeType?(_: NSFetchedResultsController<any>, didChangeSection: NSFetchedResultsSectionInfo, atIndex: number, forChangeType: NSFetchedResultsChangeType): void;
+        controllerSectionIndexTitleForSectionName?(_: NSFetchedResultsController<any>, sectionIndexTitleForSectionName: string): string;
+        controllerDidChangeContent?(_: NSFetchedResultsController<any>): void;
+        controllerWillChangeContent?(_: NSFetchedResultsController<any>): void;
     }
-    interface CFSwappedFloat64 {
-        v: number;
+    interface NSFetchedResultsSectionInfo {
+        indexTitle: string;
+        name: string;
+        numberOfObjects: number;
+        objects: any[];
     }
-    interface CFTreeContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSIncrementalStore extends NSPersistentStore {
+        static identifierForNewStoreAtURL(_: NSURL): any;
+        executeRequestWithContextError(withContext: NSPersistentStoreRequest, error?: NSManagedObjectContext): any;
+        managedObjectContextDidRegisterObjectsWithIDs(_: NSManagedObjectID[]): void;
+        managedObjectContextDidUnregisterObjectsWithIDs(_: NSManagedObjectID[]): void;
+        newObjectIDForEntityReferenceObject(for_: NSEntityDescription, referenceObject: any): NSManagedObjectID;
+        newValueForRelationshipForObjectWithIDWithContextError(forObjectWithID: NSRelationshipDescription, withContext: NSManagedObjectID, error?: NSManagedObjectContext): any;
+        newValuesForObjectWithIDWithContextError(withContext: NSManagedObjectID, error: NSManagedObjectContext): NSIncrementalStoreNode;
+        obtainPermanentIDsForObjectsError(error: NSManagedObject[]): NSManagedObjectID[];
+        referenceObjectForObjectID(_: NSManagedObjectID): any;
     }
-    interface CFUUIDBytes {
-        byte0: number;
-        byte1: number;
-        byte2: number;
-        byte3: number;
-        byte4: number;
-        byte5: number;
-        byte6: number;
-        byte7: number;
-        byte8: number;
-        byte9: number;
-        byte10: number;
-        byte11: number;
-        byte12: number;
-        byte13: number;
-        byte14: number;
-        byte15: number;
+    class NSIncrementalStoreNode extends NSObject {
+        objectID: NSManagedObjectID;
+        static createWithObjectIDWithValuesVersion(objectID: NSManagedObjectID, withValues: Map<string, any>, version: number): NSIncrementalStoreNode;
+        updateWithValuesVersion(_: Map<string, any>, version: number): void;
+        valueForPropertyDescription(_: NSPropertyDescription): any;
     }
-    interface CFXMLAttributeDeclarationInfo {
-        attributeName: string;
-        typeString: string;
-        defaultString: string;
+    class NSManagedObject extends NSObject {
+        static entity(): NSEntityDescription;
+        static fetchRequest(): NSFetchRequest<any>;
+        isDeleted: boolean;
+        entity: NSEntityDescription;
+        isFault: boolean;
+        faultingState: number;
+        hasChanges: boolean;
+        hasPersistentChangedValues: boolean;
+        isInserted: boolean;
+        managedObjectContext: NSManagedObjectContext;
+        objectID: NSManagedObjectID;
+        isUpdated: boolean;
+        static contextShouldIgnoreUnmodeledPropertyChanges: boolean;
+        awakeFromFetch(): void;
+        awakeFromInsert(): void;
+        awakeFromSnapshotEvents(_: NSSnapshotEventType): void;
+        changedValues(): Map<string, any>;
+        changedValuesForCurrentEvent(): Map<string, any>;
+        committedValuesForKeys(_?: string[]): Map<string, any>;
+        didAccessValueForKey(_?: string): void;
+        didSave(): void;
+        didTurnIntoFault(): void;
+        hasFaultForRelationshipNamed(_: string): boolean;
+        static createWithContext(context: NSManagedObjectContext): NSManagedObject;
+        static createWithEntityInsertIntoManagedObjectContext(entity: NSEntityDescription, insertIntoManagedObjectContext?: NSManagedObjectContext): NSManagedObject;
+        objectIDsForRelationshipNamed(_: string): NSManagedObjectID[];
+        prepareForDeletion(): void;
+        primitiveValueForKey(_: string): any;
+        setObservationInfo(_?: any): void;
+        setPrimitiveValueForKey(_?: any, forKey?: string): void;
+        validateForDelete(): boolean;
+        validateForInsert(): boolean;
+        validateForUpdate(): boolean;
+        willAccessValueForKey(_?: string): void;
+        willSave(): void;
+        willTurnIntoFault(): void;
     }
-    interface CFXMLAttributeListDeclarationInfo {
-        numberOfAttributes: number;
-        attributes: CFXMLAttributeDeclarationInfo;
+    class NSManagedObjectContext extends NSObject {
+        static mergeChangesFromRemoteContextSaveIntoContexts(_: Map<any, any>, intoContexts: NSManagedObjectContext[]): void;
+        automaticallyMergesChangesFromParent: boolean;
+        setAutomaticallyMergesChangesFromParent(_: boolean): any;
+        concurrencyType: NSManagedObjectContextConcurrencyType;
+        deletedObjects: NSSet<NSManagedObject>;
+        hasChanges: boolean;
+        insertedObjects: NSSet<NSManagedObject>;
+        mergePolicy: any;
+        setMergePolicy(_: any): any;
+        name: string;
+        setName(_: string): any;
+        parentContext: NSManagedObjectContext;
+        setParentContext(_: NSManagedObjectContext): any;
+        persistentStoreCoordinator: NSPersistentStoreCoordinator;
+        setPersistentStoreCoordinator(_: NSPersistentStoreCoordinator): any;
+        propagatesDeletesAtEndOfEvent: boolean;
+        setPropagatesDeletesAtEndOfEvent(_: boolean): any;
+        queryGenerationToken: NSQueryGenerationToken;
+        registeredObjects: NSSet<NSManagedObject>;
+        retainsRegisteredObjects: boolean;
+        setRetainsRegisteredObjects(_: boolean): any;
+        shouldDeleteInaccessibleFaults: boolean;
+        setShouldDeleteInaccessibleFaults(_: boolean): any;
+        stalenessInterval: number;
+        setStalenessInterval(_: number): any;
+        transactionAuthor: string;
+        setTransactionAuthor(_: string): any;
+        undoManager: UndoManager;
+        setUndoManager(_: UndoManager): any;
+        updatedObjects: NSSet<NSManagedObject>;
+        userInfo: NSMutableDictionary<any, any>;
+        assignObjectToPersistentStore(_: any, toPersistentStore: NSPersistentStore): void;
+        countForFetchRequestError(error: NSFetchRequest<any>): number;
+        deleteObject(_: NSManagedObject): void;
+        detectConflictsForObject(_: NSManagedObject): void;
+        executeFetchRequestError(_: NSFetchRequest<any>): any[];
+        executeRequestError(error: NSPersistentStoreRequest): NSPersistentStoreResult;
+        existingObjectWithIDError(error: NSManagedObjectID): NSManagedObject;
+        static createWithConcurrencyType(concurrencyType: NSManagedObjectContextConcurrencyType): NSManagedObjectContext;
+        insertObject(_: NSManagedObject): void;
+        mergeChangesFromContextDidSaveNotification(_: NSNotification): void;
+        objectRegisteredForID(for_: NSManagedObjectID): NSManagedObject;
+        objectWithID(_: NSManagedObjectID): NSManagedObject;
+        obtainPermanentIDsForObjectsError(error: NSManagedObject[]): boolean;
+        performBlock(_: () => void): void;
+        performAndWait(_: () => void): void;
+        processPendingChanges(): void;
+        redo(): void;
+        refreshAllObjects(): void;
+        refreshObjectMergeChanges(_: NSManagedObject, mergeChanges: boolean): void;
+        reset(): void;
+        rollback(): void;
+        save(): boolean;
+        setQueryGenerationFromTokenError(error?: NSQueryGenerationToken): boolean;
+        shouldHandleInaccessibleFaultForObjectIDTriggeredByProperty(_: NSManagedObject, forObjectID: NSManagedObjectID, triggeredByProperty?: NSPropertyDescription): boolean;
+        undo(): void;
     }
-    interface CFXMLDocumentInfo {
-        sourceURL: NSURL;
-        encoding: number;
+    class NSManagedObjectID extends NSObject {
+        entity: NSEntityDescription;
+        persistentStore: NSPersistentStore;
+        isTemporaryID: boolean;
+        URIRepresentation(): NSURL;
     }
-    interface CFXMLDocumentTypeInfo {
-        externalID: CFXMLExternalID;
+    class NSManagedObjectModel extends NSObject {
+        static mergedModelFromBundles(_?: Bundle[]): NSManagedObjectModel;
+        static mergedModelFromBundlesForStoreMetadata(_?: Bundle[], forStoreMetadata?: Map<string, any>): NSManagedObjectModel;
+        static modelByMergingModels(_?: NSManagedObjectModel[]): NSManagedObjectModel;
+        static modelByMergingModelsForStoreMetadata(_: NSManagedObjectModel[], forStoreMetadata: Map<string, any>): NSManagedObjectModel;
+        configurations: string[];
+        entities: NSEntityDescription[];
+        setEntities(_: NSEntityDescription[]): any;
+        entitiesByName: Map<string, NSEntityDescription>;
+        entityVersionHashesByName: Map<string, Data>;
+        fetchRequestTemplatesByName: Map<string, NSFetchRequest<any>>;
+        localizationDictionary: Map<string, string>;
+        setLocalizationDictionary(_: Map<string, string>): any;
+        versionIdentifiers: NSSet<any>;
+        setVersionIdentifiers(_: NSSet<any>): any;
+        entitiesForConfiguration(forConfigurationName?: string): NSEntityDescription[];
+        fetchRequestFromTemplateWithNameSubstitutionVariables(_: string, substitutionVariables: Map<string, any>): NSFetchRequest<any>;
+        fetchRequestTemplateForName(_: string): NSFetchRequest<any>;
+        static createWithContentsOfURL(contentsOfURL: NSURL): NSManagedObjectModel;
+        isConfigurationCompatibleWithStoreMetadata(withName?: string, compatibleWithStoreMetadata?: Map<string, any>): boolean;
+        setEntitiesForConfiguration(_: NSEntityDescription[], forConfigurationName: string): void;
+        setFetchRequestTemplateForName(_?: NSFetchRequest<any>, forName?: string): void;
     }
-    interface CFXMLElementInfo {
-        attributes: Map<any, any>;
-        attributeOrder: any[];
-        isEmpty: boolean;
+    class NSMappingModel extends NSObject {
+        static inferredMappingModelForSourceModelDestinationModelError(destinationModel: NSManagedObjectModel, error: NSManagedObjectModel): NSMappingModel;
+        static mappingModelFromBundlesForSourceModelDestinationModel(_?: Bundle[], forSourceModel?: NSManagedObjectModel, destinationModel?: NSManagedObjectModel): NSMappingModel;
+        entityMappings: NSEntityMapping[];
+        setEntityMappings(_: NSEntityMapping[]): any;
+        entityMappingsByName: Map<string, NSEntityMapping>;
+        static createWithContentsOfURL(contentsOfURL?: NSURL): NSMappingModel;
     }
-    interface CFXMLElementTypeDeclarationInfo {
-        contentDescription: string;
+    class NSMergeConflict extends NSObject {
+        cachedSnapshot: Map<string, any>;
+        newVersionNumber: number;
+        objectSnapshot: Map<string, any>;
+        oldVersionNumber: number;
+        persistedSnapshot: Map<string, any>;
+        sourceObject: NSManagedObject;
+        static createWithSourceNewVersionOldVersionCachedSnapshotPersistedSnapshot(source: NSManagedObject, newVersion: number, oldVersion: number, cachedSnapshot?: Map<string, any>, persistedSnapshot?: Map<string, any>): NSMergeConflict;
     }
-    interface CFXMLEntityInfo {
-        entityType: CFXMLEntityTypeCode;
-        replacementText: string;
-        entityID: CFXMLExternalID;
-        notationName: string;
+    class NSMergePolicy extends NSObject {
+        mergeType: NSMergePolicyType;
+        static errorMergePolicy: NSMergePolicy;
+        static mergeByPropertyObjectTrumpMergePolicy: NSMergePolicy;
+        static mergeByPropertyStoreTrumpMergePolicy: NSMergePolicy;
+        static overwriteMergePolicy: NSMergePolicy;
+        static rollbackMergePolicy: NSMergePolicy;
+        static createWithMergeType(mergeType: NSMergePolicyType): NSMergePolicy;
+        resolveConflictsError(mergeConflicts: any[]): boolean;
+        resolveConstraintConflictsError(constraintConflicts: NSConstraintConflict[]): boolean;
+        resolveOptimisticLockingVersionConflictsError(optimisticLockingConflicts: NSMergeConflict[]): boolean;
     }
-    interface CFXMLEntityReferenceInfo {
-        entityType: CFXMLEntityTypeCode;
+    class NSMigrationManager extends NSObject {
+        currentEntityMapping: NSEntityMapping;
+        destinationContext: NSManagedObjectContext;
+        destinationModel: NSManagedObjectModel;
+        mappingModel: NSMappingModel;
+        migrationProgress: number;
+        sourceContext: NSManagedObjectContext;
+        sourceModel: NSManagedObjectModel;
+        userInfo: Map<any, any>;
+        setUserInfo(_: Map<any, any>): any;
+        usesStoreSpecificMigrationManager: boolean;
+        setUsesStoreSpecificMigrationManager(_: boolean): any;
+        associateSourceInstanceWithDestinationInstanceForEntityMapping(sourceInstance: NSManagedObject, withDestinationInstance: NSManagedObject, for_: NSEntityMapping): void;
+        cancelMigrationWithError(_: NSError): void;
+        destinationEntityForEntityMapping(_: NSEntityMapping): NSEntityDescription;
+        destinationInstancesForEntityMappingNamedSourceInstances(forEntityMappingName: string, sourceInstances?: NSManagedObject[]): NSManagedObject[];
+        static createWithSourceModelDestinationModel(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel): NSMigrationManager;
+        migrateStoreFromURLTypeOptionsWithMappingModelToDestinationURLDestinationTypeDestinationOptionsError(from: NSURL, sourceType: string, options?: Map<any, any>, with_?: NSMappingModel, toDestinationURL?: NSURL, destinationType?: string, destinationOptions?: Map<any, any>): boolean;
+        reset(): void;
+        sourceEntityForEntityMapping(_: NSEntityMapping): NSEntityDescription;
+        sourceInstancesForEntityMappingNamedDestinationInstances(forEntityMappingName: string, destinationInstances?: NSManagedObject[]): NSManagedObject[];
     }
-    interface CFXMLExternalID {
-        systemID: NSURL;
-        publicID: string;
+    class NSPersistentCloudKitContainer extends NSPersistentContainer {
+        initializeCloudKitSchemaWithOptionsError(error: NSPersistentCloudKitContainerSchemaInitializationOptions): boolean;
+        recordForManagedObjectID(_: NSManagedObjectID): CKRecord;
+        recordIDForManagedObjectID(_: NSManagedObjectID): ID;
+        recordIDsForManagedObjectIDs(_: NSManagedObjectID[]): Map<NSManagedObjectID, ID>;
+        recordsForManagedObjectIDs(_: NSManagedObjectID[]): Map<NSManagedObjectID, CKRecord>;
     }
-    interface CFXMLNotationInfo {
-        externalID: CFXMLExternalID;
+    class NSPersistentCloudKitContainerOptions extends NSObject {
+        containerIdentifier: string;
+        static createWithContainerIdentifier(containerIdentifier: string): NSPersistentCloudKitContainerOptions;
     }
-    interface CFXMLParserCallBacks {
-        version: number;
-        createXMLStructure: (p1: any, p2: any, p3: any) => any;
-        addChild: (p1: any, p2: any, p3: any, p4: any) => void;
-        endXMLStructure: (p1: any, p2: any, p3: any) => void;
-        resolveExternalEntity: (p1: any, p2: CFXMLExternalID, p3: any) => NSData;
-        handleError: (p1: any, p2: CFXMLParserStatusCode, p3: any) => boolean;
+    class NSPersistentContainer extends NSObject {
+        static defaultDirectoryURL(): NSURL;
+        static persistentContainerWithName(_: string): NSPersistentContainer;
+        static persistentContainerWithNameManagedObjectModel(_: string, managedObjectModel: NSManagedObjectModel): NSPersistentContainer;
+        managedObjectModel: NSManagedObjectModel;
+        name: string;
+        persistentStoreCoordinator: NSPersistentStoreCoordinator;
+        persistentStoreDescriptions: NSPersistentStoreDescription[];
+        setPersistentStoreDescriptions(_: NSPersistentStoreDescription[]): any;
+        viewContext: NSManagedObjectContext;
+        static createWithName(name: string): NSPersistentContainer;
+        static createWithNameManagedObjectModel(name: string, managedObjectModel: NSManagedObjectModel): NSPersistentContainer;
+        loadPersistentStoresWithCompletionHandler(_?: (p1: NSPersistentStoreDescription, p2: NSError) => void): void;
+        newBackgroundContext(): NSManagedObjectContext;
+        performBackgroundTask(_: (p1: NSManagedObjectContext) => void): void;
     }
-    interface CFXMLParserContext {
-        version: number;
-        info: any;
-        retain: (p1: any) => any;
-        release: (p1: any) => void;
-        copyDescription: (p1: any) => string;
+    class NSPersistentHistoryChange extends NSObject {
+        static entityDescriptionWithContext(_: NSManagedObjectContext): NSEntityDescription;
+        changeID: number;
+        changeType: NSPersistentHistoryChangeType;
+        changedObjectID: NSManagedObjectID;
+        tombstone: Map<any, any>;
+        transaction: NSPersistentHistoryTransaction;
+        updatedProperties: NSSet<NSPropertyDescription>;
+        static entityDescription: NSEntityDescription;
+        static fetchRequest: NSFetchRequest<any>;
     }
-    interface CFXMLProcessingInstructionInfo {
-        dataString: string;
+    class NSPersistentHistoryChangeRequest extends NSPersistentStoreRequest {
+        static deleteHistoryBeforeDate(_: Date): NSPersistentHistoryChangeRequest;
+        static deleteHistoryBeforeToken(_?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
+        static deleteHistoryBeforeTransaction(_?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
+        static fetchHistoryAfterDate(_: Date): NSPersistentHistoryChangeRequest;
+        static fetchHistoryAfterToken(_?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
+        static fetchHistoryAfterTransaction(_?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
+        static fetchHistoryWithFetchRequest(_: NSFetchRequest<any>): NSPersistentHistoryChangeRequest;
+        fetchRequest: NSFetchRequest<any>;
+        setFetchRequest(_: NSFetchRequest<any>): any;
+        resultType: NSPersistentHistoryResultType;
+        setResultType(_: NSPersistentHistoryResultType): any;
+        token: NSPersistentHistoryToken;
     }
-    interface IUnknownVTbl {
-        QueryInterface: (p1: any, p2: CFUUIDBytes, p3: any) => number;
-        AddRef: (p1: any) => number;
-        Release: (p1: any) => number;
+    class NSPersistentHistoryResult extends NSPersistentStoreResult {
+        result: any;
+        resultType: NSPersistentHistoryResultType;
+    }
+    class NSPersistentHistoryToken extends NSObject {
+    }
+    class NSPersistentHistoryTransaction extends NSObject {
+        static entityDescriptionWithContext(_: NSManagedObjectContext): NSEntityDescription;
+        author: string;
+        bundleID: string;
+        changes: NSPersistentHistoryChange[];
+        contextName: string;
+        processID: string;
+        storeID: string;
+        timestamp: Date;
+        token: NSPersistentHistoryToken;
+        transactionNumber: number;
+        static entityDescription: NSEntityDescription;
+        static fetchRequest: NSFetchRequest<any>;
+        objectIDNotification(): NSNotification;
+    }
+    class NSPersistentStore extends NSObject {
+        static metadataForPersistentStoreWithURLError(error: NSURL): Map<string, any>;
+        static migrationManagerClass(): typeof NSObject;
+        static setMetadataForPersistentStoreWithURLError(_?: Map<string, any>, forPersistentStoreAt?: NSURL): boolean;
+        URL: NSURL;
+        setURL(_: NSURL): any;
+        configurationName: string;
+        coreSpotlightExporter: NSCoreDataCoreSpotlightDelegate;
+        identifier: string;
+        setIdentifier(_: string): any;
+        metadata: Map<string, any>;
+        setMetadata(_: Map<string, any>): any;
+        options: Map<any, any>;
+        persistentStoreCoordinator: NSPersistentStoreCoordinator;
+        isReadOnly: boolean;
+        setReadOnly(_: boolean): any;
+        type: string;
+        didAddToPersistentStoreCoordinator(_: NSPersistentStoreCoordinator): void;
+        static createWithPersistentStoreCoordinatorConfigurationNameUrlOptions(persistentStoreCoordinator?: NSPersistentStoreCoordinator, configurationName?: string, URL?: NSURL, options?: Map<any, any>): NSPersistentStore;
+        loadMetadata(): boolean;
+        willRemoveFromPersistentStoreCoordinator(_?: NSPersistentStoreCoordinator): void;
+    }
+    class NSPersistentStoreAsynchronousResult extends NSPersistentStoreResult {
+        managedObjectContext: NSManagedObjectContext;
+        operationError: NSError;
+        progress: Progress;
+        cancel(): void;
+    }
+    class NSPersistentStoreCoordinator extends NSObject {
+        static elementsDerivedFromExternalRecordURL(fromExternalRecordAt: NSURL): Map<any, any>;
+        static metadataForPersistentStoreOfTypeUrlOptionsError(ofType: string, at: NSURL, options?: Map<any, any>): Map<string, any>;
+        static registerStoreClassForStoreType(_?: typeof NSObject, forStoreType?: string): void;
+        static setMetadataForPersistentStoreOfTypeUrlOptionsError(_?: Map<string, any>, forPersistentStoreOfType?: string, at?: NSURL, options?: Map<any, any>): boolean;
+        managedObjectModel: NSManagedObjectModel;
+        name: string;
+        setName(_: string): any;
+        persistentStores: NSPersistentStore[];
+        static registeredStoreTypes: Map<string, NSValue>;
+        URLForPersistentStore(_: NSPersistentStore): NSURL;
+        addPersistentStoreWithDescriptionWithCompletionHandler(_: NSPersistentStoreDescription, completionHandler?: (p1: NSPersistentStoreDescription, p2: NSError) => void): void;
+        addPersistentStoreWithTypeConfigurationUrlOptionsError(ofType: string, configurationName?: string, at?: NSURL, options?: Map<any, any>): NSPersistentStore;
+        currentPersistentHistoryTokenFromStores(_?: any[]): NSPersistentHistoryToken;
+        destroyPersistentStoreAtURLWithTypeOptionsError(at: NSURL, ofType: string, options?: Map<any, any>): boolean;
+        executeRequestWithContextError(withContext: NSPersistentStoreRequest, error: NSManagedObjectContext): any;
+        importStoreWithIdentifierFromExternalRecordsDirectoryToURLOptionsWithTypeError(withIdentifier?: string, fromExternalRecordsDirectoryAt?: NSURL, to?: NSURL, options?: Map<any, any>, ofType?: string): NSPersistentStore;
+        static createWithManagedObjectModel(managedObjectModel: NSManagedObjectModel): NSPersistentStoreCoordinator;
+        managedObjectIDForURIRepresentation(_: NSURL): NSManagedObjectID;
+        metadataForPersistentStore(_: NSPersistentStore): Map<string, any>;
+        migratePersistentStoreToURLOptionsWithTypeError(toURL: NSPersistentStore, options: NSURL, withType?: Map<any, any>, error?: string): NSPersistentStore;
+        performBlock(_: () => void): void;
+        performAndWait(_: () => void): void;
+        persistentStoreForURL(_: NSURL): NSPersistentStore;
+        removePersistentStoreError(_: NSPersistentStore): boolean;
+        replacePersistentStoreAtURLDestinationOptionsWithPersistentStoreFromURLSourceOptionsStoreTypeError(at: NSURL, destinationOptions?: Map<any, any>, withPersistentStoreFrom?: NSURL, sourceOptions?: Map<any, any>, ofType?: string): boolean;
+        setMetadataForPersistentStore(_?: Map<string, any>, forPersistentStore?: NSPersistentStore): void;
+        setURLForPersistentStore(_: NSURL, forPersistentStore: NSPersistentStore): boolean;
+    }
+    class NSPersistentStoreDescription extends NSObject {
+        static persistentStoreDescriptionWithURL(_: NSURL): NSPersistentStoreDescription;
+        URL: NSURL;
+        setURL(_: NSURL): any;
+        cloudKitContainerOptions: NSPersistentCloudKitContainerOptions;
+        setCloudKitContainerOptions(_: NSPersistentCloudKitContainerOptions): any;
+        configuration: string;
+        setConfiguration(_: string): any;
+        options: Map<string, NSObject>;
+        isReadOnly: boolean;
+        setReadOnly(_: boolean): any;
+        shouldAddStoreAsynchronously: boolean;
+        setShouldAddStoreAsynchronously(_: boolean): any;
+        shouldInferMappingModelAutomatically: boolean;
+        setShouldInferMappingModelAutomatically(_: boolean): any;
+        shouldMigrateStoreAutomatically: boolean;
+        setShouldMigrateStoreAutomatically(_: boolean): any;
+        sqlitePragmas: Map<string, NSObject>;
+        timeout: number;
+        setTimeout(_: number): any;
+        type: string;
+        setType(_: string): any;
+        static createWithUrl(URL: NSURL): NSPersistentStoreDescription;
+        setOptionForKey(_?: NSObject, forKey?: string): void;
+        setValueForPragmaNamed(_?: NSObject, forPragmaNamed?: string): void;
+    }
+    class NSPersistentStoreRequest extends NSObject {
+        affectedStores: NSPersistentStore[];
+        setAffectedStores(_: NSPersistentStore[]): any;
+        requestType: NSPersistentStoreRequestType;
+    }
+    class NSPersistentStoreResult extends NSObject {
+    }
+    class NSPropertyDescription extends NSObject {
+        entity: NSEntityDescription;
+        isIndexedBySpotlight: boolean;
+        setIndexedBySpotlight(_: boolean): any;
+        name: string;
+        setName(_: string): any;
+        isOptional: boolean;
+        setOptional(_: boolean): any;
+        renamingIdentifier: string;
+        setRenamingIdentifier(_: string): any;
+        isTransient: boolean;
+        setTransient(_: boolean): any;
+        userInfo: Map<any, any>;
+        setUserInfo(_: Map<any, any>): any;
+        validationPredicates: NSPredicate[];
+        validationWarnings: any[];
+        versionHash: NSData;
+        versionHashModifier: string;
+        setVersionHashModifier(_: string): any;
+        setValidationPredicatesWithValidationWarnings(_?: NSPredicate[], withValidationWarnings?: string[]): void;
+    }
+    class NSPropertyMapping extends NSObject {
+        name: string;
+        setName(_: string): any;
+        userInfo: Map<any, any>;
+        setUserInfo(_: Map<any, any>): any;
+        valueExpression: NSExpression;
+        setValueExpression(_: NSExpression): any;
+    }
+    class NSQueryGenerationToken extends NSObject {
+        static currentQueryGenerationToken: NSQueryGenerationToken;
+    }
+    class NSRelationshipDescription extends NSPropertyDescription {
+        deleteRule: NSDeleteRule;
+        setDeleteRule(_: NSDeleteRule): any;
+        destinationEntity: NSEntityDescription;
+        setDestinationEntity(_: NSEntityDescription): any;
+        inverseRelationship: NSRelationshipDescription;
+        setInverseRelationship(_: NSRelationshipDescription): any;
+        maxCount: number;
+        setMaxCount(_: number): any;
+        minCount: number;
+        setMinCount(_: number): any;
+        isOrdered: boolean;
+        setOrdered(_: boolean): any;
+        isToMany: boolean;
+    }
+    class NSSaveChangesRequest extends NSPersistentStoreRequest {
+        deletedObjects: NSSet<NSManagedObject>;
+        insertedObjects: NSSet<NSManagedObject>;
+        lockedObjects: NSSet<NSManagedObject>;
+        updatedObjects: NSSet<NSManagedObject>;
+        static createWithInsertedObjectsUpdatedObjectsDeletedObjectsLockedObjects(insertedObjects?: NSSet<NSManagedObject>, updatedObjects?: NSSet<NSManagedObject>, deletedObjects?: NSSet<NSManagedObject>, lockedObjects?: NSSet<NSManagedObject>): NSSaveChangesRequest;
+    }
+    interface CIAccordionFoldTransition extends CITransitionFilter {
+        bottomHeight: number;
+        setBottomHeight(_: number): any;
+        foldShadowAmount: number;
+        setFoldShadowAmount(_: number): any;
+        numberOfFolds: number;
+        setNumberOfFolds(_: number): any;
+    }
+    interface CIAffineClamp extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        transform: CGAffineTransform;
+        setTransform(_: CGAffineTransform): any;
+    }
+    interface CIAffineTile extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        transform: CGAffineTransform;
+        setTransform(_: CGAffineTransform): any;
+    }
+    interface CIAttributedTextImageGenerator extends CIFilter {
+        scaleFactor: number;
+        setScaleFactor(_: number): any;
+        text: NSAttributedString;
+        setText(_: NSAttributedString): any;
+    }
+    class CIAztecCodeDescriptor extends CIBarcodeDescriptor {
+        static descriptorWithPayloadIsCompactLayerCountDataCodewordCount(payload: NSData, isCompact: boolean, layerCount: number, dataCodewordCount: number): CIAztecCodeDescriptor;
+        dataCodewordCount: number;
+        errorCorrectedPayload: NSData;
+        isCompact: boolean;
+        layerCount: number;
+        static createWithPayloadIsCompactLayerCountDataCodewordCount(payload: NSData, isCompact: boolean, layerCount: number, dataCodewordCount: number): CIAztecCodeDescriptor;
+    }
+    interface CIAztecCodeGenerator extends CIFilter {
+        compactStyle: number;
+        setCompactStyle(_: number): any;
+        correctionLevel: number;
+        setCorrectionLevel(_: number): any;
+        layers: number;
+        setLayers(_: number): any;
+        message: NSData;
+        setMessage(_: NSData): any;
+    }
+    class CIBarcodeDescriptor extends NSObject {
+    }
+    interface CIBarcodeGenerator extends CIFilter {
+        barcodeDescriptor: CIBarcodeDescriptor;
+        setBarcodeDescriptor(_: CIBarcodeDescriptor): any;
+    }
+    interface CIBarsSwipeTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        barOffset: number;
+        setBarOffset(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIBicubicScaleTransform extends CIFilter {
+        aspectRatio: number;
+        setAspectRatio(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        parameterB: number;
+        setParameterB(_: number): any;
+        parameterC: number;
+        setParameterC(_: number): any;
+        scale: number;
+        setScale(_: number): any;
+    }
+    class CIBlendKernel extends CIColorKernel {
+        static clear: CIBlendKernel;
+        static color: CIBlendKernel;
+        static colorBurn: CIBlendKernel;
+        static colorDodge: CIBlendKernel;
+        static componentAdd: CIBlendKernel;
+        static componentMax: CIBlendKernel;
+        static componentMin: CIBlendKernel;
+        static componentMultiply: CIBlendKernel;
+        static darken: CIBlendKernel;
+        static darkerColor: CIBlendKernel;
+        static destination: CIBlendKernel;
+        static destinationAtop: CIBlendKernel;
+        static destinationIn: CIBlendKernel;
+        static destinationOut: CIBlendKernel;
+        static destinationOver: CIBlendKernel;
+        static difference: CIBlendKernel;
+        static divide: CIBlendKernel;
+        static exclusion: CIBlendKernel;
+        static exclusiveOr: CIBlendKernel;
+        static hardLight: CIBlendKernel;
+        static hardMix: CIBlendKernel;
+        static hue: CIBlendKernel;
+        static lighten: CIBlendKernel;
+        static lighterColor: CIBlendKernel;
+        static linearBurn: CIBlendKernel;
+        static linearDodge: CIBlendKernel;
+        static linearLight: CIBlendKernel;
+        static luminosity: CIBlendKernel;
+        static multiply: CIBlendKernel;
+        static overlay: CIBlendKernel;
+        static pinLight: CIBlendKernel;
+        static saturation: CIBlendKernel;
+        static screen: CIBlendKernel;
+        static softLight: CIBlendKernel;
+        static source: CIBlendKernel;
+        static sourceAtop: CIBlendKernel;
+        static sourceIn: CIBlendKernel;
+        static sourceOut: CIBlendKernel;
+        static sourceOver: CIBlendKernel;
+        static subtract: CIBlendKernel;
+        static vividLight: CIBlendKernel;
+        applyWithForegroundBackground(foreground: CIImage, background: CIImage): CIImage;
+        applyWithForegroundBackgroundColorSpace(foreground: CIImage, background: CIImage, colorSpace: any): CIImage;
+    }
+    interface CIBlendWithMask extends CIFilter {
+        backgroundImage: CIImage;
+        setBackgroundImage(_: CIImage): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        maskImage: CIImage;
+        setMaskImage(_: CIImage): any;
+    }
+    interface CIBloom extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIBokehBlur extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+        ringAmount: number;
+        setRingAmount(_: number): any;
+        ringSize: number;
+        setRingSize(_: number): any;
+        softness: number;
+        setSoftness(_: number): any;
+    }
+    interface CIBoxBlur extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CICMYKHalftone extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        grayComponentReplacement: number;
+        setGrayComponentReplacement(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        underColorRemoval: number;
+        setUnderColorRemoval(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CICheckerboardGenerator extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CICircularScreen extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CICode128BarcodeGenerator extends CIFilter {
+        barcodeHeight: number;
+        setBarcodeHeight(_: number): any;
+        message: NSData;
+        setMessage(_: NSData): any;
+        quietSpace: number;
+        setQuietSpace(_: number): any;
+    }
+    class CIColor extends NSObject {
+        alpha: number;
+        blue: number;
+        colorSpace: any;
+        components: number;
+        green: number;
+        numberOfComponents: number;
+        red: number;
+        stringRepresentation: string;
+        static blackColor: CIColor;
+        static blueColor: CIColor;
+        static clearColor: CIColor;
+        static cyanColor: CIColor;
+        static grayColor: CIColor;
+        static greenColor: CIColor;
+        static magentaColor: CIColor;
+        static redColor: CIColor;
+        static whiteColor: CIColor;
+        static yellowColor: CIColor;
+        static createWithCGColor(CGColor: any): CIColor;
+        static createWithColor(color: NSColor): CIColor;
+        static createWithRedGreenBlue(red: number, green: number, blue: number): CIColor;
+        static createWithRedGreenBlueAlpha(red: number, green: number, blue: number, alpha: number): CIColor;
+        static createWithRedGreenBlueAlphaColorSpace(red: number, green: number, blue: number, alpha: number, colorSpace: any): CIColor;
+        static createWithRedGreenBlueColorSpace(red: number, green: number, blue: number, colorSpace: any): CIColor;
+    }
+    interface CIColorClamp extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        maxComponents: CIVector;
+        setMaxComponents(_: CIVector): any;
+        minComponents: CIVector;
+        setMinComponents(_: CIVector): any;
+    }
+    interface CIColorControls extends CIFilter {
+        brightness: number;
+        setBrightness(_: number): any;
+        contrast: number;
+        setContrast(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        saturation: number;
+        setSaturation(_: number): any;
+    }
+    interface CIColorCrossPolynomial extends CIFilter {
+        blueCoefficients: CIVector;
+        setBlueCoefficients(_: CIVector): any;
+        greenCoefficients: CIVector;
+        setGreenCoefficients(_: CIVector): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        redCoefficients: CIVector;
+        setRedCoefficients(_: CIVector): any;
+    }
+    interface CIColorCube extends CIFilter {
+        cubeData: NSData;
+        setCubeData(_: NSData): any;
+        cubeDimension: number;
+        setCubeDimension(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIColorCubeWithColorSpace extends CIFilter {
+        colorSpace: any;
+        setColorSpace(_: any): any;
+        cubeData: NSData;
+        setCubeData(_: NSData): any;
+        cubeDimension: number;
+        setCubeDimension(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIColorCubesMixedWithMask extends CIFilter {
+        colorSpace: any;
+        setColorSpace(_: any): any;
+        cube0Data: NSData;
+        setCube0Data(_: NSData): any;
+        cube1Data: NSData;
+        setCube1Data(_: NSData): any;
+        cubeDimension: number;
+        setCubeDimension(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        maskImage: CIImage;
+        setMaskImage(_: CIImage): any;
+    }
+    interface CIColorCurves extends CIFilter {
+        colorSpace: any;
+        setColorSpace(_: any): any;
+        curvesData: NSData;
+        setCurvesData(_: NSData): any;
+        curvesDomain: CIVector;
+        setCurvesDomain(_: CIVector): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIColorInvert extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIColorKernel extends CIKernel {
+        applyWithExtentArguments(extent: CGRect, arguments_?: any[]): CIImage;
+    }
+    interface CIColorMap extends CIFilter {
+        gradientImage: CIImage;
+        setGradientImage(_: CIImage): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIColorMatrix extends CIFilter {
+        AVector: CIVector;
+        setAVector(_: CIVector): any;
+        biasVector: CIVector;
+        setBiasVector(_: CIVector): any;
+        BVector: CIVector;
+        setBVector(_: CIVector): any;
+        GVector: CIVector;
+        setGVector(_: CIVector): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        RVector: CIVector;
+        setRVector(_: CIVector): any;
+    }
+    interface CIColorMonochrome extends CIFilter {
+        color: CIColor;
+        setColor(_: CIColor): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+    }
+    interface CIColorPolynomial extends CIFilter {
+        alphaCoefficients: CIVector;
+        setAlphaCoefficients(_: CIVector): any;
+        blueCoefficients: CIVector;
+        setBlueCoefficients(_: CIVector): any;
+        greenCoefficients: CIVector;
+        setGreenCoefficients(_: CIVector): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        redCoefficients: CIVector;
+        setRedCoefficients(_: CIVector): any;
+    }
+    interface CIColorPosterize extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        levels: number;
+        setLevels(_: number): any;
+    }
+    interface CIComicEffect extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CICompositeOperation extends CIFilter {
+        backgroundImage: CIImage;
+        setBackgroundImage(_: CIImage): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIContext extends NSObject {
+        static offlineGPUCount(): number;
+        workingColorSpace: any;
+        workingFormat: number;
+        HEIFRepresentationOfImageFormatColorSpaceOptions(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): NSData;
+        JPEGRepresentationOfImageColorSpaceOptions(of: CIImage, colorSpace: any, options: Map<string, any>): NSData;
+        PNGRepresentationOfImageFormatColorSpaceOptions(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): NSData;
+        TIFFRepresentationOfImageFormatColorSpaceOptions(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): NSData;
+        clearCaches(): void;
+        createCGImageFromRect(_: CIImage, from: CGRect): any;
+        createCGImageFromRectFormatColorSpace(_: CIImage, from: CGRect, format: number, colorSpace?: any): any;
+        createCGImageFromRectFormatColorSpaceDeferred(_: CIImage, from: CGRect, format: number, colorSpace?: any, deferred?: boolean): any;
+        depthBlurEffectFilterForImageDisparityImagePortraitEffectsMatteHairSemanticSegmentationOrientationOptions(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, hairSemanticSegmentation?: CIImage, orientation?: CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
+        depthBlurEffectFilterForImageDisparityImagePortraitEffectsMatteOrientationOptions(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, orientation?: CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
+        depthBlurEffectFilterForImageDataOptions(forImageData: NSData, options?: Map<any, any>): CIFilter;
+        depthBlurEffectFilterForImageURLOptions(forImageURL: NSURL, options?: Map<any, any>): CIFilter;
+        drawImageInRectFromRect(_: CIImage, in_: CGRect, from: CGRect): void;
+        static createWithOptions(options?: Map<string, any>): CIContext;
+        prepareRenderFromRectToDestinationAtPointError(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): boolean;
+        reclaimResources(): void;
+        renderToBitmapRowBytesBoundsFormatColorSpace(_: CIImage, toBitmap: any, rowBytes: number, bounds: CGRect, format: number, colorSpace?: any): void;
+        renderToCVPixelBuffer(_: CIImage, to: any): void;
+        renderToCVPixelBufferBoundsColorSpace(_: CIImage, to: any, bounds: CGRect, colorSpace?: any): void;
+        renderToIOSurfaceBoundsColorSpace(_: CIImage, to: any, bounds: CGRect, colorSpace?: any): void;
+        startTaskToClearError(error: CIRenderDestination): CIRenderTask;
+        startTaskToRenderFromRectToDestinationAtPointError(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): CIRenderTask;
+        startTaskToRenderToDestinationError(toDestination: CIImage, error: CIRenderDestination): CIRenderTask;
+        writeHEIFRepresentationOfImageToURLFormatColorSpaceOptionsError(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+        writeJPEGRepresentationOfImageToURLColorSpaceOptionsError(toURL: CIImage, colorSpace: NSURL, options: any, error: Map<string, any>): boolean;
+        writePNGRepresentationOfImageToURLFormatColorSpaceOptionsError(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+        writeTIFFRepresentationOfImageToURLFormatColorSpaceOptionsError(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+    }
+    interface CIConvolution extends CIFilter {
+        bias: number;
+        setBias(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        weights: CIVector;
+        setWeights(_: CIVector): any;
+    }
+    interface CICopyMachineTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        opacity: number;
+        setOpacity(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CICoreMLModel extends CIFilter {
+        headIndex: number;
+        setHeadIndex(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        model: MLModel;
+        setModel(_: MLModel): any;
+        softmaxNormalization: boolean;
+        setSoftmaxNormalization(_: boolean): any;
+    }
+    interface CICrystallize extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    class CIDataMatrixCodeDescriptor extends CIBarcodeDescriptor {
+        static descriptorWithPayloadRowCountColumnCountEccVersion(payload: NSData, rowCount: number, columnCount: number, eccVersion: CIDataMatrixCodeECCVersion): CIDataMatrixCodeDescriptor;
+        columnCount: number;
+        eccVersion: CIDataMatrixCodeECCVersion;
+        errorCorrectedPayload: NSData;
+        rowCount: number;
+        static createWithPayloadRowCountColumnCountEccVersion(payload: NSData, rowCount: number, columnCount: number, eccVersion: CIDataMatrixCodeECCVersion): CIDataMatrixCodeDescriptor;
+    }
+    interface CIDepthOfField extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        point0: CGPoint;
+        setPoint0(_: CGPoint): any;
+        point1: CGPoint;
+        setPoint1(_: CGPoint): any;
+        radius: number;
+        setRadius(_: number): any;
+        saturation: number;
+        setSaturation(_: number): any;
+        unsharpMaskIntensity: number;
+        setUnsharpMaskIntensity(_: number): any;
+        unsharpMaskRadius: number;
+        setUnsharpMaskRadius(_: number): any;
+    }
+    interface CIDepthToDisparity extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIDetector extends NSObject {
+        featuresInImage(in_: CIImage): CIFeature[];
+        featuresInImageOptions(in_: CIImage, options?: Map<string, any>): CIFeature[];
+    }
+    interface CIDiscBlur extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIDisintegrateWithMaskTransition extends CITransitionFilter {
+        maskImage: CIImage;
+        setMaskImage(_: CIImage): any;
+        shadowDensity: number;
+        setShadowDensity(_: number): any;
+        shadowOffset: CGPoint;
+        setShadowOffset(_: CGPoint): any;
+        shadowRadius: number;
+        setShadowRadius(_: number): any;
+    }
+    interface CIDisparityToDepth extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    type CIDissolveTransition = CITransitionFilter;
+    interface CIDither extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+    }
+    interface CIDocumentEnhancer extends CIFilter {
+        amount: number;
+        setAmount(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIDotScreen extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIEdgePreserveUpsample extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        lumaSigma: number;
+        setLumaSigma(_: number): any;
+        smallImage: CIImage;
+        setSmallImage(_: CIImage): any;
+        spatialSigma: number;
+        setSpatialSigma(_: number): any;
+    }
+    interface CIEdgeWork extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIEdges extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+    }
+    interface CIEightfoldReflectedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIExposureAdjust extends CIFilter {
+        EV: number;
+        setEV(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIFaceFeature extends CIFeature {
+        faceAngle: number;
+        hasFaceAngle: boolean;
+        hasLeftEyePosition: boolean;
+        hasMouthPosition: boolean;
+        hasRightEyePosition: boolean;
+        hasSmile: boolean;
+        hasTrackingFrameCount: boolean;
+        hasTrackingID: boolean;
+        leftEyeClosed: boolean;
+        leftEyePosition: CGPoint;
+        mouthPosition: CGPoint;
+        rightEyeClosed: boolean;
+        rightEyePosition: CGPoint;
+        trackingFrameCount: number;
+        trackingID: number;
+    }
+    interface CIFalseColor extends CIFilter {
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIFeature extends NSObject {
+        bounds: CGRect;
+        type: string;
+    }
+    class CIFilter extends NSObject {
+        static CMYKHalftone(): CIFilter;
+        static LabDeltaE(): CIFilter;
+        static PDF417BarcodeGenerator(): CIFilter;
+        static QRCodeGenerator(): CIFilter;
+        static accordionFoldTransitionFilter(): CIFilter;
+        static additionCompositingFilter(): CIFilter;
+        static affineClampFilter(): CIFilter;
+        static affineTileFilter(): CIFilter;
+        static attributedTextImageGeneratorFilter(): CIFilter;
+        static aztecCodeGeneratorFilter(): CIFilter;
+        static barcodeGeneratorFilter(): CIFilter;
+        static barsSwipeTransitionFilter(): CIFilter;
+        static bicubicScaleTransformFilter(): CIFilter;
+        static blendWithAlphaMaskFilter(): CIFilter;
+        static blendWithBlueMaskFilter(): CIFilter;
+        static blendWithMaskFilter(): CIFilter;
+        static blendWithRedMaskFilter(): CIFilter;
+        static bloomFilter(): CIFilter;
+        static bokehBlurFilter(): CIFilter;
+        static boxBlurFilter(): CIFilter;
+        static checkerboardGeneratorFilter(): CIFilter;
+        static circularScreenFilter(): CIFilter;
+        static code128BarcodeGeneratorFilter(): CIFilter;
+        static colorBlendModeFilter(): CIFilter;
+        static colorBurnBlendModeFilter(): CIFilter;
+        static colorClampFilter(): CIFilter;
+        static colorControlsFilter(): CIFilter;
+        static colorCrossPolynomialFilter(): CIFilter;
+        static colorCubeFilter(): CIFilter;
+        static colorCubeWithColorSpaceFilter(): CIFilter;
+        static colorCubesMixedWithMaskFilter(): CIFilter;
+        static colorCurvesFilter(): CIFilter;
+        static colorDodgeBlendModeFilter(): CIFilter;
+        static colorInvertFilter(): CIFilter;
+        static colorMapFilter(): CIFilter;
+        static colorMatrixFilter(): CIFilter;
+        static colorMonochromeFilter(): CIFilter;
+        static colorPolynomialFilter(): CIFilter;
+        static colorPosterizeFilter(): CIFilter;
+        static comicEffectFilter(): CIFilter;
+        static convolution3X3Filter(): CIFilter;
+        static convolution5X5Filter(): CIFilter;
+        static convolution7X7Filter(): CIFilter;
+        static convolution9HorizontalFilter(): CIFilter;
+        static convolution9VerticalFilter(): CIFilter;
+        static copyMachineTransitionFilter(): CIFilter;
+        static coreMLModelFilter(): CIFilter;
+        static crystallizeFilter(): CIFilter;
+        static darkenBlendModeFilter(): CIFilter;
+        static depthOfFieldFilter(): CIFilter;
+        static depthToDisparityFilter(): CIFilter;
+        static differenceBlendModeFilter(): CIFilter;
+        static discBlurFilter(): CIFilter;
+        static disintegrateWithMaskTransitionFilter(): CIFilter;
+        static disparityToDepthFilter(): CIFilter;
+        static dissolveTransitionFilter(): CIFilter;
+        static ditherFilter(): CIFilter;
+        static divideBlendModeFilter(): CIFilter;
+        static documentEnhancerFilter(): CIFilter;
+        static dotScreenFilter(): CIFilter;
+        static edgePreserveUpsampleFilter(): CIFilter;
+        static edgeWorkFilter(): CIFilter;
+        static edgesFilter(): CIFilter;
+        static eightfoldReflectedTileFilter(): CIFilter;
+        static exclusionBlendModeFilter(): CIFilter;
+        static exposureAdjustFilter(): CIFilter;
+        static falseColorFilter(): CIFilter;
+        static filterArrayFromSerializedXMPInputImageExtentError(fromSerializedXMP: NSData, inputImageExtent: CGRect): CIFilter[];
+        static filterNamesInCategories(inCategories?: string[]): string[];
+        static filterNamesInCategory(inCategory?: string): string[];
+        static flashTransitionFilter(): CIFilter;
+        static fourfoldReflectedTileFilter(): CIFilter;
+        static fourfoldRotatedTileFilter(): CIFilter;
+        static fourfoldTranslatedTileFilter(): CIFilter;
+        static gaborGradientsFilter(): CIFilter;
+        static gammaAdjustFilter(): CIFilter;
+        static gaussianBlurFilter(): CIFilter;
+        static gaussianGradientFilter(): CIFilter;
+        static glideReflectedTileFilter(): CIFilter;
+        static gloomFilter(): CIFilter;
+        static hardLightBlendModeFilter(): CIFilter;
+        static hatchedScreenFilter(): CIFilter;
+        static heightFieldFromMaskFilter(): CIFilter;
+        static hexagonalPixellateFilter(): CIFilter;
+        static highlightShadowAdjustFilter(): CIFilter;
+        static hueAdjustFilter(): CIFilter;
+        static hueBlendModeFilter(): CIFilter;
+        static hueSaturationValueGradientFilter(): CIFilter;
+        static kaleidoscopeFilter(): CIFilter;
+        static keystoneCorrectionCombinedFilter(): CIFilter;
+        static keystoneCorrectionHorizontalFilter(): CIFilter;
+        static keystoneCorrectionVerticalFilter(): CIFilter;
+        static lanczosScaleTransformFilter(): CIFilter;
+        static lenticularHaloGeneratorFilter(): CIFilter;
+        static lightenBlendModeFilter(): CIFilter;
+        static lineOverlayFilter(): CIFilter;
+        static lineScreenFilter(): CIFilter;
+        static linearBurnBlendModeFilter(): CIFilter;
+        static linearDodgeBlendModeFilter(): CIFilter;
+        static linearGradientFilter(): CIFilter;
+        static linearToSRGBToneCurveFilter(): CIFilter;
+        static localizedDescriptionForFilterName(forFilterName: string): string;
+        static localizedNameForCategory(forCategory: string): string;
+        static localizedNameForFilterName(forFilterName: string): string;
+        static localizedReferenceDocumentationForFilterName(forFilterName: string): NSURL;
+        static luminosityBlendModeFilter(): CIFilter;
+        static maskToAlphaFilter(): CIFilter;
+        static maskedVariableBlurFilter(): CIFilter;
+        static maximumComponentFilter(): CIFilter;
+        static maximumCompositingFilter(): CIFilter;
+        static medianFilter(): CIFilter;
+        static meshGeneratorFilter(): CIFilter;
+        static minimumComponentFilter(): CIFilter;
+        static minimumCompositingFilter(): CIFilter;
+        static mixFilter(): CIFilter;
+        static modTransitionFilter(): CIFilter;
+        static morphologyGradientFilter(): CIFilter;
+        static morphologyMaximumFilter(): CIFilter;
+        static morphologyMinimumFilter(): CIFilter;
+        static morphologyRectangleMaximumFilter(): CIFilter;
+        static morphologyRectangleMinimumFilter(): CIFilter;
+        static motionBlurFilter(): CIFilter;
+        static multiplyBlendModeFilter(): CIFilter;
+        static multiplyCompositingFilter(): CIFilter;
+        static noiseReductionFilter(): CIFilter;
+        static opTileFilter(): CIFilter;
+        static overlayBlendModeFilter(): CIFilter;
+        static pageCurlTransitionFilter(): CIFilter;
+        static pageCurlWithShadowTransitionFilter(): CIFilter;
+        static paletteCentroidFilter(): CIFilter;
+        static palettizeFilter(): CIFilter;
+        static parallelogramTileFilter(): CIFilter;
+        static perspectiveCorrectionFilter(): CIFilter;
+        static perspectiveRotateFilter(): CIFilter;
+        static perspectiveTileFilter(): CIFilter;
+        static perspectiveTransformFilter(): CIFilter;
+        static perspectiveTransformWithExtentFilter(): CIFilter;
+        static photoEffectChromeFilter(): CIFilter;
+        static photoEffectFadeFilter(): CIFilter;
+        static photoEffectInstantFilter(): CIFilter;
+        static photoEffectMonoFilter(): CIFilter;
+        static photoEffectNoirFilter(): CIFilter;
+        static photoEffectProcessFilter(): CIFilter;
+        static photoEffectTonalFilter(): CIFilter;
+        static photoEffectTransferFilter(): CIFilter;
+        static pinLightBlendModeFilter(): CIFilter;
+        static pixellateFilter(): CIFilter;
+        static pointillizeFilter(): CIFilter;
+        static radialGradientFilter(): CIFilter;
+        static randomGeneratorFilter(): CIFilter;
+        static registerFilterNameConstructorClassAttributes(_: string, constructor: CIFilterConstructor, classAttributes: Map<string, any>): void;
+        static rippleTransitionFilter(): CIFilter;
+        static roundedRectangleGeneratorFilter(): CIFilter;
+        static sRGBToneCurveToLinearFilter(): CIFilter;
+        static saliencyMapFilter(): CIFilter;
+        static saturationBlendModeFilter(): CIFilter;
+        static screenBlendModeFilter(): CIFilter;
+        static sepiaToneFilter(): CIFilter;
+        static serializedXMPFromFiltersInputImageExtent(from: CIFilter[], inputImageExtent: CGRect): NSData;
+        static shadedMaterialFilter(): CIFilter;
+        static sharpenLuminanceFilter(): CIFilter;
+        static sixfoldReflectedTileFilter(): CIFilter;
+        static sixfoldRotatedTileFilter(): CIFilter;
+        static smoothLinearGradientFilter(): CIFilter;
+        static softLightBlendModeFilter(): CIFilter;
+        static sourceAtopCompositingFilter(): CIFilter;
+        static sourceInCompositingFilter(): CIFilter;
+        static sourceOutCompositingFilter(): CIFilter;
+        static sourceOverCompositingFilter(): CIFilter;
+        static spotColorFilter(): CIFilter;
+        static spotLightFilter(): CIFilter;
+        static starShineGeneratorFilter(): CIFilter;
+        static straightenFilter(): CIFilter;
+        static stripesGeneratorFilter(): CIFilter;
+        static subtractBlendModeFilter(): CIFilter;
+        static sunbeamsGeneratorFilter(): CIFilter;
+        static supportedRawCameraModels(): string[];
+        static swipeTransitionFilter(): CIFilter;
+        static temperatureAndTintFilter(): CIFilter;
+        static textImageGeneratorFilter(): CIFilter;
+        static thermalFilter(): CIFilter;
+        static toneCurveFilter(): CIFilter;
+        static triangleKaleidoscopeFilter(): CIFilter;
+        static triangleTileFilter(): CIFilter;
+        static twelvefoldReflectedTileFilter(): CIFilter;
+        static unsharpMaskFilter(): CIFilter;
+        static vibranceFilter(): CIFilter;
+        static vignetteEffectFilter(): CIFilter;
+        static vignetteFilter(): CIFilter;
+        static whitePointAdjustFilter(): CIFilter;
+        static xRayFilter(): CIFilter;
+        static zoomBlurFilter(): CIFilter;
+        attributes: Map<string, any>;
+        isEnabled: boolean;
+        setEnabled(_: boolean): any;
+        inputKeys: string[];
+        name: string;
+        setName(_: string): any;
+        outputImage: CIImage;
+        outputKeys: string[];
+        applyArgumentsOptions(_: CIKernel, arguments_?: any[], options?: Map<string, any>): CIImage;
+        setDefaults(): void;
+        setName(_: string): void;
+        viewForUIConfigurationExcludedKeys(_: Map<any, any>, excludedKeys: any[]): IKFilterUIView;
+    }
+    interface CIFilterConstructor {
+        filterWithName(withName: string): CIFilter;
+    }
+    class CIFilterGenerator extends NSObject {
+        classAttributes: Map<any, any>;
+        setClassAttributes(_: Map<any, any>): any;
+        exportedKeys: Map<any, any>;
+        connectObjectWithKeyToObjectWithKey(_: any, withKey?: string, to?: any, withKey2?: string): void;
+        disconnectObjectWithKeyToObjectWithKey(_: any, withKey: string, to: any, withKey2: string): void;
+        exportKeyFromObjectWithName(_: string, from: any, withName?: string): void;
+        filter(): CIFilter;
+        static createWithContentsOfURL(contentsOfURL: NSURL): CIFilterGenerator;
+        registerFilterName(_: string): void;
+        removeExportedKey(_: string): void;
+        setAttributesForExportedKey(_: Map<any, any>, forExportedKey: string): void;
+        writeToURLAtomically(to: NSURL, atomically: boolean): boolean;
+    }
+    interface CIFilter {
+        outputImage: CIImage;
+    }
+    class CIFilterShape extends NSObject {
+        extent: CGRect;
+        static createWithRect(rect: CGRect): CIFilterShape;
+        insetByXY(x: number, y: number): CIFilterShape;
+        intersectWith(with_: CIFilterShape): CIFilterShape;
+        intersectWithRect(with_: CGRect): CIFilterShape;
+        transformByInterior(by: CGAffineTransform, interior: boolean): CIFilterShape;
+        unionWith(with_: CIFilterShape): CIFilterShape;
+        unionWithRect(with_: CGRect): CIFilterShape;
+    }
+    interface CIFlashTransition extends CITransitionFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        fadeThreshold: number;
+        setFadeThreshold(_: number): any;
+        maxStriationRadius: number;
+        setMaxStriationRadius(_: number): any;
+        striationContrast: number;
+        setStriationContrast(_: number): any;
+        striationStrength: number;
+        setStriationStrength(_: number): any;
+    }
+    interface CIFourCoordinateGeometryFilter extends CIFilter {
+        bottomLeft: CGPoint;
+        setBottomLeft(_: CGPoint): any;
+        bottomRight: CGPoint;
+        setBottomRight(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        topLeft: CGPoint;
+        setTopLeft(_: CGPoint): any;
+        topRight: CGPoint;
+        setTopRight(_: CGPoint): any;
+    }
+    interface CIFourfoldReflectedTile extends CIFilter {
+        acuteAngle: number;
+        setAcuteAngle(_: number): any;
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIFourfoldRotatedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIFourfoldTranslatedTile extends CIFilter {
+        acuteAngle: number;
+        setAcuteAngle(_: number): any;
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIGaborGradients extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIGammaAdjust extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIGaussianBlur extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIGaussianGradient extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIGlideReflectedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIGloom extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIHatchedScreen extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIHeightFieldFromMask extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIHexagonalPixellate extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        scale: number;
+        setScale(_: number): any;
+    }
+    interface CIHighlightShadowAdjust extends CIFilter {
+        highlightAmount: number;
+        setHighlightAmount(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+        shadowAmount: number;
+        setShadowAmount(_: number): any;
+    }
+    interface CIHueAdjust extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIHueSaturationValueGradient extends CIFilter {
+        colorSpace: any;
+        setColorSpace(_: any): any;
+        dither: number;
+        setDither(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+        softness: number;
+        setSoftness(_: number): any;
+        value: number;
+        setValue(_: number): any;
+    }
+    class CIImage extends NSObject {
+        static emptyImage(): CIImage;
+        static imageWithDepthData(_: AVDepthData): CIImage;
+        static imageWithDepthDataOptions(_: AVDepthData, options?: Map<string, any>): CIImage;
+        static imageWithImageProviderSizeFormatColorSpaceOptions(_: any, _2: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
+        static imageWithPortaitEffectsMatte(_: AVPortraitEffectsMatte): CIImage;
+        static imageWithPortaitEffectsMatteOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
+        static imageWithSemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
+        static imageWithSemanticSegmentationMatteOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
+        CGImage: any;
+        colorSpace: any;
+        definition: CIFilterShape;
+        depthData: AVDepthData;
+        extent: CGRect;
+        pixelBuffer: any;
+        portraitEffectsMatte: AVPortraitEffectsMatte;
+        properties: Map<string, any>;
+        semanticSegmentationMatte: AVSemanticSegmentationMatte;
+        url: NSURL;
+        static blackImage: CIImage;
+        static blueImage: CIImage;
+        static clearImage: CIImage;
+        static cyanImage: CIImage;
+        static grayImage: CIImage;
+        static greenImage: CIImage;
+        static magentaImage: CIImage;
+        static redImage: CIImage;
+        static whiteImage: CIImage;
+        static yellowImage: CIImage;
+        autoAdjustmentFilters(): CIFilter[];
+        autoAdjustmentFiltersWithOptions(options?: Map<string, any>): CIFilter[];
+        drawAtPointFromRectOperationFraction(at: CGPoint, from: CGRect, operation: NSCompositingOperation, fraction: number): void;
+        drawInRectFromRectOperationFraction(in_: CGRect, from: CGRect, operation: NSCompositingOperation, fraction: number): void;
+        imageByApplyingCGOrientation(_: CGImagePropertyOrientation): CIImage;
+        imageByApplyingFilter(_: string): CIImage;
+        imageByApplyingFilterWithInputParameters(_: string, parameters?: Map<string, any>): CIImage;
+        imageByApplyingGaussianBlurWithSigma(sigma: number): CIImage;
+        imageByApplyingOrientation(forExifOrientation: number): CIImage;
+        imageByApplyingTransform(by: CGAffineTransform): CIImage;
+        imageByApplyingTransformHighQualityDownsample(by: CGAffineTransform, highQualityDownsample: boolean): CIImage;
+        imageByClampingToExtent(): CIImage;
+        imageByClampingToRect(to: CGRect): CIImage;
+        imageByColorMatchingColorSpaceToWorkingSpace(from: any): CIImage;
+        imageByColorMatchingWorkingSpaceToColorSpace(to: any): CIImage;
+        imageByCompositingOverImage(over: CIImage): CIImage;
+        imageByCroppingToRect(to: CGRect): CIImage;
+        imageByInsertingIntermediate(): CIImage;
+        imageByInsertingIntermediate(cache: boolean): CIImage;
+        imageByPremultiplyingAlpha(): CIImage;
+        imageBySamplingLinear(): CIImage;
+        imageBySamplingNearest(): CIImage;
+        imageBySettingAlphaOneInExtent(in_: CGRect): CIImage;
+        imageBySettingProperties(_: Map<any, any>): CIImage;
+        imageByUnpremultiplyingAlpha(): CIImage;
+        imageTransformForCGOrientation(for_: CGImagePropertyOrientation): CGAffineTransform;
+        imageTransformForOrientation(forExifOrientation: number): CGAffineTransform;
+        static createWithBitmapDataBytesPerRowSizeFormatColorSpace(bitmapData: NSData, bytesPerRow: number, size: CGSize, format: number, colorSpace?: any): CIImage;
+        static createWithBitmapImageRep(bitmapImageRep: NSBitmapImageRep): CIImage;
+        static createWithCGImage(CGImage: any): CIImage;
+        static createWithCGImageOptions(CGImage: any, options?: Map<string, any>): CIImage;
+        static createWithCGImageSourceIndexOptions(CGImageSource: any, index: number, options?: Map<string, any>): CIImage;
+        static createWithCVImageBuffer(CVImageBuffer: any): CIImage;
+        static createWithCVImageBufferOptions(CVImageBuffer: any, options?: Map<string, any>): CIImage;
+        static createWithCVPixelBuffer(CVPixelBuffer: any): CIImage;
+        static createWithCVPixelBufferOptions(CVPixelBuffer: any, options?: Map<string, any>): CIImage;
+        static createWithColor(color: CIColor): CIImage;
+        static createWithContentsOfURL(contentsOfURL: NSURL): CIImage;
+        static createWithContentsOfURLOptions(contentsOfURL: NSURL, options?: Map<string, any>): CIImage;
+        static createWithData(data: NSData): CIImage;
+        static createWithDataOptions(data: NSData, options?: Map<string, any>): CIImage;
+        static createWithDepthData(depthData: AVDepthData): CIImage;
+        static createWithDepthDataOptions(depthData: AVDepthData, options?: Map<string, any>): CIImage;
+        static createWithIOSurface(IOSurface: any): CIImage;
+        static createWithIOSurfaceOptions(IOSurface: any, options?: Map<string, any>): CIImage;
+        static createWithImageProviderSizeFormatColorSpaceOptions(_: any, imageProvider: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
+        static createWithPortaitEffectsMatte(portaitEffectsMatte: AVPortraitEffectsMatte): CIImage;
+        static createWithPortaitEffectsMatteOptions(portaitEffectsMatte: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
+        static createWithSemanticSegmentationMatte(semanticSegmentationMatte: AVSemanticSegmentationMatte): CIImage;
+        static createWithSemanticSegmentationMatteOptions(semanticSegmentationMatte: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
+        regionOfInterestForImageInRect(for_: CIImage, in_: CGRect): CGRect;
+    }
+    class CIImageAccumulator extends NSObject {
+        extent: CGRect;
+        format: number;
+        clear(): void;
+        image(): CIImage;
+        static createWithExtentFormat(extent: CGRect, format: number): CIImageAccumulator;
+        static createWithExtentFormatColorSpace(extent: CGRect, format: number, colorSpace: any): CIImageAccumulator;
+        setImage(_: CIImage): void;
+        setImageDirtyRect(_: CIImage, dirtyRect: CGRect): void;
+    }
+    interface CIImageProcessorInput {
+        baseAddress: any;
+        bytesPerRow: number;
+        format: number;
+        pixelBuffer: any;
+        region: CGRect;
+        surface: any;
+    }
+    class CIImageProcessorKernel extends NSObject {
+        static applyWithExtentInputsArgumentsError(inputs: CGRect, arguments_?: CIImage[], error?: Map<string, any>): CIImage;
+        static formatForInputAtIndex(at: number): number;
+        static processWithInputsWithArgumentsOutputError(arguments_?: CIImageProcessorInput[], output?: Map<string, any>, error?: CIImageProcessorOutput): boolean;
+        static roiForInputArgumentsOutputRect(forInput: number, arguments_?: Map<string, any>, outputRect?: CGRect): CGRect;
+        static outputFormat: number;
+        static outputIsOpaque: boolean;
+        static synchronizeInputs: boolean;
+    }
+    interface CIImageProcessorOutput {
+        baseAddress: any;
+        bytesPerRow: number;
+        format: number;
+        pixelBuffer: any;
+        region: CGRect;
+        surface: any;
+    }
+    interface CIKaleidoscope extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        count: number;
+        setCount(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CIKernel extends NSObject {
+        static kernelWithFunctionNameFromMetalLibraryDataError(fromMetalLibraryData: string, error: NSData): CIKernel;
+        static kernelWithFunctionNameFromMetalLibraryDataOutputPixelFormatError(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIKernel;
+        name: string;
+        applyWithExtentRoiCallbackArguments(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, arguments_?: any[]): CIImage;
+        setROISelector(_: string): void;
+    }
+    interface CIKeystoneCorrectionCombined extends CIFourCoordinateGeometryFilter {
+        focalLength: number;
+        setFocalLength(_: number): any;
+    }
+    interface CIKeystoneCorrectionHorizontal extends CIFourCoordinateGeometryFilter {
+        focalLength: number;
+        setFocalLength(_: number): any;
+    }
+    interface CIKeystoneCorrectionVertical extends CIFourCoordinateGeometryFilter {
+        focalLength: number;
+        setFocalLength(_: number): any;
+    }
+    interface CILabDeltaE extends CIFilter {
+        image2: CIImage;
+        setImage2(_: CIImage): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CILanczosScaleTransform extends CIFilter {
+        aspectRatio: number;
+        setAspectRatio(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        scale: number;
+        setScale(_: number): any;
+    }
+    interface CILenticularHaloGenerator extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        haloOverlap: number;
+        setHaloOverlap(_: number): any;
+        haloRadius: number;
+        setHaloRadius(_: number): any;
+        haloWidth: number;
+        setHaloWidth(_: number): any;
+        striationContrast: number;
+        setStriationContrast(_: number): any;
+        striationStrength: number;
+        setStriationStrength(_: number): any;
+        time: number;
+        setTime(_: number): any;
+    }
+    interface CILineOverlay extends CIFilter {
+        contrast: number;
+        setContrast(_: number): any;
+        edgeIntensity: number;
+        setEdgeIntensity(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        NRNoiseLevel: number;
+        setNRNoiseLevel(_: number): any;
+        NRSharpness: number;
+        setNRSharpness(_: number): any;
+        threshold: number;
+        setThreshold(_: number): any;
+    }
+    interface CILineScreen extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CILinearGradient extends CIFilter {
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        point0: CGPoint;
+        setPoint0(_: CGPoint): any;
+        point1: CGPoint;
+        setPoint1(_: CGPoint): any;
+    }
+    interface CILinearToSRGBToneCurve extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIMaskToAlpha extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIMaskedVariableBlur extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        mask: CIImage;
+        setMask(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIMaximumComponent extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIMedian extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIMeshGenerator extends CIFilter {
+        color: CIColor;
+        setColor(_: CIColor): any;
+        mesh: any[];
+        setMesh(_: any[]): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIMinimumComponent extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIMix extends CIFilter {
+        amount: number;
+        setAmount(_: number): any;
+        backgroundImage: CIImage;
+        setBackgroundImage(_: CIImage): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIModTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        compression: number;
+        setCompression(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIMorphologyGradient extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIMorphologyMaximum extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIMorphologyMinimum extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIMorphologyRectangleMaximum extends CIFilter {
+        height: number;
+        setHeight(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIMorphologyRectangleMinimum extends CIFilter {
+        height: number;
+        setHeight(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIMotionBlur extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CINoiseReduction extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        noiseLevel: number;
+        setNoiseLevel(_: number): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+    }
+    interface CIOpTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        scale: number;
+        setScale(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIPDF417BarcodeGenerator extends CIFilter {
+        alwaysSpecifyCompaction: number;
+        setAlwaysSpecifyCompaction(_: number): any;
+        compactionMode: number;
+        setCompactionMode(_: number): any;
+        compactStyle: number;
+        setCompactStyle(_: number): any;
+        correctionLevel: number;
+        setCorrectionLevel(_: number): any;
+        dataColumns: number;
+        setDataColumns(_: number): any;
+        maxHeight: number;
+        setMaxHeight(_: number): any;
+        maxWidth: number;
+        setMaxWidth(_: number): any;
+        message: NSData;
+        setMessage(_: NSData): any;
+        minHeight: number;
+        setMinHeight(_: number): any;
+        minWidth: number;
+        setMinWidth(_: number): any;
+        preferredAspectRatio: number;
+        setPreferredAspectRatio(_: number): any;
+        rows: number;
+        setRows(_: number): any;
+    }
+    class CIPDF417CodeDescriptor extends CIBarcodeDescriptor {
+        static descriptorWithPayloadIsCompactRowCountColumnCount(payload: NSData, isCompact: boolean, rowCount: number, columnCount: number): CIPDF417CodeDescriptor;
+        columnCount: number;
+        errorCorrectedPayload: NSData;
+        isCompact: boolean;
+        rowCount: number;
+        static createWithPayloadIsCompactRowCountColumnCount(payload: NSData, isCompact: boolean, rowCount: number, columnCount: number): CIPDF417CodeDescriptor;
+    }
+    interface CIPageCurlTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        backsideImage: CIImage;
+        setBacksideImage(_: CIImage): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        radius: number;
+        setRadius(_: number): any;
+        shadingImage: CIImage;
+        setShadingImage(_: CIImage): any;
+    }
+    interface CIPageCurlWithShadowTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        backsideImage: CIImage;
+        setBacksideImage(_: CIImage): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        radius: number;
+        setRadius(_: number): any;
+        shadowAmount: number;
+        setShadowAmount(_: number): any;
+        shadowExtent: CGRect;
+        setShadowExtent(_: CGRect): any;
+        shadowSize: number;
+        setShadowSize(_: number): any;
+    }
+    interface CIPaletteCentroid extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        paletteImage: CIImage;
+        setPaletteImage(_: CIImage): any;
+        perceptual: boolean;
+        setPerceptual(_: boolean): any;
+    }
+    interface CIPalettize extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        paletteImage: CIImage;
+        setPaletteImage(_: CIImage): any;
+        perceptual: boolean;
+        setPerceptual(_: boolean): any;
+    }
+    interface CIParallelogramTile extends CIFilter {
+        acuteAngle: number;
+        setAcuteAngle(_: number): any;
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIPerspectiveCorrection extends CIFourCoordinateGeometryFilter {
+        crop: boolean;
+        setCrop(_: boolean): any;
+    }
+    interface CIPerspectiveRotate extends CIFilter {
+        focalLength: number;
+        setFocalLength(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        pitch: number;
+        setPitch(_: number): any;
+        roll: number;
+        setRoll(_: number): any;
+        yaw: number;
+        setYaw(_: number): any;
+    }
+    interface CIPerspectiveTile extends CIFilter {
+        bottomLeft: CGPoint;
+        setBottomLeft(_: CGPoint): any;
+        bottomRight: CGPoint;
+        setBottomRight(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        topLeft: CGPoint;
+        setTopLeft(_: CGPoint): any;
+        topRight: CGPoint;
+        setTopRight(_: CGPoint): any;
+    }
+    type CIPerspectiveTransform = CIFourCoordinateGeometryFilter;
+    interface CIPerspectiveTransformWithExtent extends CIFourCoordinateGeometryFilter {
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+    }
+    interface CIPhotoEffect extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIPixellate extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        scale: number;
+        setScale(_: number): any;
+    }
+    class CIPlugIn extends NSObject {
+        static loadNonExecutablePlugIn(_: NSURL): void;
+        static loadNonExecutablePlugIns(): void;
+    }
+    interface CIPlugInRegistration {
+        load(_: any): boolean;
+    }
+    interface CIPointillize extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    class CIQRCodeDescriptor extends CIBarcodeDescriptor {
+        static descriptorWithPayloadSymbolVersionMaskPatternErrorCorrectionLevel(payload: NSData, symbolVersion: number, maskPattern: number, errorCorrectionLevel: CIQRCodeErrorCorrectionLevel): CIQRCodeDescriptor;
+        errorCorrectedPayload: NSData;
+        errorCorrectionLevel: CIQRCodeErrorCorrectionLevel;
+        maskPattern: number;
+        symbolVersion: number;
+        static createWithPayloadSymbolVersionMaskPatternErrorCorrectionLevel(payload: NSData, symbolVersion: number, maskPattern: number, errorCorrectionLevel: CIQRCodeErrorCorrectionLevel): CIQRCodeDescriptor;
+    }
+    class CIQRCodeFeature extends CIFeature {
+        bottomLeft: CGPoint;
+        bottomRight: CGPoint;
+        messageString: string;
+        symbolDescriptor: CIQRCodeDescriptor;
+        topLeft: CGPoint;
+        topRight: CGPoint;
+    }
+    interface CIQRCodeGenerator extends CIFilter {
+        correctionLevel: string;
+        setCorrectionLevel(_: string): any;
+        message: NSData;
+        setMessage(_: NSData): any;
+    }
+    interface CIRadialGradient extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        radius0: number;
+        setRadius0(_: number): any;
+        radius1: number;
+        setRadius1(_: number): any;
+    }
+    type CIRandomGenerator = CIFilter;
+    class CIRectangleFeature extends CIFeature {
+        bottomLeft: CGPoint;
+        bottomRight: CGPoint;
+        topLeft: CGPoint;
+        topRight: CGPoint;
+    }
+    class CIRenderDestination extends NSObject {
+        alphaMode: CIRenderDestinationAlphaMode;
+        setAlphaMode(_: CIRenderDestinationAlphaMode): any;
+        blendKernel: CIBlendKernel;
+        setBlendKernel(_: CIBlendKernel): any;
+        blendsInDestinationColorSpace: boolean;
+        setBlendsInDestinationColorSpace(_: boolean): any;
+        isClamped: boolean;
+        setClamped(_: boolean): any;
+        colorSpace: any;
+        setColorSpace(_: any): any;
+        isDithered: boolean;
+        setDithered(_: boolean): any;
+        isFlipped: boolean;
+        setFlipped(_: boolean): any;
+        height: number;
+        width: number;
+        static createWithBitmapDataWidthHeightBytesPerRowFormat(bitmapData: any, width: number, height: number, bytesPerRow: number, format: number): CIRenderDestination;
+        static createWithGLTextureTargetWidthHeight(GLTexture: number, target: number, width: number, height: number): CIRenderDestination;
+        static createWithIOSurface(IOSurface: IOSurface): CIRenderDestination;
+        static createWithPixelBuffer(pixelBuffer: any): CIRenderDestination;
+    }
+    class CIRenderInfo extends NSObject {
+        kernelExecutionTime: number;
+        passCount: number;
+        pixelsProcessed: number;
+    }
+    class CIRenderTask extends NSObject {
+        waitUntilCompletedAndReturnError(): CIRenderInfo;
+    }
+    interface CIRippleTransition extends CITransitionFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        scale: number;
+        setScale(_: number): any;
+        shadingImage: CIImage;
+        setShadingImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIRoundedRectangleGenerator extends CIFilter {
+        color: CIColor;
+        setColor(_: CIColor): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CISRGBToneCurveToLinear extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CISaliencyMap extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    class CISampler extends NSObject {
+        static samplerWithImageKeysAndValues(_: CIImage, keysAndValues: any): CISampler;
+        definition: CIFilterShape;
+        extent: CGRect;
+        static createWithImage(image: CIImage): CISampler;
+        static createWithImageOptions(image: CIImage, options?: Map<any, any>): CISampler;
+    }
+    interface CISepiaTone extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+    }
+    interface CIShadedMaterial extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        scale: number;
+        setScale(_: number): any;
+        shadingImage: CIImage;
+        setShadingImage(_: CIImage): any;
+    }
+    interface CISharpenLuminance extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        radius: number;
+        setRadius(_: number): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+    }
+    interface CISixfoldReflectedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CISixfoldRotatedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CISmoothLinearGradient extends CIFilter {
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        point0: CGPoint;
+        setPoint0(_: CGPoint): any;
+        point1: CGPoint;
+        setPoint1(_: CGPoint): any;
+    }
+    interface CISpotColor extends CIFilter {
+        centerColor1: CIColor;
+        setCenterColor1(_: CIColor): any;
+        centerColor2: CIColor;
+        setCenterColor2(_: CIColor): any;
+        centerColor3: CIColor;
+        setCenterColor3(_: CIColor): any;
+        closeness1: number;
+        setCloseness1(_: number): any;
+        closeness2: number;
+        setCloseness2(_: number): any;
+        closeness3: number;
+        setCloseness3(_: number): any;
+        contrast1: number;
+        setContrast1(_: number): any;
+        contrast2: number;
+        setContrast2(_: number): any;
+        contrast3: number;
+        setContrast3(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        replacementColor1: CIColor;
+        setReplacementColor1(_: CIColor): any;
+        replacementColor2: CIColor;
+        setReplacementColor2(_: CIColor): any;
+        replacementColor3: CIColor;
+        setReplacementColor3(_: CIColor): any;
+    }
+    interface CISpotLight extends CIFilter {
+        brightness: number;
+        setBrightness(_: number): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        concentration: number;
+        setConcentration(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        lightPointsAt: CIVector;
+        setLightPointsAt(_: CIVector): any;
+        lightPosition: CIVector;
+        setLightPosition(_: CIVector): any;
+    }
+    interface CIStarShineGenerator extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        crossAngle: number;
+        setCrossAngle(_: number): any;
+        crossOpacity: number;
+        setCrossOpacity(_: number): any;
+        crossScale: number;
+        setCrossScale(_: number): any;
+        crossWidth: number;
+        setCrossWidth(_: number): any;
+        epsilon: number;
+        setEpsilon(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIStraighten extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIStripesGenerator extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color0: CIColor;
+        setColor0(_: CIColor): any;
+        color1: CIColor;
+        setColor1(_: CIColor): any;
+        sharpness: number;
+        setSharpness(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CISunbeamsGenerator extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        maxStriationRadius: number;
+        setMaxStriationRadius(_: number): any;
+        striationContrast: number;
+        setStriationContrast(_: number): any;
+        striationStrength: number;
+        setStriationStrength(_: number): any;
+        sunRadius: number;
+        setSunRadius(_: number): any;
+        time: number;
+        setTime(_: number): any;
+    }
+    interface CISwipeTransition extends CITransitionFilter {
+        angle: number;
+        setAngle(_: number): any;
+        color: CIColor;
+        setColor(_: CIColor): any;
+        extent: CGRect;
+        setExtent(_: CGRect): any;
+        opacity: number;
+        setOpacity(_: number): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CITemperatureAndTint extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        neutral: CIVector;
+        setNeutral(_: CIVector): any;
+        targetNeutral: CIVector;
+        setTargetNeutral(_: CIVector): any;
+    }
+    class CITextFeature extends CIFeature {
+        bottomLeft: CGPoint;
+        bottomRight: CGPoint;
+        subFeatures: any[];
+        topLeft: CGPoint;
+        topRight: CGPoint;
+    }
+    interface CITextImageGenerator extends CIFilter {
+        fontName: string;
+        setFontName(_: string): any;
+        fontSize: number;
+        setFontSize(_: number): any;
+        scaleFactor: number;
+        setScaleFactor(_: number): any;
+        text: string;
+        setText(_: string): any;
+    }
+    interface CIThermal extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIToneCurve extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        point0: CGPoint;
+        setPoint0(_: CGPoint): any;
+        point1: CGPoint;
+        setPoint1(_: CGPoint): any;
+        point2: CGPoint;
+        setPoint2(_: CGPoint): any;
+        point3: CGPoint;
+        setPoint3(_: CGPoint): any;
+        point4: CGPoint;
+        setPoint4(_: CGPoint): any;
+    }
+    interface CITransitionFilter extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        targetImage: CIImage;
+        setTargetImage(_: CIImage): any;
+        time: number;
+        setTime(_: number): any;
+    }
+    interface CITriangleKaleidoscope extends CIFilter {
+        decay: number;
+        setDecay(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        point: CGPoint;
+        setPoint(_: CGPoint): any;
+        rotation: number;
+        setRotation(_: number): any;
+        size: number;
+        setSize(_: number): any;
+    }
+    interface CITriangleTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CITwelvefoldReflectedTile extends CIFilter {
+        angle: number;
+        setAngle(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        width: number;
+        setWidth(_: number): any;
+    }
+    interface CIUnsharpMask extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    class CIVector extends NSObject {
+        CGAffineTransformValue: CGAffineTransform;
+        CGPointValue: CGPoint;
+        CGRectValue: CGRect;
+        W: number;
+        X: number;
+        Y: number;
+        Z: number;
+        count: number;
+        stringRepresentation: string;
+        static createWithCGAffineTransform(CGAffineTransform: CGAffineTransform): CIVector;
+        static createWithCGPoint(CGPoint: CGPoint): CIVector;
+        static createWithCGRect(CGRect: CGRect): CIVector;
+        static createWithString(string: string): CIVector;
+        static createWithValuesCount(values: number, count: number): CIVector;
+        static createWithX(x: number): CIVector;
+        static createWithXY(x: number, y: number): CIVector;
+        static createWithXYZ(x: number, y: number, z: number): CIVector;
+        static createWithXYZW(x: number, y: number, z: number, w: number): CIVector;
+        valueAtIndex(at: number): number;
+    }
+    interface CIVibrance extends CIFilter {
+        amount: number;
+        setAmount(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIVignette extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    interface CIVignetteEffect extends CIFilter {
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        falloff: number;
+        setFalloff(_: number): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+        intensity: number;
+        setIntensity(_: number): any;
+        radius: number;
+        setRadius(_: number): any;
+    }
+    class CIWarpKernel extends CIKernel {
+        applyWithExtentRoiCallbackImageArguments(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, image: CIImage, arguments_?: any[]): CIImage;
+    }
+    interface CIWhitePointAdjust extends CIFilter {
+        color: CIColor;
+        setColor(_: CIColor): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIXRay extends CIFilter {
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
+    }
+    interface CIZoomBlur extends CIFilter {
+        amount: number;
+        setAmount(_: number): any;
+        center: CGPoint;
+        setCenter(_: CGPoint): any;
+        inputImage: CIImage;
+        setInputImage(_: CIImage): any;
     }
     class NSAffineTransform extends NSObject {
         transformStruct: NSAffineTransformStruct;
@@ -8412,14 +12870,6 @@ declare global {
         transformPoint(_: CGPoint): CGPoint;
         transformSize(_: CGSize): CGSize;
         translateXByYBy(by: number, yBy: number): void;
-    }
-    interface NSAffineTransformStruct {
-        m11: number;
-        m12: number;
-        m21: number;
-        m22: number;
-        tX: number;
-        tY: number;
     }
     class NSAppleEventDescriptor extends NSObject {
         static appleEventWithEventClassEventIDTargetDescriptorReturnIDTransactionID(withEventClass: number, eventID: number, targetDescriptor?: NSAppleEventDescriptor, returnID?: number, transactionID?: number): NSAppleEventDescriptor;
@@ -8850,6 +13300,9 @@ declare global {
         decodeBoolForKey(forKey: string): boolean;
         decodeBytesForKeyReturnedLength(forKey: string, returnedLength?: number): string;
         decodeBytesWithReturnedLength(withReturnedLength: number): any;
+        decodeCMTimeForKey(forKey: string): CMTime;
+        decodeCMTimeMappingForKey(forKey: string): CMTimeMapping;
+        decodeCMTimeRangeForKey(forKey: string): CMTimeRange;
         decodeDataObject(): NSData;
         decodeDoubleForKey(forKey: string): number;
         decodeFloatForKey(forKey: string): number;
@@ -8875,6 +13328,9 @@ declare global {
         encodeByrefObject(_?: any): void;
         encodeBytesLength(_?: any, length?: number): void;
         encodeBytesLengthForKey(_?: string, length?: number, forKey?: string): void;
+        encodeCMTimeForKey(_: CMTime, forKey: string): void;
+        encodeCMTimeMappingForKey(_: CMTimeMapping, forKey: string): void;
+        encodeCMTimeRangeForKey(_: CMTimeRange, forKey: string): void;
         encodeConditionalObject(_?: any): void;
         encodeConditionalObjectForKey(_?: any, forKey?: string): void;
         encodeDataObject(_: NSData): void;
@@ -9292,12 +13748,6 @@ declare global {
         postNotificationNameObjectUserInfoDeliverImmediately(_: string, object_?: string, userInfo?: Map<any, any>, deliverImmediately?: boolean): void;
         postNotificationNameObjectUserInfoOptions(_: string, object_?: string, userInfo?: Map<any, any>, options?: DistributedNotificationCenter.Options): void;
     }
-    interface NSEdgeInsets {
-        top: number;
-        left: number;
-        bottom: number;
-        right: number;
-    }
     class EnergyFormatter extends Formatter {
         isForFoodEnergyUse: boolean;
         setForFoodEnergyUse(_: boolean): any;
@@ -9381,12 +13831,6 @@ declare global {
     }
     interface NSFastEnumeration {
         countByEnumeratingWithStateObjectsCount(with_: NSFastEnumerationState, objects?: any, count?: number): number;
-    }
-    interface NSFastEnumerationState {
-        state: number;
-        itemsPtr: any;
-        mutationsPtr: number;
-        extra: number;
     }
     class NSFileAccessIntent extends NSObject {
         static readingIntentWithURLOptions(with_: NSURL, options: NSFileCoordinator.ReadingOptions): NSFileAccessIntent;
@@ -9686,13 +14130,6 @@ declare global {
         removeObject(_?: ObjectType): void;
         union(_: NSHashTable<ObjectType>): void;
     }
-    interface NSHashTableCallBacks {
-        hash: (p1: NSHashTable<any>, p2: any) => number;
-        isEqual: (p1: NSHashTable<any>, p2: any, p3: any) => boolean;
-        retain: (p1: NSHashTable<any>, p2: any) => void;
-        release: (p1: NSHashTable<any>, p2: any) => void;
-        describe: (p1: NSHashTable<any>, p2: any) => string;
-    }
     class Host extends NSObject {
         static currentHost(): Host;
         address: string;
@@ -9801,8 +14238,7 @@ declare global {
         registerObjectWithOfClassVisibilityLoadHandler(ofClass: typeof NSObject, visibility: NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: NSItemProviderWriting, p2: NSError) => void) => Progress): void;
         registeredTypeIdentifiersWithFileOptions(fileOptions: NSItemProviderFileOptions): string[];
     }
-    interface NSItemProviderReading extends NSObject {
-    }
+    type NSItemProviderReading = NSObject;
     interface NSItemProviderWriting extends NSObject {
         writableTypeIdentifiersForItemProvider?: string[];
         itemProviderVisibilityForRepresentationWithTypeIdentifier?(withTypeIdentifier: string): NSItemProviderRepresentationVisibility;
@@ -9989,19 +14425,6 @@ declare global {
         removeAllObjects(): void;
         removeObjectForKey(forKey?: KeyType): void;
         setObjectForKey(_?: ObjectType, forKey?: KeyType): void;
-    }
-    interface NSMapTableKeyCallBacks {
-        hash: (p1: NSMapTable<any, any>, p2: any) => number;
-        isEqual: (p1: NSMapTable<any, any>, p2: any, p3: any) => boolean;
-        retain: (p1: NSMapTable<any, any>, p2: any) => void;
-        release: (p1: NSMapTable<any, any>, p2: any) => void;
-        describe: (p1: NSMapTable<any, any>, p2: any) => string;
-        notAKeyMarker: any;
-    }
-    interface NSMapTableValueCallBacks {
-        retain: (p1: NSMapTable<any, any>, p2: any) => void;
-        release: (p1: NSMapTable<any, any>, p2: any) => void;
-        describe: (p1: NSMapTable<any, any>, p2: any) => string;
     }
     class MassFormatter extends Formatter {
         isForPersonMassUse: boolean;
@@ -10546,11 +14969,6 @@ declare global {
         numberFromString(_: string): number;
         stringFromNumber(_: number): string;
     }
-    interface OperatingSystemVersion {
-        majorVersion: number;
-        minorVersion: number;
-        patchVersion: number;
-    }
     class Operation extends NSObject {
         isAsynchronous: boolean;
         isCancelled: boolean;
@@ -10887,10 +15305,6 @@ declare global {
     }
     class NSRandomSpecifier extends NSScriptObjectSpecifier {
     }
-    interface NSRange {
-        location: number;
-        length: number;
-    }
     class NSRangeSpecifier extends NSScriptObjectSpecifier {
         endSpecifier: NSScriptObjectSpecifier;
         setEndSpecifier(_: NSScriptObjectSpecifier): any;
@@ -11103,8 +15517,7 @@ declare global {
     class NSScriptWhoseTest extends NSObject {
         isTrue(): boolean;
     }
-    interface NSSecureCoding extends NSCoding {
-    }
+    type NSSecureCoding = NSCoding;
     class NSSecureUnarchiveFromDataTransformer extends ValueTransformer {
         static allowedTopLevelClasses: typeof NSObject[];
     }
@@ -11328,12 +15741,6 @@ declare global {
         variantFittingPresentationWidth(_: number): string;
         writeToFileAtomicallyEncodingError(atomically: string, encoding: boolean, error: number): boolean;
         writeToURLAtomicallyEncodingError(atomically: NSURL, encoding: boolean, error: number): boolean;
-    }
-    interface NSSwappedDouble {
-        v: number;
-    }
-    interface NSSwappedFloat {
-        v: number;
     }
     class Process extends NSObject {
         static runArgumentsTerminationHandler(_: NSURL, _2: string[], arguments_?: Error, terminationHandler?: (p1: Process) => void): Process;
@@ -12354,6 +16761,7 @@ declare global {
         activityType: string;
         delegate: NSUserActivityDelegate;
         setDelegate(_: NSUserActivityDelegate): any;
+        detectedBarcodeDescriptor: CIBarcodeDescriptor;
         isEligibleForHandoff: boolean;
         setEligibleForHandoff(_: boolean): any;
         isEligibleForPublicIndexing: boolean;
@@ -12515,6 +16923,13 @@ declare global {
         executeWithWithArgumentsCompletionHandler(withArguments?: string[], completionHandler?: (p1: NSError) => void): void;
     }
     class NSValue extends NSObject {
+        static valueWithCMTime(time: CMTime): NSValue;
+        static valueWithCMTimeMapping(timeMapping: CMTimeMapping): NSValue;
+        static valueWithCMTimeRange(timeRange: CMTimeRange): NSValue;
+        CATransform3DValue: CATransform3D;
+        CMTimeMappingValue: CMTimeMapping;
+        CMTimeRangeValue: CMTimeRange;
+        CMTimeValue: CMTime;
         edgeInsetsValue: NSEdgeInsets;
         nonretainedObjectValue: any;
         objCType: string;
@@ -12804,16 +17219,1924 @@ declare global {
         remoteObjectProxyWithErrorHandler(_: (p1: NSError) => void): any;
         synchronousRemoteObjectProxyWithErrorHandler?(_: (p1: NSError) => void): any;
     }
-    interface __ssFlags {
-        delegateLearnsWords: number;
-        delegateForgetsWords: number;
-        busy: number;
+    class IKCameraDeviceView extends NSView {
+        cameraDevice: ICCameraDevice;
+        setCameraDevice(_: ICCameraDevice): any;
+        canDeleteSelectedItems: boolean;
+        canDownloadSelectedItems: boolean;
+        canRotateSelectedItemsLeft: boolean;
+        canRotateSelectedItemsRight: boolean;
+        delegate: IKCameraDeviceViewDelegate;
+        setDelegate(_: IKCameraDeviceViewDelegate): any;
+        displaysDownloadsDirectoryControl: boolean;
+        setDisplaysDownloadsDirectoryControl(_: boolean): any;
+        displaysPostProcessApplicationControl: boolean;
+        setDisplaysPostProcessApplicationControl(_: boolean): any;
+        downloadAllControlLabel: string;
+        setDownloadAllControlLabel(_: string): any;
+        downloadSelectedControlLabel: string;
+        setDownloadSelectedControlLabel(_: string): any;
+        downloadsDirectory: NSURL;
+        setDownloadsDirectory(_: NSURL): any;
+        hasDisplayModeIcon: boolean;
+        setHasDisplayModeIcon(_: boolean): any;
+        hasDisplayModeTable: boolean;
+        setHasDisplayModeTable(_: boolean): any;
+        iconSize: number;
+        setIconSize(_: number): any;
+        mode: IKCameraDeviceViewDisplayMode;
+        setMode(_: IKCameraDeviceViewDisplayMode): any;
+        postProcessApplication: NSURL;
+        setPostProcessApplication(_: NSURL): any;
+        transferMode: IKCameraDeviceViewTransferMode;
+        setTransferMode(_: IKCameraDeviceViewTransferMode): any;
+        deleteSelectedItems(_: any): void;
+        downloadAllItems(_: any): void;
+        downloadSelectedItems(_: any): void;
+        rotateLeft(_: any): void;
+        rotateRight(_: any): void;
+        selectIndexesByExtendingSelection(_: NSIndexSet, byExtendingSelection: boolean): void;
+        selectedIndexes(): NSIndexSet;
+    }
+    interface IKCameraDeviceViewDelegate {
+        cameraDeviceViewDidDownloadFileLocationFileDataError?(_: IKCameraDeviceView, didDownloadFile: ICCameraFile, location: NSURL, fileData: NSData, error: NSError): void;
+        cameraDeviceViewDidEncounterError?(_: IKCameraDeviceView, didEncounterError: NSError): void;
+        cameraDeviceViewSelectionDidChange?(_: IKCameraDeviceView): void;
+    }
+    class IKDeviceBrowserView extends NSView {
+        delegate: IKDeviceBrowserViewDelegate;
+        setDelegate(_: IKDeviceBrowserViewDelegate): any;
+        displaysLocalCameras: boolean;
+        setDisplaysLocalCameras(_: boolean): any;
+        displaysLocalScanners: boolean;
+        setDisplaysLocalScanners(_: boolean): any;
+        displaysNetworkCameras: boolean;
+        setDisplaysNetworkCameras(_: boolean): any;
+        displaysNetworkScanners: boolean;
+        setDisplaysNetworkScanners(_: boolean): any;
+        mode: IKDeviceBrowserViewDisplayMode;
+        setMode(_: IKDeviceBrowserViewDisplayMode): any;
+        selectedDevice: ICDevice;
+    }
+    interface IKDeviceBrowserViewDelegate {
+        deviceBrowserViewDidEncounterError?(_: IKDeviceBrowserView, didEncounterError: NSError): void;
+        deviceBrowserViewSelectionDidChange(_: IKDeviceBrowserView, selectionDidChange: ICDevice): void;
+    }
+    class IKFilterBrowserPanel extends NSPanel {
+        static filterBrowserPanelWithStyleMask(withStyleMask: number): any;
+        beginSheetWithOptionsModalForWindowModalDelegateDidEndSelectorContextInfo(options: Map<any, any>, modalFor: NSWindow, modalDelegate: any, didEnd: string, contextInfo: any): void;
+        beginWithOptionsModelessDelegateDidEndSelectorContextInfo(options: Map<any, any>, modelessDelegate: any, didEnd: string, contextInfo: any): void;
+        filterBrowserViewWithOptions(options: Map<any, any>): IKFilterBrowserView;
+        filterName(): string;
+        finish(_: any): void;
+        runModalWithOptions(options: Map<any, any>): number;
+    }
+    class IKFilterBrowserView extends NSView {
+        filterName(): string;
+        setPreviewState(_: boolean): void;
+    }
+    interface IKFilterCustomUIProvider {
+        provideViewForUIConfigurationExcludedKeys(forUIConfiguration: Map<any, any>, excludedKeys: any[]): IKFilterUIView;
+    }
+    class IKFilterUIView extends NSView {
+        static viewWithFrameFilter(withFrame: CGRect, filter: CIFilter): any;
+        filter(): CIFilter;
+        static createWithFrameFilter(frame: CGRect, filter: CIFilter): IKFilterUIView;
+        objectController(): NSObjectController;
+    }
+    class IKImageBrowserCell extends NSObject {
+        cellState(): IKImageBrowserCellState;
+        frame(): CGRect;
+        imageAlignment(): NSImageAlignment;
+        imageContainerFrame(): CGRect;
+        imageFrame(): CGRect;
+        indexOfRepresentedItem(): number;
+        isSelected(): boolean;
+        layerForType(forType: string): CALayer;
+        opacity(): number;
+        representedItem(): any;
+        selectionFrame(): CGRect;
+        subtitleFrame(): CGRect;
+        titleFrame(): CGRect;
+    }
+    class IKImageEditPanel extends NSPanel {
+        static sharedImageEditPanel(): IKImageEditPanel;
+        dataSource: IKImageEditPanelDataSource;
+        setDataSource(_: IKImageEditPanelDataSource): any;
+        filterArray: any[];
+        reloadData(): void;
+    }
+    interface IKImageEditPanelDataSource {
+        hasAdjustMode?(): boolean;
+        hasDetailsMode?(): boolean;
+        hasEffectsMode?(): boolean;
+        image(): any;
+        imageProperties?(): Map<any, any>;
+        setImageImageProperties(_: any, imageProperties: Map<any, any>): void;
+        thumbnailWithMaximumSize?(withMaximumSize: CGSize): any;
+    }
+    class IKImageView extends NSView {
+        autohidesScrollers: boolean;
+        setAutohidesScrollers(_: boolean): any;
+        autoresizes: boolean;
+        setAutoresizes(_: boolean): any;
+        backgroundColor: NSColor;
+        setBackgroundColor(_: NSColor): any;
+        currentToolMode: string;
+        setCurrentToolMode(_: string): any;
+        delegate: any;
+        setDelegate(_: any): any;
+        doubleClickOpensImageEditPanel: boolean;
+        setDoubleClickOpensImageEditPanel(_: boolean): any;
+        editable: boolean;
+        setEditable(_: boolean): any;
+        hasHorizontalScroller: boolean;
+        setHasHorizontalScroller(_: boolean): any;
+        hasVerticalScroller: boolean;
+        setHasVerticalScroller(_: boolean): any;
+        imageCorrection: CIFilter;
+        setImageCorrection(_: CIFilter): any;
+        rotationAngle: number;
+        setRotationAngle(_: number): any;
+        supportsDragAndDrop: boolean;
+        setSupportsDragAndDrop(_: boolean): any;
+        zoomFactor: number;
+        setZoomFactor(_: number): any;
+        convertImagePointToViewPoint(toViewPoint: CGPoint): CGPoint;
+        convertImageRectToViewRect(toViewRect: CGRect): CGRect;
+        convertViewPointToImagePoint(toImagePoint: CGPoint): CGPoint;
+        convertViewRectToImageRect(toImageRect: CGRect): CGRect;
+        crop(_: any): void;
+        flipImageHorizontal(_: any): void;
+        flipImageVertical(_: any): void;
+        image(): any;
+        imageProperties(): Map<any, any>;
+        imageSize(): CGSize;
+        overlayForType(forType: string): CALayer;
+        rotateImageLeft(_: any): void;
+        rotateImageRight(_: any): void;
+        scrollToPoint(to: CGPoint): void;
+        scrollToRect(to: CGRect): void;
+        setImageImageProperties(_: any, imageProperties: Map<any, any>): void;
+        setImageWithURL(_: NSURL): void;
+        setImageZoomFactorCenterPoint(_: number, center: CGPoint): void;
+        setOverlayForType(_: CALayer, forType: string): void;
+        setRotationAngleCenterPoint(_: number, center: CGPoint): void;
+        zoomImageToActualSize(_: any): void;
+        zoomImageToFit(_: any): void;
+        zoomImageToRect(to: CGRect): void;
+        zoomIn(_: any): void;
+        zoomOut(_: any): void;
+    }
+    class IKPictureTaker extends NSPanel {
+        static pictureTaker(): IKPictureTaker;
+        beginPictureTakerSheetForWindowWithDelegateDidEndSelectorContextInfo(for_: NSWindow, withDelegate: any, didEnd: string, contextInfo: any): void;
+        beginPictureTakerWithDelegateDidEndSelectorContextInfo(withDelegate: any, didEnd: string, contextInfo: any): void;
+        inputImage(): NSImage;
+        mirroring(): boolean;
+        outputImage(): NSImage;
+        popUpRecentsMenuForViewWithDelegateDidEndSelectorContextInfo(for_: NSView, withDelegate: any, didEnd: string, contextInfo: any): void;
+        runModal(): number;
+        setInputImage(_: NSImage): void;
+        setMirroring(_: boolean): void;
+    }
+    class IKSaveOptions extends NSObject {
+        delegate: any;
+        setDelegate(_: any): any;
+        imageProperties: Map<any, any>;
+        imageUTType: string;
+        userSelection: Map<any, any>;
+        addSaveOptionsAccessoryViewToSavePanel(to: NSSavePanel): void;
+        addSaveOptionsToView(to: NSView): void;
+        static createWithImagePropertiesImageUTType(imageProperties: Map<any, any>, imageUTType: string): IKSaveOptions;
+    }
+    class IKScannerDeviceView extends NSView {
+        delegate: IKScannerDeviceViewDelegate;
+        setDelegate(_: IKScannerDeviceViewDelegate): any;
+        displaysDownloadsDirectoryControl: boolean;
+        setDisplaysDownloadsDirectoryControl(_: boolean): any;
+        displaysPostProcessApplicationControl: boolean;
+        setDisplaysPostProcessApplicationControl(_: boolean): any;
+        documentName: string;
+        setDocumentName(_: string): any;
+        downloadsDirectory: NSURL;
+        setDownloadsDirectory(_: NSURL): any;
+        hasDisplayModeAdvanced: boolean;
+        setHasDisplayModeAdvanced(_: boolean): any;
+        hasDisplayModeSimple: boolean;
+        setHasDisplayModeSimple(_: boolean): any;
+        mode: IKScannerDeviceViewDisplayMode;
+        setMode(_: IKScannerDeviceViewDisplayMode): any;
+        overviewControlLabel: string;
+        setOverviewControlLabel(_: string): any;
+        postProcessApplication: NSURL;
+        setPostProcessApplication(_: NSURL): any;
+        scanControlLabel: string;
+        setScanControlLabel(_: string): any;
+        scannerDevice: ICScannerDevice;
+        setScannerDevice(_: ICScannerDevice): any;
+        transferMode: IKScannerDeviceViewTransferMode;
+        setTransferMode(_: IKScannerDeviceViewTransferMode): any;
+    }
+    interface IKScannerDeviceViewDelegate {
+        scannerDeviceViewDidScanToURLFileDataError?(_: IKScannerDeviceView, didScanTo: NSURL, fileData: NSData, error: NSError): void;
+        scannerDeviceViewDidScanToURLError?(_: IKScannerDeviceView, didScanTo: NSURL, error: NSError): void;
+        scannerDeviceViewDidScanToBandDataScanInfoError?(_: IKScannerDeviceView, didScanTo: ICScannerBandData, scanInfo: Map<any, any>, error: NSError): void;
+        scannerDeviceViewDidEncounterError?(_: IKScannerDeviceView, didEncounterError: NSError): void;
+    }
+    class IKSlideshow extends NSObject {
+        static canExportToApplication(toApplication: string): boolean;
+        static exportSlideshowItemToApplication(_: any, toApplication: string): void;
+        static sharedSlideshow(): IKSlideshow;
+        autoPlayDelay: number;
+        setAutoPlayDelay(_: number): any;
+        indexOfCurrentSlideshowItem(): number;
+        reloadData(): void;
+        reloadSlideshowItemAtIndex(at: number): void;
+        runSlideshowWithDataSourceInModeOptions(with_: IKSlideshowDataSource, inMode: string, options: Map<any, any>): void;
+        stopSlideshow(_: any): void;
+    }
+    interface IKSlideshowDataSource {
+        canExportSlideshowItemAtIndexToApplication?(at: number, toApplication: string): boolean;
+        nameOfSlideshowItemAtIndex?(at: number): string;
+        numberOfSlideshowItems(): number;
+        slideshowDidChangeCurrentIndex?(_: number): void;
+        slideshowDidStop?(): void;
+        slideshowItemAtIndex(at: number): any;
+        slideshowWillStart?(): void;
+    }
+    interface QLPreviewItem extends NSObject {
+        previewItemDisplayState?: any;
+        previewItemTitle?: string;
+        previewItemURL: NSURL;
+    }
+    class QLPreviewPanel extends NSPanel {
+        static sharedPreviewPanel(): QLPreviewPanel;
+        static sharedPreviewPanelExists(): boolean;
+        currentController: any;
+        currentPreviewItem: QLPreviewItem;
+        currentPreviewItemIndex: number;
+        setCurrentPreviewItemIndex(_: number): any;
+        dataSource: QLPreviewPanelDataSource;
+        setDataSource(_: QLPreviewPanelDataSource): any;
+        displayState: any;
+        setDisplayState(_: any): any;
+        isInFullScreenMode: boolean;
+        enterFullScreenModeWithOptions(_: NSScreen, withOptions: Map<any, any>): boolean;
+        exitFullScreenModeWithOptions(options: Map<any, any>): void;
+        refreshCurrentPreviewItem(): void;
+        reloadData(): void;
+        updateController(): void;
+    }
+    interface QLPreviewPanelDataSource {
+        numberOfPreviewItemsInPreviewPanel(in_: QLPreviewPanel): number;
+        previewPanelPreviewItemAtIndex(_: QLPreviewPanel, previewItemAt: number): QLPreviewItem;
+    }
+    interface QLPreviewPanelDelegate extends NSWindowDelegate {
+        previewPanelHandleEvent?(_: QLPreviewPanel, handle: NSEvent): boolean;
+        previewPanelSourceFrameOnScreenForPreviewItem?(_: QLPreviewPanel, sourceFrameOnScreenFor: QLPreviewItem): CGRect;
+        previewPanelTransitionImageForPreviewItemContentRect?(_: QLPreviewPanel, transitionImageFor: QLPreviewItem, contentRect: NSRect): any;
+    }
+    class QLPreviewView extends NSView {
+        autostarts: boolean;
+        setAutostarts(_: boolean): any;
+        displayState: any;
+        setDisplayState(_: any): any;
+        previewItem: QLPreviewItem;
+        setPreviewItem(_: QLPreviewItem): any;
+        shouldCloseWithWindow: boolean;
+        setShouldCloseWithWindow(_: boolean): any;
+        close(): void;
+        static createWithFrameStyle(frame: CGRect, style: QLPreviewViewStyle): QLPreviewView;
+        refreshPreviewItem(): void;
+    }
+    interface QLPreviewingController extends NSObject {
+        preparePreviewOfFileWithAtCompletionHandler?(at: NSURL, completionHandler?: (p1: NSError) => void): void;
+        preparePreviewOfSearchableItemWithIdentifierQueryStringCompletionHandler?(identifier: string, queryString?: string, completionHandler?: (p1: NSError) => void): void;
+    }
+    class QuartzFilter extends NSObject {
+        applyToContext(to: any): boolean;
+        localizedName(): string;
+        properties(): Map<any, any>;
+        removeFromContext(from: any): void;
+        url(): NSURL;
+    }
+    class QuartzFilterManager extends NSObject {
+        static filtersInDomains(inDomains: any[]): any[];
+        delegate(): any;
+        filterPanel(): NSPanel;
+        filterView(): QuartzFilterView;
+        importFilter(_: Map<any, any>): QuartzFilter;
+        selectFilter(_: QuartzFilter): boolean;
+        selectedFilter(): QuartzFilter;
+        setDelegate(_: any): void;
+    }
+    class QuartzFilterView extends NSView {
+        sizeToFit(): void;
+    }
+    interface CAAction {
+        runActionForKeyObjectArguments(forKey: string, object_: any, arguments_?: Map<any, any>): void;
+    }
+    class CAAnimation extends NSObject {
+        static defaultValueForKey(forKey: string): any;
+        delegate: CAAnimationDelegate;
+        setDelegate(_: CAAnimationDelegate): any;
+        isRemovedOnCompletion: boolean;
+        setRemovedOnCompletion(_: boolean): any;
+        timingFunction: CAMediaTimingFunction;
+        setTimingFunction(_: CAMediaTimingFunction): any;
+        shouldArchiveValueForKey(forKey: string): boolean;
+    }
+    interface CAAnimationDelegate extends NSObject {
+        animationDidStart?(_: CAAnimation): void;
+        animationDidStopFinished?(_: CAAnimation, finished: boolean): void;
+    }
+    class CAAnimationGroup extends CAAnimation {
+        animations: CAAnimation[];
+        setAnimations(_: CAAnimation[]): any;
+    }
+    class CABasicAnimation extends CAPropertyAnimation {
+        byValue: any;
+        setByValue(_: any): any;
+        fromValue: any;
+        setFromValue(_: any): any;
+        toValue: any;
+        setToValue(_: any): any;
+    }
+    class CAConstraint extends NSObject {
+        static constraintWithAttributeRelativeToAttribute(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute): CAConstraint;
+        static constraintWithAttributeRelativeToAttributeOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute, offset: number): CAConstraint;
+        static constraintWithAttributeRelativeToAttributeScaleOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute, scale: number, offset: number): CAConstraint;
+        attribute: CAConstraintAttribute;
+        offset: number;
+        scale: number;
+        sourceAttribute: CAConstraintAttribute;
+        sourceName: string;
+        static createWithAttributeRelativeToAttribute2ScaleOffset(attribute: CAConstraintAttribute, relativeTo: string, attribute2: CAConstraintAttribute, scale: number, offset: number): CAConstraint;
+    }
+    class CAConstraintLayoutManager extends NSObject {
+    }
+    class CAEDRMetadata extends NSObject {
+        static HDR10MetadataWithDisplayInfoContentInfoOpticalOutputScale(displayInfo?: NSData, contentInfo?: NSData, opticalOutputScale?: number): CAEDRMetadata;
+        static HDR10MetadataWithMinLuminanceMaxLuminanceOpticalOutputScale(minLuminance: number, maxLuminance: number, opticalOutputScale: number): CAEDRMetadata;
+        static HLGMetadata: CAEDRMetadata;
+    }
+    class CAEmitterCell extends NSObject {
+        static defaultValueForKey(forKey: string): any;
+        alphaRange: number;
+        setAlphaRange(_: number): any;
+        alphaSpeed: number;
+        setAlphaSpeed(_: number): any;
+        birthRate: number;
+        setBirthRate(_: number): any;
+        blueRange: number;
+        setBlueRange(_: number): any;
+        blueSpeed: number;
+        setBlueSpeed(_: number): any;
+        color: any;
+        setColor(_: any): any;
+        contents: any;
+        setContents(_: any): any;
+        contentsRect: CGRect;
+        setContentsRect(_: CGRect): any;
+        contentsScale: number;
+        setContentsScale(_: number): any;
+        emissionLatitude: number;
+        setEmissionLatitude(_: number): any;
+        emissionLongitude: number;
+        setEmissionLongitude(_: number): any;
+        emissionRange: number;
+        setEmissionRange(_: number): any;
+        emitterCells: CAEmitterCell[];
+        setEmitterCells(_: CAEmitterCell[]): any;
+        isEnabled: boolean;
+        setEnabled(_: boolean): any;
+        greenRange: number;
+        setGreenRange(_: number): any;
+        greenSpeed: number;
+        setGreenSpeed(_: number): any;
+        lifetime: number;
+        setLifetime(_: number): any;
+        lifetimeRange: number;
+        setLifetimeRange(_: number): any;
+        magnificationFilter: string;
+        setMagnificationFilter(_: string): any;
+        minificationFilter: string;
+        setMinificationFilter(_: string): any;
+        minificationFilterBias: number;
+        setMinificationFilterBias(_: number): any;
+        name: string;
+        setName(_: string): any;
+        redRange: number;
+        setRedRange(_: number): any;
+        redSpeed: number;
+        setRedSpeed(_: number): any;
+        scale: number;
+        setScale(_: number): any;
+        scaleRange: number;
+        setScaleRange(_: number): any;
+        scaleSpeed: number;
+        setScaleSpeed(_: number): any;
+        spin: number;
+        setSpin(_: number): any;
+        spinRange: number;
+        setSpinRange(_: number): any;
+        style: Map<any, any>;
+        setStyle(_: Map<any, any>): any;
+        velocity: number;
+        setVelocity(_: number): any;
+        velocityRange: number;
+        setVelocityRange(_: number): any;
+        xAcceleration: number;
+        setXAcceleration(_: number): any;
+        yAcceleration: number;
+        setYAcceleration(_: number): any;
+        zAcceleration: number;
+        setZAcceleration(_: number): any;
+        shouldArchiveValueForKey(forKey: string): boolean;
+    }
+    class CAEmitterLayer extends CALayer {
+        birthRate: number;
+        setBirthRate(_: number): any;
+        emitterCells: CAEmitterCell[];
+        setEmitterCells(_: CAEmitterCell[]): any;
+        emitterDepth: number;
+        setEmitterDepth(_: number): any;
+        emitterMode: string;
+        setEmitterMode(_: string): any;
+        emitterPosition: CGPoint;
+        setEmitterPosition(_: CGPoint): any;
+        emitterShape: string;
+        setEmitterShape(_: string): any;
+        emitterSize: CGSize;
+        setEmitterSize(_: CGSize): any;
+        emitterZPosition: number;
+        setEmitterZPosition(_: number): any;
+        lifetime: number;
+        setLifetime(_: number): any;
+        preservesDepth: boolean;
+        setPreservesDepth(_: boolean): any;
+        renderMode: string;
+        setRenderMode(_: string): any;
+        scale: number;
+        setScale(_: number): any;
+        seed: number;
+        setSeed(_: number): any;
+        spin: number;
+        setSpin(_: number): any;
+        velocity: number;
+        setVelocity(_: number): any;
+    }
+    class CAGradientLayer extends CALayer {
+        colors: any[];
+        setColors(_: any[]): any;
+        endPoint: CGPoint;
+        setEndPoint(_: CGPoint): any;
+        locations: number[];
+        setLocations(_: number[]): any;
+        startPoint: CGPoint;
+        setStartPoint(_: CGPoint): any;
+        type: string;
+        setType(_: string): any;
+    }
+    class CAKeyframeAnimation extends CAPropertyAnimation {
+        biasValues: number[];
+        setBiasValues(_: number[]): any;
+        calculationMode: string;
+        setCalculationMode(_: string): any;
+        continuityValues: number[];
+        setContinuityValues(_: number[]): any;
+        keyTimes: number[];
+        setKeyTimes(_: number[]): any;
+        path: any;
+        setPath(_: any): any;
+        rotationMode: string;
+        setRotationMode(_: string): any;
+        tensionValues: number[];
+        setTensionValues(_: number[]): any;
+        timingFunctions: CAMediaTimingFunction[];
+        setTimingFunctions(_: CAMediaTimingFunction[]): any;
+        values: any[];
+        setValues(_: any[]): any;
+    }
+    class CALayer extends NSObject {
+        static cornerCurveExpansionFactor(_: string): number;
+        static defaultActionForKey(forKey: string): CAAction;
+        static defaultValueForKey(forKey: string): any;
+        static needsDisplayForKey(forKey: string): boolean;
+        actions: Map<string, CAAction>;
+        setActions(_: Map<string, CAAction>): any;
+        allowsEdgeAntialiasing: boolean;
+        setAllowsEdgeAntialiasing(_: boolean): any;
+        allowsGroupOpacity: boolean;
+        setAllowsGroupOpacity(_: boolean): any;
+        anchorPoint: CGPoint;
+        setAnchorPoint(_: CGPoint): any;
+        anchorPointZ: number;
+        setAnchorPointZ(_: number): any;
+        autoresizingMask: CAAutoresizingMask;
+        setAutoresizingMask(_: CAAutoresizingMask): any;
+        backgroundColor: any;
+        setBackgroundColor(_: any): any;
+        backgroundFilters: any[];
+        setBackgroundFilters(_: any[]): any;
+        borderColor: any;
+        setBorderColor(_: any): any;
+        borderWidth: number;
+        setBorderWidth(_: number): any;
+        bounds: CGRect;
+        setBounds(_: CGRect): any;
+        compositingFilter: any;
+        setCompositingFilter(_: any): any;
+        constraints: CAConstraint[];
+        setConstraints(_: CAConstraint[]): any;
+        contents: any;
+        setContents(_: any): any;
+        contentsCenter: CGRect;
+        setContentsCenter(_: CGRect): any;
+        contentsFormat: string;
+        setContentsFormat(_: string): any;
+        contentsGravity: string;
+        setContentsGravity(_: string): any;
+        contentsRect: CGRect;
+        setContentsRect(_: CGRect): any;
+        contentsScale: number;
+        setContentsScale(_: number): any;
+        cornerCurve: string;
+        setCornerCurve(_: string): any;
+        cornerRadius: number;
+        setCornerRadius(_: number): any;
+        delegate: CALayerDelegate;
+        setDelegate(_: CALayerDelegate): any;
+        isDoubleSided: boolean;
+        setDoubleSided(_: boolean): any;
+        drawsAsynchronously: boolean;
+        setDrawsAsynchronously(_: boolean): any;
+        edgeAntialiasingMask: CAEdgeAntialiasingMask;
+        setEdgeAntialiasingMask(_: CAEdgeAntialiasingMask): any;
+        filters: any[];
+        setFilters(_: any[]): any;
+        frame: CGRect;
+        setFrame(_: CGRect): any;
+        isGeometryFlipped: boolean;
+        setGeometryFlipped(_: boolean): any;
+        isHidden: boolean;
+        setHidden(_: boolean): any;
+        layoutManager: CALayoutManager;
+        setLayoutManager(_: CALayoutManager): any;
+        magnificationFilter: string;
+        setMagnificationFilter(_: string): any;
+        mask: CALayer;
+        setMask(_: CALayer): any;
+        maskedCorners: CACornerMask;
+        setMaskedCorners(_: CACornerMask): any;
+        masksToBounds: boolean;
+        setMasksToBounds(_: boolean): any;
+        minificationFilter: string;
+        setMinificationFilter(_: string): any;
+        minificationFilterBias: number;
+        setMinificationFilterBias(_: number): any;
+        name: string;
+        setName(_: string): any;
+        needsDisplayOnBoundsChange: boolean;
+        setNeedsDisplayOnBoundsChange(_: boolean): any;
+        opacity: number;
+        setOpacity(_: number): any;
+        isOpaque: boolean;
+        setOpaque(_: boolean): any;
+        position: CGPoint;
+        setPosition(_: CGPoint): any;
+        rasterizationScale: number;
+        setRasterizationScale(_: number): any;
+        shadowColor: any;
+        setShadowColor(_: any): any;
+        shadowOffset: CGSize;
+        setShadowOffset(_: CGSize): any;
+        shadowOpacity: number;
+        setShadowOpacity(_: number): any;
+        shadowPath: any;
+        setShadowPath(_: any): any;
+        shadowRadius: number;
+        setShadowRadius(_: number): any;
+        shouldRasterize: boolean;
+        setShouldRasterize(_: boolean): any;
+        style: Map<any, any>;
+        setStyle(_: Map<any, any>): any;
+        sublayerTransform: CATransform3D;
+        setSublayerTransform(_: CATransform3D): any;
+        sublayers: CALayer[];
+        setSublayers(_: CALayer[]): any;
+        superlayer: CALayer;
+        transform: CATransform3D;
+        setTransform(_: CATransform3D): any;
+        visibleRect: CGRect;
+        zPosition: number;
+        setZPosition(_: number): any;
+        actionForKey(forKey: string): CAAction;
+        addAnimationForKey(_: CAAnimation, forKey?: string): void;
+        addConstraint(_: CAConstraint): void;
+        addSublayer(_: CALayer): void;
+        affineTransform(): CGAffineTransform;
+        animationForKey(forKey: string): CAAnimation;
+        animationKeys(): string[];
+        containsPoint(_: CGPoint): boolean;
+        contentsAreFlipped(): boolean;
+        convertPointFromLayer(_: CGPoint, from?: CALayer): CGPoint;
+        convertPointToLayer(_: CGPoint, to?: CALayer): CGPoint;
+        convertRectFromLayer(_: CGRect, from?: CALayer): CGRect;
+        convertRectToLayer(_: CGRect, to?: CALayer): CGRect;
+        convertTimeFromLayer(_: number, from?: CALayer): number;
+        convertTimeToLayer(_: number, to?: CALayer): number;
+        display(): void;
+        displayIfNeeded(): void;
+        drawInContext(in_: any): void;
+        hitTest(_: CGPoint): CALayer;
+        static createWithLayer(layer: any): CALayer;
+        insertSublayerAbove(_: CALayer, above?: CALayer): void;
+        insertSublayerAtIndex(_: CALayer, at: number): void;
+        insertSublayerBelow(_: CALayer, below?: CALayer): void;
+        layoutIfNeeded(): void;
+        layoutSublayers(): void;
+        modelLayer(): CALayer;
+        needsDisplay(): boolean;
+        needsLayout(): boolean;
+        preferredFrameSize(): CGSize;
+        presentationLayer(): CALayer;
+        removeAllAnimations(): void;
+        removeAnimationForKey(forKey: string): void;
+        removeFromSuperlayer(): void;
+        renderInContext(in_: any): void;
+        replaceSublayerWith(_: CALayer, with_: CALayer): void;
+        resizeSublayersWithOldSize(withOldSize: CGSize): void;
+        resizeWithOldSuperlayerSize(withOldSuperlayerSize: CGSize): void;
+        scrollPoint(_: CGPoint): void;
+        scrollRectToVisible(_: CGRect): void;
+        setAffineTransform(_: CGAffineTransform): void;
+        setNeedsDisplay(): void;
+        setNeedsDisplayInRect(_: CGRect): void;
+        setNeedsLayout(): void;
+        shouldArchiveValueForKey(forKey: string): boolean;
+    }
+    interface CALayerDelegate extends NSObject {
+        actionForLayerForKey?(for_: CALayer, forKey: string): CAAction;
+        displayLayer?(_: CALayer): void;
+        drawLayerInContext?(_: CALayer, in_: any): void;
+        layerWillDraw?(_: CALayer): void;
+        layoutSublayersOfLayer?(of: CALayer): void;
+    }
+    interface CALayoutManager extends NSObject {
+        invalidateLayoutOfLayer?(of: CALayer): void;
+        layoutSublayersOfLayer?(of: CALayer): void;
+        preferredSizeOfLayer?(of: CALayer): CGSize;
+    }
+    interface CAMediaTiming {
+        autoreverses: boolean;
+        setAutoreverses(_: boolean): any;
+        beginTime: number;
+        setBeginTime(_: number): any;
+        duration: number;
+        setDuration(_: number): any;
+        fillMode: string;
+        setFillMode(_: string): any;
+        repeatCount: number;
+        setRepeatCount(_: number): any;
+        repeatDuration: number;
+        setRepeatDuration(_: number): any;
+        speed: number;
+        setSpeed(_: number): any;
+        timeOffset: number;
+        setTimeOffset(_: number): any;
+    }
+    class CAMediaTimingFunction extends NSObject {
+        static functionWithControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
+        getControlPointAtIndexValues(at: number, values: number): void;
+        static createWithControlPoints(_: number, _2: number, _3: number, controlPoints: number): CAMediaTimingFunction;
+    }
+    interface CAMetalDrawable extends MTLDrawable {
+        layer: CAMetalLayer;
+    }
+    class CAMetalLayer extends CALayer {
+        EDRMetadata: CAEDRMetadata;
+        setEDRMetadata(_: CAEDRMetadata): any;
+        allowsNextDrawableTimeout: boolean;
+        setAllowsNextDrawableTimeout(_: boolean): any;
+        colorspace: any;
+        setColorspace(_: any): any;
+        displaySyncEnabled: boolean;
+        setDisplaySyncEnabled(_: boolean): any;
+        drawableSize: CGSize;
+        setDrawableSize(_: CGSize): any;
+        framebufferOnly: boolean;
+        setFramebufferOnly(_: boolean): any;
+        maximumDrawableCount: number;
+        setMaximumDrawableCount(_: number): any;
+        presentsWithTransaction: boolean;
+        setPresentsWithTransaction(_: boolean): any;
+        wantsExtendedDynamicRangeContent: boolean;
+        setWantsExtendedDynamicRangeContent(_: boolean): any;
+        nextDrawable(): CAMetalDrawable;
+    }
+    class CAPropertyAnimation extends CAAnimation {
+        static animationWithKeyPath(keyPath?: string): CAPropertyAnimation;
+        isAdditive: boolean;
+        setAdditive(_: boolean): any;
+        isCumulative: boolean;
+        setCumulative(_: boolean): any;
+        keyPath: string;
+        setKeyPath(_: string): any;
+        valueFunction: CAValueFunction;
+        setValueFunction(_: CAValueFunction): any;
+    }
+    class CARemoteLayerClient extends NSObject {
+        clientId: number;
+        layer: CALayer;
+        setLayer(_: CALayer): any;
+        static createWithServerPort(serverPort: number): CARemoteLayerClient;
+        invalidate(): void;
+    }
+    class CARemoteLayerServer extends NSObject {
+        static sharedServer(): CARemoteLayerServer;
+        serverPort: number;
+    }
+    class CARenderer extends NSObject {
+        bounds: CGRect;
+        setBounds(_: CGRect): any;
+        layer: CALayer;
+        setLayer(_: CALayer): any;
+        addUpdateRect(_: CGRect): void;
+        beginFrameAtTimeTimeStamp(atTime: number, timeStamp?: CVTimeStamp): void;
+        endFrame(): void;
+        nextFrameTime(): number;
+        render(): void;
+        updateBounds(): CGRect;
+    }
+    class CAReplicatorLayer extends CALayer {
+        instanceAlphaOffset: number;
+        setInstanceAlphaOffset(_: number): any;
+        instanceBlueOffset: number;
+        setInstanceBlueOffset(_: number): any;
+        instanceColor: any;
+        setInstanceColor(_: any): any;
+        instanceCount: number;
+        setInstanceCount(_: number): any;
+        instanceDelay: number;
+        setInstanceDelay(_: number): any;
+        instanceGreenOffset: number;
+        setInstanceGreenOffset(_: number): any;
+        instanceRedOffset: number;
+        setInstanceRedOffset(_: number): any;
+        instanceTransform: CATransform3D;
+        setInstanceTransform(_: CATransform3D): any;
+        preservesDepth: boolean;
+        setPreservesDepth(_: boolean): any;
+    }
+    class CAScrollLayer extends CALayer {
+        scrollMode: string;
+        setScrollMode(_: string): any;
+        scrollToPoint(to: CGPoint): void;
+        scrollToRect(to: CGRect): void;
+    }
+    class CAShapeLayer extends CALayer {
+        fillColor: any;
+        setFillColor(_: any): any;
+        fillRule: string;
+        setFillRule(_: string): any;
+        lineCap: string;
+        setLineCap(_: string): any;
+        lineDashPattern: number[];
+        setLineDashPattern(_: number[]): any;
+        lineDashPhase: number;
+        setLineDashPhase(_: number): any;
+        lineJoin: string;
+        setLineJoin(_: string): any;
+        lineWidth: number;
+        setLineWidth(_: number): any;
+        miterLimit: number;
+        setMiterLimit(_: number): any;
+        path: any;
+        setPath(_: any): any;
+        strokeColor: any;
+        setStrokeColor(_: any): any;
+        strokeEnd: number;
+        setStrokeEnd(_: number): any;
+        strokeStart: number;
+        setStrokeStart(_: number): any;
+    }
+    class CASpringAnimation extends CABasicAnimation {
+        damping: number;
+        setDamping(_: number): any;
+        initialVelocity: number;
+        setInitialVelocity(_: number): any;
+        mass: number;
+        setMass(_: number): any;
+        settlingDuration: number;
+        stiffness: number;
+        setStiffness(_: number): any;
+    }
+    class CATextLayer extends CALayer {
+        alignmentMode: string;
+        setAlignmentMode(_: string): any;
+        allowsFontSubpixelQuantization: boolean;
+        setAllowsFontSubpixelQuantization(_: boolean): any;
+        font: any;
+        setFont(_: any): any;
+        fontSize: number;
+        setFontSize(_: number): any;
+        foregroundColor: any;
+        setForegroundColor(_: any): any;
+        string: any;
+        setString(_: any): any;
+        truncationMode: string;
+        setTruncationMode(_: string): any;
+        isWrapped: boolean;
+        setWrapped(_: boolean): any;
+    }
+    class CATiledLayer extends CALayer {
+        static fadeDuration(): number;
+        levelsOfDetail: number;
+        setLevelsOfDetail(_: number): any;
+        levelsOfDetailBias: number;
+        setLevelsOfDetailBias(_: number): any;
+        tileSize: CGSize;
+        setTileSize(_: CGSize): any;
+    }
+    class CATransaction extends NSObject {
+        static animationDuration(): number;
+        static animationTimingFunction(): CAMediaTimingFunction;
+        static begin(): void;
+        static commit(): void;
+        static completionBlock(): () => void;
+        static disableActions(): boolean;
+        static flush(): void;
+        static lock(): void;
+        static setAnimationDuration(_: number): void;
+        static setAnimationTimingFunction(_?: CAMediaTimingFunction): void;
+        static setCompletionBlock(_?: () => void): void;
+        static setDisableActions(_: boolean): void;
+        static setValueForKey(_?: any, forKey?: string): void;
+        static unlock(): void;
+        static valueForKey(forKey: string): any;
+    }
+    class CATransformLayer extends CALayer {
+    }
+    class CATransition extends CAAnimation {
+        endProgress: number;
+        setEndProgress(_: number): any;
+        filter: any;
+        setFilter(_: any): any;
+        startProgress: number;
+        setStartProgress(_: number): any;
+        subtype: string;
+        setSubtype(_: string): any;
+        type: string;
+        setType(_: string): any;
+    }
+    class CAValueFunction extends NSObject {
+        name: string;
     }
     namespace AE {
         enum AEDataModel {
         }
     }
+    namespace AVAssetExportSession {
+        enum Status {
+            Unknown = 0,
+            Waiting = 1,
+            Exporting = 2,
+            Completed = 3,
+            Failed = 4,
+            Cancelled = 5
+        }
+    }
+    namespace AVAssetImageGenerator {
+        enum Result {
+            Succeeded = 0,
+            Failed = 1,
+            Cancelled = 2
+        }
+        let cleanAperture: string;
+        let encodedPixels: string;
+        let productionAperture: string;
+    }
+    namespace AVAssetReader {
+        enum Status {
+            Unknown = 0,
+            Reading = 1,
+            Completed = 2,
+            Failed = 3,
+            Cancelled = 4
+        }
+    }
+    namespace AVAssetTrack {
+        let audioFallback: string;
+        let chapterList: string;
+        let forcedSubtitlesOnly: string;
+        let metadataReferent: string;
+        let selectionFollower: string;
+        let timecode: string;
+    }
+    namespace AVAssetWriter {
+        enum Status {
+            Unknown = 0,
+            Writing = 1,
+            Completed = 2,
+            Failed = 3,
+            Cancelled = 4
+        }
+    }
+    namespace AVAssetWriterInput {
+        let beforeMainMediaDataNotInterleaved: string;
+        let interleavedWithMainMediaData: string;
+    }
+    namespace AVAudioSession {
+        enum CategoryOptions {
+            MixWithOthers = 1,
+            DuckOthers = 2,
+            AllowBluetooth = 4,
+            DefaultToSpeaker = 8,
+            InterruptSpokenAudioAndMixWithOthers = 17,
+            AllowBluetoothA2DP = 32,
+            AllowAirPlay = 64
+        }
+        enum IOType {
+            NotSpecified = 0,
+            Aggregated = 1
+        }
+        enum InterruptionOptions {
+            ShouldResume = 1
+        }
+        enum InterruptionType {
+            Began = 1,
+            Ended = 0
+        }
+        enum PortOverride {
+            None = 0,
+            Speaker = 1936747378
+        }
+        enum PromptStyle {
+            None = 1852796517,
+            Short = 1936224884,
+            Normal = 1852992876
+        }
+        enum RecordPermission {
+            Undetermined = 1970168948,
+            Denied = 1684369017,
+            Granted = 1735552628
+        }
+        enum RouteChangeReason {
+            Unknown = 0,
+            NewDeviceAvailable = 1,
+            OldDeviceUnavailable = 2,
+            CategoryChange = 3,
+            Override = 4,
+            WakeFromSleep = 6,
+            NoSuitableRouteForCategory = 7,
+            RouteConfigurationChange = 8
+        }
+        enum RouteSharingPolicy {
+            Default = 0,
+            LongFormAudio = 1,
+            LongForm = 1,
+            Independent = 2,
+            LongFormVideo = 3
+        }
+        enum SetActiveOptions {
+            NotifyOthersOnDeactivation = 1
+        }
+        enum SilenceSecondaryAudioHintType {
+            Begin = 1,
+            End = 0
+        }
+        let ambient: string;
+        let audioProcessing: string;
+        let multiRoute: string;
+        let playAndRecord: string;
+        let playback: string;
+        let record: string;
+        let soloAmbient: string;
+        let interruptionNotification: string;
+        let lower: string;
+        let upper: string;
+        let mediaServicesWereLostNotification: string;
+        let mediaServicesWereResetNotification: string;
+        let default_: string;
+        let gameChat: string;
+        let measurement: string;
+        let moviePlayback: string;
+        let spokenAudio: string;
+        let videoChat: string;
+        let videoRecording: string;
+        let voiceChat: string;
+        let voicePrompt: string;
+        let back: string;
+        let bottom: string;
+        let front: string;
+        let left: string;
+        let right: string;
+        let top: string;
+        let cardioid: string;
+        let omnidirectional: string;
+        let subcardioid: string;
+        let airPlay: string;
+        let bluetoothA2DP: string;
+        let bluetoothHFP: string;
+        let bluetoothLE: string;
+        let builtInMic: string;
+        let builtInReceiver: string;
+        let builtInSpeaker: string;
+        let carAudio: string;
+        let HDMI: string;
+        let headphones: string;
+        let headsetMic: string;
+        let lineIn: string;
+        let lineOut: string;
+        let usbAudio: string;
+        let routeChangeNotification: string;
+        let silenceSecondaryAudioHintNotification: string;
+    }
+    namespace AVAudioTimePitchAlgorithm {
+        let lowQualityZeroLatency: string;
+        let spectral: string;
+        let timeDomain: string;
+        let varispeed: string;
+    }
+    namespace AVAudioUnitComponentManager {
+        let registrationsChangedNotification: string;
+    }
+    namespace AVCaptureDevice {
+        enum AutoFocusRangeRestriction {
+            None = 0,
+            Near = 1,
+            Far = 2
+        }
+        enum Position {
+            Unspecified = 0,
+            Back = 1,
+            Front = 2
+        }
+        enum TransportControlsPlaybackMode {
+            NotPlayingMode = 0,
+            PlayingMode = 1
+        }
+        enum ExposureMode {
+            Locked = 0,
+            AutoExpose = 1,
+            ContinuousAutoExposure = 2,
+            Custom = 3
+        }
+        enum FlashMode {
+            Off = 0,
+            On = 1,
+            Auto = 2
+        }
+        enum FocusMode {
+            Locked = 0,
+            AutoFocus = 1,
+            ContinuousAutoFocus = 2
+        }
+        enum LensStabilizationStatus {
+            Unsupported = 0,
+            Off = 1,
+            Active = 2,
+            OutOfRange = 3,
+            Unavailable = 4
+        }
+        enum TorchMode {
+            Off = 0,
+            On = 1,
+            Auto = 2
+        }
+        enum WhiteBalanceMode {
+            Locked = 0,
+            AutoWhiteBalance = 1,
+            ContinuousAutoWhiteBalance = 2
+        }
+        let builtInDualCamera: string;
+        let builtInDualWideCamera: string;
+        let builtInDuoCamera: string;
+        let builtInMicrophone: string;
+        let builtInTelephotoCamera: string;
+        let builtInTripleCamera: string;
+        let builtInTrueDepthCamera: string;
+        let builtInUltraWideCamera: string;
+        let builtInWideAngleCamera: string;
+        let externalUnknown: string;
+        let currentExposureDuration: CMTime;
+        let currentExposureTargetBias: number;
+        let currentISO: number;
+        let currentLensPosition: number;
+        let maxAvailableTorchLevel: number;
+    }
+    namespace AVCaptureOutput {
+        enum DataDroppedReason {
+            None = 0,
+            LateData = 1,
+            OutOfBuffers = 2,
+            Discontinuity = 3
+        }
+    }
+    namespace AVCapturePhotoOutput {
+        enum QualityPrioritization {
+            Speed = 1,
+            Balanced = 2,
+            Quality = 3
+        }
+    }
+    namespace AVCaptureSession {
+        enum InterruptionReason {
+            VideoDeviceNotAvailableInBackground = 1,
+            AudioDeviceInUseByAnotherClient = 2,
+            VideoDeviceInUseByAnotherClient = 3,
+            VideoDeviceNotAvailableWithMultipleForegroundApps = 4,
+            VideoDeviceNotAvailableDueToSystemPressure = 5
+        }
+        let hd1280x720: string;
+        let hd1920x1080: string;
+        let qvga320x240: string;
+        let cif352x288: string;
+        let hd4K3840x2160: string;
+        let vga640x480: string;
+        let qHD960x540: string;
+        let high: string;
+        let inputPriority: string;
+        let low: string;
+        let medium: string;
+        let photo: string;
+        let iFrame1280x720: string;
+        let iFrame960x540: string;
+    }
+    namespace AVContentKeyRequest {
+        enum Status {
+            RequestingResponse = 0,
+            ReceivedResponse = 1,
+            Renewed = 2,
+            Retried = 3,
+            Cancelled = 4,
+            Failed = 5
+        }
+        let receivedObsoleteContentKey: string;
+        let receivedResponseWithExpiredLease: string;
+        let timedOut: string;
+    }
+    namespace AVContentKeySessionServerPlaybackContextOption {
+        let protocolVersions: string;
+        let serverChallenge: string;
+    }
+    namespace AVContentKeySystem {
+        let authorizationToken: string;
+        let clearKey: string;
+        let fairPlayStreaming: string;
+    }
+    namespace AVDepthData {
+        enum Accuracy {
+            Relative = 0,
+            Absolute = 1
+        }
+        enum Quality {
+            Low = 0,
+            High = 1
+        }
+    }
+    namespace AVFileType {
+        let mobile3GPP: string;
+        let mobile3GPP2: string;
+        let ac3: string;
+        let aifc: string;
+        let aiff: string;
+        let amr: string;
+        let avci: string;
+        let m4a: string;
+        let m4v: string;
+        let caf: string;
+        let dng: string;
+        let eac3: string;
+        let heic: string;
+        let heif: string;
+        let jpg: string;
+        let mp4: string;
+        let mp3: string;
+        let mov: string;
+        let au: string;
+        let tif: string;
+        let wav: string;
+    }
+    namespace AVLayerVideoGravity {
+        let resize: string;
+        let resizeAspect: string;
+        let resizeAspectFill: string;
+    }
+    namespace AVMediaCharacteristic {
+        let audible: string;
+        let containsAlphaChannel: string;
+        let containsOnlyForcedSubtitles: string;
+        let describesMusicAndSoundForAccessibility: string;
+        let describesVideoForAccessibility: string;
+        let dubbedTranslation: string;
+        let easyToRead: string;
+        let frameBased: string;
+        let isAuxiliaryContent: string;
+        let isMainProgramContent: string;
+        let isOriginalContent: string;
+        let languageTranslation: string;
+        let legible: string;
+        let transcribesSpokenDialogForAccessibility: string;
+        let usesWideGamutColorSpace: string;
+        let visual: string;
+        let voiceOverTranslation: string;
+    }
+    namespace AVMediaType {
+        let audio: string;
+        let closedCaption: string;
+        let depthData: string;
+        let metadata: string;
+        let metadataObject: string;
+        let muxed: string;
+        let subtitle: string;
+        let text: string;
+        let timecode: string;
+        let video: string;
+    }
+    namespace AVMetadataExtraAttributeKey {
+        let baseURI: string;
+        let info: string;
+        let valueURI: string;
+    }
+    namespace AVMetadataFormat {
+        let hlsMetadata: string;
+        let id3Metadata: string;
+        let isoUserData: string;
+        let quickTimeMetadata: string;
+        let quickTimeUserData: string;
+        let unknown: string;
+        let iTunesMetadata: string;
+    }
+    namespace AVMetadataIdentifier {
+        let commonIdentifierAlbumName: string;
+        let commonIdentifierArtist: string;
+        let commonIdentifierArtwork: string;
+        let commonIdentifierAssetIdentifier: string;
+        let commonIdentifierAuthor: string;
+        let commonIdentifierContributor: string;
+        let commonIdentifierCopyrights: string;
+        let commonIdentifierCreationDate: string;
+        let commonIdentifierCreator: string;
+        let commonIdentifierDescription: string;
+        let commonIdentifierFormat: string;
+        let commonIdentifierLanguage: string;
+        let commonIdentifierLastModifiedDate: string;
+        let commonIdentifierLocation: string;
+        let commonIdentifierMake: string;
+        let commonIdentifierModel: string;
+        let commonIdentifierPublisher: string;
+        let commonIdentifierRelation: string;
+        let commonIdentifierSoftware: string;
+        let commonIdentifierSource: string;
+        let commonIdentifierSubject: string;
+        let commonIdentifierTitle: string;
+        let commonIdentifierType: string;
+        let identifier3GPUserDataAlbumAndTrack: string;
+        let identifier3GPUserDataAuthor: string;
+        let identifier3GPUserDataCollection: string;
+        let identifier3GPUserDataCopyright: string;
+        let identifier3GPUserDataDescription: string;
+        let identifier3GPUserDataGenre: string;
+        let identifier3GPUserDataKeywordList: string;
+        let identifier3GPUserDataLocation: string;
+        let identifier3GPUserDataMediaClassification: string;
+        let identifier3GPUserDataMediaRating: string;
+        let identifier3GPUserDataPerformer: string;
+        let identifier3GPUserDataRecordingYear: string;
+        let identifier3GPUserDataThumbnail: string;
+        let identifier3GPUserDataTitle: string;
+        let identifier3GPUserDataUserRating: string;
+        let id3MetadataAlbumSortOrder: string;
+        let id3MetadataAlbumTitle: string;
+        let id3MetadataAttachedPicture: string;
+        let id3MetadataAudioEncryption: string;
+        let id3MetadataAudioSeekPointIndex: string;
+        let id3MetadataBand: string;
+        let id3MetadataBeatsPerMinute: string;
+        let id3MetadataComments: string;
+        let id3MetadataCommercial: string;
+        let id3MetadataCommercialInformation: string;
+        let id3MetadataComposer: string;
+        let id3MetadataConductor: string;
+        let id3MetadataContentGroupDescription: string;
+        let id3MetadataContentType: string;
+        let id3MetadataCopyright: string;
+        let id3MetadataCopyrightInformation: string;
+        let id3MetadataDate: string;
+        let id3MetadataEncodedBy: string;
+        let id3MetadataEncodedWith: string;
+        let id3MetadataEncodingTime: string;
+        let id3MetadataEncryption: string;
+        let id3MetadataEqualization: string;
+        let id3MetadataEqualization2: string;
+        let id3MetadataEventTimingCodes: string;
+        let id3MetadataFileOwner: string;
+        let id3MetadataFileType: string;
+        let id3MetadataGeneralEncapsulatedObject: string;
+        let id3MetadataGroupIdentifier: string;
+        let id3MetadataInitialKey: string;
+        let id3MetadataInternationalStandardRecordingCode: string;
+        let id3MetadataInternetRadioStationName: string;
+        let id3MetadataInternetRadioStationOwner: string;
+        let id3MetadataInvolvedPeopleList_v23: string;
+        let id3MetadataInvolvedPeopleList_v24: string;
+        let id3MetadataLanguage: string;
+        let id3MetadataLeadPerformer: string;
+        let id3MetadataLength: string;
+        let id3MetadataLink: string;
+        let id3MetadataLyricist: string;
+        let id3MetadataMPEGLocationLookupTable: string;
+        let id3MetadataMediaType: string;
+        let id3MetadataModifiedBy: string;
+        let id3MetadataMood: string;
+        let id3MetadataMusicCDIdentifier: string;
+        let id3MetadataMusicianCreditsList: string;
+        let id3MetadataOfficialArtistWebpage: string;
+        let id3MetadataOfficialAudioFileWebpage: string;
+        let id3MetadataOfficialAudioSourceWebpage: string;
+        let id3MetadataOfficialInternetRadioStationHomepage: string;
+        let id3MetadataOfficialPublisherWebpage: string;
+        let id3MetadataOriginalAlbumTitle: string;
+        let id3MetadataOriginalArtist: string;
+        let id3MetadataOriginalFilename: string;
+        let id3MetadataOriginalLyricist: string;
+        let id3MetadataOriginalReleaseTime: string;
+        let id3MetadataOriginalReleaseYear: string;
+        let id3MetadataOwnership: string;
+        let id3MetadataPartOfASet: string;
+        let id3MetadataPayment: string;
+        let id3MetadataPerformerSortOrder: string;
+        let id3MetadataPlayCounter: string;
+        let id3MetadataPlaylistDelay: string;
+        let id3MetadataPopularimeter: string;
+        let id3MetadataPositionSynchronization: string;
+        let id3MetadataPrivate: string;
+        let id3MetadataProducedNotice: string;
+        let id3MetadataPublisher: string;
+        let id3MetadataRecommendedBufferSize: string;
+        let id3MetadataRecordingDates: string;
+        let id3MetadataRecordingTime: string;
+        let id3MetadataRelativeVolumeAdjustment: string;
+        let id3MetadataRelativeVolumeAdjustment2: string;
+        let id3MetadataReleaseTime: string;
+        let id3MetadataReverb: string;
+        let id3MetadataSeek: string;
+        let id3MetadataSetSubtitle: string;
+        let id3MetadataSignature: string;
+        let id3MetadataSize: string;
+        let id3MetadataSubTitle: string;
+        let id3MetadataSynchronizedLyric: string;
+        let id3MetadataSynchronizedTempoCodes: string;
+        let id3MetadataTaggingTime: string;
+        let id3MetadataTermsOfUse: string;
+        let id3MetadataTime: string;
+        let id3MetadataTitleDescription: string;
+        let id3MetadataTitleSortOrder: string;
+        let id3MetadataTrackNumber: string;
+        let id3MetadataUniqueFileIdentifier: string;
+        let id3MetadataUnsynchronizedLyric: string;
+        let id3MetadataUserText: string;
+        let id3MetadataUserURL: string;
+        let id3MetadataYear: string;
+        let isoUserDataCopyright: string;
+        let isoUserDataDate: string;
+        let isoUserDataTaggedCharacteristic: string;
+        let icyMetadataStreamTitle: string;
+        let icyMetadataStreamURL: string;
+        let quickTimeMetadataAlbum: string;
+        let quickTimeMetadataArranger: string;
+        let quickTimeMetadataArtist: string;
+        let quickTimeMetadataArtwork: string;
+        let quickTimeMetadataAuthor: string;
+        let quickTimeMetadataAutoLivePhoto: string;
+        let quickTimeMetadataCameraFrameReadoutTime: string;
+        let quickTimeMetadataCameraIdentifier: string;
+        let quickTimeMetadataCollectionUser: string;
+        let quickTimeMetadataComment: string;
+        let quickTimeMetadataComposer: string;
+        let quickTimeMetadataContentIdentifier: string;
+        let quickTimeMetadataCopyright: string;
+        let quickTimeMetadataCreationDate: string;
+        let quickTimeMetadataCredits: string;
+        let quickTimeMetadataDescription: string;
+        let quickTimeMetadataDetectedCatBody: string;
+        let quickTimeMetadataDetectedDogBody: string;
+        let quickTimeMetadataDetectedFace: string;
+        let quickTimeMetadataDetectedHumanBody: string;
+        let quickTimeMetadataDetectedSalientObject: string;
+        let quickTimeMetadataDirectionFacing: string;
+        let quickTimeMetadataDirectionMotion: string;
+        let quickTimeMetadataDirector: string;
+        let quickTimeMetadataDisplayName: string;
+        let quickTimeMetadataEncodedBy: string;
+        let quickTimeMetadataGenre: string;
+        let quickTimeMetadataInformation: string;
+        let quickTimeMetadataKeywords: string;
+        let quickTimeMetadataLivePhotoVitalityScore: string;
+        let quickTimeMetadataLivePhotoVitalityScoringVersion: string;
+        let quickTimeMetadataLocationBody: string;
+        let quickTimeMetadataLocationDate: string;
+        let quickTimeMetadataLocationISO6709: string;
+        let quickTimeMetadataLocationName: string;
+        let quickTimeMetadataLocationNote: string;
+        let quickTimeMetadataLocationRole: string;
+        let quickTimeMetadataMake: string;
+        let quickTimeMetadataModel: string;
+        let quickTimeMetadataOriginalArtist: string;
+        let quickTimeMetadataPerformer: string;
+        let quickTimeMetadataPhonogramRights: string;
+        let quickTimeMetadataPreferredAffineTransform: string;
+        let quickTimeMetadataProducer: string;
+        let quickTimeMetadataPublisher: string;
+        let quickTimeMetadataRatingUser: string;
+        let quickTimeMetadataSoftware: string;
+        let quickTimeMetadataSpatialOverCaptureQualityScore: string;
+        let quickTimeMetadataSpatialOverCaptureQualityScoringVersion: string;
+        let quickTimeMetadataTitle: string;
+        let quickTimeMetadataVideoOrientation: string;
+        let quickTimeMetadataYear: string;
+        let quickTimeMetadataiXML: string;
+        let quickTimeUserDataAlbum: string;
+        let quickTimeUserDataArranger: string;
+        let quickTimeUserDataArtist: string;
+        let quickTimeUserDataAuthor: string;
+        let quickTimeUserDataChapter: string;
+        let quickTimeUserDataComment: string;
+        let quickTimeUserDataComposer: string;
+        let quickTimeUserDataCopyright: string;
+        let quickTimeUserDataCreationDate: string;
+        let quickTimeUserDataCredits: string;
+        let quickTimeUserDataDescription: string;
+        let quickTimeUserDataDirector: string;
+        let quickTimeUserDataDisclaimer: string;
+        let quickTimeUserDataEncodedBy: string;
+        let quickTimeUserDataFullName: string;
+        let quickTimeUserDataGenre: string;
+        let quickTimeUserDataHostComputer: string;
+        let quickTimeUserDataInformation: string;
+        let quickTimeUserDataKeywords: string;
+        let quickTimeUserDataLocationISO6709: string;
+        let quickTimeUserDataMake: string;
+        let quickTimeUserDataModel: string;
+        let quickTimeUserDataOriginalArtist: string;
+        let quickTimeUserDataOriginalFormat: string;
+        let quickTimeUserDataOriginalSource: string;
+        let quickTimeUserDataPerformers: string;
+        let quickTimeUserDataPhonogramRights: string;
+        let quickTimeUserDataProducer: string;
+        let quickTimeUserDataProduct: string;
+        let quickTimeUserDataPublisher: string;
+        let quickTimeUserDataSoftware: string;
+        let quickTimeUserDataSpecialPlaybackRequirements: string;
+        let quickTimeUserDataTaggedCharacteristic: string;
+        let quickTimeUserDataTrack: string;
+        let quickTimeUserDataTrackName: string;
+        let quickTimeUserDataURLLink: string;
+        let quickTimeUserDataWarning: string;
+        let quickTimeUserDataWriter: string;
+        let iTunesMetadataAccountKind: string;
+        let iTunesMetadataAcknowledgement: string;
+        let iTunesMetadataAlbum: string;
+        let iTunesMetadataAlbumArtist: string;
+        let iTunesMetadataAppleID: string;
+        let iTunesMetadataArranger: string;
+        let iTunesMetadataArtDirector: string;
+        let iTunesMetadataArtist: string;
+        let iTunesMetadataArtistID: string;
+        let iTunesMetadataAuthor: string;
+        let iTunesMetadataBeatsPerMin: string;
+        let iTunesMetadataComposer: string;
+        let iTunesMetadataConductor: string;
+        let iTunesMetadataContentRating: string;
+        let iTunesMetadataCopyright: string;
+        let iTunesMetadataCoverArt: string;
+        let iTunesMetadataCredits: string;
+        let iTunesMetadataDescription: string;
+        let iTunesMetadataDirector: string;
+        let iTunesMetadataDiscCompilation: string;
+        let iTunesMetadataDiscNumber: string;
+        let iTunesMetadataEQ: string;
+        let iTunesMetadataEncodedBy: string;
+        let iTunesMetadataEncodingTool: string;
+        let iTunesMetadataExecProducer: string;
+        let iTunesMetadataGenreID: string;
+        let iTunesMetadataGrouping: string;
+        let iTunesMetadataLinerNotes: string;
+        let iTunesMetadataLyrics: string;
+        let iTunesMetadataOnlineExtras: string;
+        let iTunesMetadataOriginalArtist: string;
+        let iTunesMetadataPerformer: string;
+        let iTunesMetadataPhonogramRights: string;
+        let iTunesMetadataPlaylistID: string;
+        let iTunesMetadataPredefinedGenre: string;
+        let iTunesMetadataProducer: string;
+        let iTunesMetadataPublisher: string;
+        let iTunesMetadataRecordCompany: string;
+        let iTunesMetadataReleaseDate: string;
+        let iTunesMetadataSoloist: string;
+        let iTunesMetadataSongID: string;
+        let iTunesMetadataSongName: string;
+        let iTunesMetadataSoundEngineer: string;
+        let iTunesMetadataThanks: string;
+        let iTunesMetadataTrackNumber: string;
+        let iTunesMetadataTrackSubTitle: string;
+        let iTunesMetadataUserComment: string;
+        let iTunesMetadataUserGenre: string;
+    }
+    namespace AVMetadataKey {
+        let metadata3GPUserDataKeyAlbumAndTrack: string;
+        let metadata3GPUserDataKeyAuthor: string;
+        let metadata3GPUserDataKeyCollection: string;
+        let metadata3GPUserDataKeyCopyright: string;
+        let metadata3GPUserDataKeyDescription: string;
+        let metadata3GPUserDataKeyGenre: string;
+        let metadata3GPUserDataKeyKeywordList: string;
+        let metadata3GPUserDataKeyLocation: string;
+        let metadata3GPUserDataKeyMediaClassification: string;
+        let metadata3GPUserDataKeyMediaRating: string;
+        let metadata3GPUserDataKeyPerformer: string;
+        let metadata3GPUserDataKeyRecordingYear: string;
+        let metadata3GPUserDataKeyThumbnail: string;
+        let metadata3GPUserDataKeyTitle: string;
+        let metadata3GPUserDataKeyUserRating: string;
+        let commonKeyAlbumName: string;
+        let commonKeyArtist: string;
+        let commonKeyArtwork: string;
+        let commonKeyAuthor: string;
+        let commonKeyContributor: string;
+        let commonKeyCopyrights: string;
+        let commonKeyCreationDate: string;
+        let commonKeyCreator: string;
+        let commonKeyDescription: string;
+        let commonKeyFormat: string;
+        let commonKeyIdentifier: string;
+        let commonKeyLanguage: string;
+        let commonKeyLastModifiedDate: string;
+        let commonKeyLocation: string;
+        let commonKeyMake: string;
+        let commonKeyModel: string;
+        let commonKeyPublisher: string;
+        let commonKeyRelation: string;
+        let commonKeySoftware: string;
+        let commonKeySource: string;
+        let commonKeySubject: string;
+        let commonKeyTitle: string;
+        let commonKeyType: string;
+        let id3MetadataKeyAlbumSortOrder: string;
+        let id3MetadataKeyAlbumTitle: string;
+        let id3MetadataKeyAttachedPicture: string;
+        let id3MetadataKeyAudioEncryption: string;
+        let id3MetadataKeyAudioSeekPointIndex: string;
+        let id3MetadataKeyBand: string;
+        let id3MetadataKeyBeatsPerMinute: string;
+        let id3MetadataKeyComments: string;
+        let id3MetadataKeyCommercial: string;
+        let id3MetadataKeyCommercialInformation: string;
+        let id3MetadataKeyComposer: string;
+        let id3MetadataKeyConductor: string;
+        let id3MetadataKeyContentGroupDescription: string;
+        let id3MetadataKeyContentType: string;
+        let id3MetadataKeyCopyright: string;
+        let id3MetadataKeyCopyrightInformation: string;
+        let id3MetadataKeyDate: string;
+        let id3MetadataKeyEncodedBy: string;
+        let id3MetadataKeyEncodedWith: string;
+        let id3MetadataKeyEncodingTime: string;
+        let id3MetadataKeyEncryption: string;
+        let id3MetadataKeyEqualization: string;
+        let id3MetadataKeyEqualization2: string;
+        let id3MetadataKeyEventTimingCodes: string;
+        let id3MetadataKeyFileOwner: string;
+        let id3MetadataKeyFileType: string;
+        let id3MetadataKeyGeneralEncapsulatedObject: string;
+        let id3MetadataKeyGroupIdentifier: string;
+        let id3MetadataKeyInitialKey: string;
+        let id3MetadataKeyInternationalStandardRecordingCode: string;
+        let id3MetadataKeyInternetRadioStationName: string;
+        let id3MetadataKeyInternetRadioStationOwner: string;
+        let id3MetadataKeyInvolvedPeopleList_v23: string;
+        let id3MetadataKeyInvolvedPeopleList_v24: string;
+        let id3MetadataKeyLanguage: string;
+        let id3MetadataKeyLeadPerformer: string;
+        let id3MetadataKeyLength: string;
+        let id3MetadataKeyLink: string;
+        let id3MetadataKeyLyricist: string;
+        let id3MetadataKeyMPEGLocationLookupTable: string;
+        let id3MetadataKeyMediaType: string;
+        let id3MetadataKeyModifiedBy: string;
+        let id3MetadataKeyMood: string;
+        let id3MetadataKeyMusicCDIdentifier: string;
+        let id3MetadataKeyMusicianCreditsList: string;
+        let id3MetadataKeyOfficialArtistWebpage: string;
+        let id3MetadataKeyOfficialAudioFileWebpage: string;
+        let id3MetadataKeyOfficialAudioSourceWebpage: string;
+        let id3MetadataKeyOfficialInternetRadioStationHomepage: string;
+        let id3MetadataKeyOfficialPublisherWebpage: string;
+        let id3MetadataKeyOriginalAlbumTitle: string;
+        let id3MetadataKeyOriginalArtist: string;
+        let id3MetadataKeyOriginalFilename: string;
+        let id3MetadataKeyOriginalLyricist: string;
+        let id3MetadataKeyOriginalReleaseTime: string;
+        let id3MetadataKeyOriginalReleaseYear: string;
+        let id3MetadataKeyOwnership: string;
+        let id3MetadataKeyPartOfASet: string;
+        let id3MetadataKeyPayment: string;
+        let id3MetadataKeyPerformerSortOrder: string;
+        let id3MetadataKeyPlayCounter: string;
+        let id3MetadataKeyPlaylistDelay: string;
+        let id3MetadataKeyPopularimeter: string;
+        let id3MetadataKeyPositionSynchronization: string;
+        let id3MetadataKeyPrivate: string;
+        let id3MetadataKeyProducedNotice: string;
+        let id3MetadataKeyPublisher: string;
+        let id3MetadataKeyRecommendedBufferSize: string;
+        let id3MetadataKeyRecordingDates: string;
+        let id3MetadataKeyRecordingTime: string;
+        let id3MetadataKeyRelativeVolumeAdjustment: string;
+        let id3MetadataKeyRelativeVolumeAdjustment2: string;
+        let id3MetadataKeyReleaseTime: string;
+        let id3MetadataKeyReverb: string;
+        let id3MetadataKeySeek: string;
+        let id3MetadataKeySetSubtitle: string;
+        let id3MetadataKeySignature: string;
+        let id3MetadataKeySize: string;
+        let id3MetadataKeySubTitle: string;
+        let id3MetadataKeySynchronizedLyric: string;
+        let id3MetadataKeySynchronizedTempoCodes: string;
+        let id3MetadataKeyTaggingTime: string;
+        let id3MetadataKeyTermsOfUse: string;
+        let id3MetadataKeyTime: string;
+        let id3MetadataKeyTitleDescription: string;
+        let id3MetadataKeyTitleSortOrder: string;
+        let id3MetadataKeyTrackNumber: string;
+        let id3MetadataKeyUniqueFileIdentifier: string;
+        let id3MetadataKeyUnsynchronizedLyric: string;
+        let id3MetadataKeyUserText: string;
+        let id3MetadataKeyUserURL: string;
+        let id3MetadataKeyYear: string;
+        let isoUserDataKeyCopyright: string;
+        let isoUserDataKeyDate: string;
+        let isoUserDataKeyTaggedCharacteristic: string;
+        let icyMetadataKeyStreamTitle: string;
+        let icyMetadataKeyStreamURL: string;
+        let quickTimeMetadataKeyAlbum: string;
+        let quickTimeMetadataKeyArranger: string;
+        let quickTimeMetadataKeyArtist: string;
+        let quickTimeMetadataKeyArtwork: string;
+        let quickTimeMetadataKeyAuthor: string;
+        let quickTimeMetadataKeyCameraFrameReadoutTime: string;
+        let quickTimeMetadataKeyCameraIdentifier: string;
+        let quickTimeMetadataKeyCollectionUser: string;
+        let quickTimeMetadataKeyComment: string;
+        let quickTimeMetadataKeyComposer: string;
+        let quickTimeMetadataKeyContentIdentifier: string;
+        let quickTimeMetadataKeyCopyright: string;
+        let quickTimeMetadataKeyCreationDate: string;
+        let quickTimeMetadataKeyCredits: string;
+        let quickTimeMetadataKeyDescription: string;
+        let quickTimeMetadataKeyDirectionFacing: string;
+        let quickTimeMetadataKeyDirectionMotion: string;
+        let quickTimeMetadataKeyDirector: string;
+        let quickTimeMetadataKeyDisplayName: string;
+        let quickTimeMetadataKeyEncodedBy: string;
+        let quickTimeMetadataKeyGenre: string;
+        let quickTimeMetadataKeyInformation: string;
+        let quickTimeMetadataKeyKeywords: string;
+        let quickTimeMetadataKeyLocationBody: string;
+        let quickTimeMetadataKeyLocationDate: string;
+        let quickTimeMetadataKeyLocationISO6709: string;
+        let quickTimeMetadataKeyLocationName: string;
+        let quickTimeMetadataKeyLocationNote: string;
+        let quickTimeMetadataKeyLocationRole: string;
+        let quickTimeMetadataKeyMake: string;
+        let quickTimeMetadataKeyModel: string;
+        let quickTimeMetadataKeyOriginalArtist: string;
+        let quickTimeMetadataKeyPerformer: string;
+        let quickTimeMetadataKeyPhonogramRights: string;
+        let quickTimeMetadataKeyProducer: string;
+        let quickTimeMetadataKeyPublisher: string;
+        let quickTimeMetadataKeyRatingUser: string;
+        let quickTimeMetadataKeySoftware: string;
+        let quickTimeMetadataKeyTitle: string;
+        let quickTimeMetadataKeyYear: string;
+        let quickTimeMetadataKeyiXML: string;
+        let quickTimeUserDataKeyAlbum: string;
+        let quickTimeUserDataKeyArranger: string;
+        let quickTimeUserDataKeyArtist: string;
+        let quickTimeUserDataKeyAuthor: string;
+        let quickTimeUserDataKeyChapter: string;
+        let quickTimeUserDataKeyComment: string;
+        let quickTimeUserDataKeyComposer: string;
+        let quickTimeUserDataKeyCopyright: string;
+        let quickTimeUserDataKeyCreationDate: string;
+        let quickTimeUserDataKeyCredits: string;
+        let quickTimeUserDataKeyDescription: string;
+        let quickTimeUserDataKeyDirector: string;
+        let quickTimeUserDataKeyDisclaimer: string;
+        let quickTimeUserDataKeyEncodedBy: string;
+        let quickTimeUserDataKeyFullName: string;
+        let quickTimeUserDataKeyGenre: string;
+        let quickTimeUserDataKeyHostComputer: string;
+        let quickTimeUserDataKeyInformation: string;
+        let quickTimeUserDataKeyKeywords: string;
+        let quickTimeUserDataKeyLocationISO6709: string;
+        let quickTimeUserDataKeyMake: string;
+        let quickTimeUserDataKeyModel: string;
+        let quickTimeUserDataKeyOriginalArtist: string;
+        let quickTimeUserDataKeyOriginalFormat: string;
+        let quickTimeUserDataKeyOriginalSource: string;
+        let quickTimeUserDataKeyPerformers: string;
+        let quickTimeUserDataKeyPhonogramRights: string;
+        let quickTimeUserDataKeyProducer: string;
+        let quickTimeUserDataKeyProduct: string;
+        let quickTimeUserDataKeyPublisher: string;
+        let quickTimeUserDataKeySoftware: string;
+        let quickTimeUserDataKeySpecialPlaybackRequirements: string;
+        let quickTimeUserDataKeyTaggedCharacteristic: string;
+        let quickTimeUserDataKeyTrack: string;
+        let quickTimeUserDataKeyTrackName: string;
+        let quickTimeUserDataKeyURLLink: string;
+        let quickTimeUserDataKeyWarning: string;
+        let quickTimeUserDataKeyWriter: string;
+        let iTunesMetadataKeyAccountKind: string;
+        let iTunesMetadataKeyAcknowledgement: string;
+        let iTunesMetadataKeyAlbum: string;
+        let iTunesMetadataKeyAlbumArtist: string;
+        let iTunesMetadataKeyAppleID: string;
+        let iTunesMetadataKeyArranger: string;
+        let iTunesMetadataKeyArtDirector: string;
+        let iTunesMetadataKeyArtist: string;
+        let iTunesMetadataKeyArtistID: string;
+        let iTunesMetadataKeyAuthor: string;
+        let iTunesMetadataKeyBeatsPerMin: string;
+        let iTunesMetadataKeyComposer: string;
+        let iTunesMetadataKeyConductor: string;
+        let iTunesMetadataKeyContentRating: string;
+        let iTunesMetadataKeyCopyright: string;
+        let iTunesMetadataKeyCoverArt: string;
+        let iTunesMetadataKeyCredits: string;
+        let iTunesMetadataKeyDescription: string;
+        let iTunesMetadataKeyDirector: string;
+        let iTunesMetadataKeyDiscCompilation: string;
+        let iTunesMetadataKeyDiscNumber: string;
+        let iTunesMetadataKeyEQ: string;
+        let iTunesMetadataKeyEncodedBy: string;
+        let iTunesMetadataKeyEncodingTool: string;
+        let iTunesMetadataKeyExecProducer: string;
+        let iTunesMetadataKeyGenreID: string;
+        let iTunesMetadataKeyGrouping: string;
+        let iTunesMetadataKeyLinerNotes: string;
+        let iTunesMetadataKeyLyrics: string;
+        let iTunesMetadataKeyOnlineExtras: string;
+        let iTunesMetadataKeyOriginalArtist: string;
+        let iTunesMetadataKeyPerformer: string;
+        let iTunesMetadataKeyPhonogramRights: string;
+        let iTunesMetadataKeyPlaylistID: string;
+        let iTunesMetadataKeyPredefinedGenre: string;
+        let iTunesMetadataKeyProducer: string;
+        let iTunesMetadataKeyPublisher: string;
+        let iTunesMetadataKeyRecordCompany: string;
+        let iTunesMetadataKeyReleaseDate: string;
+        let iTunesMetadataKeySoloist: string;
+        let iTunesMetadataKeySongID: string;
+        let iTunesMetadataKeySongName: string;
+        let iTunesMetadataKeySoundEngineer: string;
+        let iTunesMetadataKeyThanks: string;
+        let iTunesMetadataKeyTrackNumber: string;
+        let iTunesMetadataKeyTrackSubTitle: string;
+        let iTunesMetadataKeyUserComment: string;
+        let iTunesMetadataKeyUserGenre: string;
+    }
+    namespace AVMetadataKeySpace {
+        let audioFile: string;
+        let common: string;
+        let hlsDateRange: string;
+        let id3: string;
+        let isoUserData: string;
+        let icy: string;
+        let quickTimeMetadata: string;
+        let quickTimeUserData: string;
+        let iTunes: string;
+    }
+    namespace AVMetadataObject {
+        let aztec: string;
+        let catBody: string;
+        let code128: string;
+        let code39: string;
+        let code39Mod43: string;
+        let code93: string;
+        let dataMatrix: string;
+        let dogBody: string;
+        let ean13: string;
+        let ean8: string;
+        let face: string;
+        let humanBody: string;
+        let itf14: string;
+        let interleaved2of5: string;
+        let pdf417: string;
+        let qr: string;
+        let salientObject: string;
+        let upce: string;
+    }
+    namespace AVOutputSettingsPreset {
+        let preset1280x720: string;
+        let preset1920x1080: string;
+        let preset3840x2160: string;
+        let preset640x480: string;
+        let preset960x540: string;
+        let hevc1920x1080: string;
+        let hevc1920x1080WithAlpha: string;
+        let hevc3840x2160: string;
+        let hevc3840x2160WithAlpha: string;
+    }
+    namespace AVPlayer {
+        enum ActionAtItemEnd {
+            Advance = 0,
+            Pause = 1,
+            None = 2
+        }
+        enum HDRMode {
+            HLG = 1,
+            HDR10 = 2,
+            DolbyVision = 4
+        }
+        enum Status {
+            Unknown = 0,
+            ReadyToPlay = 1,
+            Failed = 2
+        }
+        enum TimeControlStatus {
+            Paused = 0,
+            WaitingToPlayAtSpecifiedRate = 1,
+            Playing = 2
+        }
+        let eligibleForHDRPlaybackDidChangeNotification: string;
+        let toMinimizeStalls: string;
+        let evaluatingBufferingRate: string;
+        let noItemToPlay: string;
+    }
+    namespace AVPlayerItem {
+        enum Status {
+            Unknown = 0,
+            ReadyToPlay = 1,
+            Failed = 2
+        }
+        let mediaSelectionDidChangeNotification: string;
+        let recommendedTimeOffsetFromLiveDidChangeNotification: string;
+    }
+    namespace AVPlayerItemLegibleOutput {
+        let default_: string;
+        let sourceAndRulesOnly: string;
+    }
+    namespace AVPlayerLooper {
+        enum Status {
+            Unknown = 0,
+            Ready = 1,
+            Failed = 2,
+            Cancelled = 3
+        }
+    }
+    namespace AVSampleBufferRenderSynchronizer {
+        let rateDidChangeNotification: string;
+    }
+    namespace AVSampleBufferRequest {
+        enum Direction {
+            Forward = 1,
+            None = 0,
+            Reverse = -1
+        }
+        enum Mode {
+            Immediate = 0,
+            Scheduled = 1,
+            Opportunistic = 2
+        }
+    }
+    namespace AVSemanticSegmentationMatte {
+        let hair: string;
+        let skin: string;
+        let teeth: string;
+    }
+    namespace AVVideoApertureMode {
+        let cleanAperture: string;
+        let encodedPixels: string;
+        let productionAperture: string;
+    }
+    namespace AVVideoCodecType {
+        let proRes422: string;
+        let proRes422HQ: string;
+        let proRes422LT: string;
+        let proRes422Proxy: string;
+        let proRes4444: string;
+        let h264: string;
+        let hevc: string;
+        let hevcWithAlpha: string;
+        let jpeg: string;
+    }
     namespace Bundle {
+        let didLoadNotification: string;
     }
     namespace ByteCountFormatter {
         enum CountStyle {
@@ -12836,19 +19159,470 @@ declare global {
             UseAll = 65535
         }
     }
+    namespace CAAnimationCalculationMode {
+        let cubic: string;
+        let cubicPaced: string;
+        let discrete: string;
+        let linear: string;
+        let paced: string;
+    }
+    namespace CAAnimationRotationMode {
+        let rotateAuto: string;
+        let rotateAutoReverse: string;
+    }
+    namespace CAEmitterLayerEmitterMode {
+        let outline: string;
+        let points: string;
+        let surface: string;
+        let volume: string;
+    }
+    namespace CAEmitterLayerEmitterShape {
+        let circle: string;
+        let cuboid: string;
+        let line: string;
+        let point: string;
+        let rectangle: string;
+        let sphere: string;
+    }
+    namespace CAEmitterLayerRenderMode {
+        let additive: string;
+        let backToFront: string;
+        let oldestFirst: string;
+        let oldestLast: string;
+        let unordered: string;
+    }
+    namespace CAGradientLayerType {
+        let axial: string;
+        let conic: string;
+        let radial: string;
+    }
+    namespace CALayerContentsFilter {
+        let linear: string;
+        let nearest: string;
+        let trilinear: string;
+    }
+    namespace CALayerContentsFormat {
+        let gray8Uint: string;
+        let RGBA16Float: string;
+        let RGBA8Uint: string;
+    }
+    namespace CALayerContentsGravity {
+        let bottom: string;
+        let bottomLeft: string;
+        let bottomRight: string;
+        let center: string;
+        let left: string;
+        let resize: string;
+        let resizeAspect: string;
+        let resizeAspectFill: string;
+        let right: string;
+        let top: string;
+        let topLeft: string;
+        let topRight: string;
+    }
+    namespace CALayerCornerCurve {
+        let circular: string;
+        let continuous: string;
+    }
+    namespace CAMediaTimingFillMode {
+        let backwards: string;
+        let both: string;
+        let forwards: string;
+        let removed: string;
+    }
+    namespace CAMediaTimingFunctionName {
+        let default_: string;
+        let easeIn: string;
+        let easeInEaseOut: string;
+        let easeOut: string;
+        let linear: string;
+    }
+    namespace CAScrollLayerScrollMode {
+        let both: string;
+        let horizontally: string;
+        let none: string;
+        let vertically: string;
+    }
+    namespace CAShapeLayerFillRule {
+        let evenOdd: string;
+        let nonZero: string;
+    }
+    namespace CAShapeLayerLineCap {
+        let butt: string;
+        let round: string;
+        let square: string;
+    }
+    namespace CAShapeLayerLineJoin {
+        let bevel: string;
+        let miter: string;
+        let round: string;
+    }
+    namespace CATextLayerAlignmentMode {
+        let center: string;
+        let justified: string;
+        let left: string;
+        let natural: string;
+        let right: string;
+    }
+    namespace CATextLayerTruncationMode {
+        let end: string;
+        let middle: string;
+        let none: string;
+        let start: string;
+    }
+    namespace CATransitionSubtype {
+        let fromBottom: string;
+        let fromLeft: string;
+        let fromRight: string;
+        let fromTop: string;
+    }
+    namespace CATransitionType {
+        let fade: string;
+        let moveIn: string;
+        let push: string;
+        let reveal: string;
+    }
+    namespace CAValueFunctionName {
+        let rotateX: string;
+        let rotateY: string;
+        let rotateZ: string;
+        let scale: string;
+        let scaleX: string;
+        let scaleY: string;
+        let scaleZ: string;
+        let translate: string;
+        let translateX: string;
+        let translateY: string;
+        let translateZ: string;
+    }
     namespace CFCalendarIdentifier {
+        let buddhistCalendar: any;
+        let chineseCalendar: any;
+        let gregorianCalendar: any;
+        let hebrewCalendar: any;
+        let cfiso8601Calendar: any;
+        let indianCalendar: any;
+        let islamicCalendar: any;
+        let islamicCivilCalendar: any;
+        let islamicTabularCalendar: any;
+        let islamicUmmAlQuraCalendar: any;
+        let japaneseCalendar: any;
+        let persianCalendar: any;
+        let republicOfChinaCalendar: any;
     }
     namespace CFDateFormatterKey {
+        let amSymbol: any;
+        let calendar: any;
+        let calendarName: any;
+        let defaultDate: any;
+        let defaultFormat: any;
+        let doesRelativeDateFormattingKey: any;
+        let eraSymbols: any;
+        let gregorianStartDate: any;
+        let isLenient: any;
+        let longEraSymbols: any;
+        let monthSymbols: any;
+        let pmSymbol: any;
+        let quarterSymbols: any;
+        let shortMonthSymbols: any;
+        let shortQuarterSymbols: any;
+        let shortStandaloneMonthSymbols: any;
+        let shortStandaloneQuarterSymbols: any;
+        let shortStandaloneWeekdaySymbols: any;
+        let shortWeekdaySymbols: any;
+        let standaloneMonthSymbols: any;
+        let standaloneQuarterSymbols: any;
+        let standaloneWeekdaySymbols: any;
+        let timeZone: any;
+        let twoDigitStartDate: any;
+        let veryShortMonthSymbols: any;
+        let veryShortStandaloneMonthSymbols: any;
+        let veryShortStandaloneWeekdaySymbols: any;
+        let veryShortWeekdaySymbols: any;
+        let weekdaySymbols: any;
     }
     namespace CFLocaleKey {
+        let alternateQuotationBeginDelimiterKey: any;
+        let alternateQuotationEndDelimiterKey: any;
+        let calendar: any;
+        let calendarIdentifier: any;
+        let collationIdentifier: any;
+        let collatorIdentifier: any;
+        let countryCode: any;
+        let currencyCode: any;
+        let currencySymbol: any;
+        let decimalSeparator: any;
+        let exemplarCharacterSet: any;
+        let groupingSeparator: any;
+        let identifier: any;
+        let languageCode: any;
+        let measurementSystem: any;
+        let quotationBeginDelimiterKey: any;
+        let quotationEndDelimiterKey: any;
+        let scriptCode: any;
+        let usesMetricSystem: any;
+        let variantCode: any;
     }
     namespace CFNotificationName {
+        let cfLocaleCurrentLocaleDidChange: any;
+        let cfTimeZoneSystemTimeZoneDidChange: any;
     }
     namespace CFNumberFormatterKey {
+        let alwaysShowDecimalSeparator: any;
+        let currencyCode: any;
+        let currencyDecimalSeparator: any;
+        let currencyGroupingSeparator: any;
+        let currencySymbol: any;
+        let decimalSeparator: any;
+        let defaultFormat: any;
+        let exponentSymbol: any;
+        let formatWidth: any;
+        let groupingSeparator: any;
+        let groupingSize: any;
+        let infinitySymbol: any;
+        let internationalCurrencySymbol: any;
+        let isLenient: any;
+        let maxFractionDigits: any;
+        let maxIntegerDigits: any;
+        let maxSignificantDigits: any;
+        let minFractionDigits: any;
+        let minIntegerDigits: any;
+        let minSignificantDigits: any;
+        let minusSign: any;
+        let multiplier: any;
+        let naNSymbol: any;
+        let negativePrefix: any;
+        let negativeSuffix: any;
+        let paddingCharacter: any;
+        let paddingPosition: any;
+        let perMillSymbol: any;
+        let percentSymbol: any;
+        let plusSign: any;
+        let positivePrefix: any;
+        let positiveSuffix: any;
+        let roundingIncrement: any;
+        let roundingMode: any;
+        let secondaryGroupingSize: any;
+        let useGroupingSeparator: any;
+        let useSignificantDigits: any;
+        let zeroSymbol: any;
     }
     namespace CFRunLoopMode {
+        let commonModes: any;
+        let defaultMode: any;
     }
     namespace CFStreamPropertyKey {
+        let appendToFile: any;
+        let dataWritten: any;
+        let fileCurrentOffset: any;
+        let socketNativeHandle: any;
+        let socketRemoteHostName: any;
+        let socketRemotePortNumber: any;
+    }
+    namespace CGAffineTransform {
+        let identity: CGAffineTransform;
+    }
+    namespace CGColor {
+        let __blackColorName: string;
+        let __clearColorName: string;
+        let conversionBlackPointCompensation: string;
+        let conversionTRCSize: string;
+        let __whiteColorName: string;
+    }
+    namespace CGColorSpace {
+        let acescgLinear: string;
+        let adobeRGB1998: string;
+        let dcip3: string;
+        let displayP3: string;
+        let displayP3_HLG: string;
+        let displayP3_PQ_EOTF: string;
+        let extendedGray: string;
+        let extendedLinearDisplayP3: string;
+        let extendedLinearGray: string;
+        let extendedLinearITUR_2020: string;
+        let extendedLinearSRGB: string;
+        let extendedSRGB: string;
+        let genericCMYK: string;
+        let genericGray: string;
+        let genericGrayGamma2_2: string;
+        let genericLab: string;
+        let genericRGB: string;
+        let genericRGBLinear: string;
+        let genericXYZ: string;
+        let itur_2020: string;
+        let itur_2020_HLG: string;
+        let itur_2020_PQ_EOTF: string;
+        let itur_709: string;
+        let linearGray: string;
+        let linearSRGB: string;
+        let rommrgb: string;
+        let sRGB: string;
+    }
+    namespace CGDisplayStream {
+        let colorSpace: string;
+        let destinationRect: string;
+        let minimumFrameTime: string;
+        let preserveAspectRatio: string;
+        let queueDepth: string;
+        let showCursor: string;
+        let sourceRect: string;
+        let yCbCrMatrix: string;
+        let yCbCrMatrix_ITU_R_601_4: string;
+        let yCbCrMatrix_ITU_R_709_2: string;
+        let yCbCrMatrix_SMPTE_240M_1995: string;
+    }
+    namespace CGFont {
+        let variationAxisDefaultValue: string;
+        let variationAxisMaxValue: string;
+        let variationAxisMinValue: string;
+        let variationAxisName: string;
+    }
+    namespace CGPDFTagProperty {
+        let actualText: any;
+        let alternativeText: any;
+        let languageText: any;
+        let titleText: any;
+    }
+    namespace CGPoint {
+        let zero: CGPoint;
+    }
+    namespace CGRect {
+        let infinite: CGRect;
+        let null_: CGRect;
+        let zero: CGRect;
+    }
+    namespace CGSize {
+        let zero: CGSize;
+    }
+    namespace CIContextOption {
+        let allowLowPower: string;
+        let cacheIntermediates: string;
+        let highQualityDownsample: string;
+        let outputColorSpace: string;
+        let outputPremultiplied: string;
+        let priorityRequestLow: string;
+        let useSoftwareRenderer: string;
+        let workingColorSpace: string;
+        let workingFormat: string;
+    }
+    namespace CIFormat {
+        let A16: number;
+        let A8: number;
+        let ABGR8: number;
+        let ARGB8: number;
+        let Af: number;
+        let Ah: number;
+        let BGRA8: number;
+        let L16: number;
+        let L8: number;
+        let LA16: number;
+        let LA8: number;
+        let LAf: number;
+        let LAh: number;
+        let Lf: number;
+        let Lh: number;
+        let R16: number;
+        let R8: number;
+        let RG16: number;
+        let RG8: number;
+        let RGBA16: number;
+        let RGBA8: number;
+        let RGBAf: number;
+        let RGBAh: number;
+        let RGf: number;
+        let RGh: number;
+        let Rf: number;
+        let Rh: number;
+    }
+    namespace CIImageAutoAdjustmentOption {
+        let crop: string;
+        let enhance: string;
+        let features: string;
+        let level: string;
+        let redEye: string;
+    }
+    namespace CIImageOption {
+        let applyOrientationProperty: string;
+        let auxiliaryDepth: string;
+        let auxiliaryDisparity: string;
+        let auxiliaryPortraitEffectsMatte: string;
+        let auxiliarySemanticSegmentationHairMatte: string;
+        let auxiliarySemanticSegmentationSkinMatte: string;
+        let auxiliarySemanticSegmentationTeethMatte: string;
+        let colorSpace: string;
+        let nearestSampling: string;
+        let properties: string;
+        let providerTileSize: string;
+        let providerUserInfo: string;
+    }
+    namespace CIImageRepresentationOption {
+        let avDepthData: string;
+        let avPortraitEffectsMatte: string;
+        let avSemanticSegmentationMattes: string;
+        let depthImage: string;
+        let disparityImage: string;
+        let portraitEffectsMatteImage: string;
+        let semanticSegmentationHairMatteImage: string;
+        let semanticSegmentationSkinMatteImage: string;
+        let semanticSegmentationTeethMatteImage: string;
+    }
+    namespace CIRAWFilterOption {
+        let activeKeys: string;
+        let allowDraftMode: string;
+        let baselineExposure: string;
+        let boostAmount: string;
+        let boostShadowAmount: string;
+        let colorNoiseReductionAmount: string;
+        let decoderVersion: string;
+        let disableGamutMap: string;
+        let enableChromaticNoiseTracking: string;
+        let enableSharpening: string;
+        let enableVendorLensCorrection: string;
+        let ignoreImageOrientation: string;
+        let imageOrientation: string;
+        let linearSpaceFilter: string;
+        let luminanceNoiseReductionAmount: string;
+        let moireAmount: string;
+        let neutralChromaticityX: string;
+        let neutralChromaticityY: string;
+        let neutralLocation: string;
+        let neutralTemperature: string;
+        let neutralTint: string;
+        let noiseReductionAmount: string;
+        let noiseReductionContrastAmount: string;
+        let noiseReductionDetailAmount: string;
+        let noiseReductionSharpnessAmount: string;
+        let scaleFactor: string;
+        let outputNativeSize: string;
+        let supportedDecoderVersions: string;
+    }
+    namespace CMImageDescriptionFlavor {
+        let mobile3GPFamily: any;
+        let isoFamily: any;
+        let quickTimeMovie: any;
+    }
+    namespace CMSampleTimingInfo {
+        let invalid: CMSampleTimingInfo;
+    }
+    namespace CMSoundDescriptionFlavor {
+        let mobile3GPFamily: any;
+        let isoFamily: any;
+        let quickTimeMovie: any;
+        let quickTimeMovieV2: any;
+    }
+    namespace CMTime {
+        let indefinite: CMTime;
+        let invalid: CMTime;
+        let negativeInfinity: CMTime;
+        let positiveInfinity: CMTime;
+        let zero: CMTime;
+    }
+    namespace CMTimeMapping {
+        let invalid: CMTimeMapping;
+    }
+    namespace CMTimeRange {
+        let invalid: CMTimeRange;
+        let zero: CMTimeRange;
     }
     namespace DateComponentsFormatter {
         enum UnitsStyle {
@@ -12892,6 +19666,14 @@ declare global {
             FullStyle = 4
         }
     }
+    namespace Decimal {
+        type RoundingMode = NSDecimalNumber;
+        type CalculationError = NSDecimalNumber;
+        type FloatLiteralType = number;
+        type IntegerLiteralType = number;
+        type Magnitude = number;
+        type Stride = number;
+    }
     namespace DistributedNotificationCenter {
         enum Options {
             DeliverImmediately = 1,
@@ -12903,6 +19685,7 @@ declare global {
             Hold = 3,
             DeliverImmediately = 4
         }
+        let localNotificationCenterType: string;
     }
     namespace EnergyFormatter {
         enum Unit {
@@ -12913,10 +19696,42 @@ declare global {
         }
     }
     namespace FileAttributeKey {
+        let appendOnly: string;
+        let busy: string;
+        let creationDate: string;
+        let deviceIdentifier: string;
+        let extensionHidden: string;
+        let groupOwnerAccountID: string;
+        let groupOwnerAccountName: string;
+        let hfsCreatorCode: string;
+        let hfsTypeCode: string;
+        let immutable: string;
+        let modificationDate: string;
+        let ownerAccountID: string;
+        let ownerAccountName: string;
+        let posixPermissions: string;
+        let protectionKey: string;
+        let referenceCount: string;
+        let size: string;
+        let systemFileNumber: string;
+        let systemFreeNodes: string;
+        let systemFreeSize: string;
+        let systemNodes: string;
+        let systemNumber: string;
+        let systemSize: string;
+        let type: string;
     }
     namespace FileAttributeType {
+        let typeBlockSpecial: string;
+        let typeCharacterSpecial: string;
+        let typeDirectory: string;
+        let typeRegular: string;
+        let typeSocket: string;
+        let typeSymbolicLink: string;
+        let typeUnknown: string;
     }
     namespace FileHandle {
+        let readCompletionNotification: string;
     }
     namespace FileManager {
         enum DirectoryEnumerationOptions {
@@ -12981,6 +19796,10 @@ declare global {
         }
     }
     namespace FileProtectionType {
+        let complete: string;
+        let completeUnlessOpen: string;
+        let completeUntilFirstUserAuthentication: string;
+        let none: string;
     }
     namespace FileWrapper {
         enum ReadingOptions {
@@ -13015,8 +19834,24 @@ declare global {
         }
     }
     namespace HTTPCookiePropertyKey {
+        let comment: string;
+        let commentURL: string;
+        let discard: string;
+        let domain: string;
+        let expires: string;
+        let maximumAge: string;
+        let name: string;
+        let originURL: string;
+        let path: string;
+        let port: string;
+        let sameSitePolicy: string;
+        let secure: string;
+        let value: string;
+        let version: string;
     }
     namespace HTTPCookieStringPolicy {
+        let sameSiteLax: string;
+        let sameSiteStrict: string;
     }
     namespace ISO8601DateFormatter {
         enum Options {
@@ -13111,6 +19946,288 @@ declare global {
             Points = 3,
             Picas = 4
         }
+        let activationPoint: string;
+        let allowedValues: string;
+        let alternateUIVisible: string;
+        let element: string;
+        let label: string;
+        let location: string;
+        let announcement: string;
+        let announcementRequested: string;
+        let applicationActivated: string;
+        let applicationDeactivated: string;
+        let applicationHidden: string;
+        let application: string;
+        let applicationShown: string;
+        let ascending: string;
+        let attributedStringForRange: string;
+        let boundsForRange: string;
+        let browser: string;
+        let busyIndicator: string;
+        let button: string;
+        let cancel: string;
+        let cancelButton: string;
+        let cellForColumnAndRow: string;
+        let cell: string;
+        let centerTabStop: string;
+        let centimeters: string;
+        let checkBox: string;
+        let children: string;
+        let clearButton: string;
+        let closeButton: string;
+        let collectionListSubrole: string;
+        let colorWell: string;
+        let columnCount: string;
+        let columnHeaderUIElements: string;
+        let columnIndexRange: string;
+        let column: string;
+        let columnTitles: string;
+        let columns: string;
+        let comboBox: string;
+        let confirm: string;
+        let containsProtectedContent: string;
+        let contentList: string;
+        let contents: string;
+        let created: string;
+        let criticalValue: string;
+        let decimalTabStop: string;
+        let decrement: string;
+        let decrementArrow: string;
+        let decrementButton: string;
+        let decrementPage: string;
+        let defaultButton: string;
+        let definitionList: string;
+        let delete_: string;
+        let descending: string;
+        let description: string;
+        let descriptionList: string;
+        let dialog: string;
+        let disclosedByRow: string;
+        let disclosedRows: string;
+        let disclosing: string;
+        let disclosureLevel: string;
+        let disclosureTriangle: string;
+        let document: string;
+        let drawerCreated: string;
+        let drawer: string;
+        let edited: string;
+        let enabled: string;
+        let ErrorCodeExceptionInfo: string;
+        let expanded: string;
+        let extrasMenuBar: string;
+        let filename: string;
+        let firstLineIndent: string;
+        let floatingWindow: string;
+        let focused: string;
+        let focusedUIElement: string;
+        let focusedUIElementChanged: string;
+        let focusedWindow: string;
+        let focusedWindowChanged: string;
+        let fontFamily: string;
+        let fontName: string;
+        let fontSize: string;
+        let frontmost: string;
+        let fullScreenButton: string;
+        let grid: string;
+        let group: string;
+        let growArea: string;
+        let handle: string;
+        let handles: string;
+        let headIndent: string;
+        let header: string;
+        let help: string;
+        let helpTagCreated: string;
+        let helpTag: string;
+        let hidden: string;
+        let horizontal: string;
+        let horizontalScrollBar: string;
+        let horizontalUnitDescription: string;
+        let horizontalUnits: string;
+        let identifier: string;
+        let image: string;
+        let inches: string;
+        let increment: string;
+        let incrementArrow: string;
+        let incrementButton: string;
+        let incrementPage: string;
+        let incrementor: string;
+        let index: string;
+        let insertionPointLineNumber: string;
+        let labelUIElements: string;
+        let labelValue: string;
+        let layoutArea: string;
+        let layoutChanged: string;
+        let layoutItem: string;
+        let layoutPointForScreenPoint: string;
+        let layoutSizeForScreenSize: string;
+        let leftTabStop: string;
+        let levelIndicator: string;
+        let lineForIndex: string;
+        let link: string;
+        let linkedUIElements: string;
+        let list: string;
+        let main: string;
+        let mainWindow: string;
+        let mainWindowChanged: string;
+        let markerGroupUIElement: string;
+        let markerType: string;
+        let markerTypeDescription: string;
+        let markerUIElements: string;
+        let markerValues: string;
+        let matte: string;
+        let maxValue: string;
+        let menuBar: string;
+        let menuBarItem: string;
+        let menuButton: string;
+        let menuItem: string;
+        let menu: string;
+        let minValue: string;
+        let minimizeButton: string;
+        let minimized: string;
+        let modal: string;
+        let moved: string;
+        let nextContents: string;
+        let numberOfCharacters: string;
+        let orderedByRow: string;
+        let orientation: string;
+        let outline: string;
+        let outlineRow: string;
+        let overflowButton: string;
+        let pageRole: string;
+        let parent: string;
+        let picas: string;
+        let pick: string;
+        let placeholderValue: string;
+        let points: string;
+        let popUpButton: string;
+        let popover: string;
+        let position: string;
+        let press: string;
+        let previousContents: string;
+        let priority: string;
+        let progressIndicator: string;
+        let proxy: string;
+        let rtfForRange: string;
+        let radioButton: string;
+        let radioGroup: string;
+        let raise: string;
+        let rangeForIndex: string;
+        let rangeForLine: string;
+        let rangeForPosition: string;
+        let ratingIndicator: string;
+        let relevanceIndicator: string;
+        let required: string;
+        let resized: string;
+        let rightTabStop: string;
+        let role: string;
+        let roleDescription: string;
+        let rowCollapsed: string;
+        let rowCount: string;
+        let rowCountChanged: string;
+        let rowExpanded: string;
+        let rowHeaderUIElements: string;
+        let rowIndexRange: string;
+        let row: string;
+        let rows: string;
+        let rulerMarker: string;
+        let ruler: string;
+        let screenPointForLayoutPoint: string;
+        let screenSizeForLayoutSize: string;
+        let scrollArea: string;
+        let scrollBar: string;
+        let searchButton: string;
+        let searchField: string;
+        let searchMenu: string;
+        let sectionListSubrole: string;
+        let secureTextField: string;
+        let selected: string;
+        let selectedCells: string;
+        let selectedCellsChanged: string;
+        let selectedChildren: string;
+        let selectedChildrenChanged: string;
+        let selectedChildrenMoved: string;
+        let selectedColumns: string;
+        let selectedColumnsChanged: string;
+        let selectedRows: string;
+        let selectedRowsChanged: string;
+        let selectedText: string;
+        let selectedTextChanged: string;
+        let selectedTextRange: string;
+        let selectedTextRanges: string;
+        let servesAsTitleForUIElements: string;
+        let sharedCharacterRange: string;
+        let sharedFocusElements: string;
+        let sharedTextUIElements: string;
+        let sheetCreated: string;
+        let sheet: string;
+        let showAlternateUI: string;
+        let showDefaultUI: string;
+        let showMenu: string;
+        let shownMenu: string;
+        let size: string;
+        let slider: string;
+        let sortButton: string;
+        let sortDirection: string;
+        let splitGroup: string;
+        let splitter: string;
+        let splitters: string;
+        let standardWindow: string;
+        let staticText: string;
+        let stringForRange: string;
+        let styleRangeForIndex: string;
+        let subrole: string;
+        let switch_: string;
+        let systemDialog: string;
+        let systemFloatingWindow: string;
+        let systemWide: string;
+        let tabButtonSubrole: string;
+        let tabGroup: string;
+        let table: string;
+        let tableRow: string;
+        let tabs: string;
+        let tailIndent: string;
+        let textArea: string;
+        let textAttachment: string;
+        let textField: string;
+        let textLink: string;
+        let timeline: string;
+        let title: string;
+        let titleChanged: string;
+        let titleUIElement: string;
+        let toggle: string;
+        let toolbarButton: string;
+        let toolbar: string;
+        let topLevelUIElement: string;
+        let uiElementDestroyed: string;
+        let uiElements: string;
+        let url: string;
+        let unitDescription: string;
+        let units: string;
+        let unitsChanged: string;
+        let unknown: string;
+        let value: string;
+        let valueChanged: string;
+        let valueDescription: string;
+        let valueIndicator: string;
+        let vertical: string;
+        let verticalScrollBar: string;
+        let verticalUnitDescription: string;
+        let verticalUnits: string;
+        let visibleCells: string;
+        let visibleCharacterRange: string;
+        let visibleChildren: string;
+        let visibleColumns: string;
+        let visibleName: string;
+        let visibleRows: string;
+        let warningValue: string;
+        let window: string;
+        let windowCreated: string;
+        let windowDeminiaturized: string;
+        let windowMiniaturized: string;
+        let windowMoved: string;
+        let windowResized: string;
+        let windows: string;
+        let zoomButton: string;
     }
     namespace NSAccessibilityCustomRotor {
         enum SearchDirection {
@@ -13160,10 +20277,78 @@ declare global {
             EaseOut = 2,
             Linear = 3
         }
+        let progressMarkUserInfoKey: string;
+        let progressMarkNotification: string;
+        type Progress = number;
     }
     namespace NSAppKitVersion {
+        let current: number;
+        let macOS10_0: number;
+        let macOS10_1: number;
+        let macOS10_10: number;
+        let macOS10_10_2: number;
+        let macOS10_10_3: number;
+        let macOS10_10_4: number;
+        let macOS10_10_5: number;
+        let macOS10_10_Max: number;
+        let macOS10_11: number;
+        let macOS10_11_1: number;
+        let macOS10_11_2: number;
+        let macOS10_11_3: number;
+        let macOS10_12: number;
+        let macOS10_12_1: number;
+        let macOS10_12_2: number;
+        let macOS10_13: number;
+        let macOS10_13_1: number;
+        let macOS10_13_2: number;
+        let macOS10_13_4: number;
+        let number10_14: number;
+        let number10_14_1: number;
+        let number10_14_2: number;
+        let number10_14_3: number;
+        let number10_14_4: number;
+        let number10_14_5: number;
+        let macOS10_2: number;
+        let macOS10_2_3: number;
+        let macOS10_3: number;
+        let macOS10_3_2: number;
+        let macOS10_3_3: number;
+        let macOS10_3_5: number;
+        let macOS10_3_7: number;
+        let macOS10_3_9: number;
+        let macOS10_4: number;
+        let macOS10_4_1: number;
+        let macOS10_4_3: number;
+        let macOS10_4_4: number;
+        let macOS10_4_7: number;
+        let macOS10_5: number;
+        let macOS10_5_2: number;
+        let macOS10_5_3: number;
+        let macOS10_6: number;
+        let macOS10_7: number;
+        let macOS10_7_2: number;
+        let macOS10_7_3: number;
+        let macOS10_7_4: number;
+        let macOS10_8: number;
+        let macOS10_9: number;
+        let numberWithColumnResizingBrowser: number;
+        let numberWithContinuousScrollingBrowser: number;
+        let numberWithCursorSizeSupport: number;
+        let numberWithCustomSheetPosition: number;
+        let numberWithDeferredWindowDisplaySupport: number;
+        let numberWithDirectionalTabs: number;
+        let numberWithDockTilePlugInSupport: number;
+        let numberWithPatternColorLeakFix: number;
     }
     namespace NSAppearance {
+        let accessibilityHighContrastAqua: string;
+        let accessibilityHighContrastDarkAqua: string;
+        let accessibilityHighContrastVibrantDark: string;
+        let accessibilityHighContrastVibrantLight: string;
+        let aqua: string;
+        let darkAqua: string;
+        let vibrantDark: string;
+        let vibrantLight: string;
     }
     namespace NSAppleEventDescriptor {
         enum SendOptions {
@@ -13181,8 +20366,14 @@ declare global {
         }
     }
     namespace NSAppleEventManager {
+        type SuspensionID = OpaquePointer;
     }
     namespace NSAppleScript {
+        let errorAppName: string;
+        let errorBriefMessage: string;
+        let errorMessage: string;
+        let errorNumber: string;
+        let errorRange: string;
     }
     namespace NSApplication {
         enum ActivationOptions {
@@ -13242,8 +20433,41 @@ declare global {
         enum WindowListOptions {
             OrderedFrontToBack = 1
         }
+        let applicationIcon: string;
+        let applicationName: string;
+        let applicationVersion: string;
+        let credits: string;
+        let version: string;
+        let alertFirstButtonReturn: number;
+        let alertSecondButtonReturn: number;
+        let alertThirdButtonReturn: number;
+        let didBecomeActiveNotification: string;
+        let didChangeOcclusionStateNotification: string;
+        let didChangeScreenParametersNotification: string;
+        let didFinishLaunchingNotification: string;
+        let didFinishRestoringWindowsNotification: string;
+        let didHideNotification: string;
+        let didResignActiveNotification: string;
+        let didUnhideNotification: string;
+        let didUpdateNotification: string;
+        let launchIsDefaultUserInfoKey: string;
+        let launchUserNotificationUserInfoKey: string;
+        let willBecomeActiveNotification: string;
+        let willFinishLaunchingNotification: string;
+        let willHideNotification: string;
+        let willResignActiveNotification: string;
+        let willTerminateNotification: string;
+        let willUnhideNotification: string;
+        let willUpdateNotification: string;
+        let abort: number;
+        let cancel: number;
+        let continue_: number;
+        let OK: number;
+        let stop: number;
+        type ModalSession = OpaquePointer;
     }
     namespace NSArray {
+        type Iterator = NSFastEnumerationIterator;
     }
     namespace NSAttributedString {
         enum SpellingState {
@@ -13254,6 +20478,110 @@ declare global {
             Reverse = 2,
             LongestEffectiveRangeNotRequired = 1048576
         }
+        let accessibilityAnnotationTextAttribute: string;
+        let accessibilityAttachment: string;
+        let accessibilityAutocorrected: string;
+        let accessibilityBackgroundColor: string;
+        let accessibilityCustomText: string;
+        let accessibilityFont: string;
+        let accessibilityForegroundColor: string;
+        let accessibilityLanguage: string;
+        let accessibilityLink: string;
+        let accessibilityListItemIndex: string;
+        let accessibilityListItemLevel: string;
+        let accessibilityListItemPrefix: string;
+        let accessibilityMarkedMisspelled: string;
+        let accessibilityMisspelled: string;
+        let accessibilityShadow: string;
+        let accessibilityStrikethroughColor: string;
+        let accessibilityStrikethrough: string;
+        let accessibilitySuperscript: string;
+        let accessibilityAlignment: string;
+        let accessibilityUnderlineColor: string;
+        let accessibilityUnderline: string;
+        let appearance: string;
+        let attachment: string;
+        let author: string;
+        let backgroundColor: string;
+        let baseURL: string;
+        let baselineOffset: string;
+        let bottomMargin: string;
+        let category: string;
+        let characterEncoding: string;
+        let cocoaVersion: string;
+        let comment: string;
+        let company: string;
+        let converted: string;
+        let copyright: string;
+        let creationTime: string;
+        let cursor: string;
+        let defaultAttributes: string;
+        let defaultTabInterval: string;
+        let docFormat: string;
+        let documentType: string;
+        let editor: string;
+        let excludedElements: string;
+        let expansion: string;
+        let fileType: string;
+        let font: string;
+        let foregroundColor: string;
+        let glyphInfo: string;
+        let html: string;
+        let hyphenationFactor: string;
+        let kern: string;
+        let keywords: string;
+        let leftMargin: string;
+        let ligature: string;
+        let link: string;
+        let macSimpleText: string;
+        let manager: string;
+        let markedClauseSegment: string;
+        let modificationTime: string;
+        let obliqueness: string;
+        let officeOpenXML: string;
+        let openDocument: string;
+        let paperSize: string;
+        let paragraphStyle: string;
+        let plain: string;
+        let prefixSpaces: string;
+        let rtfd: string;
+        let rtf: string;
+        let readOnly: string;
+        let rightMargin: string;
+        let shadow: string;
+        let sourceTextScaling: string;
+        let spellingState: string;
+        let strikethroughColor: string;
+        let strikethroughStyle: string;
+        let strokeColor: string;
+        let strokeWidth: string;
+        let subject: string;
+        let superscript: string;
+        let targetTextScaling: string;
+        let textAlternatives: string;
+        let textEffect: string;
+        let letterpressStyle: string;
+        let textEncodingName: string;
+        let orientation: string;
+        let range: string;
+        let textLayoutSections: string;
+        let textScaling: string;
+        let textSizeMultiplier: string;
+        let timeout: string;
+        let title: string;
+        let toolTip: string;
+        let topMargin: string;
+        let underlineColor: string;
+        let underlineStyle: string;
+        let verticalGlyphForm: string;
+        let viewMode: string;
+        let viewSize: string;
+        let viewZoom: string;
+        let webArchive: string;
+        let webPreferences: string;
+        let webResourceLoadDelegate: string;
+        let wordML: string;
+        let writingDirection: string;
     }
     namespace NSBackgroundActivityScheduler {
         enum Result {
@@ -13282,12 +20610,131 @@ declare global {
             NonZero = 0,
             EvenOdd = 1
         }
+        let bevel: NSBezierPath.LineJoinStyle;
+        let butt: NSBezierPath.LineCapStyle;
+        let closePath: NSBezierPath.ElementType;
+        let curveTo: NSBezierPath.ElementType;
+        let evenOdd: NSBezierPath.WindingRule;
+        let lineTo: NSBezierPath.ElementType;
+        let miter: NSBezierPath.LineJoinStyle;
+        let moveTo: NSBezierPath.ElementType;
+        let nonZero: NSBezierPath.WindingRule;
+        let round: NSBezierPath.LineCapStyle;
+        let square: NSBezierPath.LineCapStyle;
     }
     namespace NSBindingInfoKey {
+        let observedKeyPath: string;
+        let observedObject: string;
+        let options: string;
     }
     namespace NSBindingName {
+        let alignment: string;
+        let alternateImage: string;
+        let alternateTitle: string;
+        let animate: string;
+        let animationDelay: string;
+        let argument: string;
+        let attributedString: string;
+        let contentArray: string;
+        let contentArrayForMultipleSelection: string;
+        let content: string;
+        let contentDictionary: string;
+        let contentHeight: string;
+        let contentObject: string;
+        let contentObjects: string;
+        let contentSet: string;
+        let contentValues: string;
+        let contentWidth: string;
+        let criticalValue: string;
+        let data: string;
+        let displayPatternTitle: string;
+        let displayPatternValue: string;
+        let documentEdited: string;
+        let doubleClickArgument: string;
+        let doubleClickTarget: string;
+        let editable: string;
+        let enabled: string;
+        let excludedKeys: string;
+        let filterPredicate: string;
+        let font: string;
+        let fontBold: string;
+        let fontFamilyName: string;
+        let fontItalic: string;
+        let fontName: string;
+        let fontSize: string;
+        let headerTitle: string;
+        let hidden: string;
+        let image: string;
+        let includedKeys: string;
+        let initialKey: string;
+        let initialValue: string;
+        let isIndeterminate: string;
+        let label: string;
+        let localizedKeyDictionary: string;
+        let managedObjectContext: string;
+        let maxValue: string;
+        let maxWidth: string;
+        let maximumRecents: string;
+        let minValue: string;
+        let minWidth: string;
+        let mixedStateImage: string;
+        let offStateImage: string;
+        let onStateImage: string;
+        let positioningRect: string;
+        let predicate: string;
+        let recentSearches: string;
+        let representedFilename: string;
+        let rowHeight: string;
+        let selectedIdentifier: string;
+        let selectedIndex: string;
+        let selectedLabel: string;
+        let selectedObject: string;
+        let selectedObjects: string;
+        let selectedTag: string;
+        let selectedValue: string;
+        let selectedValues: string;
+        let selectionIndexPaths: string;
+        let selectionIndexes: string;
+        let sortDescriptors: string;
+        let target: string;
+        let textColor: string;
+        let title: string;
+        let toolTip: string;
+        let transparent: string;
+        let value: string;
+        let valuePath: string;
+        let valueURL: string;
+        let visible: string;
+        let warningValue: string;
+        let width: string;
     }
     namespace NSBindingOption {
+        let allowsEditingMultipleValuesSelection: string;
+        let allowsNullArgument: string;
+        let alwaysPresentsApplicationModalAlerts: string;
+        let conditionallySetsEditable: string;
+        let conditionallySetsEnabled: string;
+        let conditionallySetsHidden: string;
+        let contentPlacementTag: string;
+        let continuouslyUpdatesValue: string;
+        let createsSortDescriptor: string;
+        let deletesObjectsOnRemove: string;
+        let displayName: string;
+        let displayPattern: string;
+        let handlesContentAsCompoundValue: string;
+        let insertsNullPlaceholder: string;
+        let invokesSeparatelyWithArrayObjects: string;
+        let multipleValuesPlaceholder: string;
+        let noSelectionPlaceholder: string;
+        let notApplicablePlaceholder: string;
+        let nullPlaceholder: string;
+        let predicateFormat: string;
+        let raisesForNotApplicableKeys: string;
+        let selectorName: string;
+        let selectsAllWhenSettingContent: string;
+        let validatesImmediately: string;
+        let valueTransformer: string;
+        let valueTransformerName: string;
     }
     namespace NSBitmapImageRep {
         enum Format {
@@ -13325,6 +20772,20 @@ declare global {
             PackBits = 32773,
             OldJPEG = 32865
         }
+        let colorSyncProfileData: string;
+        let compressionFactor: string;
+        let compressionMethod: string;
+        let currentFrame: string;
+        let currentFrameDuration: string;
+        let ditherTransparency: string;
+        let exifData: string;
+        let fallbackBackgroundColor: string;
+        let frameCount: string;
+        let gamma: string;
+        let interlaced: string;
+        let loopCount: string;
+        let progressive: string;
+        let rgbColorTable: string;
     }
     namespace NSBox {
         enum BoxType {
@@ -13341,6 +20802,7 @@ declare global {
             AtBottom = 5,
             BelowBottom = 6
         }
+        let primary: NSBox.BoxType;
     }
     namespace NSBrowser {
         enum ColumnResizingType {
@@ -13352,6 +20814,8 @@ declare global {
             On = 0,
             Above = 1
         }
+        let columnConfigurationDidChangeNotification: string;
+        type ColumnsAutosaveName = String;
     }
     namespace NSButton {
         enum BezelStyle {
@@ -13427,6 +20891,22 @@ declare global {
             CalendarCalendarUnit = 1048576,
             TimeZoneCalendarUnit = 2097152
         }
+        let buddhist: string;
+        let chinese: string;
+        let coptic: string;
+        let ethiopicAmeteAlem: string;
+        let ethiopicAmeteMihret: string;
+        let gregorian: string;
+        let hebrew: string;
+        let ISO8601: string;
+        let indian: string;
+        let islamic: string;
+        let islamicCivil: string;
+        let islamicTabular: string;
+        let islamicUmmAlQura: string;
+        let japanese: string;
+        let persian: string;
+        let republicOfChina: string;
     }
     namespace NSCell {
         enum Attribute {
@@ -13502,6 +20982,11 @@ declare global {
             TrailingEdge = 128,
             NearestVerticalEdge = 256
         }
+        let elementKindInterItemGapIndicator: string;
+        let elementKindSectionFooter: string;
+        let elementKindSectionHeader: string;
+        type DecorationElementKind = String;
+        type SupplementaryElementKind = String;
     }
     namespace NSCollectionViewItem {
         enum HighlightState {
@@ -13512,6 +20997,7 @@ declare global {
         }
     }
     namespace NSCollectionViewTransitionLayout {
+        type AnimatedKey = String;
     }
     namespace NSColor {
         enum SystemEffect {
@@ -13526,8 +21012,13 @@ declare global {
             Pattern = 1,
             Catalog = 2
         }
+        let currentControlTintDidChangeNotification: string;
+        let systemColorsDidChangeNotification: string;
+        type Name = String;
     }
     namespace NSColorList {
+        let didChangeNotification: string;
+        type Name = String;
     }
     namespace NSColorPanel {
         enum Mode {
@@ -13552,6 +21043,7 @@ declare global {
             CrayonModeMask = 128,
             AllModesMask = 65535
         }
+        let colorDidChangeNotification: string;
     }
     namespace NSColorSpace {
         enum Model {
@@ -13566,8 +21058,20 @@ declare global {
         }
     }
     namespace NSColorSpaceName {
+        let calibratedRGB: string;
+        let calibratedWhite: string;
+        let custom: string;
+        let deviceCMYK: string;
+        let deviceRGB: string;
+        let deviceWhite: string;
+        let named: string;
+        let pattern: string;
     }
     namespace NSComboBox {
+        let selectionDidChangeNotification: string;
+        let selectionIsChangingNotification: string;
+        let willDismissNotification: string;
+        let willPopUpNotification: string;
     }
     namespace NSComparisonPredicate {
         enum Modifier {
@@ -13621,6 +21125,12 @@ declare global {
             Small = 1,
             Mini = 2
         }
+        let mixed: number;
+        let off: number;
+        let on: number;
+        let textDidBeginEditingNotification: string;
+        let textDidChangeNotification: string;
+        let textDidEndEditingNotification: string;
     }
     namespace NSData {
         enum Base64DecodingOptions {
@@ -13660,6 +21170,11 @@ declare global {
             DataWritingFileProtectionMask = 4026531840,
             AtomicWrite = 1
         }
+        type Element = number;
+        type Index = number;
+        type Iterator = IndexingIterator;
+        type SubSequence = Slice;
+        type Indices = Range;
     }
     namespace NSDatePicker {
         enum ElementFlags {
@@ -13679,6 +21194,17 @@ declare global {
             ClockAndCalendar = 1,
             TextField = 2
         }
+        let clockAndCalendar: NSDatePicker.Style;
+        let era: NSDatePicker.ElementFlags;
+        let hourMinute: NSDatePicker.ElementFlags;
+        let hourMinuteSecond: NSDatePicker.ElementFlags;
+        let range: NSDatePicker.Mode;
+        let single: NSDatePicker.Mode;
+        let textFieldAndStepper: NSDatePicker.Style;
+        let textField: NSDatePicker.Style;
+        let timeZone: NSDatePicker.ElementFlags;
+        let yearMonth: NSDatePicker.ElementFlags;
+        let yearMonthDay: NSDatePicker.ElementFlags;
     }
     namespace NSDecimalNumber {
         enum CalculationError {
@@ -13696,6 +21222,12 @@ declare global {
         }
     }
     namespace NSDeviceDescriptionKey {
+        let bitsPerSample: string;
+        let colorSpaceName: string;
+        let isPrinter: string;
+        let isScreen: string;
+        let resolution: string;
+        let size: string;
     }
     namespace NSDocument {
         enum ChangeType {
@@ -13718,6 +21250,8 @@ declare global {
         }
     }
     namespace NSDraggingItem {
+        let icon: string;
+        let label: string;
     }
     namespace NSDrawer {
         enum State {
@@ -13728,8 +21262,10 @@ declare global {
         }
     }
     namespace NSEnumerator {
+        type Iterator = NSFastEnumerationIterator;
     }
     namespace NSError {
+        type UserInfoKey = string;
     }
     namespace NSEvent {
         enum ButtonMask {
@@ -13865,8 +21401,72 @@ declare global {
             PrimaryDeepClick = 5,
             PrimaryDeepDrag = 6
         }
+        let foreverDuration: number;
     }
     namespace NSExceptionName {
+        let abortModalException: string;
+        let abortPrintingException: string;
+        let appKitIgnoredException: string;
+        let appKitVirtualMemoryException: string;
+        let badBitmapParametersException: string;
+        let badComparisonException: string;
+        let badRTFColorTableException: string;
+        let badRTFDirectiveException: string;
+        let badRTFFontTableException: string;
+        let badRTFStyleSheetException: string;
+        let browserIllegalDelegateException: string;
+        let colorListIOException: string;
+        let colorListNotEditableException: string;
+        let draggingException: string;
+        let fontUnavailableException: string;
+        let illegalSelectorException: string;
+        let imageCacheException: string;
+        let nibLoadingException: string;
+        let NSPPDIncludeNotFoundException: string;
+        let NSPPDIncludeStackOverflowException: string;
+        let NSPPDIncludeStackUnderflowException: string;
+        let NSPPDParseException: string;
+        let pasteboardCommunicationException: string;
+        let printOperationExistsException: string;
+        let printPackageException: string;
+        let printingCommunicationException: string;
+        let NSRTFPropertyStackOverflowException: string;
+        let NSTIFFException: string;
+        let textLineTooLongException: string;
+        let textNoSelectionException: string;
+        let textReadException: string;
+        let textWriteException: string;
+        let typedStreamVersionException: string;
+        let windowServerCommunicationException: string;
+        let wordTablesReadException: string;
+        let wordTablesWriteException: string;
+        let characterConversionException: string;
+        let decimalNumberDivideByZeroException: string;
+        let decimalNumberExactnessException: string;
+        let decimalNumberOverflowException: string;
+        let decimalNumberUnderflowException: string;
+        let destinationInvalidException: string;
+        let fileHandleOperationException: string;
+        let genericException: string;
+        let inconsistentArchiveException: string;
+        let internalInconsistencyException: string;
+        let invalidArchiveOperationException: string;
+        let invalidArgumentException: string;
+        let invalidReceivePortException: string;
+        let invalidSendPortException: string;
+        let invalidUnarchiveOperationException: string;
+        let invocationOperationCancelledException: string;
+        let invocationOperationVoidResultException: string;
+        let mallocException: string;
+        let objectInaccessibleException: string;
+        let objectNotAvailableException: string;
+        let oldStyleException: string;
+        let parseErrorException: string;
+        let portReceiveException: string;
+        let portSendException: string;
+        let portTimeoutException: string;
+        let rangeException: string;
+        let undefinedKeyException: string;
     }
     namespace NSExpression {
         enum ExpressionType {
@@ -13909,6 +21509,18 @@ declare global {
         }
     }
     namespace NSFont {
+        let antialiasThresholdChangedNotification: string;
+        let identityMatrix: number;
+        let fontSetChangedNotification: string;
+        let black: number;
+        let bold: number;
+        let heavy: number;
+        let light: number;
+        let medium: number;
+        let regular: number;
+        let semibold: number;
+        let thin: number;
+        let ultraLight: number;
     }
     namespace NSFontAssetRequest {
         enum Options {
@@ -13921,6 +21533,18 @@ declare global {
             User = 2,
             Computer = 4
         }
+        let actionUserInfoKey: string;
+        let allFonts: string;
+        let didChangeNotification: string;
+        let favorites: string;
+        let nameUserInfoKey: string;
+        let oldNameUserInfoKey: string;
+        let recentlyUsed: string;
+        let user: string;
+        let visibilityUserInfoKey: string;
+        let hidden: string;
+        let renamed: string;
+        let shown: string;
     }
     namespace NSFontDescriptor {
         enum SymbolicTraits {
@@ -13946,6 +21570,32 @@ declare global {
             ClassScripts = 2684354560,
             ClassSymbolic = 3221225472
         }
+        let cascadeList: string;
+        let characterSet: string;
+        let default_: string;
+        let monospaced: string;
+        let rounded: string;
+        let serif: string;
+        let face: string;
+        let family: string;
+        let selectorIdentifier: string;
+        let featureSettings: string;
+        let typeIdentifier: string;
+        let fixedAdvance: string;
+        let matrix: string;
+        let name: string;
+        let size: string;
+        let slant: string;
+        let symbolic: string;
+        let traits: string;
+        let variation: string;
+        let defaultValue: string;
+        let identifier: string;
+        let maximumValue: string;
+        let minimumValue: string;
+        let visibleName: string;
+        let weight: string;
+        let width: string;
     }
     namespace NSFontPanel {
         enum ModeMask {
@@ -13980,6 +21630,10 @@ declare global {
         }
     }
     namespace NSGraphicsContext {
+        let destination: string;
+        let pdf: string;
+        let postScript: string;
+        let representationFormat: string;
     }
     namespace NSGridCell {
         enum Placement {
@@ -14002,6 +21656,7 @@ declare global {
         }
     }
     namespace NSGridView {
+        let sizedForContent: number;
     }
     namespace NSHapticFeedbackManager {
         enum FeedbackPattern {
@@ -14016,6 +21671,11 @@ declare global {
         }
     }
     namespace NSHelpManager {
+        let contextHelpModeDidActivateNotification: string;
+        let contextHelpModeDidDeactivateNotification: string;
+        type BookName = String;
+        type AnchorName = String;
+        type ContextHelpKey = String;
     }
     namespace NSImage {
         enum CacheMode {
@@ -14040,8 +21700,151 @@ declare global {
             Stretch = 0,
             Tile = 1
         }
+        let actionTemplateName: string;
+        let addTemplateName: string;
+        let advancedName: string;
+        let applicationIconName: string;
+        let bluetoothTemplateName: string;
+        let bonjourName: string;
+        let bookmarksTemplateName: string;
+        let cautionName: string;
+        let colorPanelName: string;
+        let columnViewTemplateName: string;
+        let computerName: string;
+        let enterFullScreenTemplateName: string;
+        let everyoneName: string;
+        let exitFullScreenTemplateName: string;
+        let flowViewTemplateName: string;
+        let folderName: string;
+        let folderBurnableName: string;
+        let folderSmartName: string;
+        let followLinkFreestandingTemplateName: string;
+        let fontPanelName: string;
+        let goBackTemplateName: string;
+        let goForwardTemplateName: string;
+        let goLeftTemplateName: string;
+        let goRightTemplateName: string;
+        let homeTemplateName: string;
+        let iChatTheaterTemplateName: string;
+        let iconViewTemplateName: string;
+        let infoName: string;
+        let invalidDataFreestandingTemplateName: string;
+        let leftFacingTriangleTemplateName: string;
+        let listViewTemplateName: string;
+        let lockLockedTemplateName: string;
+        let lockUnlockedTemplateName: string;
+        let menuMixedStateTemplateName: string;
+        let menuOnStateTemplateName: string;
+        let mobileMeName: string;
+        let multipleDocumentsName: string;
+        let networkName: string;
+        let pathTemplateName: string;
+        let preferencesGeneralName: string;
+        let quickLookTemplateName: string;
+        let refreshFreestandingTemplateName: string;
+        let refreshTemplateName: string;
+        let removeTemplateName: string;
+        let revealFreestandingTemplateName: string;
+        let rightFacingTriangleTemplateName: string;
+        let shareTemplateName: string;
+        let slideshowTemplateName: string;
+        let smartBadgeTemplateName: string;
+        let statusAvailableName: string;
+        let statusNoneName: string;
+        let statusPartiallyAvailableName: string;
+        let statusUnavailableName: string;
+        let stopProgressFreestandingTemplateName: string;
+        let stopProgressTemplateName: string;
+        let touchBarAddDetailTemplateName: string;
+        let touchBarAddTemplateName: string;
+        let touchBarAlarmTemplateName: string;
+        let touchBarAudioInputMuteTemplateName: string;
+        let touchBarAudioInputTemplateName: string;
+        let touchBarAudioOutputMuteTemplateName: string;
+        let touchBarAudioOutputVolumeHighTemplateName: string;
+        let touchBarAudioOutputVolumeLowTemplateName: string;
+        let touchBarAudioOutputVolumeMediumTemplateName: string;
+        let touchBarAudioOutputVolumeOffTemplateName: string;
+        let touchBarBookmarksTemplateName: string;
+        let touchBarColorPickerFillName: string;
+        let touchBarColorPickerFontName: string;
+        let touchBarColorPickerStrokeName: string;
+        let touchBarCommunicationAudioTemplateName: string;
+        let touchBarCommunicationVideoTemplateName: string;
+        let touchBarComposeTemplateName: string;
+        let touchBarDeleteTemplateName: string;
+        let touchBarDownloadTemplateName: string;
+        let touchBarEnterFullScreenTemplateName: string;
+        let touchBarExitFullScreenTemplateName: string;
+        let touchBarFastForwardTemplateName: string;
+        let touchBarFolderCopyToTemplateName: string;
+        let touchBarFolderMoveToTemplateName: string;
+        let touchBarFolderTemplateName: string;
+        let touchBarGetInfoTemplateName: string;
+        let touchBarGoBackTemplateName: string;
+        let touchBarGoDownTemplateName: string;
+        let touchBarGoForwardTemplateName: string;
+        let touchBarGoUpTemplateName: string;
+        let touchBarHistoryTemplateName: string;
+        let touchBarIconViewTemplateName: string;
+        let touchBarListViewTemplateName: string;
+        let touchBarMailTemplateName: string;
+        let touchBarNewFolderTemplateName: string;
+        let touchBarNewMessageTemplateName: string;
+        let touchBarOpenInBrowserTemplateName: string;
+        let touchBarPauseTemplateName: string;
+        let touchBarPlayPauseTemplateName: string;
+        let touchBarPlayTemplateName: string;
+        let touchBarPlayheadTemplateName: string;
+        let touchBarQuickLookTemplateName: string;
+        let touchBarRecordStartTemplateName: string;
+        let touchBarRecordStopTemplateName: string;
+        let touchBarRefreshTemplateName: string;
+        let touchBarRemoveTemplateName: string;
+        let touchBarRewindTemplateName: string;
+        let touchBarRotateLeftTemplateName: string;
+        let touchBarRotateRightTemplateName: string;
+        let touchBarSearchTemplateName: string;
+        let touchBarShareTemplateName: string;
+        let touchBarSidebarTemplateName: string;
+        let touchBarSkipAhead15SecondsTemplateName: string;
+        let touchBarSkipAhead30SecondsTemplateName: string;
+        let touchBarSkipAheadTemplateName: string;
+        let touchBarSkipBack15SecondsTemplateName: string;
+        let touchBarSkipBack30SecondsTemplateName: string;
+        let touchBarSkipBackTemplateName: string;
+        let touchBarSkipToEndTemplateName: string;
+        let touchBarSkipToStartTemplateName: string;
+        let touchBarSlideshowTemplateName: string;
+        let touchBarTagIconTemplateName: string;
+        let touchBarTextBoldTemplateName: string;
+        let touchBarTextBoxTemplateName: string;
+        let touchBarTextCenterAlignTemplateName: string;
+        let touchBarTextItalicTemplateName: string;
+        let touchBarTextJustifiedAlignTemplateName: string;
+        let touchBarTextLeftAlignTemplateName: string;
+        let touchBarTextListTemplateName: string;
+        let touchBarTextRightAlignTemplateName: string;
+        let touchBarTextStrikethroughTemplateName: string;
+        let touchBarTextUnderlineTemplateName: string;
+        let touchBarUserAddTemplateName: string;
+        let touchBarUserGroupTemplateName: string;
+        let touchBarUserTemplateName: string;
+        let touchBarVolumeDownTemplateName: string;
+        let touchBarVolumeUpTemplateName: string;
+        let trashEmptyName: string;
+        let trashFullName: string;
+        let userName: string;
+        let userAccountsName: string;
+        let userGroupName: string;
+        let userGuestName: string;
+        type Name = String;
     }
     namespace NSImageRep {
+        let ctm: string;
+        let interpolation: string;
+        let userInterfaceLayoutDirection: string;
+        let registryDidChangeNotification: string;
     }
     namespace NSImageView {
         enum FrameStyle {
@@ -14053,6 +21856,8 @@ declare global {
         }
     }
     namespace NSIndexSet {
+        type Element = NSIndexSetIterator;
+        type Iterator = NSIndexSetIterator;
     }
     namespace NSItemProvider {
         enum ErrorCode {
@@ -14061,10 +21866,27 @@ declare global {
             UnexpectedValueClassError = -1100,
             UnavailableCoercionError = -1200
         }
+        let errorDomain: string;
     }
     namespace NSKeyValueChangeKey {
+        let indexesKey: string;
+        let kindKey: string;
+        let newKey: string;
+        let notificationIsPriorKey: string;
+        let oldKey: string;
     }
     namespace NSKeyValueOperator {
+        let averageKeyValueOperator: string;
+        let countKeyValueOperator: string;
+        let distinctUnionOfArraysKeyValueOperator: string;
+        let distinctUnionOfObjectsKeyValueOperator: string;
+        let distinctUnionOfSetsKeyValueOperator: string;
+        let maximumKeyValueOperator: string;
+        let minimumKeyValueOperator: string;
+        let sumKeyValueOperator: string;
+        let unionOfArraysKeyValueOperator: string;
+        let unionOfObjectsKeyValueOperator: string;
+        let unionOfSetsKeyValueOperator: string;
     }
     namespace NSLayoutConstraint {
         enum Attribute {
@@ -14110,6 +21932,13 @@ declare global {
             Equal = 0,
             GreaterThanOrEqual = 1
         }
+        let defaultHigh: number;
+        let defaultLow: number;
+        let dragThatCanResizeWindow: number;
+        let dragThatCannotResizeWindow: number;
+        let fittingSizeCompression: number;
+        let required: number;
+        let windowSizeStayPut: number;
     }
     namespace NSLayoutManager {
         enum ControlCharacterAction {
@@ -14153,8 +21982,46 @@ declare global {
         }
     }
     namespace NSLinguisticTag {
+        let adjective: string;
+        let adverb: string;
+        let classifier: string;
+        let closeParenthesis: string;
+        let closeQuote: string;
+        let conjunction: string;
+        let dash: string;
+        let determiner: string;
+        let idiom: string;
+        let interjection: string;
+        let noun: string;
+        let number: string;
+        let openParenthesis: string;
+        let openQuote: string;
+        let organizationName: string;
+        let other: string;
+        let otherPunctuation: string;
+        let otherWhitespace: string;
+        let otherWord: string;
+        let paragraphBreak: string;
+        let particle: string;
+        let personalName: string;
+        let placeName: string;
+        let preposition: string;
+        let pronoun: string;
+        let punctuation: string;
+        let sentenceTerminator: string;
+        let verb: string;
+        let whitespace: string;
+        let word: string;
+        let wordJoiner: string;
     }
     namespace NSLinguisticTagScheme {
+        let language: string;
+        let lemma: string;
+        let lexicalClass: string;
+        let nameType: string;
+        let nameTypeOrLexicalClass: string;
+        let script: string;
+        let tokenType: string;
     }
     namespace NSLinguisticTagger {
         enum Options {
@@ -14173,6 +22040,26 @@ declare global {
             TopToBottom = 3,
             BottomToTop = 4
         }
+        let currentLocaleDidChangeNotification: string;
+        let alternateQuotationBeginDelimiterKey: string;
+        let alternateQuotationEndDelimiterKey: string;
+        let calendar: string;
+        let collationIdentifier: string;
+        let collatorIdentifier: string;
+        let countryCode: string;
+        let currencyCode: string;
+        let currencySymbol: string;
+        let decimalSeparator: string;
+        let exemplarCharacterSet: string;
+        let groupingSeparator: string;
+        let identifier: string;
+        let languageCode: string;
+        let measurementSystem: string;
+        let quotationBeginDelimiterKey: string;
+        let quotationEndDelimiterKey: string;
+        let scriptCode: string;
+        let usesMetricSystem: string;
+        let variantCode: string;
     }
     namespace NSMachPort {
         enum Options {
@@ -14180,6 +22067,9 @@ declare global {
             DeallocateSendRight = 1,
             DeallocateReceiveRight = 2
         }
+    }
+    namespace NSManagedObject {
+        type ObjectWillChangePublisher = ObservableObjectPublisher;
     }
     namespace NSMatrix {
         enum Mode {
@@ -14205,18 +22095,115 @@ declare global {
             PropertyItemEnabled = 16,
             PropertyItemAccessibilityDescription = 32
         }
+        let didAddItemNotification: string;
+        let didBeginTrackingNotification: string;
+        let didChangeItemNotification: string;
+        let didEndTrackingNotification: string;
+        let didRemoveItemNotification: string;
+        let didSendActionNotification: string;
+        let willSendActionNotification: string;
     }
     namespace NSMenuItem {
+        let importFromDeviceIdentifier: string;
     }
     namespace NSNib {
+        type Name = String;
     }
     namespace NSNotification {
+        let AVAssetChapterMetadataGroupsDidChange: string;
+        let AVAssetContainsFragmentsDidChange: string;
+        let AVAssetDurationDidChange: string;
+        let AVAssetMediaSelectionGroupsDidChange: string;
+        let AVAssetTrackSegmentsDidChange: string;
+        let AVAssetTrackTimeRangeDidChange: string;
+        let AVAssetTrackTrackAssociationsDidChange: string;
+        let AVAssetWasDefragmented: string;
+        let AVAudioEngineConfigurationChange: string;
+        let AVAudioUnitComponentTagsDidChange: string;
+        let AVCaptureDeviceSubjectAreaDidChange: string;
+        let AVCaptureDeviceWasConnected: string;
+        let AVCaptureDeviceWasDisconnected: string;
+        let AVCaptureInputPortFormatDescriptionDidChange: string;
+        let AVCaptureSessionDidStartRunning: string;
+        let AVCaptureSessionDidStopRunning: string;
+        let AVCaptureSessionInterruptionEnded: string;
+        let AVCaptureSessionRuntimeError: string;
+        let AVCaptureSessionWasInterrupted: string;
+        let AVFragmentedMovieContainsMovieFragmentsDidChange: string;
+        let AVFragmentedMovieDurationDidChange: string;
+        let AVFragmentedMovieTrackSegmentsDidChange: string;
+        let AVFragmentedMovieTrackTimeRangeDidChange: string;
+        let AVFragmentedMovieWasDefragmented: string;
+        let AVPlayerAvailableHDRModesDidChange: string;
+        let AVPlayerItemDidPlayToEndTime: string;
+        let AVPlayerItemFailedToPlayToEndTime: string;
+        let AVPlayerItemNewAccessLogEntry: string;
+        let AVPlayerItemNewErrorLogEntry: string;
+        let AVPlayerItemPlaybackStalled: string;
+        let AVPlayerItemTimeJumped: string;
+        let AVRouteDetectorMultipleRoutesDetectedDidChange: string;
+        let AVSampleBufferAudioRendererWasFlushedAutomatically: string;
+        let AVSampleBufferDisplayLayerFailedToDecode: string;
+        let NSAppleEventManagerWillProcessFirstEvent: string;
+        let NSBundleResourceRequestLowDiskSpace: string;
+        let NSCalendarDayChanged: string;
+        let NSClassDescriptionNeededForClass: string;
+        let NSDidBecomeSingleThreaded: string;
+        let NSExtensionHostDidBecomeActive: string;
+        let NSExtensionHostDidEnterBackground: string;
+        let NSExtensionHostWillEnterForeground: string;
+        let NSExtensionHostWillResignActive: string;
+        let NSFileHandleConnectionAccepted: string;
+        let NSFileHandleDataAvailable: string;
+        let NSFileHandleReadToEndOfFileCompletion: string;
+        let NSHTTPCookieManagerAcceptPolicyChanged: string;
+        let NSHTTPCookieManagerCookiesChanged: string;
+        let NSMetadataQueryDidFinishGathering: string;
+        let NSMetadataQueryDidStartGathering: string;
+        let NSMetadataQueryDidUpdate: string;
+        let NSMetadataQueryGatheringProgress: string;
+        let NSProcessInfoPowerStateDidChange: string;
+        let NSSystemClockDidChange: string;
+        let NSSystemTimeZoneDidChange: string;
+        let NSThreadWillExit: string;
+        let NSURLCredentialStorageChanged: string;
+        let NSUbiquityIdentityDidChange: string;
+        let NSUndoManagerCheckpoint: string;
+        let NSUndoManagerDidCloseUndoGroup: string;
+        let NSUndoManagerDidOpenUndoGroup: string;
+        let NSUndoManagerDidRedoChange: string;
+        let NSUndoManagerDidUndoChange: string;
+        let NSUndoManagerWillCloseUndoGroup: string;
+        let NSUndoManagerWillRedoChange: string;
+        let NSUndoManagerWillUndoChange: string;
+        let NSWillBecomeMultiThreaded: string;
+        let IKFilterBrowserFilterDoubleClick: string;
+        let IKFilterBrowserFilterSelected: string;
+        let IKFilterBrowserWillPreviewFilter: string;
+        let quartzFilterManagerDidAddFilter: string;
+        let quartzFilterManagerDidModifyFilter: string;
+        let quartzFilterManagerDidRemoveFilter: string;
+        let quartzFilterManagerDidSelectFilter: string;
     }
     namespace NSNumber {
+        type BooleanLiteralType = boolean;
+        type IntegerLiteralType = number;
+        type FloatLiteralType = number;
     }
     namespace NSOrderedSet {
+        type Iterator = NSFastEnumerationIterator;
     }
     namespace NSOutlineView {
+        let columnDidMoveNotification: string;
+        let columnDidResizeNotification: string;
+        let disclosureButtonIdentifier: string;
+        let itemDidCollapseNotification: string;
+        let itemDidExpandNotification: string;
+        let itemWillCollapseNotification: string;
+        let itemWillExpandNotification: string;
+        let selectionDidChangeNotification: string;
+        let selectionIsChangingNotification: string;
+        let showHideButtonIdentifier: string;
     }
     namespace NSPDFPanel {
         enum Options {
@@ -14231,6 +22218,7 @@ declare global {
             StackBook = 1,
             HorizontalStrip = 2
         }
+        type ObjectIdentifier = String;
     }
     namespace NSParagraphStyle {
         enum TextTabType {
@@ -14258,6 +22246,30 @@ declare global {
         enum WritingOptions {
             Promised = 512
         }
+        let fileContents: string;
+        let findPanelSearchOptions: string;
+        let drag: string;
+        let find: string;
+        let font: string;
+        let general: string;
+        let ruler: string;
+        let color: string;
+        let fileURL: string;
+        let html: string;
+        let multipleTextSelection: string;
+        let pdf: string;
+        let png: string;
+        let rtf: string;
+        let rtfd: string;
+        let sound: string;
+        let string: string;
+        let tiff: string;
+        let tabularText: string;
+        let textFinderOptions: string;
+        let URL: string;
+        let urlReadingContentsConformToTypes: string;
+        let urlReadingFileURLsOnly: string;
+        let soundPboardType: string;
     }
     namespace NSPathControl {
         enum Style {
@@ -14301,8 +22313,10 @@ declare global {
             ArrowAtCenter = 1,
             ArrowAtBottom = 2
         }
+        let willPopUpNotification: string;
     }
     namespace NSPopUpButtonCell {
+        let willPopUpNotification: string;
     }
     namespace NSPopover {
         enum Behavior {
@@ -14310,6 +22324,13 @@ declare global {
             Transient = 1,
             Semitransient = 2
         }
+        let detachToWindow: string;
+        let closeReasonUserInfoKey: string;
+        let standard: string;
+        let didCloseNotification: string;
+        let didShowNotification: string;
+        let willCloseNotification: string;
+        let willShowNotification: string;
     }
     namespace NSPositionalSpecifier {
         enum InsertionPosition {
@@ -14330,6 +22351,44 @@ declare global {
             Fit = 1,
             Clip = 2
         }
+        let automatic: NSPrintInfo.PaginationMode;
+        let clip: NSPrintInfo.PaginationMode;
+        let fit: NSPrintInfo.PaginationMode;
+        let allPages: string;
+        let bottomMargin: string;
+        let cancel: string;
+        let copies: string;
+        let detailedErrorReporting: string;
+        let faxNumber: string;
+        let firstPage: string;
+        let headerAndFooter: string;
+        let horizontalPagination: string;
+        let horizontallyCentered: string;
+        let jobDisposition: string;
+        let jobSavingFileNameExtensionHidden: string;
+        let jobSavingURL: string;
+        let lastPage: string;
+        let leftMargin: string;
+        let mustCollate: string;
+        let orientation: string;
+        let pagesAcross: string;
+        let pagesDown: string;
+        let paperName: string;
+        let paperSize: string;
+        let preview: string;
+        let printer: string;
+        let printerName: string;
+        let reversePageOrder: string;
+        let rightMargin: string;
+        let save: string;
+        let scalingFactor: string;
+        let selectionOnly: string;
+        let spool: string;
+        let time: string;
+        let topMargin: string;
+        let verticalPagination: string;
+        let verticallyCentered: string;
+        type SettingKey = String;
     }
     namespace NSPrintOperation {
         enum RenderingQuality {
@@ -14354,6 +22413,11 @@ declare global {
             ShowsPageSetupAccessory = 256,
             ShowsPreview = 131072
         }
+        let allPresets: string;
+        let noPresets: string;
+        let itemDescription: string;
+        let itemName: string;
+        let photo: string;
     }
     namespace NSPrinter {
         enum TableStatus {
@@ -14410,14 +22474,27 @@ declare global {
             Simple = 0,
             Compound = 1
         }
+        let comparisonModifier: string;
+        let compoundType: string;
+        let customSelector: string;
+        let leftExpression: string;
+        let operatorType: string;
+        let options: string;
+        let rightExpression: string;
+        let rowsDidChangeNotification: string;
     }
     namespace NSRulerView {
         enum Orientation {
             HorizontalRuler = 0,
             VerticalRuler = 1
         }
+        let centimeters: string;
+        let inches: string;
+        let picas: string;
+        let points: string;
     }
     namespace NSScreen {
+        let colorSpaceDidChangeNotification: string;
     }
     namespace NSScrollView {
         enum Elasticity {
@@ -14430,6 +22507,11 @@ declare global {
             AboveContent = 1,
             BelowContent = 2
         }
+        let didEndLiveMagnifyNotification: string;
+        let didEndLiveScrollNotification: string;
+        let didLiveScrollNotification: string;
+        let willStartLiveMagnifyNotification: string;
+        let willStartLiveScrollNotification: string;
     }
     namespace NSScroller {
         enum KnobStyle {
@@ -14455,6 +22537,7 @@ declare global {
             OnlyScrollerArrows = 1,
             AllScrollerParts = 2
         }
+        let preferredScrollerStyleDidChangeNotification: string;
     }
     namespace NSScrubber {
         enum Alignment {
@@ -14469,6 +22552,11 @@ declare global {
         }
     }
     namespace NSSearchField {
+        let clearRecentsMenuItemTag: number;
+        let noRecentsMenuItemTag: number;
+        let recentsMenuItemTag: number;
+        let recentsTitleMenuItemTag: number;
+        type RecentsAutosaveName = String;
     }
     namespace NSSegmentedControl {
         enum Distribution {
@@ -14495,6 +22583,7 @@ declare global {
         }
     }
     namespace NSSet {
+        type Iterator = NSFastEnumerationIterator;
     }
     namespace NSSharingService {
         enum CloudKitOptions {
@@ -14509,6 +22598,14 @@ declare global {
             Partial = 1,
             Full = 2
         }
+        let addToAperture: string;
+        let addToIPhoto: string;
+        let addToSafariReadingList: string;
+        let cloudSharing: string;
+        let composeEmail: string;
+        let composeMessage: string;
+        let sendViaAirDrop: string;
+        let useAsDesktopPicture: string;
     }
     namespace NSSlider {
         enum SliderType {
@@ -14523,8 +22620,12 @@ declare global {
         }
     }
     namespace NSSliderAccessory {
+        let default_: number;
+        let wide: number;
     }
     namespace NSSound {
+        type Name = String;
+        type PlaybackDeviceIdentifier = String;
     }
     namespace NSSpecifierTest {
         enum TestComparisonOperation {
@@ -14544,6 +22645,38 @@ declare global {
             WordBoundary = 1,
             SentenceBoundary = 2
         }
+        let characterMode: string;
+        let commandDelimiter: string;
+        let currentVoice: string;
+        let abbreviations: string;
+        let entryPhonemes: string;
+        let entrySpelling: string;
+        let localeIdentifier: string;
+        let modificationDate: string;
+        let pronunciations: string;
+        let errors: string;
+        let inputMode: string;
+        let numberMode: string;
+        let outputToFileURL: string;
+        let phonemeSymbols: string;
+        let pitchBase: string;
+        let pitchMod: string;
+        let rate: string;
+        let recentSync: string;
+        let reset: string;
+        let status: string;
+        let synthesizerInfo: string;
+        let volume: string;
+        let age: string;
+        let demoText: string;
+        let gender: string;
+        let female: string;
+        let male: string;
+        let neuter: string;
+        let identifier: string;
+        let individuallySpokenCharacters: string;
+        let name: string;
+        let supportedCharacters: string;
     }
     namespace NSSpellChecker {
         enum CorrectionIndicatorType {
@@ -14559,6 +22692,23 @@ declare global {
             Edited = 4,
             Reverted = 5
         }
+        let didChangeAutomaticCapitalizationNotification: string;
+        let didChangeAutomaticDashSubstitutionNotification: string;
+        let didChangeAutomaticPeriodSubstitutionNotification: string;
+        let didChangeAutomaticQuoteSubstitutionNotification: string;
+        let didChangeAutomaticSpellingCorrectionNotification: string;
+        let didChangeAutomaticTextCompletionNotification: string;
+        let didChangeAutomaticTextReplacementNotification: string;
+        let documentAuthor: string;
+        let documentTitle: string;
+        let documentURL: string;
+        let orthography: string;
+        let quotes: string;
+        let referenceDate: string;
+        let referenceTimeZone: string;
+        let regularExpressions: string;
+        let replacements: string;
+        let selectedRange: string;
     }
     namespace NSSplitView {
         enum DividerStyle {
@@ -14566,8 +22716,12 @@ declare global {
             Thin = 2,
             PaneSplitter = 3
         }
+        let didResizeSubviewsNotification: string;
+        let willResizeSubviewsNotification: string;
+        type AutosaveName = String;
     }
     namespace NSSplitViewController {
+        let automaticDimension: number;
     }
     namespace NSSplitViewItem {
         enum Behavior {
@@ -14581,6 +22735,7 @@ declare global {
             PreferResizingSiblingsWithFixedSplitView = 2,
             UseConstraints = 3
         }
+        let unspecifiedDimension: number;
     }
     namespace NSStackView {
         enum Distribution {
@@ -14598,16 +22753,26 @@ declare global {
             Bottom = 3,
             Trailing = 3
         }
+        let useDefaultSpacing: number;
+        let detachOnlyIfNecessary: number;
+        let mustHold: number;
+        let notVisible: number;
     }
     namespace NSStatusItem {
         enum Behavior {
             RemovalAllowed = 2,
             TerminationOnRemoval = 4
         }
+        let squareLength: number;
+        let variableLength: number;
+        type AutosaveName = String;
     }
     namespace NSStoryboard {
+        type Name = String;
+        type SceneIdentifier = String;
     }
     namespace NSStoryboardSegue {
+        type Identifier = String;
     }
     namespace NSString {
         enum DrawingOptions {
@@ -14643,6 +22808,9 @@ declare global {
             SubstringNotRequired = 512,
             Localized = 1024
         }
+        type StringLiteralType = string;
+        type ExtendedGraphemeClusterLiteralType = string;
+        type UnicodeScalarLiteralType = string;
     }
     namespace NSTabView {
         enum TabPosition {
@@ -14739,6 +22907,12 @@ declare global {
             Regular = 0,
             SourceList = 1
         }
+        let columnDidMoveNotification: string;
+        let columnDidResizeNotification: string;
+        let rowViewIdentifier: string;
+        let selectionDidChangeNotification: string;
+        let selectionIsChangingNotification: string;
+        type AutosaveName = String;
     }
     namespace NSTableViewRowAction {
         enum Style {
@@ -14747,8 +22921,13 @@ declare global {
         }
     }
     namespace NSText {
+        let didBeginEditingNotification: string;
+        let didChangeNotification: string;
+        let didEndEditingNotification: string;
+        let movementUserInfoKey: string;
     }
     namespace NSTextAlternatives {
+        let selectedAlternativeStringNotification: string;
     }
     namespace NSTextBlock {
         enum Dimension {
@@ -14776,6 +22955,17 @@ declare global {
         }
     }
     namespace NSTextCheckingKey {
+        let airline: string;
+        let city: string;
+        let country: string;
+        let flight: string;
+        let jobTitle: string;
+        let name: string;
+        let organization: string;
+        let phone: string;
+        let state: string;
+        let street: string;
+        let zip: string;
     }
     namespace NSTextCheckingResult {
         enum CheckingType {
@@ -14824,15 +23014,36 @@ declare global {
         }
     }
     namespace NSTextInputContext {
+        let keyboardSelectionDidChangeNotification: string;
     }
     namespace NSTextList {
         enum Options {
             PrependEnclosingMarker = 1
         }
+        let box: string;
+        let check: string;
+        let circle: string;
+        let decimal: string;
+        let diamond: string;
+        let disc: string;
+        let hyphen: string;
+        let lowercaseAlpha: string;
+        let lowercaseHexadecimal: string;
+        let lowercaseLatin: string;
+        let lowercaseRoman: string;
+        let octal: string;
+        let square: string;
+        let uppercaseAlpha: string;
+        let uppercaseHexadecimal: string;
+        let uppercaseLatin: string;
+        let uppercaseRoman: string;
     }
     namespace NSTextStorage {
+        let didProcessEditingNotification: string;
+        let willProcessEditingNotification: string;
     }
     namespace NSTextTab {
+        let columnTerminators: string;
     }
     namespace NSTextTable {
         enum LayoutAlgorithm {
@@ -14841,6 +23052,9 @@ declare global {
         }
     }
     namespace NSTextView {
+        let didChangeSelectionNotification: string;
+        let didChangeTypingAttributesNotification: string;
+        let willChangeNotifyingTextViewNotification: string;
     }
     namespace NSTimeZone {
         enum NameStyle {
@@ -14873,8 +23087,24 @@ declare global {
             Regular = 1,
             Small = 2
         }
+        let didRemoveItemNotification: string;
+        let willAddItemNotification: string;
+        type Identifier = String;
     }
     namespace NSToolbarItem {
+        let cloudSharing: string;
+        let customizeToolbar: string;
+        let flexibleSpace: string;
+        let high: number;
+        let low: number;
+        let standard: number;
+        let user: number;
+        let print: string;
+        let separator: string;
+        let showColors: string;
+        let showFonts: string;
+        let space: string;
+        let toggleSidebar: string;
     }
     namespace NSToolbarItemGroup {
         enum ControlRepresentation {
@@ -14908,8 +23138,23 @@ declare global {
         }
     }
     namespace NSTouchBar {
+        type CustomizationIdentifier = String;
     }
     namespace NSTouchBarItem {
+        let candidateList: string;
+        let characterPicker: string;
+        let fixedSpaceLarge: string;
+        let fixedSpaceSmall: string;
+        let flexibleSpace: string;
+        let otherItemsProxy: string;
+        let textAlignment: string;
+        let textColorPicker: string;
+        let textFormat: string;
+        let textList: string;
+        let textStyle: string;
+        let high: number;
+        let low: number;
+        let normal: number;
     }
     namespace NSTrackingArea {
         enum Options {
@@ -14938,6 +23183,7 @@ declare global {
             WithoutMounting = 512,
             WithSecurityScope = 1024
         }
+        type BookmarkFileCreationOptions = number;
     }
     namespace NSURLHandle {
         enum Status {
@@ -14970,6 +23216,7 @@ declare global {
         }
     }
     namespace NSUbiquitousKeyValueStore {
+        let didChangeExternallyNotification: string;
     }
     namespace NSUserNotification {
         enum ActivationType {
@@ -14981,6 +23228,10 @@ declare global {
         }
     }
     namespace NSValueTransformerName {
+        let isNilTransformerName: string;
+        let isNotNilTransformerName: string;
+        let negateBooleanTransformerName: string;
+        let secureUnarchiveFromDataTransformerName: string;
     }
     namespace NSView {
         enum AutoresizingMask {
@@ -15019,8 +23270,29 @@ declare global {
             BeforeViewResize = 3,
             Crossfade = 4
         }
+        let emphasized: NSView.BackgroundStyle;
+        let normal: NSView.BackgroundStyle;
+        let dictionaryApplication: string;
+        let presentationType: string;
+        let overlay: string;
+        let fullScreenModeAllScreens: string;
+        let fullScreenModeApplicationPresentationOptions: string;
+        let fullScreenModeSetting: string;
+        let fullScreenModeWindowLevel: string;
+        let boundsDidChangeNotification: string;
+        let didUpdateTrackingAreasNotification: string;
+        let frameDidChangeNotification: string;
+        let noIntrinsicMetric: number;
+        type TrackingRectTag = number;
+        type ToolTipTag = number;
     }
     namespace NSViewAnimation {
+        let effect: string;
+        let endFrame: string;
+        let fadeIn: string;
+        let fadeOut: string;
+        let startFrame: string;
+        let target: string;
     }
     namespace NSViewController {
         enum TransitionOptions {
@@ -15168,6 +23440,49 @@ declare global {
             Always = 1,
             InFullScreen = 2
         }
+        let oldColorSpaceUserInfoKey: string;
+        let oldScaleFactorUserInfoKey: string;
+        let floating: number;
+        let mainMenu: number;
+        let modalPanel: number;
+        let normal: number;
+        let popUpMenu: number;
+        let screenSaver: number;
+        let statusBar: number;
+        let submenu: number;
+        let tornOffMenu: number;
+        let didBecomeKeyNotification: string;
+        let didBecomeMainNotification: string;
+        let didChangeBackingPropertiesNotification: string;
+        let didChangeOcclusionStateNotification: string;
+        let didChangeScreenNotification: string;
+        let didChangeScreenProfileNotification: string;
+        let didDeminiaturizeNotification: string;
+        let didEndLiveResizeNotification: string;
+        let didEndSheetNotification: string;
+        let didEnterFullScreenNotification: string;
+        let didEnterVersionBrowserNotification: string;
+        let didExitFullScreenNotification: string;
+        let didExitVersionBrowserNotification: string;
+        let didExposeNotification: string;
+        let didMiniaturizeNotification: string;
+        let didMoveNotification: string;
+        let didResignKeyNotification: string;
+        let didResignMainNotification: string;
+        let didResizeNotification: string;
+        let didUpdateNotification: string;
+        let willBeginSheetNotification: string;
+        let willCloseNotification: string;
+        let willEnterFullScreenNotification: string;
+        let willEnterVersionBrowserNotification: string;
+        let willExitFullScreenNotification: string;
+        let willExitVersionBrowserNotification: string;
+        let willMiniaturizeNotification: string;
+        let willMoveNotification: string;
+        let willStartLiveResizeNotification: string;
+        type FrameAutosaveName = String;
+        type PersistableFrameDescriptor = String;
+        type TabbingIdentifier = String;
     }
     namespace NSWorkspace {
         enum AuthorizationType {
@@ -15193,6 +23508,39 @@ declare global {
             AllowingClassicStartup = 131072,
             PreferringClassic = 262144
         }
+        let accessibilityDisplayOptionsDidChangeNotification: string;
+        let activeSpaceDidChangeNotification: string;
+        let applicationUserInfoKey: string;
+        let allowClipping: string;
+        let fillColor: string;
+        let imageScaling: string;
+        let didActivateApplicationNotification: string;
+        let didChangeFileLabelsNotification: string;
+        let didDeactivateApplicationNotification: string;
+        let didHideApplicationNotification: string;
+        let didLaunchApplicationNotification: string;
+        let didMountNotification: string;
+        let didRenameVolumeNotification: string;
+        let didTerminateApplicationNotification: string;
+        let didUnhideApplicationNotification: string;
+        let didUnmountNotification: string;
+        let didWakeNotification: string;
+        let appleEvent: string;
+        let architecture: string;
+        let arguments_: string;
+        let environment: string;
+        let screensDidSleepNotification: string;
+        let screensDidWakeNotification: string;
+        let sessionDidBecomeActiveNotification: string;
+        let sessionDidResignActiveNotification: string;
+        let localizedVolumeNameUserInfoKey: string;
+        let oldLocalizedVolumeNameUserInfoKey: string;
+        let oldVolumeURLUserInfoKey: string;
+        let volumeURLUserInfoKey: string;
+        let willLaunchApplicationNotification: string;
+        let willPowerOffNotification: string;
+        let willSleepNotification: string;
+        let willUnmountNotification: string;
     }
     namespace NSXPCConnection {
         enum Options {
@@ -15264,6 +23612,7 @@ declare global {
         }
     }
     namespace OperationQueue {
+        let defaultMaxConcurrentOperationCount: number;
     }
     namespace PersonNameComponentsFormatter {
         enum Options {
@@ -15278,12 +23627,14 @@ declare global {
         }
     }
     namespace Port {
+        let didBecomeInvalidNotification: string;
     }
     namespace Process {
         enum TerminationReason {
             Exit = 1,
             UncaughtSignal = 2
         }
+        let didTerminateNotification: string;
     }
     namespace ProcessInfo {
         enum ActivityOptions {
@@ -15302,12 +23653,27 @@ declare global {
             Serious = 2,
             Critical = 3
         }
+        let thermalStateDidChangeNotification: string;
     }
     namespace Progress {
+        let copying: string;
+        let decompressingAfterDownloading: string;
+        let downloading: string;
+        let receiving: string;
     }
     namespace ProgressKind {
+        let file: string;
     }
     namespace ProgressUserInfoKey {
+        let estimatedTimeRemainingKey: string;
+        let fileAnimationImageKey: string;
+        let fileAnimationImageOriginalRectKey: string;
+        let fileCompletedCountKey: string;
+        let fileIconKey: string;
+        let fileOperationKindKey: string;
+        let fileTotalCountKey: string;
+        let fileURLKey: string;
+        let throughputKey: string;
     }
     namespace PropertyListSerialization {
         enum PropertyListFormat {
@@ -15320,6 +23686,8 @@ declare global {
             MutableContainers = 1,
             MutableContainersAndLeaves = 2
         }
+        type ReadOptions = PropertyListSerialization;
+        type WriteOptions = number;
     }
     namespace RelativeDateTimeFormatter {
         enum DateTimeStyle {
@@ -15334,6 +23702,10 @@ declare global {
         }
     }
     namespace RunLoop {
+        let eventTracking: string;
+        let modalPanel: string;
+        let default_: string;
+        let common: string;
     }
     namespace Stream {
         enum Event {
@@ -15354,18 +23726,70 @@ declare global {
             Closed = 6,
             Error = 7
         }
+        let dataWrittenToMemoryStreamKey: string;
+        let fileCurrentOffsetKey: string;
+        let networkServiceType: string;
+        let socksProxyConfigurationKey: string;
+        let socketSecurityLevelKey: string;
     }
     namespace StreamNetworkServiceTypeValue {
+        let background: string;
+        let callSignaling: string;
+        let video: string;
+        let voIP: string;
+        let voice: string;
     }
     namespace StreamSOCKSProxyConfiguration {
+        let hostKey: string;
+        let passwordKey: string;
+        let portKey: string;
+        let userKey: string;
+        let versionKey: string;
     }
     namespace StreamSOCKSProxyVersion {
+        let version4: string;
+        let version5: string;
     }
     namespace StreamSocketSecurityLevel {
+        let negotiatedSSL: string;
+        let none: string;
+        let ssLv2: string;
+        let ssLv3: string;
+        let tlSv1: string;
     }
     namespace StringEncodingDetectionOptionsKey {
+        let allowLossyKey: string;
+        let disallowedEncodingsKey: string;
+        let fromWindowsKey: string;
+        let likelyLanguageKey: string;
+        let lossySubstitutionKey: string;
+        let suggestedEncodingsKey: string;
+        let useOnlySuggestedEncodingsKey: string;
     }
     namespace StringTransform {
+        let fullwidthToHalfwidth: string;
+        let hiraganaToKatakana: string;
+        let latinToArabic: string;
+        let latinToCyrillic: string;
+        let latinToGreek: string;
+        let latinToHangul: string;
+        let latinToHebrew: string;
+        let latinToHiragana: string;
+        let latinToKatakana: string;
+        let latinToThai: string;
+        let mandarinToLatin: string;
+        let stripCombiningMarks: string;
+        let stripDiacritics: string;
+        let toLatin: string;
+        let toUnicodeName: string;
+        let toXMLHex: string;
+    }
+    namespace SystemPressureState {
+        enum Factors {
+            systemTemperature,
+            peakPower,
+            depthModuleTemperature
+        }
     }
     namespace URLCache {
         enum StoragePolicy {
@@ -15383,10 +23807,131 @@ declare global {
         }
     }
     namespace URLFileProtection {
+        let complete: string;
+        let completeUnlessOpen: string;
+        let completeUntilFirstUserAuthentication: string;
+        let none: string;
     }
     namespace URLFileResourceType {
+        let blockSpecial: string;
+        let characterSpecial: string;
+        let directory: string;
+        let namedPipe: string;
+        let regular: string;
+        let socket: string;
+        let symbolicLink: string;
+        let unknown: string;
     }
     namespace URLResourceKey {
+        let addedToDirectoryDateKey: string;
+        let applicationIsScriptableKey: string;
+        let attributeModificationDateKey: string;
+        let canonicalPathKey: string;
+        let contentAccessDateKey: string;
+        let contentModificationDateKey: string;
+        let creationDateKey: string;
+        let customIconKey: string;
+        let documentIdentifierKey: string;
+        let effectiveIconKey: string;
+        let fileAllocatedSizeKey: string;
+        let fileProtectionKey: string;
+        let fileResourceIdentifierKey: string;
+        let fileResourceTypeKey: string;
+        let fileSecurityKey: string;
+        let fileSizeKey: string;
+        let generationIdentifierKey: string;
+        let hasHiddenExtensionKey: string;
+        let isAliasFileKey: string;
+        let isApplicationKey: string;
+        let isDirectoryKey: string;
+        let isExcludedFromBackupKey: string;
+        let isExecutableKey: string;
+        let isHiddenKey: string;
+        let isMountTriggerKey: string;
+        let isPackageKey: string;
+        let isReadableKey: string;
+        let isRegularFileKey: string;
+        let isSymbolicLinkKey: string;
+        let isSystemImmutableKey: string;
+        let isUbiquitousItemKey: string;
+        let isUserImmutableKey: string;
+        let isVolumeKey: string;
+        let isWritableKey: string;
+        let keysOfUnsetValuesKey: string;
+        let labelColorKey: string;
+        let labelNumberKey: string;
+        let linkCountKey: string;
+        let localizedLabelKey: string;
+        let localizedNameKey: string;
+        let localizedTypeDescriptionKey: string;
+        let nameKey: string;
+        let parentDirectoryURLKey: string;
+        let pathKey: string;
+        let preferredIOBlockSizeKey: string;
+        let quarantinePropertiesKey: string;
+        let tagNamesKey: string;
+        let thumbnailDictionaryKey: string;
+        let thumbnailKey: string;
+        let totalFileAllocatedSizeKey: string;
+        let totalFileSizeKey: string;
+        let typeIdentifierKey: string;
+        let ubiquitousItemContainerDisplayNameKey: string;
+        let ubiquitousItemDownloadRequestedKey: string;
+        let ubiquitousItemDownloadingErrorKey: string;
+        let ubiquitousItemDownloadingStatusKey: string;
+        let ubiquitousItemHasUnresolvedConflictsKey: string;
+        let ubiquitousItemIsDownloadingKey: string;
+        let ubiquitousItemIsSharedKey: string;
+        let ubiquitousItemIsUploadedKey: string;
+        let ubiquitousItemIsUploadingKey: string;
+        let ubiquitousItemUploadingErrorKey: string;
+        let ubiquitousSharedItemCurrentUserPermissionsKey: string;
+        let ubiquitousSharedItemCurrentUserRoleKey: string;
+        let ubiquitousSharedItemMostRecentEditorNameComponentsKey: string;
+        let ubiquitousSharedItemOwnerNameComponentsKey: string;
+        let volumeAvailableCapacityForImportantUsageKey: string;
+        let volumeAvailableCapacityForOpportunisticUsageKey: string;
+        let volumeAvailableCapacityKey: string;
+        let volumeCreationDateKey: string;
+        let volumeIdentifierKey: string;
+        let volumeIsAutomountedKey: string;
+        let volumeIsBrowsableKey: string;
+        let volumeIsEjectableKey: string;
+        let volumeIsEncryptedKey: string;
+        let volumeIsInternalKey: string;
+        let volumeIsJournalingKey: string;
+        let volumeIsLocalKey: string;
+        let volumeIsReadOnlyKey: string;
+        let volumeIsRemovableKey: string;
+        let volumeIsRootFileSystemKey: string;
+        let volumeLocalizedFormatDescriptionKey: string;
+        let volumeLocalizedNameKey: string;
+        let volumeMaximumFileSizeKey: string;
+        let volumeNameKey: string;
+        let volumeResourceCountKey: string;
+        let volumeSupportsAccessPermissionsKey: string;
+        let volumeSupportsAdvisoryFileLockingKey: string;
+        let volumeSupportsCasePreservedNamesKey: string;
+        let volumeSupportsCaseSensitiveNamesKey: string;
+        let volumeSupportsCompressionKey: string;
+        let volumeSupportsExclusiveRenamingKey: string;
+        let volumeSupportsExtendedSecurityKey: string;
+        let volumeSupportsFileCloningKey: string;
+        let volumeSupportsHardLinksKey: string;
+        let volumeSupportsImmutableFilesKey: string;
+        let volumeSupportsJournalingKey: string;
+        let volumeSupportsPersistentIDsKey: string;
+        let volumeSupportsRenamingKey: string;
+        let volumeSupportsRootDirectoryDatesKey: string;
+        let volumeSupportsSparseFilesKey: string;
+        let volumeSupportsSwapRenamingKey: string;
+        let volumeSupportsSymbolicLinksKey: string;
+        let volumeSupportsVolumeSizesKey: string;
+        let volumeSupportsZeroRunsKey: string;
+        let volumeTotalCapacityKey: string;
+        let volumeURLForRemountingKey: string;
+        let volumeURLKey: string;
+        let volumeUUIDStringKey: string;
     }
     namespace URLSession {
         enum AuthChallengeDisposition {
@@ -15409,6 +23954,9 @@ declare global {
             Canceling = 2,
             Completed = 3
         }
+        let defaultPriority: number;
+        let highPriority: number;
+        let lowPriority: number;
     }
     namespace URLSessionTaskMetrics {
         enum ResourceFetchType {
@@ -15436,14 +23984,30 @@ declare global {
         }
     }
     namespace URLThumbnailDictionaryItem {
+        let NSThumbnail1024x1024SizeKey: string;
     }
     namespace URLUbiquitousItemDownloadingStatus {
+        let current: string;
+        let downloaded: string;
+        let notDownloaded: string;
     }
     namespace URLUbiquitousSharedItemPermissions {
+        let readOnly: string;
+        let readWrite: string;
     }
     namespace URLUbiquitousSharedItemRole {
+        let owner: string;
+        let participant: string;
     }
     namespace UserDefaults {
+        let argumentDomain: string;
+        let globalDomain: string;
+        let registrationDomain: string;
+        let completedInitialCloudSyncNotification: string;
+        let didChangeCloudAccountsNotification: string;
+        let noCloudAccountNotification: string;
+        let didChangeNotification: string;
+        let sizeLimitExceededNotification: string;
     }
     namespace XMLDTDNode {
         enum DTDKind {
@@ -15626,6 +24190,7 @@ declare global {
             ResolveExternalEntitiesSameOriginOnly = 2,
             ResolveExternalEntitiesAlways = 3
         }
+        let errorDomain: string;
     }
     export enum AVAssetReferenceRestrictions {
         forbidRemoteReferenceToLocal,
@@ -16252,6 +24817,12 @@ declare global {
         concurrent,
         reverse
     }
+    export enum NSFetchRequestResultType {
+        managedObjectResultType,
+        managedObjectIDResultType,
+        dictionaryResultType,
+        countResultType
+    }
     export enum NSFontCollectionOptions {
         applicationOnlyMask
     }
@@ -16287,6 +24858,18 @@ declare global {
         omitInsertedObjects,
         omitRemovedObjects,
         inferMoves
+    }
+    export enum NSPersistentCloudKitContainerSchemaInitializationOptions {
+        dryRun,
+        printSchema
+    }
+    export enum NSSnapshotEventType {
+        undoInsertion,
+        undoDeletion,
+        undoUpdate,
+        rollback,
+        refresh,
+        mergePolicy
     }
     export enum NSSortOptions {
         magnitude,
@@ -16331,6 +24914,8 @@ declare global {
         byteSwapped,
         scalarCount,
         hashValue,
+        boolValue,
+        ptr,
         bitWidth,
         leadingZeroBitCount,
         trailingZeroBitCount,
@@ -16349,6 +24934,313 @@ declare global {
         hashValue,
         autoupdatingCurrent,
         current
+    }
+    export enum AVAssetReferenceRestrictions {
+        ForbidNone = 0,
+        ForbidRemoteReferenceToLocal = 1,
+        ForbidLocalReferenceToRemote = 2,
+        ForbidCrossSiteReference = 4,
+        ForbidLocalReferenceToLocal = 8,
+        ForbidAll = 65535,
+        DefaultPolicy = 2
+    }
+    export enum AVAudio3DMixingPointSourceInHeadMode {
+        Mono = 0,
+        Bypass = 1
+    }
+    export enum AVAudio3DMixingRenderingAlgorithm {
+        EqualPowerPanning = 0,
+        SphericalHead = 1,
+        HRTF = 2,
+        SoundField = 3,
+        StereoPassThrough = 5,
+        HRTFHQ = 6,
+        Auto = 7
+    }
+    export enum AVAudio3DMixingSourceMode {
+        SpatializeIfMono = 0,
+        Bypass = 1,
+        PointSource = 2,
+        AmbienceBed = 3
+    }
+    export enum AVAudioCommonFormat {
+        OtherFormat = 0,
+        PCMFormatFloat32 = 1,
+        PCMFormatFloat64 = 2,
+        PCMFormatInt16 = 3,
+        PCMFormatInt32 = 4
+    }
+    export enum AVAudioConverterInputStatus {
+        HaveData = 0,
+        NoDataNow = 1,
+        EndOfStream = 2
+    }
+    export enum AVAudioConverterOutputStatus {
+        HaveData = 0,
+        InputRanDry = 1,
+        EndOfStream = 2,
+        Error = 3
+    }
+    export enum AVAudioConverterPrimeMethod {
+        Pre = 0,
+        Normal = 1,
+        None = 2
+    }
+    export enum AVAudioEngineManualRenderingError {
+        InvalidMode = -80800,
+        Initialized = -80801,
+        NotRunning = -80802
+    }
+    export enum AVAudioEngineManualRenderingMode {
+        Offline = 0,
+        Realtime = 1
+    }
+    export enum AVAudioEngineManualRenderingStatus {
+        Error = -1,
+        Success = 0,
+        InsufficientDataFromInputNode = 1,
+        CannotDoInCurrentContext = 2
+    }
+    export enum AVAudioEnvironmentDistanceAttenuationModel {
+        Exponential = 1,
+        Inverse = 2,
+        Linear = 3
+    }
+    export enum AVAudioEnvironmentOutputType {
+        Auto = 0,
+        Headphones = 1,
+        BuiltInSpeakers = 2,
+        ExternalSpeakers = 3
+    }
+    export enum AVAudioPlayerNodeBufferOptions {
+        Loops = 1,
+        Interrupts = 2,
+        InterruptsAtLoop = 4
+    }
+    export enum AVAudioPlayerNodeCompletionCallbackType {
+        DataConsumed = 0,
+        DataRendered = 1,
+        DataPlayedBack = 2
+    }
+    export enum AVAudioQuality {
+        Min = 0,
+        Low = 32,
+        Medium = 64,
+        High = 96,
+        Max = 127
+    }
+    export enum AVAudioSessionActivationOptions {
+        None = 0
+    }
+    export enum AVAudioUnitDistortionPreset {
+        DrumsBitBrush = 0,
+        DrumsBufferBeats = 1,
+        DrumsLoFi = 2,
+        MultiBrokenSpeaker = 3,
+        MultiCellphoneConcert = 4,
+        MultiDecimated1 = 5,
+        MultiDecimated2 = 6,
+        MultiDecimated3 = 7,
+        MultiDecimated4 = 8,
+        MultiDistortedFunk = 9,
+        MultiDistortedCubed = 10,
+        MultiDistortedSquared = 11,
+        MultiEcho1 = 12,
+        MultiEcho2 = 13,
+        MultiEchoTight1 = 14,
+        MultiEchoTight2 = 15,
+        MultiEverythingIsBroken = 16,
+        SpeechAlienChatter = 17,
+        SpeechCosmicInterference = 18,
+        SpeechGoldenPi = 19,
+        SpeechRadioTower = 20,
+        SpeechWaves = 21
+    }
+    export enum AVAudioUnitEQFilterType {
+        Parametric = 0,
+        LowPass = 1,
+        HighPass = 2,
+        ResonantLowPass = 3,
+        ResonantHighPass = 4,
+        BandPass = 5,
+        BandStop = 6,
+        LowShelf = 7,
+        HighShelf = 8,
+        ResonantLowShelf = 9,
+        ResonantHighShelf = 10
+    }
+    export enum AVAudioUnitReverbPreset {
+        SmallRoom = 0,
+        MediumRoom = 1,
+        LargeRoom = 2,
+        MediumHall = 3,
+        LargeHall = 4,
+        Plate = 5,
+        MediumChamber = 6,
+        LargeChamber = 7,
+        Cathedral = 8,
+        LargeRoom2 = 9,
+        MediumHall2 = 10,
+        MediumHall3 = 11,
+        LargeHall2 = 12
+    }
+    export enum AVAuthorizationStatus {
+        NotDetermined = 0,
+        Restricted = 1,
+        Denied = 2,
+        Authorized = 3
+    }
+    export enum AVCaptureColorSpace {
+        sRGB = 0,
+        P3_D65 = 1
+    }
+    export enum AVCaptureVideoOrientation {
+        Portrait = 1,
+        PortraitUpsideDown = 2,
+        LandscapeRight = 3,
+        LandscapeLeft = 4
+    }
+    export enum AVContentAuthorizationStatus {
+        Unknown = 0,
+        Completed = 1,
+        Cancelled = 2,
+        TimedOut = 3,
+        Busy = 4,
+        NotAvailable = 5,
+        NotPossible = 6
+    }
+    export enum AVError {
+        Unknown = -11800,
+        OutOfMemory = -11801,
+        SessionNotRunning = -11803,
+        DeviceAlreadyUsedByAnotherSession = -11804,
+        NoDataCaptured = -11805,
+        SessionConfigurationChanged = -11806,
+        DiskFull = -11807,
+        DeviceWasDisconnected = -11808,
+        MediaChanged = -11809,
+        MaximumDurationReached = -11810,
+        MaximumFileSizeReached = -11811,
+        MediaDiscontinuity = -11812,
+        MaximumNumberOfSamplesForFileFormatReached = -11813,
+        DeviceNotConnected = -11814,
+        DeviceInUseByAnotherApplication = -11815,
+        DeviceLockedForConfigurationByAnotherProcess = -11817,
+        ExportFailed = -11820,
+        DecodeFailed = -11821,
+        InvalidSourceMedia = -11822,
+        FileAlreadyExists = -11823,
+        CompositionTrackSegmentsNotContiguous = -11824,
+        InvalidCompositionTrackSegmentDuration = -11825,
+        InvalidCompositionTrackSegmentSourceStartTime = -11826,
+        InvalidCompositionTrackSegmentSourceDuration = -11827,
+        FileFormatNotRecognized = -11828,
+        FileFailedToParse = -11829,
+        MaximumStillImageCaptureRequestsExceeded = -11830,
+        ContentIsProtected = -11831,
+        NoImageAtTime = -11832,
+        DecoderNotFound = -11833,
+        EncoderNotFound = -11834,
+        ContentIsNotAuthorized = -11835,
+        ApplicationIsNotAuthorized = -11836,
+        OperationNotSupportedForAsset = -11838,
+        DecoderTemporarilyUnavailable = -11839,
+        EncoderTemporarilyUnavailable = -11840,
+        InvalidVideoComposition = -11841,
+        ReferenceForbiddenByReferencePolicy = -11842,
+        InvalidOutputURLPathExtension = -11843,
+        ScreenCaptureFailed = -11844,
+        DisplayWasDisabled = -11845,
+        TorchLevelUnavailable = -11846,
+        IncompatibleAsset = -11848,
+        FailedToLoadMediaData = -11849,
+        ServerIncorrectlyConfigured = -11850,
+        ApplicationIsNotAuthorizedToUseDevice = -11852,
+        FailedToParse = -11853,
+        FileTypeDoesNotSupportSampleReferences = -11854,
+        UndecodableMediaData = -11855,
+        AirPlayControllerRequiresInternet = -11856,
+        AirPlayReceiverRequiresInternet = -11857,
+        VideoCompositorFailed = -11858,
+        CreateContentKeyRequestFailed = -11860,
+        UnsupportedOutputSettings = -11861,
+        OperationNotAllowed = -11862,
+        ContentIsUnavailable = -11863,
+        FormatUnsupported = -11864,
+        MalformedDepth = -11865,
+        ContentNotUpdated = -11866,
+        NoLongerPlayable = -11867,
+        NoCompatibleAlternatesForExternalDisplay = -11868,
+        NoSourceTrack = -11869,
+        ExternalPlaybackNotSupportedForAsset = -11870,
+        OperationNotSupportedForPreset = -11871,
+        SessionHardwareCostOverage = -11872,
+        UnsupportedDeviceActiveFormat = -11873
+    }
+    export enum AVKeyValueStatus {
+        Unknown = 0,
+        Loading = 1,
+        Loaded = 2,
+        Failed = 3,
+        Cancelled = 4
+    }
+    export enum AVMovieWritingOptions {
+        AddMovieHeaderToDestination = 0,
+        TruncateDestinationToMovieHeaderOnly = 1
+    }
+    export enum AVMusicSequenceLoadOptions {
+        SMF_PreserveTracks = 0,
+        SMF_ChannelsToTracks = 1
+    }
+    export enum AVMusicTrackLoopCount {
+        Forever = -1
+    }
+    export enum AVQueuedSampleBufferRenderingStatus {
+        Unknown = 0,
+        Rendering = 1,
+        Failed = 2
+    }
+    export enum AVSpeechBoundary {
+        Immediate = 0,
+        Word = 1
+    }
+    export enum AVSpeechSynthesisVoiceGender {
+        Unspecified = 0,
+        Male = 1,
+        Female = 2
+    }
+    export enum AVSpeechSynthesisVoiceQuality {
+        Default = 1,
+        Enhanced = 2
+    }
+    export enum AVVideoFieldMode {
+        Both = 0,
+        TopOnly = 1,
+        BottomOnly = 2,
+        Deinterlace = 3
+    }
+    export enum AVCaptureViewControlsStyle {
+        Inline = 0,
+        Floating = 1,
+        InlineDeviceSelection = 2,
+        Default = 0
+    }
+    export enum AVPlayerViewControlsStyle {
+        None = 0,
+        Inline = 1,
+        Floating = 2,
+        Minimal = 3,
+        Default = 1
+    }
+    export enum AVPlayerViewTrimResult {
+        OKButton = 0,
+        CancelButton = 1
+    }
+    export enum AVRoutePickerViewButtonState {
+        Normal = 0,
+        NormalHighlighted = 1,
+        Active = 2,
+        ActiveHighlighted = 3
     }
     export enum NSAccessibilityPriorityLevel {
         Low = 10,
@@ -16677,6 +25569,113 @@ declare global {
     export enum NSWritingDirectionFormatType {
         Embedding = 0,
         Override = 2
+    }
+    export enum NSAttributeType {
+        UndefinedAttributeType = 0,
+        Integer16AttributeType = 100,
+        Integer32AttributeType = 200,
+        Integer64AttributeType = 300,
+        DecimalAttributeType = 400,
+        DoubleAttributeType = 500,
+        FloatAttributeType = 600,
+        StringAttributeType = 700,
+        BooleanAttributeType = 800,
+        DateAttributeType = 900,
+        BinaryDataAttributeType = 1000,
+        UUIDAttributeType = 1100,
+        URIAttributeType = 1200,
+        TransformableAttributeType = 1800,
+        ObjectIDAttributeType = 2000
+    }
+    export enum NSBatchDeleteRequestResultType {
+        ResultTypeStatusOnly = 0,
+        ResultTypeObjectIDs = 1,
+        ResultTypeCount = 2
+    }
+    export enum NSBatchInsertRequestResultType {
+        StatusOnly = 0,
+        ObjectIDs = 1,
+        Count = 2
+    }
+    export enum NSBatchUpdateRequestResultType {
+        StatusOnlyResultType = 0,
+        UpdatedObjectIDsResultType = 1,
+        UpdatedObjectsCountResultType = 2
+    }
+    export enum NSDeleteRule {
+        NoActionDeleteRule = 0,
+        NullifyDeleteRule = 1,
+        CascadeDeleteRule = 2,
+        DenyDeleteRule = 3
+    }
+    export enum NSEntityMappingType {
+        UndefinedEntityMappingType = 0,
+        CustomEntityMappingType = 1,
+        AddEntityMappingType = 2,
+        RemoveEntityMappingType = 3,
+        CopyEntityMappingType = 4,
+        TransformEntityMappingType = 5
+    }
+    export enum NSFetchIndexElementType {
+        Binary = 0,
+        RTree = 1
+    }
+    export enum NSFetchRequestResultType {
+        ManagedObjectResultType = 0,
+        ManagedObjectIDResultType = 1,
+        DictionaryResultType = 2,
+        CountResultType = 4
+    }
+    export enum NSFetchedResultsChangeType {
+        Insert = 1,
+        Delete = 2,
+        Move = 3,
+        Update = 4
+    }
+    export enum NSManagedObjectContextConcurrencyType {
+        ConfinementConcurrencyType = 0,
+        PrivateQueueConcurrencyType = 1,
+        MainQueueConcurrencyType = 2
+    }
+    export enum NSMergePolicyType {
+        ErrorMergePolicyType = 0,
+        MergeByPropertyStoreTrumpMergePolicyType = 1,
+        MergeByPropertyObjectTrumpMergePolicyType = 2,
+        OverwriteMergePolicyType = 3,
+        RollbackMergePolicyType = 4
+    }
+    export enum NSPersistentCloudKitContainerSchemaInitializationOptions {
+        None = 0,
+        DryRun = 2,
+        PrintSchema = 4
+    }
+    export enum NSPersistentHistoryChangeType {
+        Insert = 0,
+        Update = 1,
+        Delete = 2
+    }
+    export enum NSPersistentHistoryResultType {
+        StatusOnly = 0,
+        ObjectIDs = 1,
+        Count = 2,
+        TransactionsOnly = 3,
+        ChangesOnly = 4,
+        TransactionsAndChanges = 5
+    }
+    export enum NSPersistentStoreRequestType {
+        FetchRequestType = 1,
+        SaveRequestType = 2,
+        BatchInsertRequestType = 5,
+        BatchUpdateRequestType = 6,
+        BatchDeleteRequestType = 7
+    }
+    export enum NSSnapshotEventType {
+        UndoInsertion = 2,
+        UndoDeletion = 4,
+        UndoUpdate = 8,
+        Rollback = 16,
+        Refresh = 32,
+        MergePolicy = 64
     }
     export enum CFCalendarUnit {
         kCFCalendarUnitEra = 2,
@@ -17172,6 +26171,540 @@ declare global {
         CFByteOrderLittleEndian = 1,
         CFByteOrderBigEndian = 2
     }
+    export enum CGBitmapInfo {
+        kCGBitmapAlphaInfoMask = 31,
+        kCGBitmapFloatInfoMask = 3840,
+        kCGBitmapFloatComponents = 256,
+        kCGBitmapByteOrderMask = 28672,
+        kCGBitmapByteOrderDefault = 0,
+        kCGBitmapByteOrder16Little = 4096,
+        kCGBitmapByteOrder32Little = 8192,
+        kCGBitmapByteOrder16Big = 12288,
+        kCGBitmapByteOrder32Big = 16384
+    }
+    export enum CGBlendMode {
+        kCGBlendModeNormal = 0,
+        kCGBlendModeMultiply = 1,
+        kCGBlendModeScreen = 2,
+        kCGBlendModeOverlay = 3,
+        kCGBlendModeDarken = 4,
+        kCGBlendModeLighten = 5,
+        kCGBlendModeColorDodge = 6,
+        kCGBlendModeColorBurn = 7,
+        kCGBlendModeSoftLight = 8,
+        kCGBlendModeHardLight = 9,
+        kCGBlendModeDifference = 10,
+        kCGBlendModeExclusion = 11,
+        kCGBlendModeHue = 12,
+        kCGBlendModeSaturation = 13,
+        kCGBlendModeColor = 14,
+        kCGBlendModeLuminosity = 15,
+        kCGBlendModeClear = 16,
+        kCGBlendModeCopy = 17,
+        kCGBlendModeSourceIn = 18,
+        kCGBlendModeSourceOut = 19,
+        kCGBlendModeSourceAtop = 20,
+        kCGBlendModeDestinationOver = 21,
+        kCGBlendModeDestinationIn = 22,
+        kCGBlendModeDestinationOut = 23,
+        kCGBlendModeDestinationAtop = 24,
+        kCGBlendModeXOR = 25,
+        kCGBlendModePlusDarker = 26,
+        kCGBlendModePlusLighter = 27
+    }
+    export enum CGCaptureOptions {
+        kCGCaptureNoOptions = 0,
+        kCGCaptureNoFill = 1
+    }
+    export enum CGColorConversionInfoTransformType {
+        kCGColorConversionTransformFromSpace = 0,
+        kCGColorConversionTransformToSpace = 1,
+        kCGColorConversionTransformApplySpace = 2
+    }
+    export enum CGColorRenderingIntent {
+        kCGRenderingIntentDefault = 0,
+        kCGRenderingIntentAbsoluteColorimetric = 1,
+        kCGRenderingIntentRelativeColorimetric = 2,
+        kCGRenderingIntentPerceptual = 3,
+        kCGRenderingIntentSaturation = 4
+    }
+    export enum CGColorSpaceModel {
+        kCGColorSpaceModelUnknown = -1,
+        kCGColorSpaceModelMonochrome = 0,
+        kCGColorSpaceModelRGB = 1,
+        kCGColorSpaceModelCMYK = 2,
+        kCGColorSpaceModelLab = 3,
+        kCGColorSpaceModelDeviceN = 4,
+        kCGColorSpaceModelIndexed = 5,
+        kCGColorSpaceModelPattern = 6,
+        kCGColorSpaceModelXYZ = 7
+    }
+    export enum CGConfigureOption {
+        kCGConfigureForAppOnly = 0,
+        kCGConfigureForSession = 1,
+        kCGConfigurePermanently = 2
+    }
+    export enum CGDisplayChangeSummaryFlags {
+        kCGDisplayBeginConfigurationFlag = 1,
+        kCGDisplayMovedFlag = 2,
+        kCGDisplaySetMainFlag = 4,
+        kCGDisplaySetModeFlag = 8,
+        kCGDisplayAddFlag = 16,
+        kCGDisplayRemoveFlag = 32,
+        kCGDisplayEnabledFlag = 256,
+        kCGDisplayDisabledFlag = 512,
+        kCGDisplayMirrorFlag = 1024,
+        kCGDisplayUnMirrorFlag = 2048,
+        kCGDisplayDesktopShapeChangedFlag = 4096
+    }
+    export enum CGDisplayStreamFrameStatus {
+        kCGDisplayStreamFrameStatusFrameComplete = 0,
+        kCGDisplayStreamFrameStatusFrameIdle = 1,
+        kCGDisplayStreamFrameStatusFrameBlank = 2,
+        kCGDisplayStreamFrameStatusStopped = 3
+    }
+    export enum CGDisplayStreamUpdateRectType {
+        kCGDisplayStreamUpdateRefreshedRects = 0,
+        kCGDisplayStreamUpdateMovedRects = 1,
+        kCGDisplayStreamUpdateDirtyRects = 2,
+        kCGDisplayStreamUpdateReducedDirtyRects = 3
+    }
+    export enum CGError {
+        kCGErrorSuccess = 0,
+        kCGErrorFailure = 1000,
+        kCGErrorIllegalArgument = 1001,
+        kCGErrorInvalidConnection = 1002,
+        kCGErrorInvalidContext = 1003,
+        kCGErrorCannotComplete = 1004,
+        kCGErrorNotImplemented = 1006,
+        kCGErrorRangeCheck = 1007,
+        kCGErrorTypeCheck = 1008,
+        kCGErrorInvalidOperation = 1010,
+        kCGErrorNoneAvailable = 1011
+    }
+    export enum CGEventField {
+        kCGMouseEventNumber = 0,
+        kCGMouseEventClickState = 1,
+        kCGMouseEventPressure = 2,
+        kCGMouseEventButtonNumber = 3,
+        kCGMouseEventDeltaX = 4,
+        kCGMouseEventDeltaY = 5,
+        kCGMouseEventInstantMouser = 6,
+        kCGMouseEventSubtype = 7,
+        kCGKeyboardEventAutorepeat = 8,
+        kCGKeyboardEventKeycode = 9,
+        kCGKeyboardEventKeyboardType = 10,
+        kCGScrollWheelEventDeltaAxis1 = 11,
+        kCGScrollWheelEventDeltaAxis2 = 12,
+        kCGScrollWheelEventDeltaAxis3 = 13,
+        kCGScrollWheelEventFixedPtDeltaAxis1 = 93,
+        kCGScrollWheelEventFixedPtDeltaAxis2 = 94,
+        kCGScrollWheelEventFixedPtDeltaAxis3 = 95,
+        kCGScrollWheelEventPointDeltaAxis1 = 96,
+        kCGScrollWheelEventPointDeltaAxis2 = 97,
+        kCGScrollWheelEventPointDeltaAxis3 = 98,
+        kCGScrollWheelEventScrollPhase = 99,
+        kCGScrollWheelEventScrollCount = 100,
+        kCGScrollWheelEventMomentumPhase = 123,
+        kCGScrollWheelEventInstantMouser = 14,
+        kCGTabletEventPointX = 15,
+        kCGTabletEventPointY = 16,
+        kCGTabletEventPointZ = 17,
+        kCGTabletEventPointButtons = 18,
+        kCGTabletEventPointPressure = 19,
+        kCGTabletEventTiltX = 20,
+        kCGTabletEventTiltY = 21,
+        kCGTabletEventRotation = 22,
+        kCGTabletEventTangentialPressure = 23,
+        kCGTabletEventDeviceID = 24,
+        kCGTabletEventVendor1 = 25,
+        kCGTabletEventVendor2 = 26,
+        kCGTabletEventVendor3 = 27,
+        kCGTabletProximityEventVendorID = 28,
+        kCGTabletProximityEventTabletID = 29,
+        kCGTabletProximityEventPointerID = 30,
+        kCGTabletProximityEventDeviceID = 31,
+        kCGTabletProximityEventSystemTabletID = 32,
+        kCGTabletProximityEventVendorPointerType = 33,
+        kCGTabletProximityEventVendorPointerSerialNumber = 34,
+        kCGTabletProximityEventVendorUniqueID = 35,
+        kCGTabletProximityEventCapabilityMask = 36,
+        kCGTabletProximityEventPointerType = 37,
+        kCGTabletProximityEventEnterProximity = 38,
+        kCGEventTargetProcessSerialNumber = 39,
+        kCGEventTargetUnixProcessID = 40,
+        kCGEventSourceUnixProcessID = 41,
+        kCGEventSourceUserData = 42,
+        kCGEventSourceUserID = 43,
+        kCGEventSourceGroupID = 44,
+        kCGEventSourceStateID = 45,
+        kCGScrollWheelEventIsContinuous = 88,
+        kCGMouseEventWindowUnderMousePointer = 91,
+        kCGMouseEventWindowUnderMousePointerThatCanHandleThisEvent = 92,
+        kCGEventUnacceleratedPointerMovementX = 170,
+        kCGEventUnacceleratedPointerMovementY = 171
+    }
+    export enum CGEventFilterMask {
+        kCGEventFilterMaskPermitLocalMouseEvents = 1,
+        kCGEventFilterMaskPermitLocalKeyboardEvents = 2,
+        kCGEventFilterMaskPermitSystemDefinedEvents = 4
+    }
+    export enum CGEventFlags {
+        kCGEventFlagMaskAlphaShift = 65536,
+        kCGEventFlagMaskShift = 131072,
+        kCGEventFlagMaskControl = 262144,
+        kCGEventFlagMaskAlternate = 524288,
+        kCGEventFlagMaskCommand = 1048576,
+        kCGEventFlagMaskHelp = 4194304,
+        kCGEventFlagMaskSecondaryFn = 8388608,
+        kCGEventFlagMaskNumericPad = 2097152,
+        kCGEventFlagMaskNonCoalesced = 256
+    }
+    export enum CGEventMouseSubtype {
+        kCGEventMouseSubtypeDefault = 0,
+        kCGEventMouseSubtypeTabletPoint = 1,
+        kCGEventMouseSubtypeTabletProximity = 2
+    }
+    export enum CGEventSourceStateID {
+        kCGEventSourceStatePrivate = -1,
+        kCGEventSourceStateCombinedSessionState = 0,
+        kCGEventSourceStateHIDSystemState = 1
+    }
+    export enum CGEventSuppressionState {
+        kCGEventSuppressionStateSuppressionInterval = 0,
+        kCGEventSuppressionStateRemoteMouseDrag = 1,
+        kCGNumberOfEventSuppressionStates = 2
+    }
+    export enum CGEventTapLocation {
+        kCGHIDEventTap = 0,
+        kCGSessionEventTap = 1,
+        kCGAnnotatedSessionEventTap = 2
+    }
+    export enum CGEventTapOptions {
+        kCGEventTapOptionDefault = 0,
+        kCGEventTapOptionListenOnly = 1
+    }
+    export enum CGEventTapPlacement {
+        kCGHeadInsertEventTap = 0,
+        kCGTailAppendEventTap = 1
+    }
+    export enum CGEventType {
+        kCGEventNull = 0,
+        kCGEventLeftMouseDown = 1,
+        kCGEventLeftMouseUp = 2,
+        kCGEventRightMouseDown = 3,
+        kCGEventRightMouseUp = 4,
+        kCGEventMouseMoved = 5,
+        kCGEventLeftMouseDragged = 6,
+        kCGEventRightMouseDragged = 7,
+        kCGEventKeyDown = 10,
+        kCGEventKeyUp = 11,
+        kCGEventFlagsChanged = 12,
+        kCGEventScrollWheel = 22,
+        kCGEventTabletPointer = 23,
+        kCGEventTabletProximity = 24,
+        kCGEventOtherMouseDown = 25,
+        kCGEventOtherMouseUp = 26,
+        kCGEventOtherMouseDragged = 27,
+        kCGEventTapDisabledByTimeout = 4294967294,
+        kCGEventTapDisabledByUserInput = 4294967295
+    }
+    export enum CGFontPostScriptFormat {
+        kCGFontPostScriptFormatType1 = 1,
+        kCGFontPostScriptFormatType3 = 3,
+        kCGFontPostScriptFormatType42 = 42
+    }
+    export enum CGGesturePhase {
+        kCGGesturePhaseNone = 0,
+        kCGGesturePhaseBegan = 1,
+        kCGGesturePhaseChanged = 2,
+        kCGGesturePhaseEnded = 4,
+        kCGGesturePhaseCancelled = 8,
+        kCGGesturePhaseMayBegin = 128
+    }
+    export enum CGGlyphDeprecatedEnum {
+        Min = 0,
+        Max = 1
+    }
+    export enum CGGradientDrawingOptions {
+        kCGGradientDrawsBeforeStartLocation = 1,
+        kCGGradientDrawsAfterEndLocation = 2
+    }
+    export enum CGImageAlphaInfo {
+        kCGImageAlphaNone = 0,
+        kCGImageAlphaPremultipliedLast = 1,
+        kCGImageAlphaPremultipliedFirst = 2,
+        kCGImageAlphaLast = 3,
+        kCGImageAlphaFirst = 4,
+        kCGImageAlphaNoneSkipLast = 5,
+        kCGImageAlphaNoneSkipFirst = 6,
+        kCGImageAlphaOnly = 7
+    }
+    export enum CGImageByteOrderInfo {
+        kCGImageByteOrderMask = 28672,
+        kCGImageByteOrderDefault = 0,
+        kCGImageByteOrder16Little = 4096,
+        kCGImageByteOrder32Little = 8192,
+        kCGImageByteOrder16Big = 12288,
+        kCGImageByteOrder32Big = 16384
+    }
+    export enum CGImagePixelFormatInfo {
+        kCGImagePixelFormatMask = 983040,
+        kCGImagePixelFormatPacked = 0,
+        kCGImagePixelFormatRGB555 = 65536,
+        kCGImagePixelFormatRGB565 = 131072,
+        kCGImagePixelFormatRGB101010 = 196608,
+        kCGImagePixelFormatRGBCIF10 = 262144
+    }
+    export enum CGInterpolationQuality {
+        kCGInterpolationDefault = 0,
+        kCGInterpolationNone = 1,
+        kCGInterpolationLow = 2,
+        kCGInterpolationMedium = 4,
+        kCGInterpolationHigh = 3
+    }
+    export enum CGLineCap {
+        kCGLineCapButt = 0,
+        kCGLineCapRound = 1,
+        kCGLineCapSquare = 2
+    }
+    export enum CGLineJoin {
+        kCGLineJoinMiter = 0,
+        kCGLineJoinRound = 1,
+        kCGLineJoinBevel = 2
+    }
+    export enum CGMomentumScrollPhase {
+        kCGMomentumScrollPhaseNone = 0,
+        kCGMomentumScrollPhaseBegin = 1,
+        kCGMomentumScrollPhaseContinue = 2,
+        kCGMomentumScrollPhaseEnd = 3
+    }
+    export enum CGMouseButton {
+        kCGMouseButtonLeft = 0,
+        kCGMouseButtonRight = 1,
+        kCGMouseButtonCenter = 2
+    }
+    export enum CGPDFAccessPermissions {
+        kCGPDFAllowsLowQualityPrinting = 1,
+        kCGPDFAllowsHighQualityPrinting = 2,
+        kCGPDFAllowsDocumentChanges = 4,
+        kCGPDFAllowsDocumentAssembly = 8,
+        kCGPDFAllowsContentCopying = 16,
+        kCGPDFAllowsContentAccessibility = 32,
+        kCGPDFAllowsCommenting = 64,
+        kCGPDFAllowsFormFieldEntry = 128
+    }
+    export enum CGPDFBox {
+        kCGPDFMediaBox = 0,
+        kCGPDFCropBox = 1,
+        kCGPDFBleedBox = 2,
+        kCGPDFTrimBox = 3,
+        kCGPDFArtBox = 4
+    }
+    export enum CGPDFDataFormat {
+        Raw = 0,
+        JPEGEncoded = 1,
+        JPEG2000 = 2
+    }
+    export enum CGPDFObjectType {
+        kCGPDFObjectTypeNull = 1,
+        kCGPDFObjectTypeBoolean = 2,
+        kCGPDFObjectTypeInteger = 3,
+        kCGPDFObjectTypeReal = 4,
+        kCGPDFObjectTypeName = 5,
+        kCGPDFObjectTypeString = 6,
+        kCGPDFObjectTypeArray = 7,
+        kCGPDFObjectTypeDictionary = 8,
+        kCGPDFObjectTypeStream = 9
+    }
+    export enum CGPDFTagType {
+        Document = 100,
+        Part = 101,
+        Art = 102,
+        Section = 103,
+        Div = 104,
+        BlockQuote = 105,
+        Caption = 106,
+        TOC = 107,
+        TOCI = 108,
+        Index = 109,
+        NonStructure = 110,
+        Private = 111,
+        Paragraph = 200,
+        Header = 201,
+        Header1 = 202,
+        Header2 = 203,
+        Header3 = 204,
+        Header4 = 205,
+        Header5 = 206,
+        Header6 = 207,
+        List = 300,
+        ListItem = 301,
+        Label = 302,
+        ListBody = 303,
+        Table = 400,
+        TableRow = 401,
+        TableHeaderCell = 402,
+        TableDataCell = 403,
+        TableHeader = 404,
+        TableBody = 405,
+        TableFooter = 406,
+        Span = 500,
+        Quote = 501,
+        Note = 502,
+        Reference = 503,
+        Bibliography = 504,
+        Code = 505,
+        Link = 506,
+        Annotation = 507,
+        Ruby = 600,
+        RubyBaseText = 601,
+        RubyAnnotationText = 602,
+        RubyPunctuation = 603,
+        Warichu = 604,
+        WarichuText = 605,
+        WarichuPunctiation = 606,
+        Figure = 700,
+        Formula = 701,
+        Form = 702
+    }
+    export enum CGPathDrawingMode {
+        kCGPathFill = 0,
+        kCGPathEOFill = 1,
+        kCGPathStroke = 2,
+        kCGPathFillStroke = 3,
+        kCGPathEOFillStroke = 4
+    }
+    export enum CGPathElementType {
+        kCGPathElementMoveToPoint = 0,
+        kCGPathElementAddLineToPoint = 1,
+        kCGPathElementAddQuadCurveToPoint = 2,
+        kCGPathElementAddCurveToPoint = 3,
+        kCGPathElementCloseSubpath = 4
+    }
+    export enum CGPatternTiling {
+        kCGPatternTilingNoDistortion = 0,
+        kCGPatternTilingConstantSpacingMinimalDistortion = 1,
+        kCGPatternTilingConstantSpacing = 2
+    }
+    export enum CGRectEdge {
+        MinXEdge = 0,
+        MinYEdge = 1,
+        MaxXEdge = 2,
+        MaxYEdge = 3
+    }
+    export enum CGScreenUpdateOperation {
+        kCGScreenUpdateOperationRefresh = 0,
+        kCGScreenUpdateOperationMove = 1,
+        kCGScreenUpdateOperationReducedDirtyRectangleCount = 2147483648
+    }
+    export enum CGScrollEventUnit {
+        kCGScrollEventUnitPixel = 0,
+        kCGScrollEventUnitLine = 1
+    }
+    export enum CGScrollPhase {
+        kCGScrollPhaseBegan = 1,
+        kCGScrollPhaseChanged = 2,
+        kCGScrollPhaseEnded = 4,
+        kCGScrollPhaseCancelled = 8,
+        kCGScrollPhaseMayBegin = 128
+    }
+    export enum CGTextDrawingMode {
+        kCGTextFill = 0,
+        kCGTextStroke = 1,
+        kCGTextFillStroke = 2,
+        kCGTextInvisible = 3,
+        kCGTextFillClip = 4,
+        kCGTextStrokeClip = 5,
+        kCGTextFillStrokeClip = 6,
+        kCGTextClip = 7
+    }
+    export enum CGWindowBackingType {
+        kCGBackingStoreRetained = 0,
+        kCGBackingStoreNonretained = 1,
+        kCGBackingStoreBuffered = 2
+    }
+    export enum CGWindowImageOption {
+        kCGWindowImageDefault = 0,
+        kCGWindowImageBoundsIgnoreFraming = 1,
+        kCGWindowImageShouldBeOpaque = 2,
+        kCGWindowImageOnlyShadows = 4,
+        kCGWindowImageBestResolution = 8,
+        kCGWindowImageNominalResolution = 16
+    }
+    export enum CGWindowLevelKey {
+        kCGBaseWindowLevelKey = 0,
+        kCGMinimumWindowLevelKey = 1,
+        kCGDesktopWindowLevelKey = 2,
+        kCGBackstopMenuLevelKey = 3,
+        kCGNormalWindowLevelKey = 4,
+        kCGFloatingWindowLevelKey = 5,
+        kCGTornOffMenuWindowLevelKey = 6,
+        kCGDockWindowLevelKey = 7,
+        kCGMainMenuWindowLevelKey = 8,
+        kCGStatusWindowLevelKey = 9,
+        kCGModalPanelWindowLevelKey = 10,
+        kCGPopUpMenuWindowLevelKey = 11,
+        kCGDraggingWindowLevelKey = 12,
+        kCGScreenSaverWindowLevelKey = 13,
+        kCGMaximumWindowLevelKey = 14,
+        kCGOverlayWindowLevelKey = 15,
+        kCGHelpWindowLevelKey = 16,
+        kCGUtilityWindowLevelKey = 17,
+        kCGDesktopIconWindowLevelKey = 18,
+        kCGCursorWindowLevelKey = 19,
+        kCGAssistiveTechHighWindowLevelKey = 20,
+        kCGNumberOfWindowLevelKeys = 21
+    }
+    export enum CGWindowListOption {
+        kCGWindowListOptionAll = 0,
+        kCGWindowListOptionOnScreenOnly = 1,
+        kCGWindowListOptionOnScreenAboveWindow = 2,
+        kCGWindowListOptionOnScreenBelowWindow = 4,
+        kCGWindowListOptionIncludingWindow = 8,
+        kCGWindowListExcludeDesktopElements = 16
+    }
+    export enum CGWindowSharingType {
+        kCGWindowSharingNone = 0,
+        kCGWindowSharingReadOnly = 1,
+        kCGWindowSharingReadWrite = 2
+    }
+    export enum CIDataMatrixCodeECCVersion {
+        Version000 = 0,
+        Version050 = 50,
+        Version080 = 80,
+        Version100 = 100,
+        Version140 = 140,
+        Version200 = 200
+    }
+    export enum CIQRCodeErrorCorrectionLevel {
+        L = 76,
+        M = 77,
+        Q = 81,
+        H = 72
+    }
+    export enum CIRenderDestinationAlphaMode {
+        None = 0,
+        Premultiplied = 1,
+        Unpremultiplied = 2
+    }
+    export enum CMTimeFlags {
+        kCMTimeFlags_Valid = 1,
+        kCMTimeFlags_HasBeenRounded = 2,
+        kCMTimeFlags_PositiveInfinity = 4,
+        kCMTimeFlags_NegativeInfinity = 8,
+        kCMTimeFlags_Indefinite = 16,
+        kCMTimeFlags_ImpliedValueFlagsMask = 28
+    }
+    export enum CMTimeRoundingMethod {
+        kCMTimeRoundingMethod_RoundHalfAwayFromZero = 1,
+        kCMTimeRoundingMethod_RoundTowardZero = 2,
+        kCMTimeRoundingMethod_RoundAwayFromZero = 3,
+        kCMTimeRoundingMethod_QuickTime = 4,
+        kCMTimeRoundingMethod_RoundTowardPositiveInfinity = 5,
+        kCMTimeRoundingMethod_RoundTowardNegativeInfinity = 6,
+        kCMTimeRoundingMethod_Default = 1
+    }
     export enum AlignmentOptions {
         MinXInward = 1,
         MinYInward = 2,
@@ -17292,556 +26825,1123 @@ declare global {
         Data = 0,
         String = 1
     }
-    export let NSAllRomanInputSourcesLocaleIdentifier: string;
-    export let NSAnimationTriggerOrderIn: string;
-    export let NSAnimationTriggerOrderOut: string;
-    export let NSApp: NSApplication;
-    export let NSBlack: number;
-    export let NSDarkGray: number;
-    export let NSDirectionalEdgeInsetsZero: NSDirectionalEdgeInsets;
-    export let NSLightGray: number;
-    export let NSMultipleValuesMarker: any;
-    export let NSNoSelectionMarker: any;
-    export let NSNotApplicableMarker: any;
-    export let NSTypeIdentifierAddressText: string;
-    export let NSTypeIdentifierDateText: string;
-    export let NSTypeIdentifierPhoneNumberText: string;
-    export let NSTypeIdentifierTransitInformationText: string;
-    export let NSUnderlineByWord: NSUnderlineStyle;
-    export let NSUnderlinePatternDash: NSUnderlineStyle;
-    export let NSUnderlinePatternDashDot: NSUnderlineStyle;
-    export let NSUnderlinePatternDashDotDot: NSUnderlineStyle;
-    export let NSUnderlinePatternDot: NSUnderlineStyle;
-    export let NSUnderlinePatternSolid: NSUnderlineStyle;
-    export let NSUserActivityDocumentURLKey: string;
-    export let NSWhite: number;
-    export let kCFAbsoluteTimeIntervalSince1904: number;
-    export let kCFAbsoluteTimeIntervalSince1970: number;
-    export let kCFAllocatorDefault: any;
-    export let kCFAllocatorMalloc: any;
-    export let kCFAllocatorMallocZone: any;
-    export let kCFAllocatorNull: any;
-    export let kCFAllocatorSystemDefault: any;
-    export let kCFAllocatorUseContext: any;
-    export let kCFBooleanFalse: number;
-    export let kCFBooleanTrue: number;
-    export let kCFBundleDevelopmentRegionKey: string;
-    export let kCFBundleExecutableKey: string;
-    export let kCFBundleIdentifierKey: string;
-    export let kCFBundleInfoDictionaryVersionKey: string;
-    export let kCFBundleLocalizationsKey: string;
-    export let kCFBundleNameKey: string;
-    export let kCFBundleVersionKey: string;
-    export let kCFCopyStringBagCallBacks: CFBagCallBacks;
-    export let kCFCopyStringDictionaryKeyCallBacks: CFDictionaryKeyCallBacks;
-    export let kCFCopyStringSetCallBacks: CFSetCallBacks;
-    export let kCFCoreFoundationVersionNumber: number;
-    export let kCFErrorDescriptionKey: string;
-    export let kCFErrorDomainCocoa: any;
-    export let kCFErrorDomainMach: any;
-    export let kCFErrorDomainOSStatus: any;
-    export let kCFErrorDomainPOSIX: any;
-    export let kCFErrorFilePathKey: string;
-    export let kCFErrorLocalizedDescriptionKey: string;
-    export let kCFErrorLocalizedFailureKey: string;
-    export let kCFErrorLocalizedFailureReasonKey: string;
-    export let kCFErrorLocalizedRecoverySuggestionKey: string;
-    export let kCFErrorURLKey: string;
-    export let kCFErrorUnderlyingErrorKey: string;
-    export let kCFNotFound: number;
-    export let kCFNull: NSNull;
-    export let kCFNumberNaN: number;
-    export let kCFNumberNegativeInfinity: number;
-    export let kCFNumberPositiveInfinity: number;
-    export let kCFPlugInDynamicRegisterFunctionKey: string;
-    export let kCFPlugInDynamicRegistrationKey: string;
-    export let kCFPlugInFactoriesKey: string;
-    export let kCFPlugInTypesKey: string;
-    export let kCFPlugInUnloadFunctionKey: string;
-    export let kCFPreferencesAnyApplication: string;
-    export let kCFPreferencesAnyHost: string;
-    export let kCFPreferencesAnyUser: string;
-    export let kCFPreferencesCurrentApplication: string;
-    export let kCFPreferencesCurrentHost: string;
-    export let kCFPreferencesCurrentUser: string;
-    export let kCFSocketCommandKey: string;
-    export let kCFSocketErrorKey: string;
-    export let kCFSocketNameKey: string;
-    export let kCFSocketRegisterCommand: string;
-    export let kCFSocketResultKey: string;
-    export let kCFSocketRetrieveCommand: string;
-    export let kCFSocketValueKey: string;
-    export let kCFStreamErrorDomainSOCKS: number;
-    export let kCFStreamErrorDomainSSL: number;
-    export let kCFStreamPropertySOCKSPassword: string;
-    export let kCFStreamPropertySOCKSProxy: string;
-    export let kCFStreamPropertySOCKSProxyHost: string;
-    export let kCFStreamPropertySOCKSProxyPort: string;
-    export let kCFStreamPropertySOCKSUser: string;
-    export let kCFStreamPropertySOCKSVersion: string;
-    export let kCFStreamPropertyShouldCloseNativeSocket: string;
-    export let kCFStreamPropertySocketSecurityLevel: string;
-    export let kCFStreamSocketSOCKSVersion4: string;
-    export let kCFStreamSocketSOCKSVersion5: string;
-    export let kCFStreamSocketSecurityLevelNegotiatedSSL: string;
-    export let kCFStreamSocketSecurityLevelNone: string;
-    export let kCFStreamSocketSecurityLevelTLSv1: string;
-    export let kCFStringBinaryHeapCallBacks: CFBinaryHeapCallBacks;
-    export let kCFStringTransformFullwidthHalfwidth: string;
-    export let kCFStringTransformHiraganaKatakana: string;
-    export let kCFStringTransformLatinArabic: string;
-    export let kCFStringTransformLatinCyrillic: string;
-    export let kCFStringTransformLatinGreek: string;
-    export let kCFStringTransformLatinHangul: string;
-    export let kCFStringTransformLatinHebrew: string;
-    export let kCFStringTransformLatinHiragana: string;
-    export let kCFStringTransformLatinKatakana: string;
-    export let kCFStringTransformLatinThai: string;
-    export let kCFStringTransformMandarinLatin: string;
-    export let kCFStringTransformStripCombiningMarks: string;
-    export let kCFStringTransformStripDiacritics: string;
-    export let kCFStringTransformToLatin: string;
-    export let kCFStringTransformToUnicodeName: string;
-    export let kCFStringTransformToXMLHex: string;
-    export let kCFTypeArrayCallBacks: CFArrayCallBacks;
-    export let kCFTypeBagCallBacks: CFBagCallBacks;
-    export let kCFTypeDictionaryKeyCallBacks: CFDictionaryKeyCallBacks;
-    export let kCFTypeDictionaryValueCallBacks: CFDictionaryValueCallBacks;
-    export let kCFTypeSetCallBacks: CFSetCallBacks;
-    export let kCFURLAddedToDirectoryDateKey: string;
-    export let kCFURLApplicationIsScriptableKey: string;
-    export let kCFURLAttributeModificationDateKey: string;
-    export let kCFURLCanonicalPathKey: string;
-    export let kCFURLContentAccessDateKey: string;
-    export let kCFURLContentModificationDateKey: string;
-    export let kCFURLCreationDateKey: string;
-    export let kCFURLDocumentIdentifierKey: string;
-    export let kCFURLFileAllocatedSizeKey: string;
-    export let kCFURLFileResourceIdentifierKey: string;
-    export let kCFURLFileResourceTypeBlockSpecial: string;
-    export let kCFURLFileResourceTypeCharacterSpecial: string;
-    export let kCFURLFileResourceTypeDirectory: string;
-    export let kCFURLFileResourceTypeKey: string;
-    export let kCFURLFileResourceTypeNamedPipe: string;
-    export let kCFURLFileResourceTypeRegular: string;
-    export let kCFURLFileResourceTypeSocket: string;
-    export let kCFURLFileResourceTypeSymbolicLink: string;
-    export let kCFURLFileResourceTypeUnknown: string;
-    export let kCFURLFileSecurityKey: string;
-    export let kCFURLFileSizeKey: string;
-    export let kCFURLGenerationIdentifierKey: string;
-    export let kCFURLHasHiddenExtensionKey: string;
-    export let kCFURLIsAliasFileKey: string;
-    export let kCFURLIsApplicationKey: string;
-    export let kCFURLIsDirectoryKey: string;
-    export let kCFURLIsExcludedFromBackupKey: string;
-    export let kCFURLIsExecutableKey: string;
-    export let kCFURLIsHiddenKey: string;
-    export let kCFURLIsMountTriggerKey: string;
-    export let kCFURLIsPackageKey: string;
-    export let kCFURLIsReadableKey: string;
-    export let kCFURLIsRegularFileKey: string;
-    export let kCFURLIsSymbolicLinkKey: string;
-    export let kCFURLIsSystemImmutableKey: string;
-    export let kCFURLIsUbiquitousItemKey: string;
-    export let kCFURLIsUserImmutableKey: string;
-    export let kCFURLIsVolumeKey: string;
-    export let kCFURLIsWritableKey: string;
-    export let kCFURLKeysOfUnsetValuesKey: string;
-    export let kCFURLLabelNumberKey: string;
-    export let kCFURLLinkCountKey: string;
-    export let kCFURLLocalizedLabelKey: string;
-    export let kCFURLLocalizedNameKey: string;
-    export let kCFURLLocalizedTypeDescriptionKey: string;
-    export let kCFURLNameKey: string;
-    export let kCFURLParentDirectoryURLKey: string;
-    export let kCFURLPathKey: string;
-    export let kCFURLPreferredIOBlockSizeKey: string;
-    export let kCFURLQuarantinePropertiesKey: string;
-    export let kCFURLTagNamesKey: string;
-    export let kCFURLTotalFileAllocatedSizeKey: string;
-    export let kCFURLTotalFileSizeKey: string;
-    export let kCFURLTypeIdentifierKey: string;
-    export let kCFURLUbiquitousItemDownloadingErrorKey: string;
-    export let kCFURLUbiquitousItemDownloadingStatusCurrent: string;
-    export let kCFURLUbiquitousItemDownloadingStatusDownloaded: string;
-    export let kCFURLUbiquitousItemDownloadingStatusKey: string;
-    export let kCFURLUbiquitousItemDownloadingStatusNotDownloaded: string;
-    export let kCFURLUbiquitousItemHasUnresolvedConflictsKey: string;
-    export let kCFURLUbiquitousItemIsDownloadingKey: string;
-    export let kCFURLUbiquitousItemIsUploadedKey: string;
-    export let kCFURLUbiquitousItemIsUploadingKey: string;
-    export let kCFURLUbiquitousItemUploadingErrorKey: string;
-    export let kCFURLVolumeAvailableCapacityForImportantUsageKey: string;
-    export let kCFURLVolumeAvailableCapacityForOpportunisticUsageKey: string;
-    export let kCFURLVolumeAvailableCapacityKey: string;
-    export let kCFURLVolumeCreationDateKey: string;
-    export let kCFURLVolumeIdentifierKey: string;
-    export let kCFURLVolumeIsAutomountedKey: string;
-    export let kCFURLVolumeIsBrowsableKey: string;
-    export let kCFURLVolumeIsEjectableKey: string;
-    export let kCFURLVolumeIsEncryptedKey: string;
-    export let kCFURLVolumeIsInternalKey: string;
-    export let kCFURLVolumeIsJournalingKey: string;
-    export let kCFURLVolumeIsLocalKey: string;
-    export let kCFURLVolumeIsReadOnlyKey: string;
-    export let kCFURLVolumeIsRemovableKey: string;
-    export let kCFURLVolumeIsRootFileSystemKey: string;
-    export let kCFURLVolumeLocalizedFormatDescriptionKey: string;
-    export let kCFURLVolumeLocalizedNameKey: string;
-    export let kCFURLVolumeMaximumFileSizeKey: string;
-    export let kCFURLVolumeNameKey: string;
-    export let kCFURLVolumeResourceCountKey: string;
-    export let kCFURLVolumeSupportsAccessPermissionsKey: string;
-    export let kCFURLVolumeSupportsAdvisoryFileLockingKey: string;
-    export let kCFURLVolumeSupportsCasePreservedNamesKey: string;
-    export let kCFURLVolumeSupportsCaseSensitiveNamesKey: string;
-    export let kCFURLVolumeSupportsCompressionKey: string;
-    export let kCFURLVolumeSupportsExclusiveRenamingKey: string;
-    export let kCFURLVolumeSupportsExtendedSecurityKey: string;
-    export let kCFURLVolumeSupportsFileCloningKey: string;
-    export let kCFURLVolumeSupportsHardLinksKey: string;
-    export let kCFURLVolumeSupportsImmutableFilesKey: string;
-    export let kCFURLVolumeSupportsJournalingKey: string;
-    export let kCFURLVolumeSupportsPersistentIDsKey: string;
-    export let kCFURLVolumeSupportsRenamingKey: string;
-    export let kCFURLVolumeSupportsRootDirectoryDatesKey: string;
-    export let kCFURLVolumeSupportsSparseFilesKey: string;
-    export let kCFURLVolumeSupportsSwapRenamingKey: string;
-    export let kCFURLVolumeSupportsSymbolicLinksKey: string;
-    export let kCFURLVolumeSupportsVolumeSizesKey: string;
-    export let kCFURLVolumeSupportsZeroRunsKey: string;
-    export let kCFURLVolumeTotalCapacityKey: string;
-    export let kCFURLVolumeURLForRemountingKey: string;
-    export let kCFURLVolumeURLKey: string;
-    export let kCFURLVolumeUUIDStringKey: string;
-    export let kCFUserNotificationAlertHeaderKey: string;
-    export let kCFUserNotificationAlertMessageKey: string;
-    export let kCFUserNotificationAlertTopMostKey: string;
-    export let kCFUserNotificationAlternateButtonTitleKey: string;
-    export let kCFUserNotificationCheckBoxTitlesKey: string;
-    export let kCFUserNotificationDefaultButtonTitleKey: string;
-    export let kCFUserNotificationIconURLKey: string;
-    export let kCFUserNotificationKeyboardTypesKey: string;
-    export let kCFUserNotificationLocalizationURLKey: string;
-    export let kCFUserNotificationOtherButtonTitleKey: string;
-    export let kCFUserNotificationPopUpSelectionKey: string;
-    export let kCFUserNotificationPopUpTitlesKey: string;
-    export let kCFUserNotificationProgressIndicatorValueKey: string;
-    export let kCFUserNotificationSoundURLKey: string;
-    export let kCFUserNotificationTextFieldTitlesKey: string;
-    export let kCFUserNotificationTextFieldValuesKey: string;
-    export let kCFXMLTreeErrorDescription: string;
-    export let kCFXMLTreeErrorLineNumber: string;
-    export let kCFXMLTreeErrorLocation: string;
-    export let kCFXMLTreeErrorStatusCode: string;
-    export let NSAppleEventTimeOutDefault: number;
-    export let NSAppleEventTimeOutNone: number;
-    export let NSAssertionHandlerKey: string;
-    export let NSCocoaErrorDomain: string;
-    export let NSDeallocateZombies: boolean;
-    export let NSDebugDescriptionErrorKey: string;
-    export let NSDebugEnabled: boolean;
-    export let NSEdgeInsetsZero: NSEdgeInsets;
-    export let NSExtensionItemAttachmentsKey: string;
-    export let NSExtensionItemAttributedContentTextKey: string;
-    export let NSExtensionItemAttributedTitleKey: string;
-    export let NSExtensionItemsAndErrorsKey: string;
-    export let NSExtensionJavaScriptPreprocessingResultsKey: string;
-    export let NSFileHandleNotificationDataItem: string;
-    export let NSFileHandleNotificationFileHandleItem: string;
-    export let NSFileManagerUnmountDissentingProcessIdentifierErrorKey: string;
-    export let NSFilePathErrorKey: string;
-    export let NSFoundationVersionNumber: number;
-    export let NSGrammarCorrections: string;
-    export let NSGrammarRange: string;
-    export let NSGrammarUserDescription: string;
-    export let NSHashTableCopyIn: NSPointerFunctions.Options;
-    export let NSHashTableObjectPointerPersonality: NSPointerFunctions.Options;
-    export let NSHashTableStrongMemory: NSPointerFunctions.Options;
-    export let NSHashTableWeakMemory: NSPointerFunctions.Options;
-    export let NSHelpAnchorErrorKey: string;
-    export let NSIntegerHashCallBacks: NSHashTableCallBacks;
-    export let NSIntegerMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSIntegerMapValueCallBacks: NSMapTableValueCallBacks;
-    export let NSItemProviderPreferredImageSizeKey: string;
-    export let NSKeepAllocationStatistics: boolean;
-    export let NSKeyedArchiveRootObjectKey: string;
-    export let NSLoadedClasses: string;
-    export let NSLocalizedDescriptionKey: string;
-    export let NSLocalizedFailureErrorKey: string;
-    export let NSLocalizedFailureReasonErrorKey: string;
-    export let NSLocalizedRecoveryOptionsErrorKey: string;
-    export let NSLocalizedRecoverySuggestionErrorKey: string;
-    export let NSMachErrorDomain: string;
-    export let NSMapTableCopyIn: NSPointerFunctions.Options;
-    export let NSMapTableObjectPointerPersonality: NSPointerFunctions.Options;
-    export let NSMapTableStrongMemory: NSPointerFunctions.Options;
-    export let NSMapTableWeakMemory: NSPointerFunctions.Options;
-    export let NSMetadataItemAcquisitionMakeKey: string;
-    export let NSMetadataItemAcquisitionModelKey: string;
-    export let NSMetadataItemAlbumKey: string;
-    export let NSMetadataItemAltitudeKey: string;
-    export let NSMetadataItemApertureKey: string;
-    export let NSMetadataItemAppleLoopDescriptorsKey: string;
-    export let NSMetadataItemAppleLoopsKeyFilterTypeKey: string;
-    export let NSMetadataItemAppleLoopsLoopModeKey: string;
-    export let NSMetadataItemAppleLoopsRootKeyKey: string;
-    export let NSMetadataItemApplicationCategoriesKey: string;
-    export let NSMetadataItemAttributeChangeDateKey: string;
-    export let NSMetadataItemAudiencesKey: string;
-    export let NSMetadataItemAudioBitRateKey: string;
-    export let NSMetadataItemAudioChannelCountKey: string;
-    export let NSMetadataItemAudioEncodingApplicationKey: string;
-    export let NSMetadataItemAudioSampleRateKey: string;
-    export let NSMetadataItemAudioTrackNumberKey: string;
-    export let NSMetadataItemAuthorAddressesKey: string;
-    export let NSMetadataItemAuthorEmailAddressesKey: string;
-    export let NSMetadataItemAuthorsKey: string;
-    export let NSMetadataItemBitsPerSampleKey: string;
-    export let NSMetadataItemCFBundleIdentifierKey: string;
-    export let NSMetadataItemCameraOwnerKey: string;
-    export let NSMetadataItemCityKey: string;
-    export let NSMetadataItemCodecsKey: string;
-    export let NSMetadataItemColorSpaceKey: string;
-    export let NSMetadataItemCommentKey: string;
-    export let NSMetadataItemComposerKey: string;
-    export let NSMetadataItemContactKeywordsKey: string;
-    export let NSMetadataItemContentCreationDateKey: string;
-    export let NSMetadataItemContentModificationDateKey: string;
-    export let NSMetadataItemContentTypeKey: string;
-    export let NSMetadataItemContentTypeTreeKey: string;
-    export let NSMetadataItemContributorsKey: string;
-    export let NSMetadataItemCopyrightKey: string;
-    export let NSMetadataItemCountryKey: string;
-    export let NSMetadataItemCoverageKey: string;
-    export let NSMetadataItemCreatorKey: string;
-    export let NSMetadataItemDateAddedKey: string;
-    export let NSMetadataItemDeliveryTypeKey: string;
-    export let NSMetadataItemDescriptionKey: string;
-    export let NSMetadataItemDirectorKey: string;
-    export let NSMetadataItemDisplayNameKey: string;
-    export let NSMetadataItemDownloadedDateKey: string;
-    export let NSMetadataItemDueDateKey: string;
-    export let NSMetadataItemDurationSecondsKey: string;
-    export let NSMetadataItemEXIFGPSVersionKey: string;
-    export let NSMetadataItemEXIFVersionKey: string;
-    export let NSMetadataItemEditorsKey: string;
-    export let NSMetadataItemEmailAddressesKey: string;
-    export let NSMetadataItemEncodingApplicationsKey: string;
-    export let NSMetadataItemExecutableArchitecturesKey: string;
-    export let NSMetadataItemExecutablePlatformKey: string;
-    export let NSMetadataItemExposureModeKey: string;
-    export let NSMetadataItemExposureProgramKey: string;
-    export let NSMetadataItemExposureTimeSecondsKey: string;
-    export let NSMetadataItemExposureTimeStringKey: string;
-    export let NSMetadataItemFNumberKey: string;
-    export let NSMetadataItemFSContentChangeDateKey: string;
-    export let NSMetadataItemFSCreationDateKey: string;
-    export let NSMetadataItemFSNameKey: string;
-    export let NSMetadataItemFSSizeKey: string;
-    export let NSMetadataItemFinderCommentKey: string;
-    export let NSMetadataItemFlashOnOffKey: string;
-    export let NSMetadataItemFocalLength35mmKey: string;
-    export let NSMetadataItemFocalLengthKey: string;
-    export let NSMetadataItemFontsKey: string;
-    export let NSMetadataItemGPSAreaInformationKey: string;
-    export let NSMetadataItemGPSDOPKey: string;
-    export let NSMetadataItemGPSDateStampKey: string;
-    export let NSMetadataItemGPSDestBearingKey: string;
-    export let NSMetadataItemGPSDestDistanceKey: string;
-    export let NSMetadataItemGPSDestLatitudeKey: string;
-    export let NSMetadataItemGPSDestLongitudeKey: string;
-    export let NSMetadataItemGPSDifferentalKey: string;
-    export let NSMetadataItemGPSMapDatumKey: string;
-    export let NSMetadataItemGPSMeasureModeKey: string;
-    export let NSMetadataItemGPSProcessingMethodKey: string;
-    export let NSMetadataItemGPSStatusKey: string;
-    export let NSMetadataItemGPSTrackKey: string;
-    export let NSMetadataItemGenreKey: string;
-    export let NSMetadataItemHasAlphaChannelKey: string;
-    export let NSMetadataItemHeadlineKey: string;
-    export let NSMetadataItemISOSpeedKey: string;
-    export let NSMetadataItemIdentifierKey: string;
-    export let NSMetadataItemImageDirectionKey: string;
-    export let NSMetadataItemInformationKey: string;
-    export let NSMetadataItemInstantMessageAddressesKey: string;
-    export let NSMetadataItemInstructionsKey: string;
-    export let NSMetadataItemIsApplicationManagedKey: string;
-    export let NSMetadataItemIsGeneralMIDISequenceKey: string;
-    export let NSMetadataItemIsLikelyJunkKey: string;
-    export let NSMetadataItemIsUbiquitousKey: string;
-    export let NSMetadataItemKeySignatureKey: string;
-    export let NSMetadataItemKeywordsKey: string;
-    export let NSMetadataItemKindKey: string;
-    export let NSMetadataItemLanguagesKey: string;
-    export let NSMetadataItemLastUsedDateKey: string;
-    export let NSMetadataItemLatitudeKey: string;
-    export let NSMetadataItemLayerNamesKey: string;
-    export let NSMetadataItemLensModelKey: string;
-    export let NSMetadataItemLongitudeKey: string;
-    export let NSMetadataItemLyricistKey: string;
-    export let NSMetadataItemMaxApertureKey: string;
-    export let NSMetadataItemMediaTypesKey: string;
-    export let NSMetadataItemMeteringModeKey: string;
-    export let NSMetadataItemMusicalGenreKey: string;
-    export let NSMetadataItemMusicalInstrumentCategoryKey: string;
-    export let NSMetadataItemMusicalInstrumentNameKey: string;
-    export let NSMetadataItemNamedLocationKey: string;
-    export let NSMetadataItemNumberOfPagesKey: string;
-    export let NSMetadataItemOrganizationsKey: string;
-    export let NSMetadataItemOrientationKey: string;
-    export let NSMetadataItemOriginalFormatKey: string;
-    export let NSMetadataItemOriginalSourceKey: string;
-    export let NSMetadataItemPageHeightKey: string;
-    export let NSMetadataItemPageWidthKey: string;
-    export let NSMetadataItemParticipantsKey: string;
-    export let NSMetadataItemPathKey: string;
-    export let NSMetadataItemPerformersKey: string;
-    export let NSMetadataItemPhoneNumbersKey: string;
-    export let NSMetadataItemPixelCountKey: string;
-    export let NSMetadataItemPixelHeightKey: string;
-    export let NSMetadataItemPixelWidthKey: string;
-    export let NSMetadataItemProducerKey: string;
-    export let NSMetadataItemProfileNameKey: string;
-    export let NSMetadataItemProjectsKey: string;
-    export let NSMetadataItemPublishersKey: string;
-    export let NSMetadataItemRecipientAddressesKey: string;
-    export let NSMetadataItemRecipientEmailAddressesKey: string;
-    export let NSMetadataItemRecipientsKey: string;
-    export let NSMetadataItemRecordingDateKey: string;
-    export let NSMetadataItemRecordingYearKey: string;
-    export let NSMetadataItemRedEyeOnOffKey: string;
-    export let NSMetadataItemResolutionHeightDPIKey: string;
-    export let NSMetadataItemResolutionWidthDPIKey: string;
-    export let NSMetadataItemRightsKey: string;
-    export let NSMetadataItemSecurityMethodKey: string;
-    export let NSMetadataItemSpeedKey: string;
-    export let NSMetadataItemStarRatingKey: string;
-    export let NSMetadataItemStateOrProvinceKey: string;
-    export let NSMetadataItemStreamableKey: string;
-    export let NSMetadataItemSubjectKey: string;
-    export let NSMetadataItemTempoKey: string;
-    export let NSMetadataItemTextContentKey: string;
-    export let NSMetadataItemThemeKey: string;
-    export let NSMetadataItemTimeSignatureKey: string;
-    export let NSMetadataItemTimestampKey: string;
-    export let NSMetadataItemTitleKey: string;
-    export let NSMetadataItemTotalBitRateKey: string;
-    export let NSMetadataItemURLKey: string;
-    export let NSMetadataItemVersionKey: string;
-    export let NSMetadataItemVideoBitRateKey: string;
-    export let NSMetadataItemWhereFromsKey: string;
-    export let NSMetadataItemWhiteBalanceKey: string;
-    export let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: string;
-    export let NSMetadataQueryIndexedLocalComputerScope: string;
-    export let NSMetadataQueryIndexedNetworkScope: string;
-    export let NSMetadataQueryLocalComputerScope: string;
-    export let NSMetadataQueryNetworkScope: string;
-    export let NSMetadataQueryResultContentRelevanceAttribute: string;
-    export let NSMetadataQueryUbiquitousDataScope: string;
-    export let NSMetadataQueryUbiquitousDocumentsScope: string;
-    export let NSMetadataQueryUpdateAddedItemsKey: string;
-    export let NSMetadataQueryUpdateChangedItemsKey: string;
-    export let NSMetadataQueryUpdateRemovedItemsKey: string;
-    export let NSMetadataQueryUserHomeScope: string;
-    export let NSMetadataUbiquitousItemContainerDisplayNameKey: string;
-    export let NSMetadataUbiquitousItemDownloadRequestedKey: string;
-    export let NSMetadataUbiquitousItemDownloadingErrorKey: string;
-    export let NSMetadataUbiquitousItemDownloadingStatusCurrent: string;
-    export let NSMetadataUbiquitousItemDownloadingStatusDownloaded: string;
-    export let NSMetadataUbiquitousItemDownloadingStatusKey: string;
-    export let NSMetadataUbiquitousItemDownloadingStatusNotDownloaded: string;
-    export let NSMetadataUbiquitousItemHasUnresolvedConflictsKey: string;
-    export let NSMetadataUbiquitousItemIsDownloadingKey: string;
-    export let NSMetadataUbiquitousItemIsExternalDocumentKey: string;
-    export let NSMetadataUbiquitousItemIsSharedKey: string;
-    export let NSMetadataUbiquitousItemIsUploadedKey: string;
-    export let NSMetadataUbiquitousItemIsUploadingKey: string;
-    export let NSMetadataUbiquitousItemPercentDownloadedKey: string;
-    export let NSMetadataUbiquitousItemPercentUploadedKey: string;
-    export let NSMetadataUbiquitousItemURLInLocalContainerKey: string;
-    export let NSMetadataUbiquitousItemUploadingErrorKey: string;
-    export let NSMetadataUbiquitousSharedItemCurrentUserPermissionsKey: string;
-    export let NSMetadataUbiquitousSharedItemCurrentUserRoleKey: string;
-    export let NSMetadataUbiquitousSharedItemMostRecentEditorNameComponentsKey: string;
-    export let NSMetadataUbiquitousSharedItemOwnerNameComponentsKey: string;
-    export let NSMetadataUbiquitousSharedItemPermissionsReadOnly: string;
-    export let NSMetadataUbiquitousSharedItemPermissionsReadWrite: string;
-    export let NSMetadataUbiquitousSharedItemRoleOwner: string;
-    export let NSMetadataUbiquitousSharedItemRoleParticipant: string;
-    export let NSNonOwnedPointerHashCallBacks: NSHashTableCallBacks;
-    export let NSNonOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSNonOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks;
-    export let NSNonOwnedPointerOrNullMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSNonRetainedObjectHashCallBacks: NSHashTableCallBacks;
-    export let NSNonRetainedObjectMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSNonRetainedObjectMapValueCallBacks: NSMapTableValueCallBacks;
-    export let NSNotFound: number;
-    export let NSNotificationDeliverImmediately: DistributedNotificationCenter.Options;
-    export let NSNotificationPostToAllSessions: DistributedNotificationCenter.Options;
-    export let NSOSStatusErrorDomain: string;
-    export let NSObjectHashCallBacks: NSHashTableCallBacks;
-    export let NSObjectMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSObjectMapValueCallBacks: NSMapTableValueCallBacks;
-    export let NSOperationNotSupportedForKeyException: string;
-    export let NSOwnedObjectIdentityHashCallBacks: NSHashTableCallBacks;
-    export let NSOwnedPointerHashCallBacks: NSHashTableCallBacks;
-    export let NSOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks;
-    export let NSOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks;
-    export let NSPOSIXErrorDomain: string;
-    export let NSPersonNameComponentDelimiter: string;
-    export let NSPersonNameComponentFamilyName: string;
-    export let NSPersonNameComponentGivenName: string;
-    export let NSPersonNameComponentKey: string;
-    export let NSPersonNameComponentMiddleName: string;
-    export let NSPersonNameComponentNickname: string;
-    export let NSPersonNameComponentPrefix: string;
-    export let NSPersonNameComponentSuffix: string;
-    export let NSPointerToStructHashCallBacks: NSHashTableCallBacks;
-    export let NSRecoveryAttempterErrorKey: string;
-    export let NSStreamSOCKSErrorDomain: string;
-    export let NSStreamSocketSSLErrorDomain: string;
-    export let NSStringEncodingErrorKey: string;
-    export let NSURLAuthenticationMethodClientCertificate: string;
-    export let NSURLAuthenticationMethodDefault: string;
-    export let NSURLAuthenticationMethodHTMLForm: string;
-    export let NSURLAuthenticationMethodHTTPBasic: string;
-    export let NSURLAuthenticationMethodHTTPDigest: string;
-    export let NSURLAuthenticationMethodNTLM: string;
-    export let NSURLAuthenticationMethodNegotiate: string;
-    export let NSURLAuthenticationMethodServerTrust: string;
-    export let NSURLCredentialStorageRemoveSynchronizableCredentials: string;
-    export let NSURLErrorBackgroundTaskCancelledReasonKey: string;
-    export let NSURLErrorDomain: string;
-    export let NSURLErrorFailingURLErrorKey: string;
-    export let NSURLErrorFailingURLPeerTrustErrorKey: string;
-    export let NSURLErrorFailingURLStringErrorKey: string;
-    export let NSURLErrorKey: string;
-    export let NSURLErrorNetworkUnavailableReasonKey: string;
-    export let NSURLFileScheme: string;
-    export let NSURLProtectionSpaceFTP: string;
-    export let NSURLProtectionSpaceFTPProxy: string;
-    export let NSURLProtectionSpaceHTTP: string;
-    export let NSURLProtectionSpaceHTTPProxy: string;
-    export let NSURLProtectionSpaceHTTPS: string;
-    export let NSURLProtectionSpaceHTTPSProxy: string;
-    export let NSURLProtectionSpaceSOCKSProxy: string;
-    export let NSURLSessionDownloadTaskResumeData: string;
-    export let NSURLSessionTransferSizeUnknown: number;
-    export let NSUbiquitousKeyValueStoreChangeReasonKey: string;
-    export let NSUbiquitousKeyValueStoreChangedKeysKey: string;
-    export let NSUnderlyingErrorKey: string;
-    export let NSUndoCloseGroupingRunLoopOrdering: number;
-    export let NSUndoManagerGroupIsDiscardableKey: string;
-    export let NSUserActivityTypeBrowsingWeb: string;
-    export let NSUserNotificationDefaultSoundName: string;
-    export let NSZeroPoint: CGPoint;
-    export let NSZeroRect: CGRect;
-    export let NSZeroSize: CGSize;
-    export let NSZombieEnabled: boolean;
+    export enum IKCameraDeviceViewDisplayMode {
+        None = -1,
+        Table = 0,
+        Icon = 1
+    }
+    export enum IKCameraDeviceViewTransferMode {
+        FileBased = 0,
+        MemoryBased = 1
+    }
+    export enum IKDeviceBrowserViewDisplayMode {
+        Table = 0,
+        Outline = 1,
+        Icon = 2
+    }
+    export enum IKImageBrowserCellState {
+        StateNoImage = 0,
+        StateInvalid = 1,
+        StateReady = 2
+    }
+    export enum IKImageBrowserDropOperation {
+        On = 0,
+        Before = 1
+    }
+    export enum IKScannerDeviceViewDisplayMode {
+        None = -1,
+        Simple = 0,
+        Advanced = 1
+    }
+    export enum IKScannerDeviceViewTransferMode {
+        FileBased = 0,
+        MemoryBased = 1
+    }
+    export enum QCPlugInExecutionMode {
+        kQCPlugInExecutionModeProvider = 1,
+        kQCPlugInExecutionModeProcessor = 2,
+        kQCPlugInExecutionModeConsumer = 3
+    }
+    export enum QCPlugInTimeMode {
+        kQCPlugInTimeModeNone = 0,
+        kQCPlugInTimeModeIdle = 1,
+        kQCPlugInTimeModeTimeBase = 2
+    }
+    export enum QLPreviewViewStyle {
+        Normal = 0,
+        Compact = 1
+    }
+    export enum CAAutoresizingMask {
+        kCALayerNotSizable = 0,
+        kCALayerMinXMargin = 1,
+        kCALayerWidthSizable = 2,
+        kCALayerMaxXMargin = 4,
+        kCALayerMinYMargin = 8,
+        kCALayerHeightSizable = 16,
+        kCALayerMaxYMargin = 32
+    }
+    export enum CAConstraintAttribute {
+        kCAConstraintMinX = 0,
+        kCAConstraintMidX = 1,
+        kCAConstraintMaxX = 2,
+        kCAConstraintWidth = 3,
+        kCAConstraintMinY = 4,
+        kCAConstraintMidY = 5,
+        kCAConstraintMaxY = 6,
+        kCAConstraintHeight = 7
+    }
+    export enum CACornerMask {
+        kCALayerMinXMinYCorner = 1,
+        kCALayerMaxXMinYCorner = 2,
+        kCALayerMinXMaxYCorner = 4,
+        kCALayerMaxXMaxYCorner = 8
+    }
+    export enum CAEdgeAntialiasingMask {
+        kCALayerLeftEdge = 1,
+        kCALayerRightEdge = 2,
+        kCALayerBottomEdge = 4,
+        kCALayerTopEdge = 8
+    }
+}
+declare namespace AVAssetExportSession {
+    enum Status {
+        Unknown = 0,
+        Waiting = 1,
+        Exporting = 2,
+        Completed = 3,
+        Failed = 4,
+        Cancelled = 5
+    }
+}
+declare namespace AVAssetImageGenerator {
+    enum Result {
+        Succeeded = 0,
+        Failed = 1,
+        Cancelled = 2
+    }
+    let cleanAperture: string;
+    let encodedPixels: string;
+    let productionAperture: string;
+}
+declare namespace AVAssetReader {
+    enum Status {
+        Unknown = 0,
+        Reading = 1,
+        Completed = 2,
+        Failed = 3,
+        Cancelled = 4
+    }
+}
+declare namespace AVAssetTrack {
+    let audioFallback: string;
+    let chapterList: string;
+    let forcedSubtitlesOnly: string;
+    let metadataReferent: string;
+    let selectionFollower: string;
+    let timecode: string;
+}
+declare namespace AVAssetWriter {
+    enum Status {
+        Unknown = 0,
+        Writing = 1,
+        Completed = 2,
+        Failed = 3,
+        Cancelled = 4
+    }
+}
+declare namespace AVAssetWriterInput {
+    let beforeMainMediaDataNotInterleaved: string;
+    let interleavedWithMainMediaData: string;
+}
+declare namespace AVAudioSession {
+    enum CategoryOptions {
+        MixWithOthers = 1,
+        DuckOthers = 2,
+        AllowBluetooth = 4,
+        DefaultToSpeaker = 8,
+        InterruptSpokenAudioAndMixWithOthers = 17,
+        AllowBluetoothA2DP = 32,
+        AllowAirPlay = 64
+    }
+    enum IOType {
+        NotSpecified = 0,
+        Aggregated = 1
+    }
+    enum InterruptionOptions {
+        ShouldResume = 1
+    }
+    enum InterruptionType {
+        Began = 1,
+        Ended = 0
+    }
+    enum PortOverride {
+        None = 0,
+        Speaker = 1936747378
+    }
+    enum PromptStyle {
+        None = 1852796517,
+        Short = 1936224884,
+        Normal = 1852992876
+    }
+    enum RecordPermission {
+        Undetermined = 1970168948,
+        Denied = 1684369017,
+        Granted = 1735552628
+    }
+    enum RouteChangeReason {
+        Unknown = 0,
+        NewDeviceAvailable = 1,
+        OldDeviceUnavailable = 2,
+        CategoryChange = 3,
+        Override = 4,
+        WakeFromSleep = 6,
+        NoSuitableRouteForCategory = 7,
+        RouteConfigurationChange = 8
+    }
+    enum RouteSharingPolicy {
+        Default = 0,
+        LongFormAudio = 1,
+        LongForm = 1,
+        Independent = 2,
+        LongFormVideo = 3
+    }
+    enum SetActiveOptions {
+        NotifyOthersOnDeactivation = 1
+    }
+    enum SilenceSecondaryAudioHintType {
+        Begin = 1,
+        End = 0
+    }
+    let ambient: string;
+    let audioProcessing: string;
+    let multiRoute: string;
+    let playAndRecord: string;
+    let playback: string;
+    let record: string;
+    let soloAmbient: string;
+    let interruptionNotification: string;
+    let lower: string;
+    let upper: string;
+    let mediaServicesWereLostNotification: string;
+    let mediaServicesWereResetNotification: string;
+    let default_: string;
+    let gameChat: string;
+    let measurement: string;
+    let moviePlayback: string;
+    let spokenAudio: string;
+    let videoChat: string;
+    let videoRecording: string;
+    let voiceChat: string;
+    let voicePrompt: string;
+    let back: string;
+    let bottom: string;
+    let front: string;
+    let left: string;
+    let right: string;
+    let top: string;
+    let cardioid: string;
+    let omnidirectional: string;
+    let subcardioid: string;
+    let airPlay: string;
+    let bluetoothA2DP: string;
+    let bluetoothHFP: string;
+    let bluetoothLE: string;
+    let builtInMic: string;
+    let builtInReceiver: string;
+    let builtInSpeaker: string;
+    let carAudio: string;
+    let HDMI: string;
+    let headphones: string;
+    let headsetMic: string;
+    let lineIn: string;
+    let lineOut: string;
+    let usbAudio: string;
+    let routeChangeNotification: string;
+    let silenceSecondaryAudioHintNotification: string;
+}
+declare namespace AVAudioTimePitchAlgorithm {
+    let lowQualityZeroLatency: string;
+    let spectral: string;
+    let timeDomain: string;
+    let varispeed: string;
+}
+declare namespace AVAudioUnitComponentManager {
+    let registrationsChangedNotification: string;
+}
+declare namespace AVCaptureDevice {
+    enum AutoFocusRangeRestriction {
+        None = 0,
+        Near = 1,
+        Far = 2
+    }
+    enum Position {
+        Unspecified = 0,
+        Back = 1,
+        Front = 2
+    }
+    enum TransportControlsPlaybackMode {
+        NotPlayingMode = 0,
+        PlayingMode = 1
+    }
+    enum ExposureMode {
+        Locked = 0,
+        AutoExpose = 1,
+        ContinuousAutoExposure = 2,
+        Custom = 3
+    }
+    enum FlashMode {
+        Off = 0,
+        On = 1,
+        Auto = 2
+    }
+    enum FocusMode {
+        Locked = 0,
+        AutoFocus = 1,
+        ContinuousAutoFocus = 2
+    }
+    enum LensStabilizationStatus {
+        Unsupported = 0,
+        Off = 1,
+        Active = 2,
+        OutOfRange = 3,
+        Unavailable = 4
+    }
+    enum TorchMode {
+        Off = 0,
+        On = 1,
+        Auto = 2
+    }
+    enum WhiteBalanceMode {
+        Locked = 0,
+        AutoWhiteBalance = 1,
+        ContinuousAutoWhiteBalance = 2
+    }
+    let builtInDualCamera: string;
+    let builtInDualWideCamera: string;
+    let builtInDuoCamera: string;
+    let builtInMicrophone: string;
+    let builtInTelephotoCamera: string;
+    let builtInTripleCamera: string;
+    let builtInTrueDepthCamera: string;
+    let builtInUltraWideCamera: string;
+    let builtInWideAngleCamera: string;
+    let externalUnknown: string;
+    let currentExposureDuration: CMTime;
+    let currentExposureTargetBias: number;
+    let currentISO: number;
+    let currentLensPosition: number;
+    let maxAvailableTorchLevel: number;
+}
+declare namespace AVCaptureOutput {
+    enum DataDroppedReason {
+        None = 0,
+        LateData = 1,
+        OutOfBuffers = 2,
+        Discontinuity = 3
+    }
+}
+declare namespace AVCapturePhotoOutput {
+    enum QualityPrioritization {
+        Speed = 1,
+        Balanced = 2,
+        Quality = 3
+    }
+}
+declare namespace AVCaptureSession {
+    enum InterruptionReason {
+        VideoDeviceNotAvailableInBackground = 1,
+        AudioDeviceInUseByAnotherClient = 2,
+        VideoDeviceInUseByAnotherClient = 3,
+        VideoDeviceNotAvailableWithMultipleForegroundApps = 4,
+        VideoDeviceNotAvailableDueToSystemPressure = 5
+    }
+    let hd1280x720: string;
+    let hd1920x1080: string;
+    let qvga320x240: string;
+    let cif352x288: string;
+    let hd4K3840x2160: string;
+    let vga640x480: string;
+    let qHD960x540: string;
+    let high: string;
+    let inputPriority: string;
+    let low: string;
+    let medium: string;
+    let photo: string;
+    let iFrame1280x720: string;
+    let iFrame960x540: string;
+}
+declare namespace AVContentKeyRequest {
+    enum Status {
+        RequestingResponse = 0,
+        ReceivedResponse = 1,
+        Renewed = 2,
+        Retried = 3,
+        Cancelled = 4,
+        Failed = 5
+    }
+    let receivedObsoleteContentKey: string;
+    let receivedResponseWithExpiredLease: string;
+    let timedOut: string;
+}
+declare namespace AVContentKeySessionServerPlaybackContextOption {
+    let protocolVersions: string;
+    let serverChallenge: string;
+}
+declare namespace AVContentKeySystem {
+    let authorizationToken: string;
+    let clearKey: string;
+    let fairPlayStreaming: string;
+}
+declare namespace AVDepthData {
+    enum Accuracy {
+        Relative = 0,
+        Absolute = 1
+    }
+    enum Quality {
+        Low = 0,
+        High = 1
+    }
+}
+declare namespace AVFileType {
+    let mobile3GPP: string;
+    let mobile3GPP2: string;
+    let ac3: string;
+    let aifc: string;
+    let aiff: string;
+    let amr: string;
+    let avci: string;
+    let m4a: string;
+    let m4v: string;
+    let caf: string;
+    let dng: string;
+    let eac3: string;
+    let heic: string;
+    let heif: string;
+    let jpg: string;
+    let mp4: string;
+    let mp3: string;
+    let mov: string;
+    let au: string;
+    let tif: string;
+    let wav: string;
+}
+declare namespace AVLayerVideoGravity {
+    let resize: string;
+    let resizeAspect: string;
+    let resizeAspectFill: string;
+}
+declare namespace AVMediaCharacteristic {
+    let audible: string;
+    let containsAlphaChannel: string;
+    let containsOnlyForcedSubtitles: string;
+    let describesMusicAndSoundForAccessibility: string;
+    let describesVideoForAccessibility: string;
+    let dubbedTranslation: string;
+    let easyToRead: string;
+    let frameBased: string;
+    let isAuxiliaryContent: string;
+    let isMainProgramContent: string;
+    let isOriginalContent: string;
+    let languageTranslation: string;
+    let legible: string;
+    let transcribesSpokenDialogForAccessibility: string;
+    let usesWideGamutColorSpace: string;
+    let visual: string;
+    let voiceOverTranslation: string;
+}
+declare namespace AVMediaType {
+    let audio: string;
+    let closedCaption: string;
+    let depthData: string;
+    let metadata: string;
+    let metadataObject: string;
+    let muxed: string;
+    let subtitle: string;
+    let text: string;
+    let timecode: string;
+    let video: string;
+}
+declare namespace AVMetadataExtraAttributeKey {
+    let baseURI: string;
+    let info: string;
+    let valueURI: string;
+}
+declare namespace AVMetadataFormat {
+    let hlsMetadata: string;
+    let id3Metadata: string;
+    let isoUserData: string;
+    let quickTimeMetadata: string;
+    let quickTimeUserData: string;
+    let unknown: string;
+    let iTunesMetadata: string;
+}
+declare namespace AVMetadataIdentifier {
+    let commonIdentifierAlbumName: string;
+    let commonIdentifierArtist: string;
+    let commonIdentifierArtwork: string;
+    let commonIdentifierAssetIdentifier: string;
+    let commonIdentifierAuthor: string;
+    let commonIdentifierContributor: string;
+    let commonIdentifierCopyrights: string;
+    let commonIdentifierCreationDate: string;
+    let commonIdentifierCreator: string;
+    let commonIdentifierDescription: string;
+    let commonIdentifierFormat: string;
+    let commonIdentifierLanguage: string;
+    let commonIdentifierLastModifiedDate: string;
+    let commonIdentifierLocation: string;
+    let commonIdentifierMake: string;
+    let commonIdentifierModel: string;
+    let commonIdentifierPublisher: string;
+    let commonIdentifierRelation: string;
+    let commonIdentifierSoftware: string;
+    let commonIdentifierSource: string;
+    let commonIdentifierSubject: string;
+    let commonIdentifierTitle: string;
+    let commonIdentifierType: string;
+    let identifier3GPUserDataAlbumAndTrack: string;
+    let identifier3GPUserDataAuthor: string;
+    let identifier3GPUserDataCollection: string;
+    let identifier3GPUserDataCopyright: string;
+    let identifier3GPUserDataDescription: string;
+    let identifier3GPUserDataGenre: string;
+    let identifier3GPUserDataKeywordList: string;
+    let identifier3GPUserDataLocation: string;
+    let identifier3GPUserDataMediaClassification: string;
+    let identifier3GPUserDataMediaRating: string;
+    let identifier3GPUserDataPerformer: string;
+    let identifier3GPUserDataRecordingYear: string;
+    let identifier3GPUserDataThumbnail: string;
+    let identifier3GPUserDataTitle: string;
+    let identifier3GPUserDataUserRating: string;
+    let id3MetadataAlbumSortOrder: string;
+    let id3MetadataAlbumTitle: string;
+    let id3MetadataAttachedPicture: string;
+    let id3MetadataAudioEncryption: string;
+    let id3MetadataAudioSeekPointIndex: string;
+    let id3MetadataBand: string;
+    let id3MetadataBeatsPerMinute: string;
+    let id3MetadataComments: string;
+    let id3MetadataCommercial: string;
+    let id3MetadataCommercialInformation: string;
+    let id3MetadataComposer: string;
+    let id3MetadataConductor: string;
+    let id3MetadataContentGroupDescription: string;
+    let id3MetadataContentType: string;
+    let id3MetadataCopyright: string;
+    let id3MetadataCopyrightInformation: string;
+    let id3MetadataDate: string;
+    let id3MetadataEncodedBy: string;
+    let id3MetadataEncodedWith: string;
+    let id3MetadataEncodingTime: string;
+    let id3MetadataEncryption: string;
+    let id3MetadataEqualization: string;
+    let id3MetadataEqualization2: string;
+    let id3MetadataEventTimingCodes: string;
+    let id3MetadataFileOwner: string;
+    let id3MetadataFileType: string;
+    let id3MetadataGeneralEncapsulatedObject: string;
+    let id3MetadataGroupIdentifier: string;
+    let id3MetadataInitialKey: string;
+    let id3MetadataInternationalStandardRecordingCode: string;
+    let id3MetadataInternetRadioStationName: string;
+    let id3MetadataInternetRadioStationOwner: string;
+    let id3MetadataInvolvedPeopleList_v23: string;
+    let id3MetadataInvolvedPeopleList_v24: string;
+    let id3MetadataLanguage: string;
+    let id3MetadataLeadPerformer: string;
+    let id3MetadataLength: string;
+    let id3MetadataLink: string;
+    let id3MetadataLyricist: string;
+    let id3MetadataMPEGLocationLookupTable: string;
+    let id3MetadataMediaType: string;
+    let id3MetadataModifiedBy: string;
+    let id3MetadataMood: string;
+    let id3MetadataMusicCDIdentifier: string;
+    let id3MetadataMusicianCreditsList: string;
+    let id3MetadataOfficialArtistWebpage: string;
+    let id3MetadataOfficialAudioFileWebpage: string;
+    let id3MetadataOfficialAudioSourceWebpage: string;
+    let id3MetadataOfficialInternetRadioStationHomepage: string;
+    let id3MetadataOfficialPublisherWebpage: string;
+    let id3MetadataOriginalAlbumTitle: string;
+    let id3MetadataOriginalArtist: string;
+    let id3MetadataOriginalFilename: string;
+    let id3MetadataOriginalLyricist: string;
+    let id3MetadataOriginalReleaseTime: string;
+    let id3MetadataOriginalReleaseYear: string;
+    let id3MetadataOwnership: string;
+    let id3MetadataPartOfASet: string;
+    let id3MetadataPayment: string;
+    let id3MetadataPerformerSortOrder: string;
+    let id3MetadataPlayCounter: string;
+    let id3MetadataPlaylistDelay: string;
+    let id3MetadataPopularimeter: string;
+    let id3MetadataPositionSynchronization: string;
+    let id3MetadataPrivate: string;
+    let id3MetadataProducedNotice: string;
+    let id3MetadataPublisher: string;
+    let id3MetadataRecommendedBufferSize: string;
+    let id3MetadataRecordingDates: string;
+    let id3MetadataRecordingTime: string;
+    let id3MetadataRelativeVolumeAdjustment: string;
+    let id3MetadataRelativeVolumeAdjustment2: string;
+    let id3MetadataReleaseTime: string;
+    let id3MetadataReverb: string;
+    let id3MetadataSeek: string;
+    let id3MetadataSetSubtitle: string;
+    let id3MetadataSignature: string;
+    let id3MetadataSize: string;
+    let id3MetadataSubTitle: string;
+    let id3MetadataSynchronizedLyric: string;
+    let id3MetadataSynchronizedTempoCodes: string;
+    let id3MetadataTaggingTime: string;
+    let id3MetadataTermsOfUse: string;
+    let id3MetadataTime: string;
+    let id3MetadataTitleDescription: string;
+    let id3MetadataTitleSortOrder: string;
+    let id3MetadataTrackNumber: string;
+    let id3MetadataUniqueFileIdentifier: string;
+    let id3MetadataUnsynchronizedLyric: string;
+    let id3MetadataUserText: string;
+    let id3MetadataUserURL: string;
+    let id3MetadataYear: string;
+    let isoUserDataCopyright: string;
+    let isoUserDataDate: string;
+    let isoUserDataTaggedCharacteristic: string;
+    let icyMetadataStreamTitle: string;
+    let icyMetadataStreamURL: string;
+    let quickTimeMetadataAlbum: string;
+    let quickTimeMetadataArranger: string;
+    let quickTimeMetadataArtist: string;
+    let quickTimeMetadataArtwork: string;
+    let quickTimeMetadataAuthor: string;
+    let quickTimeMetadataAutoLivePhoto: string;
+    let quickTimeMetadataCameraFrameReadoutTime: string;
+    let quickTimeMetadataCameraIdentifier: string;
+    let quickTimeMetadataCollectionUser: string;
+    let quickTimeMetadataComment: string;
+    let quickTimeMetadataComposer: string;
+    let quickTimeMetadataContentIdentifier: string;
+    let quickTimeMetadataCopyright: string;
+    let quickTimeMetadataCreationDate: string;
+    let quickTimeMetadataCredits: string;
+    let quickTimeMetadataDescription: string;
+    let quickTimeMetadataDetectedCatBody: string;
+    let quickTimeMetadataDetectedDogBody: string;
+    let quickTimeMetadataDetectedFace: string;
+    let quickTimeMetadataDetectedHumanBody: string;
+    let quickTimeMetadataDetectedSalientObject: string;
+    let quickTimeMetadataDirectionFacing: string;
+    let quickTimeMetadataDirectionMotion: string;
+    let quickTimeMetadataDirector: string;
+    let quickTimeMetadataDisplayName: string;
+    let quickTimeMetadataEncodedBy: string;
+    let quickTimeMetadataGenre: string;
+    let quickTimeMetadataInformation: string;
+    let quickTimeMetadataKeywords: string;
+    let quickTimeMetadataLivePhotoVitalityScore: string;
+    let quickTimeMetadataLivePhotoVitalityScoringVersion: string;
+    let quickTimeMetadataLocationBody: string;
+    let quickTimeMetadataLocationDate: string;
+    let quickTimeMetadataLocationISO6709: string;
+    let quickTimeMetadataLocationName: string;
+    let quickTimeMetadataLocationNote: string;
+    let quickTimeMetadataLocationRole: string;
+    let quickTimeMetadataMake: string;
+    let quickTimeMetadataModel: string;
+    let quickTimeMetadataOriginalArtist: string;
+    let quickTimeMetadataPerformer: string;
+    let quickTimeMetadataPhonogramRights: string;
+    let quickTimeMetadataPreferredAffineTransform: string;
+    let quickTimeMetadataProducer: string;
+    let quickTimeMetadataPublisher: string;
+    let quickTimeMetadataRatingUser: string;
+    let quickTimeMetadataSoftware: string;
+    let quickTimeMetadataSpatialOverCaptureQualityScore: string;
+    let quickTimeMetadataSpatialOverCaptureQualityScoringVersion: string;
+    let quickTimeMetadataTitle: string;
+    let quickTimeMetadataVideoOrientation: string;
+    let quickTimeMetadataYear: string;
+    let quickTimeMetadataiXML: string;
+    let quickTimeUserDataAlbum: string;
+    let quickTimeUserDataArranger: string;
+    let quickTimeUserDataArtist: string;
+    let quickTimeUserDataAuthor: string;
+    let quickTimeUserDataChapter: string;
+    let quickTimeUserDataComment: string;
+    let quickTimeUserDataComposer: string;
+    let quickTimeUserDataCopyright: string;
+    let quickTimeUserDataCreationDate: string;
+    let quickTimeUserDataCredits: string;
+    let quickTimeUserDataDescription: string;
+    let quickTimeUserDataDirector: string;
+    let quickTimeUserDataDisclaimer: string;
+    let quickTimeUserDataEncodedBy: string;
+    let quickTimeUserDataFullName: string;
+    let quickTimeUserDataGenre: string;
+    let quickTimeUserDataHostComputer: string;
+    let quickTimeUserDataInformation: string;
+    let quickTimeUserDataKeywords: string;
+    let quickTimeUserDataLocationISO6709: string;
+    let quickTimeUserDataMake: string;
+    let quickTimeUserDataModel: string;
+    let quickTimeUserDataOriginalArtist: string;
+    let quickTimeUserDataOriginalFormat: string;
+    let quickTimeUserDataOriginalSource: string;
+    let quickTimeUserDataPerformers: string;
+    let quickTimeUserDataPhonogramRights: string;
+    let quickTimeUserDataProducer: string;
+    let quickTimeUserDataProduct: string;
+    let quickTimeUserDataPublisher: string;
+    let quickTimeUserDataSoftware: string;
+    let quickTimeUserDataSpecialPlaybackRequirements: string;
+    let quickTimeUserDataTaggedCharacteristic: string;
+    let quickTimeUserDataTrack: string;
+    let quickTimeUserDataTrackName: string;
+    let quickTimeUserDataURLLink: string;
+    let quickTimeUserDataWarning: string;
+    let quickTimeUserDataWriter: string;
+    let iTunesMetadataAccountKind: string;
+    let iTunesMetadataAcknowledgement: string;
+    let iTunesMetadataAlbum: string;
+    let iTunesMetadataAlbumArtist: string;
+    let iTunesMetadataAppleID: string;
+    let iTunesMetadataArranger: string;
+    let iTunesMetadataArtDirector: string;
+    let iTunesMetadataArtist: string;
+    let iTunesMetadataArtistID: string;
+    let iTunesMetadataAuthor: string;
+    let iTunesMetadataBeatsPerMin: string;
+    let iTunesMetadataComposer: string;
+    let iTunesMetadataConductor: string;
+    let iTunesMetadataContentRating: string;
+    let iTunesMetadataCopyright: string;
+    let iTunesMetadataCoverArt: string;
+    let iTunesMetadataCredits: string;
+    let iTunesMetadataDescription: string;
+    let iTunesMetadataDirector: string;
+    let iTunesMetadataDiscCompilation: string;
+    let iTunesMetadataDiscNumber: string;
+    let iTunesMetadataEQ: string;
+    let iTunesMetadataEncodedBy: string;
+    let iTunesMetadataEncodingTool: string;
+    let iTunesMetadataExecProducer: string;
+    let iTunesMetadataGenreID: string;
+    let iTunesMetadataGrouping: string;
+    let iTunesMetadataLinerNotes: string;
+    let iTunesMetadataLyrics: string;
+    let iTunesMetadataOnlineExtras: string;
+    let iTunesMetadataOriginalArtist: string;
+    let iTunesMetadataPerformer: string;
+    let iTunesMetadataPhonogramRights: string;
+    let iTunesMetadataPlaylistID: string;
+    let iTunesMetadataPredefinedGenre: string;
+    let iTunesMetadataProducer: string;
+    let iTunesMetadataPublisher: string;
+    let iTunesMetadataRecordCompany: string;
+    let iTunesMetadataReleaseDate: string;
+    let iTunesMetadataSoloist: string;
+    let iTunesMetadataSongID: string;
+    let iTunesMetadataSongName: string;
+    let iTunesMetadataSoundEngineer: string;
+    let iTunesMetadataThanks: string;
+    let iTunesMetadataTrackNumber: string;
+    let iTunesMetadataTrackSubTitle: string;
+    let iTunesMetadataUserComment: string;
+    let iTunesMetadataUserGenre: string;
+}
+declare namespace AVMetadataKey {
+    let metadata3GPUserDataKeyAlbumAndTrack: string;
+    let metadata3GPUserDataKeyAuthor: string;
+    let metadata3GPUserDataKeyCollection: string;
+    let metadata3GPUserDataKeyCopyright: string;
+    let metadata3GPUserDataKeyDescription: string;
+    let metadata3GPUserDataKeyGenre: string;
+    let metadata3GPUserDataKeyKeywordList: string;
+    let metadata3GPUserDataKeyLocation: string;
+    let metadata3GPUserDataKeyMediaClassification: string;
+    let metadata3GPUserDataKeyMediaRating: string;
+    let metadata3GPUserDataKeyPerformer: string;
+    let metadata3GPUserDataKeyRecordingYear: string;
+    let metadata3GPUserDataKeyThumbnail: string;
+    let metadata3GPUserDataKeyTitle: string;
+    let metadata3GPUserDataKeyUserRating: string;
+    let commonKeyAlbumName: string;
+    let commonKeyArtist: string;
+    let commonKeyArtwork: string;
+    let commonKeyAuthor: string;
+    let commonKeyContributor: string;
+    let commonKeyCopyrights: string;
+    let commonKeyCreationDate: string;
+    let commonKeyCreator: string;
+    let commonKeyDescription: string;
+    let commonKeyFormat: string;
+    let commonKeyIdentifier: string;
+    let commonKeyLanguage: string;
+    let commonKeyLastModifiedDate: string;
+    let commonKeyLocation: string;
+    let commonKeyMake: string;
+    let commonKeyModel: string;
+    let commonKeyPublisher: string;
+    let commonKeyRelation: string;
+    let commonKeySoftware: string;
+    let commonKeySource: string;
+    let commonKeySubject: string;
+    let commonKeyTitle: string;
+    let commonKeyType: string;
+    let id3MetadataKeyAlbumSortOrder: string;
+    let id3MetadataKeyAlbumTitle: string;
+    let id3MetadataKeyAttachedPicture: string;
+    let id3MetadataKeyAudioEncryption: string;
+    let id3MetadataKeyAudioSeekPointIndex: string;
+    let id3MetadataKeyBand: string;
+    let id3MetadataKeyBeatsPerMinute: string;
+    let id3MetadataKeyComments: string;
+    let id3MetadataKeyCommercial: string;
+    let id3MetadataKeyCommercialInformation: string;
+    let id3MetadataKeyComposer: string;
+    let id3MetadataKeyConductor: string;
+    let id3MetadataKeyContentGroupDescription: string;
+    let id3MetadataKeyContentType: string;
+    let id3MetadataKeyCopyright: string;
+    let id3MetadataKeyCopyrightInformation: string;
+    let id3MetadataKeyDate: string;
+    let id3MetadataKeyEncodedBy: string;
+    let id3MetadataKeyEncodedWith: string;
+    let id3MetadataKeyEncodingTime: string;
+    let id3MetadataKeyEncryption: string;
+    let id3MetadataKeyEqualization: string;
+    let id3MetadataKeyEqualization2: string;
+    let id3MetadataKeyEventTimingCodes: string;
+    let id3MetadataKeyFileOwner: string;
+    let id3MetadataKeyFileType: string;
+    let id3MetadataKeyGeneralEncapsulatedObject: string;
+    let id3MetadataKeyGroupIdentifier: string;
+    let id3MetadataKeyInitialKey: string;
+    let id3MetadataKeyInternationalStandardRecordingCode: string;
+    let id3MetadataKeyInternetRadioStationName: string;
+    let id3MetadataKeyInternetRadioStationOwner: string;
+    let id3MetadataKeyInvolvedPeopleList_v23: string;
+    let id3MetadataKeyInvolvedPeopleList_v24: string;
+    let id3MetadataKeyLanguage: string;
+    let id3MetadataKeyLeadPerformer: string;
+    let id3MetadataKeyLength: string;
+    let id3MetadataKeyLink: string;
+    let id3MetadataKeyLyricist: string;
+    let id3MetadataKeyMPEGLocationLookupTable: string;
+    let id3MetadataKeyMediaType: string;
+    let id3MetadataKeyModifiedBy: string;
+    let id3MetadataKeyMood: string;
+    let id3MetadataKeyMusicCDIdentifier: string;
+    let id3MetadataKeyMusicianCreditsList: string;
+    let id3MetadataKeyOfficialArtistWebpage: string;
+    let id3MetadataKeyOfficialAudioFileWebpage: string;
+    let id3MetadataKeyOfficialAudioSourceWebpage: string;
+    let id3MetadataKeyOfficialInternetRadioStationHomepage: string;
+    let id3MetadataKeyOfficialPublisherWebpage: string;
+    let id3MetadataKeyOriginalAlbumTitle: string;
+    let id3MetadataKeyOriginalArtist: string;
+    let id3MetadataKeyOriginalFilename: string;
+    let id3MetadataKeyOriginalLyricist: string;
+    let id3MetadataKeyOriginalReleaseTime: string;
+    let id3MetadataKeyOriginalReleaseYear: string;
+    let id3MetadataKeyOwnership: string;
+    let id3MetadataKeyPartOfASet: string;
+    let id3MetadataKeyPayment: string;
+    let id3MetadataKeyPerformerSortOrder: string;
+    let id3MetadataKeyPlayCounter: string;
+    let id3MetadataKeyPlaylistDelay: string;
+    let id3MetadataKeyPopularimeter: string;
+    let id3MetadataKeyPositionSynchronization: string;
+    let id3MetadataKeyPrivate: string;
+    let id3MetadataKeyProducedNotice: string;
+    let id3MetadataKeyPublisher: string;
+    let id3MetadataKeyRecommendedBufferSize: string;
+    let id3MetadataKeyRecordingDates: string;
+    let id3MetadataKeyRecordingTime: string;
+    let id3MetadataKeyRelativeVolumeAdjustment: string;
+    let id3MetadataKeyRelativeVolumeAdjustment2: string;
+    let id3MetadataKeyReleaseTime: string;
+    let id3MetadataKeyReverb: string;
+    let id3MetadataKeySeek: string;
+    let id3MetadataKeySetSubtitle: string;
+    let id3MetadataKeySignature: string;
+    let id3MetadataKeySize: string;
+    let id3MetadataKeySubTitle: string;
+    let id3MetadataKeySynchronizedLyric: string;
+    let id3MetadataKeySynchronizedTempoCodes: string;
+    let id3MetadataKeyTaggingTime: string;
+    let id3MetadataKeyTermsOfUse: string;
+    let id3MetadataKeyTime: string;
+    let id3MetadataKeyTitleDescription: string;
+    let id3MetadataKeyTitleSortOrder: string;
+    let id3MetadataKeyTrackNumber: string;
+    let id3MetadataKeyUniqueFileIdentifier: string;
+    let id3MetadataKeyUnsynchronizedLyric: string;
+    let id3MetadataKeyUserText: string;
+    let id3MetadataKeyUserURL: string;
+    let id3MetadataKeyYear: string;
+    let isoUserDataKeyCopyright: string;
+    let isoUserDataKeyDate: string;
+    let isoUserDataKeyTaggedCharacteristic: string;
+    let icyMetadataKeyStreamTitle: string;
+    let icyMetadataKeyStreamURL: string;
+    let quickTimeMetadataKeyAlbum: string;
+    let quickTimeMetadataKeyArranger: string;
+    let quickTimeMetadataKeyArtist: string;
+    let quickTimeMetadataKeyArtwork: string;
+    let quickTimeMetadataKeyAuthor: string;
+    let quickTimeMetadataKeyCameraFrameReadoutTime: string;
+    let quickTimeMetadataKeyCameraIdentifier: string;
+    let quickTimeMetadataKeyCollectionUser: string;
+    let quickTimeMetadataKeyComment: string;
+    let quickTimeMetadataKeyComposer: string;
+    let quickTimeMetadataKeyContentIdentifier: string;
+    let quickTimeMetadataKeyCopyright: string;
+    let quickTimeMetadataKeyCreationDate: string;
+    let quickTimeMetadataKeyCredits: string;
+    let quickTimeMetadataKeyDescription: string;
+    let quickTimeMetadataKeyDirectionFacing: string;
+    let quickTimeMetadataKeyDirectionMotion: string;
+    let quickTimeMetadataKeyDirector: string;
+    let quickTimeMetadataKeyDisplayName: string;
+    let quickTimeMetadataKeyEncodedBy: string;
+    let quickTimeMetadataKeyGenre: string;
+    let quickTimeMetadataKeyInformation: string;
+    let quickTimeMetadataKeyKeywords: string;
+    let quickTimeMetadataKeyLocationBody: string;
+    let quickTimeMetadataKeyLocationDate: string;
+    let quickTimeMetadataKeyLocationISO6709: string;
+    let quickTimeMetadataKeyLocationName: string;
+    let quickTimeMetadataKeyLocationNote: string;
+    let quickTimeMetadataKeyLocationRole: string;
+    let quickTimeMetadataKeyMake: string;
+    let quickTimeMetadataKeyModel: string;
+    let quickTimeMetadataKeyOriginalArtist: string;
+    let quickTimeMetadataKeyPerformer: string;
+    let quickTimeMetadataKeyPhonogramRights: string;
+    let quickTimeMetadataKeyProducer: string;
+    let quickTimeMetadataKeyPublisher: string;
+    let quickTimeMetadataKeyRatingUser: string;
+    let quickTimeMetadataKeySoftware: string;
+    let quickTimeMetadataKeyTitle: string;
+    let quickTimeMetadataKeyYear: string;
+    let quickTimeMetadataKeyiXML: string;
+    let quickTimeUserDataKeyAlbum: string;
+    let quickTimeUserDataKeyArranger: string;
+    let quickTimeUserDataKeyArtist: string;
+    let quickTimeUserDataKeyAuthor: string;
+    let quickTimeUserDataKeyChapter: string;
+    let quickTimeUserDataKeyComment: string;
+    let quickTimeUserDataKeyComposer: string;
+    let quickTimeUserDataKeyCopyright: string;
+    let quickTimeUserDataKeyCreationDate: string;
+    let quickTimeUserDataKeyCredits: string;
+    let quickTimeUserDataKeyDescription: string;
+    let quickTimeUserDataKeyDirector: string;
+    let quickTimeUserDataKeyDisclaimer: string;
+    let quickTimeUserDataKeyEncodedBy: string;
+    let quickTimeUserDataKeyFullName: string;
+    let quickTimeUserDataKeyGenre: string;
+    let quickTimeUserDataKeyHostComputer: string;
+    let quickTimeUserDataKeyInformation: string;
+    let quickTimeUserDataKeyKeywords: string;
+    let quickTimeUserDataKeyLocationISO6709: string;
+    let quickTimeUserDataKeyMake: string;
+    let quickTimeUserDataKeyModel: string;
+    let quickTimeUserDataKeyOriginalArtist: string;
+    let quickTimeUserDataKeyOriginalFormat: string;
+    let quickTimeUserDataKeyOriginalSource: string;
+    let quickTimeUserDataKeyPerformers: string;
+    let quickTimeUserDataKeyPhonogramRights: string;
+    let quickTimeUserDataKeyProducer: string;
+    let quickTimeUserDataKeyProduct: string;
+    let quickTimeUserDataKeyPublisher: string;
+    let quickTimeUserDataKeySoftware: string;
+    let quickTimeUserDataKeySpecialPlaybackRequirements: string;
+    let quickTimeUserDataKeyTaggedCharacteristic: string;
+    let quickTimeUserDataKeyTrack: string;
+    let quickTimeUserDataKeyTrackName: string;
+    let quickTimeUserDataKeyURLLink: string;
+    let quickTimeUserDataKeyWarning: string;
+    let quickTimeUserDataKeyWriter: string;
+    let iTunesMetadataKeyAccountKind: string;
+    let iTunesMetadataKeyAcknowledgement: string;
+    let iTunesMetadataKeyAlbum: string;
+    let iTunesMetadataKeyAlbumArtist: string;
+    let iTunesMetadataKeyAppleID: string;
+    let iTunesMetadataKeyArranger: string;
+    let iTunesMetadataKeyArtDirector: string;
+    let iTunesMetadataKeyArtist: string;
+    let iTunesMetadataKeyArtistID: string;
+    let iTunesMetadataKeyAuthor: string;
+    let iTunesMetadataKeyBeatsPerMin: string;
+    let iTunesMetadataKeyComposer: string;
+    let iTunesMetadataKeyConductor: string;
+    let iTunesMetadataKeyContentRating: string;
+    let iTunesMetadataKeyCopyright: string;
+    let iTunesMetadataKeyCoverArt: string;
+    let iTunesMetadataKeyCredits: string;
+    let iTunesMetadataKeyDescription: string;
+    let iTunesMetadataKeyDirector: string;
+    let iTunesMetadataKeyDiscCompilation: string;
+    let iTunesMetadataKeyDiscNumber: string;
+    let iTunesMetadataKeyEQ: string;
+    let iTunesMetadataKeyEncodedBy: string;
+    let iTunesMetadataKeyEncodingTool: string;
+    let iTunesMetadataKeyExecProducer: string;
+    let iTunesMetadataKeyGenreID: string;
+    let iTunesMetadataKeyGrouping: string;
+    let iTunesMetadataKeyLinerNotes: string;
+    let iTunesMetadataKeyLyrics: string;
+    let iTunesMetadataKeyOnlineExtras: string;
+    let iTunesMetadataKeyOriginalArtist: string;
+    let iTunesMetadataKeyPerformer: string;
+    let iTunesMetadataKeyPhonogramRights: string;
+    let iTunesMetadataKeyPlaylistID: string;
+    let iTunesMetadataKeyPredefinedGenre: string;
+    let iTunesMetadataKeyProducer: string;
+    let iTunesMetadataKeyPublisher: string;
+    let iTunesMetadataKeyRecordCompany: string;
+    let iTunesMetadataKeyReleaseDate: string;
+    let iTunesMetadataKeySoloist: string;
+    let iTunesMetadataKeySongID: string;
+    let iTunesMetadataKeySongName: string;
+    let iTunesMetadataKeySoundEngineer: string;
+    let iTunesMetadataKeyThanks: string;
+    let iTunesMetadataKeyTrackNumber: string;
+    let iTunesMetadataKeyTrackSubTitle: string;
+    let iTunesMetadataKeyUserComment: string;
+    let iTunesMetadataKeyUserGenre: string;
+}
+declare namespace AVMetadataKeySpace {
+    let audioFile: string;
+    let common: string;
+    let hlsDateRange: string;
+    let id3: string;
+    let isoUserData: string;
+    let icy: string;
+    let quickTimeMetadata: string;
+    let quickTimeUserData: string;
+    let iTunes: string;
+}
+declare namespace AVMetadataObject {
+    let aztec: string;
+    let catBody: string;
+    let code128: string;
+    let code39: string;
+    let code39Mod43: string;
+    let code93: string;
+    let dataMatrix: string;
+    let dogBody: string;
+    let ean13: string;
+    let ean8: string;
+    let face: string;
+    let humanBody: string;
+    let itf14: string;
+    let interleaved2of5: string;
+    let pdf417: string;
+    let qr: string;
+    let salientObject: string;
+    let upce: string;
+}
+declare namespace AVOutputSettingsPreset {
+    let preset1280x720: string;
+    let preset1920x1080: string;
+    let preset3840x2160: string;
+    let preset640x480: string;
+    let preset960x540: string;
+    let hevc1920x1080: string;
+    let hevc1920x1080WithAlpha: string;
+    let hevc3840x2160: string;
+    let hevc3840x2160WithAlpha: string;
+}
+declare namespace AVPlayer {
+    enum ActionAtItemEnd {
+        Advance = 0,
+        Pause = 1,
+        None = 2
+    }
+    enum HDRMode {
+        HLG = 1,
+        HDR10 = 2,
+        DolbyVision = 4
+    }
+    enum Status {
+        Unknown = 0,
+        ReadyToPlay = 1,
+        Failed = 2
+    }
+    enum TimeControlStatus {
+        Paused = 0,
+        WaitingToPlayAtSpecifiedRate = 1,
+        Playing = 2
+    }
+    let eligibleForHDRPlaybackDidChangeNotification: string;
+    let toMinimizeStalls: string;
+    let evaluatingBufferingRate: string;
+    let noItemToPlay: string;
+}
+declare namespace AVPlayerItem {
+    enum Status {
+        Unknown = 0,
+        ReadyToPlay = 1,
+        Failed = 2
+    }
+    let mediaSelectionDidChangeNotification: string;
+    let recommendedTimeOffsetFromLiveDidChangeNotification: string;
+}
+declare namespace AVPlayerItemLegibleOutput {
+    let default_: string;
+    let sourceAndRulesOnly: string;
+}
+declare namespace AVPlayerLooper {
+    enum Status {
+        Unknown = 0,
+        Ready = 1,
+        Failed = 2,
+        Cancelled = 3
+    }
+}
+declare namespace AVSampleBufferRenderSynchronizer {
+    let rateDidChangeNotification: string;
+}
+declare namespace AVSampleBufferRequest {
+    enum Direction {
+        Forward = 1,
+        None = 0,
+        Reverse = -1
+    }
+    enum Mode {
+        Immediate = 0,
+        Scheduled = 1,
+        Opportunistic = 2
+    }
+}
+declare namespace AVSemanticSegmentationMatte {
+    let hair: string;
+    let skin: string;
+    let teeth: string;
+}
+declare namespace AVVideoApertureMode {
+    let cleanAperture: string;
+    let encodedPixels: string;
+    let productionAperture: string;
+}
+declare namespace AVVideoCodecType {
+    let proRes422: string;
+    let proRes422HQ: string;
+    let proRes422LT: string;
+    let proRes422Proxy: string;
+    let proRes4444: string;
+    let h264: string;
+    let hevc: string;
+    let hevcWithAlpha: string;
+    let jpeg: string;
 }
 declare namespace Bundle {
+    let didLoadNotification: string;
 }
 declare namespace ByteCountFormatter {
     enum CountStyle {
@@ -17864,19 +27964,470 @@ declare namespace ByteCountFormatter {
         UseAll = 65535
     }
 }
+declare namespace CAAnimationCalculationMode {
+    let cubic: string;
+    let cubicPaced: string;
+    let discrete: string;
+    let linear: string;
+    let paced: string;
+}
+declare namespace CAAnimationRotationMode {
+    let rotateAuto: string;
+    let rotateAutoReverse: string;
+}
+declare namespace CAEmitterLayerEmitterMode {
+    let outline: string;
+    let points: string;
+    let surface: string;
+    let volume: string;
+}
+declare namespace CAEmitterLayerEmitterShape {
+    let circle: string;
+    let cuboid: string;
+    let line: string;
+    let point: string;
+    let rectangle: string;
+    let sphere: string;
+}
+declare namespace CAEmitterLayerRenderMode {
+    let additive: string;
+    let backToFront: string;
+    let oldestFirst: string;
+    let oldestLast: string;
+    let unordered: string;
+}
+declare namespace CAGradientLayerType {
+    let axial: string;
+    let conic: string;
+    let radial: string;
+}
+declare namespace CALayerContentsFilter {
+    let linear: string;
+    let nearest: string;
+    let trilinear: string;
+}
+declare namespace CALayerContentsFormat {
+    let gray8Uint: string;
+    let RGBA16Float: string;
+    let RGBA8Uint: string;
+}
+declare namespace CALayerContentsGravity {
+    let bottom: string;
+    let bottomLeft: string;
+    let bottomRight: string;
+    let center: string;
+    let left: string;
+    let resize: string;
+    let resizeAspect: string;
+    let resizeAspectFill: string;
+    let right: string;
+    let top: string;
+    let topLeft: string;
+    let topRight: string;
+}
+declare namespace CALayerCornerCurve {
+    let circular: string;
+    let continuous: string;
+}
+declare namespace CAMediaTimingFillMode {
+    let backwards: string;
+    let both: string;
+    let forwards: string;
+    let removed: string;
+}
+declare namespace CAMediaTimingFunctionName {
+    let default_: string;
+    let easeIn: string;
+    let easeInEaseOut: string;
+    let easeOut: string;
+    let linear: string;
+}
+declare namespace CAScrollLayerScrollMode {
+    let both: string;
+    let horizontally: string;
+    let none: string;
+    let vertically: string;
+}
+declare namespace CAShapeLayerFillRule {
+    let evenOdd: string;
+    let nonZero: string;
+}
+declare namespace CAShapeLayerLineCap {
+    let butt: string;
+    let round: string;
+    let square: string;
+}
+declare namespace CAShapeLayerLineJoin {
+    let bevel: string;
+    let miter: string;
+    let round: string;
+}
+declare namespace CATextLayerAlignmentMode {
+    let center: string;
+    let justified: string;
+    let left: string;
+    let natural: string;
+    let right: string;
+}
+declare namespace CATextLayerTruncationMode {
+    let end: string;
+    let middle: string;
+    let none: string;
+    let start: string;
+}
+declare namespace CATransitionSubtype {
+    let fromBottom: string;
+    let fromLeft: string;
+    let fromRight: string;
+    let fromTop: string;
+}
+declare namespace CATransitionType {
+    let fade: string;
+    let moveIn: string;
+    let push: string;
+    let reveal: string;
+}
+declare namespace CAValueFunctionName {
+    let rotateX: string;
+    let rotateY: string;
+    let rotateZ: string;
+    let scale: string;
+    let scaleX: string;
+    let scaleY: string;
+    let scaleZ: string;
+    let translate: string;
+    let translateX: string;
+    let translateY: string;
+    let translateZ: string;
+}
 declare namespace CFCalendarIdentifier {
+    let buddhistCalendar: any;
+    let chineseCalendar: any;
+    let gregorianCalendar: any;
+    let hebrewCalendar: any;
+    let cfiso8601Calendar: any;
+    let indianCalendar: any;
+    let islamicCalendar: any;
+    let islamicCivilCalendar: any;
+    let islamicTabularCalendar: any;
+    let islamicUmmAlQuraCalendar: any;
+    let japaneseCalendar: any;
+    let persianCalendar: any;
+    let republicOfChinaCalendar: any;
 }
 declare namespace CFDateFormatterKey {
+    let amSymbol: any;
+    let calendar: any;
+    let calendarName: any;
+    let defaultDate: any;
+    let defaultFormat: any;
+    let doesRelativeDateFormattingKey: any;
+    let eraSymbols: any;
+    let gregorianStartDate: any;
+    let isLenient: any;
+    let longEraSymbols: any;
+    let monthSymbols: any;
+    let pmSymbol: any;
+    let quarterSymbols: any;
+    let shortMonthSymbols: any;
+    let shortQuarterSymbols: any;
+    let shortStandaloneMonthSymbols: any;
+    let shortStandaloneQuarterSymbols: any;
+    let shortStandaloneWeekdaySymbols: any;
+    let shortWeekdaySymbols: any;
+    let standaloneMonthSymbols: any;
+    let standaloneQuarterSymbols: any;
+    let standaloneWeekdaySymbols: any;
+    let timeZone: any;
+    let twoDigitStartDate: any;
+    let veryShortMonthSymbols: any;
+    let veryShortStandaloneMonthSymbols: any;
+    let veryShortStandaloneWeekdaySymbols: any;
+    let veryShortWeekdaySymbols: any;
+    let weekdaySymbols: any;
 }
 declare namespace CFLocaleKey {
+    let alternateQuotationBeginDelimiterKey: any;
+    let alternateQuotationEndDelimiterKey: any;
+    let calendar: any;
+    let calendarIdentifier: any;
+    let collationIdentifier: any;
+    let collatorIdentifier: any;
+    let countryCode: any;
+    let currencyCode: any;
+    let currencySymbol: any;
+    let decimalSeparator: any;
+    let exemplarCharacterSet: any;
+    let groupingSeparator: any;
+    let identifier: any;
+    let languageCode: any;
+    let measurementSystem: any;
+    let quotationBeginDelimiterKey: any;
+    let quotationEndDelimiterKey: any;
+    let scriptCode: any;
+    let usesMetricSystem: any;
+    let variantCode: any;
 }
 declare namespace CFNotificationName {
+    let cfLocaleCurrentLocaleDidChange: any;
+    let cfTimeZoneSystemTimeZoneDidChange: any;
 }
 declare namespace CFNumberFormatterKey {
+    let alwaysShowDecimalSeparator: any;
+    let currencyCode: any;
+    let currencyDecimalSeparator: any;
+    let currencyGroupingSeparator: any;
+    let currencySymbol: any;
+    let decimalSeparator: any;
+    let defaultFormat: any;
+    let exponentSymbol: any;
+    let formatWidth: any;
+    let groupingSeparator: any;
+    let groupingSize: any;
+    let infinitySymbol: any;
+    let internationalCurrencySymbol: any;
+    let isLenient: any;
+    let maxFractionDigits: any;
+    let maxIntegerDigits: any;
+    let maxSignificantDigits: any;
+    let minFractionDigits: any;
+    let minIntegerDigits: any;
+    let minSignificantDigits: any;
+    let minusSign: any;
+    let multiplier: any;
+    let naNSymbol: any;
+    let negativePrefix: any;
+    let negativeSuffix: any;
+    let paddingCharacter: any;
+    let paddingPosition: any;
+    let perMillSymbol: any;
+    let percentSymbol: any;
+    let plusSign: any;
+    let positivePrefix: any;
+    let positiveSuffix: any;
+    let roundingIncrement: any;
+    let roundingMode: any;
+    let secondaryGroupingSize: any;
+    let useGroupingSeparator: any;
+    let useSignificantDigits: any;
+    let zeroSymbol: any;
 }
 declare namespace CFRunLoopMode {
+    let commonModes: any;
+    let defaultMode: any;
 }
 declare namespace CFStreamPropertyKey {
+    let appendToFile: any;
+    let dataWritten: any;
+    let fileCurrentOffset: any;
+    let socketNativeHandle: any;
+    let socketRemoteHostName: any;
+    let socketRemotePortNumber: any;
+}
+declare namespace CGAffineTransform {
+    let identity: CGAffineTransform;
+}
+declare namespace CGColor {
+    let __blackColorName: string;
+    let __clearColorName: string;
+    let conversionBlackPointCompensation: string;
+    let conversionTRCSize: string;
+    let __whiteColorName: string;
+}
+declare namespace CGColorSpace {
+    let acescgLinear: string;
+    let adobeRGB1998: string;
+    let dcip3: string;
+    let displayP3: string;
+    let displayP3_HLG: string;
+    let displayP3_PQ_EOTF: string;
+    let extendedGray: string;
+    let extendedLinearDisplayP3: string;
+    let extendedLinearGray: string;
+    let extendedLinearITUR_2020: string;
+    let extendedLinearSRGB: string;
+    let extendedSRGB: string;
+    let genericCMYK: string;
+    let genericGray: string;
+    let genericGrayGamma2_2: string;
+    let genericLab: string;
+    let genericRGB: string;
+    let genericRGBLinear: string;
+    let genericXYZ: string;
+    let itur_2020: string;
+    let itur_2020_HLG: string;
+    let itur_2020_PQ_EOTF: string;
+    let itur_709: string;
+    let linearGray: string;
+    let linearSRGB: string;
+    let rommrgb: string;
+    let sRGB: string;
+}
+declare namespace CGDisplayStream {
+    let colorSpace: string;
+    let destinationRect: string;
+    let minimumFrameTime: string;
+    let preserveAspectRatio: string;
+    let queueDepth: string;
+    let showCursor: string;
+    let sourceRect: string;
+    let yCbCrMatrix: string;
+    let yCbCrMatrix_ITU_R_601_4: string;
+    let yCbCrMatrix_ITU_R_709_2: string;
+    let yCbCrMatrix_SMPTE_240M_1995: string;
+}
+declare namespace CGFont {
+    let variationAxisDefaultValue: string;
+    let variationAxisMaxValue: string;
+    let variationAxisMinValue: string;
+    let variationAxisName: string;
+}
+declare namespace CGPDFTagProperty {
+    let actualText: any;
+    let alternativeText: any;
+    let languageText: any;
+    let titleText: any;
+}
+declare namespace CGPoint {
+    let zero: CGPoint;
+}
+declare namespace CGRect {
+    let infinite: CGRect;
+    let null_: CGRect;
+    let zero: CGRect;
+}
+declare namespace CGSize {
+    let zero: CGSize;
+}
+declare namespace CIContextOption {
+    let allowLowPower: string;
+    let cacheIntermediates: string;
+    let highQualityDownsample: string;
+    let outputColorSpace: string;
+    let outputPremultiplied: string;
+    let priorityRequestLow: string;
+    let useSoftwareRenderer: string;
+    let workingColorSpace: string;
+    let workingFormat: string;
+}
+declare namespace CIFormat {
+    let A16: number;
+    let A8: number;
+    let ABGR8: number;
+    let ARGB8: number;
+    let Af: number;
+    let Ah: number;
+    let BGRA8: number;
+    let L16: number;
+    let L8: number;
+    let LA16: number;
+    let LA8: number;
+    let LAf: number;
+    let LAh: number;
+    let Lf: number;
+    let Lh: number;
+    let R16: number;
+    let R8: number;
+    let RG16: number;
+    let RG8: number;
+    let RGBA16: number;
+    let RGBA8: number;
+    let RGBAf: number;
+    let RGBAh: number;
+    let RGf: number;
+    let RGh: number;
+    let Rf: number;
+    let Rh: number;
+}
+declare namespace CIImageAutoAdjustmentOption {
+    let crop: string;
+    let enhance: string;
+    let features: string;
+    let level: string;
+    let redEye: string;
+}
+declare namespace CIImageOption {
+    let applyOrientationProperty: string;
+    let auxiliaryDepth: string;
+    let auxiliaryDisparity: string;
+    let auxiliaryPortraitEffectsMatte: string;
+    let auxiliarySemanticSegmentationHairMatte: string;
+    let auxiliarySemanticSegmentationSkinMatte: string;
+    let auxiliarySemanticSegmentationTeethMatte: string;
+    let colorSpace: string;
+    let nearestSampling: string;
+    let properties: string;
+    let providerTileSize: string;
+    let providerUserInfo: string;
+}
+declare namespace CIImageRepresentationOption {
+    let avDepthData: string;
+    let avPortraitEffectsMatte: string;
+    let avSemanticSegmentationMattes: string;
+    let depthImage: string;
+    let disparityImage: string;
+    let portraitEffectsMatteImage: string;
+    let semanticSegmentationHairMatteImage: string;
+    let semanticSegmentationSkinMatteImage: string;
+    let semanticSegmentationTeethMatteImage: string;
+}
+declare namespace CIRAWFilterOption {
+    let activeKeys: string;
+    let allowDraftMode: string;
+    let baselineExposure: string;
+    let boostAmount: string;
+    let boostShadowAmount: string;
+    let colorNoiseReductionAmount: string;
+    let decoderVersion: string;
+    let disableGamutMap: string;
+    let enableChromaticNoiseTracking: string;
+    let enableSharpening: string;
+    let enableVendorLensCorrection: string;
+    let ignoreImageOrientation: string;
+    let imageOrientation: string;
+    let linearSpaceFilter: string;
+    let luminanceNoiseReductionAmount: string;
+    let moireAmount: string;
+    let neutralChromaticityX: string;
+    let neutralChromaticityY: string;
+    let neutralLocation: string;
+    let neutralTemperature: string;
+    let neutralTint: string;
+    let noiseReductionAmount: string;
+    let noiseReductionContrastAmount: string;
+    let noiseReductionDetailAmount: string;
+    let noiseReductionSharpnessAmount: string;
+    let scaleFactor: string;
+    let outputNativeSize: string;
+    let supportedDecoderVersions: string;
+}
+declare namespace CMImageDescriptionFlavor {
+    let mobile3GPFamily: any;
+    let isoFamily: any;
+    let quickTimeMovie: any;
+}
+declare namespace CMSampleTimingInfo {
+    let invalid: CMSampleTimingInfo;
+}
+declare namespace CMSoundDescriptionFlavor {
+    let mobile3GPFamily: any;
+    let isoFamily: any;
+    let quickTimeMovie: any;
+    let quickTimeMovieV2: any;
+}
+declare namespace CMTime {
+    let indefinite: CMTime;
+    let invalid: CMTime;
+    let negativeInfinity: CMTime;
+    let positiveInfinity: CMTime;
+    let zero: CMTime;
+}
+declare namespace CMTimeMapping {
+    let invalid: CMTimeMapping;
+}
+declare namespace CMTimeRange {
+    let invalid: CMTimeRange;
+    let zero: CMTimeRange;
 }
 declare namespace DateComponentsFormatter {
     enum UnitsStyle {
@@ -17920,6 +28471,14 @@ declare namespace DateIntervalFormatter {
         FullStyle = 4
     }
 }
+declare namespace Decimal {
+    type RoundingMode = NSDecimalNumber;
+    type CalculationError = NSDecimalNumber;
+    type FloatLiteralType = number;
+    type IntegerLiteralType = number;
+    type Magnitude = number;
+    type Stride = number;
+}
 declare namespace DistributedNotificationCenter {
     enum Options {
         DeliverImmediately = 1,
@@ -17931,6 +28490,7 @@ declare namespace DistributedNotificationCenter {
         Hold = 3,
         DeliverImmediately = 4
     }
+    let localNotificationCenterType: string;
 }
 declare namespace EnergyFormatter {
     enum Unit {
@@ -17941,10 +28501,42 @@ declare namespace EnergyFormatter {
     }
 }
 declare namespace FileAttributeKey {
+    let appendOnly: string;
+    let busy: string;
+    let creationDate: string;
+    let deviceIdentifier: string;
+    let extensionHidden: string;
+    let groupOwnerAccountID: string;
+    let groupOwnerAccountName: string;
+    let hfsCreatorCode: string;
+    let hfsTypeCode: string;
+    let immutable: string;
+    let modificationDate: string;
+    let ownerAccountID: string;
+    let ownerAccountName: string;
+    let posixPermissions: string;
+    let protectionKey: string;
+    let referenceCount: string;
+    let size: string;
+    let systemFileNumber: string;
+    let systemFreeNodes: string;
+    let systemFreeSize: string;
+    let systemNodes: string;
+    let systemNumber: string;
+    let systemSize: string;
+    let type: string;
 }
 declare namespace FileAttributeType {
+    let typeBlockSpecial: string;
+    let typeCharacterSpecial: string;
+    let typeDirectory: string;
+    let typeRegular: string;
+    let typeSocket: string;
+    let typeSymbolicLink: string;
+    let typeUnknown: string;
 }
 declare namespace FileHandle {
+    let readCompletionNotification: string;
 }
 declare namespace FileManager {
     enum DirectoryEnumerationOptions {
@@ -18009,6 +28601,10 @@ declare namespace FileManager {
     }
 }
 declare namespace FileProtectionType {
+    let complete: string;
+    let completeUnlessOpen: string;
+    let completeUntilFirstUserAuthentication: string;
+    let none: string;
 }
 declare namespace FileWrapper {
     enum ReadingOptions {
@@ -18043,8 +28639,24 @@ declare namespace HTTPCookie {
     }
 }
 declare namespace HTTPCookiePropertyKey {
+    let comment: string;
+    let commentURL: string;
+    let discard: string;
+    let domain: string;
+    let expires: string;
+    let maximumAge: string;
+    let name: string;
+    let originURL: string;
+    let path: string;
+    let port: string;
+    let sameSitePolicy: string;
+    let secure: string;
+    let value: string;
+    let version: string;
 }
 declare namespace HTTPCookieStringPolicy {
+    let sameSiteLax: string;
+    let sameSiteStrict: string;
 }
 declare namespace ISO8601DateFormatter {
     enum Options {
@@ -18139,6 +28751,288 @@ declare namespace NSAccessibility {
         Points = 3,
         Picas = 4
     }
+    let activationPoint: string;
+    let allowedValues: string;
+    let alternateUIVisible: string;
+    let element: string;
+    let label: string;
+    let location: string;
+    let announcement: string;
+    let announcementRequested: string;
+    let applicationActivated: string;
+    let applicationDeactivated: string;
+    let applicationHidden: string;
+    let application: string;
+    let applicationShown: string;
+    let ascending: string;
+    let attributedStringForRange: string;
+    let boundsForRange: string;
+    let browser: string;
+    let busyIndicator: string;
+    let button: string;
+    let cancel: string;
+    let cancelButton: string;
+    let cellForColumnAndRow: string;
+    let cell: string;
+    let centerTabStop: string;
+    let centimeters: string;
+    let checkBox: string;
+    let children: string;
+    let clearButton: string;
+    let closeButton: string;
+    let collectionListSubrole: string;
+    let colorWell: string;
+    let columnCount: string;
+    let columnHeaderUIElements: string;
+    let columnIndexRange: string;
+    let column: string;
+    let columnTitles: string;
+    let columns: string;
+    let comboBox: string;
+    let confirm: string;
+    let containsProtectedContent: string;
+    let contentList: string;
+    let contents: string;
+    let created: string;
+    let criticalValue: string;
+    let decimalTabStop: string;
+    let decrement: string;
+    let decrementArrow: string;
+    let decrementButton: string;
+    let decrementPage: string;
+    let defaultButton: string;
+    let definitionList: string;
+    let delete_: string;
+    let descending: string;
+    let description: string;
+    let descriptionList: string;
+    let dialog: string;
+    let disclosedByRow: string;
+    let disclosedRows: string;
+    let disclosing: string;
+    let disclosureLevel: string;
+    let disclosureTriangle: string;
+    let document: string;
+    let drawerCreated: string;
+    let drawer: string;
+    let edited: string;
+    let enabled: string;
+    let ErrorCodeExceptionInfo: string;
+    let expanded: string;
+    let extrasMenuBar: string;
+    let filename: string;
+    let firstLineIndent: string;
+    let floatingWindow: string;
+    let focused: string;
+    let focusedUIElement: string;
+    let focusedUIElementChanged: string;
+    let focusedWindow: string;
+    let focusedWindowChanged: string;
+    let fontFamily: string;
+    let fontName: string;
+    let fontSize: string;
+    let frontmost: string;
+    let fullScreenButton: string;
+    let grid: string;
+    let group: string;
+    let growArea: string;
+    let handle: string;
+    let handles: string;
+    let headIndent: string;
+    let header: string;
+    let help: string;
+    let helpTagCreated: string;
+    let helpTag: string;
+    let hidden: string;
+    let horizontal: string;
+    let horizontalScrollBar: string;
+    let horizontalUnitDescription: string;
+    let horizontalUnits: string;
+    let identifier: string;
+    let image: string;
+    let inches: string;
+    let increment: string;
+    let incrementArrow: string;
+    let incrementButton: string;
+    let incrementPage: string;
+    let incrementor: string;
+    let index: string;
+    let insertionPointLineNumber: string;
+    let labelUIElements: string;
+    let labelValue: string;
+    let layoutArea: string;
+    let layoutChanged: string;
+    let layoutItem: string;
+    let layoutPointForScreenPoint: string;
+    let layoutSizeForScreenSize: string;
+    let leftTabStop: string;
+    let levelIndicator: string;
+    let lineForIndex: string;
+    let link: string;
+    let linkedUIElements: string;
+    let list: string;
+    let main: string;
+    let mainWindow: string;
+    let mainWindowChanged: string;
+    let markerGroupUIElement: string;
+    let markerType: string;
+    let markerTypeDescription: string;
+    let markerUIElements: string;
+    let markerValues: string;
+    let matte: string;
+    let maxValue: string;
+    let menuBar: string;
+    let menuBarItem: string;
+    let menuButton: string;
+    let menuItem: string;
+    let menu: string;
+    let minValue: string;
+    let minimizeButton: string;
+    let minimized: string;
+    let modal: string;
+    let moved: string;
+    let nextContents: string;
+    let numberOfCharacters: string;
+    let orderedByRow: string;
+    let orientation: string;
+    let outline: string;
+    let outlineRow: string;
+    let overflowButton: string;
+    let pageRole: string;
+    let parent: string;
+    let picas: string;
+    let pick: string;
+    let placeholderValue: string;
+    let points: string;
+    let popUpButton: string;
+    let popover: string;
+    let position: string;
+    let press: string;
+    let previousContents: string;
+    let priority: string;
+    let progressIndicator: string;
+    let proxy: string;
+    let rtfForRange: string;
+    let radioButton: string;
+    let radioGroup: string;
+    let raise: string;
+    let rangeForIndex: string;
+    let rangeForLine: string;
+    let rangeForPosition: string;
+    let ratingIndicator: string;
+    let relevanceIndicator: string;
+    let required: string;
+    let resized: string;
+    let rightTabStop: string;
+    let role: string;
+    let roleDescription: string;
+    let rowCollapsed: string;
+    let rowCount: string;
+    let rowCountChanged: string;
+    let rowExpanded: string;
+    let rowHeaderUIElements: string;
+    let rowIndexRange: string;
+    let row: string;
+    let rows: string;
+    let rulerMarker: string;
+    let ruler: string;
+    let screenPointForLayoutPoint: string;
+    let screenSizeForLayoutSize: string;
+    let scrollArea: string;
+    let scrollBar: string;
+    let searchButton: string;
+    let searchField: string;
+    let searchMenu: string;
+    let sectionListSubrole: string;
+    let secureTextField: string;
+    let selected: string;
+    let selectedCells: string;
+    let selectedCellsChanged: string;
+    let selectedChildren: string;
+    let selectedChildrenChanged: string;
+    let selectedChildrenMoved: string;
+    let selectedColumns: string;
+    let selectedColumnsChanged: string;
+    let selectedRows: string;
+    let selectedRowsChanged: string;
+    let selectedText: string;
+    let selectedTextChanged: string;
+    let selectedTextRange: string;
+    let selectedTextRanges: string;
+    let servesAsTitleForUIElements: string;
+    let sharedCharacterRange: string;
+    let sharedFocusElements: string;
+    let sharedTextUIElements: string;
+    let sheetCreated: string;
+    let sheet: string;
+    let showAlternateUI: string;
+    let showDefaultUI: string;
+    let showMenu: string;
+    let shownMenu: string;
+    let size: string;
+    let slider: string;
+    let sortButton: string;
+    let sortDirection: string;
+    let splitGroup: string;
+    let splitter: string;
+    let splitters: string;
+    let standardWindow: string;
+    let staticText: string;
+    let stringForRange: string;
+    let styleRangeForIndex: string;
+    let subrole: string;
+    let switch_: string;
+    let systemDialog: string;
+    let systemFloatingWindow: string;
+    let systemWide: string;
+    let tabButtonSubrole: string;
+    let tabGroup: string;
+    let table: string;
+    let tableRow: string;
+    let tabs: string;
+    let tailIndent: string;
+    let textArea: string;
+    let textAttachment: string;
+    let textField: string;
+    let textLink: string;
+    let timeline: string;
+    let title: string;
+    let titleChanged: string;
+    let titleUIElement: string;
+    let toggle: string;
+    let toolbarButton: string;
+    let toolbar: string;
+    let topLevelUIElement: string;
+    let uiElementDestroyed: string;
+    let uiElements: string;
+    let url: string;
+    let unitDescription: string;
+    let units: string;
+    let unitsChanged: string;
+    let unknown: string;
+    let value: string;
+    let valueChanged: string;
+    let valueDescription: string;
+    let valueIndicator: string;
+    let vertical: string;
+    let verticalScrollBar: string;
+    let verticalUnitDescription: string;
+    let verticalUnits: string;
+    let visibleCells: string;
+    let visibleCharacterRange: string;
+    let visibleChildren: string;
+    let visibleColumns: string;
+    let visibleName: string;
+    let visibleRows: string;
+    let warningValue: string;
+    let window: string;
+    let windowCreated: string;
+    let windowDeminiaturized: string;
+    let windowMiniaturized: string;
+    let windowMoved: string;
+    let windowResized: string;
+    let windows: string;
+    let zoomButton: string;
 }
 declare namespace NSAccessibilityCustomRotor {
     enum SearchDirection {
@@ -18188,10 +29082,78 @@ declare namespace NSAnimation {
         EaseOut = 2,
         Linear = 3
     }
+    let progressMarkUserInfoKey: string;
+    let progressMarkNotification: string;
+    type Progress = number;
 }
 declare namespace NSAppKitVersion {
+    let current: number;
+    let macOS10_0: number;
+    let macOS10_1: number;
+    let macOS10_10: number;
+    let macOS10_10_2: number;
+    let macOS10_10_3: number;
+    let macOS10_10_4: number;
+    let macOS10_10_5: number;
+    let macOS10_10_Max: number;
+    let macOS10_11: number;
+    let macOS10_11_1: number;
+    let macOS10_11_2: number;
+    let macOS10_11_3: number;
+    let macOS10_12: number;
+    let macOS10_12_1: number;
+    let macOS10_12_2: number;
+    let macOS10_13: number;
+    let macOS10_13_1: number;
+    let macOS10_13_2: number;
+    let macOS10_13_4: number;
+    let number10_14: number;
+    let number10_14_1: number;
+    let number10_14_2: number;
+    let number10_14_3: number;
+    let number10_14_4: number;
+    let number10_14_5: number;
+    let macOS10_2: number;
+    let macOS10_2_3: number;
+    let macOS10_3: number;
+    let macOS10_3_2: number;
+    let macOS10_3_3: number;
+    let macOS10_3_5: number;
+    let macOS10_3_7: number;
+    let macOS10_3_9: number;
+    let macOS10_4: number;
+    let macOS10_4_1: number;
+    let macOS10_4_3: number;
+    let macOS10_4_4: number;
+    let macOS10_4_7: number;
+    let macOS10_5: number;
+    let macOS10_5_2: number;
+    let macOS10_5_3: number;
+    let macOS10_6: number;
+    let macOS10_7: number;
+    let macOS10_7_2: number;
+    let macOS10_7_3: number;
+    let macOS10_7_4: number;
+    let macOS10_8: number;
+    let macOS10_9: number;
+    let numberWithColumnResizingBrowser: number;
+    let numberWithContinuousScrollingBrowser: number;
+    let numberWithCursorSizeSupport: number;
+    let numberWithCustomSheetPosition: number;
+    let numberWithDeferredWindowDisplaySupport: number;
+    let numberWithDirectionalTabs: number;
+    let numberWithDockTilePlugInSupport: number;
+    let numberWithPatternColorLeakFix: number;
 }
 declare namespace NSAppearance {
+    let accessibilityHighContrastAqua: string;
+    let accessibilityHighContrastDarkAqua: string;
+    let accessibilityHighContrastVibrantDark: string;
+    let accessibilityHighContrastVibrantLight: string;
+    let aqua: string;
+    let darkAqua: string;
+    let vibrantDark: string;
+    let vibrantLight: string;
 }
 declare namespace NSAppleEventDescriptor {
     enum SendOptions {
@@ -18209,8 +29171,14 @@ declare namespace NSAppleEventDescriptor {
     }
 }
 declare namespace NSAppleEventManager {
+    type SuspensionID = OpaquePointer;
 }
 declare namespace NSAppleScript {
+    let errorAppName: string;
+    let errorBriefMessage: string;
+    let errorMessage: string;
+    let errorNumber: string;
+    let errorRange: string;
 }
 declare namespace NSApplication {
     enum ActivationOptions {
@@ -18270,8 +29238,41 @@ declare namespace NSApplication {
     enum WindowListOptions {
         OrderedFrontToBack = 1
     }
+    let applicationIcon: string;
+    let applicationName: string;
+    let applicationVersion: string;
+    let credits: string;
+    let version: string;
+    let alertFirstButtonReturn: number;
+    let alertSecondButtonReturn: number;
+    let alertThirdButtonReturn: number;
+    let didBecomeActiveNotification: string;
+    let didChangeOcclusionStateNotification: string;
+    let didChangeScreenParametersNotification: string;
+    let didFinishLaunchingNotification: string;
+    let didFinishRestoringWindowsNotification: string;
+    let didHideNotification: string;
+    let didResignActiveNotification: string;
+    let didUnhideNotification: string;
+    let didUpdateNotification: string;
+    let launchIsDefaultUserInfoKey: string;
+    let launchUserNotificationUserInfoKey: string;
+    let willBecomeActiveNotification: string;
+    let willFinishLaunchingNotification: string;
+    let willHideNotification: string;
+    let willResignActiveNotification: string;
+    let willTerminateNotification: string;
+    let willUnhideNotification: string;
+    let willUpdateNotification: string;
+    let abort: number;
+    let cancel: number;
+    let continue_: number;
+    let OK: number;
+    let stop: number;
+    type ModalSession = OpaquePointer;
 }
 declare namespace NSArray {
+    type Iterator = NSFastEnumerationIterator;
 }
 declare namespace NSAttributedString {
     enum SpellingState {
@@ -18282,6 +29283,110 @@ declare namespace NSAttributedString {
         Reverse = 2,
         LongestEffectiveRangeNotRequired = 1048576
     }
+    let accessibilityAnnotationTextAttribute: string;
+    let accessibilityAttachment: string;
+    let accessibilityAutocorrected: string;
+    let accessibilityBackgroundColor: string;
+    let accessibilityCustomText: string;
+    let accessibilityFont: string;
+    let accessibilityForegroundColor: string;
+    let accessibilityLanguage: string;
+    let accessibilityLink: string;
+    let accessibilityListItemIndex: string;
+    let accessibilityListItemLevel: string;
+    let accessibilityListItemPrefix: string;
+    let accessibilityMarkedMisspelled: string;
+    let accessibilityMisspelled: string;
+    let accessibilityShadow: string;
+    let accessibilityStrikethroughColor: string;
+    let accessibilityStrikethrough: string;
+    let accessibilitySuperscript: string;
+    let accessibilityAlignment: string;
+    let accessibilityUnderlineColor: string;
+    let accessibilityUnderline: string;
+    let appearance: string;
+    let attachment: string;
+    let author: string;
+    let backgroundColor: string;
+    let baseURL: string;
+    let baselineOffset: string;
+    let bottomMargin: string;
+    let category: string;
+    let characterEncoding: string;
+    let cocoaVersion: string;
+    let comment: string;
+    let company: string;
+    let converted: string;
+    let copyright: string;
+    let creationTime: string;
+    let cursor: string;
+    let defaultAttributes: string;
+    let defaultTabInterval: string;
+    let docFormat: string;
+    let documentType: string;
+    let editor: string;
+    let excludedElements: string;
+    let expansion: string;
+    let fileType: string;
+    let font: string;
+    let foregroundColor: string;
+    let glyphInfo: string;
+    let html: string;
+    let hyphenationFactor: string;
+    let kern: string;
+    let keywords: string;
+    let leftMargin: string;
+    let ligature: string;
+    let link: string;
+    let macSimpleText: string;
+    let manager: string;
+    let markedClauseSegment: string;
+    let modificationTime: string;
+    let obliqueness: string;
+    let officeOpenXML: string;
+    let openDocument: string;
+    let paperSize: string;
+    let paragraphStyle: string;
+    let plain: string;
+    let prefixSpaces: string;
+    let rtfd: string;
+    let rtf: string;
+    let readOnly: string;
+    let rightMargin: string;
+    let shadow: string;
+    let sourceTextScaling: string;
+    let spellingState: string;
+    let strikethroughColor: string;
+    let strikethroughStyle: string;
+    let strokeColor: string;
+    let strokeWidth: string;
+    let subject: string;
+    let superscript: string;
+    let targetTextScaling: string;
+    let textAlternatives: string;
+    let textEffect: string;
+    let letterpressStyle: string;
+    let textEncodingName: string;
+    let orientation: string;
+    let range: string;
+    let textLayoutSections: string;
+    let textScaling: string;
+    let textSizeMultiplier: string;
+    let timeout: string;
+    let title: string;
+    let toolTip: string;
+    let topMargin: string;
+    let underlineColor: string;
+    let underlineStyle: string;
+    let verticalGlyphForm: string;
+    let viewMode: string;
+    let viewSize: string;
+    let viewZoom: string;
+    let webArchive: string;
+    let webPreferences: string;
+    let webResourceLoadDelegate: string;
+    let wordML: string;
+    let writingDirection: string;
 }
 declare namespace NSBackgroundActivityScheduler {
     enum Result {
@@ -18310,12 +29415,131 @@ declare namespace NSBezierPath {
         NonZero = 0,
         EvenOdd = 1
     }
+    let bevel: NSBezierPath.LineJoinStyle;
+    let butt: NSBezierPath.LineCapStyle;
+    let closePath: NSBezierPath.ElementType;
+    let curveTo: NSBezierPath.ElementType;
+    let evenOdd: NSBezierPath.WindingRule;
+    let lineTo: NSBezierPath.ElementType;
+    let miter: NSBezierPath.LineJoinStyle;
+    let moveTo: NSBezierPath.ElementType;
+    let nonZero: NSBezierPath.WindingRule;
+    let round: NSBezierPath.LineCapStyle;
+    let square: NSBezierPath.LineCapStyle;
 }
 declare namespace NSBindingInfoKey {
+    let observedKeyPath: string;
+    let observedObject: string;
+    let options: string;
 }
 declare namespace NSBindingName {
+    let alignment: string;
+    let alternateImage: string;
+    let alternateTitle: string;
+    let animate: string;
+    let animationDelay: string;
+    let argument: string;
+    let attributedString: string;
+    let contentArray: string;
+    let contentArrayForMultipleSelection: string;
+    let content: string;
+    let contentDictionary: string;
+    let contentHeight: string;
+    let contentObject: string;
+    let contentObjects: string;
+    let contentSet: string;
+    let contentValues: string;
+    let contentWidth: string;
+    let criticalValue: string;
+    let data: string;
+    let displayPatternTitle: string;
+    let displayPatternValue: string;
+    let documentEdited: string;
+    let doubleClickArgument: string;
+    let doubleClickTarget: string;
+    let editable: string;
+    let enabled: string;
+    let excludedKeys: string;
+    let filterPredicate: string;
+    let font: string;
+    let fontBold: string;
+    let fontFamilyName: string;
+    let fontItalic: string;
+    let fontName: string;
+    let fontSize: string;
+    let headerTitle: string;
+    let hidden: string;
+    let image: string;
+    let includedKeys: string;
+    let initialKey: string;
+    let initialValue: string;
+    let isIndeterminate: string;
+    let label: string;
+    let localizedKeyDictionary: string;
+    let managedObjectContext: string;
+    let maxValue: string;
+    let maxWidth: string;
+    let maximumRecents: string;
+    let minValue: string;
+    let minWidth: string;
+    let mixedStateImage: string;
+    let offStateImage: string;
+    let onStateImage: string;
+    let positioningRect: string;
+    let predicate: string;
+    let recentSearches: string;
+    let representedFilename: string;
+    let rowHeight: string;
+    let selectedIdentifier: string;
+    let selectedIndex: string;
+    let selectedLabel: string;
+    let selectedObject: string;
+    let selectedObjects: string;
+    let selectedTag: string;
+    let selectedValue: string;
+    let selectedValues: string;
+    let selectionIndexPaths: string;
+    let selectionIndexes: string;
+    let sortDescriptors: string;
+    let target: string;
+    let textColor: string;
+    let title: string;
+    let toolTip: string;
+    let transparent: string;
+    let value: string;
+    let valuePath: string;
+    let valueURL: string;
+    let visible: string;
+    let warningValue: string;
+    let width: string;
 }
 declare namespace NSBindingOption {
+    let allowsEditingMultipleValuesSelection: string;
+    let allowsNullArgument: string;
+    let alwaysPresentsApplicationModalAlerts: string;
+    let conditionallySetsEditable: string;
+    let conditionallySetsEnabled: string;
+    let conditionallySetsHidden: string;
+    let contentPlacementTag: string;
+    let continuouslyUpdatesValue: string;
+    let createsSortDescriptor: string;
+    let deletesObjectsOnRemove: string;
+    let displayName: string;
+    let displayPattern: string;
+    let handlesContentAsCompoundValue: string;
+    let insertsNullPlaceholder: string;
+    let invokesSeparatelyWithArrayObjects: string;
+    let multipleValuesPlaceholder: string;
+    let noSelectionPlaceholder: string;
+    let notApplicablePlaceholder: string;
+    let nullPlaceholder: string;
+    let predicateFormat: string;
+    let raisesForNotApplicableKeys: string;
+    let selectorName: string;
+    let selectsAllWhenSettingContent: string;
+    let validatesImmediately: string;
+    let valueTransformer: string;
+    let valueTransformerName: string;
 }
 declare namespace NSBitmapImageRep {
     enum Format {
@@ -18353,6 +29577,20 @@ declare namespace NSBitmapImageRep {
         PackBits = 32773,
         OldJPEG = 32865
     }
+    let colorSyncProfileData: string;
+    let compressionFactor: string;
+    let compressionMethod: string;
+    let currentFrame: string;
+    let currentFrameDuration: string;
+    let ditherTransparency: string;
+    let exifData: string;
+    let fallbackBackgroundColor: string;
+    let frameCount: string;
+    let gamma: string;
+    let interlaced: string;
+    let loopCount: string;
+    let progressive: string;
+    let rgbColorTable: string;
 }
 declare namespace NSBox {
     enum BoxType {
@@ -18369,6 +29607,7 @@ declare namespace NSBox {
         AtBottom = 5,
         BelowBottom = 6
     }
+    let primary: NSBox.BoxType;
 }
 declare namespace NSBrowser {
     enum ColumnResizingType {
@@ -18380,6 +29619,8 @@ declare namespace NSBrowser {
         On = 0,
         Above = 1
     }
+    let columnConfigurationDidChangeNotification: string;
+    type ColumnsAutosaveName = String;
 }
 declare namespace NSButton {
     enum BezelStyle {
@@ -18455,6 +29696,22 @@ declare namespace NSCalendar {
         CalendarCalendarUnit = 1048576,
         TimeZoneCalendarUnit = 2097152
     }
+    let buddhist: string;
+    let chinese: string;
+    let coptic: string;
+    let ethiopicAmeteAlem: string;
+    let ethiopicAmeteMihret: string;
+    let gregorian: string;
+    let hebrew: string;
+    let ISO8601: string;
+    let indian: string;
+    let islamic: string;
+    let islamicCivil: string;
+    let islamicTabular: string;
+    let islamicUmmAlQura: string;
+    let japanese: string;
+    let persian: string;
+    let republicOfChina: string;
 }
 declare namespace NSCell {
     enum Attribute {
@@ -18530,6 +29787,11 @@ declare namespace NSCollectionView {
         TrailingEdge = 128,
         NearestVerticalEdge = 256
     }
+    let elementKindInterItemGapIndicator: string;
+    let elementKindSectionFooter: string;
+    let elementKindSectionHeader: string;
+    type DecorationElementKind = String;
+    type SupplementaryElementKind = String;
 }
 declare namespace NSCollectionViewItem {
     enum HighlightState {
@@ -18540,6 +29802,7 @@ declare namespace NSCollectionViewItem {
     }
 }
 declare namespace NSCollectionViewTransitionLayout {
+    type AnimatedKey = String;
 }
 declare namespace NSColor {
     enum SystemEffect {
@@ -18554,8 +29817,13 @@ declare namespace NSColor {
         Pattern = 1,
         Catalog = 2
     }
+    let currentControlTintDidChangeNotification: string;
+    let systemColorsDidChangeNotification: string;
+    type Name = String;
 }
 declare namespace NSColorList {
+    let didChangeNotification: string;
+    type Name = String;
 }
 declare namespace NSColorPanel {
     enum Mode {
@@ -18580,6 +29848,7 @@ declare namespace NSColorPanel {
         CrayonModeMask = 128,
         AllModesMask = 65535
     }
+    let colorDidChangeNotification: string;
 }
 declare namespace NSColorSpace {
     enum Model {
@@ -18594,8 +29863,20 @@ declare namespace NSColorSpace {
     }
 }
 declare namespace NSColorSpaceName {
+    let calibratedRGB: string;
+    let calibratedWhite: string;
+    let custom: string;
+    let deviceCMYK: string;
+    let deviceRGB: string;
+    let deviceWhite: string;
+    let named: string;
+    let pattern: string;
 }
 declare namespace NSComboBox {
+    let selectionDidChangeNotification: string;
+    let selectionIsChangingNotification: string;
+    let willDismissNotification: string;
+    let willPopUpNotification: string;
 }
 declare namespace NSComparisonPredicate {
     enum Modifier {
@@ -18649,6 +29930,12 @@ declare namespace NSControl {
         Small = 1,
         Mini = 2
     }
+    let mixed: number;
+    let off: number;
+    let on: number;
+    let textDidBeginEditingNotification: string;
+    let textDidChangeNotification: string;
+    let textDidEndEditingNotification: string;
 }
 declare namespace NSData {
     enum Base64DecodingOptions {
@@ -18688,6 +29975,11 @@ declare namespace NSData {
         DataWritingFileProtectionMask = 4026531840,
         AtomicWrite = 1
     }
+    type Element = number;
+    type Index = number;
+    type Iterator = IndexingIterator;
+    type SubSequence = Slice;
+    type Indices = Range;
 }
 declare namespace NSDatePicker {
     enum ElementFlags {
@@ -18707,6 +29999,17 @@ declare namespace NSDatePicker {
         ClockAndCalendar = 1,
         TextField = 2
     }
+    let clockAndCalendar: NSDatePicker.Style;
+    let era: NSDatePicker.ElementFlags;
+    let hourMinute: NSDatePicker.ElementFlags;
+    let hourMinuteSecond: NSDatePicker.ElementFlags;
+    let range: NSDatePicker.Mode;
+    let single: NSDatePicker.Mode;
+    let textFieldAndStepper: NSDatePicker.Style;
+    let textField: NSDatePicker.Style;
+    let timeZone: NSDatePicker.ElementFlags;
+    let yearMonth: NSDatePicker.ElementFlags;
+    let yearMonthDay: NSDatePicker.ElementFlags;
 }
 declare namespace NSDecimalNumber {
     enum CalculationError {
@@ -18724,6 +30027,12 @@ declare namespace NSDecimalNumber {
     }
 }
 declare namespace NSDeviceDescriptionKey {
+    let bitsPerSample: string;
+    let colorSpaceName: string;
+    let isPrinter: string;
+    let isScreen: string;
+    let resolution: string;
+    let size: string;
 }
 declare namespace NSDocument {
     enum ChangeType {
@@ -18746,6 +30055,8 @@ declare namespace NSDocument {
     }
 }
 declare namespace NSDraggingItem {
+    let icon: string;
+    let label: string;
 }
 declare namespace NSDrawer {
     enum State {
@@ -18756,8 +30067,10 @@ declare namespace NSDrawer {
     }
 }
 declare namespace NSEnumerator {
+    type Iterator = NSFastEnumerationIterator;
 }
 declare namespace NSError {
+    type UserInfoKey = string;
 }
 declare namespace NSEvent {
     enum ButtonMask {
@@ -18893,8 +30206,72 @@ declare namespace NSEvent {
         PrimaryDeepClick = 5,
         PrimaryDeepDrag = 6
     }
+    let foreverDuration: number;
 }
 declare namespace NSExceptionName {
+    let abortModalException: string;
+    let abortPrintingException: string;
+    let appKitIgnoredException: string;
+    let appKitVirtualMemoryException: string;
+    let badBitmapParametersException: string;
+    let badComparisonException: string;
+    let badRTFColorTableException: string;
+    let badRTFDirectiveException: string;
+    let badRTFFontTableException: string;
+    let badRTFStyleSheetException: string;
+    let browserIllegalDelegateException: string;
+    let colorListIOException: string;
+    let colorListNotEditableException: string;
+    let draggingException: string;
+    let fontUnavailableException: string;
+    let illegalSelectorException: string;
+    let imageCacheException: string;
+    let nibLoadingException: string;
+    let NSPPDIncludeNotFoundException: string;
+    let NSPPDIncludeStackOverflowException: string;
+    let NSPPDIncludeStackUnderflowException: string;
+    let NSPPDParseException: string;
+    let pasteboardCommunicationException: string;
+    let printOperationExistsException: string;
+    let printPackageException: string;
+    let printingCommunicationException: string;
+    let NSRTFPropertyStackOverflowException: string;
+    let NSTIFFException: string;
+    let textLineTooLongException: string;
+    let textNoSelectionException: string;
+    let textReadException: string;
+    let textWriteException: string;
+    let typedStreamVersionException: string;
+    let windowServerCommunicationException: string;
+    let wordTablesReadException: string;
+    let wordTablesWriteException: string;
+    let characterConversionException: string;
+    let decimalNumberDivideByZeroException: string;
+    let decimalNumberExactnessException: string;
+    let decimalNumberOverflowException: string;
+    let decimalNumberUnderflowException: string;
+    let destinationInvalidException: string;
+    let fileHandleOperationException: string;
+    let genericException: string;
+    let inconsistentArchiveException: string;
+    let internalInconsistencyException: string;
+    let invalidArchiveOperationException: string;
+    let invalidArgumentException: string;
+    let invalidReceivePortException: string;
+    let invalidSendPortException: string;
+    let invalidUnarchiveOperationException: string;
+    let invocationOperationCancelledException: string;
+    let invocationOperationVoidResultException: string;
+    let mallocException: string;
+    let objectInaccessibleException: string;
+    let objectNotAvailableException: string;
+    let oldStyleException: string;
+    let parseErrorException: string;
+    let portReceiveException: string;
+    let portSendException: string;
+    let portTimeoutException: string;
+    let rangeException: string;
+    let undefinedKeyException: string;
 }
 declare namespace NSExpression {
     enum ExpressionType {
@@ -18937,6 +30314,18 @@ declare namespace NSFileVersion {
     }
 }
 declare namespace NSFont {
+    let antialiasThresholdChangedNotification: string;
+    let identityMatrix: number;
+    let fontSetChangedNotification: string;
+    let black: number;
+    let bold: number;
+    let heavy: number;
+    let light: number;
+    let medium: number;
+    let regular: number;
+    let semibold: number;
+    let thin: number;
+    let ultraLight: number;
 }
 declare namespace NSFontAssetRequest {
     enum Options {
@@ -18949,6 +30338,18 @@ declare namespace NSFontCollection {
         User = 2,
         Computer = 4
     }
+    let actionUserInfoKey: string;
+    let allFonts: string;
+    let didChangeNotification: string;
+    let favorites: string;
+    let nameUserInfoKey: string;
+    let oldNameUserInfoKey: string;
+    let recentlyUsed: string;
+    let user: string;
+    let visibilityUserInfoKey: string;
+    let hidden: string;
+    let renamed: string;
+    let shown: string;
 }
 declare namespace NSFontDescriptor {
     enum SymbolicTraits {
@@ -18974,6 +30375,32 @@ declare namespace NSFontDescriptor {
         ClassScripts = 2684354560,
         ClassSymbolic = 3221225472
     }
+    let cascadeList: string;
+    let characterSet: string;
+    let default_: string;
+    let monospaced: string;
+    let rounded: string;
+    let serif: string;
+    let face: string;
+    let family: string;
+    let selectorIdentifier: string;
+    let featureSettings: string;
+    let typeIdentifier: string;
+    let fixedAdvance: string;
+    let matrix: string;
+    let name: string;
+    let size: string;
+    let slant: string;
+    let symbolic: string;
+    let traits: string;
+    let variation: string;
+    let defaultValue: string;
+    let identifier: string;
+    let maximumValue: string;
+    let minimumValue: string;
+    let visibleName: string;
+    let weight: string;
+    let width: string;
 }
 declare namespace NSFontPanel {
     enum ModeMask {
@@ -19008,6 +30435,10 @@ declare namespace NSGradient {
     }
 }
 declare namespace NSGraphicsContext {
+    let destination: string;
+    let pdf: string;
+    let postScript: string;
+    let representationFormat: string;
 }
 declare namespace NSGridCell {
     enum Placement {
@@ -19030,6 +30461,7 @@ declare namespace NSGridRow {
     }
 }
 declare namespace NSGridView {
+    let sizedForContent: number;
 }
 declare namespace NSHapticFeedbackManager {
     enum FeedbackPattern {
@@ -19044,6 +30476,11 @@ declare namespace NSHapticFeedbackManager {
     }
 }
 declare namespace NSHelpManager {
+    let contextHelpModeDidActivateNotification: string;
+    let contextHelpModeDidDeactivateNotification: string;
+    type BookName = String;
+    type AnchorName = String;
+    type ContextHelpKey = String;
 }
 declare namespace NSImage {
     enum CacheMode {
@@ -19068,8 +30505,151 @@ declare namespace NSImage {
         Stretch = 0,
         Tile = 1
     }
+    let actionTemplateName: string;
+    let addTemplateName: string;
+    let advancedName: string;
+    let applicationIconName: string;
+    let bluetoothTemplateName: string;
+    let bonjourName: string;
+    let bookmarksTemplateName: string;
+    let cautionName: string;
+    let colorPanelName: string;
+    let columnViewTemplateName: string;
+    let computerName: string;
+    let enterFullScreenTemplateName: string;
+    let everyoneName: string;
+    let exitFullScreenTemplateName: string;
+    let flowViewTemplateName: string;
+    let folderName: string;
+    let folderBurnableName: string;
+    let folderSmartName: string;
+    let followLinkFreestandingTemplateName: string;
+    let fontPanelName: string;
+    let goBackTemplateName: string;
+    let goForwardTemplateName: string;
+    let goLeftTemplateName: string;
+    let goRightTemplateName: string;
+    let homeTemplateName: string;
+    let iChatTheaterTemplateName: string;
+    let iconViewTemplateName: string;
+    let infoName: string;
+    let invalidDataFreestandingTemplateName: string;
+    let leftFacingTriangleTemplateName: string;
+    let listViewTemplateName: string;
+    let lockLockedTemplateName: string;
+    let lockUnlockedTemplateName: string;
+    let menuMixedStateTemplateName: string;
+    let menuOnStateTemplateName: string;
+    let mobileMeName: string;
+    let multipleDocumentsName: string;
+    let networkName: string;
+    let pathTemplateName: string;
+    let preferencesGeneralName: string;
+    let quickLookTemplateName: string;
+    let refreshFreestandingTemplateName: string;
+    let refreshTemplateName: string;
+    let removeTemplateName: string;
+    let revealFreestandingTemplateName: string;
+    let rightFacingTriangleTemplateName: string;
+    let shareTemplateName: string;
+    let slideshowTemplateName: string;
+    let smartBadgeTemplateName: string;
+    let statusAvailableName: string;
+    let statusNoneName: string;
+    let statusPartiallyAvailableName: string;
+    let statusUnavailableName: string;
+    let stopProgressFreestandingTemplateName: string;
+    let stopProgressTemplateName: string;
+    let touchBarAddDetailTemplateName: string;
+    let touchBarAddTemplateName: string;
+    let touchBarAlarmTemplateName: string;
+    let touchBarAudioInputMuteTemplateName: string;
+    let touchBarAudioInputTemplateName: string;
+    let touchBarAudioOutputMuteTemplateName: string;
+    let touchBarAudioOutputVolumeHighTemplateName: string;
+    let touchBarAudioOutputVolumeLowTemplateName: string;
+    let touchBarAudioOutputVolumeMediumTemplateName: string;
+    let touchBarAudioOutputVolumeOffTemplateName: string;
+    let touchBarBookmarksTemplateName: string;
+    let touchBarColorPickerFillName: string;
+    let touchBarColorPickerFontName: string;
+    let touchBarColorPickerStrokeName: string;
+    let touchBarCommunicationAudioTemplateName: string;
+    let touchBarCommunicationVideoTemplateName: string;
+    let touchBarComposeTemplateName: string;
+    let touchBarDeleteTemplateName: string;
+    let touchBarDownloadTemplateName: string;
+    let touchBarEnterFullScreenTemplateName: string;
+    let touchBarExitFullScreenTemplateName: string;
+    let touchBarFastForwardTemplateName: string;
+    let touchBarFolderCopyToTemplateName: string;
+    let touchBarFolderMoveToTemplateName: string;
+    let touchBarFolderTemplateName: string;
+    let touchBarGetInfoTemplateName: string;
+    let touchBarGoBackTemplateName: string;
+    let touchBarGoDownTemplateName: string;
+    let touchBarGoForwardTemplateName: string;
+    let touchBarGoUpTemplateName: string;
+    let touchBarHistoryTemplateName: string;
+    let touchBarIconViewTemplateName: string;
+    let touchBarListViewTemplateName: string;
+    let touchBarMailTemplateName: string;
+    let touchBarNewFolderTemplateName: string;
+    let touchBarNewMessageTemplateName: string;
+    let touchBarOpenInBrowserTemplateName: string;
+    let touchBarPauseTemplateName: string;
+    let touchBarPlayPauseTemplateName: string;
+    let touchBarPlayTemplateName: string;
+    let touchBarPlayheadTemplateName: string;
+    let touchBarQuickLookTemplateName: string;
+    let touchBarRecordStartTemplateName: string;
+    let touchBarRecordStopTemplateName: string;
+    let touchBarRefreshTemplateName: string;
+    let touchBarRemoveTemplateName: string;
+    let touchBarRewindTemplateName: string;
+    let touchBarRotateLeftTemplateName: string;
+    let touchBarRotateRightTemplateName: string;
+    let touchBarSearchTemplateName: string;
+    let touchBarShareTemplateName: string;
+    let touchBarSidebarTemplateName: string;
+    let touchBarSkipAhead15SecondsTemplateName: string;
+    let touchBarSkipAhead30SecondsTemplateName: string;
+    let touchBarSkipAheadTemplateName: string;
+    let touchBarSkipBack15SecondsTemplateName: string;
+    let touchBarSkipBack30SecondsTemplateName: string;
+    let touchBarSkipBackTemplateName: string;
+    let touchBarSkipToEndTemplateName: string;
+    let touchBarSkipToStartTemplateName: string;
+    let touchBarSlideshowTemplateName: string;
+    let touchBarTagIconTemplateName: string;
+    let touchBarTextBoldTemplateName: string;
+    let touchBarTextBoxTemplateName: string;
+    let touchBarTextCenterAlignTemplateName: string;
+    let touchBarTextItalicTemplateName: string;
+    let touchBarTextJustifiedAlignTemplateName: string;
+    let touchBarTextLeftAlignTemplateName: string;
+    let touchBarTextListTemplateName: string;
+    let touchBarTextRightAlignTemplateName: string;
+    let touchBarTextStrikethroughTemplateName: string;
+    let touchBarTextUnderlineTemplateName: string;
+    let touchBarUserAddTemplateName: string;
+    let touchBarUserGroupTemplateName: string;
+    let touchBarUserTemplateName: string;
+    let touchBarVolumeDownTemplateName: string;
+    let touchBarVolumeUpTemplateName: string;
+    let trashEmptyName: string;
+    let trashFullName: string;
+    let userName: string;
+    let userAccountsName: string;
+    let userGroupName: string;
+    let userGuestName: string;
+    type Name = String;
 }
 declare namespace NSImageRep {
+    let ctm: string;
+    let interpolation: string;
+    let userInterfaceLayoutDirection: string;
+    let registryDidChangeNotification: string;
 }
 declare namespace NSImageView {
     enum FrameStyle {
@@ -19081,6 +30661,8 @@ declare namespace NSImageView {
     }
 }
 declare namespace NSIndexSet {
+    type Element = NSIndexSetIterator;
+    type Iterator = NSIndexSetIterator;
 }
 declare namespace NSItemProvider {
     enum ErrorCode {
@@ -19089,10 +30671,27 @@ declare namespace NSItemProvider {
         UnexpectedValueClassError = -1100,
         UnavailableCoercionError = -1200
     }
+    let errorDomain: string;
 }
 declare namespace NSKeyValueChangeKey {
+    let indexesKey: string;
+    let kindKey: string;
+    let newKey: string;
+    let notificationIsPriorKey: string;
+    let oldKey: string;
 }
 declare namespace NSKeyValueOperator {
+    let averageKeyValueOperator: string;
+    let countKeyValueOperator: string;
+    let distinctUnionOfArraysKeyValueOperator: string;
+    let distinctUnionOfObjectsKeyValueOperator: string;
+    let distinctUnionOfSetsKeyValueOperator: string;
+    let maximumKeyValueOperator: string;
+    let minimumKeyValueOperator: string;
+    let sumKeyValueOperator: string;
+    let unionOfArraysKeyValueOperator: string;
+    let unionOfObjectsKeyValueOperator: string;
+    let unionOfSetsKeyValueOperator: string;
 }
 declare namespace NSLayoutConstraint {
     enum Attribute {
@@ -19138,6 +30737,13 @@ declare namespace NSLayoutConstraint {
         Equal = 0,
         GreaterThanOrEqual = 1
     }
+    let defaultHigh: number;
+    let defaultLow: number;
+    let dragThatCanResizeWindow: number;
+    let dragThatCannotResizeWindow: number;
+    let fittingSizeCompression: number;
+    let required: number;
+    let windowSizeStayPut: number;
 }
 declare namespace NSLayoutManager {
     enum ControlCharacterAction {
@@ -19181,8 +30787,46 @@ declare namespace NSLevelIndicator {
     }
 }
 declare namespace NSLinguisticTag {
+    let adjective: string;
+    let adverb: string;
+    let classifier: string;
+    let closeParenthesis: string;
+    let closeQuote: string;
+    let conjunction: string;
+    let dash: string;
+    let determiner: string;
+    let idiom: string;
+    let interjection: string;
+    let noun: string;
+    let number: string;
+    let openParenthesis: string;
+    let openQuote: string;
+    let organizationName: string;
+    let other: string;
+    let otherPunctuation: string;
+    let otherWhitespace: string;
+    let otherWord: string;
+    let paragraphBreak: string;
+    let particle: string;
+    let personalName: string;
+    let placeName: string;
+    let preposition: string;
+    let pronoun: string;
+    let punctuation: string;
+    let sentenceTerminator: string;
+    let verb: string;
+    let whitespace: string;
+    let word: string;
+    let wordJoiner: string;
 }
 declare namespace NSLinguisticTagScheme {
+    let language: string;
+    let lemma: string;
+    let lexicalClass: string;
+    let nameType: string;
+    let nameTypeOrLexicalClass: string;
+    let script: string;
+    let tokenType: string;
 }
 declare namespace NSLinguisticTagger {
     enum Options {
@@ -19201,6 +30845,26 @@ declare namespace NSLocale {
         TopToBottom = 3,
         BottomToTop = 4
     }
+    let currentLocaleDidChangeNotification: string;
+    let alternateQuotationBeginDelimiterKey: string;
+    let alternateQuotationEndDelimiterKey: string;
+    let calendar: string;
+    let collationIdentifier: string;
+    let collatorIdentifier: string;
+    let countryCode: string;
+    let currencyCode: string;
+    let currencySymbol: string;
+    let decimalSeparator: string;
+    let exemplarCharacterSet: string;
+    let groupingSeparator: string;
+    let identifier: string;
+    let languageCode: string;
+    let measurementSystem: string;
+    let quotationBeginDelimiterKey: string;
+    let quotationEndDelimiterKey: string;
+    let scriptCode: string;
+    let usesMetricSystem: string;
+    let variantCode: string;
 }
 declare namespace NSMachPort {
     enum Options {
@@ -19208,6 +30872,9 @@ declare namespace NSMachPort {
         DeallocateSendRight = 1,
         DeallocateReceiveRight = 2
     }
+}
+declare namespace NSManagedObject {
+    type ObjectWillChangePublisher = ObservableObjectPublisher;
 }
 declare namespace NSMatrix {
     enum Mode {
@@ -19233,18 +30900,115 @@ declare namespace NSMenu {
         PropertyItemEnabled = 16,
         PropertyItemAccessibilityDescription = 32
     }
+    let didAddItemNotification: string;
+    let didBeginTrackingNotification: string;
+    let didChangeItemNotification: string;
+    let didEndTrackingNotification: string;
+    let didRemoveItemNotification: string;
+    let didSendActionNotification: string;
+    let willSendActionNotification: string;
 }
 declare namespace NSMenuItem {
+    let importFromDeviceIdentifier: string;
 }
 declare namespace NSNib {
+    type Name = String;
 }
 declare namespace NSNotification {
+    let AVAssetChapterMetadataGroupsDidChange: string;
+    let AVAssetContainsFragmentsDidChange: string;
+    let AVAssetDurationDidChange: string;
+    let AVAssetMediaSelectionGroupsDidChange: string;
+    let AVAssetTrackSegmentsDidChange: string;
+    let AVAssetTrackTimeRangeDidChange: string;
+    let AVAssetTrackTrackAssociationsDidChange: string;
+    let AVAssetWasDefragmented: string;
+    let AVAudioEngineConfigurationChange: string;
+    let AVAudioUnitComponentTagsDidChange: string;
+    let AVCaptureDeviceSubjectAreaDidChange: string;
+    let AVCaptureDeviceWasConnected: string;
+    let AVCaptureDeviceWasDisconnected: string;
+    let AVCaptureInputPortFormatDescriptionDidChange: string;
+    let AVCaptureSessionDidStartRunning: string;
+    let AVCaptureSessionDidStopRunning: string;
+    let AVCaptureSessionInterruptionEnded: string;
+    let AVCaptureSessionRuntimeError: string;
+    let AVCaptureSessionWasInterrupted: string;
+    let AVFragmentedMovieContainsMovieFragmentsDidChange: string;
+    let AVFragmentedMovieDurationDidChange: string;
+    let AVFragmentedMovieTrackSegmentsDidChange: string;
+    let AVFragmentedMovieTrackTimeRangeDidChange: string;
+    let AVFragmentedMovieWasDefragmented: string;
+    let AVPlayerAvailableHDRModesDidChange: string;
+    let AVPlayerItemDidPlayToEndTime: string;
+    let AVPlayerItemFailedToPlayToEndTime: string;
+    let AVPlayerItemNewAccessLogEntry: string;
+    let AVPlayerItemNewErrorLogEntry: string;
+    let AVPlayerItemPlaybackStalled: string;
+    let AVPlayerItemTimeJumped: string;
+    let AVRouteDetectorMultipleRoutesDetectedDidChange: string;
+    let AVSampleBufferAudioRendererWasFlushedAutomatically: string;
+    let AVSampleBufferDisplayLayerFailedToDecode: string;
+    let NSAppleEventManagerWillProcessFirstEvent: string;
+    let NSBundleResourceRequestLowDiskSpace: string;
+    let NSCalendarDayChanged: string;
+    let NSClassDescriptionNeededForClass: string;
+    let NSDidBecomeSingleThreaded: string;
+    let NSExtensionHostDidBecomeActive: string;
+    let NSExtensionHostDidEnterBackground: string;
+    let NSExtensionHostWillEnterForeground: string;
+    let NSExtensionHostWillResignActive: string;
+    let NSFileHandleConnectionAccepted: string;
+    let NSFileHandleDataAvailable: string;
+    let NSFileHandleReadToEndOfFileCompletion: string;
+    let NSHTTPCookieManagerAcceptPolicyChanged: string;
+    let NSHTTPCookieManagerCookiesChanged: string;
+    let NSMetadataQueryDidFinishGathering: string;
+    let NSMetadataQueryDidStartGathering: string;
+    let NSMetadataQueryDidUpdate: string;
+    let NSMetadataQueryGatheringProgress: string;
+    let NSProcessInfoPowerStateDidChange: string;
+    let NSSystemClockDidChange: string;
+    let NSSystemTimeZoneDidChange: string;
+    let NSThreadWillExit: string;
+    let NSURLCredentialStorageChanged: string;
+    let NSUbiquityIdentityDidChange: string;
+    let NSUndoManagerCheckpoint: string;
+    let NSUndoManagerDidCloseUndoGroup: string;
+    let NSUndoManagerDidOpenUndoGroup: string;
+    let NSUndoManagerDidRedoChange: string;
+    let NSUndoManagerDidUndoChange: string;
+    let NSUndoManagerWillCloseUndoGroup: string;
+    let NSUndoManagerWillRedoChange: string;
+    let NSUndoManagerWillUndoChange: string;
+    let NSWillBecomeMultiThreaded: string;
+    let IKFilterBrowserFilterDoubleClick: string;
+    let IKFilterBrowserFilterSelected: string;
+    let IKFilterBrowserWillPreviewFilter: string;
+    let quartzFilterManagerDidAddFilter: string;
+    let quartzFilterManagerDidModifyFilter: string;
+    let quartzFilterManagerDidRemoveFilter: string;
+    let quartzFilterManagerDidSelectFilter: string;
 }
 declare namespace NSNumber {
+    type BooleanLiteralType = boolean;
+    type IntegerLiteralType = number;
+    type FloatLiteralType = number;
 }
 declare namespace NSOrderedSet {
+    type Iterator = NSFastEnumerationIterator;
 }
 declare namespace NSOutlineView {
+    let columnDidMoveNotification: string;
+    let columnDidResizeNotification: string;
+    let disclosureButtonIdentifier: string;
+    let itemDidCollapseNotification: string;
+    let itemDidExpandNotification: string;
+    let itemWillCollapseNotification: string;
+    let itemWillExpandNotification: string;
+    let selectionDidChangeNotification: string;
+    let selectionIsChangingNotification: string;
+    let showHideButtonIdentifier: string;
 }
 declare namespace NSPDFPanel {
     enum Options {
@@ -19259,6 +31023,7 @@ declare namespace NSPageController {
         StackBook = 1,
         HorizontalStrip = 2
     }
+    type ObjectIdentifier = String;
 }
 declare namespace NSParagraphStyle {
     enum TextTabType {
@@ -19286,6 +31051,30 @@ declare namespace NSPasteboard {
     enum WritingOptions {
         Promised = 512
     }
+    let fileContents: string;
+    let findPanelSearchOptions: string;
+    let drag: string;
+    let find: string;
+    let font: string;
+    let general: string;
+    let ruler: string;
+    let color: string;
+    let fileURL: string;
+    let html: string;
+    let multipleTextSelection: string;
+    let pdf: string;
+    let png: string;
+    let rtf: string;
+    let rtfd: string;
+    let sound: string;
+    let string: string;
+    let tiff: string;
+    let tabularText: string;
+    let textFinderOptions: string;
+    let URL: string;
+    let urlReadingContentsConformToTypes: string;
+    let urlReadingFileURLsOnly: string;
+    let soundPboardType: string;
 }
 declare namespace NSPathControl {
     enum Style {
@@ -19329,8 +31118,10 @@ declare namespace NSPopUpButton {
         ArrowAtCenter = 1,
         ArrowAtBottom = 2
     }
+    let willPopUpNotification: string;
 }
 declare namespace NSPopUpButtonCell {
+    let willPopUpNotification: string;
 }
 declare namespace NSPopover {
     enum Behavior {
@@ -19338,6 +31129,13 @@ declare namespace NSPopover {
         Transient = 1,
         Semitransient = 2
     }
+    let detachToWindow: string;
+    let closeReasonUserInfoKey: string;
+    let standard: string;
+    let didCloseNotification: string;
+    let didShowNotification: string;
+    let willCloseNotification: string;
+    let willShowNotification: string;
 }
 declare namespace NSPositionalSpecifier {
     enum InsertionPosition {
@@ -19358,6 +31156,44 @@ declare namespace NSPrintInfo {
         Fit = 1,
         Clip = 2
     }
+    let automatic: NSPrintInfo.PaginationMode;
+    let clip: NSPrintInfo.PaginationMode;
+    let fit: NSPrintInfo.PaginationMode;
+    let allPages: string;
+    let bottomMargin: string;
+    let cancel: string;
+    let copies: string;
+    let detailedErrorReporting: string;
+    let faxNumber: string;
+    let firstPage: string;
+    let headerAndFooter: string;
+    let horizontalPagination: string;
+    let horizontallyCentered: string;
+    let jobDisposition: string;
+    let jobSavingFileNameExtensionHidden: string;
+    let jobSavingURL: string;
+    let lastPage: string;
+    let leftMargin: string;
+    let mustCollate: string;
+    let orientation: string;
+    let pagesAcross: string;
+    let pagesDown: string;
+    let paperName: string;
+    let paperSize: string;
+    let preview: string;
+    let printer: string;
+    let printerName: string;
+    let reversePageOrder: string;
+    let rightMargin: string;
+    let save: string;
+    let scalingFactor: string;
+    let selectionOnly: string;
+    let spool: string;
+    let time: string;
+    let topMargin: string;
+    let verticalPagination: string;
+    let verticallyCentered: string;
+    type SettingKey = String;
 }
 declare namespace NSPrintOperation {
     enum RenderingQuality {
@@ -19382,6 +31218,11 @@ declare namespace NSPrintPanel {
         ShowsPageSetupAccessory = 256,
         ShowsPreview = 131072
     }
+    let allPresets: string;
+    let noPresets: string;
+    let itemDescription: string;
+    let itemName: string;
+    let photo: string;
 }
 declare namespace NSPrinter {
     enum TableStatus {
@@ -19438,14 +31279,27 @@ declare namespace NSRuleEditor {
         Simple = 0,
         Compound = 1
     }
+    let comparisonModifier: string;
+    let compoundType: string;
+    let customSelector: string;
+    let leftExpression: string;
+    let operatorType: string;
+    let options: string;
+    let rightExpression: string;
+    let rowsDidChangeNotification: string;
 }
 declare namespace NSRulerView {
     enum Orientation {
         HorizontalRuler = 0,
         VerticalRuler = 1
     }
+    let centimeters: string;
+    let inches: string;
+    let picas: string;
+    let points: string;
 }
 declare namespace NSScreen {
+    let colorSpaceDidChangeNotification: string;
 }
 declare namespace NSScrollView {
     enum Elasticity {
@@ -19458,6 +31312,11 @@ declare namespace NSScrollView {
         AboveContent = 1,
         BelowContent = 2
     }
+    let didEndLiveMagnifyNotification: string;
+    let didEndLiveScrollNotification: string;
+    let didLiveScrollNotification: string;
+    let willStartLiveMagnifyNotification: string;
+    let willStartLiveScrollNotification: string;
 }
 declare namespace NSScroller {
     enum KnobStyle {
@@ -19483,6 +31342,7 @@ declare namespace NSScroller {
         OnlyScrollerArrows = 1,
         AllScrollerParts = 2
     }
+    let preferredScrollerStyleDidChangeNotification: string;
 }
 declare namespace NSScrubber {
     enum Alignment {
@@ -19497,6 +31357,11 @@ declare namespace NSScrubber {
     }
 }
 declare namespace NSSearchField {
+    let clearRecentsMenuItemTag: number;
+    let noRecentsMenuItemTag: number;
+    let recentsMenuItemTag: number;
+    let recentsTitleMenuItemTag: number;
+    type RecentsAutosaveName = String;
 }
 declare namespace NSSegmentedControl {
     enum Distribution {
@@ -19523,6 +31388,7 @@ declare namespace NSSegmentedControl {
     }
 }
 declare namespace NSSet {
+    type Iterator = NSFastEnumerationIterator;
 }
 declare namespace NSSharingService {
     enum CloudKitOptions {
@@ -19537,6 +31403,14 @@ declare namespace NSSharingService {
         Partial = 1,
         Full = 2
     }
+    let addToAperture: string;
+    let addToIPhoto: string;
+    let addToSafariReadingList: string;
+    let cloudSharing: string;
+    let composeEmail: string;
+    let composeMessage: string;
+    let sendViaAirDrop: string;
+    let useAsDesktopPicture: string;
 }
 declare namespace NSSlider {
     enum SliderType {
@@ -19551,8 +31425,12 @@ declare namespace NSSlider {
     }
 }
 declare namespace NSSliderAccessory {
+    let default_: number;
+    let wide: number;
 }
 declare namespace NSSound {
+    type Name = String;
+    type PlaybackDeviceIdentifier = String;
 }
 declare namespace NSSpecifierTest {
     enum TestComparisonOperation {
@@ -19572,6 +31450,38 @@ declare namespace NSSpeechSynthesizer {
         WordBoundary = 1,
         SentenceBoundary = 2
     }
+    let characterMode: string;
+    let commandDelimiter: string;
+    let currentVoice: string;
+    let abbreviations: string;
+    let entryPhonemes: string;
+    let entrySpelling: string;
+    let localeIdentifier: string;
+    let modificationDate: string;
+    let pronunciations: string;
+    let errors: string;
+    let inputMode: string;
+    let numberMode: string;
+    let outputToFileURL: string;
+    let phonemeSymbols: string;
+    let pitchBase: string;
+    let pitchMod: string;
+    let rate: string;
+    let recentSync: string;
+    let reset: string;
+    let status: string;
+    let synthesizerInfo: string;
+    let volume: string;
+    let age: string;
+    let demoText: string;
+    let gender: string;
+    let female: string;
+    let male: string;
+    let neuter: string;
+    let identifier: string;
+    let individuallySpokenCharacters: string;
+    let name: string;
+    let supportedCharacters: string;
 }
 declare namespace NSSpellChecker {
     enum CorrectionIndicatorType {
@@ -19587,6 +31497,23 @@ declare namespace NSSpellChecker {
         Edited = 4,
         Reverted = 5
     }
+    let didChangeAutomaticCapitalizationNotification: string;
+    let didChangeAutomaticDashSubstitutionNotification: string;
+    let didChangeAutomaticPeriodSubstitutionNotification: string;
+    let didChangeAutomaticQuoteSubstitutionNotification: string;
+    let didChangeAutomaticSpellingCorrectionNotification: string;
+    let didChangeAutomaticTextCompletionNotification: string;
+    let didChangeAutomaticTextReplacementNotification: string;
+    let documentAuthor: string;
+    let documentTitle: string;
+    let documentURL: string;
+    let orthography: string;
+    let quotes: string;
+    let referenceDate: string;
+    let referenceTimeZone: string;
+    let regularExpressions: string;
+    let replacements: string;
+    let selectedRange: string;
 }
 declare namespace NSSplitView {
     enum DividerStyle {
@@ -19594,8 +31521,12 @@ declare namespace NSSplitView {
         Thin = 2,
         PaneSplitter = 3
     }
+    let didResizeSubviewsNotification: string;
+    let willResizeSubviewsNotification: string;
+    type AutosaveName = String;
 }
 declare namespace NSSplitViewController {
+    let automaticDimension: number;
 }
 declare namespace NSSplitViewItem {
     enum Behavior {
@@ -19609,6 +31540,7 @@ declare namespace NSSplitViewItem {
         PreferResizingSiblingsWithFixedSplitView = 2,
         UseConstraints = 3
     }
+    let unspecifiedDimension: number;
 }
 declare namespace NSStackView {
     enum Distribution {
@@ -19626,16 +31558,26 @@ declare namespace NSStackView {
         Bottom = 3,
         Trailing = 3
     }
+    let useDefaultSpacing: number;
+    let detachOnlyIfNecessary: number;
+    let mustHold: number;
+    let notVisible: number;
 }
 declare namespace NSStatusItem {
     enum Behavior {
         RemovalAllowed = 2,
         TerminationOnRemoval = 4
     }
+    let squareLength: number;
+    let variableLength: number;
+    type AutosaveName = String;
 }
 declare namespace NSStoryboard {
+    type Name = String;
+    type SceneIdentifier = String;
 }
 declare namespace NSStoryboardSegue {
+    type Identifier = String;
 }
 declare namespace NSString {
     enum DrawingOptions {
@@ -19671,6 +31613,9 @@ declare namespace NSString {
         SubstringNotRequired = 512,
         Localized = 1024
     }
+    type StringLiteralType = string;
+    type ExtendedGraphemeClusterLiteralType = string;
+    type UnicodeScalarLiteralType = string;
 }
 declare namespace NSTabView {
     enum TabPosition {
@@ -19767,6 +31712,12 @@ declare namespace NSTableView {
         Regular = 0,
         SourceList = 1
     }
+    let columnDidMoveNotification: string;
+    let columnDidResizeNotification: string;
+    let rowViewIdentifier: string;
+    let selectionDidChangeNotification: string;
+    let selectionIsChangingNotification: string;
+    type AutosaveName = String;
 }
 declare namespace NSTableViewRowAction {
     enum Style {
@@ -19775,8 +31726,13 @@ declare namespace NSTableViewRowAction {
     }
 }
 declare namespace NSText {
+    let didBeginEditingNotification: string;
+    let didChangeNotification: string;
+    let didEndEditingNotification: string;
+    let movementUserInfoKey: string;
 }
 declare namespace NSTextAlternatives {
+    let selectedAlternativeStringNotification: string;
 }
 declare namespace NSTextBlock {
     enum Dimension {
@@ -19804,6 +31760,17 @@ declare namespace NSTextBlock {
     }
 }
 declare namespace NSTextCheckingKey {
+    let airline: string;
+    let city: string;
+    let country: string;
+    let flight: string;
+    let jobTitle: string;
+    let name: string;
+    let organization: string;
+    let phone: string;
+    let state: string;
+    let street: string;
+    let zip: string;
 }
 declare namespace NSTextCheckingResult {
     enum CheckingType {
@@ -19852,15 +31819,36 @@ declare namespace NSTextFinder {
     }
 }
 declare namespace NSTextInputContext {
+    let keyboardSelectionDidChangeNotification: string;
 }
 declare namespace NSTextList {
     enum Options {
         PrependEnclosingMarker = 1
     }
+    let box: string;
+    let check: string;
+    let circle: string;
+    let decimal: string;
+    let diamond: string;
+    let disc: string;
+    let hyphen: string;
+    let lowercaseAlpha: string;
+    let lowercaseHexadecimal: string;
+    let lowercaseLatin: string;
+    let lowercaseRoman: string;
+    let octal: string;
+    let square: string;
+    let uppercaseAlpha: string;
+    let uppercaseHexadecimal: string;
+    let uppercaseLatin: string;
+    let uppercaseRoman: string;
 }
 declare namespace NSTextStorage {
+    let didProcessEditingNotification: string;
+    let willProcessEditingNotification: string;
 }
 declare namespace NSTextTab {
+    let columnTerminators: string;
 }
 declare namespace NSTextTable {
     enum LayoutAlgorithm {
@@ -19869,6 +31857,9 @@ declare namespace NSTextTable {
     }
 }
 declare namespace NSTextView {
+    let didChangeSelectionNotification: string;
+    let didChangeTypingAttributesNotification: string;
+    let willChangeNotifyingTextViewNotification: string;
 }
 declare namespace NSTimeZone {
     enum NameStyle {
@@ -19901,8 +31892,24 @@ declare namespace NSToolbar {
         Regular = 1,
         Small = 2
     }
+    let didRemoveItemNotification: string;
+    let willAddItemNotification: string;
+    type Identifier = String;
 }
 declare namespace NSToolbarItem {
+    let cloudSharing: string;
+    let customizeToolbar: string;
+    let flexibleSpace: string;
+    let high: number;
+    let low: number;
+    let standard: number;
+    let user: number;
+    let print: string;
+    let separator: string;
+    let showColors: string;
+    let showFonts: string;
+    let space: string;
+    let toggleSidebar: string;
 }
 declare namespace NSToolbarItemGroup {
     enum ControlRepresentation {
@@ -19936,8 +31943,23 @@ declare namespace NSTouch {
     }
 }
 declare namespace NSTouchBar {
+    type CustomizationIdentifier = String;
 }
 declare namespace NSTouchBarItem {
+    let candidateList: string;
+    let characterPicker: string;
+    let fixedSpaceLarge: string;
+    let fixedSpaceSmall: string;
+    let flexibleSpace: string;
+    let otherItemsProxy: string;
+    let textAlignment: string;
+    let textColorPicker: string;
+    let textFormat: string;
+    let textList: string;
+    let textStyle: string;
+    let high: number;
+    let low: number;
+    let normal: number;
 }
 declare namespace NSTrackingArea {
     enum Options {
@@ -19966,6 +31988,7 @@ declare namespace NSURL {
         WithoutMounting = 512,
         WithSecurityScope = 1024
     }
+    type BookmarkFileCreationOptions = number;
 }
 declare namespace NSURLHandle {
     enum Status {
@@ -19998,6 +32021,7 @@ declare namespace NSURLRequest {
     }
 }
 declare namespace NSUbiquitousKeyValueStore {
+    let didChangeExternallyNotification: string;
 }
 declare namespace NSUserNotification {
     enum ActivationType {
@@ -20009,6 +32033,10 @@ declare namespace NSUserNotification {
     }
 }
 declare namespace NSValueTransformerName {
+    let isNilTransformerName: string;
+    let isNotNilTransformerName: string;
+    let negateBooleanTransformerName: string;
+    let secureUnarchiveFromDataTransformerName: string;
 }
 declare namespace NSView {
     enum AutoresizingMask {
@@ -20047,8 +32075,29 @@ declare namespace NSView {
         BeforeViewResize = 3,
         Crossfade = 4
     }
+    let emphasized: NSView.BackgroundStyle;
+    let normal: NSView.BackgroundStyle;
+    let dictionaryApplication: string;
+    let presentationType: string;
+    let overlay: string;
+    let fullScreenModeAllScreens: string;
+    let fullScreenModeApplicationPresentationOptions: string;
+    let fullScreenModeSetting: string;
+    let fullScreenModeWindowLevel: string;
+    let boundsDidChangeNotification: string;
+    let didUpdateTrackingAreasNotification: string;
+    let frameDidChangeNotification: string;
+    let noIntrinsicMetric: number;
+    type TrackingRectTag = number;
+    type ToolTipTag = number;
 }
 declare namespace NSViewAnimation {
+    let effect: string;
+    let endFrame: string;
+    let fadeIn: string;
+    let fadeOut: string;
+    let startFrame: string;
+    let target: string;
 }
 declare namespace NSViewController {
     enum TransitionOptions {
@@ -20196,6 +32245,49 @@ declare namespace NSWindow {
         Always = 1,
         InFullScreen = 2
     }
+    let oldColorSpaceUserInfoKey: string;
+    let oldScaleFactorUserInfoKey: string;
+    let floating: number;
+    let mainMenu: number;
+    let modalPanel: number;
+    let normal: number;
+    let popUpMenu: number;
+    let screenSaver: number;
+    let statusBar: number;
+    let submenu: number;
+    let tornOffMenu: number;
+    let didBecomeKeyNotification: string;
+    let didBecomeMainNotification: string;
+    let didChangeBackingPropertiesNotification: string;
+    let didChangeOcclusionStateNotification: string;
+    let didChangeScreenNotification: string;
+    let didChangeScreenProfileNotification: string;
+    let didDeminiaturizeNotification: string;
+    let didEndLiveResizeNotification: string;
+    let didEndSheetNotification: string;
+    let didEnterFullScreenNotification: string;
+    let didEnterVersionBrowserNotification: string;
+    let didExitFullScreenNotification: string;
+    let didExitVersionBrowserNotification: string;
+    let didExposeNotification: string;
+    let didMiniaturizeNotification: string;
+    let didMoveNotification: string;
+    let didResignKeyNotification: string;
+    let didResignMainNotification: string;
+    let didResizeNotification: string;
+    let didUpdateNotification: string;
+    let willBeginSheetNotification: string;
+    let willCloseNotification: string;
+    let willEnterFullScreenNotification: string;
+    let willEnterVersionBrowserNotification: string;
+    let willExitFullScreenNotification: string;
+    let willExitVersionBrowserNotification: string;
+    let willMiniaturizeNotification: string;
+    let willMoveNotification: string;
+    let willStartLiveResizeNotification: string;
+    type FrameAutosaveName = String;
+    type PersistableFrameDescriptor = String;
+    type TabbingIdentifier = String;
 }
 declare namespace NSWorkspace {
     enum AuthorizationType {
@@ -20221,6 +32313,39 @@ declare namespace NSWorkspace {
         AllowingClassicStartup = 131072,
         PreferringClassic = 262144
     }
+    let accessibilityDisplayOptionsDidChangeNotification: string;
+    let activeSpaceDidChangeNotification: string;
+    let applicationUserInfoKey: string;
+    let allowClipping: string;
+    let fillColor: string;
+    let imageScaling: string;
+    let didActivateApplicationNotification: string;
+    let didChangeFileLabelsNotification: string;
+    let didDeactivateApplicationNotification: string;
+    let didHideApplicationNotification: string;
+    let didLaunchApplicationNotification: string;
+    let didMountNotification: string;
+    let didRenameVolumeNotification: string;
+    let didTerminateApplicationNotification: string;
+    let didUnhideApplicationNotification: string;
+    let didUnmountNotification: string;
+    let didWakeNotification: string;
+    let appleEvent: string;
+    let architecture: string;
+    let arguments_: string;
+    let environment: string;
+    let screensDidSleepNotification: string;
+    let screensDidWakeNotification: string;
+    let sessionDidBecomeActiveNotification: string;
+    let sessionDidResignActiveNotification: string;
+    let localizedVolumeNameUserInfoKey: string;
+    let oldLocalizedVolumeNameUserInfoKey: string;
+    let oldVolumeURLUserInfoKey: string;
+    let volumeURLUserInfoKey: string;
+    let willLaunchApplicationNotification: string;
+    let willPowerOffNotification: string;
+    let willSleepNotification: string;
+    let willUnmountNotification: string;
 }
 declare namespace NSXPCConnection {
     enum Options {
@@ -20292,6 +32417,7 @@ declare namespace Operation {
     }
 }
 declare namespace OperationQueue {
+    let defaultMaxConcurrentOperationCount: number;
 }
 declare namespace PersonNameComponentsFormatter {
     enum Options {
@@ -20306,12 +32432,14 @@ declare namespace PersonNameComponentsFormatter {
     }
 }
 declare namespace Port {
+    let didBecomeInvalidNotification: string;
 }
 declare namespace Process {
     enum TerminationReason {
         Exit = 1,
         UncaughtSignal = 2
     }
+    let didTerminateNotification: string;
 }
 declare namespace ProcessInfo {
     enum ActivityOptions {
@@ -20330,12 +32458,27 @@ declare namespace ProcessInfo {
         Serious = 2,
         Critical = 3
     }
+    let thermalStateDidChangeNotification: string;
 }
 declare namespace Progress {
+    let copying: string;
+    let decompressingAfterDownloading: string;
+    let downloading: string;
+    let receiving: string;
 }
 declare namespace ProgressKind {
+    let file: string;
 }
 declare namespace ProgressUserInfoKey {
+    let estimatedTimeRemainingKey: string;
+    let fileAnimationImageKey: string;
+    let fileAnimationImageOriginalRectKey: string;
+    let fileCompletedCountKey: string;
+    let fileIconKey: string;
+    let fileOperationKindKey: string;
+    let fileTotalCountKey: string;
+    let fileURLKey: string;
+    let throughputKey: string;
 }
 declare namespace PropertyListSerialization {
     enum PropertyListFormat {
@@ -20348,6 +32491,8 @@ declare namespace PropertyListSerialization {
         MutableContainers = 1,
         MutableContainersAndLeaves = 2
     }
+    type ReadOptions = PropertyListSerialization;
+    type WriteOptions = number;
 }
 declare namespace RelativeDateTimeFormatter {
     enum DateTimeStyle {
@@ -20362,6 +32507,10 @@ declare namespace RelativeDateTimeFormatter {
     }
 }
 declare namespace RunLoop {
+    let eventTracking: string;
+    let modalPanel: string;
+    let default_: string;
+    let common: string;
 }
 declare namespace Stream {
     enum Event {
@@ -20382,18 +32531,70 @@ declare namespace Stream {
         Closed = 6,
         Error = 7
     }
+    let dataWrittenToMemoryStreamKey: string;
+    let fileCurrentOffsetKey: string;
+    let networkServiceType: string;
+    let socksProxyConfigurationKey: string;
+    let socketSecurityLevelKey: string;
 }
 declare namespace StreamNetworkServiceTypeValue {
+    let background: string;
+    let callSignaling: string;
+    let video: string;
+    let voIP: string;
+    let voice: string;
 }
 declare namespace StreamSOCKSProxyConfiguration {
+    let hostKey: string;
+    let passwordKey: string;
+    let portKey: string;
+    let userKey: string;
+    let versionKey: string;
 }
 declare namespace StreamSOCKSProxyVersion {
+    let version4: string;
+    let version5: string;
 }
 declare namespace StreamSocketSecurityLevel {
+    let negotiatedSSL: string;
+    let none: string;
+    let ssLv2: string;
+    let ssLv3: string;
+    let tlSv1: string;
 }
 declare namespace StringEncodingDetectionOptionsKey {
+    let allowLossyKey: string;
+    let disallowedEncodingsKey: string;
+    let fromWindowsKey: string;
+    let likelyLanguageKey: string;
+    let lossySubstitutionKey: string;
+    let suggestedEncodingsKey: string;
+    let useOnlySuggestedEncodingsKey: string;
 }
 declare namespace StringTransform {
+    let fullwidthToHalfwidth: string;
+    let hiraganaToKatakana: string;
+    let latinToArabic: string;
+    let latinToCyrillic: string;
+    let latinToGreek: string;
+    let latinToHangul: string;
+    let latinToHebrew: string;
+    let latinToHiragana: string;
+    let latinToKatakana: string;
+    let latinToThai: string;
+    let mandarinToLatin: string;
+    let stripCombiningMarks: string;
+    let stripDiacritics: string;
+    let toLatin: string;
+    let toUnicodeName: string;
+    let toXMLHex: string;
+}
+declare namespace SystemPressureState {
+    enum Factors {
+        systemTemperature = 0,
+        peakPower = 1,
+        depthModuleTemperature = 2
+    }
 }
 declare namespace URLCache {
     enum StoragePolicy {
@@ -20411,10 +32612,131 @@ declare namespace URLCredential {
     }
 }
 declare namespace URLFileProtection {
+    let complete: string;
+    let completeUnlessOpen: string;
+    let completeUntilFirstUserAuthentication: string;
+    let none: string;
 }
 declare namespace URLFileResourceType {
+    let blockSpecial: string;
+    let characterSpecial: string;
+    let directory: string;
+    let namedPipe: string;
+    let regular: string;
+    let socket: string;
+    let symbolicLink: string;
+    let unknown: string;
 }
 declare namespace URLResourceKey {
+    let addedToDirectoryDateKey: string;
+    let applicationIsScriptableKey: string;
+    let attributeModificationDateKey: string;
+    let canonicalPathKey: string;
+    let contentAccessDateKey: string;
+    let contentModificationDateKey: string;
+    let creationDateKey: string;
+    let customIconKey: string;
+    let documentIdentifierKey: string;
+    let effectiveIconKey: string;
+    let fileAllocatedSizeKey: string;
+    let fileProtectionKey: string;
+    let fileResourceIdentifierKey: string;
+    let fileResourceTypeKey: string;
+    let fileSecurityKey: string;
+    let fileSizeKey: string;
+    let generationIdentifierKey: string;
+    let hasHiddenExtensionKey: string;
+    let isAliasFileKey: string;
+    let isApplicationKey: string;
+    let isDirectoryKey: string;
+    let isExcludedFromBackupKey: string;
+    let isExecutableKey: string;
+    let isHiddenKey: string;
+    let isMountTriggerKey: string;
+    let isPackageKey: string;
+    let isReadableKey: string;
+    let isRegularFileKey: string;
+    let isSymbolicLinkKey: string;
+    let isSystemImmutableKey: string;
+    let isUbiquitousItemKey: string;
+    let isUserImmutableKey: string;
+    let isVolumeKey: string;
+    let isWritableKey: string;
+    let keysOfUnsetValuesKey: string;
+    let labelColorKey: string;
+    let labelNumberKey: string;
+    let linkCountKey: string;
+    let localizedLabelKey: string;
+    let localizedNameKey: string;
+    let localizedTypeDescriptionKey: string;
+    let nameKey: string;
+    let parentDirectoryURLKey: string;
+    let pathKey: string;
+    let preferredIOBlockSizeKey: string;
+    let quarantinePropertiesKey: string;
+    let tagNamesKey: string;
+    let thumbnailDictionaryKey: string;
+    let thumbnailKey: string;
+    let totalFileAllocatedSizeKey: string;
+    let totalFileSizeKey: string;
+    let typeIdentifierKey: string;
+    let ubiquitousItemContainerDisplayNameKey: string;
+    let ubiquitousItemDownloadRequestedKey: string;
+    let ubiquitousItemDownloadingErrorKey: string;
+    let ubiquitousItemDownloadingStatusKey: string;
+    let ubiquitousItemHasUnresolvedConflictsKey: string;
+    let ubiquitousItemIsDownloadingKey: string;
+    let ubiquitousItemIsSharedKey: string;
+    let ubiquitousItemIsUploadedKey: string;
+    let ubiquitousItemIsUploadingKey: string;
+    let ubiquitousItemUploadingErrorKey: string;
+    let ubiquitousSharedItemCurrentUserPermissionsKey: string;
+    let ubiquitousSharedItemCurrentUserRoleKey: string;
+    let ubiquitousSharedItemMostRecentEditorNameComponentsKey: string;
+    let ubiquitousSharedItemOwnerNameComponentsKey: string;
+    let volumeAvailableCapacityForImportantUsageKey: string;
+    let volumeAvailableCapacityForOpportunisticUsageKey: string;
+    let volumeAvailableCapacityKey: string;
+    let volumeCreationDateKey: string;
+    let volumeIdentifierKey: string;
+    let volumeIsAutomountedKey: string;
+    let volumeIsBrowsableKey: string;
+    let volumeIsEjectableKey: string;
+    let volumeIsEncryptedKey: string;
+    let volumeIsInternalKey: string;
+    let volumeIsJournalingKey: string;
+    let volumeIsLocalKey: string;
+    let volumeIsReadOnlyKey: string;
+    let volumeIsRemovableKey: string;
+    let volumeIsRootFileSystemKey: string;
+    let volumeLocalizedFormatDescriptionKey: string;
+    let volumeLocalizedNameKey: string;
+    let volumeMaximumFileSizeKey: string;
+    let volumeNameKey: string;
+    let volumeResourceCountKey: string;
+    let volumeSupportsAccessPermissionsKey: string;
+    let volumeSupportsAdvisoryFileLockingKey: string;
+    let volumeSupportsCasePreservedNamesKey: string;
+    let volumeSupportsCaseSensitiveNamesKey: string;
+    let volumeSupportsCompressionKey: string;
+    let volumeSupportsExclusiveRenamingKey: string;
+    let volumeSupportsExtendedSecurityKey: string;
+    let volumeSupportsFileCloningKey: string;
+    let volumeSupportsHardLinksKey: string;
+    let volumeSupportsImmutableFilesKey: string;
+    let volumeSupportsJournalingKey: string;
+    let volumeSupportsPersistentIDsKey: string;
+    let volumeSupportsRenamingKey: string;
+    let volumeSupportsRootDirectoryDatesKey: string;
+    let volumeSupportsSparseFilesKey: string;
+    let volumeSupportsSwapRenamingKey: string;
+    let volumeSupportsSymbolicLinksKey: string;
+    let volumeSupportsVolumeSizesKey: string;
+    let volumeSupportsZeroRunsKey: string;
+    let volumeTotalCapacityKey: string;
+    let volumeURLForRemountingKey: string;
+    let volumeURLKey: string;
+    let volumeUUIDStringKey: string;
 }
 declare namespace URLSession {
     enum AuthChallengeDisposition {
@@ -20437,6 +32759,9 @@ declare namespace URLSessionTask {
         Canceling = 2,
         Completed = 3
     }
+    let defaultPriority: number;
+    let highPriority: number;
+    let lowPriority: number;
 }
 declare namespace URLSessionTaskMetrics {
     enum ResourceFetchType {
@@ -20464,14 +32789,30 @@ declare namespace URLSessionWebSocketTask {
     }
 }
 declare namespace URLThumbnailDictionaryItem {
+    let NSThumbnail1024x1024SizeKey: string;
 }
 declare namespace URLUbiquitousItemDownloadingStatus {
+    let current: string;
+    let downloaded: string;
+    let notDownloaded: string;
 }
 declare namespace URLUbiquitousSharedItemPermissions {
+    let readOnly: string;
+    let readWrite: string;
 }
 declare namespace URLUbiquitousSharedItemRole {
+    let owner: string;
+    let participant: string;
 }
 declare namespace UserDefaults {
+    let argumentDomain: string;
+    let globalDomain: string;
+    let registrationDomain: string;
+    let completedInitialCloudSyncNotification: string;
+    let didChangeCloudAccountsNotification: string;
+    let noCloudAccountNotification: string;
+    let didChangeNotification: string;
+    let sizeLimitExceededNotification: string;
 }
 declare namespace XMLDTDNode {
     enum DTDKind {
@@ -20654,6 +32995,7 @@ declare namespace XMLParser {
         ResolveExternalEntitiesSameOriginOnly = 2,
         ResolveExternalEntitiesAlways = 3
     }
+    let errorDomain: string;
 }
 export declare enum AVAssetReferenceRestrictions {
     forbidRemoteReferenceToLocal = 0,
@@ -21280,6 +33622,12 @@ export declare enum NSEnumerationOptions {
     concurrent = 0,
     reverse = 1
 }
+export declare enum NSFetchRequestResultType {
+    managedObjectResultType = 0,
+    managedObjectIDResultType = 1,
+    dictionaryResultType = 2,
+    countResultType = 3
+}
 export declare enum NSFontCollectionOptions {
     applicationOnlyMask = 0
 }
@@ -21315,6 +33663,18 @@ export declare enum NSOrderedCollectionDifferenceCalculationOptions {
     omitInsertedObjects = 3,
     omitRemovedObjects = 4,
     inferMoves = 5
+}
+export declare enum NSPersistentCloudKitContainerSchemaInitializationOptions {
+    dryRun = 0,
+    printSchema = 1
+}
+export declare enum NSSnapshotEventType {
+    undoInsertion = 0,
+    undoDeletion = 1,
+    undoUpdate = 2,
+    rollback = 3,
+    refresh = 4,
+    mergePolicy = 5
 }
 export declare enum NSSortOptions {
     magnitude = 0,
@@ -21359,15 +33719,17 @@ export declare enum UInt {
     byteSwapped = 1,
     scalarCount = 2,
     hashValue = 3,
-    bitWidth = 4,
-    leadingZeroBitCount = 5,
-    trailingZeroBitCount = 6,
-    nonzeroBitCount = 7,
-    count = 8,
-    startIndex = 9,
-    endIndex = 10,
-    indices = 11,
-    words = 12
+    boolValue = 4,
+    ptr = 5,
+    bitWidth = 6,
+    leadingZeroBitCount = 7,
+    trailingZeroBitCount = 8,
+    nonzeroBitCount = 9,
+    count = 10,
+    startIndex = 11,
+    endIndex = 12,
+    indices = 13,
+    words = 14
 }
 export declare enum UInt8 {
     regions = 0,
@@ -21377,6 +33739,313 @@ export declare enum UInt8 {
     hashValue = 4,
     autoupdatingCurrent = 5,
     current = 6
+}
+export declare enum AVAssetReferenceRestrictions {
+    ForbidNone = 0,
+    ForbidRemoteReferenceToLocal = 1,
+    ForbidLocalReferenceToRemote = 2,
+    ForbidCrossSiteReference = 4,
+    ForbidLocalReferenceToLocal = 8,
+    ForbidAll = 65535,
+    DefaultPolicy = 2
+}
+export declare enum AVAudio3DMixingPointSourceInHeadMode {
+    Mono = 0,
+    Bypass = 1
+}
+export declare enum AVAudio3DMixingRenderingAlgorithm {
+    EqualPowerPanning = 0,
+    SphericalHead = 1,
+    HRTF = 2,
+    SoundField = 3,
+    StereoPassThrough = 5,
+    HRTFHQ = 6,
+    Auto = 7
+}
+export declare enum AVAudio3DMixingSourceMode {
+    SpatializeIfMono = 0,
+    Bypass = 1,
+    PointSource = 2,
+    AmbienceBed = 3
+}
+export declare enum AVAudioCommonFormat {
+    OtherFormat = 0,
+    PCMFormatFloat32 = 1,
+    PCMFormatFloat64 = 2,
+    PCMFormatInt16 = 3,
+    PCMFormatInt32 = 4
+}
+export declare enum AVAudioConverterInputStatus {
+    HaveData = 0,
+    NoDataNow = 1,
+    EndOfStream = 2
+}
+export declare enum AVAudioConverterOutputStatus {
+    HaveData = 0,
+    InputRanDry = 1,
+    EndOfStream = 2,
+    Error = 3
+}
+export declare enum AVAudioConverterPrimeMethod {
+    Pre = 0,
+    Normal = 1,
+    None = 2
+}
+export declare enum AVAudioEngineManualRenderingError {
+    InvalidMode = -80800,
+    Initialized = -80801,
+    NotRunning = -80802
+}
+export declare enum AVAudioEngineManualRenderingMode {
+    Offline = 0,
+    Realtime = 1
+}
+export declare enum AVAudioEngineManualRenderingStatus {
+    Error = -1,
+    Success = 0,
+    InsufficientDataFromInputNode = 1,
+    CannotDoInCurrentContext = 2
+}
+export declare enum AVAudioEnvironmentDistanceAttenuationModel {
+    Exponential = 1,
+    Inverse = 2,
+    Linear = 3
+}
+export declare enum AVAudioEnvironmentOutputType {
+    Auto = 0,
+    Headphones = 1,
+    BuiltInSpeakers = 2,
+    ExternalSpeakers = 3
+}
+export declare enum AVAudioPlayerNodeBufferOptions {
+    Loops = 1,
+    Interrupts = 2,
+    InterruptsAtLoop = 4
+}
+export declare enum AVAudioPlayerNodeCompletionCallbackType {
+    DataConsumed = 0,
+    DataRendered = 1,
+    DataPlayedBack = 2
+}
+export declare enum AVAudioQuality {
+    Min = 0,
+    Low = 32,
+    Medium = 64,
+    High = 96,
+    Max = 127
+}
+export declare enum AVAudioSessionActivationOptions {
+    None = 0
+}
+export declare enum AVAudioUnitDistortionPreset {
+    DrumsBitBrush = 0,
+    DrumsBufferBeats = 1,
+    DrumsLoFi = 2,
+    MultiBrokenSpeaker = 3,
+    MultiCellphoneConcert = 4,
+    MultiDecimated1 = 5,
+    MultiDecimated2 = 6,
+    MultiDecimated3 = 7,
+    MultiDecimated4 = 8,
+    MultiDistortedFunk = 9,
+    MultiDistortedCubed = 10,
+    MultiDistortedSquared = 11,
+    MultiEcho1 = 12,
+    MultiEcho2 = 13,
+    MultiEchoTight1 = 14,
+    MultiEchoTight2 = 15,
+    MultiEverythingIsBroken = 16,
+    SpeechAlienChatter = 17,
+    SpeechCosmicInterference = 18,
+    SpeechGoldenPi = 19,
+    SpeechRadioTower = 20,
+    SpeechWaves = 21
+}
+export declare enum AVAudioUnitEQFilterType {
+    Parametric = 0,
+    LowPass = 1,
+    HighPass = 2,
+    ResonantLowPass = 3,
+    ResonantHighPass = 4,
+    BandPass = 5,
+    BandStop = 6,
+    LowShelf = 7,
+    HighShelf = 8,
+    ResonantLowShelf = 9,
+    ResonantHighShelf = 10
+}
+export declare enum AVAudioUnitReverbPreset {
+    SmallRoom = 0,
+    MediumRoom = 1,
+    LargeRoom = 2,
+    MediumHall = 3,
+    LargeHall = 4,
+    Plate = 5,
+    MediumChamber = 6,
+    LargeChamber = 7,
+    Cathedral = 8,
+    LargeRoom2 = 9,
+    MediumHall2 = 10,
+    MediumHall3 = 11,
+    LargeHall2 = 12
+}
+export declare enum AVAuthorizationStatus {
+    NotDetermined = 0,
+    Restricted = 1,
+    Denied = 2,
+    Authorized = 3
+}
+export declare enum AVCaptureColorSpace {
+    sRGB = 0,
+    P3_D65 = 1
+}
+export declare enum AVCaptureVideoOrientation {
+    Portrait = 1,
+    PortraitUpsideDown = 2,
+    LandscapeRight = 3,
+    LandscapeLeft = 4
+}
+export declare enum AVContentAuthorizationStatus {
+    Unknown = 0,
+    Completed = 1,
+    Cancelled = 2,
+    TimedOut = 3,
+    Busy = 4,
+    NotAvailable = 5,
+    NotPossible = 6
+}
+export declare enum AVError {
+    Unknown = -11800,
+    OutOfMemory = -11801,
+    SessionNotRunning = -11803,
+    DeviceAlreadyUsedByAnotherSession = -11804,
+    NoDataCaptured = -11805,
+    SessionConfigurationChanged = -11806,
+    DiskFull = -11807,
+    DeviceWasDisconnected = -11808,
+    MediaChanged = -11809,
+    MaximumDurationReached = -11810,
+    MaximumFileSizeReached = -11811,
+    MediaDiscontinuity = -11812,
+    MaximumNumberOfSamplesForFileFormatReached = -11813,
+    DeviceNotConnected = -11814,
+    DeviceInUseByAnotherApplication = -11815,
+    DeviceLockedForConfigurationByAnotherProcess = -11817,
+    ExportFailed = -11820,
+    DecodeFailed = -11821,
+    InvalidSourceMedia = -11822,
+    FileAlreadyExists = -11823,
+    CompositionTrackSegmentsNotContiguous = -11824,
+    InvalidCompositionTrackSegmentDuration = -11825,
+    InvalidCompositionTrackSegmentSourceStartTime = -11826,
+    InvalidCompositionTrackSegmentSourceDuration = -11827,
+    FileFormatNotRecognized = -11828,
+    FileFailedToParse = -11829,
+    MaximumStillImageCaptureRequestsExceeded = -11830,
+    ContentIsProtected = -11831,
+    NoImageAtTime = -11832,
+    DecoderNotFound = -11833,
+    EncoderNotFound = -11834,
+    ContentIsNotAuthorized = -11835,
+    ApplicationIsNotAuthorized = -11836,
+    OperationNotSupportedForAsset = -11838,
+    DecoderTemporarilyUnavailable = -11839,
+    EncoderTemporarilyUnavailable = -11840,
+    InvalidVideoComposition = -11841,
+    ReferenceForbiddenByReferencePolicy = -11842,
+    InvalidOutputURLPathExtension = -11843,
+    ScreenCaptureFailed = -11844,
+    DisplayWasDisabled = -11845,
+    TorchLevelUnavailable = -11846,
+    IncompatibleAsset = -11848,
+    FailedToLoadMediaData = -11849,
+    ServerIncorrectlyConfigured = -11850,
+    ApplicationIsNotAuthorizedToUseDevice = -11852,
+    FailedToParse = -11853,
+    FileTypeDoesNotSupportSampleReferences = -11854,
+    UndecodableMediaData = -11855,
+    AirPlayControllerRequiresInternet = -11856,
+    AirPlayReceiverRequiresInternet = -11857,
+    VideoCompositorFailed = -11858,
+    CreateContentKeyRequestFailed = -11860,
+    UnsupportedOutputSettings = -11861,
+    OperationNotAllowed = -11862,
+    ContentIsUnavailable = -11863,
+    FormatUnsupported = -11864,
+    MalformedDepth = -11865,
+    ContentNotUpdated = -11866,
+    NoLongerPlayable = -11867,
+    NoCompatibleAlternatesForExternalDisplay = -11868,
+    NoSourceTrack = -11869,
+    ExternalPlaybackNotSupportedForAsset = -11870,
+    OperationNotSupportedForPreset = -11871,
+    SessionHardwareCostOverage = -11872,
+    UnsupportedDeviceActiveFormat = -11873
+}
+export declare enum AVKeyValueStatus {
+    Unknown = 0,
+    Loading = 1,
+    Loaded = 2,
+    Failed = 3,
+    Cancelled = 4
+}
+export declare enum AVMovieWritingOptions {
+    AddMovieHeaderToDestination = 0,
+    TruncateDestinationToMovieHeaderOnly = 1
+}
+export declare enum AVMusicSequenceLoadOptions {
+    SMF_PreserveTracks = 0,
+    SMF_ChannelsToTracks = 1
+}
+export declare enum AVMusicTrackLoopCount {
+    Forever = -1
+}
+export declare enum AVQueuedSampleBufferRenderingStatus {
+    Unknown = 0,
+    Rendering = 1,
+    Failed = 2
+}
+export declare enum AVSpeechBoundary {
+    Immediate = 0,
+    Word = 1
+}
+export declare enum AVSpeechSynthesisVoiceGender {
+    Unspecified = 0,
+    Male = 1,
+    Female = 2
+}
+export declare enum AVSpeechSynthesisVoiceQuality {
+    Default = 1,
+    Enhanced = 2
+}
+export declare enum AVVideoFieldMode {
+    Both = 0,
+    TopOnly = 1,
+    BottomOnly = 2,
+    Deinterlace = 3
+}
+export declare enum AVCaptureViewControlsStyle {
+    Inline = 0,
+    Floating = 1,
+    InlineDeviceSelection = 2,
+    Default = 0
+}
+export declare enum AVPlayerViewControlsStyle {
+    None = 0,
+    Inline = 1,
+    Floating = 2,
+    Minimal = 3,
+    Default = 1
+}
+export declare enum AVPlayerViewTrimResult {
+    OKButton = 0,
+    CancelButton = 1
+}
+export declare enum AVRoutePickerViewButtonState {
+    Normal = 0,
+    NormalHighlighted = 1,
+    Active = 2,
+    ActiveHighlighted = 3
 }
 export declare enum NSAccessibilityPriorityLevel {
     Low = 10,
@@ -21705,6 +34374,113 @@ export declare enum NSWritingDirection {
 export declare enum NSWritingDirectionFormatType {
     Embedding = 0,
     Override = 2
+}
+export declare enum NSAttributeType {
+    UndefinedAttributeType = 0,
+    Integer16AttributeType = 100,
+    Integer32AttributeType = 200,
+    Integer64AttributeType = 300,
+    DecimalAttributeType = 400,
+    DoubleAttributeType = 500,
+    FloatAttributeType = 600,
+    StringAttributeType = 700,
+    BooleanAttributeType = 800,
+    DateAttributeType = 900,
+    BinaryDataAttributeType = 1000,
+    UUIDAttributeType = 1100,
+    URIAttributeType = 1200,
+    TransformableAttributeType = 1800,
+    ObjectIDAttributeType = 2000
+}
+export declare enum NSBatchDeleteRequestResultType {
+    ResultTypeStatusOnly = 0,
+    ResultTypeObjectIDs = 1,
+    ResultTypeCount = 2
+}
+export declare enum NSBatchInsertRequestResultType {
+    StatusOnly = 0,
+    ObjectIDs = 1,
+    Count = 2
+}
+export declare enum NSBatchUpdateRequestResultType {
+    StatusOnlyResultType = 0,
+    UpdatedObjectIDsResultType = 1,
+    UpdatedObjectsCountResultType = 2
+}
+export declare enum NSDeleteRule {
+    NoActionDeleteRule = 0,
+    NullifyDeleteRule = 1,
+    CascadeDeleteRule = 2,
+    DenyDeleteRule = 3
+}
+export declare enum NSEntityMappingType {
+    UndefinedEntityMappingType = 0,
+    CustomEntityMappingType = 1,
+    AddEntityMappingType = 2,
+    RemoveEntityMappingType = 3,
+    CopyEntityMappingType = 4,
+    TransformEntityMappingType = 5
+}
+export declare enum NSFetchIndexElementType {
+    Binary = 0,
+    RTree = 1
+}
+export declare enum NSFetchRequestResultType {
+    ManagedObjectResultType = 0,
+    ManagedObjectIDResultType = 1,
+    DictionaryResultType = 2,
+    CountResultType = 4
+}
+export declare enum NSFetchedResultsChangeType {
+    Insert = 1,
+    Delete = 2,
+    Move = 3,
+    Update = 4
+}
+export declare enum NSManagedObjectContextConcurrencyType {
+    ConfinementConcurrencyType = 0,
+    PrivateQueueConcurrencyType = 1,
+    MainQueueConcurrencyType = 2
+}
+export declare enum NSMergePolicyType {
+    ErrorMergePolicyType = 0,
+    MergeByPropertyStoreTrumpMergePolicyType = 1,
+    MergeByPropertyObjectTrumpMergePolicyType = 2,
+    OverwriteMergePolicyType = 3,
+    RollbackMergePolicyType = 4
+}
+export declare enum NSPersistentCloudKitContainerSchemaInitializationOptions {
+    None = 0,
+    DryRun = 2,
+    PrintSchema = 4
+}
+export declare enum NSPersistentHistoryChangeType {
+    Insert = 0,
+    Update = 1,
+    Delete = 2
+}
+export declare enum NSPersistentHistoryResultType {
+    StatusOnly = 0,
+    ObjectIDs = 1,
+    Count = 2,
+    TransactionsOnly = 3,
+    ChangesOnly = 4,
+    TransactionsAndChanges = 5
+}
+export declare enum NSPersistentStoreRequestType {
+    FetchRequestType = 1,
+    SaveRequestType = 2,
+    BatchInsertRequestType = 5,
+    BatchUpdateRequestType = 6,
+    BatchDeleteRequestType = 7
+}
+export declare enum NSSnapshotEventType {
+    UndoInsertion = 2,
+    UndoDeletion = 4,
+    UndoUpdate = 8,
+    Rollback = 16,
+    Refresh = 32,
+    MergePolicy = 64
 }
 export declare enum CFCalendarUnit {
     kCFCalendarUnitEra = 2,
@@ -22200,6 +34976,540 @@ export declare enum __CFByteOrder {
     CFByteOrderLittleEndian = 1,
     CFByteOrderBigEndian = 2
 }
+export declare enum CGBitmapInfo {
+    kCGBitmapAlphaInfoMask = 31,
+    kCGBitmapFloatInfoMask = 3840,
+    kCGBitmapFloatComponents = 256,
+    kCGBitmapByteOrderMask = 28672,
+    kCGBitmapByteOrderDefault = 0,
+    kCGBitmapByteOrder16Little = 4096,
+    kCGBitmapByteOrder32Little = 8192,
+    kCGBitmapByteOrder16Big = 12288,
+    kCGBitmapByteOrder32Big = 16384
+}
+export declare enum CGBlendMode {
+    kCGBlendModeNormal = 0,
+    kCGBlendModeMultiply = 1,
+    kCGBlendModeScreen = 2,
+    kCGBlendModeOverlay = 3,
+    kCGBlendModeDarken = 4,
+    kCGBlendModeLighten = 5,
+    kCGBlendModeColorDodge = 6,
+    kCGBlendModeColorBurn = 7,
+    kCGBlendModeSoftLight = 8,
+    kCGBlendModeHardLight = 9,
+    kCGBlendModeDifference = 10,
+    kCGBlendModeExclusion = 11,
+    kCGBlendModeHue = 12,
+    kCGBlendModeSaturation = 13,
+    kCGBlendModeColor = 14,
+    kCGBlendModeLuminosity = 15,
+    kCGBlendModeClear = 16,
+    kCGBlendModeCopy = 17,
+    kCGBlendModeSourceIn = 18,
+    kCGBlendModeSourceOut = 19,
+    kCGBlendModeSourceAtop = 20,
+    kCGBlendModeDestinationOver = 21,
+    kCGBlendModeDestinationIn = 22,
+    kCGBlendModeDestinationOut = 23,
+    kCGBlendModeDestinationAtop = 24,
+    kCGBlendModeXOR = 25,
+    kCGBlendModePlusDarker = 26,
+    kCGBlendModePlusLighter = 27
+}
+export declare enum CGCaptureOptions {
+    kCGCaptureNoOptions = 0,
+    kCGCaptureNoFill = 1
+}
+export declare enum CGColorConversionInfoTransformType {
+    kCGColorConversionTransformFromSpace = 0,
+    kCGColorConversionTransformToSpace = 1,
+    kCGColorConversionTransformApplySpace = 2
+}
+export declare enum CGColorRenderingIntent {
+    kCGRenderingIntentDefault = 0,
+    kCGRenderingIntentAbsoluteColorimetric = 1,
+    kCGRenderingIntentRelativeColorimetric = 2,
+    kCGRenderingIntentPerceptual = 3,
+    kCGRenderingIntentSaturation = 4
+}
+export declare enum CGColorSpaceModel {
+    kCGColorSpaceModelUnknown = -1,
+    kCGColorSpaceModelMonochrome = 0,
+    kCGColorSpaceModelRGB = 1,
+    kCGColorSpaceModelCMYK = 2,
+    kCGColorSpaceModelLab = 3,
+    kCGColorSpaceModelDeviceN = 4,
+    kCGColorSpaceModelIndexed = 5,
+    kCGColorSpaceModelPattern = 6,
+    kCGColorSpaceModelXYZ = 7
+}
+export declare enum CGConfigureOption {
+    kCGConfigureForAppOnly = 0,
+    kCGConfigureForSession = 1,
+    kCGConfigurePermanently = 2
+}
+export declare enum CGDisplayChangeSummaryFlags {
+    kCGDisplayBeginConfigurationFlag = 1,
+    kCGDisplayMovedFlag = 2,
+    kCGDisplaySetMainFlag = 4,
+    kCGDisplaySetModeFlag = 8,
+    kCGDisplayAddFlag = 16,
+    kCGDisplayRemoveFlag = 32,
+    kCGDisplayEnabledFlag = 256,
+    kCGDisplayDisabledFlag = 512,
+    kCGDisplayMirrorFlag = 1024,
+    kCGDisplayUnMirrorFlag = 2048,
+    kCGDisplayDesktopShapeChangedFlag = 4096
+}
+export declare enum CGDisplayStreamFrameStatus {
+    kCGDisplayStreamFrameStatusFrameComplete = 0,
+    kCGDisplayStreamFrameStatusFrameIdle = 1,
+    kCGDisplayStreamFrameStatusFrameBlank = 2,
+    kCGDisplayStreamFrameStatusStopped = 3
+}
+export declare enum CGDisplayStreamUpdateRectType {
+    kCGDisplayStreamUpdateRefreshedRects = 0,
+    kCGDisplayStreamUpdateMovedRects = 1,
+    kCGDisplayStreamUpdateDirtyRects = 2,
+    kCGDisplayStreamUpdateReducedDirtyRects = 3
+}
+export declare enum CGError {
+    kCGErrorSuccess = 0,
+    kCGErrorFailure = 1000,
+    kCGErrorIllegalArgument = 1001,
+    kCGErrorInvalidConnection = 1002,
+    kCGErrorInvalidContext = 1003,
+    kCGErrorCannotComplete = 1004,
+    kCGErrorNotImplemented = 1006,
+    kCGErrorRangeCheck = 1007,
+    kCGErrorTypeCheck = 1008,
+    kCGErrorInvalidOperation = 1010,
+    kCGErrorNoneAvailable = 1011
+}
+export declare enum CGEventField {
+    kCGMouseEventNumber = 0,
+    kCGMouseEventClickState = 1,
+    kCGMouseEventPressure = 2,
+    kCGMouseEventButtonNumber = 3,
+    kCGMouseEventDeltaX = 4,
+    kCGMouseEventDeltaY = 5,
+    kCGMouseEventInstantMouser = 6,
+    kCGMouseEventSubtype = 7,
+    kCGKeyboardEventAutorepeat = 8,
+    kCGKeyboardEventKeycode = 9,
+    kCGKeyboardEventKeyboardType = 10,
+    kCGScrollWheelEventDeltaAxis1 = 11,
+    kCGScrollWheelEventDeltaAxis2 = 12,
+    kCGScrollWheelEventDeltaAxis3 = 13,
+    kCGScrollWheelEventFixedPtDeltaAxis1 = 93,
+    kCGScrollWheelEventFixedPtDeltaAxis2 = 94,
+    kCGScrollWheelEventFixedPtDeltaAxis3 = 95,
+    kCGScrollWheelEventPointDeltaAxis1 = 96,
+    kCGScrollWheelEventPointDeltaAxis2 = 97,
+    kCGScrollWheelEventPointDeltaAxis3 = 98,
+    kCGScrollWheelEventScrollPhase = 99,
+    kCGScrollWheelEventScrollCount = 100,
+    kCGScrollWheelEventMomentumPhase = 123,
+    kCGScrollWheelEventInstantMouser = 14,
+    kCGTabletEventPointX = 15,
+    kCGTabletEventPointY = 16,
+    kCGTabletEventPointZ = 17,
+    kCGTabletEventPointButtons = 18,
+    kCGTabletEventPointPressure = 19,
+    kCGTabletEventTiltX = 20,
+    kCGTabletEventTiltY = 21,
+    kCGTabletEventRotation = 22,
+    kCGTabletEventTangentialPressure = 23,
+    kCGTabletEventDeviceID = 24,
+    kCGTabletEventVendor1 = 25,
+    kCGTabletEventVendor2 = 26,
+    kCGTabletEventVendor3 = 27,
+    kCGTabletProximityEventVendorID = 28,
+    kCGTabletProximityEventTabletID = 29,
+    kCGTabletProximityEventPointerID = 30,
+    kCGTabletProximityEventDeviceID = 31,
+    kCGTabletProximityEventSystemTabletID = 32,
+    kCGTabletProximityEventVendorPointerType = 33,
+    kCGTabletProximityEventVendorPointerSerialNumber = 34,
+    kCGTabletProximityEventVendorUniqueID = 35,
+    kCGTabletProximityEventCapabilityMask = 36,
+    kCGTabletProximityEventPointerType = 37,
+    kCGTabletProximityEventEnterProximity = 38,
+    kCGEventTargetProcessSerialNumber = 39,
+    kCGEventTargetUnixProcessID = 40,
+    kCGEventSourceUnixProcessID = 41,
+    kCGEventSourceUserData = 42,
+    kCGEventSourceUserID = 43,
+    kCGEventSourceGroupID = 44,
+    kCGEventSourceStateID = 45,
+    kCGScrollWheelEventIsContinuous = 88,
+    kCGMouseEventWindowUnderMousePointer = 91,
+    kCGMouseEventWindowUnderMousePointerThatCanHandleThisEvent = 92,
+    kCGEventUnacceleratedPointerMovementX = 170,
+    kCGEventUnacceleratedPointerMovementY = 171
+}
+export declare enum CGEventFilterMask {
+    kCGEventFilterMaskPermitLocalMouseEvents = 1,
+    kCGEventFilterMaskPermitLocalKeyboardEvents = 2,
+    kCGEventFilterMaskPermitSystemDefinedEvents = 4
+}
+export declare enum CGEventFlags {
+    kCGEventFlagMaskAlphaShift = 65536,
+    kCGEventFlagMaskShift = 131072,
+    kCGEventFlagMaskControl = 262144,
+    kCGEventFlagMaskAlternate = 524288,
+    kCGEventFlagMaskCommand = 1048576,
+    kCGEventFlagMaskHelp = 4194304,
+    kCGEventFlagMaskSecondaryFn = 8388608,
+    kCGEventFlagMaskNumericPad = 2097152,
+    kCGEventFlagMaskNonCoalesced = 256
+}
+export declare enum CGEventMouseSubtype {
+    kCGEventMouseSubtypeDefault = 0,
+    kCGEventMouseSubtypeTabletPoint = 1,
+    kCGEventMouseSubtypeTabletProximity = 2
+}
+export declare enum CGEventSourceStateID {
+    kCGEventSourceStatePrivate = -1,
+    kCGEventSourceStateCombinedSessionState = 0,
+    kCGEventSourceStateHIDSystemState = 1
+}
+export declare enum CGEventSuppressionState {
+    kCGEventSuppressionStateSuppressionInterval = 0,
+    kCGEventSuppressionStateRemoteMouseDrag = 1,
+    kCGNumberOfEventSuppressionStates = 2
+}
+export declare enum CGEventTapLocation {
+    kCGHIDEventTap = 0,
+    kCGSessionEventTap = 1,
+    kCGAnnotatedSessionEventTap = 2
+}
+export declare enum CGEventTapOptions {
+    kCGEventTapOptionDefault = 0,
+    kCGEventTapOptionListenOnly = 1
+}
+export declare enum CGEventTapPlacement {
+    kCGHeadInsertEventTap = 0,
+    kCGTailAppendEventTap = 1
+}
+export declare enum CGEventType {
+    kCGEventNull = 0,
+    kCGEventLeftMouseDown = 1,
+    kCGEventLeftMouseUp = 2,
+    kCGEventRightMouseDown = 3,
+    kCGEventRightMouseUp = 4,
+    kCGEventMouseMoved = 5,
+    kCGEventLeftMouseDragged = 6,
+    kCGEventRightMouseDragged = 7,
+    kCGEventKeyDown = 10,
+    kCGEventKeyUp = 11,
+    kCGEventFlagsChanged = 12,
+    kCGEventScrollWheel = 22,
+    kCGEventTabletPointer = 23,
+    kCGEventTabletProximity = 24,
+    kCGEventOtherMouseDown = 25,
+    kCGEventOtherMouseUp = 26,
+    kCGEventOtherMouseDragged = 27,
+    kCGEventTapDisabledByTimeout = 4294967294,
+    kCGEventTapDisabledByUserInput = 4294967295
+}
+export declare enum CGFontPostScriptFormat {
+    kCGFontPostScriptFormatType1 = 1,
+    kCGFontPostScriptFormatType3 = 3,
+    kCGFontPostScriptFormatType42 = 42
+}
+export declare enum CGGesturePhase {
+    kCGGesturePhaseNone = 0,
+    kCGGesturePhaseBegan = 1,
+    kCGGesturePhaseChanged = 2,
+    kCGGesturePhaseEnded = 4,
+    kCGGesturePhaseCancelled = 8,
+    kCGGesturePhaseMayBegin = 128
+}
+export declare enum CGGlyphDeprecatedEnum {
+    Min = 0,
+    Max = 1
+}
+export declare enum CGGradientDrawingOptions {
+    kCGGradientDrawsBeforeStartLocation = 1,
+    kCGGradientDrawsAfterEndLocation = 2
+}
+export declare enum CGImageAlphaInfo {
+    kCGImageAlphaNone = 0,
+    kCGImageAlphaPremultipliedLast = 1,
+    kCGImageAlphaPremultipliedFirst = 2,
+    kCGImageAlphaLast = 3,
+    kCGImageAlphaFirst = 4,
+    kCGImageAlphaNoneSkipLast = 5,
+    kCGImageAlphaNoneSkipFirst = 6,
+    kCGImageAlphaOnly = 7
+}
+export declare enum CGImageByteOrderInfo {
+    kCGImageByteOrderMask = 28672,
+    kCGImageByteOrderDefault = 0,
+    kCGImageByteOrder16Little = 4096,
+    kCGImageByteOrder32Little = 8192,
+    kCGImageByteOrder16Big = 12288,
+    kCGImageByteOrder32Big = 16384
+}
+export declare enum CGImagePixelFormatInfo {
+    kCGImagePixelFormatMask = 983040,
+    kCGImagePixelFormatPacked = 0,
+    kCGImagePixelFormatRGB555 = 65536,
+    kCGImagePixelFormatRGB565 = 131072,
+    kCGImagePixelFormatRGB101010 = 196608,
+    kCGImagePixelFormatRGBCIF10 = 262144
+}
+export declare enum CGInterpolationQuality {
+    kCGInterpolationDefault = 0,
+    kCGInterpolationNone = 1,
+    kCGInterpolationLow = 2,
+    kCGInterpolationMedium = 4,
+    kCGInterpolationHigh = 3
+}
+export declare enum CGLineCap {
+    kCGLineCapButt = 0,
+    kCGLineCapRound = 1,
+    kCGLineCapSquare = 2
+}
+export declare enum CGLineJoin {
+    kCGLineJoinMiter = 0,
+    kCGLineJoinRound = 1,
+    kCGLineJoinBevel = 2
+}
+export declare enum CGMomentumScrollPhase {
+    kCGMomentumScrollPhaseNone = 0,
+    kCGMomentumScrollPhaseBegin = 1,
+    kCGMomentumScrollPhaseContinue = 2,
+    kCGMomentumScrollPhaseEnd = 3
+}
+export declare enum CGMouseButton {
+    kCGMouseButtonLeft = 0,
+    kCGMouseButtonRight = 1,
+    kCGMouseButtonCenter = 2
+}
+export declare enum CGPDFAccessPermissions {
+    kCGPDFAllowsLowQualityPrinting = 1,
+    kCGPDFAllowsHighQualityPrinting = 2,
+    kCGPDFAllowsDocumentChanges = 4,
+    kCGPDFAllowsDocumentAssembly = 8,
+    kCGPDFAllowsContentCopying = 16,
+    kCGPDFAllowsContentAccessibility = 32,
+    kCGPDFAllowsCommenting = 64,
+    kCGPDFAllowsFormFieldEntry = 128
+}
+export declare enum CGPDFBox {
+    kCGPDFMediaBox = 0,
+    kCGPDFCropBox = 1,
+    kCGPDFBleedBox = 2,
+    kCGPDFTrimBox = 3,
+    kCGPDFArtBox = 4
+}
+export declare enum CGPDFDataFormat {
+    Raw = 0,
+    JPEGEncoded = 1,
+    JPEG2000 = 2
+}
+export declare enum CGPDFObjectType {
+    kCGPDFObjectTypeNull = 1,
+    kCGPDFObjectTypeBoolean = 2,
+    kCGPDFObjectTypeInteger = 3,
+    kCGPDFObjectTypeReal = 4,
+    kCGPDFObjectTypeName = 5,
+    kCGPDFObjectTypeString = 6,
+    kCGPDFObjectTypeArray = 7,
+    kCGPDFObjectTypeDictionary = 8,
+    kCGPDFObjectTypeStream = 9
+}
+export declare enum CGPDFTagType {
+    Document = 100,
+    Part = 101,
+    Art = 102,
+    Section = 103,
+    Div = 104,
+    BlockQuote = 105,
+    Caption = 106,
+    TOC = 107,
+    TOCI = 108,
+    Index = 109,
+    NonStructure = 110,
+    Private = 111,
+    Paragraph = 200,
+    Header = 201,
+    Header1 = 202,
+    Header2 = 203,
+    Header3 = 204,
+    Header4 = 205,
+    Header5 = 206,
+    Header6 = 207,
+    List = 300,
+    ListItem = 301,
+    Label = 302,
+    ListBody = 303,
+    Table = 400,
+    TableRow = 401,
+    TableHeaderCell = 402,
+    TableDataCell = 403,
+    TableHeader = 404,
+    TableBody = 405,
+    TableFooter = 406,
+    Span = 500,
+    Quote = 501,
+    Note = 502,
+    Reference = 503,
+    Bibliography = 504,
+    Code = 505,
+    Link = 506,
+    Annotation = 507,
+    Ruby = 600,
+    RubyBaseText = 601,
+    RubyAnnotationText = 602,
+    RubyPunctuation = 603,
+    Warichu = 604,
+    WarichuText = 605,
+    WarichuPunctiation = 606,
+    Figure = 700,
+    Formula = 701,
+    Form = 702
+}
+export declare enum CGPathDrawingMode {
+    kCGPathFill = 0,
+    kCGPathEOFill = 1,
+    kCGPathStroke = 2,
+    kCGPathFillStroke = 3,
+    kCGPathEOFillStroke = 4
+}
+export declare enum CGPathElementType {
+    kCGPathElementMoveToPoint = 0,
+    kCGPathElementAddLineToPoint = 1,
+    kCGPathElementAddQuadCurveToPoint = 2,
+    kCGPathElementAddCurveToPoint = 3,
+    kCGPathElementCloseSubpath = 4
+}
+export declare enum CGPatternTiling {
+    kCGPatternTilingNoDistortion = 0,
+    kCGPatternTilingConstantSpacingMinimalDistortion = 1,
+    kCGPatternTilingConstantSpacing = 2
+}
+export declare enum CGRectEdge {
+    MinXEdge = 0,
+    MinYEdge = 1,
+    MaxXEdge = 2,
+    MaxYEdge = 3
+}
+export declare enum CGScreenUpdateOperation {
+    kCGScreenUpdateOperationRefresh = 0,
+    kCGScreenUpdateOperationMove = 1,
+    kCGScreenUpdateOperationReducedDirtyRectangleCount = 2147483648
+}
+export declare enum CGScrollEventUnit {
+    kCGScrollEventUnitPixel = 0,
+    kCGScrollEventUnitLine = 1
+}
+export declare enum CGScrollPhase {
+    kCGScrollPhaseBegan = 1,
+    kCGScrollPhaseChanged = 2,
+    kCGScrollPhaseEnded = 4,
+    kCGScrollPhaseCancelled = 8,
+    kCGScrollPhaseMayBegin = 128
+}
+export declare enum CGTextDrawingMode {
+    kCGTextFill = 0,
+    kCGTextStroke = 1,
+    kCGTextFillStroke = 2,
+    kCGTextInvisible = 3,
+    kCGTextFillClip = 4,
+    kCGTextStrokeClip = 5,
+    kCGTextFillStrokeClip = 6,
+    kCGTextClip = 7
+}
+export declare enum CGWindowBackingType {
+    kCGBackingStoreRetained = 0,
+    kCGBackingStoreNonretained = 1,
+    kCGBackingStoreBuffered = 2
+}
+export declare enum CGWindowImageOption {
+    kCGWindowImageDefault = 0,
+    kCGWindowImageBoundsIgnoreFraming = 1,
+    kCGWindowImageShouldBeOpaque = 2,
+    kCGWindowImageOnlyShadows = 4,
+    kCGWindowImageBestResolution = 8,
+    kCGWindowImageNominalResolution = 16
+}
+export declare enum CGWindowLevelKey {
+    kCGBaseWindowLevelKey = 0,
+    kCGMinimumWindowLevelKey = 1,
+    kCGDesktopWindowLevelKey = 2,
+    kCGBackstopMenuLevelKey = 3,
+    kCGNormalWindowLevelKey = 4,
+    kCGFloatingWindowLevelKey = 5,
+    kCGTornOffMenuWindowLevelKey = 6,
+    kCGDockWindowLevelKey = 7,
+    kCGMainMenuWindowLevelKey = 8,
+    kCGStatusWindowLevelKey = 9,
+    kCGModalPanelWindowLevelKey = 10,
+    kCGPopUpMenuWindowLevelKey = 11,
+    kCGDraggingWindowLevelKey = 12,
+    kCGScreenSaverWindowLevelKey = 13,
+    kCGMaximumWindowLevelKey = 14,
+    kCGOverlayWindowLevelKey = 15,
+    kCGHelpWindowLevelKey = 16,
+    kCGUtilityWindowLevelKey = 17,
+    kCGDesktopIconWindowLevelKey = 18,
+    kCGCursorWindowLevelKey = 19,
+    kCGAssistiveTechHighWindowLevelKey = 20,
+    kCGNumberOfWindowLevelKeys = 21
+}
+export declare enum CGWindowListOption {
+    kCGWindowListOptionAll = 0,
+    kCGWindowListOptionOnScreenOnly = 1,
+    kCGWindowListOptionOnScreenAboveWindow = 2,
+    kCGWindowListOptionOnScreenBelowWindow = 4,
+    kCGWindowListOptionIncludingWindow = 8,
+    kCGWindowListExcludeDesktopElements = 16
+}
+export declare enum CGWindowSharingType {
+    kCGWindowSharingNone = 0,
+    kCGWindowSharingReadOnly = 1,
+    kCGWindowSharingReadWrite = 2
+}
+export declare enum CIDataMatrixCodeECCVersion {
+    Version000 = 0,
+    Version050 = 50,
+    Version080 = 80,
+    Version100 = 100,
+    Version140 = 140,
+    Version200 = 200
+}
+export declare enum CIQRCodeErrorCorrectionLevel {
+    L = 76,
+    M = 77,
+    Q = 81,
+    H = 72
+}
+export declare enum CIRenderDestinationAlphaMode {
+    None = 0,
+    Premultiplied = 1,
+    Unpremultiplied = 2
+}
+export declare enum CMTimeFlags {
+    kCMTimeFlags_Valid = 1,
+    kCMTimeFlags_HasBeenRounded = 2,
+    kCMTimeFlags_PositiveInfinity = 4,
+    kCMTimeFlags_NegativeInfinity = 8,
+    kCMTimeFlags_Indefinite = 16,
+    kCMTimeFlags_ImpliedValueFlagsMask = 28
+}
+export declare enum CMTimeRoundingMethod {
+    kCMTimeRoundingMethod_RoundHalfAwayFromZero = 1,
+    kCMTimeRoundingMethod_RoundTowardZero = 2,
+    kCMTimeRoundingMethod_RoundAwayFromZero = 3,
+    kCMTimeRoundingMethod_QuickTime = 4,
+    kCMTimeRoundingMethod_RoundTowardPositiveInfinity = 5,
+    kCMTimeRoundingMethod_RoundTowardNegativeInfinity = 6,
+    kCMTimeRoundingMethod_Default = 1
+}
 export declare enum AlignmentOptions {
     MinXInward = 1,
     MinYInward = 2,
@@ -22320,552 +35630,81 @@ export declare enum NSURLSessionWebSocketMessageType {
     Data = 0,
     String = 1
 }
-export declare let NSAllRomanInputSourcesLocaleIdentifier: string;
-export declare let NSAnimationTriggerOrderIn: string;
-export declare let NSAnimationTriggerOrderOut: string;
-export declare let NSApp: NSApplication;
-export declare let NSBlack: number;
-export declare let NSDarkGray: number;
-export declare let NSDirectionalEdgeInsetsZero: NSDirectionalEdgeInsets;
-export declare let NSLightGray: number;
-export declare let NSMultipleValuesMarker: any;
-export declare let NSNoSelectionMarker: any;
-export declare let NSNotApplicableMarker: any;
-export declare let NSTypeIdentifierAddressText: string;
-export declare let NSTypeIdentifierDateText: string;
-export declare let NSTypeIdentifierPhoneNumberText: string;
-export declare let NSTypeIdentifierTransitInformationText: string;
-export declare let NSUnderlineByWord: NSUnderlineStyle;
-export declare let NSUnderlinePatternDash: NSUnderlineStyle;
-export declare let NSUnderlinePatternDashDot: NSUnderlineStyle;
-export declare let NSUnderlinePatternDashDotDot: NSUnderlineStyle;
-export declare let NSUnderlinePatternDot: NSUnderlineStyle;
-export declare let NSUnderlinePatternSolid: NSUnderlineStyle;
-export declare let NSUserActivityDocumentURLKey: string;
-export declare let NSWhite: number;
-export declare let kCFAbsoluteTimeIntervalSince1904: number;
-export declare let kCFAbsoluteTimeIntervalSince1970: number;
-export declare let kCFAllocatorDefault: any;
-export declare let kCFAllocatorMalloc: any;
-export declare let kCFAllocatorMallocZone: any;
-export declare let kCFAllocatorNull: any;
-export declare let kCFAllocatorSystemDefault: any;
-export declare let kCFAllocatorUseContext: any;
-export declare let kCFBooleanFalse: number;
-export declare let kCFBooleanTrue: number;
-export declare let kCFBundleDevelopmentRegionKey: string;
-export declare let kCFBundleExecutableKey: string;
-export declare let kCFBundleIdentifierKey: string;
-export declare let kCFBundleInfoDictionaryVersionKey: string;
-export declare let kCFBundleLocalizationsKey: string;
-export declare let kCFBundleNameKey: string;
-export declare let kCFBundleVersionKey: string;
-export declare let kCFCopyStringBagCallBacks: CFBagCallBacks;
-export declare let kCFCopyStringDictionaryKeyCallBacks: CFDictionaryKeyCallBacks;
-export declare let kCFCopyStringSetCallBacks: CFSetCallBacks;
-export declare let kCFCoreFoundationVersionNumber: number;
-export declare let kCFErrorDescriptionKey: string;
-export declare let kCFErrorDomainCocoa: any;
-export declare let kCFErrorDomainMach: any;
-export declare let kCFErrorDomainOSStatus: any;
-export declare let kCFErrorDomainPOSIX: any;
-export declare let kCFErrorFilePathKey: string;
-export declare let kCFErrorLocalizedDescriptionKey: string;
-export declare let kCFErrorLocalizedFailureKey: string;
-export declare let kCFErrorLocalizedFailureReasonKey: string;
-export declare let kCFErrorLocalizedRecoverySuggestionKey: string;
-export declare let kCFErrorURLKey: string;
-export declare let kCFErrorUnderlyingErrorKey: string;
-export declare let kCFNotFound: number;
-export declare let kCFNull: NSNull;
-export declare let kCFNumberNaN: number;
-export declare let kCFNumberNegativeInfinity: number;
-export declare let kCFNumberPositiveInfinity: number;
-export declare let kCFPlugInDynamicRegisterFunctionKey: string;
-export declare let kCFPlugInDynamicRegistrationKey: string;
-export declare let kCFPlugInFactoriesKey: string;
-export declare let kCFPlugInTypesKey: string;
-export declare let kCFPlugInUnloadFunctionKey: string;
-export declare let kCFPreferencesAnyApplication: string;
-export declare let kCFPreferencesAnyHost: string;
-export declare let kCFPreferencesAnyUser: string;
-export declare let kCFPreferencesCurrentApplication: string;
-export declare let kCFPreferencesCurrentHost: string;
-export declare let kCFPreferencesCurrentUser: string;
-export declare let kCFSocketCommandKey: string;
-export declare let kCFSocketErrorKey: string;
-export declare let kCFSocketNameKey: string;
-export declare let kCFSocketRegisterCommand: string;
-export declare let kCFSocketResultKey: string;
-export declare let kCFSocketRetrieveCommand: string;
-export declare let kCFSocketValueKey: string;
-export declare let kCFStreamErrorDomainSOCKS: number;
-export declare let kCFStreamErrorDomainSSL: number;
-export declare let kCFStreamPropertySOCKSPassword: string;
-export declare let kCFStreamPropertySOCKSProxy: string;
-export declare let kCFStreamPropertySOCKSProxyHost: string;
-export declare let kCFStreamPropertySOCKSProxyPort: string;
-export declare let kCFStreamPropertySOCKSUser: string;
-export declare let kCFStreamPropertySOCKSVersion: string;
-export declare let kCFStreamPropertyShouldCloseNativeSocket: string;
-export declare let kCFStreamPropertySocketSecurityLevel: string;
-export declare let kCFStreamSocketSOCKSVersion4: string;
-export declare let kCFStreamSocketSOCKSVersion5: string;
-export declare let kCFStreamSocketSecurityLevelNegotiatedSSL: string;
-export declare let kCFStreamSocketSecurityLevelNone: string;
-export declare let kCFStreamSocketSecurityLevelTLSv1: string;
-export declare let kCFStringBinaryHeapCallBacks: CFBinaryHeapCallBacks;
-export declare let kCFStringTransformFullwidthHalfwidth: string;
-export declare let kCFStringTransformHiraganaKatakana: string;
-export declare let kCFStringTransformLatinArabic: string;
-export declare let kCFStringTransformLatinCyrillic: string;
-export declare let kCFStringTransformLatinGreek: string;
-export declare let kCFStringTransformLatinHangul: string;
-export declare let kCFStringTransformLatinHebrew: string;
-export declare let kCFStringTransformLatinHiragana: string;
-export declare let kCFStringTransformLatinKatakana: string;
-export declare let kCFStringTransformLatinThai: string;
-export declare let kCFStringTransformMandarinLatin: string;
-export declare let kCFStringTransformStripCombiningMarks: string;
-export declare let kCFStringTransformStripDiacritics: string;
-export declare let kCFStringTransformToLatin: string;
-export declare let kCFStringTransformToUnicodeName: string;
-export declare let kCFStringTransformToXMLHex: string;
-export declare let kCFTypeArrayCallBacks: CFArrayCallBacks;
-export declare let kCFTypeBagCallBacks: CFBagCallBacks;
-export declare let kCFTypeDictionaryKeyCallBacks: CFDictionaryKeyCallBacks;
-export declare let kCFTypeDictionaryValueCallBacks: CFDictionaryValueCallBacks;
-export declare let kCFTypeSetCallBacks: CFSetCallBacks;
-export declare let kCFURLAddedToDirectoryDateKey: string;
-export declare let kCFURLApplicationIsScriptableKey: string;
-export declare let kCFURLAttributeModificationDateKey: string;
-export declare let kCFURLCanonicalPathKey: string;
-export declare let kCFURLContentAccessDateKey: string;
-export declare let kCFURLContentModificationDateKey: string;
-export declare let kCFURLCreationDateKey: string;
-export declare let kCFURLDocumentIdentifierKey: string;
-export declare let kCFURLFileAllocatedSizeKey: string;
-export declare let kCFURLFileResourceIdentifierKey: string;
-export declare let kCFURLFileResourceTypeBlockSpecial: string;
-export declare let kCFURLFileResourceTypeCharacterSpecial: string;
-export declare let kCFURLFileResourceTypeDirectory: string;
-export declare let kCFURLFileResourceTypeKey: string;
-export declare let kCFURLFileResourceTypeNamedPipe: string;
-export declare let kCFURLFileResourceTypeRegular: string;
-export declare let kCFURLFileResourceTypeSocket: string;
-export declare let kCFURLFileResourceTypeSymbolicLink: string;
-export declare let kCFURLFileResourceTypeUnknown: string;
-export declare let kCFURLFileSecurityKey: string;
-export declare let kCFURLFileSizeKey: string;
-export declare let kCFURLGenerationIdentifierKey: string;
-export declare let kCFURLHasHiddenExtensionKey: string;
-export declare let kCFURLIsAliasFileKey: string;
-export declare let kCFURLIsApplicationKey: string;
-export declare let kCFURLIsDirectoryKey: string;
-export declare let kCFURLIsExcludedFromBackupKey: string;
-export declare let kCFURLIsExecutableKey: string;
-export declare let kCFURLIsHiddenKey: string;
-export declare let kCFURLIsMountTriggerKey: string;
-export declare let kCFURLIsPackageKey: string;
-export declare let kCFURLIsReadableKey: string;
-export declare let kCFURLIsRegularFileKey: string;
-export declare let kCFURLIsSymbolicLinkKey: string;
-export declare let kCFURLIsSystemImmutableKey: string;
-export declare let kCFURLIsUbiquitousItemKey: string;
-export declare let kCFURLIsUserImmutableKey: string;
-export declare let kCFURLIsVolumeKey: string;
-export declare let kCFURLIsWritableKey: string;
-export declare let kCFURLKeysOfUnsetValuesKey: string;
-export declare let kCFURLLabelNumberKey: string;
-export declare let kCFURLLinkCountKey: string;
-export declare let kCFURLLocalizedLabelKey: string;
-export declare let kCFURLLocalizedNameKey: string;
-export declare let kCFURLLocalizedTypeDescriptionKey: string;
-export declare let kCFURLNameKey: string;
-export declare let kCFURLParentDirectoryURLKey: string;
-export declare let kCFURLPathKey: string;
-export declare let kCFURLPreferredIOBlockSizeKey: string;
-export declare let kCFURLQuarantinePropertiesKey: string;
-export declare let kCFURLTagNamesKey: string;
-export declare let kCFURLTotalFileAllocatedSizeKey: string;
-export declare let kCFURLTotalFileSizeKey: string;
-export declare let kCFURLTypeIdentifierKey: string;
-export declare let kCFURLUbiquitousItemDownloadingErrorKey: string;
-export declare let kCFURLUbiquitousItemDownloadingStatusCurrent: string;
-export declare let kCFURLUbiquitousItemDownloadingStatusDownloaded: string;
-export declare let kCFURLUbiquitousItemDownloadingStatusKey: string;
-export declare let kCFURLUbiquitousItemDownloadingStatusNotDownloaded: string;
-export declare let kCFURLUbiquitousItemHasUnresolvedConflictsKey: string;
-export declare let kCFURLUbiquitousItemIsDownloadingKey: string;
-export declare let kCFURLUbiquitousItemIsUploadedKey: string;
-export declare let kCFURLUbiquitousItemIsUploadingKey: string;
-export declare let kCFURLUbiquitousItemUploadingErrorKey: string;
-export declare let kCFURLVolumeAvailableCapacityForImportantUsageKey: string;
-export declare let kCFURLVolumeAvailableCapacityForOpportunisticUsageKey: string;
-export declare let kCFURLVolumeAvailableCapacityKey: string;
-export declare let kCFURLVolumeCreationDateKey: string;
-export declare let kCFURLVolumeIdentifierKey: string;
-export declare let kCFURLVolumeIsAutomountedKey: string;
-export declare let kCFURLVolumeIsBrowsableKey: string;
-export declare let kCFURLVolumeIsEjectableKey: string;
-export declare let kCFURLVolumeIsEncryptedKey: string;
-export declare let kCFURLVolumeIsInternalKey: string;
-export declare let kCFURLVolumeIsJournalingKey: string;
-export declare let kCFURLVolumeIsLocalKey: string;
-export declare let kCFURLVolumeIsReadOnlyKey: string;
-export declare let kCFURLVolumeIsRemovableKey: string;
-export declare let kCFURLVolumeIsRootFileSystemKey: string;
-export declare let kCFURLVolumeLocalizedFormatDescriptionKey: string;
-export declare let kCFURLVolumeLocalizedNameKey: string;
-export declare let kCFURLVolumeMaximumFileSizeKey: string;
-export declare let kCFURLVolumeNameKey: string;
-export declare let kCFURLVolumeResourceCountKey: string;
-export declare let kCFURLVolumeSupportsAccessPermissionsKey: string;
-export declare let kCFURLVolumeSupportsAdvisoryFileLockingKey: string;
-export declare let kCFURLVolumeSupportsCasePreservedNamesKey: string;
-export declare let kCFURLVolumeSupportsCaseSensitiveNamesKey: string;
-export declare let kCFURLVolumeSupportsCompressionKey: string;
-export declare let kCFURLVolumeSupportsExclusiveRenamingKey: string;
-export declare let kCFURLVolumeSupportsExtendedSecurityKey: string;
-export declare let kCFURLVolumeSupportsFileCloningKey: string;
-export declare let kCFURLVolumeSupportsHardLinksKey: string;
-export declare let kCFURLVolumeSupportsImmutableFilesKey: string;
-export declare let kCFURLVolumeSupportsJournalingKey: string;
-export declare let kCFURLVolumeSupportsPersistentIDsKey: string;
-export declare let kCFURLVolumeSupportsRenamingKey: string;
-export declare let kCFURLVolumeSupportsRootDirectoryDatesKey: string;
-export declare let kCFURLVolumeSupportsSparseFilesKey: string;
-export declare let kCFURLVolumeSupportsSwapRenamingKey: string;
-export declare let kCFURLVolumeSupportsSymbolicLinksKey: string;
-export declare let kCFURLVolumeSupportsVolumeSizesKey: string;
-export declare let kCFURLVolumeSupportsZeroRunsKey: string;
-export declare let kCFURLVolumeTotalCapacityKey: string;
-export declare let kCFURLVolumeURLForRemountingKey: string;
-export declare let kCFURLVolumeURLKey: string;
-export declare let kCFURLVolumeUUIDStringKey: string;
-export declare let kCFUserNotificationAlertHeaderKey: string;
-export declare let kCFUserNotificationAlertMessageKey: string;
-export declare let kCFUserNotificationAlertTopMostKey: string;
-export declare let kCFUserNotificationAlternateButtonTitleKey: string;
-export declare let kCFUserNotificationCheckBoxTitlesKey: string;
-export declare let kCFUserNotificationDefaultButtonTitleKey: string;
-export declare let kCFUserNotificationIconURLKey: string;
-export declare let kCFUserNotificationKeyboardTypesKey: string;
-export declare let kCFUserNotificationLocalizationURLKey: string;
-export declare let kCFUserNotificationOtherButtonTitleKey: string;
-export declare let kCFUserNotificationPopUpSelectionKey: string;
-export declare let kCFUserNotificationPopUpTitlesKey: string;
-export declare let kCFUserNotificationProgressIndicatorValueKey: string;
-export declare let kCFUserNotificationSoundURLKey: string;
-export declare let kCFUserNotificationTextFieldTitlesKey: string;
-export declare let kCFUserNotificationTextFieldValuesKey: string;
-export declare let kCFXMLTreeErrorDescription: string;
-export declare let kCFXMLTreeErrorLineNumber: string;
-export declare let kCFXMLTreeErrorLocation: string;
-export declare let kCFXMLTreeErrorStatusCode: string;
-export declare let NSAppleEventTimeOutDefault: number;
-export declare let NSAppleEventTimeOutNone: number;
-export declare let NSAssertionHandlerKey: string;
-export declare let NSCocoaErrorDomain: string;
-export declare let NSDeallocateZombies: boolean;
-export declare let NSDebugDescriptionErrorKey: string;
-export declare let NSDebugEnabled: boolean;
-export declare let NSEdgeInsetsZero: NSEdgeInsets;
-export declare let NSExtensionItemAttachmentsKey: string;
-export declare let NSExtensionItemAttributedContentTextKey: string;
-export declare let NSExtensionItemAttributedTitleKey: string;
-export declare let NSExtensionItemsAndErrorsKey: string;
-export declare let NSExtensionJavaScriptPreprocessingResultsKey: string;
-export declare let NSFileHandleNotificationDataItem: string;
-export declare let NSFileHandleNotificationFileHandleItem: string;
-export declare let NSFileManagerUnmountDissentingProcessIdentifierErrorKey: string;
-export declare let NSFilePathErrorKey: string;
-export declare let NSFoundationVersionNumber: number;
-export declare let NSGrammarCorrections: string;
-export declare let NSGrammarRange: string;
-export declare let NSGrammarUserDescription: string;
-export declare let NSHashTableCopyIn: NSPointerFunctions.Options;
-export declare let NSHashTableObjectPointerPersonality: NSPointerFunctions.Options;
-export declare let NSHashTableStrongMemory: NSPointerFunctions.Options;
-export declare let NSHashTableWeakMemory: NSPointerFunctions.Options;
-export declare let NSHelpAnchorErrorKey: string;
-export declare let NSIntegerHashCallBacks: NSHashTableCallBacks;
-export declare let NSIntegerMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSIntegerMapValueCallBacks: NSMapTableValueCallBacks;
-export declare let NSItemProviderPreferredImageSizeKey: string;
-export declare let NSKeepAllocationStatistics: boolean;
-export declare let NSKeyedArchiveRootObjectKey: string;
-export declare let NSLoadedClasses: string;
-export declare let NSLocalizedDescriptionKey: string;
-export declare let NSLocalizedFailureErrorKey: string;
-export declare let NSLocalizedFailureReasonErrorKey: string;
-export declare let NSLocalizedRecoveryOptionsErrorKey: string;
-export declare let NSLocalizedRecoverySuggestionErrorKey: string;
-export declare let NSMachErrorDomain: string;
-export declare let NSMapTableCopyIn: NSPointerFunctions.Options;
-export declare let NSMapTableObjectPointerPersonality: NSPointerFunctions.Options;
-export declare let NSMapTableStrongMemory: NSPointerFunctions.Options;
-export declare let NSMapTableWeakMemory: NSPointerFunctions.Options;
-export declare let NSMetadataItemAcquisitionMakeKey: string;
-export declare let NSMetadataItemAcquisitionModelKey: string;
-export declare let NSMetadataItemAlbumKey: string;
-export declare let NSMetadataItemAltitudeKey: string;
-export declare let NSMetadataItemApertureKey: string;
-export declare let NSMetadataItemAppleLoopDescriptorsKey: string;
-export declare let NSMetadataItemAppleLoopsKeyFilterTypeKey: string;
-export declare let NSMetadataItemAppleLoopsLoopModeKey: string;
-export declare let NSMetadataItemAppleLoopsRootKeyKey: string;
-export declare let NSMetadataItemApplicationCategoriesKey: string;
-export declare let NSMetadataItemAttributeChangeDateKey: string;
-export declare let NSMetadataItemAudiencesKey: string;
-export declare let NSMetadataItemAudioBitRateKey: string;
-export declare let NSMetadataItemAudioChannelCountKey: string;
-export declare let NSMetadataItemAudioEncodingApplicationKey: string;
-export declare let NSMetadataItemAudioSampleRateKey: string;
-export declare let NSMetadataItemAudioTrackNumberKey: string;
-export declare let NSMetadataItemAuthorAddressesKey: string;
-export declare let NSMetadataItemAuthorEmailAddressesKey: string;
-export declare let NSMetadataItemAuthorsKey: string;
-export declare let NSMetadataItemBitsPerSampleKey: string;
-export declare let NSMetadataItemCFBundleIdentifierKey: string;
-export declare let NSMetadataItemCameraOwnerKey: string;
-export declare let NSMetadataItemCityKey: string;
-export declare let NSMetadataItemCodecsKey: string;
-export declare let NSMetadataItemColorSpaceKey: string;
-export declare let NSMetadataItemCommentKey: string;
-export declare let NSMetadataItemComposerKey: string;
-export declare let NSMetadataItemContactKeywordsKey: string;
-export declare let NSMetadataItemContentCreationDateKey: string;
-export declare let NSMetadataItemContentModificationDateKey: string;
-export declare let NSMetadataItemContentTypeKey: string;
-export declare let NSMetadataItemContentTypeTreeKey: string;
-export declare let NSMetadataItemContributorsKey: string;
-export declare let NSMetadataItemCopyrightKey: string;
-export declare let NSMetadataItemCountryKey: string;
-export declare let NSMetadataItemCoverageKey: string;
-export declare let NSMetadataItemCreatorKey: string;
-export declare let NSMetadataItemDateAddedKey: string;
-export declare let NSMetadataItemDeliveryTypeKey: string;
-export declare let NSMetadataItemDescriptionKey: string;
-export declare let NSMetadataItemDirectorKey: string;
-export declare let NSMetadataItemDisplayNameKey: string;
-export declare let NSMetadataItemDownloadedDateKey: string;
-export declare let NSMetadataItemDueDateKey: string;
-export declare let NSMetadataItemDurationSecondsKey: string;
-export declare let NSMetadataItemEXIFGPSVersionKey: string;
-export declare let NSMetadataItemEXIFVersionKey: string;
-export declare let NSMetadataItemEditorsKey: string;
-export declare let NSMetadataItemEmailAddressesKey: string;
-export declare let NSMetadataItemEncodingApplicationsKey: string;
-export declare let NSMetadataItemExecutableArchitecturesKey: string;
-export declare let NSMetadataItemExecutablePlatformKey: string;
-export declare let NSMetadataItemExposureModeKey: string;
-export declare let NSMetadataItemExposureProgramKey: string;
-export declare let NSMetadataItemExposureTimeSecondsKey: string;
-export declare let NSMetadataItemExposureTimeStringKey: string;
-export declare let NSMetadataItemFNumberKey: string;
-export declare let NSMetadataItemFSContentChangeDateKey: string;
-export declare let NSMetadataItemFSCreationDateKey: string;
-export declare let NSMetadataItemFSNameKey: string;
-export declare let NSMetadataItemFSSizeKey: string;
-export declare let NSMetadataItemFinderCommentKey: string;
-export declare let NSMetadataItemFlashOnOffKey: string;
-export declare let NSMetadataItemFocalLength35mmKey: string;
-export declare let NSMetadataItemFocalLengthKey: string;
-export declare let NSMetadataItemFontsKey: string;
-export declare let NSMetadataItemGPSAreaInformationKey: string;
-export declare let NSMetadataItemGPSDOPKey: string;
-export declare let NSMetadataItemGPSDateStampKey: string;
-export declare let NSMetadataItemGPSDestBearingKey: string;
-export declare let NSMetadataItemGPSDestDistanceKey: string;
-export declare let NSMetadataItemGPSDestLatitudeKey: string;
-export declare let NSMetadataItemGPSDestLongitudeKey: string;
-export declare let NSMetadataItemGPSDifferentalKey: string;
-export declare let NSMetadataItemGPSMapDatumKey: string;
-export declare let NSMetadataItemGPSMeasureModeKey: string;
-export declare let NSMetadataItemGPSProcessingMethodKey: string;
-export declare let NSMetadataItemGPSStatusKey: string;
-export declare let NSMetadataItemGPSTrackKey: string;
-export declare let NSMetadataItemGenreKey: string;
-export declare let NSMetadataItemHasAlphaChannelKey: string;
-export declare let NSMetadataItemHeadlineKey: string;
-export declare let NSMetadataItemISOSpeedKey: string;
-export declare let NSMetadataItemIdentifierKey: string;
-export declare let NSMetadataItemImageDirectionKey: string;
-export declare let NSMetadataItemInformationKey: string;
-export declare let NSMetadataItemInstantMessageAddressesKey: string;
-export declare let NSMetadataItemInstructionsKey: string;
-export declare let NSMetadataItemIsApplicationManagedKey: string;
-export declare let NSMetadataItemIsGeneralMIDISequenceKey: string;
-export declare let NSMetadataItemIsLikelyJunkKey: string;
-export declare let NSMetadataItemIsUbiquitousKey: string;
-export declare let NSMetadataItemKeySignatureKey: string;
-export declare let NSMetadataItemKeywordsKey: string;
-export declare let NSMetadataItemKindKey: string;
-export declare let NSMetadataItemLanguagesKey: string;
-export declare let NSMetadataItemLastUsedDateKey: string;
-export declare let NSMetadataItemLatitudeKey: string;
-export declare let NSMetadataItemLayerNamesKey: string;
-export declare let NSMetadataItemLensModelKey: string;
-export declare let NSMetadataItemLongitudeKey: string;
-export declare let NSMetadataItemLyricistKey: string;
-export declare let NSMetadataItemMaxApertureKey: string;
-export declare let NSMetadataItemMediaTypesKey: string;
-export declare let NSMetadataItemMeteringModeKey: string;
-export declare let NSMetadataItemMusicalGenreKey: string;
-export declare let NSMetadataItemMusicalInstrumentCategoryKey: string;
-export declare let NSMetadataItemMusicalInstrumentNameKey: string;
-export declare let NSMetadataItemNamedLocationKey: string;
-export declare let NSMetadataItemNumberOfPagesKey: string;
-export declare let NSMetadataItemOrganizationsKey: string;
-export declare let NSMetadataItemOrientationKey: string;
-export declare let NSMetadataItemOriginalFormatKey: string;
-export declare let NSMetadataItemOriginalSourceKey: string;
-export declare let NSMetadataItemPageHeightKey: string;
-export declare let NSMetadataItemPageWidthKey: string;
-export declare let NSMetadataItemParticipantsKey: string;
-export declare let NSMetadataItemPathKey: string;
-export declare let NSMetadataItemPerformersKey: string;
-export declare let NSMetadataItemPhoneNumbersKey: string;
-export declare let NSMetadataItemPixelCountKey: string;
-export declare let NSMetadataItemPixelHeightKey: string;
-export declare let NSMetadataItemPixelWidthKey: string;
-export declare let NSMetadataItemProducerKey: string;
-export declare let NSMetadataItemProfileNameKey: string;
-export declare let NSMetadataItemProjectsKey: string;
-export declare let NSMetadataItemPublishersKey: string;
-export declare let NSMetadataItemRecipientAddressesKey: string;
-export declare let NSMetadataItemRecipientEmailAddressesKey: string;
-export declare let NSMetadataItemRecipientsKey: string;
-export declare let NSMetadataItemRecordingDateKey: string;
-export declare let NSMetadataItemRecordingYearKey: string;
-export declare let NSMetadataItemRedEyeOnOffKey: string;
-export declare let NSMetadataItemResolutionHeightDPIKey: string;
-export declare let NSMetadataItemResolutionWidthDPIKey: string;
-export declare let NSMetadataItemRightsKey: string;
-export declare let NSMetadataItemSecurityMethodKey: string;
-export declare let NSMetadataItemSpeedKey: string;
-export declare let NSMetadataItemStarRatingKey: string;
-export declare let NSMetadataItemStateOrProvinceKey: string;
-export declare let NSMetadataItemStreamableKey: string;
-export declare let NSMetadataItemSubjectKey: string;
-export declare let NSMetadataItemTempoKey: string;
-export declare let NSMetadataItemTextContentKey: string;
-export declare let NSMetadataItemThemeKey: string;
-export declare let NSMetadataItemTimeSignatureKey: string;
-export declare let NSMetadataItemTimestampKey: string;
-export declare let NSMetadataItemTitleKey: string;
-export declare let NSMetadataItemTotalBitRateKey: string;
-export declare let NSMetadataItemURLKey: string;
-export declare let NSMetadataItemVersionKey: string;
-export declare let NSMetadataItemVideoBitRateKey: string;
-export declare let NSMetadataItemWhereFromsKey: string;
-export declare let NSMetadataItemWhiteBalanceKey: string;
-export declare let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: string;
-export declare let NSMetadataQueryIndexedLocalComputerScope: string;
-export declare let NSMetadataQueryIndexedNetworkScope: string;
-export declare let NSMetadataQueryLocalComputerScope: string;
-export declare let NSMetadataQueryNetworkScope: string;
-export declare let NSMetadataQueryResultContentRelevanceAttribute: string;
-export declare let NSMetadataQueryUbiquitousDataScope: string;
-export declare let NSMetadataQueryUbiquitousDocumentsScope: string;
-export declare let NSMetadataQueryUpdateAddedItemsKey: string;
-export declare let NSMetadataQueryUpdateChangedItemsKey: string;
-export declare let NSMetadataQueryUpdateRemovedItemsKey: string;
-export declare let NSMetadataQueryUserHomeScope: string;
-export declare let NSMetadataUbiquitousItemContainerDisplayNameKey: string;
-export declare let NSMetadataUbiquitousItemDownloadRequestedKey: string;
-export declare let NSMetadataUbiquitousItemDownloadingErrorKey: string;
-export declare let NSMetadataUbiquitousItemDownloadingStatusCurrent: string;
-export declare let NSMetadataUbiquitousItemDownloadingStatusDownloaded: string;
-export declare let NSMetadataUbiquitousItemDownloadingStatusKey: string;
-export declare let NSMetadataUbiquitousItemDownloadingStatusNotDownloaded: string;
-export declare let NSMetadataUbiquitousItemHasUnresolvedConflictsKey: string;
-export declare let NSMetadataUbiquitousItemIsDownloadingKey: string;
-export declare let NSMetadataUbiquitousItemIsExternalDocumentKey: string;
-export declare let NSMetadataUbiquitousItemIsSharedKey: string;
-export declare let NSMetadataUbiquitousItemIsUploadedKey: string;
-export declare let NSMetadataUbiquitousItemIsUploadingKey: string;
-export declare let NSMetadataUbiquitousItemPercentDownloadedKey: string;
-export declare let NSMetadataUbiquitousItemPercentUploadedKey: string;
-export declare let NSMetadataUbiquitousItemURLInLocalContainerKey: string;
-export declare let NSMetadataUbiquitousItemUploadingErrorKey: string;
-export declare let NSMetadataUbiquitousSharedItemCurrentUserPermissionsKey: string;
-export declare let NSMetadataUbiquitousSharedItemCurrentUserRoleKey: string;
-export declare let NSMetadataUbiquitousSharedItemMostRecentEditorNameComponentsKey: string;
-export declare let NSMetadataUbiquitousSharedItemOwnerNameComponentsKey: string;
-export declare let NSMetadataUbiquitousSharedItemPermissionsReadOnly: string;
-export declare let NSMetadataUbiquitousSharedItemPermissionsReadWrite: string;
-export declare let NSMetadataUbiquitousSharedItemRoleOwner: string;
-export declare let NSMetadataUbiquitousSharedItemRoleParticipant: string;
-export declare let NSNonOwnedPointerHashCallBacks: NSHashTableCallBacks;
-export declare let NSNonOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSNonOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks;
-export declare let NSNonOwnedPointerOrNullMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSNonRetainedObjectHashCallBacks: NSHashTableCallBacks;
-export declare let NSNonRetainedObjectMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSNonRetainedObjectMapValueCallBacks: NSMapTableValueCallBacks;
-export declare let NSNotFound: number;
-export declare let NSNotificationDeliverImmediately: DistributedNotificationCenter.Options;
-export declare let NSNotificationPostToAllSessions: DistributedNotificationCenter.Options;
-export declare let NSOSStatusErrorDomain: string;
-export declare let NSObjectHashCallBacks: NSHashTableCallBacks;
-export declare let NSObjectMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSObjectMapValueCallBacks: NSMapTableValueCallBacks;
-export declare let NSOperationNotSupportedForKeyException: string;
-export declare let NSOwnedObjectIdentityHashCallBacks: NSHashTableCallBacks;
-export declare let NSOwnedPointerHashCallBacks: NSHashTableCallBacks;
-export declare let NSOwnedPointerMapKeyCallBacks: NSMapTableKeyCallBacks;
-export declare let NSOwnedPointerMapValueCallBacks: NSMapTableValueCallBacks;
-export declare let NSPOSIXErrorDomain: string;
-export declare let NSPersonNameComponentDelimiter: string;
-export declare let NSPersonNameComponentFamilyName: string;
-export declare let NSPersonNameComponentGivenName: string;
-export declare let NSPersonNameComponentKey: string;
-export declare let NSPersonNameComponentMiddleName: string;
-export declare let NSPersonNameComponentNickname: string;
-export declare let NSPersonNameComponentPrefix: string;
-export declare let NSPersonNameComponentSuffix: string;
-export declare let NSPointerToStructHashCallBacks: NSHashTableCallBacks;
-export declare let NSRecoveryAttempterErrorKey: string;
-export declare let NSStreamSOCKSErrorDomain: string;
-export declare let NSStreamSocketSSLErrorDomain: string;
-export declare let NSStringEncodingErrorKey: string;
-export declare let NSURLAuthenticationMethodClientCertificate: string;
-export declare let NSURLAuthenticationMethodDefault: string;
-export declare let NSURLAuthenticationMethodHTMLForm: string;
-export declare let NSURLAuthenticationMethodHTTPBasic: string;
-export declare let NSURLAuthenticationMethodHTTPDigest: string;
-export declare let NSURLAuthenticationMethodNTLM: string;
-export declare let NSURLAuthenticationMethodNegotiate: string;
-export declare let NSURLAuthenticationMethodServerTrust: string;
-export declare let NSURLCredentialStorageRemoveSynchronizableCredentials: string;
-export declare let NSURLErrorBackgroundTaskCancelledReasonKey: string;
-export declare let NSURLErrorDomain: string;
-export declare let NSURLErrorFailingURLErrorKey: string;
-export declare let NSURLErrorFailingURLPeerTrustErrorKey: string;
-export declare let NSURLErrorFailingURLStringErrorKey: string;
-export declare let NSURLErrorKey: string;
-export declare let NSURLErrorNetworkUnavailableReasonKey: string;
-export declare let NSURLFileScheme: string;
-export declare let NSURLProtectionSpaceFTP: string;
-export declare let NSURLProtectionSpaceFTPProxy: string;
-export declare let NSURLProtectionSpaceHTTP: string;
-export declare let NSURLProtectionSpaceHTTPProxy: string;
-export declare let NSURLProtectionSpaceHTTPS: string;
-export declare let NSURLProtectionSpaceHTTPSProxy: string;
-export declare let NSURLProtectionSpaceSOCKSProxy: string;
-export declare let NSURLSessionDownloadTaskResumeData: string;
-export declare let NSURLSessionTransferSizeUnknown: number;
-export declare let NSUbiquitousKeyValueStoreChangeReasonKey: string;
-export declare let NSUbiquitousKeyValueStoreChangedKeysKey: string;
-export declare let NSUnderlyingErrorKey: string;
-export declare let NSUndoCloseGroupingRunLoopOrdering: number;
-export declare let NSUndoManagerGroupIsDiscardableKey: string;
-export declare let NSUserActivityTypeBrowsingWeb: string;
-export declare let NSUserNotificationDefaultSoundName: string;
-export declare let NSZeroPoint: CGPoint;
-export declare let NSZeroRect: CGRect;
-export declare let NSZeroSize: CGSize;
-export declare let NSZombieEnabled: boolean;
-export { Authorization, BlockOperation, Bundle, ByteCountFormatter, CFCalendarIdentifier, CFDateFormatterKey, CFLocaleKey, CFNotificationName, CFNumberFormatterKey, CFRunLoopMode, CFStreamPropertyKey, CachedURLResponse, DateComponentsFormatter, DateFormatter, DateIntervalFormatter, Dimension, DirectoryEnumerator, DistributedNotificationCenter, EnergyFormatter, FileAttributeKey, FileAttributeType, FileHandle, FileManager, FileManagerDelegate, FileProtectionType, FileWrapper, Formatter, HTTPCookie, HTTPCookiePropertyKey, HTTPCookieStorage, HTTPCookieStringPolicy, HTTPURLResponse, Host, ISO8601DateFormatter, InputStream, ItemResult, JSONSerialization, LengthFormatter, ListFormatter, MassFormatter, MeasurementFormatter, MessagePort, NSATSTypesetter, NSAccessibility, NSAccessibilityButton, NSAccessibilityCheckBox, NSAccessibilityContainsTransientUI, NSAccessibilityCustomAction, NSAccessibilityCustomRotor, NSAccessibilityCustomRotorItemSearchDelegate, NSAccessibilityElement, NSAccessibilityElementLoading, NSAccessibilityGroup, NSAccessibilityImage, NSAccessibilityLayoutArea, NSAccessibilityLayoutItem, NSAccessibilityList, NSAccessibilityNavigableStaticText, NSAccessibilityOutline, NSAccessibilityProgressIndicator, NSAccessibilityRadioButton, NSAccessibilityRow, NSAccessibilitySlider, NSAccessibilityStaticText, NSAccessibilityStepper, NSAccessibilitySwitch, NSAccessibilityTable, NSActionCell, NSAffineTransform, NSAlert, NSAlertDelegate, NSAlignmentFeedbackFilter, NSAlignmentFeedbackToken, NSAnimatablePropertyContainer, NSAnimation, NSAnimationContext, NSAnimationDelegate, NSAppKitVersion, NSAppearance, NSAppearanceCustomization, NSAppleEventDescriptor, NSAppleEventManager, NSAppleScript, NSApplication, NSApplicationDelegate, NSArray, NSArrayController, NSAssertionHandler, NSAttributedString, NSAutoreleasePool, NSBackgroundActivityScheduler, NSBezierPath, NSBindingInfoKey, NSBindingName, NSBindingOption, NSBindingSelectionMarker, NSBitmapImageRep, NSBox, NSBrowser, NSBrowserCell, NSBrowserDelegate, NSButton, NSButtonCell, NSButtonTouchBarItem, NSCIImageRep, NSCache, NSCacheDelegate, NSCalendar, NSCandidateListTouchBarItem, NSCandidateListTouchBarItemDelegate, NSCell, NSChangeSpelling, NSCharacterSet, NSClassDescription, NSClickGestureRecognizer, NSClipView, NSCloneCommand, NSCloseCommand, NSCloudSharingServiceDelegate, NSCloudSharingValidation, NSCoder, NSCoding, NSCollectionLayoutAnchor, NSCollectionLayoutBoundarySupplementaryItem, NSCollectionLayoutContainer, NSCollectionLayoutDecorationItem, NSCollectionLayoutDimension, NSCollectionLayoutEdgeSpacing, NSCollectionLayoutEnvironment, NSCollectionLayoutGroup, NSCollectionLayoutGroupCustomItem, NSCollectionLayoutItem, NSCollectionLayoutSection, NSCollectionLayoutSize, NSCollectionLayoutSpacing, NSCollectionLayoutSupplementaryItem, NSCollectionLayoutVisibleItem, NSCollectionView, NSCollectionViewCompositionalLayout, NSCollectionViewCompositionalLayoutConfiguration, NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout, NSCollectionViewDiffableDataSourceReference, NSCollectionViewElement, NSCollectionViewFlowLayout, NSCollectionViewFlowLayoutInvalidationContext, NSCollectionViewGridLayout, NSCollectionViewItem, NSCollectionViewLayout, NSCollectionViewLayoutAttributes, NSCollectionViewLayoutInvalidationContext, NSCollectionViewPrefetching, NSCollectionViewSectionHeaderView, NSCollectionViewTransitionLayout, NSCollectionViewUpdateItem, NSColor, NSColorChanging, NSColorList, NSColorPanel, NSColorPicker, NSColorPickerTouchBarItem, NSColorPickingCustom, NSColorPickingDefault, NSColorSampler, NSColorSpace, NSColorSpaceName, NSColorWell, NSComboBox, NSComboBoxCell, NSComboBoxCellDataSource, NSComboBoxDataSource, NSComboBoxDelegate, NSComparisonPredicate, NSCompoundPredicate, NSCondition, NSConditionLock, NSControl, NSControlTextEditingDelegate, NSController, NSCopying, NSCountCommand, NSCountedSet, NSCreateCommand, NSCursor, NSCustomImageRep, NSCustomTouchBarItem, NSData, NSDataAsset, NSDataDetector, NSDate, NSDateComponents, NSDateInterval, NSDatePicker, NSDatePickerCell, NSDatePickerCellDelegate, NSDecimalNumber, NSDecimalNumberBehaviors, NSDecimalNumberHandler, NSDeleteCommand, NSDeviceDescriptionKey, NSDictionary, NSDictionaryController, NSDictionaryControllerKeyValuePair, NSDiffableDataSourceSnapshotReference, NSDiscardableContent, NSDistributedLock, NSDockTile, NSDockTilePlugIn, NSDocument, NSDocumentController, NSDraggingDestination, NSDraggingImageComponent, NSDraggingInfo, NSDraggingItem, NSDraggingSession, NSDraggingSource, NSDrawer, NSDrawerDelegate, NSEPSImageRep, NSEditor, NSEditorRegistration, NSEnumerator, NSError, NSEvent, NSException, NSExceptionName, NSExistsCommand, NSExpression, NSExtensionContext, NSExtensionItem, NSExtensionRequestHandling, NSFastEnumeration, NSFileAccessIntent, NSFileCoordinator, NSFilePresenter, NSFilePromiseProvider, NSFilePromiseProviderDelegate, NSFilePromiseReceiver, NSFileProviderService, NSFileSecurity, NSFileVersion, NSFont, NSFontAssetRequest, NSFontChanging, NSFontCollection, NSFontDescriptor, NSFontManager, NSFontPanel, NSFormCell, NSGestureRecognizer, NSGestureRecognizerDelegate, NSGetCommand, NSGlyphGenerator, NSGlyphInfo, NSGlyphStorage, NSGradient, NSGraphicsContext, NSGridCell, NSGridColumn, NSGridRow, NSGridView, NSGroupTouchBarItem, NSHapticFeedbackManager, NSHapticFeedbackPerformer, NSHashTable, NSHelpManager, NSIgnoreMisspelledWords, NSImage, NSImageCell, NSImageDelegate, NSImageRep, NSImageView, NSIndexPath, NSIndexSet, NSIndexSpecifier, NSInputServerMouseTracker, NSInputServiceProvider, NSItemProvider, NSItemProviderReading, NSItemProviderWriting, NSKeyValueChangeKey, NSKeyValueOperator, NSKeyedArchiver, NSKeyedArchiverDelegate, NSKeyedUnarchiver, NSKeyedUnarchiverDelegate, NSLayoutAnchor, NSLayoutConstraint, NSLayoutDimension, NSLayoutGuide, NSLayoutManager, NSLayoutManagerDelegate, NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSLevelIndicator, NSLevelIndicatorCell, NSLinguisticTag, NSLinguisticTagScheme, NSLinguisticTagger, NSLocale, NSLock, NSLocking, NSLogicalTest, NSMachPort, NSMachPortDelegate, NSMagnificationGestureRecognizer, NSMapTable, NSMatrix, NSMatrixDelegate, NSMeasurement, NSMediaLibraryBrowserController, NSMenu, NSMenuDelegate, NSMenuItem, NSMenuItemCell, NSMenuItemValidation, NSMenuToolbarItem, NSMetadataItem, NSMetadataQuery, NSMetadataQueryAttributeValueTuple, NSMetadataQueryDelegate, NSMetadataQueryResultGroup, NSMiddleSpecifier, NSMoveCommand, NSMutableArray, NSMutableAttributedString, NSMutableCharacterSet, NSMutableCopying, NSMutableData, NSMutableDictionary, NSMutableFontCollection, NSMutableIndexSet, NSMutableOrderedSet, NSMutableParagraphStyle, NSMutableSet, NSMutableString, NSMutableURLRequest, NSNameSpecifier, NSNib, NSNotification, NSNull, NSNumber, NSObjectController, NSOpenPanel, NSOpenSavePanelDelegate, NSOrderedCollectionChange, NSOrderedCollectionDifference, NSOrderedSet, NSOrthography, NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPDFImageRep, NSPDFInfo, NSPDFPanel, NSPICTImageRep, NSPageController, NSPageControllerDelegate, NSPageLayout, NSPanGestureRecognizer, NSPanel, NSParagraphStyle, NSPasteboard, NSPasteboardItem, NSPasteboardItemDataProvider, NSPasteboardReading, NSPasteboardTypeOwner, NSPasteboardWriting, NSPathCell, NSPathCellDelegate, NSPathComponentCell, NSPathControl, NSPathControlDelegate, NSPathControlItem, NSPersistentDocument, NSPersonNameComponents, NSPickerTouchBarItem, NSPointerArray, NSPointerFunctions, NSPopUpButton, NSPopUpButtonCell, NSPopover, NSPopoverDelegate, NSPopoverTouchBarItem, NSPositionalSpecifier, NSPredicate, NSPredicateEditor, NSPredicateEditorRowTemplate, NSPressGestureRecognizer, NSPressureConfiguration, NSPrintInfo, NSPrintOperation, NSPrintPanel, NSPrintPanelAccessorizing, NSPrinter, NSProgressIndicator, NSPropertySpecifier, NSProtocolChecker, NSProxy, NSPurgeableData, NSQuitCommand, NSRandomSpecifier, NSRangeSpecifier, NSRecursiveLock, NSRegularExpression, NSRelativeSpecifier, NSResponder, NSRotationGestureRecognizer, NSRuleEditor, NSRuleEditorDelegate, NSRulerMarker, NSRulerView, NSRunningApplication, NSSavePanel, NSScreen, NSScriptClassDescription, NSScriptCoercionHandler, NSScriptCommand, NSScriptCommandDescription, NSScriptExecutionContext, NSScriptObjectSpecifier, NSScriptSuiteRegistry, NSScriptWhoseTest, NSScrollView, NSScroller, NSScrubber, NSScrubberArrangedView, NSScrubberDataSource, NSScrubberDelegate, NSScrubberFlowLayout, NSScrubberFlowLayoutDelegate, NSScrubberImageItemView, NSScrubberItemView, NSScrubberLayout, NSScrubberLayoutAttributes, NSScrubberProportionalLayout, NSScrubberSelectionStyle, NSScrubberSelectionView, NSScrubberTextItemView, NSSearchField, NSSearchFieldCell, NSSearchFieldDelegate, NSSecureCoding, NSSecureTextField, NSSecureTextFieldCell, NSSecureUnarchiveFromDataTransformer, NSSegmentedCell, NSSegmentedControl, NSSeguePerforming, NSServicesMenuRequestor, NSSet, NSSetCommand, NSShadow, NSSharingService, NSSharingServiceDelegate, NSSharingServicePicker, NSSharingServicePickerDelegate, NSSharingServicePickerToolbarItem, NSSharingServicePickerToolbarItemDelegate, NSSharingServicePickerTouchBarItem, NSSharingServicePickerTouchBarItemDelegate, NSSlider, NSSliderAccessory, NSSliderAccessoryBehavior, NSSliderCell, NSSliderTouchBarItem, NSSortDescriptor, NSSound, NSSoundDelegate, NSSpecifierTest, NSSpeechRecognizer, NSSpeechRecognizerDelegate, NSSpeechSynthesizer, NSSpeechSynthesizerDelegate, NSSpellChecker, NSSpellServer, NSSpellServerDelegate, NSSplitView, NSSplitViewController, NSSplitViewDelegate, NSSplitViewItem, NSSpringLoadingDestination, NSStackView, NSStackViewDelegate, NSStandardKeyBindingResponding, NSStatusBar, NSStatusBarButton, NSStatusItem, NSStepper, NSStepperCell, NSStepperTouchBarItem, NSStoryboard, NSStoryboardSegue, NSString, NSStringDrawingContext, NSSwitch, NSTabView, NSTabViewController, NSTabViewDelegate, NSTabViewItem, NSTableCellView, NSTableColumn, NSTableHeaderCell, NSTableHeaderView, NSTableRowView, NSTableView, NSTableViewDataSource, NSTableViewDelegate, NSTableViewRowAction, NSText, NSTextAlternatives, NSTextAttachment, NSTextAttachmentCell, NSTextAttachmentContainer, NSTextBlock, NSTextCheckingClient, NSTextCheckingController, NSTextCheckingKey, NSTextCheckingResult, NSTextContainer, NSTextDelegate, NSTextField, NSTextFieldCell, NSTextFieldDelegate, NSTextFinder, NSTextFinderBarContainer, NSTextFinderClient, NSTextInput, NSTextInputClient, NSTextInputContext, NSTextInputTraits, NSTextLayoutOrientationProvider, NSTextList, NSTextStorage, NSTextStorageDelegate, NSTextTab, NSTextTable, NSTextTableBlock, NSTextView, NSTextViewDelegate, NSTimeZone, NSTitlebarAccessoryViewController, NSTokenField, NSTokenFieldCell, NSTokenFieldCellDelegate, NSTokenFieldDelegate, NSToolbar, NSToolbarDelegate, NSToolbarItem, NSToolbarItemGroup, NSToolbarItemValidation, NSTouch, NSTouchBar, NSTouchBarDelegate, NSTouchBarItem, NSTouchBarProvider, NSTrackingArea, NSTreeController, NSTreeNode, NSTypesetter, NSURL, NSURLComponents, NSURLConnection, NSURLConnectionDataDelegate, NSURLConnectionDelegate, NSURLConnectionDownloadDelegate, NSURLDownload, NSURLDownloadDelegate, NSURLHandle, NSURLQueryItem, NSURLRequest, NSURLSessionWebSocketMessage, NSUUID, NSUbiquitousKeyValueStore, NSUniqueIDSpecifier, NSUnitInformationStorage, NSUserActivity, NSUserActivityDelegate, NSUserActivityRestoring, NSUserAppleScriptTask, NSUserAutomatorTask, NSUserDefaultsController, NSUserInterfaceCompression, NSUserInterfaceCompressionOptions, NSUserInterfaceItemIdentification, NSUserInterfaceItemSearching, NSUserInterfaceValidations, NSUserNotification, NSUserNotificationAction, NSUserNotificationCenter, NSUserNotificationCenterDelegate, NSUserScriptTask, NSUserUnixTask, NSValidatedUserInterfaceItem, NSValue, NSValueTransformerName, NSView, NSViewAnimation, NSViewController, NSViewControllerPresentationAnimator, NSViewLayerContentScaleDelegate, NSViewToolTipOwner, NSVisualEffectView, NSWhoseSpecifier, NSWindow, NSWindowController, NSWindowDelegate, NSWindowRestoration, NSWindowTab, NSWindowTabGroup, NSWorkspace, NSXPCCoder, NSXPCConnection, NSXPCInterface, NSXPCListener, NSXPCListenerDelegate, NSXPCListenerEndpoint, NSXPCProxyCreating, NetService, NetServiceBrowser, NetServiceBrowserDelegate, NetServiceDelegate, NotificationCenter, NotificationQueue, NumberFormatter, OpenConfiguration, Operation, OperationQueue, OutputStream, PersonNameComponentsFormatter, Pipe, Port, PortDelegate, PortMessage, Process, ProcessInfo, Progress, ProgressKind, ProgressReporting, ProgressUserInfoKey, PropertyListSerialization, RelativeDateTimeFormatter, RunLoop, Scanner, SearchParameters, SocketPort, Stream, StreamDelegate, StreamNetworkServiceTypeValue, StreamSOCKSProxyConfiguration, StreamSOCKSProxyVersion, StreamSocketSecurityLevel, StringEncodingDetectionOptionsKey, StringTransform, Thread, Timer, URLAuthenticationChallenge, URLAuthenticationChallengeSender, URLCache, URLCredential, URLCredentialStorage, URLFileProtection, URLFileResourceType, URLProtectionSpace, URLProtocol, URLProtocolClient, URLResourceKey, URLResponse, URLSession, URLSessionConfiguration, URLSessionDataDelegate, URLSessionDataTask, URLSessionDelegate, URLSessionDownloadDelegate, URLSessionDownloadTask, URLSessionStreamDelegate, URLSessionStreamTask, URLSessionTask, URLSessionTaskDelegate, URLSessionTaskMetrics, URLSessionTaskTransactionMetrics, URLSessionUploadTask, URLSessionWebSocketDelegate, URLSessionWebSocketTask, URLThumbnailDictionaryItem, URLUbiquitousItemDownloadingStatus, URLUbiquitousSharedItemPermissions, URLUbiquitousSharedItemRole, UndoManager, Unit, UnitAcceleration, UnitAngle, UnitArea, UnitConcentrationMass, UnitConverter, UnitConverterLinear, UnitDispersion, UnitDuration, UnitElectricCharge, UnitElectricCurrent, UnitElectricPotentialDifference, UnitElectricResistance, UnitEnergy, UnitFrequency, UnitFuelEfficiency, UnitIlluminance, UnitLength, UnitMass, UnitPower, UnitPressure, UnitSpeed, UnitTemperature, UnitVolume, UserDefaults, ValueTransformer, XMLDTD, XMLDTDNode, XMLDocument, XMLElement, XMLNode, XMLParser, XMLParserDelegate, };
+export declare enum IKCameraDeviceViewDisplayMode {
+    None = -1,
+    Table = 0,
+    Icon = 1
+}
+export declare enum IKCameraDeviceViewTransferMode {
+    FileBased = 0,
+    MemoryBased = 1
+}
+export declare enum IKDeviceBrowserViewDisplayMode {
+    Table = 0,
+    Outline = 1,
+    Icon = 2
+}
+export declare enum IKImageBrowserCellState {
+    StateNoImage = 0,
+    StateInvalid = 1,
+    StateReady = 2
+}
+export declare enum IKImageBrowserDropOperation {
+    On = 0,
+    Before = 1
+}
+export declare enum IKScannerDeviceViewDisplayMode {
+    None = -1,
+    Simple = 0,
+    Advanced = 1
+}
+export declare enum IKScannerDeviceViewTransferMode {
+    FileBased = 0,
+    MemoryBased = 1
+}
+export declare enum QCPlugInExecutionMode {
+    kQCPlugInExecutionModeProvider = 1,
+    kQCPlugInExecutionModeProcessor = 2,
+    kQCPlugInExecutionModeConsumer = 3
+}
+export declare enum QCPlugInTimeMode {
+    kQCPlugInTimeModeNone = 0,
+    kQCPlugInTimeModeIdle = 1,
+    kQCPlugInTimeModeTimeBase = 2
+}
+export declare enum QLPreviewViewStyle {
+    Normal = 0,
+    Compact = 1
+}
+export declare enum CAAutoresizingMask {
+    kCALayerNotSizable = 0,
+    kCALayerMinXMargin = 1,
+    kCALayerWidthSizable = 2,
+    kCALayerMaxXMargin = 4,
+    kCALayerMinYMargin = 8,
+    kCALayerHeightSizable = 16,
+    kCALayerMaxYMargin = 32
+}
+export declare enum CAConstraintAttribute {
+    kCAConstraintMinX = 0,
+    kCAConstraintMidX = 1,
+    kCAConstraintMaxX = 2,
+    kCAConstraintWidth = 3,
+    kCAConstraintMinY = 4,
+    kCAConstraintMidY = 5,
+    kCAConstraintMaxY = 6,
+    kCAConstraintHeight = 7
+}
+export declare enum CACornerMask {
+    kCALayerMinXMinYCorner = 1,
+    kCALayerMaxXMinYCorner = 2,
+    kCALayerMinXMaxYCorner = 4,
+    kCALayerMaxXMaxYCorner = 8
+}
+export declare enum CAEdgeAntialiasingMask {
+    kCALayerLeftEdge = 1,
+    kCALayerRightEdge = 2,
+    kCALayerBottomEdge = 4,
+    kCALayerTopEdge = 8
+}
+export { AVAsset, AVAssetCache, AVAssetExportSession, AVAssetImageGenerator, AVAssetReader, AVAssetReaderAudioMixOutput, AVAssetReaderOutput, AVAssetReaderOutputMetadataAdaptor, AVAssetReaderSampleReferenceOutput, AVAssetReaderTrackOutput, AVAssetReaderVideoCompositionOutput, AVAssetResourceLoader, AVAssetResourceLoaderDelegate, AVAssetResourceLoadingContentInformationRequest, AVAssetResourceLoadingDataRequest, AVAssetResourceLoadingRequest, AVAssetResourceLoadingRequestor, AVAssetResourceRenewalRequest, AVAssetTrack, AVAssetTrackGroup, AVAssetTrackSegment, AVAssetWriter, AVAssetWriterInput, AVAssetWriterInputGroup, AVAssetWriterInputMetadataAdaptor, AVAssetWriterInputPassDescription, AVAssetWriterInputPixelBufferAdaptor, AVAsynchronousCIImageFilteringRequest, AVAsynchronousKeyValueLoading, AVAsynchronousVideoCompositionRequest, AVAudio3DMixing, AVAudioBuffer, AVAudioChannelLayout, AVAudioCompressedBuffer, AVAudioConnectionPoint, AVAudioConverter, AVAudioEngine, AVAudioEnvironmentDistanceAttenuationParameters, AVAudioEnvironmentNode, AVAudioEnvironmentReverbParameters, AVAudioFile, AVAudioFormat, AVAudioIONode, AVAudioInputNode, AVAudioMix, AVAudioMixInputParameters, AVAudioMixerNode, AVAudioMixing, AVAudioMixingDestination, AVAudioNode, AVAudioOutputNode, AVAudioPCMBuffer, AVAudioPlayer, AVAudioPlayerDelegate, AVAudioPlayerNode, AVAudioRecorder, AVAudioRecorderDelegate, AVAudioSequencer, AVAudioSession, AVAudioSinkNode, AVAudioSourceNode, AVAudioStereoMixing, AVAudioTime, AVAudioTimePitchAlgorithm, AVAudioUnit, AVAudioUnitComponent, AVAudioUnitComponentManager, AVAudioUnitDelay, AVAudioUnitDistortion, AVAudioUnitEQ, AVAudioUnitEQFilterParameters, AVAudioUnitEffect, AVAudioUnitGenerator, AVAudioUnitMIDIInstrument, AVAudioUnitReverb, AVAudioUnitSampler, AVAudioUnitTimeEffect, AVAudioUnitTimePitch, AVAudioUnitVarispeed, AVCameraCalibrationData, AVCaptureAudioChannel, AVCaptureAudioDataOutput, AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureAudioFileOutput, AVCaptureAudioPreviewOutput, AVCaptureConnection, AVCaptureDevice, AVCaptureDeviceInput, AVCaptureFileOutput, AVCaptureFileOutputDelegate, AVCaptureFileOutputRecordingDelegate, AVCaptureInput, AVCaptureMovieFileOutput, AVCaptureOutput, AVCapturePhoto, AVCapturePhotoCaptureDelegate, AVCapturePhotoOutput, AVCapturePhotoSettings, AVCaptureResolvedPhotoSettings, AVCaptureScreenInput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureVideoPreviewLayer, AVCaptureView, AVCaptureViewDelegate, AVComposition, AVCompositionTrack, AVCompositionTrackFormatDescriptionReplacement, AVCompositionTrackSegment, AVContentKeyRecipient, AVContentKeyRequest, AVContentKeyResponse, AVContentKeySession, AVContentKeySessionDelegate, AVContentKeySessionServerPlaybackContextOption, AVContentKeySystem, AVDateRangeMetadataGroup, AVDepthData, AVFileType, AVFragmentMinding, AVFragmentedAsset, AVFragmentedAssetMinder, AVFragmentedAssetTrack, AVFragmentedMovie, AVFragmentedMovieMinder, AVFragmentedMovieTrack, AVFrameRateRange, AVLayerVideoGravity, AVMIDIPlayer, AVMediaCharacteristic, AVMediaDataStorage, AVMediaSelection, AVMediaSelectionGroup, AVMediaSelectionOption, AVMediaType, AVMetadataBodyObject, AVMetadataCatBodyObject, AVMetadataDogBodyObject, AVMetadataExtraAttributeKey, AVMetadataFaceObject, AVMetadataFormat, AVMetadataGroup, AVMetadataHumanBodyObject, AVMetadataIdentifier, AVMetadataItem, AVMetadataItemFilter, AVMetadataItemValueRequest, AVMetadataKey, AVMetadataKeySpace, AVMetadataMachineReadableCodeObject, AVMetadataObject, AVMetadataSalientObject, AVMovie, AVMovieTrack, AVMusicTrack, AVMutableAudioMix, AVMutableAudioMixInputParameters, AVMutableComposition, AVMutableCompositionTrack, AVMutableDateRangeMetadataGroup, AVMutableMediaSelection, AVMutableMetadataItem, AVMutableMovie, AVMutableMovieTrack, AVMutableTimedMetadataGroup, AVMutableVideoComposition, AVMutableVideoCompositionInstruction, AVMutableVideoCompositionLayerInstruction, AVOutputSettingsAssistant, AVOutputSettingsPreset, AVPersistableContentKeyRequest, AVPictureInPictureController, AVPictureInPictureControllerDelegate, AVPlayer, AVPlayerItem, AVPlayerItemAccessLog, AVPlayerItemAccessLogEvent, AVPlayerItemErrorLog, AVPlayerItemErrorLogEvent, AVPlayerItemLegibleOutput, AVPlayerItemLegibleOutputPushDelegate, AVPlayerItemMediaDataCollector, AVPlayerItemMetadataCollector, AVPlayerItemMetadataCollectorPushDelegate, AVPlayerItemMetadataOutput, AVPlayerItemMetadataOutputPushDelegate, AVPlayerItemOutput, AVPlayerItemOutputPullDelegate, AVPlayerItemOutputPushDelegate, AVPlayerItemTrack, AVPlayerItemVideoOutput, AVPlayerLayer, AVPlayerLooper, AVPlayerMediaSelectionCriteria, AVPlayerView, AVPlayerViewPictureInPictureDelegate, AVPortraitEffectsMatte, AVQueuePlayer, AVQueuedSampleBufferRendering, AVRouteDetector, AVRoutePickerView, AVRoutePickerViewDelegate, AVSampleBufferAudioRenderer, AVSampleBufferDisplayLayer, AVSampleBufferGenerator, AVSampleBufferRenderSynchronizer, AVSampleBufferRequest, AVSampleCursor, AVSemanticSegmentationMatte, AVSpeechSynthesisVoice, AVSpeechSynthesizer, AVSpeechSynthesizerDelegate, AVSpeechUtterance, AVSynchronizedLayer, AVTextStyleRule, AVTimedMetadataGroup, AVURLAsset, AVVideoApertureMode, AVVideoCodecType, AVVideoCompositing, AVVideoComposition, AVVideoCompositionCoreAnimationTool, AVVideoCompositionInstruction, AVVideoCompositionLayerInstruction, AVVideoCompositionRenderContext, AVVideoCompositionRenderHint, AVVideoCompositionValidationHandling, Authorization, BlockOperation, Bundle, ByteCountFormatter, CAAction, CAAnimation, CAAnimationCalculationMode, CAAnimationDelegate, CAAnimationGroup, CAAnimationRotationMode, CABasicAnimation, CAConstraint, CAConstraintLayoutManager, CAEDRMetadata, CAEmitterCell, CAEmitterLayer, CAEmitterLayerEmitterMode, CAEmitterLayerEmitterShape, CAEmitterLayerRenderMode, CAGradientLayer, CAGradientLayerType, CAKeyframeAnimation, CALayer, CALayerContentsFilter, CALayerContentsFormat, CALayerContentsGravity, CALayerCornerCurve, CALayerDelegate, CALayoutManager, CAMediaTiming, CAMediaTimingFillMode, CAMediaTimingFunction, CAMediaTimingFunctionName, CAMetalDrawable, CAMetalLayer, CAPropertyAnimation, CARemoteLayerClient, CARemoteLayerServer, CARenderer, CAReplicatorLayer, CAScrollLayer, CAScrollLayerScrollMode, CAShapeLayer, CAShapeLayerFillRule, CAShapeLayerLineCap, CAShapeLayerLineJoin, CASpringAnimation, CATextLayer, CATextLayerAlignmentMode, CATextLayerTruncationMode, CATiledLayer, CATransaction, CATransformLayer, CATransition, CATransitionSubtype, CATransitionType, CAValueFunction, CAValueFunctionName, CFCalendarIdentifier, CFDateFormatterKey, CFLocaleKey, CFNotificationName, CFNumberFormatterKey, CFRunLoopMode, CFStreamPropertyKey, CGAffineTransform, CGColor, CGColorSpace, CGDisplayStream, CGFont, CGPDFTagProperty, CGPoint, CGRect, CGSize, CIAccordionFoldTransition, CIAffineClamp, CIAffineTile, CIAttributedTextImageGenerator, CIAztecCodeDescriptor, CIAztecCodeGenerator, CIBarcodeDescriptor, CIBarcodeGenerator, CIBarsSwipeTransition, CIBicubicScaleTransform, CIBlendKernel, CIBlendWithMask, CIBloom, CIBokehBlur, CIBoxBlur, CICMYKHalftone, CICheckerboardGenerator, CICircularScreen, CICode128BarcodeGenerator, CIColor, CIColorClamp, CIColorControls, CIColorCrossPolynomial, CIColorCube, CIColorCubeWithColorSpace, CIColorCubesMixedWithMask, CIColorCurves, CIColorInvert, CIColorKernel, CIColorMap, CIColorMatrix, CIColorMonochrome, CIColorPolynomial, CIColorPosterize, CIComicEffect, CICompositeOperation, CIContext, CIContextOption, CIConvolution, CICopyMachineTransition, CICoreMLModel, CICrystallize, CIDataMatrixCodeDescriptor, CIDepthOfField, CIDepthToDisparity, CIDetector, CIDiscBlur, CIDisintegrateWithMaskTransition, CIDisparityToDepth, CIDissolveTransition, CIDither, CIDocumentEnhancer, CIDotScreen, CIEdgePreserveUpsample, CIEdgeWork, CIEdges, CIEightfoldReflectedTile, CIExposureAdjust, CIFaceFeature, CIFalseColor, CIFeature, CIFilter, CIFilterConstructor, CIFilterGenerator, CIFilterShape, CIFlashTransition, CIFormat, CIFourCoordinateGeometryFilter, CIFourfoldReflectedTile, CIFourfoldRotatedTile, CIFourfoldTranslatedTile, CIGaborGradients, CIGammaAdjust, CIGaussianBlur, CIGaussianGradient, CIGlideReflectedTile, CIGloom, CIHatchedScreen, CIHeightFieldFromMask, CIHexagonalPixellate, CIHighlightShadowAdjust, CIHueAdjust, CIHueSaturationValueGradient, CIImage, CIImageAccumulator, CIImageAutoAdjustmentOption, CIImageOption, CIImageProcessorInput, CIImageProcessorKernel, CIImageProcessorOutput, CIImageRepresentationOption, CIKaleidoscope, CIKernel, CIKeystoneCorrectionCombined, CIKeystoneCorrectionHorizontal, CIKeystoneCorrectionVertical, CILabDeltaE, CILanczosScaleTransform, CILenticularHaloGenerator, CILineOverlay, CILineScreen, CILinearGradient, CILinearToSRGBToneCurve, CIMaskToAlpha, CIMaskedVariableBlur, CIMaximumComponent, CIMedian, CIMeshGenerator, CIMinimumComponent, CIMix, CIModTransition, CIMorphologyGradient, CIMorphologyMaximum, CIMorphologyMinimum, CIMorphologyRectangleMaximum, CIMorphologyRectangleMinimum, CIMotionBlur, CINoiseReduction, CIOpTile, CIPDF417BarcodeGenerator, CIPDF417CodeDescriptor, CIPageCurlTransition, CIPageCurlWithShadowTransition, CIPaletteCentroid, CIPalettize, CIParallelogramTile, CIPerspectiveCorrection, CIPerspectiveRotate, CIPerspectiveTile, CIPerspectiveTransform, CIPerspectiveTransformWithExtent, CIPhotoEffect, CIPixellate, CIPlugIn, CIPlugInRegistration, CIPointillize, CIQRCodeDescriptor, CIQRCodeFeature, CIQRCodeGenerator, CIRAWFilterOption, CIRadialGradient, CIRandomGenerator, CIRectangleFeature, CIRenderDestination, CIRenderInfo, CIRenderTask, CIRippleTransition, CIRoundedRectangleGenerator, CISRGBToneCurveToLinear, CISaliencyMap, CISampler, CISepiaTone, CIShadedMaterial, CISharpenLuminance, CISixfoldReflectedTile, CISixfoldRotatedTile, CISmoothLinearGradient, CISpotColor, CISpotLight, CIStarShineGenerator, CIStraighten, CIStripesGenerator, CISunbeamsGenerator, CISwipeTransition, CITemperatureAndTint, CITextFeature, CITextImageGenerator, CIThermal, CIToneCurve, CITransitionFilter, CITriangleKaleidoscope, CITriangleTile, CITwelvefoldReflectedTile, CIUnsharpMask, CIVector, CIVibrance, CIVignette, CIVignetteEffect, CIWarpKernel, CIWhitePointAdjust, CIXRay, CIZoomBlur, CMImageDescriptionFlavor, CMSampleTimingInfo, CMSoundDescriptionFlavor, CMTime, CMTimeMapping, CMTimeRange, CachedURLResponse, DateComponentsFormatter, DateFormatter, DateIntervalFormatter, Decimal, Dimension, DirectoryEnumerator, DiscoverySession, DistributedNotificationCenter, EnergyFormatter, FileAttributeKey, FileAttributeType, FileHandle, FileManager, FileManagerDelegate, FileProtectionType, FileWrapper, Format, Formatter, HTTPCookie, HTTPCookiePropertyKey, HTTPCookieStorage, HTTPCookieStringPolicy, HTTPURLResponse, Host, IKCameraDeviceView, IKCameraDeviceViewDelegate, IKDeviceBrowserView, IKDeviceBrowserViewDelegate, IKFilterBrowserPanel, IKFilterBrowserView, IKFilterCustomUIProvider, IKFilterUIView, IKImageBrowserCell, IKImageEditPanel, IKImageEditPanelDataSource, IKImageView, IKPictureTaker, IKSaveOptions, IKScannerDeviceView, IKScannerDeviceViewDelegate, IKSlideshow, IKSlideshowDataSource, ISO8601DateFormatter, InputSource, InputStream, ItemResult, JSONSerialization, LengthFormatter, ListFormatter, MassFormatter, MeasurementFormatter, MessagePort, NSATSTypesetter, NSAccessibility, NSAccessibilityButton, NSAccessibilityCheckBox, NSAccessibilityContainsTransientUI, NSAccessibilityCustomAction, NSAccessibilityCustomRotor, NSAccessibilityCustomRotorItemSearchDelegate, NSAccessibilityElement, NSAccessibilityElementLoading, NSAccessibilityGroup, NSAccessibilityImage, NSAccessibilityLayoutArea, NSAccessibilityLayoutItem, NSAccessibilityList, NSAccessibilityNavigableStaticText, NSAccessibilityOutline, NSAccessibilityProgressIndicator, NSAccessibilityRadioButton, NSAccessibilityRow, NSAccessibilitySlider, NSAccessibilityStaticText, NSAccessibilityStepper, NSAccessibilitySwitch, NSAccessibilityTable, NSActionCell, NSAffineTransform, NSAlert, NSAlertDelegate, NSAlignmentFeedbackFilter, NSAlignmentFeedbackToken, NSAnimatablePropertyContainer, NSAnimation, NSAnimationContext, NSAnimationDelegate, NSAppKitVersion, NSAppearance, NSAppearanceCustomization, NSAppleEventDescriptor, NSAppleEventManager, NSAppleScript, NSApplication, NSApplicationDelegate, NSArray, NSArrayController, NSAssertionHandler, NSAsynchronousFetchRequest, NSAsynchronousFetchResult, NSAtomicStore, NSAtomicStoreCacheNode, NSAttributeDescription, NSAttributedString, NSAutoreleasePool, NSBackgroundActivityScheduler, NSBatchDeleteRequest, NSBatchDeleteResult, NSBatchInsertRequest, NSBatchInsertResult, NSBatchUpdateRequest, NSBatchUpdateResult, NSBezierPath, NSBindingInfoKey, NSBindingName, NSBindingOption, NSBindingSelectionMarker, NSBitmapImageRep, NSBox, NSBrowser, NSBrowserCell, NSBrowserDelegate, NSButton, NSButtonCell, NSButtonTouchBarItem, NSCIImageRep, NSCache, NSCacheDelegate, NSCalendar, NSCandidateListTouchBarItem, NSCandidateListTouchBarItemDelegate, NSCell, NSChangeSpelling, NSCharacterSet, NSClassDescription, NSClickGestureRecognizer, NSClipView, NSCloneCommand, NSCloseCommand, NSCloudSharingServiceDelegate, NSCloudSharingValidation, NSCoder, NSCoding, NSCollectionLayoutAnchor, NSCollectionLayoutBoundarySupplementaryItem, NSCollectionLayoutContainer, NSCollectionLayoutDecorationItem, NSCollectionLayoutDimension, NSCollectionLayoutEdgeSpacing, NSCollectionLayoutEnvironment, NSCollectionLayoutGroup, NSCollectionLayoutGroupCustomItem, NSCollectionLayoutItem, NSCollectionLayoutSection, NSCollectionLayoutSize, NSCollectionLayoutSpacing, NSCollectionLayoutSupplementaryItem, NSCollectionLayoutVisibleItem, NSCollectionView, NSCollectionViewCompositionalLayout, NSCollectionViewCompositionalLayoutConfiguration, NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout, NSCollectionViewDiffableDataSourceReference, NSCollectionViewElement, NSCollectionViewFlowLayout, NSCollectionViewFlowLayoutInvalidationContext, NSCollectionViewGridLayout, NSCollectionViewItem, NSCollectionViewLayout, NSCollectionViewLayoutAttributes, NSCollectionViewLayoutInvalidationContext, NSCollectionViewPrefetching, NSCollectionViewSectionHeaderView, NSCollectionViewTransitionLayout, NSCollectionViewUpdateItem, NSColor, NSColorChanging, NSColorList, NSColorPanel, NSColorPicker, NSColorPickerTouchBarItem, NSColorPickingCustom, NSColorPickingDefault, NSColorSampler, NSColorSpace, NSColorSpaceName, NSColorWell, NSComboBox, NSComboBoxCell, NSComboBoxCellDataSource, NSComboBoxDataSource, NSComboBoxDelegate, NSComparisonPredicate, NSCompoundPredicate, NSCondition, NSConditionLock, NSConstraintConflict, NSControl, NSControlTextEditingDelegate, NSController, NSCopying, NSCoreDataCoreSpotlightDelegate, NSCountCommand, NSCountedSet, NSCreateCommand, NSCursor, NSCustomImageRep, NSCustomTouchBarItem, NSData, NSDataAsset, NSDataDetector, NSDate, NSDateComponents, NSDateInterval, NSDatePicker, NSDatePickerCell, NSDatePickerCellDelegate, NSDecimalNumber, NSDecimalNumberBehaviors, NSDecimalNumberHandler, NSDeleteCommand, NSDerivedAttributeDescription, NSDeviceDescriptionKey, NSDictionary, NSDictionaryController, NSDictionaryControllerKeyValuePair, NSDiffableDataSourceSnapshotReference, NSDiscardableContent, NSDistributedLock, NSDockTile, NSDockTilePlugIn, NSDocument, NSDocumentController, NSDraggingDestination, NSDraggingImageComponent, NSDraggingInfo, NSDraggingItem, NSDraggingSession, NSDraggingSource, NSDrawer, NSDrawerDelegate, NSEPSImageRep, NSEditor, NSEditorRegistration, NSEntityDescription, NSEntityMapping, NSEntityMigrationPolicy, NSEnumerator, NSError, NSEvent, NSException, NSExceptionName, NSExistsCommand, NSExpression, NSExpressionDescription, NSExtensionContext, NSExtensionItem, NSExtensionRequestHandling, NSFastEnumeration, NSFetchIndexDescription, NSFetchIndexElementDescription, NSFetchRequest, NSFetchRequestExpression, NSFetchRequestResult, NSFetchedPropertyDescription, NSFetchedResultsController, NSFetchedResultsControllerDelegate, NSFetchedResultsSectionInfo, NSFileAccessIntent, NSFileCoordinator, NSFilePresenter, NSFilePromiseProvider, NSFilePromiseProviderDelegate, NSFilePromiseReceiver, NSFileProviderService, NSFileSecurity, NSFileVersion, NSFont, NSFontAssetRequest, NSFontChanging, NSFontCollection, NSFontDescriptor, NSFontManager, NSFontPanel, NSFormCell, NSGestureRecognizer, NSGestureRecognizerDelegate, NSGetCommand, NSGlyphGenerator, NSGlyphInfo, NSGlyphStorage, NSGradient, NSGraphicsContext, NSGridCell, NSGridColumn, NSGridRow, NSGridView, NSGroupTouchBarItem, NSHapticFeedbackManager, NSHapticFeedbackPerformer, NSHashTable, NSHelpManager, NSIgnoreMisspelledWords, NSImage, NSImageCell, NSImageDelegate, NSImageRep, NSImageView, NSIncrementalStore, NSIncrementalStoreNode, NSIndexPath, NSIndexSet, NSIndexSpecifier, NSInputServerMouseTracker, NSInputServiceProvider, NSItemProvider, NSItemProviderReading, NSItemProviderWriting, NSKeyValueChangeKey, NSKeyValueOperator, NSKeyedArchiver, NSKeyedArchiverDelegate, NSKeyedUnarchiver, NSKeyedUnarchiverDelegate, NSLayoutAnchor, NSLayoutConstraint, NSLayoutDimension, NSLayoutGuide, NSLayoutManager, NSLayoutManagerDelegate, NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSLevelIndicator, NSLevelIndicatorCell, NSLinguisticTag, NSLinguisticTagScheme, NSLinguisticTagger, NSLocale, NSLock, NSLocking, NSLogicalTest, NSMachPort, NSMachPortDelegate, NSMagnificationGestureRecognizer, NSManagedObject, NSManagedObjectContext, NSManagedObjectID, NSManagedObjectModel, NSMapTable, NSMappingModel, NSMatrix, NSMatrixDelegate, NSMeasurement, NSMediaLibraryBrowserController, NSMenu, NSMenuDelegate, NSMenuItem, NSMenuItemCell, NSMenuItemValidation, NSMenuToolbarItem, NSMergeConflict, NSMergePolicy, NSMetadataItem, NSMetadataQuery, NSMetadataQueryAttributeValueTuple, NSMetadataQueryDelegate, NSMetadataQueryResultGroup, NSMiddleSpecifier, NSMigrationManager, NSMoveCommand, NSMutableArray, NSMutableAttributedString, NSMutableCharacterSet, NSMutableCopying, NSMutableData, NSMutableDictionary, NSMutableFontCollection, NSMutableIndexSet, NSMutableOrderedSet, NSMutableParagraphStyle, NSMutableSet, NSMutableString, NSMutableURLRequest, NSNameSpecifier, NSNib, NSNotification, NSNull, NSNumber, NSObjectController, NSOpenPanel, NSOpenSavePanelDelegate, NSOrderedCollectionChange, NSOrderedCollectionDifference, NSOrderedSet, NSOrthography, NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPDFImageRep, NSPDFInfo, NSPDFPanel, NSPICTImageRep, NSPageController, NSPageControllerDelegate, NSPageLayout, NSPanGestureRecognizer, NSPanel, NSParagraphStyle, NSPasteboard, NSPasteboardItem, NSPasteboardItemDataProvider, NSPasteboardReading, NSPasteboardTypeOwner, NSPasteboardWriting, NSPathCell, NSPathCellDelegate, NSPathComponentCell, NSPathControl, NSPathControlDelegate, NSPathControlItem, NSPersistentCloudKitContainer, NSPersistentCloudKitContainerOptions, NSPersistentContainer, NSPersistentDocument, NSPersistentHistoryChange, NSPersistentHistoryChangeRequest, NSPersistentHistoryResult, NSPersistentHistoryToken, NSPersistentHistoryTransaction, NSPersistentStore, NSPersistentStoreAsynchronousResult, NSPersistentStoreCoordinator, NSPersistentStoreDescription, NSPersistentStoreRequest, NSPersistentStoreResult, NSPersonNameComponents, NSPickerTouchBarItem, NSPointerArray, NSPointerFunctions, NSPopUpButton, NSPopUpButtonCell, NSPopover, NSPopoverDelegate, NSPopoverTouchBarItem, NSPositionalSpecifier, NSPredicate, NSPredicateEditor, NSPredicateEditorRowTemplate, NSPressGestureRecognizer, NSPressureConfiguration, NSPrintInfo, NSPrintOperation, NSPrintPanel, NSPrintPanelAccessorizing, NSPrinter, NSProgressIndicator, NSPropertyDescription, NSPropertyMapping, NSPropertySpecifier, NSProtocolChecker, NSProxy, NSPurgeableData, NSQueryGenerationToken, NSQuitCommand, NSRandomSpecifier, NSRangeSpecifier, NSRecursiveLock, NSRegularExpression, NSRelationshipDescription, NSRelativeSpecifier, NSResponder, NSRotationGestureRecognizer, NSRuleEditor, NSRuleEditorDelegate, NSRulerMarker, NSRulerView, NSRunningApplication, NSSaveChangesRequest, NSSavePanel, NSScreen, NSScriptClassDescription, NSScriptCoercionHandler, NSScriptCommand, NSScriptCommandDescription, NSScriptExecutionContext, NSScriptObjectSpecifier, NSScriptSuiteRegistry, NSScriptWhoseTest, NSScrollView, NSScroller, NSScrubber, NSScrubberArrangedView, NSScrubberDataSource, NSScrubberDelegate, NSScrubberFlowLayout, NSScrubberFlowLayoutDelegate, NSScrubberImageItemView, NSScrubberItemView, NSScrubberLayout, NSScrubberLayoutAttributes, NSScrubberProportionalLayout, NSScrubberSelectionStyle, NSScrubberSelectionView, NSScrubberTextItemView, NSSearchField, NSSearchFieldCell, NSSearchFieldDelegate, NSSecureCoding, NSSecureTextField, NSSecureTextFieldCell, NSSecureUnarchiveFromDataTransformer, NSSegmentedCell, NSSegmentedControl, NSSeguePerforming, NSServicesMenuRequestor, NSSet, NSSetCommand, NSShadow, NSSharingService, NSSharingServiceDelegate, NSSharingServicePicker, NSSharingServicePickerDelegate, NSSharingServicePickerToolbarItem, NSSharingServicePickerToolbarItemDelegate, NSSharingServicePickerTouchBarItem, NSSharingServicePickerTouchBarItemDelegate, NSSlider, NSSliderAccessory, NSSliderAccessoryBehavior, NSSliderCell, NSSliderTouchBarItem, NSSortDescriptor, NSSound, NSSoundDelegate, NSSpecifierTest, NSSpeechRecognizer, NSSpeechRecognizerDelegate, NSSpeechSynthesizer, NSSpeechSynthesizerDelegate, NSSpellChecker, NSSpellServer, NSSpellServerDelegate, NSSplitView, NSSplitViewController, NSSplitViewDelegate, NSSplitViewItem, NSSpringLoadingDestination, NSStackView, NSStackViewDelegate, NSStandardKeyBindingResponding, NSStatusBar, NSStatusBarButton, NSStatusItem, NSStepper, NSStepperCell, NSStepperTouchBarItem, NSStoryboard, NSStoryboardSegue, NSString, NSStringDrawingContext, NSSwitch, NSTabView, NSTabViewController, NSTabViewDelegate, NSTabViewItem, NSTableCellView, NSTableColumn, NSTableHeaderCell, NSTableHeaderView, NSTableRowView, NSTableView, NSTableViewDataSource, NSTableViewDelegate, NSTableViewRowAction, NSText, NSTextAlternatives, NSTextAttachment, NSTextAttachmentCell, NSTextAttachmentContainer, NSTextBlock, NSTextCheckingClient, NSTextCheckingController, NSTextCheckingKey, NSTextCheckingResult, NSTextContainer, NSTextDelegate, NSTextField, NSTextFieldCell, NSTextFieldDelegate, NSTextFinder, NSTextFinderBarContainer, NSTextFinderClient, NSTextInput, NSTextInputClient, NSTextInputContext, NSTextInputTraits, NSTextLayoutOrientationProvider, NSTextList, NSTextStorage, NSTextStorageDelegate, NSTextTab, NSTextTable, NSTextTableBlock, NSTextView, NSTextViewDelegate, NSTimeZone, NSTitlebarAccessoryViewController, NSTokenField, NSTokenFieldCell, NSTokenFieldCellDelegate, NSTokenFieldDelegate, NSToolbar, NSToolbarDelegate, NSToolbarItem, NSToolbarItemGroup, NSToolbarItemValidation, NSTouch, NSTouchBar, NSTouchBarDelegate, NSTouchBarItem, NSTouchBarProvider, NSTrackingArea, NSTreeController, NSTreeNode, NSTypesetter, NSURL, NSURLComponents, NSURLConnection, NSURLConnectionDataDelegate, NSURLConnectionDelegate, NSURLConnectionDownloadDelegate, NSURLDownload, NSURLDownloadDelegate, NSURLHandle, NSURLQueryItem, NSURLRequest, NSURLSessionWebSocketMessage, NSUUID, NSUbiquitousKeyValueStore, NSUniqueIDSpecifier, NSUnitInformationStorage, NSUserActivity, NSUserActivityDelegate, NSUserActivityRestoring, NSUserAppleScriptTask, NSUserAutomatorTask, NSUserDefaultsController, NSUserInterfaceCompression, NSUserInterfaceCompressionOptions, NSUserInterfaceItemIdentification, NSUserInterfaceItemSearching, NSUserInterfaceValidations, NSUserNotification, NSUserNotificationAction, NSUserNotificationCenter, NSUserNotificationCenterDelegate, NSUserScriptTask, NSUserUnixTask, NSValidatedUserInterfaceItem, NSValue, NSValueTransformerName, NSView, NSViewAnimation, NSViewController, NSViewControllerPresentationAnimator, NSViewLayerContentScaleDelegate, NSViewToolTipOwner, NSVisualEffectView, NSWhoseSpecifier, NSWindow, NSWindowController, NSWindowDelegate, NSWindowRestoration, NSWindowTab, NSWindowTabGroup, NSWorkspace, NSXPCCoder, NSXPCConnection, NSXPCInterface, NSXPCListener, NSXPCListenerDelegate, NSXPCListenerEndpoint, NSXPCProxyCreating, NetService, NetServiceBrowser, NetServiceBrowserDelegate, NetServiceDelegate, NotificationCenter, NotificationQueue, NumberFormatter, OpenConfiguration, Operation, OperationQueue, OutputStream, PersonNameComponentsFormatter, Pipe, Port, PortDelegate, PortMessage, Process, ProcessInfo, Progress, ProgressKind, ProgressReporting, ProgressUserInfoKey, PropertyListSerialization, QLPreviewItem, QLPreviewPanel, QLPreviewPanelDataSource, QLPreviewPanelDelegate, QLPreviewView, QLPreviewingController, QuartzFilter, QuartzFilterManager, QuartzFilterView, RelativeDateTimeFormatter, RunLoop, Scanner, SearchParameters, SocketPort, Stream, StreamDelegate, StreamNetworkServiceTypeValue, StreamSOCKSProxyConfiguration, StreamSOCKSProxyVersion, StreamSocketSecurityLevel, StringEncodingDetectionOptionsKey, StringTransform, SystemPressureState, Thread, Timer, URLAuthenticationChallenge, URLAuthenticationChallengeSender, URLCache, URLCredential, URLCredentialStorage, URLFileProtection, URLFileResourceType, URLProtectionSpace, URLProtocol, URLProtocolClient, URLResourceKey, URLResponse, URLSession, URLSessionConfiguration, URLSessionDataDelegate, URLSessionDataTask, URLSessionDelegate, URLSessionDownloadDelegate, URLSessionDownloadTask, URLSessionStreamDelegate, URLSessionStreamTask, URLSessionTask, URLSessionTaskDelegate, URLSessionTaskMetrics, URLSessionTaskTransactionMetrics, URLSessionUploadTask, URLSessionWebSocketDelegate, URLSessionWebSocketTask, URLThumbnailDictionaryItem, URLUbiquitousItemDownloadingStatus, URLUbiquitousSharedItemPermissions, URLUbiquitousSharedItemRole, UndoManager, Unit, UnitAcceleration, UnitAngle, UnitArea, UnitConcentrationMass, UnitConverter, UnitConverterLinear, UnitDispersion, UnitDuration, UnitElectricCharge, UnitElectricCurrent, UnitElectricPotentialDifference, UnitElectricResistance, UnitEnergy, UnitFrequency, UnitFuelEfficiency, UnitIlluminance, UnitLength, UnitMass, UnitPower, UnitPressure, UnitSpeed, UnitTemperature, UnitVolume, UserDefaults, ValueTransformer, XMLDTD, XMLDTDNode, XMLDocument, XMLElement, XMLNode, XMLParser, XMLParserDelegate };

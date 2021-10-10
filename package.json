@@ -55,7 +55,9 @@
   },
   "files": [
     "dist",
-    "src",
+    "lib",
+    "types",
+    "components",
     "scripts",
     "vendor",
     "templates",

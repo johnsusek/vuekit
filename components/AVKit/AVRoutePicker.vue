@@ -9,13 +9,16 @@ export default defineComponent({
 
   props: {
     'delegate': {
-      type: Object as PropType<AVRoutePickerViewDelegate>
+      type: Object as PropType<AVRoutePickerViewDelegate>,
+      default: () => undefined
     },
     'player': {
-      type: Object as PropType<AVPlayer>
+      type: Object as PropType<AVPlayer>,
+      default: () => undefined
     },
     'is-route-picker-button-bordered': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

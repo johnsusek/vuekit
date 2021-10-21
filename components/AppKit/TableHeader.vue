@@ -9,7 +9,8 @@ export default defineComponent({
 
   props: {
     'table-view': {
-      type: Object as PropType<NSTableView>
+      type: Object as PropType<NSTableView>,
+      default: () => undefined
     },
   },
 

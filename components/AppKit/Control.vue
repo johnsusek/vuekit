@@ -9,76 +9,100 @@ export default defineComponent({
 
   props: {
     'action': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'alignment': {
-      type: String as PropType<keyof typeof NSTextAlignment>
+      type: String as PropType<keyof typeof NSTextAlignment>,
+      default: () => undefined
     },
     'allows-expansion-tool-tips': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'attributed-string-value': {
-      type: Object as PropType<NSAttributedString>
+      type: Object as PropType<NSAttributedString>,
+      default: () => undefined
     },
     'base-writing-direction': {
-      type: String as PropType<keyof typeof NSWritingDirection>
+      type: String as PropType<keyof typeof NSWritingDirection>,
+      default: () => undefined
     },
     'cell': {
-      type: Object as PropType<typeof NSCell>
+      type: Object as PropType<typeof NSCell>,
+      default: () => undefined
     },
     'is-continuous': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>
+      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      default: () => undefined
     },
     'double-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'is-enabled': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'float-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'font': {
-      type: Object as PropType<NSFont>
+      type: Object as PropType<NSFont>,
+      default: () => undefined
     },
     'formatter': {
-      type: Object as PropType<typeof Formatter>
+      type: Object as PropType<typeof Formatter>,
+      default: () => undefined
     },
     'is-highlighted': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'ignores-multi-click': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'int-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'integer-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'line-break-mode': {
-      type: String as PropType<keyof typeof NSLineBreakMode>
+      type: String as PropType<keyof typeof NSLineBreakMode>,
+      default: () => undefined
     },
     'object-value': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'refuses-first-responder': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'string-value': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'tag': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'target': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'uses-single-line-mode': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

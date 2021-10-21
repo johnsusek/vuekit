@@ -9,13 +9,16 @@ export default defineComponent({
 
   props: {
     'autoenables-items': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'preferred-edge': {
-      type: String as PropType<keyof typeof NSRectEdge>
+      type: String as PropType<keyof typeof NSRectEdge>,
+      default: () => undefined
     },
     'pulls-down': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

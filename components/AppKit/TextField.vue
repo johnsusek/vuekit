@@ -9,58 +9,76 @@ export default defineComponent({
 
   props: {
     'allows-character-picker-touch-bar-item': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-default-tightening-for-truncation': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-editing-text-attributes': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-automatic-text-completion-enabled': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'bezel-style': {
-      type: String as PropType<keyof typeof NSTextField.BezelStyle>
+      type: String as PropType<keyof typeof NSTextField.BezelStyle>,
+      default: () => undefined
     },
     'is-bezeled': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-bordered': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSTextFieldDelegate>
+      type: Object as PropType<NSTextFieldDelegate>,
+      default: () => undefined
     },
     'draws-background': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-editable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'imports-graphics': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'maximum-number-of-lines': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'placeholder-attributed-string': {
-      type: Object as PropType<NSAttributedString>
+      type: Object as PropType<NSAttributedString>,
+      default: () => undefined
     },
     'placeholder-string': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'preferred-max-layout-width': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'is-selectable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'text-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
   },
 

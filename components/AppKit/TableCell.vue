@@ -9,19 +9,24 @@ export default defineComponent({
 
   props: {
     'background-style': {
-      type: String as PropType<keyof typeof NSView.BackgroundStyle>
+      type: String as PropType<keyof typeof NSView.BackgroundStyle>,
+      default: () => undefined
     },
     'image-view': {
-      type: Object as PropType<NSImageView>
+      type: Object as PropType<NSImageView>,
+      default: () => undefined
     },
     'object-value': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'row-size-style': {
-      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>
+      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>,
+      default: () => undefined
     },
     'text-field': {
-      type: Object as PropType<NSTextField>
+      type: Object as PropType<NSTextField>,
+      default: () => undefined
     },
   },
 

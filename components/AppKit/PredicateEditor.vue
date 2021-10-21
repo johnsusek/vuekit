@@ -9,7 +9,8 @@ export default defineComponent({
 
   props: {
     'row-templates': {
-      type: Object as PropType<NSPredicateEditorRowTemplate[]>
+      type: Object as PropType<NSPredicateEditorRowTemplate[]>,
+      default: () => undefined
     },
   },
 

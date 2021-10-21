@@ -9,73 +9,96 @@ export default defineComponent({
 
   props: {
     'allows-mixed-state': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'alternate-image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'alternate-title': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'attributed-alternate-title': {
-      type: Object as PropType<NSAttributedString>
+      type: Object as PropType<NSAttributedString>,
+      default: () => undefined
     },
     'attributed-title': {
-      type: Object as PropType<NSAttributedString>
+      type: Object as PropType<NSAttributedString>,
+      default: () => undefined
     },
     'bezel-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'bezel-style': {
-      type: String as PropType<keyof typeof NSButton.BezelStyle>
+      type: String as PropType<keyof typeof NSButton.BezelStyle>,
+      default: () => undefined
     },
     'is-bordered': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'content-tint-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'image-hugs-title': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'image-position': {
-      type: String as PropType<keyof typeof NSControl.ImagePosition>
+      type: String as PropType<keyof typeof NSControl.ImagePosition>,
+      default: () => undefined
     },
     'image-scaling': {
-      type: String as PropType<keyof typeof NSImageScaling>
+      type: String as PropType<keyof typeof NSImageScaling>,
+      default: () => undefined
     },
     'key-equivalent': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'key-equivalent-modifier-mask': {
-      type: String as PropType<keyof typeof NSEvent.ModifierFlags>
+      type: String as PropType<keyof typeof NSEvent.ModifierFlags>,
+      default: () => undefined
     },
     'max-accelerator-level': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'shows-border-only-while-mouse-inside': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'sound': {
-      type: Object as PropType<NSSound>
+      type: Object as PropType<NSSound>,
+      default: () => undefined
     },
     'is-spring-loaded': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'state': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'title': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'is-transparent': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'button-type': {
-      type: Object as PropType<NSButton.ButtonType>
+      type: Object as PropType<NSButton.ButtonType>,
+      default: () => undefined
     },
   },
 

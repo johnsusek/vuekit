@@ -9,88 +9,116 @@ export default defineComponent({
 
   props: {
     'allows-branch-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-empty-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-type-select': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autohides-scroller': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'cell-prototype': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'column-resizing-type': {
-      type: String as PropType<keyof typeof NSBrowser.ColumnResizingType>
+      type: String as PropType<keyof typeof NSBrowser.ColumnResizingType>,
+      default: () => undefined
     },
     'columns-autosave-name': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSBrowserDelegate>
+      type: Object as PropType<NSBrowserDelegate>,
+      default: () => undefined
     },
     'double-action': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'last-column': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'max-visible-columns': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'min-column-width': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'path-separator': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'prefers-all-column-user-resizing': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'reuses-columns': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'row-height': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'selection-index-path': {
-      type: Object as PropType<NSIndexPath>
+      type: Object as PropType<NSIndexPath>,
+      default: () => undefined
     },
     'selection-index-paths': {
-      type: Object as PropType<NSIndexPath[]>
+      type: Object as PropType<NSIndexPath[]>,
+      default: () => undefined
     },
     'sends-action-on-arrow-keys': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'separates-columns': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'takes-title-from-previous-column': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-titled': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'cell-class': {
-      type: Object as PropType<NSObject>
+      type: Object as PropType<NSObject>,
+      default: () => undefined
     },
     'default-column-width': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'path': {
-      type: String
+      type: String,
+      default: () => undefined
     },
   },
 

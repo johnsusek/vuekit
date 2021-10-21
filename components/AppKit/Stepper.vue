@@ -9,19 +9,24 @@ export default defineComponent({
 
   props: {
     'autorepeat': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'increment': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'max-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'min-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'value-wraps': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

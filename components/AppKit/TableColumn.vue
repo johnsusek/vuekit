@@ -1,51 +1,56 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import Control from './Control.vue';
 
 export default defineComponent({
-  name: 'PathControl',
-
-  extends: { Control },
+  name: 'TableColumn',
 
   props: {
-    'url': {
-      type: Object as PropType<NSURL>,
-      default: () => undefined
-    },
-    'allowed-types': {
-      type: Object as PropType<string[]>,
-      default: () => undefined
-    },
-    'background-color': {
-      type: Object as PropType<NSColor>,
-      default: () => undefined
-    },
-    'delegate': {
-      type: Object as PropType<NSPathControlDelegate>,
-      default: () => undefined
-    },
-    'double-action': {
-      type: String,
+    'data-cell': {
+      type: Object as PropType<any>,
       default: () => undefined
     },
     'is-editable': {
       type: Boolean,
       default: () => undefined
     },
-    'path-items': {
-      type: Object as PropType<NSPathControlItem[]>,
+    'header-cell': {
+      type: Object as PropType<typeof NSTableHeaderCell>,
       default: () => undefined
     },
-    'path-style': {
-      type: String as PropType<keyof typeof NSPathControl.Style>,
-      default: () => undefined
-    },
-    'placeholder-attributed-string': {
-      type: Object as PropType<NSAttributedString>,
-      default: () => undefined
-    },
-    'placeholder-string': {
+    'header-tool-tip': {
       type: String,
+      default: () => undefined
+    },
+    'is-hidden': {
+      type: Boolean,
+      default: () => undefined
+    },
+    'max-width': {
+      type: Number,
+      default: () => undefined
+    },
+    'min-width': {
+      type: Number,
+      default: () => undefined
+    },
+    'resizing-mask': {
+      type: String as PropType<keyof typeof NSTableColumn.ResizingOptions>,
+      default: () => undefined
+    },
+    'sort-descriptor-prototype': {
+      type: Object as PropType<NSSortDescriptor>,
+      default: () => undefined
+    },
+    'table-view': {
+      type: Object as PropType<NSTableView>,
+      default: () => undefined
+    },
+    'title': {
+      type: String,
+      default: () => undefined
+    },
+    'width': {
+      type: Number,
       default: () => undefined
     },
   },
@@ -55,7 +60,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        pathStyle: NSPathControl.Style,
+        resizingMask: NSTableColumn.ResizingOptions,
       };
 
       for (const [propName, propType] of Object.entries(types)) {
@@ -69,7 +74,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('PathControl', this.attrs, this.$slots);
+    return h('TableColumn', this.attrs, this.$slots);
   }
 });
 </script>

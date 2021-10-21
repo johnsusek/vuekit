@@ -9,19 +9,24 @@ export default defineComponent({
 
   props: {
     'blending-mode': {
-      type: String as PropType<keyof typeof NSVisualEffectView.BlendingMode>
+      type: String as PropType<keyof typeof NSVisualEffectView.BlendingMode>,
+      default: () => undefined
     },
     'is-emphasized': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'mask-image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'material': {
-      type: String as PropType<keyof typeof NSVisualEffectView.Material>
+      type: String as PropType<keyof typeof NSVisualEffectView.Material>,
+      default: () => undefined
     },
     'state': {
-      type: String as PropType<keyof typeof NSVisualEffectView.State>
+      type: String as PropType<keyof typeof NSVisualEffectView.State>,
+      default: () => undefined
     },
   },
 

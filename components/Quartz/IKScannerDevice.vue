@@ -9,43 +9,56 @@ export default defineComponent({
 
   props: {
     'delegate': {
-      type: Object as PropType<IKScannerDeviceViewDelegate>
+      type: Object as PropType<IKScannerDeviceViewDelegate>,
+      default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'document-name': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'downloads-directory': {
-      type: Object as PropType<NSURL>
+      type: Object as PropType<NSURL>,
+      default: () => undefined
     },
     'has-display-mode-advanced': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'has-display-mode-simple': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKScannerDeviceViewDisplayMode>
+      type: String as PropType<keyof typeof IKScannerDeviceViewDisplayMode>,
+      default: () => undefined
     },
     'overview-control-label': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'post-process-application': {
-      type: Object as PropType<NSURL>
+      type: Object as PropType<NSURL>,
+      default: () => undefined
     },
     'scan-control-label': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'scanner-device': {
-      type: Object as PropType<ICScannerDevice>
+      type: Object as PropType<ICScannerDevice>,
+      default: () => undefined
     },
     'transfer-mode': {
-      type: String as PropType<keyof typeof IKScannerDeviceViewTransferMode>
+      type: String as PropType<keyof typeof IKScannerDeviceViewTransferMode>,
+      default: () => undefined
     },
   },
 

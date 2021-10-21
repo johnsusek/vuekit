@@ -9,13 +9,16 @@ export default defineComponent({
 
   props: {
     'controls-style': {
-      type: String as PropType<keyof typeof AVCaptureViewControlsStyle>
+      type: String as PropType<keyof typeof AVCaptureViewControlsStyle>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<AVCaptureViewDelegate>
+      type: Object as PropType<AVCaptureViewDelegate>,
+      default: () => undefined
     },
     'video-gravity': {
-      type: String
+      type: String,
+      default: () => undefined
     },
   },
 

@@ -9,94 +9,124 @@ export default defineComponent({
 
   props: {
     'allows-column-reordering': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-column-resizing': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-column-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-empty-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-type-select': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autosave-name': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'autosave-table-columns': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'column-autoresizing-style': {
-      type: String as PropType<keyof typeof NSTableView.ColumnAutoresizingStyle>
+      type: String as PropType<keyof typeof NSTableView.ColumnAutoresizingStyle>,
+      default: () => undefined
     },
     'corner-view': {
-      type: Object as PropType<NSView>
+      type: Object as PropType<NSView>,
+      default: () => undefined
     },
     'data-source': {
-      type: Object as PropType<NSTableViewDataSource>
+      type: Object as PropType<NSTableViewDataSource>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSTableViewDelegate>
+      type: Object as PropType<NSTableViewDelegate>,
+      default: () => undefined
     },
     'double-action': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'dragging-destination-feedback-style': {
-      type: String as PropType<keyof typeof NSTableView.DraggingDestinationFeedbackStyle>
+      type: String as PropType<keyof typeof NSTableView.DraggingDestinationFeedbackStyle>,
+      default: () => undefined
     },
     'floats-group-rows': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'grid-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'grid-style-mask': {
-      type: String as PropType<keyof typeof NSTableView.GridLineStyle>
+      type: String as PropType<keyof typeof NSTableView.GridLineStyle>,
+      default: () => undefined
     },
     'header-view': {
-      type: Object as PropType<NSTableHeaderView>
+      type: Object as PropType<NSTableHeaderView>,
+      default: () => undefined
     },
     'highlighted-table-column': {
-      type: Object as PropType<NSTableColumn>
+      type: Object as PropType<NSTableColumn>,
+      default: () => undefined
     },
     'intercell-spacing': {
-      type: Object as PropType<CGSize>
+      type: Object as PropType<CGSize>,
+      default: () => undefined
     },
     'row-actions-visible': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'row-height': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'row-size-style': {
-      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>
+      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>,
+      default: () => undefined
     },
     'selection-highlight-style': {
-      type: String as PropType<keyof typeof NSTableView.SelectionHighlightStyle>
+      type: String as PropType<keyof typeof NSTableView.SelectionHighlightStyle>,
+      default: () => undefined
     },
     'sort-descriptors': {
-      type: Object as PropType<NSSortDescriptor[]>
+      type: Object as PropType<NSSortDescriptor[]>,
+      default: () => undefined
     },
     'uses-alternating-row-background-colors': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'uses-automatic-row-heights': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'uses-static-contents': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'vertical-motion-can-begin-drag': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

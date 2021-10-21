@@ -717,6 +717,22 @@
       "text-field"
     ]
   },
+  "TableColumn": {
+    "attributes": [
+      "is-editable",
+      "header-cell",
+      "header-tool-tip",
+      "is-hidden",
+      "max-width",
+      "min-width",
+      "resizing-mask",
+      "sort-descriptor-prototype",
+      "table-view",
+      "title",
+      "width",
+      "data-cell"
+    ]
+  },
   "TableHeader": {
     "attributes": [
       "dragged-column",

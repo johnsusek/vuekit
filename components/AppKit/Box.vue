@@ -9,40 +9,52 @@ export default defineComponent({
 
   props: {
     'border-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'border-width': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'box-type': {
-      type: String as PropType<keyof typeof NSBox.BoxType>
+      type: String as PropType<keyof typeof NSBox.BoxType>,
+      default: () => undefined
     },
     'content-view': {
-      type: Object as PropType<typeof NSView>
+      type: Object as PropType<typeof NSView>,
+      default: () => undefined
     },
     'content-view-margins': {
-      type: Object as PropType<CGSize>
+      type: Object as PropType<CGSize>,
+      default: () => undefined
     },
     'corner-radius': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'fill-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'title': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'title-font': {
-      type: Object as PropType<NSFont>
+      type: Object as PropType<NSFont>,
+      default: () => undefined
     },
     'title-position': {
-      type: String as PropType<keyof typeof NSBox.TitlePosition>
+      type: String as PropType<keyof typeof NSBox.TitlePosition>,
+      default: () => undefined
     },
     'is-transparent': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'frame-from-content-frame': {
-      type: Object as PropType<CGRect>
+      type: Object as PropType<CGRect>,
+      default: () => undefined
     },
   },
 

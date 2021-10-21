@@ -9,25 +9,32 @@ export default defineComponent({
 
   props: {
     'segment-count': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'segment-distribution': {
-      type: String as PropType<keyof typeof NSSegmentedControl.Distribution>
+      type: String as PropType<keyof typeof NSSegmentedControl.Distribution>,
+      default: () => undefined
     },
     'segment-style': {
-      type: String as PropType<keyof typeof NSSegmentedControl.Style>
+      type: String as PropType<keyof typeof NSSegmentedControl.Style>,
+      default: () => undefined
     },
     'selected-segment': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'selected-segment-bezel-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'is-spring-loaded': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'tracking-mode': {
-      type: String as PropType<keyof typeof NSSegmentedControl.SwitchTracking>
+      type: String as PropType<keyof typeof NSSegmentedControl.SwitchTracking>,
+      default: () => undefined
     },
   },
 

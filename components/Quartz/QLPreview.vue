@@ -9,16 +9,20 @@ export default defineComponent({
 
   props: {
     'autostarts': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'display-state': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'preview-item': {
-      type: Object as PropType<QLPreviewItem>
+      type: Object as PropType<QLPreviewItem>,
+      default: () => undefined
     },
     'should-close-with-window': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

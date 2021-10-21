@@ -9,43 +9,56 @@ export default defineComponent({
 
   props: {
     'allows-empty-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-colors': {
-      type: Object as PropType<NSColor[]>
+      type: Object as PropType<NSColor[]>,
+      default: () => undefined
     },
     'background-view': {
-      type: Object as PropType<NSView>
+      type: Object as PropType<NSView>,
+      default: () => undefined
     },
     'background-view-scrolls-with-content': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'collection-view-layout': {
-      type: Object as PropType<typeof NSCollectionViewLayout>
+      type: Object as PropType<typeof NSCollectionViewLayout>,
+      default: () => undefined
     },
     'content': {
-      type: Object as PropType<any[]>
+      type: Object as PropType<any[]>,
+      default: () => undefined
     },
     'data-source': {
-      type: Object as PropType<NSCollectionViewDataSource>
+      type: Object as PropType<NSCollectionViewDataSource>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSCollectionViewDelegate>
+      type: Object as PropType<NSCollectionViewDelegate>,
+      default: () => undefined
     },
     'prefetch-data-source': {
-      type: Object as PropType<NSCollectionViewPrefetching>
+      type: Object as PropType<NSCollectionViewPrefetching>,
+      default: () => undefined
     },
     'is-selectable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'selection-index-paths': {
-      type: Function as PropType<() => void>
+      type: Function as PropType<() => void>,
+      default: () => undefined
     },
     'selection-indexes': {
-      type: Object as PropType<NSIndexSet>
+      type: Object as PropType<NSIndexSet>,
+      default: () => undefined
     },
   },
 

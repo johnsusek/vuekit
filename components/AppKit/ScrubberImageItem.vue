@@ -9,10 +9,12 @@ export default defineComponent({
 
   props: {
     'image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'image-alignment': {
-      type: String as PropType<keyof typeof NSImageAlignment>
+      type: String as PropType<keyof typeof NSImageAlignment>,
+      default: () => undefined
     },
   },
 

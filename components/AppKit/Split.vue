@@ -9,19 +9,24 @@ export default defineComponent({
 
   props: {
     'arranges-all-subviews': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autosave-name': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSSplitViewDelegate>
+      type: Object as PropType<NSSplitViewDelegate>,
+      default: () => undefined
     },
     'divider-style': {
-      type: String as PropType<keyof typeof NSSplitView.DividerStyle>
+      type: String as PropType<keyof typeof NSSplitView.DividerStyle>,
+      default: () => undefined
     },
     'is-vertical': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

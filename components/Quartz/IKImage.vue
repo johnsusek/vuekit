@@ -9,46 +9,60 @@ export default defineComponent({
 
   props: {
     'autohides-scrollers': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autoresizes': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'current-tool-mode': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'double-click-opens-image-edit-panel': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'editable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'image-correction': {
-      type: Object as PropType<CIFilter>
+      type: Object as PropType<CIFilter>,
+      default: () => undefined
     },
     'rotation-angle': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'supports-drag-and-drop': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'zoom-factor': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'image-with': {
-      type: Object as PropType<NSURL>
+      type: Object as PropType<NSURL>,
+      default: () => undefined
     },
   },
 

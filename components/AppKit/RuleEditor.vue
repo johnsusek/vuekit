@@ -9,40 +9,52 @@ export default defineComponent({
 
   props: {
     'can-remove-all-rows': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'criteria-key-path': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSRuleEditorDelegate>
+      type: Object as PropType<NSRuleEditorDelegate>,
+      default: () => undefined
     },
     'display-values-key-path': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'is-editable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'formatting-dictionary': {
-      type: Object as PropType<Map<string, string>>
+      type: Object as PropType<Map<string, string>>,
+      default: () => undefined
     },
     'formatting-strings-filename': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'nesting-mode': {
-      type: String as PropType<keyof typeof NSRuleEditor.NestingMode>
+      type: String as PropType<keyof typeof NSRuleEditor.NestingMode>,
+      default: () => undefined
     },
     'row-class': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'row-height': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'row-type-key-path': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'subrows-key-path': {
-      type: String
+      type: String,
+      default: () => undefined
     },
   },
 

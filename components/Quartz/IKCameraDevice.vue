@@ -9,43 +9,56 @@ export default defineComponent({
 
   props: {
     'camera-device': {
-      type: Object as PropType<ICCameraDevice>
+      type: Object as PropType<ICCameraDevice>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<IKCameraDeviceViewDelegate>
+      type: Object as PropType<IKCameraDeviceViewDelegate>,
+      default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'download-all-control-label': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'download-selected-control-label': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'downloads-directory': {
-      type: Object as PropType<NSURL>
+      type: Object as PropType<NSURL>,
+      default: () => undefined
     },
     'has-display-mode-icon': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'has-display-mode-table': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'icon-size': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKCameraDeviceViewDisplayMode>
+      type: String as PropType<keyof typeof IKCameraDeviceViewDisplayMode>,
+      default: () => undefined
     },
     'post-process-application': {
-      type: Object as PropType<NSURL>
+      type: Object as PropType<NSURL>,
+      default: () => undefined
     },
     'transfer-mode': {
-      type: String as PropType<keyof typeof IKCameraDeviceViewTransferMode>
+      type: String as PropType<keyof typeof IKCameraDeviceViewTransferMode>,
+      default: () => undefined
     },
   },
 

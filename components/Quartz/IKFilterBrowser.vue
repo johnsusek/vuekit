@@ -9,7 +9,8 @@ export default defineComponent({
 
   props: {
     'preview-state': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

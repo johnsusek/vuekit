@@ -9,31 +9,40 @@ export default defineComponent({
 
   props: {
     'is-button-bordered': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'completes': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'data-source': {
-      type: Object as PropType<NSComboBoxDataSource>
+      type: Object as PropType<NSComboBoxDataSource>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSComboBoxDelegate>
+      type: Object as PropType<NSComboBoxDelegate>,
+      default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'intercell-spacing': {
-      type: Object as PropType<CGSize>
+      type: Object as PropType<CGSize>,
+      default: () => undefined
     },
     'item-height': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'number-of-visible-items': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'uses-data-source': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

@@ -9,34 +9,44 @@ export default defineComponent({
 
   props: {
     'is-bezeled': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>
+      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      default: () => undefined
     },
     'control-tint': {
-      type: String as PropType<keyof typeof NSControlTint>
+      type: String as PropType<keyof typeof NSControlTint>,
+      default: () => undefined
     },
     'is-displayed-when-stopped': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'double-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'is-indeterminate': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'max-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'min-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'style': {
-      type: String as PropType<keyof typeof NSProgressIndicator.Style>
+      type: String as PropType<keyof typeof NSProgressIndicator.Style>,
+      default: () => undefined
     },
     'uses-threaded-animation': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

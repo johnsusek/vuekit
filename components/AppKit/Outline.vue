@@ -9,28 +9,36 @@ export default defineComponent({
 
   props: {
     'autoresizes-outline-column': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autosave-expanded-items': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'data-source': {
-      type: Object as PropType<NSOutlineViewDataSource>
+      type: Object as PropType<NSOutlineViewDataSource>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSOutlineViewDelegate>
+      type: Object as PropType<NSOutlineViewDelegate>,
+      default: () => undefined
     },
     'indentation-marker-follows-cell': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'indentation-per-level': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'outline-table-column': {
-      type: Object as PropType<NSTableColumn>
+      type: Object as PropType<NSTableColumn>,
+      default: () => undefined
     },
     'strongly-references-items': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

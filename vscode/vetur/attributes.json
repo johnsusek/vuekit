@@ -1864,6 +1864,46 @@
   "TableCell/text-field": {
     "type": "NSTextField"
   },
+  "TableColumn/is-editable": {
+    "type": "boolean"
+  },
+  "TableColumn/header-cell": {
+    "type": "NSTableHeaderCell"
+  },
+  "TableColumn/header-tool-tip": {
+    "type": "String"
+  },
+  "TableColumn/is-hidden": {
+    "type": "boolean"
+  },
+  "TableColumn/max-width": {
+    "type": "number"
+  },
+  "TableColumn/min-width": {
+    "type": "number"
+  },
+  "TableColumn/resizing-mask": {
+    "options": [
+      "NoResizing",
+      "AutoresizingMask",
+      "UserResizingMask"
+    ]
+  },
+  "TableColumn/sort-descriptor-prototype": {
+    "type": "NSSortDescriptor"
+  },
+  "TableColumn/table-view": {
+    "type": "NSTableView"
+  },
+  "TableColumn/title": {
+    "type": "String"
+  },
+  "TableColumn/width": {
+    "type": "number"
+  },
+  "TableColumn/data-cell": {
+    "type": "Id"
+  },
   "TableHeader/dragged-column": {
     "type": "number"
   },

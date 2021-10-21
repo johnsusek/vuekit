@@ -9,13 +9,16 @@ export default defineComponent({
 
   props: {
     'knob-proportion': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'knob-style': {
-      type: String as PropType<keyof typeof NSScroller.KnobStyle>
+      type: String as PropType<keyof typeof NSScroller.KnobStyle>,
+      default: () => undefined
     },
     'scroller-style': {
-      type: String as PropType<keyof typeof NSScroller.Style>
+      type: String as PropType<keyof typeof NSScroller.Style>,
+      default: () => undefined
     },
   },
 

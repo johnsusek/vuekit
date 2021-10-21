@@ -9,34 +9,44 @@ export default defineComponent({
 
   props: {
     'accessory-view': {
-      type: Object as PropType<NSView>
+      type: Object as PropType<NSView>,
+      default: () => undefined
     },
     'client-view': {
-      type: Object as PropType<NSView>
+      type: Object as PropType<NSView>,
+      default: () => undefined
     },
     'markers': {
-      type: Object as PropType<NSRulerMarker[]>
+      type: Object as PropType<NSRulerMarker[]>,
+      default: () => undefined
     },
     'measurement-units': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'orientation': {
-      type: String as PropType<keyof typeof NSRulerView.Orientation>
+      type: String as PropType<keyof typeof NSRulerView.Orientation>,
+      default: () => undefined
     },
     'origin-offset': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'reserved-thickness-for-accessory-view': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'reserved-thickness-for-markers': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'rule-thickness': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'scroll-view': {
-      type: Object as PropType<NSScrollView>
+      type: Object as PropType<NSScrollView>,
+      default: () => undefined
     },
   },
 

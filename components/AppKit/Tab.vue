@@ -9,31 +9,40 @@ export default defineComponent({
 
   props: {
     'allows-truncated-labels': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>
+      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSTabViewDelegate>
+      type: Object as PropType<NSTabViewDelegate>,
+      default: () => undefined
     },
     'draws-background': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'font': {
-      type: Object as PropType<NSFont>
+      type: Object as PropType<NSFont>,
+      default: () => undefined
     },
     'tab-position': {
-      type: String as PropType<keyof typeof NSTabView.TabPosition>
+      type: String as PropType<keyof typeof NSTabView.TabPosition>,
+      default: () => undefined
     },
     'tab-view-border-type': {
-      type: String as PropType<keyof typeof NSTabView.TabViewBorderType>
+      type: String as PropType<keyof typeof NSTabView.TabViewBorderType>,
+      default: () => undefined
     },
     'tab-view-items': {
-      type: Object as PropType<NSTabViewItem[]>
+      type: Object as PropType<NSTabViewItem[]>,
+      default: () => undefined
     },
     'tab-view-type': {
-      type: String as PropType<keyof typeof NSTabView.TabType>
+      type: String as PropType<keyof typeof NSTabView.TabType>,
+      default: () => undefined
     },
   },
 

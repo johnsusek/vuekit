@@ -9,37 +9,48 @@ export default defineComponent({
 
   props: {
     'action-pop-up-button-menu': {
-      type: Object as PropType<NSMenu>
+      type: Object as PropType<NSMenu>,
+      default: () => undefined
     },
     'allows-picture-in-picture-playback': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'controls-style': {
-      type: String as PropType<keyof typeof AVPlayerViewControlsStyle>
+      type: String as PropType<keyof typeof AVPlayerViewControlsStyle>,
+      default: () => undefined
     },
     'picture-in-picture-delegate': {
-      type: Object as PropType<AVPlayerViewPictureInPictureDelegate>
+      type: Object as PropType<AVPlayerViewPictureInPictureDelegate>,
+      default: () => undefined
     },
     'player': {
-      type: Object as PropType<AVPlayer>
+      type: Object as PropType<AVPlayer>,
+      default: () => undefined
     },
     'shows-frame-stepping-buttons': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'shows-full-screen-toggle-button': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'shows-sharing-service-button': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'shows-timecodes': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'updates-now-playing-info-center': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'video-gravity': {
-      type: String
+      type: String,
+      default: () => undefined
     },
   },
 

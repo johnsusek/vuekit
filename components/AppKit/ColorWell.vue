@@ -9,10 +9,12 @@ export default defineComponent({
 
   props: {
     'is-bordered': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
   },
 

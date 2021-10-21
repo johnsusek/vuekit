@@ -9,28 +9,36 @@ export default defineComponent({
 
   props: {
     'allows-cut-copy-paste': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'animates': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'content-tint-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'is-editable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'image-alignment': {
-      type: String as PropType<keyof typeof NSImageAlignment>
+      type: String as PropType<keyof typeof NSImageAlignment>,
+      default: () => undefined
     },
     'image-frame-style': {
-      type: String as PropType<keyof typeof NSImageView.FrameStyle>
+      type: String as PropType<keyof typeof NSImageView.FrameStyle>,
+      default: () => undefined
     },
     'image-scaling': {
-      type: String as PropType<keyof typeof NSImageScaling>
+      type: String as PropType<keyof typeof NSImageScaling>,
+      default: () => undefined
     },
   },
 

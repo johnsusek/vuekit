@@ -9,52 +9,68 @@ export default defineComponent({
 
   props: {
     'critical-fill-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'critical-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'draws-tiered-capacity-levels': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-editable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'fill-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'level-indicator-style': {
-      type: String as PropType<keyof typeof NSLevelIndicator.Style>
+      type: String as PropType<keyof typeof NSLevelIndicator.Style>,
+      default: () => undefined
     },
     'max-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'min-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'number-of-major-tick-marks': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'number-of-tick-marks': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'placeholder-visibility': {
-      type: String as PropType<keyof typeof NSLevelIndicator.PlaceholderVisibility>
+      type: String as PropType<keyof typeof NSLevelIndicator.PlaceholderVisibility>,
+      default: () => undefined
     },
     'rating-image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'rating-placeholder-image': {
-      type: Object as PropType<NSImage>
+      type: Object as PropType<NSImage>,
+      default: () => undefined
     },
     'tick-mark-position': {
-      type: String as PropType<keyof typeof NSSlider.TickMarkPosition>
+      type: String as PropType<keyof typeof NSSlider.TickMarkPosition>,
+      default: () => undefined
     },
     'warning-fill-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'warning-value': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
   },
 

@@ -9,22 +9,28 @@ export default defineComponent({
 
   props: {
     'delegate': {
-      type: Object as PropType<IKDeviceBrowserViewDelegate>
+      type: Object as PropType<IKDeviceBrowserViewDelegate>,
+      default: () => undefined
     },
     'displays-local-cameras': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'displays-local-scanners': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'displays-network-cameras': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'displays-network-scanners': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKDeviceBrowserViewDisplayMode>
+      type: String as PropType<keyof typeof IKDeviceBrowserViewDisplayMode>,
+      default: () => undefined
     },
   },
 

@@ -9,64 +9,84 @@ export default defineComponent({
 
   props: {
     'allows-empty-selection': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autorecalculates-cell-size': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-autoscroll': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'autosizes-cells': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'cell-background-color': {
-      type: Object as PropType<NSColor>
+      type: Object as PropType<NSColor>,
+      default: () => undefined
     },
     'cell-class': {
-      type: Object as PropType<any>
+      type: Object as PropType<any>,
+      default: () => undefined
     },
     'cell-size': {
-      type: Object as PropType<CGSize>
+      type: Object as PropType<CGSize>,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSMatrixDelegate>
+      type: Object as PropType<NSMatrixDelegate>,
+      default: () => undefined
     },
     'double-action': {
-      type: String
+      type: String,
+      default: () => undefined
     },
     'draws-background': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'draws-cell-background': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'intercell-spacing': {
-      type: Object as PropType<CGSize>
+      type: Object as PropType<CGSize>,
+      default: () => undefined
     },
     'key-cell': {
-      type: Object as PropType<typeof NSCell>
+      type: Object as PropType<typeof NSCell>,
+      default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof NSMatrix.Mode>
+      type: String as PropType<keyof typeof NSMatrix.Mode>,
+      default: () => undefined
     },
     'prototype': {
-      type: Object as PropType<typeof NSCell>
+      type: Object as PropType<typeof NSCell>,
+      default: () => undefined
     },
     'is-selection-by-rect': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'tab-key-traverses-cells': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'scrollable': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'validate-size': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

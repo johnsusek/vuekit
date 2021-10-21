@@ -9,10 +9,12 @@ export default defineComponent({
 
   props: {
     'is-highlighted': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
     'is-selected': {
-      type: Boolean
+      type: Boolean,
+      default: () => undefined
     },
   },
 

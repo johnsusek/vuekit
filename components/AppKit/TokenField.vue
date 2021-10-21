@@ -9,16 +9,20 @@ export default defineComponent({
 
   props: {
     'completion-delay': {
-      type: Number
+      type: Number,
+      default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<NSTokenFieldDelegate>
+      type: Object as PropType<NSTokenFieldDelegate>,
+      default: () => undefined
     },
     'token-style': {
-      type: String as PropType<keyof typeof NSTokenField.TokenStyle>
+      type: String as PropType<keyof typeof NSTokenField.TokenStyle>,
+      default: () => undefined
     },
     'tokenizing-character-set': {
-      type: Object as PropType<NSCharacterSet>
+      type: Object as PropType<NSCharacterSet>,
+      default: () => undefined
     },
   },
 

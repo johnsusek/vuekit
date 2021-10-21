@@ -1,50 +1,36 @@
 import { createRenderer } from '@vue/runtime-core';
-import { setNodeValue } from './setNodeValue';
-import { createElement } from './createElement';
-import { addToParentView } from './addToParentView';
-import { addToParentNode } from './addToParentNode';
+import { setInstanceValue } from './setInstanceValue';
+import { addNodeToParentView, addNodeToParentNode } from './addNodeToParent';
+import constraints from './plugins/constraints';
+import { createNode } from './createNode';
 
 let windows = new Set();
 
 const nodeOps = {
-  createRoot() {
-    return {};
+  createElement(tag: string, _?: boolean, __?: string, props?: VueKitNodeProps) {
+    return createNode(tag, props);
   },
 
-  createElement,
-
   insert(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode | null) {
-    // console.log(`Inserting ${el.key}`, el);
-
-    let gravity;
-
-    if (node.props?.isBottomSlotChildP) {
-      gravity = NSStackView.Gravity.Bottom;
-    }
-
-    if (node.props?.isBottomSlotP) {
-      gravity = NSStackView.Gravity.Bottom;
-    }
-
-    addToParentView(node, parent, anchor, gravity);
-
-    if (node.type === 'NSWindow') {
+    if (node.instance instanceof NSWindow) {
       windows.add(node);
     }
     else {
-      addToParentNode(node, parent, anchor);
+      addNodeToParentView(node, parent, anchor);
+      addNodeToParentNode(node, parent, anchor);
     }
   },
 
   remove(node: VueKitNode) {
-    if (node.type === 'NSWindow') {
+    if (node.instance instanceof NSWindow) {
       windows.delete(node);
-      // TODO: additional window cleanup
     }
 
-    if (node.view) node.view.removeFromSuperview();
+    if (node.instance instanceof NSView) {
+      node.instance.removeFromSuperview();
+    }
 
-    if (node.parent && node.parent?.children.length > 0) {
+    if (node.parent?.children?.length > 0) {
       let { children } = node.parent;
       let idx = node.parent.children.indexOf(node);
       // console.log('Before remove... el.parent.children is', el.parent.children);
@@ -56,7 +42,10 @@ const nodeOps = {
   },
 
   patchProp(node: VueKitNode, key: string, _: any, nextValue: any) {
-    setNodeValue(node, key, nextValue, true);
+    // if (nextValue !== undefined) {
+    //   console.log('patch prop', key);
+    // }
+    setInstanceValue(node, key, nextValue, true);
   },
 
   nextSibling(node: VueKitNode) {
@@ -78,11 +67,11 @@ const nodeOps = {
   // We create an empty node for text/comments, even though we don't create
   // NSViews from them, because vue uses them for anchors when inserting nodes
   createText() {
-    return VueKitNode.create(null, `text-${Math.random().toString()}`, {}, null, null);
+    return VueKitNode.create(null, null, null, null);
   },
 
   createComment() {
-    return VueKitNode.create(null, `comment-${Math.random().toString()}`, {}, null, null);
+    return VueKitNode.create(null, null, null, null);
   },
 
   setElementText() {
@@ -90,7 +79,6 @@ const nodeOps = {
   },
 
   querySelector() {
-    // IDEA: Use NSView tags for this type of functionality?
     throw new Error('querySelector not supported');
   },
 
@@ -98,8 +86,7 @@ const nodeOps = {
     throw new Error('setText not supported');
   },
 
-  setScopeId(node: VueKitNode, id: string) {
-    console.log('setScopeId', node, id);
+  setScopeId() {
     throw new Error('setScopeId not supported');
   },
 
@@ -116,6 +103,9 @@ const { createApp, render } = createRenderer<VueKitNode, VueKitNode>(nodeOps);
 
 function create(App: any) {
   let app = createApp(App);
+
+  app.use(constraints);
+
   return app;
 }
 

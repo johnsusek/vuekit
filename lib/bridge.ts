@@ -17,7 +17,7 @@ let parsedValue = buff => {
   return value;
 };
 
-export function decorateEvent(eventDetails: NSEvent, serialized: string): NSEvent {
+function decorateEvent(eventDetails: NSEvent, serialized: string): NSEvent {
   let buffer = '';
   let valueBuffer = [];
   let insideValue = false;
@@ -99,25 +99,25 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): v
   let eventType = event.type?.toString();
 
   if (!eventType) {
-    console.log('Could not find event.type on ', event);
+    console.error('Could not find event.type on ', event);
     return;
   }
 
   let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.log('Could not find event name in NSEvent.EventType enum for ', event);
+    console.error('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 
   let propName = `on${snakeToPascal(eventName)}`;
 
-  // console.log('Checking for callbacks for ', propName, 'on', node.view);
+  // console.log('Checking for callbacks for ', propName, 'on', node.instance);
   if (typeof node.props?.[propName] !== 'function') return;
 
   let populatedEvent = decorateEvent(event, extended);
 
-  console.log('Emitting', propName, populatedEvent);
+  console.info('Emitting', propName, populatedEvent);
 
   node.props[propName](populatedEvent);
 }
@@ -125,14 +125,14 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): v
 // View actions
 // @action=""
 export function emitAction(node: VueKitNode, event: NSEvent, extended: string): void {
-  let { view } = node;
+  let { instance } = node;
 
   let vModelUpdateFn = node.props['onUpdate:modelValue'];
 
-  if (view && vModelUpdateFn) {
+  if (instance && vModelUpdateFn) {
     let valueTypeKey = valueTypeForJSType(typeof node.props.modelValue);
     // console.log('Updating v-model automatically from action call (calling node.props[\'onUpdate:modelValue\']) with value ', view[valueTypeKey]);
-    vModelUpdateFn(view[valueTypeKey]);
+    vModelUpdateFn(instance[valueTypeKey]);
   }
 
   let actionHandler = node.props?.onAction;
@@ -142,14 +142,14 @@ export function emitAction(node: VueKitNode, event: NSEvent, extended: string): 
   let eventType = event.type?.toString();
 
   if (!eventType) {
-    console.log('Could not find event.type on ', event);
+    console.error('Could not find event.type on ', event);
     return;
   }
 
   let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.log('Could not find event name in NSEvent.EventType enum for ', event);
+    console.error('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 

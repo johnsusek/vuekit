@@ -1,6 +1,14 @@
 import { capitalize, snakeToCamel } from './string';
 
-export function findClass(type: string) {
+// button -> Button
+// text -> Text
+// stack -> StackView
+// text-field -> TextField
+// window -> NSWindow
+// av-player -> PlayerView
+// av-capture -> CaptureView
+// ik-camera-device -> CameraDeviceView
+export function classNameFromTag(type: string) {
   let formattedType = capitalize(snakeToCamel(type));
 
   // This will try the prefixed version first

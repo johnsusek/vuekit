@@ -7,11 +7,11 @@ export function getAllPropertyNames(obj) {
   return [...new Set(Object.getOwnPropertyNames(obj).concat(inherited))];
 }
 
-// In order to figure out which conveinence constructor to call,
+// In order to figure out which convenience constructor to call,
 // we compare the defined props against the constructor args
 // and return which args have a matching defined prop
 function getMatchingPropKeys(propKeys, constructor, idx) {
-  return propKeys.map((prop) => {
+  return propKeys.map(prop => {
     // "trackingMode" or "tracking-mode" -> "TRACKINGMODE"
     let key = snakeToCamel(prop.toUpperCase());
     let thisPiece = constructor.pieces[idx];
@@ -34,7 +34,7 @@ function getMatchingPropKeys(propKeys, constructor, idx) {
     }
 
     return undefined;
-  }).flat().filter((v) => v);
+  }).flat().filter(v => v);
 }
 
 export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueKitNodeProps): string[][] {
@@ -42,7 +42,7 @@ export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueK
 
   if (!vnodeProps || Object(vnodeProps) !== vnodeProps) return filteredCandidates;
 
-  let definedProps = Object.keys(vnodeProps).filter((key) => vnodeProps[key] !== undefined);
+  let definedProps = Object.keys(vnodeProps).filter(key => vnodeProps[key] !== undefined);
 
   // Turn component attrs into a nested array of strings
   // <component size="big" foo-bar="baz" /> -> [["size"], ["foo", "bar"]]
@@ -51,14 +51,14 @@ export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueK
   // created by the bridge make it impossible to distinguish between
   // <component foo-bar="" baz="" /> and <component foo="" bar-baz="" />
   // So we need to check each prop "part" ('foo' and 'bar' in the first example) individually
-  let definedPropsPartsMap = definedProps.map((key) => splitOnCaps(snakeToCamel(key)).map((c) => c.toUpperCase()));
+  let definedPropsPartsMap = definedProps.map(key => splitOnCaps(snakeToCamel(key)).map(c => c.toUpperCase()));
 
   // All of the convenience constructors from the bridge start with "createWith"
   // and then include each argument label pascal cased
-  let candidateConstructors = Object.getOwnPropertyNames(elementClass).filter((name) => name.startsWith('createWith'));
+  let candidateConstructors = Object.getOwnPropertyNames(elementClass).filter(name => name.startsWith('createWith'));
 
   // Turn convenience constructor e.g. createWithFooBarBaz into ["FOO", "BAR", "BAZ"]
-  let candidateConstructorsMap = candidateConstructors.map((name) => splitOnCaps(name).slice(2).map((c) => c.toUpperCase()));
+  let candidateConstructorsMap = candidateConstructors.map(name => splitOnCaps(name).slice(2).map(c => c.toUpperCase()));
 
   // Now we want to check to see which constructors could be theoretically be called
   // with all the defined props we have
@@ -70,7 +70,7 @@ export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueK
 
     // TODO change algorithm to overlapping arrays... this is checking the parts individually out of context of each other
     for (const argLabel of candidateArgumentLabels) {
-      let hasProp = definedPropsPartsMap.some((pm) => pm.some((pmm) => pmm === argLabel));
+      let hasProp = definedPropsPartsMap.some(pm => pm.some(pmm => pmm === argLabel));
       if (!hasProp) {
         candidateIsUsable = false;
         break;
@@ -85,7 +85,7 @@ export function getCandidateConstructors(elementClass: NSView, vnodeProps?: VueK
   return filteredCandidates;
 }
 
-export function getConstructor(className: string, vnodeProps?: VueKitNodeProps): VueKitConstructor {
+export function getViewConstructor(className: string, vnodeProps?: VueKitNodeProps): VueKitConstructor {
   let viewClass = globalThis[className];
   let filteredCandidates = getCandidateConstructors(viewClass, vnodeProps);
 
@@ -100,19 +100,19 @@ export function getConstructor(className: string, vnodeProps?: VueKitNodeProps):
   };
 
   if (filteredCandidates.length === 0) {
-    // console.log('Could not find any conveinence constructors, using "create" for name');
+    // console.log('Could not find any convenience constructors, using "create" for name');
     return constructor;
   }
 
   if (filteredCandidates.length > 1) {
-    console.log('Found multiple conveinence constructor candidates, falling back to "create" for name', filteredCandidates);
+    console.warn('Found multiple convenience constructor candidates, falling back to "create" for name', filteredCandidates);
     return constructor;
   }
 
   if (filteredCandidates.length === 1) {
     constructor.pieces = filteredCandidates[0];
 
-    // We have found a conveinence constructor - so create the list of args (prop name)
+    // We have found a convenience constructor - so create the list of args (prop name)
     let args = [];
     let propKeys = vnodeProps ? Object.keys(vnodeProps) : [];
 
@@ -123,7 +123,7 @@ export function getConstructor(className: string, vnodeProps?: VueKitNodeProps):
         // ["BEZEL", "STYLE"] -> "BEZEL-STYLE"
         let arg = matchingPropKeys.join('-');
         // Convert "BEZEL-STYLE" to bezelStyle OR bezel-style (needed? or can we assume camelCase to simplify?)
-        let actualKey = propKeys.find((key) => snakeToCamel(key.toUpperCase()) === snakeToCamel(arg.toUpperCase()));
+        let actualKey = propKeys.find(key => snakeToCamel(key.toUpperCase()) === snakeToCamel(arg.toUpperCase()));
         args.push(actualKey);
       }
     }
@@ -151,7 +151,7 @@ function getPropValueForKey(key: string, props: VNodeProps, defaultValue: any) {
   // "trackingMode" or "tracking-mode" -> "TRACKINGMODE"
   let dkey = snakeToCamel(key.toUpperCase());
 
-  let foundKey = propKeys.find((propKey) => {
+  let foundKey = propKeys.find(propKey => {
     if (dkey === snakeToCamel(propKey.toUpperCase())) {
       return props[propKey];
     }

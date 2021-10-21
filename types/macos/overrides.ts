@@ -11,6 +11,36 @@ declare global {
     right: number
   }
 
+  export namespace CarbonCore {
+    export class Components { }
+  }
+
+  export namespace AVFAudio {
+    export class AVAudioTypes { }
+    export class AVAudioConverter { }
+    export class AVAudioSequencer { }
+  }
+
+  export namespace AVCaptureDeviceFormat {
+    export class AutoFocusSystem { }
+  }
+
+  export namespace AVCaptureDevice {
+    export class WhiteBalanceGains { }
+  }
+
+  export namespace AVCaptureSystemPressureState {
+    export class Factors { }
+  }
+
+  export class MTLTexture { }
+  export class MTLCommandBuffer { }
+  export class MTLPixelFormat { }
+
+  export namespace NSNetService {
+    export class Options { }
+  }
+
   export class AUAudioUnit { }
   export class AudioBufferList { }
   export class AudioChannelLayout { }
@@ -19,8 +49,6 @@ declare global {
   export class AudioStreamBasicDescription { }
   export class AudioStreamPacketDescription { }
   export class AudioTimeStamp { }
-  export class AVCaptureDeviceFormat { }
-  export class AVCaptureSystemPressureState { }
   export class AVEdgeWidths { }
   export class AVFAudio { }
   export class AVPixelAspectRatio { }

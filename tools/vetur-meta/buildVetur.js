@@ -7,7 +7,7 @@ function buildVetur(frameworks, enums) {
 
   for (let framework of Object.values(frameworks)) {
     for (let item of framework.Items) {
-      if (!item.isView && item.SwiftName !== "NSWindow") continue;
+      if (!item.isView && item.SwiftName !== "NSWindow" && item.SwiftName !== "NSTableColumn") continue;
 
       let itemSwiftName = item.SwiftName.replace(/^NS/, '');
 

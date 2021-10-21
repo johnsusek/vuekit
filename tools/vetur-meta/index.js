@@ -3,7 +3,7 @@ let path = require('path');
 let { buildFrameworks } = require("./buildFrameworks");
 let { buildEnums } = require("./buildEnums");
 let { buildVetur } = require("./buildVetur");
-let metaPath = path.join(__dirname, "../../data/meta");
+let metaPath = path.join(__dirname, "../../../vuekit-bridge/metadata/meta");
 
 let dstPath = path.join(__dirname, "../../vscode/vetur");
 if (!fs.existsSync(dstPath)) fs.mkdirSync(dstPath);

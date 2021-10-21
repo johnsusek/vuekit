@@ -15,9 +15,9 @@ import AppKit
 	@objc static func create() -> SecureTextField
 }
 
-class SecureTextField: NSSecureTextField, SecureTextFieldExports, JSOverridable {
+class SecureTextField: NSSecureTextField, SecureTextFieldExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

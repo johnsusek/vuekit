@@ -23,9 +23,9 @@ import AppKit
 	@objc static func create() -> Stepper
 }
 
-class Stepper: NSStepper, StepperExports, JSOverridable {
+class Stepper: NSStepper, StepperExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

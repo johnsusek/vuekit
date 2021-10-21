@@ -73,9 +73,9 @@ import AppKit
 	@objc static func create() -> CollectionView
 }
 
-class CollectionView: NSCollectionView, CollectionViewExports, JSOverridable {
+class CollectionView: NSCollectionView, CollectionViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

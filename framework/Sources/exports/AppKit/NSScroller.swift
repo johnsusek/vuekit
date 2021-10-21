@@ -36,9 +36,9 @@ import AppKit
 	@objc static func create() -> Scroller
 }
 
-class Scroller: NSScroller, ScrollerExports, JSOverridable {
+class Scroller: NSScroller, ScrollerExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

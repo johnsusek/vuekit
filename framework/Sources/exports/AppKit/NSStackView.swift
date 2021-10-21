@@ -45,9 +45,9 @@ import AppKit
 	@objc static func create() -> StackView
 }
 
-class StackView: NSStackView, StackViewExports, JSOverridable {
+class StackView: NSStackView, StackViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

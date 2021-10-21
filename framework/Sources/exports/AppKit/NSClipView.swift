@@ -31,9 +31,9 @@ import AppKit
 	@objc static func create() -> ClipView
 }
 
-class ClipView: NSClipView, ClipViewExports, JSOverridable {
+class ClipView: NSClipView, ClipViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

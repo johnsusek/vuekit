@@ -174,6 +174,9 @@ import AppKit
 	@objc (writeEPSInsideRect:toPasteboard:) func writeEPS(inside: NSRect, to: NSPasteboard)
 	@objc (writePDFInsideRect:toPasteboard:) func writePDF(inside: NSRect, to: NSPasteboard)
 
+	// Protocol Inherited Instance Properties
+	// @objc var identifier: NSUserInterfaceItemIdentifier { @objc get @objc (setIdentifier:) set }
+
 	// Own Instance Properties
 	@objc @available(OSX 10.7, *) var alignmentRectInsets: NSEdgeInsets { @objc get }
 	@objc @available(OSX 10.12.2, *) var allowedTouchTypes: NSTouch.TouchTypeMask { @objc get @objc (setAllowedTouchTypes:) set }

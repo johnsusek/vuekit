@@ -47,9 +47,9 @@ import AppKit
 	@objc @available(OSX 10.12, *) static func create(wrappingLabelWithString: String) -> TextField
 }
 
-class TextField: NSTextField, TextFieldExports, JSOverridable {
+class TextField: NSTextField, TextFieldExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

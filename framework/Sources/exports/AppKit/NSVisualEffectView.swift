@@ -23,9 +23,9 @@ import AppKit
 	@objc static func create() -> VisualEffectView
 }
 
-class VisualEffectView: NSVisualEffectView, VisualEffectViewExports, JSOverridable {
+class VisualEffectView: NSVisualEffectView, VisualEffectViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -40,9 +40,9 @@ import AppKit
 	@objc static func create(scrollView: NSScrollView?, orientation: NSRulerView.Orientation) -> RulerView
 }
 
-class RulerView: NSRulerView, RulerViewExports, JSOverridable {
+class RulerView: NSRulerView, RulerViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -50,9 +50,9 @@ import AppKit
 	@objc static func create() -> OutlineView
 }
 
-class OutlineView: NSOutlineView, OutlineViewExports, JSOverridable {
+class OutlineView: NSOutlineView, OutlineViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

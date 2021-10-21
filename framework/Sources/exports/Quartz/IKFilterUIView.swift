@@ -21,9 +21,9 @@ import Quartz
 	@objc static func create(frame: NSRect, filter: CIFilter) -> FilterUIView
 }
 
-class FilterUIView: IKFilterUIView, FilterUIViewExports, JSOverridable {
+class FilterUIView: IKFilterUIView, FilterUIViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

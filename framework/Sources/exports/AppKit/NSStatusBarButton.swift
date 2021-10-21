@@ -18,9 +18,9 @@ import AppKit
 	@objc static func create() -> StatusBarButton
 }
 
-class StatusBarButton: NSStatusBarButton, StatusBarButtonExports, JSOverridable {
+class StatusBarButton: NSStatusBarButton, StatusBarButtonExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -31,9 +31,9 @@ import AppKit
 	@objc static func create() -> PathControl
 }
 
-class PathControl: NSPathControl, PathControlExports, JSOverridable {
+class PathControl: NSPathControl, PathControlExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

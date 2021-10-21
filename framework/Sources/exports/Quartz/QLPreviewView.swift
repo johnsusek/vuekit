@@ -26,9 +26,9 @@ import Quartz
 	@objc @available(OSX 10.7, *) static func create(frame: NSRect, style: QLPreviewViewStyle) -> PreviewView
 }
 
-class PreviewView: QLPreviewView, PreviewViewExports, JSOverridable {
+class PreviewView: QLPreviewView, PreviewViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

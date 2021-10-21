@@ -35,9 +35,9 @@ import AppKit
 	@objc static func create() -> Box
 }
 
-class Box: NSBox, BoxExports, JSOverridable {
+class Box: NSBox, BoxExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

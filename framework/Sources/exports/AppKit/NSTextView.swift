@@ -169,7 +169,7 @@ import AppKit
 
 }
 
-class TextView: NSTextView, TextViewExports, JSOverridable {
+class TextView: NSTextView, TextViewExports, JSOverridableView {
   var draw: JSValue?
 
   override func draw(_ dirtyRect: NSRect) {

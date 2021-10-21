@@ -30,9 +30,9 @@ import Quartz
 	@objc static func create() -> ScannerDeviceView
 }
 
-class ScannerDeviceView: IKScannerDeviceView, ScannerDeviceViewExports, JSOverridable {
+class ScannerDeviceView: IKScannerDeviceView, ScannerDeviceViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

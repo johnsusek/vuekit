@@ -120,9 +120,9 @@ import AppKit
 	@objc static func create() -> TableView
 }
 
-class TableView: NSTableView, TableViewExports, JSOverridable {
+class TableView: NSTableView, TableViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

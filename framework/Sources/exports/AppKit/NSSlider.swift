@@ -34,9 +34,9 @@ import AppKit
 	@objc static func create() -> Slider
 }
 
-class Slider: NSSlider, SliderExports, JSOverridable {
+class Slider: NSSlider, SliderExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -36,9 +36,9 @@ import AVKit
 	@objc static func create() -> PlayerView
 }
 
-class PlayerView: AVPlayerView, PlayerViewExports, JSOverridable {
+class PlayerView: AVPlayerView, PlayerViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -73,9 +73,9 @@ import AppKit
 	@objc static func create() -> Control
 }
 
-class Control: NSControl, ControlExports, JSOverridable {
+class Control: NSControl, ControlExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

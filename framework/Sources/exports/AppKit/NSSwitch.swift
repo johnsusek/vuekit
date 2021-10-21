@@ -19,9 +19,9 @@ import AppKit
 	@objc static func create() -> Switch
 }
 
-class Switch: NSSwitch, SwitchExports, JSOverridable {
+class Switch: NSSwitch, SwitchExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

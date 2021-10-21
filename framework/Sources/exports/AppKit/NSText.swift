@@ -67,9 +67,9 @@ import AppKit
 	@objc static func create() -> Text
 }
 
-class Text: NSText, TextExports, JSOverridable {
+class Text: NSText, TextExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

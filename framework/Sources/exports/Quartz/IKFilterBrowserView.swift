@@ -19,9 +19,9 @@ import Quartz
 	@objc static func create() -> FilterBrowserView
 }
 
-class FilterBrowserView: IKFilterBrowserView, FilterBrowserViewExports, JSOverridable {
+class FilterBrowserView: IKFilterBrowserView, FilterBrowserViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

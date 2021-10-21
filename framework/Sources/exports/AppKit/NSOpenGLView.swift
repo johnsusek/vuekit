@@ -27,9 +27,9 @@ import AppKit
 	@objc static func create(frame: NSRect, pixelFormat: NSOpenGLPixelFormat?) -> OpenGLView?
 }
 
-class OpenGLView: NSOpenGLView, OpenGLViewExports, JSOverridable {
+class OpenGLView: NSOpenGLView, OpenGLViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

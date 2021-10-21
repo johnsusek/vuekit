@@ -25,9 +25,9 @@ import AVKit
 	@objc static func create() -> CaptureView
 }
 
-class CaptureView: AVCaptureView, CaptureViewExports, JSOverridable {
+class CaptureView: AVCaptureView, CaptureViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -38,9 +38,9 @@ import AppKit
 	@objc static func create() -> TableRowView
 }
 
-class TableRowView: NSTableRowView, TableRowViewExports, JSOverridable {
+class TableRowView: NSTableRowView, TableRowViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

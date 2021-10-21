@@ -38,9 +38,9 @@ import AppKit
 	@objc static func create() -> SplitView
 }
 
-class SplitView: NSSplitView, SplitViewExports, JSOverridable {
+class SplitView: NSSplitView, SplitViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

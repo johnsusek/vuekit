@@ -15,9 +15,9 @@ import AppKit
 	@objc static func create() -> ScrubberSelectionView
 }
 
-class ScrubberSelectionView: NSScrubberSelectionView, ScrubberSelectionViewExports, JSOverridable {
+class ScrubberSelectionView: NSScrubberSelectionView, ScrubberSelectionViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

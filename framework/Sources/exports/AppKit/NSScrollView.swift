@@ -68,9 +68,9 @@ import AppKit
 	@objc static func create() -> ScrollView
 }
 
-class ScrollView: NSScrollView, ScrollViewExports, JSOverridable {
+class ScrollView: NSScrollView, ScrollViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

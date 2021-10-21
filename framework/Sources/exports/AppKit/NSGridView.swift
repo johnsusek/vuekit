@@ -41,9 +41,9 @@ import AppKit
 	@objc static func create() -> GridView
 }
 
-class GridView: NSGridView, GridViewExports, JSOverridable {
+class GridView: NSGridView, GridViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

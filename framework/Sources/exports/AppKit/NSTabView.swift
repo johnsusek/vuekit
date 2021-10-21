@@ -47,9 +47,9 @@ import AppKit
 	@objc static func create() -> TabView
 }
 
-class TabView: NSTabView, TabViewExports, JSOverridable {
+class TabView: NSTabView, TabViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

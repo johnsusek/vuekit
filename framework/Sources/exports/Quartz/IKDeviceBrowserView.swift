@@ -24,9 +24,9 @@ import Quartz
 	@objc static func create() -> DeviceBrowserView
 }
 
-class DeviceBrowserView: IKDeviceBrowserView, DeviceBrowserViewExports, JSOverridable {
+class DeviceBrowserView: IKDeviceBrowserView, DeviceBrowserViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

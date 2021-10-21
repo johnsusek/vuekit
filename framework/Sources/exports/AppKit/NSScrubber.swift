@@ -46,9 +46,9 @@ import AppKit
 	@objc static func create() -> Scrubber
 }
 
-class Scrubber: NSScrubber, ScrubberExports, JSOverridable {
+class Scrubber: NSScrubber, ScrubberExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

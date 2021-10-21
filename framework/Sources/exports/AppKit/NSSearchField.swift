@@ -24,9 +24,9 @@ import AppKit
 	@objc static func create() -> SearchField
 }
 
-class SearchField: NSSearchField, SearchFieldExports, JSOverridable {
+class SearchField: NSSearchField, SearchFieldExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

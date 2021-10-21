@@ -18,9 +18,9 @@ import AppKit
 	@objc static func create() -> PredicateEditor
 }
 
-class PredicateEditor: NSPredicateEditor, PredicateEditorExports, JSOverridable {
+class PredicateEditor: NSPredicateEditor, PredicateEditorExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

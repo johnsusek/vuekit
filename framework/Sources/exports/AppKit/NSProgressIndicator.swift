@@ -34,9 +34,9 @@ import AppKit
 	@objc static func create() -> ProgressIndicator
 }
 
-class ProgressIndicator: NSProgressIndicator, ProgressIndicatorExports, JSOverridable {
+class ProgressIndicator: NSProgressIndicator, ProgressIndicatorExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

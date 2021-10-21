@@ -26,9 +26,9 @@ import AppKit
 	@objc static func create() -> ColorWell
 }
 
-class ColorWell: NSColorWell, ColorWellExports, JSOverridable {
+class ColorWell: NSColorWell, ColorWellExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -49,9 +49,9 @@ import AppKit
 	@objc @available(OSX 10.12, *) static func create(radioButtonWithTitle: String) -> Button
 }
 
-class Button: NSButton, ButtonExports, JSOverridable {
+class Button: NSButton, ButtonExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

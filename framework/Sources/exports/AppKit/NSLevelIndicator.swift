@@ -37,9 +37,9 @@ import AppKit
 	@objc static func create() -> LevelIndicator
 }
 
-class LevelIndicator: NSLevelIndicator, LevelIndicatorExports, JSOverridable {
+class LevelIndicator: NSLevelIndicator, LevelIndicatorExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

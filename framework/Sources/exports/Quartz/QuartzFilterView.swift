@@ -18,9 +18,9 @@ import Quartz
 	@objc static func create() -> artzFilterView
 }
 
-class artzFilterView: QuartzFilterView, artzFilterViewExports, JSOverridable {
+class artzFilterView: QuartzFilterView, artzFilterViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -25,9 +25,9 @@ import AppKit
 	@objc static func create() -> TokenField
 }
 
-class TokenField: NSTokenField, TokenFieldExports, JSOverridable {
+class TokenField: NSTokenField, TokenFieldExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

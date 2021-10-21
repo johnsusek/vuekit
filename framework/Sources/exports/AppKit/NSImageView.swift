@@ -26,9 +26,9 @@ import AppKit
 	@objc static func create() -> ImageView
 }
 
-class ImageView: NSImageView, ImageViewExports, JSOverridable {
+class ImageView: NSImageView, ImageViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

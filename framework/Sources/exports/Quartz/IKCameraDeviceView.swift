@@ -43,9 +43,9 @@ import Quartz
 	@objc static func create() -> CameraDeviceView
 }
 
-class CameraDeviceView: IKCameraDeviceView, CameraDeviceViewExports, JSOverridable {
+class CameraDeviceView: IKCameraDeviceView, CameraDeviceViewExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

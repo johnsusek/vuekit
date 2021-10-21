@@ -34,9 +34,9 @@ import AppKit
 	@objc static func create() -> DatePicker
 }
 
-class DatePicker: NSDatePicker, DatePickerExports, JSOverridable {
+class DatePicker: NSDatePicker, DatePickerExports, JSOverridableView {
   var draw: JSValue?
-  
+
   override func draw(_ dirtyRect: NSRect) {
     super.draw(dirtyRect)
     drawOverride(dirtyRect)

@@ -20,7 +20,25 @@
       "type": "framework",
       "platform": "macOS",
       "sources": [
-        "../node_modules/vuekit-vue/framework/Sources"
+        "../node_modules/vuekit-vue/framework/Sources/vuekit/",
+        {
+          "path": "../node_modules/vuekit-vue/framework/Sources/exports/",
+          "includes": [
+            "Foundation",
+            "AppKit",
+            "AVFoundation",
+            "AVKit",
+            "CoreAnimation",
+            "CoreFoundation",
+            "CoreData",
+            "CoreGraphics",
+            "CoreImage",
+            "CoreMedia",
+            "ObjectiveC",
+            "Quartz",
+            "QuartzCore"
+          ]
+        }
       ],
       "settings": {
         "INFOPLIST_FILE": "../node_modules/vuekit-vue/framework/Info.plist"

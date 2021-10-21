@@ -1,5 +1,6 @@
 module.exports = {
   settings: {
+    'vetur.completion.autoImport': false,
     'vetur.completion.tagCasing': 'initial',
     'vetur.experimental.templateInterpolationService': true,
     'vetur.format.defaultFormatter.js': 'vscode-typescript',

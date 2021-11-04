@@ -1,6 +1,6 @@
 import AppKit
-import VueKit
 import JavaScriptCore
+import VueKitBridge
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -10,4 +10,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     bridgeTender.loadJSBundle()
   }
 }
-

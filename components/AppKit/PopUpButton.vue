@@ -9,15 +9,15 @@ export default defineComponent({
 
   props: {
     'autoenables-items': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'preferred-edge': {
-      type: String as PropType<keyof typeof NSRectEdge>,
+      type: String as PropType<keyof typeof NSGeometry.NSRectEdge>,
       default: () => undefined
     },
     'pulls-down': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },
@@ -27,7 +27,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        preferredEdge: NSRectEdge,
+        preferredEdge: NSGeometry.NSRectEdge,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'arranges-all-subviews': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autosave-name': {
-      type: String,
+      type: Object as PropType<NSSplitView.AutosaveName>,
       default: () => undefined
     },
     'delegate': {
@@ -25,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-vertical': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

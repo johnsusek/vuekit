@@ -10,11 +10,11 @@ export default defineComponent({
       default: () => undefined
     },
     'alpha-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'autoresizes-subviews': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autoresizing-mask': {
@@ -30,15 +30,15 @@ export default defineComponent({
       default: () => undefined
     },
     'bounds-rotation': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'can-draw-concurrently': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'can-draw-subviews-into-layer': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'compositing-filter': {
@@ -50,7 +50,7 @@ export default defineComponent({
       default: () => undefined
     },
     'focus-ring-type': {
-      type: String as PropType<keyof typeof NSFocusRingType>,
+      type: String as PropType<keyof typeof NSGraphics.NSFocusRingType>,
       default: () => undefined
     },
     'frame': {
@@ -58,11 +58,11 @@ export default defineComponent({
       default: () => undefined
     },
     'frame-center-rotation': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'frame-rotation': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'gesture-recognizers': {
@@ -70,11 +70,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-hidden': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-horizontal-content-size-constraint-active': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'layer': {
@@ -90,19 +90,19 @@ export default defineComponent({
       default: () => undefined
     },
     'layer-uses-core-image-filters': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'needs-display': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'needs-layout': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'needs-update-constraints': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'next-key-view': {
@@ -110,11 +110,11 @@ export default defineComponent({
       default: () => undefined
     },
     'posts-bounds-changed-notifications': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'posts-frame-changed-notifications': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'prepared-content-rect': {
@@ -138,23 +138,23 @@ export default defineComponent({
       default: () => undefined
     },
     'translates-autoresizing-mask-into-constraints': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'user-interface-layout-direction': {
-      type: String as PropType<keyof typeof NSUserInterfaceLayoutDirection>,
+      type: String as PropType<keyof typeof NSUserInterfaceLayout.NSUserInterfaceLayoutDirection>,
       default: () => undefined
     },
     'is-vertical-content-size-constraint-active': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'wants-layer': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'wants-resting-touches': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'bounds-origin': {
@@ -186,10 +186,10 @@ export default defineComponent({
       let types = {
         allowedTouchTypes: NSTouch.TouchTypeMask,
         autoresizingMask: NSView.AutoresizingMask,
-        focusRingType: NSFocusRingType,
+        focusRingType: NSGraphics.NSFocusRingType,
         layerContentsPlacement: NSView.LayerContentsPlacement,
         layerContentsRedrawPolicy: NSView.LayerContentsRedrawPolicy,
-        userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection,
+        userInterfaceLayoutDirection: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

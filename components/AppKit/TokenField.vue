@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'completion-delay': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'delegate': {
@@ -17,11 +17,11 @@ export default defineComponent({
       default: () => undefined
     },
     'token-style': {
-      type: String as PropType<keyof typeof NSTokenField.TokenStyle>,
+      type: String as PropType<keyof typeof NSTokenFieldCell.NSTokenField.TokenStyle>,
       default: () => undefined
     },
     'tokenizing-character-set': {
-      type: Object as PropType<NSCharacterSet>,
+      type: Object as PropType<CharacterSet>,
       default: () => undefined
     },
   },
@@ -31,7 +31,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        tokenStyle: NSTokenField.TokenStyle,
+        tokenStyle: NSTokenFieldCell.NSTokenField.TokenStyle,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'knob-proportion': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'knob-style': {

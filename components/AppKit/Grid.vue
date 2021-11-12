@@ -9,23 +9,23 @@ export default defineComponent({
 
   props: {
     'column-spacing': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'row-alignment': {
-      type: String as PropType<keyof typeof NSGridRow.Alignment>,
+      type: String as PropType<keyof typeof NSGridView.NSGridRow.Alignment>,
       default: () => undefined
     },
     'row-spacing': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'x-placement': {
-      type: String as PropType<keyof typeof NSGridCell.Placement>,
+      type: String as PropType<keyof typeof NSGridView.NSGridCell.Placement>,
       default: () => undefined
     },
     'y-placement': {
-      type: String as PropType<keyof typeof NSGridCell.Placement>,
+      type: String as PropType<keyof typeof NSGridView.NSGridCell.Placement>,
       default: () => undefined
     },
   },
@@ -35,9 +35,9 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        rowAlignment: NSGridRow.Alignment,
-        xPlacement: NSGridCell.Placement,
-        yPlacement: NSGridCell.Placement,
+        rowAlignment: NSGridView.NSGridRow.Alignment,
+        xPlacement: NSGridView.NSGridCell.Placement,
+        yPlacement: NSGridView.NSGridCell.Placement,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

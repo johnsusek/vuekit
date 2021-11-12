@@ -21,7 +21,7 @@ export default defineComponent({
       default: () => undefined
     },
     'measurement-units': {
-      type: String,
+      type: Object as PropType<NSRulerView.UnitName>,
       default: () => undefined
     },
     'orientation': {
@@ -29,19 +29,19 @@ export default defineComponent({
       default: () => undefined
     },
     'origin-offset': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'reserved-thickness-for-accessory-view': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'reserved-thickness-for-markers': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'rule-thickness': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'scroll-view': {

@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'state': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
   },

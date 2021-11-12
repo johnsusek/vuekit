@@ -17,31 +17,31 @@ export default defineComponent({
       default: () => undefined
     },
     'is-emphasized': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-floating': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-group-row-style': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'indentation-for-drop-operation': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'is-next-row-selected': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-previous-row-selected': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-selected': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'selection-highlight-style': {
@@ -49,7 +49,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-target-for-drop-operation': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

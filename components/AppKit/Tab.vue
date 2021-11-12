@@ -9,11 +9,15 @@ export default defineComponent({
 
   props: {
     'allows-truncated-labels': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      type: String as PropType<keyof typeof NSCell.NSControl.ControlSize>,
+      default: () => undefined
+    },
+    'control-tint': {
+      type: String as PropType<keyof typeof NSCell.NSControlTint>,
       default: () => undefined
     },
     'delegate': {
@@ -21,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'font': {
@@ -51,7 +55,8 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        controlSize: NSControl.ControlSize,
+        controlSize: NSCell.NSControl.ControlSize,
+        controlTint: NSCell.NSControlTint,
         tabPosition: NSTabView.TabPosition,
         tabViewBorderType: NSTabView.TabViewBorderType,
         tabViewType: NSTabView.TabType,

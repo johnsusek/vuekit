@@ -6,15 +6,15 @@ export default defineComponent({
 
   props: {
     'data-cell': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'header-cell': {
-      type: Object as PropType<typeof NSTableHeaderCell>,
+      type: Object as PropType<NSTableHeaderCell>,
       default: () => undefined
     },
     'header-tool-tip': {
@@ -22,15 +22,15 @@ export default defineComponent({
       default: () => undefined
     },
     'is-hidden': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'max-width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'resizing-mask': {
@@ -50,7 +50,7 @@ export default defineComponent({
       default: () => undefined
     },
     'width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
   },

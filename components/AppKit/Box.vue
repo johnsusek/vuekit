@@ -12,8 +12,12 @@ export default defineComponent({
       type: Object as PropType<NSColor>,
       default: () => undefined
     },
+    'border-type': {
+      type: String as PropType<keyof typeof NSView.NSBorderType>,
+      default: () => undefined
+    },
     'border-width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'box-type': {
@@ -21,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'content-view': {
-      type: Object as PropType<typeof NSView>,
+      type: Object as PropType<NSView>,
       default: () => undefined
     },
     'content-view-margins': {
@@ -29,7 +33,7 @@ export default defineComponent({
       default: () => undefined
     },
     'corner-radius': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'fill-color': {
@@ -49,7 +53,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-transparent': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'frame-from-content-frame': {
@@ -63,6 +67,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
+        borderType: NSView.NSBorderType,
         boxType: NSBox.BoxType,
         titlePosition: NSBox.TitlePosition,
       };

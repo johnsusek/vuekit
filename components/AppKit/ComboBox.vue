@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'is-button-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'completes': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'data-source': {
@@ -25,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'intercell-spacing': {
@@ -33,15 +33,15 @@ export default defineComponent({
       default: () => undefined
     },
     'item-height': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'number-of-visible-items': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'uses-data-source': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

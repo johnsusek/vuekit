@@ -13,11 +13,11 @@ export default defineComponent({
       default: () => undefined
     },
     'allows-picture-in-picture-playback': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'controls-style': {
-      type: String as PropType<keyof typeof AVPlayerViewControlsStyle>,
+      type: String as PropType<keyof typeof AVPlayerView.AVPlayerViewControlsStyle>,
       default: () => undefined
     },
     'picture-in-picture-delegate': {
@@ -29,27 +29,27 @@ export default defineComponent({
       default: () => undefined
     },
     'shows-frame-stepping-buttons': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'shows-full-screen-toggle-button': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'shows-sharing-service-button': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'shows-timecodes': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'updates-now-playing-info-center': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'video-gravity': {
-      type: String,
+      type: Object as PropType<AVLayerVideoGravity>,
       default: () => undefined
     },
   },
@@ -59,7 +59,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        controlsStyle: AVPlayerViewControlsStyle,
+        controlsStyle: AVPlayerView.AVPlayerViewControlsStyle,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

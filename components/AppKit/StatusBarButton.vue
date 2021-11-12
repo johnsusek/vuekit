@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'appears-disabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

@@ -9,35 +9,35 @@ export default defineComponent({
 
   props: {
     'is-bezeled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      type: String as PropType<keyof typeof NSCell.NSControl.ControlSize>,
       default: () => undefined
     },
     'control-tint': {
-      type: String as PropType<keyof typeof NSControlTint>,
+      type: String as PropType<keyof typeof NSCell.NSControlTint>,
       default: () => undefined
     },
     'is-displayed-when-stopped': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'double-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'is-indeterminate': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'max-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'style': {
@@ -45,7 +45,7 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-threaded-animation': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },
@@ -55,8 +55,8 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        controlSize: NSControl.ControlSize,
-        controlTint: NSControlTint,
+        controlSize: NSCell.NSControl.ControlSize,
+        controlTint: NSCell.NSControlTint,
         style: NSProgressIndicator.Style,
       };
 

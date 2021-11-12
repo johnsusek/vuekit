@@ -17,11 +17,11 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'download-all-control-label': {
@@ -33,31 +33,31 @@ export default defineComponent({
       default: () => undefined
     },
     'downloads-directory': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<URL>,
       default: () => undefined
     },
     'has-display-mode-icon': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-display-mode-table': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'icon-size': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKCameraDeviceViewDisplayMode>,
+      type: String as PropType<keyof typeof IKCameraDeviceView.IKCameraDeviceViewDisplayMode>,
       default: () => undefined
     },
     'post-process-application': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<URL>,
       default: () => undefined
     },
     'transfer-mode': {
-      type: String as PropType<keyof typeof IKCameraDeviceViewTransferMode>,
+      type: String as PropType<keyof typeof IKCameraDeviceView.IKCameraDeviceViewTransferMode>,
       default: () => undefined
     },
   },
@@ -67,8 +67,8 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        mode: IKCameraDeviceViewDisplayMode,
-        transferMode: IKCameraDeviceViewTransferMode,
+        mode: IKCameraDeviceView.IKCameraDeviceViewDisplayMode,
+        transferMode: IKCameraDeviceView.IKCameraDeviceViewTransferMode,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

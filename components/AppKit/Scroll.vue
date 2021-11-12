@@ -9,15 +9,15 @@ export default defineComponent({
 
   props: {
     'allows-magnification': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autohides-scrollers': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'automatically-adjusts-content-insets': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -25,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'border-type': {
-      type: String as PropType<keyof typeof NSBorderType>,
+      type: String as PropType<keyof typeof NSView.NSBorderType>,
       default: () => undefined
     },
     'content-insets': {
@@ -41,11 +41,11 @@ export default defineComponent({
       default: () => undefined
     },
     'document-view': {
-      type: Object as PropType<typeof NSView>,
+      type: Object as PropType<NSView>,
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'find-bar-position': {
@@ -53,27 +53,27 @@ export default defineComponent({
       default: () => undefined
     },
     'has-horizontal-ruler': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-vertical-ruler': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'horizontal-line-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'horizontal-page-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'horizontal-ruler-view': {
@@ -89,27 +89,27 @@ export default defineComponent({
       default: () => undefined
     },
     'line-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'magnification': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'max-magnification': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-magnification': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'page-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'rulers-visible': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'scroller-insets': {
@@ -125,19 +125,19 @@ export default defineComponent({
       default: () => undefined
     },
     'scrolls-dynamically': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-predominant-axis-scrolling': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'vertical-line-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'vertical-page-scroll': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'vertical-ruler-view': {
@@ -159,7 +159,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        borderType: NSBorderType,
+        borderType: NSView.NSBorderType,
         findBarPosition: NSScrollView.FindBarPosition,
         horizontalScrollElasticity: NSScrollView.Elasticity,
         scrollerKnobStyle: NSScroller.KnobStyle,

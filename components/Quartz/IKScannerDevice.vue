@@ -13,11 +13,11 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'document-name': {
@@ -25,19 +25,19 @@ export default defineComponent({
       default: () => undefined
     },
     'downloads-directory': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<URL>,
       default: () => undefined
     },
     'has-display-mode-advanced': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-display-mode-simple': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKScannerDeviceViewDisplayMode>,
+      type: String as PropType<keyof typeof IKScannerDeviceView.IKScannerDeviceViewDisplayMode>,
       default: () => undefined
     },
     'overview-control-label': {
@@ -45,7 +45,7 @@ export default defineComponent({
       default: () => undefined
     },
     'post-process-application': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<URL>,
       default: () => undefined
     },
     'scan-control-label': {
@@ -57,7 +57,7 @@ export default defineComponent({
       default: () => undefined
     },
     'transfer-mode': {
-      type: String as PropType<keyof typeof IKScannerDeviceViewTransferMode>,
+      type: String as PropType<keyof typeof IKScannerDeviceView.IKScannerDeviceViewTransferMode>,
       default: () => undefined
     },
   },
@@ -67,8 +67,8 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        mode: IKScannerDeviceViewDisplayMode,
-        transferMode: IKScannerDeviceViewTransferMode,
+        mode: IKScannerDeviceView.IKScannerDeviceViewDisplayMode,
+        transferMode: IKScannerDeviceView.IKScannerDeviceViewTransferMode,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

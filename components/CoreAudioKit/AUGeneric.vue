@@ -3,21 +3,13 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 import View from '../AppKit/View.vue';
 
 export default defineComponent({
-  name: 'AVCapture',
+  name: 'AUGeneric',
 
   extends: { View },
 
   props: {
-    'controls-style': {
-      type: String as PropType<keyof typeof AVCaptureView.AVCaptureViewControlsStyle>,
-      default: () => undefined
-    },
-    'delegate': {
-      type: Object as PropType<AVCaptureViewDelegate>,
-      default: () => undefined
-    },
-    'video-gravity': {
-      type: Object as PropType<AVLayerVideoGravity>,
+    'shows-expert-parameters': {
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },
@@ -27,7 +19,6 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        controlsStyle: AVCaptureView.AVCaptureViewControlsStyle,
       };
 
       for (const [propName, propType] of Object.entries(types)) {
@@ -41,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('CaptureView', this.attrs, this.$slots);
+    return h('AUGenericView', this.attrs, this.$slots);
   }
 });
 </script>

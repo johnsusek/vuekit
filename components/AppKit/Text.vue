@@ -9,59 +9,59 @@ export default defineComponent({
 
   props: {
     'accepts-glyph-info': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allowed-input-source-locales': {
-      type: Object as PropType<string[]>,
+      type: Object as PropType<String[]>,
       default: () => undefined
     },
     'allows-character-picker-touch-bar-item': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-document-background-color-change': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-image-editing': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-undo': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-dash-substitution-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-data-detection-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-link-detection-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-quote-substitution-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-spelling-correction-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-text-completion-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-text-replacement-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-continuous-spell-checking-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'default-paragraph-style': {
@@ -73,19 +73,19 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-link-tool-tips': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'enabled-text-checking-types': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'is-grammar-checking-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-incremental-searching-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'insertion-point-color': {
@@ -93,15 +93,15 @@ export default defineComponent({
       default: () => undefined
     },
     'link-text-attributes': {
-      type: Object as PropType<Map<NSAttributedString, any>>,
+      type: Object as PropType<Map<string, any>>,
       default: () => undefined
     },
     'marked-text-attributes': {
-      type: Object as PropType<Map<NSAttributedString, any>>,
+      type: Object as PropType<Map<string, any>>,
       default: () => undefined
     },
     'is-ruler-visible': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'selected-ranges': {
@@ -109,15 +109,15 @@ export default defineComponent({
       default: () => undefined
     },
     'selected-text-attributes': {
-      type: Object as PropType<Map<NSAttributedString, any>>,
+      type: Object as PropType<Map<string, any>>,
       default: () => undefined
     },
     'selection-granularity': {
-      type: String as PropType<keyof typeof NSSelectionGranularity>,
+      type: String as PropType<keyof typeof NSTextView.NSSelectionGranularity>,
       default: () => undefined
     },
     'smart-insert-delete-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'text-container': {
@@ -129,31 +129,31 @@ export default defineComponent({
       default: () => undefined
     },
     'typing-attributes': {
-      type: Object as PropType<Map<NSAttributedString, any>>,
+      type: Object as PropType<Map<string, any>>,
       default: () => undefined
     },
     'uses-adaptive-color-mapping-for-dark-appearance': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-find-bar': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-find-panel': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-inspector-bar': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-rollover-button-for-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-ruler': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'constrained-frame-size': {
@@ -171,7 +171,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        selectionGranularity: NSSelectionGranularity,
+        selectionGranularity: NSTextView.NSSelectionGranularity,
         layoutOrientation: NSLayoutManager.TextLayoutOrientation,
       };
 

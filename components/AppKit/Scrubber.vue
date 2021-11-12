@@ -17,7 +17,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-continuous': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'data-source': {
@@ -29,7 +29,7 @@ export default defineComponent({
       default: () => undefined
     },
     'floats-selection-views': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'item-alignment': {
@@ -41,11 +41,11 @@ export default defineComponent({
       default: () => undefined
     },
     'scrubber-layout': {
-      type: Object as PropType<typeof NSScrubberLayout>,
+      type: Object as PropType<NSScrubberLayout>,
       default: () => undefined
     },
     'selected-index': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'selection-background-style': {
@@ -57,11 +57,11 @@ export default defineComponent({
       default: () => undefined
     },
     'shows-additional-content-indicators': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'shows-arrow-buttons': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

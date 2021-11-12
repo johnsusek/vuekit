@@ -13,31 +13,31 @@ export default defineComponent({
       default: () => undefined
     },
     'is-bezeled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'calendar': {
-      type: Object as PropType<NSCalendar>,
+      type: Object as PropType<Calendar>,
       default: () => undefined
     },
     'date-picker-elements': {
-      type: String as PropType<keyof typeof NSDatePicker.ElementFlags>,
+      type: String as PropType<keyof typeof NSDatePickerCell.NSDatePicker.ElementFlags>,
       default: () => undefined
     },
     'date-picker-mode': {
-      type: String as PropType<keyof typeof NSDatePicker.Mode>,
+      type: String as PropType<keyof typeof NSDatePickerCell.NSDatePicker.Mode>,
       default: () => undefined
     },
     'date-picker-style': {
-      type: String as PropType<keyof typeof NSDatePicker.Style>,
+      type: String as PropType<keyof typeof NSDatePickerCell.NSDatePicker.Style>,
       default: () => undefined
     },
     'date-value': {
-      type: Object as PropType<NSDate>,
+      type: Object as PropType<Date>,
       default: () => undefined
     },
     'delegate': {
@@ -45,23 +45,23 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'locale': {
-      type: Object as PropType<NSLocale>,
+      type: Object as PropType<Locale>,
       default: () => undefined
     },
     'max-date': {
-      type: Object as PropType<NSDate>,
+      type: Object as PropType<Date>,
       default: () => undefined
     },
     'min-date': {
-      type: Object as PropType<NSDate>,
+      type: Object as PropType<Date>,
       default: () => undefined
     },
     'presents-calendar-overlay': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'text-color': {
@@ -69,11 +69,11 @@ export default defineComponent({
       default: () => undefined
     },
     'time-interval': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'time-zone': {
-      type: Object as PropType<NSTimeZone>,
+      type: Object as PropType<TimeZone>,
       default: () => undefined
     },
   },
@@ -83,9 +83,9 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        datePickerElements: NSDatePicker.ElementFlags,
-        datePickerMode: NSDatePicker.Mode,
-        datePickerStyle: NSDatePicker.Style,
+        datePickerElements: NSDatePickerCell.NSDatePicker.ElementFlags,
+        datePickerMode: NSDatePickerCell.NSDatePicker.Mode,
+        datePickerStyle: NSDatePickerCell.NSDatePicker.Style,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

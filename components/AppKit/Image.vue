@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'allows-cut-copy-paste': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'animates': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'content-tint-color': {
@@ -21,7 +21,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'image': {
@@ -29,15 +29,15 @@ export default defineComponent({
       default: () => undefined
     },
     'image-alignment': {
-      type: String as PropType<keyof typeof NSImageAlignment>,
+      type: String as PropType<keyof typeof NSImageCell.NSImageAlignment>,
       default: () => undefined
     },
     'image-frame-style': {
-      type: String as PropType<keyof typeof NSImageView.FrameStyle>,
+      type: String as PropType<keyof typeof NSImageCell.NSImageView.FrameStyle>,
       default: () => undefined
     },
     'image-scaling': {
-      type: String as PropType<keyof typeof NSImageScaling>,
+      type: String as PropType<keyof typeof NSCell.NSImageScaling>,
       default: () => undefined
     },
   },
@@ -47,9 +47,9 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        imageAlignment: NSImageAlignment,
-        imageFrameStyle: NSImageView.FrameStyle,
-        imageScaling: NSImageScaling,
+        imageAlignment: NSImageCell.NSImageAlignment,
+        imageFrameStyle: NSImageCell.NSImageView.FrameStyle,
+        imageScaling: NSCell.NSImageScaling,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

@@ -17,7 +17,7 @@ export default defineComponent({
       default: () => undefined
     },
     'detaches-hidden-views': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'distribution': {
@@ -29,11 +29,11 @@ export default defineComponent({
       default: () => undefined
     },
     'orientation': {
-      type: String as PropType<keyof typeof NSUserInterfaceLayoutOrientation>,
+      type: String as PropType<keyof typeof NSUserInterfaceLayout.NSUserInterfaceLayoutOrientation>,
       default: () => undefined
     },
     'spacing': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
   },
@@ -45,7 +45,7 @@ export default defineComponent({
       let types = {
         alignment: NSLayoutConstraint.Attribute,
         distribution: NSStackView.Distribution,
-        orientation: NSUserInterfaceLayoutOrientation,
+        orientation: NSUserInterfaceLayout.NSUserInterfaceLayoutOrientation,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

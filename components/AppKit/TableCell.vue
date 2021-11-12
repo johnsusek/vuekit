@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'background-style': {
-      type: String as PropType<keyof typeof NSView.BackgroundStyle>,
+      type: String as PropType<keyof typeof NSCell.NSView.BackgroundStyle>,
       default: () => undefined
     },
     'image-view': {
@@ -17,7 +17,7 @@ export default defineComponent({
       default: () => undefined
     },
     'object-value': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'row-size-style': {
@@ -35,7 +35,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        backgroundStyle: NSView.BackgroundStyle,
+        backgroundStyle: NSCell.NSView.BackgroundStyle,
         rowSizeStyle: NSTableView.RowSizeStyle,
       };
 

@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'autostarts': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'display-state': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'preview-item': {
@@ -21,7 +21,7 @@ export default defineComponent({
       default: () => undefined
     },
     'should-close-with-window': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

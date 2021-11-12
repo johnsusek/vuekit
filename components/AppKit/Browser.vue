@@ -9,23 +9,23 @@ export default defineComponent({
 
   props: {
     'allows-branch-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-empty-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-type-select': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autohides-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -33,7 +33,7 @@ export default defineComponent({
       default: () => undefined
     },
     'cell-prototype': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'column-resizing-type': {
@@ -41,7 +41,7 @@ export default defineComponent({
       default: () => undefined
     },
     'columns-autosave-name': {
-      type: String,
+      type: Object as PropType<NSBrowser.ColumnsAutosaveName>,
       default: () => undefined
     },
     'delegate': {
@@ -53,19 +53,19 @@ export default defineComponent({
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'last-column': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'max-visible-columns': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-column-width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'path-separator': {
@@ -73,39 +73,39 @@ export default defineComponent({
       default: () => undefined
     },
     'prefers-all-column-user-resizing': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'reuses-columns': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'row-height': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'selection-index-path': {
-      type: Object as PropType<NSIndexPath>,
+      type: Object as PropType<IndexPath>,
       default: () => undefined
     },
     'selection-index-paths': {
-      type: Object as PropType<NSIndexPath[]>,
+      type: Object as PropType<IndexPath[]>,
       default: () => undefined
     },
     'sends-action-on-arrow-keys': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'separates-columns': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'takes-title-from-previous-column': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-titled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'cell-class': {
@@ -117,7 +117,7 @@ export default defineComponent({
       default: () => undefined
     },
     'path': {
-      type: String,
+      type: Object as PropType<BOOL>,
       default: () => undefined
     },
   },

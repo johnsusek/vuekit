@@ -17,7 +17,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-route-picker-button-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

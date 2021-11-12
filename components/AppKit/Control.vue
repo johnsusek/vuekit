@@ -13,11 +13,11 @@ export default defineComponent({
       default: () => undefined
     },
     'alignment': {
-      type: String as PropType<keyof typeof NSTextAlignment>,
+      type: String as PropType<keyof typeof NSText.NSTextAlignment>,
       default: () => undefined
     },
     'allows-expansion-tool-tips': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'attributed-string-value': {
@@ -25,31 +25,31 @@ export default defineComponent({
       default: () => undefined
     },
     'base-writing-direction': {
-      type: String as PropType<keyof typeof NSWritingDirection>,
+      type: String as PropType<keyof typeof NSText.NSWritingDirection>,
       default: () => undefined
     },
     'cell': {
-      type: Object as PropType<typeof NSCell>,
+      type: Object as PropType<NSCell>,
       default: () => undefined
     },
     'is-continuous': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'control-size': {
-      type: String as PropType<keyof typeof NSControl.ControlSize>,
+      type: String as PropType<keyof typeof NSCell.NSControl.ControlSize>,
       default: () => undefined
     },
     'double-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'is-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'float-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'font': {
@@ -57,35 +57,35 @@ export default defineComponent({
       default: () => undefined
     },
     'formatter': {
-      type: Object as PropType<typeof Formatter>,
+      type: Object as PropType<Formatter>,
       default: () => undefined
     },
     'is-highlighted': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'ignores-multi-click': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'int-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'integer-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'line-break-mode': {
-      type: String as PropType<keyof typeof NSLineBreakMode>,
+      type: String as PropType<keyof typeof NSParagraphStyle.NSLineBreakMode>,
       default: () => undefined
     },
     'object-value': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'refuses-first-responder': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'string-value': {
@@ -93,15 +93,15 @@ export default defineComponent({
       default: () => undefined
     },
     'tag': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'target': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'uses-single-line-mode': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },
@@ -111,10 +111,10 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        alignment: NSTextAlignment,
-        baseWritingDirection: NSWritingDirection,
-        controlSize: NSControl.ControlSize,
-        lineBreakMode: NSLineBreakMode,
+        alignment: NSText.NSTextAlignment,
+        baseWritingDirection: NSText.NSWritingDirection,
+        controlSize: NSCell.NSControl.ControlSize,
+        lineBreakMode: NSParagraphStyle.NSLineBreakMode,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

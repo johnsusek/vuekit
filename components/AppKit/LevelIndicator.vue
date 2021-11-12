@@ -13,15 +13,15 @@ export default defineComponent({
       default: () => undefined
     },
     'critical-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'draws-tiered-capacity-levels': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'fill-color': {
@@ -29,23 +29,23 @@ export default defineComponent({
       default: () => undefined
     },
     'level-indicator-style': {
-      type: String as PropType<keyof typeof NSLevelIndicator.Style>,
+      type: String as PropType<keyof typeof NSLevelIndicatorCell.NSLevelIndicator.Style>,
       default: () => undefined
     },
     'max-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'number-of-major-tick-marks': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'number-of-tick-marks': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'placeholder-visibility': {
@@ -61,7 +61,7 @@ export default defineComponent({
       default: () => undefined
     },
     'tick-mark-position': {
-      type: String as PropType<keyof typeof NSSlider.TickMarkPosition>,
+      type: String as PropType<keyof typeof NSSliderCell.NSSlider.TickMarkPosition>,
       default: () => undefined
     },
     'warning-fill-color': {
@@ -69,7 +69,7 @@ export default defineComponent({
       default: () => undefined
     },
     'warning-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
   },
@@ -79,9 +79,9 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        levelIndicatorStyle: NSLevelIndicator.Style,
+        levelIndicatorStyle: NSLevelIndicatorCell.NSLevelIndicator.Style,
         placeholderVisibility: NSLevelIndicator.PlaceholderVisibility,
-        tickMarkPosition: NSSlider.TickMarkPosition,
+        tickMarkPosition: NSSliderCell.NSSlider.TickMarkPosition,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

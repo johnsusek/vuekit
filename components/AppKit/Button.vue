@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'allows-mixed-state': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'alternate-image': {
@@ -33,11 +33,11 @@ export default defineComponent({
       default: () => undefined
     },
     'bezel-style': {
-      type: String as PropType<keyof typeof NSButton.BezelStyle>,
+      type: String as PropType<keyof typeof NSButtonCell.NSButton.BezelStyle>,
       default: () => undefined
     },
     'is-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'content-tint-color': {
@@ -49,15 +49,15 @@ export default defineComponent({
       default: () => undefined
     },
     'image-hugs-title': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'image-position': {
-      type: String as PropType<keyof typeof NSControl.ImagePosition>,
+      type: String as PropType<keyof typeof NSCell.NSControl.ImagePosition>,
       default: () => undefined
     },
     'image-scaling': {
-      type: String as PropType<keyof typeof NSImageScaling>,
+      type: String as PropType<keyof typeof NSCell.NSImageScaling>,
       default: () => undefined
     },
     'key-equivalent': {
@@ -69,11 +69,11 @@ export default defineComponent({
       default: () => undefined
     },
     'max-accelerator-level': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'shows-border-only-while-mouse-inside': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'sound': {
@@ -81,11 +81,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-spring-loaded': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'state': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'title': {
@@ -93,7 +93,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-transparent': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'button-type': {
@@ -107,9 +107,9 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        bezelStyle: NSButton.BezelStyle,
-        imagePosition: NSControl.ImagePosition,
-        imageScaling: NSImageScaling,
+        bezelStyle: NSButtonCell.NSButton.BezelStyle,
+        imagePosition: NSCell.NSControl.ImagePosition,
+        imageScaling: NSCell.NSImageScaling,
         keyEquivalentModifierMask: NSEvent.ModifierFlags,
         buttonType: NSButton.ButtonType,
       };

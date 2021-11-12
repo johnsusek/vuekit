@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'autoresizes-outline-column': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autosave-expanded-items': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'data-source': {
@@ -25,11 +25,11 @@ export default defineComponent({
       default: () => undefined
     },
     'indentation-marker-follows-cell': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'indentation-per-level': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'outline-table-column': {
@@ -37,7 +37,7 @@ export default defineComponent({
       default: () => undefined
     },
     'strongly-references-items': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

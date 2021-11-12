@@ -9,19 +9,19 @@ export default defineComponent({
 
   props: {
     'allows-empty-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autorecalculates-cell-size': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-autoscroll': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autosizes-cells': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -33,7 +33,7 @@ export default defineComponent({
       default: () => undefined
     },
     'cell-class': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Typeof NSObject>,
       default: () => undefined
     },
     'cell-size': {
@@ -49,11 +49,11 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'draws-cell-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'intercell-spacing': {
@@ -61,7 +61,7 @@ export default defineComponent({
       default: () => undefined
     },
     'key-cell': {
-      type: Object as PropType<typeof NSCell>,
+      type: Object as PropType<NSCell>,
       default: () => undefined
     },
     'mode': {
@@ -69,15 +69,15 @@ export default defineComponent({
       default: () => undefined
     },
     'prototype': {
-      type: Object as PropType<typeof NSCell>,
+      type: Object as PropType<NSCell>,
       default: () => undefined
     },
     'is-selection-by-rect': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'tab-key-traverses-cells': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'scrollable': {

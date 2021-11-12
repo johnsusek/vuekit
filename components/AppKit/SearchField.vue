@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'centers-placeholder': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'delegate': {
@@ -17,15 +17,15 @@ export default defineComponent({
       default: () => undefined
     },
     'maximum-recents': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'recent-searches': {
-      type: Object as PropType<string[]>,
+      type: Object as PropType<String[]>,
       default: () => undefined
     },
     'recents-autosave-name': {
-      type: String,
+      type: Object as PropType<NSSearchField.RecentsAutosaveName>,
       default: () => undefined
     },
     'search-menu-template': {
@@ -33,11 +33,11 @@ export default defineComponent({
       default: () => undefined
     },
     'sends-search-string-immediately': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'sends-whole-search-string': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

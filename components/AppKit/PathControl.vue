@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'url': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<URL>,
       default: () => undefined
     },
     'allowed-types': {
-      type: Object as PropType<string[]>,
+      type: Object as PropType<String[]>,
       default: () => undefined
     },
     'background-color': {
@@ -29,7 +29,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'path-items': {
@@ -37,7 +37,7 @@ export default defineComponent({
       default: () => undefined
     },
     'path-style': {
-      type: String as PropType<keyof typeof NSPathControl.Style>,
+      type: String as PropType<keyof typeof NSPathCell.NSPathControl.Style>,
       default: () => undefined
     },
     'placeholder-attributed-string': {
@@ -55,7 +55,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        pathStyle: NSPathControl.Style,
+        pathStyle: NSPathCell.NSPathControl.Style,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

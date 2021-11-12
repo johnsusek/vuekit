@@ -13,7 +13,7 @@ export default defineComponent({
       default: () => undefined
     },
     'image-alignment': {
-      type: String as PropType<keyof typeof NSImageAlignment>,
+      type: String as PropType<keyof typeof NSImageCell.NSImageAlignment>,
       default: () => undefined
     },
   },
@@ -23,7 +23,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        imageAlignment: NSImageAlignment,
+        imageAlignment: NSImageCell.NSImageAlignment,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

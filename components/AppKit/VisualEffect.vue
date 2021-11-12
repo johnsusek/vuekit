@@ -13,7 +13,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-emphasized': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'mask-image': {

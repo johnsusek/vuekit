@@ -9,23 +9,23 @@ export default defineComponent({
 
   props: {
     'autorepeat': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'increment': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'max-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'value-wraps': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

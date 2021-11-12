@@ -9,35 +9,35 @@ export default defineComponent({
 
   props: {
     'allows-column-reordering': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-column-resizing': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-column-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-empty-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-type-select': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autosave-name': {
-      type: String,
+      type: Object as PropType<NSTableView.AutosaveName>,
       default: () => undefined
     },
     'autosave-table-columns': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -69,7 +69,7 @@ export default defineComponent({
       default: () => undefined
     },
     'floats-group-rows': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'grid-color': {
@@ -93,11 +93,11 @@ export default defineComponent({
       default: () => undefined
     },
     'row-actions-visible': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'row-height': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'row-size-style': {
@@ -113,19 +113,19 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-alternating-row-background-colors': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-automatic-row-heights': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'uses-static-contents': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'vertical-motion-can-begin-drag': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'can-remove-all-rows': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'criteria-key-path': {
@@ -25,7 +25,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'formatting-dictionary': {
@@ -41,11 +41,11 @@ export default defineComponent({
       default: () => undefined
     },
     'row-class': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Typeof NSObject>,
       default: () => undefined
     },
     'row-height': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'row-type-key-path': {

@@ -13,23 +13,23 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-local-cameras': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'displays-local-scanners': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'displays-network-cameras': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'displays-network-scanners': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'mode': {
-      type: String as PropType<keyof typeof IKDeviceBrowserViewDisplayMode>,
+      type: String as PropType<keyof typeof IKDeviceBrowserView.IKDeviceBrowserViewDisplayMode>,
       default: () => undefined
     },
   },
@@ -39,7 +39,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        mode: IKDeviceBrowserViewDisplayMode,
+        mode: IKDeviceBrowserView.IKDeviceBrowserViewDisplayMode,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

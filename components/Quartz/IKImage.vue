@@ -9,11 +9,11 @@ export default defineComponent({
 
   props: {
     'autohides-scrollers': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'autoresizes': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -25,23 +25,23 @@ export default defineComponent({
       default: () => undefined
     },
     'delegate': {
-      type: Object as PropType<any>,
+      type: Object as PropType<Any>,
       default: () => undefined
     },
     'double-click-opens-image-edit-panel': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'image-correction': {
@@ -49,19 +49,19 @@ export default defineComponent({
       default: () => undefined
     },
     'rotation-angle': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'supports-drag-and-drop': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'zoom-factor': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'image-with': {
-      type: Object as PropType<NSURL>,
+      type: Object as PropType<void>,
       default: () => undefined
     },
   },

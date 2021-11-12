@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'automatically-adjusts-content-insets': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -20,16 +20,20 @@ export default defineComponent({
       type: Object as PropType<NSEdgeInsets>,
       default: () => undefined
     },
+    'copies-on-scroll': {
+      type: Object as PropType<Boolean>,
+      default: () => undefined
+    },
     'document-cursor': {
       type: Object as PropType<NSCursor>,
       default: () => undefined
     },
     'document-view': {
-      type: Object as PropType<typeof NSView>,
+      type: Object as PropType<NSView>,
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
   },

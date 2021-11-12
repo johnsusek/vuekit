@@ -9,31 +9,31 @@ export default defineComponent({
 
   props: {
     'allows-tick-mark-values-only': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'alt-increment-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'max-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'min-value': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'number-of-tick-marks': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'slider-type': {
-      type: String as PropType<keyof typeof NSSlider.SliderType>,
+      type: String as PropType<keyof typeof NSSliderCell.NSSlider.SliderType>,
       default: () => undefined
     },
     'tick-mark-position': {
-      type: String as PropType<keyof typeof NSSlider.TickMarkPosition>,
+      type: String as PropType<keyof typeof NSSliderCell.NSSlider.TickMarkPosition>,
       default: () => undefined
     },
     'track-fill-color': {
@@ -47,8 +47,8 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        sliderType: NSSlider.SliderType,
-        tickMarkPosition: NSSlider.TickMarkPosition,
+        sliderType: NSSliderCell.NSSlider.SliderType,
+        tickMarkPosition: NSSliderCell.NSSlider.TickMarkPosition,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

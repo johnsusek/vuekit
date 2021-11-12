@@ -9,19 +9,19 @@ export default defineComponent({
 
   props: {
     'allows-character-picker-touch-bar-item': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-default-tightening-for-truncation': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'allows-editing-text-attributes': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-automatic-text-completion-enabled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'background-color': {
@@ -29,15 +29,15 @@ export default defineComponent({
       default: () => undefined
     },
     'bezel-style': {
-      type: String as PropType<keyof typeof NSTextField.BezelStyle>,
+      type: String as PropType<keyof typeof NSTextFieldCell.NSTextField.BezelStyle>,
       default: () => undefined
     },
     'is-bezeled': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'delegate': {
@@ -45,19 +45,19 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'is-editable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'imports-graphics': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'maximum-number-of-lines': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'placeholder-attributed-string': {
@@ -69,11 +69,11 @@ export default defineComponent({
       default: () => undefined
     },
     'preferred-max-layout-width': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'is-selectable': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'text-color': {
@@ -87,7 +87,7 @@ export default defineComponent({
       let attrs: any = {};
 
       let types = {
-        bezelStyle: NSTextField.BezelStyle,
+        bezelStyle: NSTextFieldCell.NSTextField.BezelStyle,
       };
 
       for (const [propName, propType] of Object.entries(types)) {

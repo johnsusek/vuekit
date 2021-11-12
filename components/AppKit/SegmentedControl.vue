@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'segment-count': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'segment-distribution': {
@@ -21,7 +21,7 @@ export default defineComponent({
       default: () => undefined
     },
     'selected-segment': {
-      type: Number,
+      type: Object as PropType<Number>,
       default: () => undefined
     },
     'selected-segment-bezel-color': {
@@ -29,7 +29,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-spring-loaded': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'tracking-mode': {

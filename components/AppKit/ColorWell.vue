@@ -9,7 +9,7 @@ export default defineComponent({
 
   props: {
     'is-bordered': {
-      type: Boolean,
+      type: Object as PropType<Boolean>,
       default: () => undefined
     },
     'color': {

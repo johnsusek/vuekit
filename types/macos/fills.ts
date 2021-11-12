@@ -9,6 +9,10 @@ declare global {
     export class CGImagePropertyOrientation { }
   }
 
+  export namespace CHHapticParameterCurve {
+    export class ControlPoint { }
+  }
+
   export namespace CKShare {
     export namespace Participant {
       export enum CKShare_Participant_Permission { }
@@ -54,14 +58,20 @@ declare global {
   export class AVSampleCursorSyncInfo { }
   export class CATransform3D { }
   export class CGAffineTransform { }
-  export class CLLocation { }
+  export class CLLocationCoordinate2D { }
+  export class CMAcceleration { }
+  export class CMCalibratedMagneticField { }
+  export class CMMagneticField { }
+  export class CMQuaternion { }
+  export class CMRotationMatrix { }
+  export class CMRotationRate { }
+  export class CNPostalAddress { }
+  export class SFAuthorization { }
   export class CMTime { }
   export class CMTimeMapping { }
   export class CMTimeRange { }
   export class CMVideoDimensions { }
   export class ComponentInstanceRecord { }
-  export class CSSearchableIndex { }
-  export class CSSearchableItemAttributeSet { }
   export class CVTimeStamp { }
   export class DecimalStruct { }
   export class ICCameraDevice { }
@@ -70,10 +80,12 @@ declare global {
   export class ICScannerBandData { }
   export class ICScannerDevice { }
   export class K { }
-  export class MLModel { }
   export class NSAffineTransformStruct { }
   export class NSDirectionalEdgeInsets { }
-  export class NSObject { }
+  export class NSObject {
+    static create(): NSObject
+  }
+  export class NSDecimal { }
 
   // These fix a lot of errors, why not bridged?
   export class NSRange { }

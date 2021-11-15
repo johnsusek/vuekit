@@ -1,5 +1,3 @@
-import { createInstance } from '.';
-
 function addToTable(instance: NSTableColumn, parentInstance: NSTableView) {
   parentInstance.addTableColumn(instance);
 }
@@ -11,7 +9,7 @@ function add(instance: NSView, parentInstance: NSView) {
 function addWithAnchor(instance: NSView, parentInstance: NSView, anchor: VueKitNode) {
   if (anchor.instance) {
     // console.log('insert after this view: ', anchor.instance);
-    parentInstance.addSubviewPositionedRelativeTo(instance, NSWindow.OrderingMode.Below, anchor.instance as NSView);
+    parentInstance.addSubviewPositionedWithRelativeTo(instance, NSWindow.OrderingMode.Below, anchor.instance as NSView);
   }
   else {
     console.error('Could not insert view because anchor has no view: ', instance, anchor);
@@ -67,7 +65,7 @@ function addToArranged(instance: NSView, parent: VueKitNode, anchor: VueKitNode)
   anchorViewPosition = anchorViewPosition < 0 ? 0 : anchorViewPosition;
 
   // console.info('anchor is at children position: ', anchorPosInParentNode, 'of', parent.children, 'view position: ', anchorViewPosition, 'of', childrenWithViews);
-  parentInstance.insertArrangedSubviewAtIndex(instance, anchorViewPosition);
+  parentInstance.insertArrangedSubview(instance, anchorViewPosition);
 }
 
 function addToStackGravityArea(instance, parentInstance, gravityArea) {
@@ -116,9 +114,13 @@ export function addNodeToParentView(node: VueKitNode, parent: VueKitNode, anchor
   // If we didn't do this, users would have to add the
   // same 4 constraints to every child of a <Window>
   if (parentInstance instanceof NSWindow && instance instanceof NSView) {
+    // @ts-ignore
     instance.topAnchor.constraintWithEqualTo(parentInstance.contentView.topAnchor).setActive(true);
+    // @ts-ignore
     instance.bottomAnchor.constraintWithEqualTo(parentInstance.contentView.bottomAnchor).setActive(true);
+    // @ts-ignore
     instance.leadingAnchor.constraintWithEqualTo(parentInstance.contentView.leadingAnchor).setActive(true);
+    // @ts-ignore
     instance.trailingAnchor.constraintWithEqualTo(parentInstance.contentView.trailingAnchor).setActive(true);
   }
 }

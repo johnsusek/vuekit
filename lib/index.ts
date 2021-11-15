@@ -1,5 +1,7 @@
 // let levels = ['error', 'warn', 'log', 'info', 'debug'];
 
+import { createConstructors } from './node';
+
 // for (const level of levels) {
 //   let original = console[level];
 //   console[level] = (...args: any[]) => {
@@ -16,6 +18,7 @@
 //   return new Promise(resolve => global.setImmediate(resolve));
 // }
 
+createConstructors();
+
 export { createApp } from './createApp';
-export { createInstance } from './createInstance';
 export { createNode } from './createNode';

@@ -113,7 +113,7 @@ export class AVAssetImageGenerator extends NSObject {
 }
 
 export class AVAssetReader extends NSObject {
-  static createWithAssetReaderWithAsset(error: AVAsset): AVAssetReader;
+  static createWithAsset(error: AVAsset): AVAssetReader;
   asset: AVAsset;
   error: Error;
   outputs: AVAssetReaderOutput[];
@@ -285,7 +285,7 @@ export class AVAssetTrackSegment extends NSObject {
 }
 
 export class AVAssetWriter extends NSObject {
-  static createWithAssetWriterWithURLFileType(fileType: URL, error: string): AVAssetWriter;
+  static createWithURLFileType(fileType: URL, error: string): AVAssetWriter;
   availableMediaTypes: string[];
   directoryForTemporaryFiles: URL;
   setDirectoryForTemporaryFiles(_: URL);
@@ -662,7 +662,7 @@ export class AVAudioMixingDestination extends NSObject {
 }
 
 export class AVAudioNode extends NSObject {
-  AUAudioUnit: AUAudioUnit;
+  auAudioUnit: AUAudioUnit;
   engine: AVAudioEngine;
   lastRenderTime: AVAudioTime;
   latency: number;
@@ -1436,7 +1436,7 @@ export class AVCaptureVideoPreviewLayer extends CALayer {
 }
 
 export class AVComposition extends AVAsset {
-  URLAssetInitializationOptions: Map<string, any>;
+  urlAssetInitializationOptions: Map<string, any>;
   naturalSize: CGSize;
   // @ts-ignore 
   track(withTrackID: number): AVCompositionTrack;
@@ -1714,7 +1714,7 @@ export class AVMetadataSalientObject extends AVMetadataObject {
 
 export class AVMovie extends AVAsset {
   static movieTypes(): string[];
-  URL: URL;
+  url: URL;
   canContainMovieFragments: boolean;
   containsMovieFragments: boolean;
   data: Data;
@@ -1847,7 +1847,7 @@ export class AVMutableMetadataItem extends AVMetadataItem {
 }
 
 export class AVMutableMovie extends AVMovie {
-  static createWithMovieWithSettingsFromMovieOptions(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
+  static createWithSettingsFromMovieOptions(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
   defaultMediaDataStorage: AVMediaDataStorage;
   setDefaultMediaDataStorage(_: AVMediaDataStorage);
   interleavingPeriod: CMTime;
@@ -2016,7 +2016,7 @@ export class AVPlayer extends NSObject {
   setMasterClock(_: any);
   isMuted: boolean;
   setMuted(_: boolean);
-  outputObscuredDueToInsufficientExternalProtection: boolean;
+  isOutputObscuredDueToInsufficientExternalProtection: boolean;
   preferredVideoDecoderGPURegistryID: number;
   setPreferredVideoDecoderGPURegistryID(_: number);
   preventsDisplaySleepDuringVideoPlayback: boolean;
@@ -2683,7 +2683,7 @@ interface AVRoutePickerViewDelegate {
 }
 
 export class NSATSTypesetter extends NSTypesetter {
-  static sharedTypesetter: NSATSTypesetter;
+  static shared: NSATSTypesetter;
 }
 
 interface NSAccessibility {
@@ -3229,7 +3229,7 @@ export class NSAnimationContext extends NSObject {
   setDuration(_: number);
   timingFunction: CAMediaTimingFunction;
   setTimingFunction(_: CAMediaTimingFunction);
-  static currentContext: NSAnimationContext;
+  static current: NSAnimationContext;
 }
 
 interface NSAnimationDelegate {
@@ -3243,7 +3243,7 @@ interface NSAnimationDelegate {
 export class NSAppearance extends NSObject {
   allowsVibrancy: boolean;
   name: string;
-  static currentAppearance: NSAppearance;
+  static current: NSAppearance;
   setCurrentAppearance(_: NSAppearance);
   bestMatch(from: string[]): string;
   static createWithAppearanceNamedWithBundle(_: string, bundle?: Bundle): NSAppearance;
@@ -3292,7 +3292,7 @@ export class NSApplication extends NSResponder {
   windows: NSWindow[];
   windowsMenu: NSMenu;
   setWindowsMenu(_: NSMenu);
-  static sharedApplication: NSApplication;
+  static shared: NSApplication;
   abortModal(): void;
   activateContextHelpMode(_?: any): void;
   activate(ignoringOtherApps: boolean): void;
@@ -3466,8 +3466,8 @@ export class NSBezierPath extends NSObject {
   static fill(_: CGRect): void;
   static strokeLine(from: CGPoint, to: CGPoint): void;
   static stroke(_: CGRect): void;
-  bezierPathByFlatteningPath: NSBezierPath;
-  bezierPathByReversingPath: NSBezierPath;
+  flattened: NSBezierPath;
+  reversed: NSBezierPath;
   bounds: CGRect;
   controlPointBounds: CGRect;
   currentPoint: CGPoint;
@@ -3545,8 +3545,8 @@ export class NSBitmapImageRep extends NSImageRep {
     static imageReps(with_: Data): NSImageRep[];
   static localizedName(forTIFFCompressionType: NSBitmapImageRep.TIFFCompression): string;
   static representationOfImageReps(in_: NSImageRep[], using: NSBitmapImageRep.FileType, properties: Map<string, any>): Data;
-  CGImage: any;
-  TIFFRepresentation: Data;
+  cgImage: any;
+  tiffRepresentation: Data;
   bitmapData: string;
   bitmapFormat: NSBitmapImageRep.Format;
   bitsPerPixel: number;
@@ -3901,7 +3901,7 @@ export class NSButtonTouchBarItem extends NSTouchBarItem {
 }
 
 export class NSCIImageRep extends NSImageRep {
-  CIImage: CIImage;
+  ciImage: CIImage;
   static createWithCiImage(_: CIImage): NSCIImageRep;
 }
 
@@ -4583,7 +4583,7 @@ export class NSCollectionViewUpdateItem extends NSObject {
 }
 
 export class NSColor extends NSObject {
-  CGColor: any;
+  cgColor: any;
   alphaComponent: number;
   blackComponent: number;
   blueComponent: number;
@@ -4606,21 +4606,21 @@ export class NSColor extends NSObject {
   yellowComponent: number;
   static alternateSelectedControlTextColor: NSColor;
   static alternatingContentBackgroundColors: NSColor[];
-  static blackColor: NSColor;
-  static blueColor: NSColor;
-  static brownColor: NSColor;
-  static clearColor: NSColor;
+  static black: NSColor;
+  static blue: NSColor;
+  static brown: NSColor;
+  static clear: NSColor;
   static controlAccentColor: NSColor;
   static controlBackgroundColor: NSColor;
   static controlColor: NSColor;
   static controlTextColor: NSColor;
   static currentControlTint: NSCell.NSControlTint;
-  static cyanColor: NSColor;
-  static darkGrayColor: NSColor;
+  static cyan: NSColor;
+  static darkGray: NSColor;
   static disabledControlTextColor: NSColor;
   static findHighlightColor: NSColor;
-  static grayColor: NSColor;
-  static greenColor: NSColor;
+  static gray: NSColor;
+  static green: NSColor;
   static gridColor: NSColor;
   static headerTextColor: NSColor;
   static highlightColor: NSColor;
@@ -4628,15 +4628,15 @@ export class NSColor extends NSObject {
   setIgnoresAlpha(_: boolean);
   static keyboardFocusIndicatorColor: NSColor;
   static labelColor: NSColor;
-  static lightGrayColor: NSColor;
+  static lightGray: NSColor;
   static linkColor: NSColor;
-  static magentaColor: NSColor;
-  static orangeColor: NSColor;
+  static magenta: NSColor;
+  static orange: NSColor;
   static placeholderTextColor: NSColor;
-  static purpleColor: NSColor;
+  static purple: NSColor;
   static quaternaryLabelColor: NSColor;
-  static redColor: NSColor;
-  static scrubberTexturedBackgroundColor: NSColor;
+  static red: NSColor;
+  static scrubberTexturedBackground: NSColor;
   static secondaryLabelColor: NSColor;
   static selectedContentBackgroundColor: NSColor;
   static selectedControlColor: NSColor;
@@ -4646,17 +4646,17 @@ export class NSColor extends NSObject {
   static selectedTextColor: NSColor;
   static separatorColor: NSColor;
   static shadowColor: NSColor;
-  static systemBlueColor: NSColor;
-  static systemBrownColor: NSColor;
-  static systemGrayColor: NSColor;
-  static systemGreenColor: NSColor;
-  static systemIndigoColor: NSColor;
-  static systemOrangeColor: NSColor;
-  static systemPinkColor: NSColor;
-  static systemPurpleColor: NSColor;
-  static systemRedColor: NSColor;
-  static systemTealColor: NSColor;
-  static systemYellowColor: NSColor;
+  static systemBlue: NSColor;
+  static systemBrown: NSColor;
+  static systemGray: NSColor;
+  static systemGreen: NSColor;
+  static systemIndigo: NSColor;
+  static systemOrange: NSColor;
+  static systemPink: NSColor;
+  static systemPurple: NSColor;
+  static systemRed: NSColor;
+  static systemTeal: NSColor;
+  static systemYellow: NSColor;
   static tertiaryLabelColor: NSColor;
   static textBackgroundColor: NSColor;
   static textColor: NSColor;
@@ -4664,10 +4664,10 @@ export class NSColor extends NSObject {
   static unemphasizedSelectedContentBackgroundColor: NSColor;
   static unemphasizedSelectedTextBackgroundColor: NSColor;
   static unemphasizedSelectedTextColor: NSColor;
-  static whiteColor: NSColor;
+  static white: NSColor;
   static windowBackgroundColor: NSColor;
   static windowFrameTextColor: NSColor;
-  static yellowColor: NSColor;
+  static yellow: NSColor;
   blended(withFraction: number, of: NSColor): NSColor;
   usingColorSpace(_: NSColorSpace): NSColor;
   usingType(_: NSColor.ColorType): NSColor;
@@ -4721,7 +4721,7 @@ export class NSColorPanel extends NSPanel {
   setMode(_: NSColorPanel.Mode);
   showsAlpha: boolean;
   setShowsAlpha(_: boolean);
-  static sharedColorPanel: NSColorPanel;
+  static shared: NSColorPanel;
   static sharedColorPanelExists: boolean;
   attachColorList(_: NSColorList): void;
   detachColorList(_: NSColorList): void;
@@ -4785,24 +4785,24 @@ export class NSColorSampler extends NSObject {
 
 export class NSColorSpace extends NSObject {
   static availableColorSpaces(with_: NSColorSpace.Model): NSColorSpace[];
-  CGColorSpace: any;
-  ICCProfileData: Data;
+  cgColorSpace: any;
+  iccProfileData: Data;
   colorSpaceModel: NSColorSpace.Model;
   colorSyncProfile: any;
   localizedName: string;
   numberOfColorComponents: number;
-  static adobeRGB1998ColorSpace: NSColorSpace;
-  static deviceCMYKColorSpace: NSColorSpace;
-  static deviceGrayColorSpace: NSColorSpace;
-  static deviceRGBColorSpace: NSColorSpace;
-  static displayP3ColorSpace: NSColorSpace;
-  static extendedGenericGamma22GrayColorSpace: NSColorSpace;
-  static extendedSRGBColorSpace: NSColorSpace;
-  static genericCMYKColorSpace: NSColorSpace;
-  static genericGamma22GrayColorSpace: NSColorSpace;
-  static genericGrayColorSpace: NSColorSpace;
-  static genericRGBColorSpace: NSColorSpace;
-  static sRGBColorSpace: NSColorSpace;
+  static adobeRGB1998: NSColorSpace;
+  static deviceCMYK: NSColorSpace;
+  static deviceGray: NSColorSpace;
+  static deviceRGB: NSColorSpace;
+  static displayP3: NSColorSpace;
+  static extendedGenericGamma22Gray: NSColorSpace;
+  static extendedSRGB: NSColorSpace;
+  static genericCMYK: NSColorSpace;
+  static genericGamma22Gray: NSColorSpace;
+  static genericGray: NSColorSpace;
+  static genericRGB: NSColorSpace;
+  static sRGB: NSColorSpace;
   static createWithCgColorSpace(_: any): NSColorSpace;
   static createWithColorSyncProfile(_: any): NSColorSpace;
   static createWithIccProfileData(_: Data): NSColorSpace;
@@ -5039,26 +5039,26 @@ export class NSCursor extends NSObject {
   static unhide(): void;
   hotSpot: CGPoint;
   image: NSImage;
-  static IBeamCursor: NSCursor;
-  static IBeamCursorForVerticalLayout: NSCursor;
-  static arrowCursor: NSCursor;
-  static closedHandCursor: NSCursor;
-  static contextualMenuCursor: NSCursor;
-  static crosshairCursor: NSCursor;
-  static currentCursor: NSCursor;
-  static currentSystemCursor: NSCursor;
-  static disappearingItemCursor: NSCursor;
-  static dragCopyCursor: NSCursor;
-  static dragLinkCursor: NSCursor;
-  static openHandCursor: NSCursor;
-  static operationNotAllowedCursor: NSCursor;
-  static pointingHandCursor: NSCursor;
-  static resizeDownCursor: NSCursor;
-  static resizeLeftCursor: NSCursor;
-  static resizeLeftRightCursor: NSCursor;
-  static resizeRightCursor: NSCursor;
-  static resizeUpCursor: NSCursor;
-  static resizeUpDownCursor: NSCursor;
+  static iBeam: NSCursor;
+  static iBeamCursorForVerticalLayout: NSCursor;
+  static arrow: NSCursor;
+  static closedHand: NSCursor;
+  static contextualMenu: NSCursor;
+  static crosshair: NSCursor;
+  static current: NSCursor;
+  static currentSystem: NSCursor;
+  static disappearingItem: NSCursor;
+  static dragCopy: NSCursor;
+  static dragLink: NSCursor;
+  static openHand: NSCursor;
+  static operationNotAllowed: NSCursor;
+  static pointingHand: NSCursor;
+  static resizeDown: NSCursor;
+  static resizeLeft: NSCursor;
+  static resizeLeftRight: NSCursor;
+  static resizeRight: NSCursor;
+  static resizeUp: NSCursor;
+  static resizeUpDown: NSCursor;
   static createWithImageWithHotSpot(_: NSImage, hotSpot: CGPoint): NSCursor;
   pop(): void;
   push(): void;
@@ -5235,7 +5235,7 @@ interface NSDockTilePlugIn {
 export class NSDocument extends NSObject {
   static canConcurrentlyReadDocuments(ofType: string): boolean;
   static isNativeType(_: string): boolean;
-  PDFPrintOperation: NSPrintOperation;
+  pdfPrintOperation: NSPrintOperation;
   allowsDocumentSharing: boolean;
   autosavedContentsFileURL: URL;
   setAutosavedContentsFileURL(_: URL);
@@ -5386,7 +5386,7 @@ export class NSDocumentController extends NSObject {
   hasEditedDocuments: boolean;
   maximumRecentDocumentCount: number;
   recentDocumentURLs: URL[];
-  static sharedDocumentController: NSDocumentController;
+  static shared: NSDocumentController;
   urlsFromRunningOpenPanel(): URL[];
   addDocument(_: NSDocument): void;
   beginOpenPanel(_: NSOpenPanel, forTypes?: string[], completionHandler?: (p1: number) => void): void;
@@ -5524,7 +5524,7 @@ interface NSDrawerDelegate {
 }
 
 export class NSEPSImageRep extends NSImageRep {
-  EPSRepresentation: Data;
+  epsRepresentation: Data;
   boundingBox: CGRect;
   static createWithData(_: Data): NSEPSImageRep;
 }
@@ -5554,7 +5554,7 @@ export class NSEvent extends NSObject {
   static startPeriodicEvents(afterDelay: number, withPeriod: number): void;
   static stopPeriodicEvents(): void;
   isARepeat: boolean;
-  CGEvent: any;
+  cgEvent: any;
   absoluteX: number;
   absoluteY: number;
   absoluteZ: number;
@@ -5684,14 +5684,14 @@ export class NSFont extends NSObject {
   mostCompatibleStringEncoding: number;
   numberOfGlyphs: number;
   pointSize: number;
-  printerFont: NSFont;
+  printer: NSFont;
   renderingMode: NSFont.NSFontRenderingMode;
-  screenFont: NSFont;
+  screen: NSFont;
   textTransform: AffineTransform;
   underlinePosition: number;
   underlineThickness: number;
   isVertical: boolean;
-  verticalFont: NSFont;
+  vertical: NSFont;
   xHeight: number;
   static labelFontSize: number;
   static smallSystemFontSize: number;
@@ -5730,7 +5730,7 @@ export class NSFontCollection extends NSObject {
   matchingDescriptors: NSFontDescriptor[];
   queryDescriptors: NSFontDescriptor[];
   static allFontCollectionNames: string[];
-  static fontCollectionWithAllAvailableDescriptors: NSFontCollection;
+  static withAllAvailableDescriptors: NSFontCollection;
   // dupe name w instance property   matchingDescriptors(forFamily: string): NSFontDescriptor[];
   // dupe name w instance property   matchingDescriptors(forFamily: string, options?: Map<string, number>): NSFontDescriptor[];
   // dupe name w instance property   matchingDescriptors(options?: Map<string, number>): NSFontDescriptor[];
@@ -5744,7 +5744,7 @@ export class NSFontDescriptor extends NSObject {
   requiresFontAssetRequest: boolean;
   symbolicTraits: NSFontDescriptor.SymbolicTraits;
   addingAttributes(_: Map<string, any>): NSFontDescriptor;
-  createWithFontDescriptorWithDesign(_: string): NSFontDescriptor;
+  createWithDesign(_: string): NSFontDescriptor;
   withFace(_: string): NSFontDescriptor;
   withFamily(_: string): NSFontDescriptor;
   withMatrix(_: AffineTransform): NSFontDescriptor;
@@ -5771,7 +5771,7 @@ export class NSFontManager extends NSObject {
   selectedFont: NSFont;
   target: any;
   setTarget(_: any);
-  static sharedFontManager: NSFontManager;
+  static shared: NSFontManager;
   addFontTrait(_?: any): void;
   availableFontNames(with_: NSFontManager.NSFontTraitMask): string[];
   availableMembers(ofFontFamily: string): any[][];
@@ -5808,7 +5808,7 @@ export class NSFontPanel extends NSPanel {
   // @ts-ignore 
   isEnabled: boolean;
   setEnabled(_: boolean);
-  static sharedFontPanel: NSFontPanel;
+  static shared: NSFontPanel;
   static sharedFontPanelExists: boolean;
   convert(_: NSFont): NSFont;
   reloadDefaultFontFamilies(): void;
@@ -5912,7 +5912,7 @@ interface NSGestureRecognizerDelegate {
 // export function NSGetFileTypes(pboardTypes: string[]): string[];
 
 export class NSGlyphGenerator extends NSObject {
-  static sharedGlyphGenerator: NSGlyphGenerator;
+  static shared: NSGlyphGenerator;
   generateGlyphs(for_: any, desiredNumberOfCharacters: number, glyphIndex?: number, characterIndex?: number): void;
 }
 
@@ -5952,8 +5952,8 @@ export class NSGraphicsContext extends NSObject {
   static currentContextDrawingToScreen(): boolean;
   //  static restoreGraphicsState(): void;
   //  static saveGraphicsState(): void;
-  CGContext: any;
-  CIContext: CIContext;
+  cgContext: any;
+  ciContext: CIContext;
   attributes: Map<string, any>;
   colorRenderingIntent: NSGraphics.NSColorRenderingIntent;
   setColorRenderingIntent(_: NSGraphics.NSColorRenderingIntent);
@@ -5967,7 +5967,7 @@ export class NSGraphicsContext extends NSObject {
   setPatternPhase(_: CGPoint);
   shouldAntialias: boolean;
   setShouldAntialias(_: boolean);
-  static currentContext: NSGraphicsContext;
+  static current: NSGraphicsContext;
   setCurrentContext(_: NSGraphicsContext);
   flushGraphics(): void;
   restoreGraphicsState(): void;
@@ -6085,7 +6085,7 @@ interface NSHapticFeedbackPerformer {
 export class NSHelpManager extends NSObject {
   static isContextHelpModeActive: boolean;
   setContextHelpModeActive(_: boolean);
-  static sharedHelpManager: NSHelpManager;
+  static shared: NSHelpManager;
   contextHelp(for_: any): NSAttributedString;
   find(_: string, inBook?: string): void;
   openHelpAnchor(_: string, inBook?: string): void;
@@ -6101,7 +6101,7 @@ interface NSIgnoreMisspelledWords {
 
 export class NSImage extends NSObject {
   static canInit(with_: NSPasteboard): boolean;
-  TIFFRepresentation: Data;
+  tiffRepresentation: Data;
   accessibilityDescription: string;
   setAccessibilityDescription(_: string);
   alignmentRect: CGRect;
@@ -6212,7 +6212,7 @@ export class NSImageRep extends NSObject {
   setSize(_: CGSize);
   static imageTypes: string[];
   static imageUnfilteredTypes: string[];
-  static registeredImageRepClasses: typeof NSObject[];
+  static registeredClasses: typeof NSObject[];
   cgImage(forProposedRect?: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>): any;
   draw(): boolean;
   draw(at: CGPoint): boolean;
@@ -6254,12 +6254,12 @@ export class NSLayoutAnchor<AnchorType> extends NSObject {
   hasAmbiguousLayout: boolean;
   item: any;
   name: string;
-  constraintEqualToAnchor(equalTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  constraintEqualToAnchorWithConstant(equalTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
-  constraintGreaterThanOrEqualToAnchor(greaterThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  constraintGreaterThanOrEqualToAnchorWithConstant(greaterThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
-  constraintLessThanOrEqualToAnchor(lessThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  constraintLessThanOrEqualToAnchorWithConstant(lessThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
+  constraint(equalTo: NSLayoutAnchor<any>): NSLayoutConstraint;
+  constraint(equalTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
+  constraint(greaterThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
+  constraint(greaterThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
+  constraint(lessThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
+  constraint(lessThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
 }
 
 export class NSLayoutConstraint extends NSObject {
@@ -6288,23 +6288,23 @@ export class NSLayoutConstraint extends NSObject {
 
 export class NSLayoutDimension extends NSLayoutAnchor<NSLayoutDimension> {
   // @ts-ignore 
-  constraintEqualToAnchorWithMultiplier(equalTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
+  constraint(equalTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintEqualToAnchorWithMultiplierWithConstant(equalTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
+  constraint(equalTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintEqualToConstant(equalToConstant: number): NSLayoutConstraint;
+  constraint(equalToConstant: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintGreaterThanOrEqualToAnchorWithMultiplier(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
+  constraint(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintGreaterThanOrEqualToAnchorWithMultiplierWithConstant(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
+  constraint(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintGreaterThanOrEqualToConstant(greaterThanOrEqualToConstant: number): NSLayoutConstraint;
+  constraint(greaterThanOrEqualToConstant: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintLessThanOrEqualToAnchorWithMultiplier(lessThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
+  constraint(lessThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintLessThanOrEqualToAnchorWithMultiplierWithConstant(lessThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
+  constraint(lessThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
   // @ts-ignore 
-  constraintLessThanOrEqualToConstant(lessThanOrEqualToConstant: number): NSLayoutConstraint;
+  constraint(lessThanOrEqualToConstant: number): NSLayoutConstraint;
 }
 
 export class NSLayoutGuide extends NSObject implements NSUserInterfaceItemIdentification {
@@ -6660,7 +6660,7 @@ export class NSMediaLibraryBrowserController extends NSObject {
   setMediaLibraries(_: NSMediaLibraryBrowserController.Library);
   isVisible: boolean;
   setVisible(_: boolean);
-  static sharedMediaLibraryBrowserController: NSMediaLibraryBrowserController;
+  static shared: NSMediaLibraryBrowserController;
   togglePanel(_?: any): void;
 }
 
@@ -6678,7 +6678,7 @@ export class NSMenu extends NSObject implements NSUserInterfaceItemIdentificatio
   font: NSFont;
   setFont(_: NSFont);
   highlightedItem: NSMenuItem;
-  itemArray: NSMenuItem[];
+  items: NSMenuItem[];
   setItemArray(_: NSMenuItem[]);
   menuBarHeight: number;
   minimumWidth: number;
@@ -6769,10 +6769,10 @@ export class NSMenuItem extends NSObject implements NSUserInterfaceItemIdentific
   setOffStateImage(_: NSImage);
   onStateImage: NSImage;
   setOnStateImage(_: NSImage);
-  parentItem: NSMenuItem;
+  parent: NSMenuItem;
   representedObject: any;
   setRepresentedObject(_: any);
-  //   isSeparatorItem: boolean;
+  //   isSeparator: boolean;
   state: number;
   setState(_: number);
   submenu: NSMenu;
@@ -6833,7 +6833,7 @@ export class NSMutableFontCollection extends NSFontCollection {
   setExclusionDescriptors(_: NSFontDescriptor[]);
   queryDescriptors: NSFontDescriptor[];
   setQueryDescriptors(_: NSFontDescriptor[]);
-  static fontCollectionWithAllAvailableDescriptors: NSMutableFontCollection;
+  static withAllAvailableDescriptors: NSMutableFontCollection;
   addQuery(for_: NSFontDescriptor[]): void;
   removeQuery(for_: NSFontDescriptor[]): void;
 }
@@ -6927,7 +6927,7 @@ export class NSObjectController extends NSController {
 }
 
 export class NSOpenPanel extends NSSavePanel {
-  URLs: URL[];
+  urls: URL[];
   isAccessoryViewDisclosed: boolean;
   setAccessoryViewDisclosed(_: boolean);
   allowsMultipleSelection: boolean;
@@ -7055,7 +7055,7 @@ interface NSOutlineViewDelegate {
 }
 
 export class NSPDFImageRep extends NSImageRep {
-  PDFRepresentation: Data;
+  pdfRepresentation: Data;
   bounds: CGRect;
   currentPage: number;
   setCurrentPage(_: number);
@@ -7064,7 +7064,7 @@ export class NSPDFImageRep extends NSImageRep {
 }
 
 export class NSPDFInfo extends NSObject {
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   attributes: Map<string, any>;
   isFileExtensionHidden: boolean;
@@ -7088,7 +7088,7 @@ export class NSPDFPanel extends NSObject {
 }
 
 export class NSPICTImageRep extends NSImageRep {
-  PICTRepresentation: Data;
+  pictRepresentation: Data;
   boundingBox: CGRect;
   static createWithData(_: Data): NSPICTImageRep;
 }
@@ -7171,7 +7171,7 @@ export class NSParagraphStyle extends NSObject {
   textBlocks: NSTextBlock[];
   textLists: NSTextList[];
   tighteningFactorForTruncation: number;
-  static defaultParagraphStyle: NSParagraphStyle;
+  static default: NSParagraphStyle;
 }
 
 export class NSPasteboard extends NSObject {
@@ -7181,7 +7181,7 @@ export class NSPasteboard extends NSObject {
   name: string;
   pasteboardItems: NSPasteboardItem[];
   types: string[];
-  static generalPasteboard: NSPasteboard;
+  static general: NSPasteboard;
   addTypes(_: string[], owner?: any): number;
   availableType(from: string[]): string;
   canReadItem(withDataConformingToTypes: string[]): boolean;
@@ -7235,7 +7235,7 @@ interface NSPasteboardWriting {
 }
 
 export class NSPathCell extends NSActionCell {
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   allowedTypes: string[];
   setAllowedTypes(_: string[]);
@@ -7268,12 +7268,12 @@ interface NSPathCellDelegate {
 }
 
 export class NSPathComponentCell extends NSTextFieldCell {
-  URL: URL;
+  url: URL;
   setURL(_: URL);
 }
 
 export class NSPathControl extends NSControl {
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   allowedTypes: string[];
   setAllowedTypes(_: string[]);
@@ -7309,7 +7309,7 @@ interface NSPathControlDelegate {
 }
 
 export class NSPathControlItem extends NSObject {
-  URL: URL;
+  url: URL;
   attributedTitle: NSAttributedString;
   setAttributedTitle(_: NSAttributedString);
   image: NSImage;
@@ -7582,7 +7582,7 @@ export class NSPrintInfo extends NSObject {
   isVerticallyCentered: boolean;
   setVerticallyCentered(_: boolean);
   static defaultPrinter: NSPrinter;
-  static sharedPrintInfo: NSPrintInfo;
+  static shared: NSPrintInfo;
   setSharedPrintInfo(_: NSPrintInfo);
   pmPageFormat(): any;
   pmPrintSession(): any;
@@ -7602,7 +7602,7 @@ export class NSPrintOperation extends NSObject {
   static pdfOperation(with_: NSView, inside: CGRect, to: NSMutableData): NSPrintOperation;
   static pdfOperation(with_: NSView, inside: CGRect, to: NSMutableData, printInfo: NSPrintInfo): NSPrintOperation;
   static pdfOperation(with_: NSView, inside: CGRect, toPath: string, printInfo: NSPrintInfo): NSPrintOperation;
-  PDFPanel: NSPDFPanel;
+  pdfPanel: NSPDFPanel;
   setPDFPanel(_: NSPDFPanel);
   canSpawnSeparateThread: boolean;
   setCanSpawnSeparateThread(_: boolean);
@@ -7623,7 +7623,7 @@ export class NSPrintOperation extends NSObject {
   setShowsPrintPanel(_: boolean);
   showsProgressPanel: boolean;
   setShowsProgressPanel(_: boolean);
-  static currentOperation: NSPrintOperation;
+  static current: NSPrintOperation;
   setCurrentOperation(_: NSPrintOperation);
   cleanUp(): void;
   createContext(): NSGraphicsContext;
@@ -7924,7 +7924,7 @@ export class NSRunningApplication extends NSObject {
   ownsMenuBar: boolean;
   processIdentifier: number;
   isTerminated: boolean;
-  static currentApplication: NSRunningApplication;
+  static current: NSRunningApplication;
   activate(options: NSRunningApplication.NSApplication.ActivationOptions): boolean;
   forceTerminate(): boolean;
   hide(): boolean;
@@ -7933,7 +7933,7 @@ export class NSRunningApplication extends NSObject {
 }
 
 export class NSSavePanel extends NSPanel {
-  URL: URL;
+  url: URL;
   accessoryView: NSView;
   setAccessoryView(_: NSView);
   allowedFileTypes: string[];
@@ -7987,8 +7987,8 @@ export class NSScreen extends NSObject {
   maximumReferenceExtendedDynamicRangeColorComponentValue: number;
   supportedWindowDepths: NSGraphics.NSWindow.Depth;
   visibleFrame: CGRect;
-  static deepestScreen: NSScreen;
-  static mainScreen: NSScreen;
+  static deepest: NSScreen;
+  static main: NSScreen;
   static screens: NSScreen[];
   static screensHaveSeparateSpaces: boolean;
   backingAlignedRect(_: CGRect, options: NSGeometry.AlignmentOptions): CGRect;
@@ -8718,7 +8718,7 @@ export class NSSpellChecker extends NSObject {
   static isAutomaticSpellingCorrectionEnabled: boolean;
   static isAutomaticTextCompletionEnabled: boolean;
   static isAutomaticTextReplacementEnabled: boolean;
-  static sharedSpellChecker: NSSpellChecker;
+  static shared: NSSpellChecker;
   static sharedSpellCheckerExists: boolean;
   checkGrammar(of: string, startingAt: number, language?: string, wrap?: boolean, inSpellDocumentWithTag?: number, details?: Map<string, any>[]): NSRange;
   checkSpelling(of: string, startingAt: number): NSRange;
@@ -8987,7 +8987,7 @@ interface NSStandardKeyBindingResponding {
 export class NSStatusBar extends NSObject {
   thickness: number;
   isVertical: boolean;
-  static systemStatusBar: NSStatusBar;
+  static system: NSStatusBar;
   removeStatusItem(_: NSStatusItem): void;
   statusItem(withLength: number): NSStatusItem;
 }
@@ -9058,7 +9058,7 @@ export class NSStepperTouchBarItem extends NSTouchBarItem {
 }
 
 export class NSStoryboard extends NSObject {
-  static mainStoryboard: NSStoryboard;
+  static main: NSStoryboard;
   instantiateController(withIdentifier: string): any;
   instantiateControllerWithIdentifier(_: string, creator?: (p1: NSCoder) => any): any;
   instantiateInitialController(): any;
@@ -9836,7 +9836,7 @@ export class NSTextInputContext extends NSObject {
   keyboardInputSources: string[];
   selectedKeyboardInputSource: string;
   setSelectedKeyboardInputSource(_: string);
-  static currentInputContext: NSTextInputContext;
+  static current: NSTextInputContext;
   activate(): void;
   deactivate(): void;
   discardMarkedText(): void;
@@ -10243,7 +10243,7 @@ export class NSToolbar extends NSObject {
   setAutosavesConfiguration(_: boolean);
   centeredItemIdentifier: string;
   setCenteredItemIdentifier(_: string);
-  configurationDictionary: Map<string, any>;
+  configuration: Map<string, any>;
   customizationPaletteIsRunning: boolean;
   delegate: any;
   setDelegate(_: any);
@@ -10440,11 +10440,11 @@ export class NSTreeController extends NSObjectController {
 }
 
 export class NSTreeNode extends NSObject {
-  childNodes: NSTreeNode[];
+  children: NSTreeNode[];
   indexPath: IndexPath;
   isLeaf: boolean;
-  mutableChildNodes: NSTreeNode[];
-  parentNode: NSTreeNode;
+  mutableChildren: NSTreeNode[];
+  parent: NSTreeNode;
   representedObject: any;
   descendant(at: IndexPath): NSTreeNode;
   static createWithRepresentedObject(_?: any): NSTreeNode;
@@ -10527,7 +10527,7 @@ export class NSUserDefaultsController extends NSController {
   initialValues: Map<string, any>;
   setInitialValues(_: Map<string, any>);
   values: any;
-  static sharedUserDefaultsController: NSUserDefaultsController;
+  static shared: NSUserDefaultsController;
   static createWithDefaultsWithInitialValues(_?: UserDefaults, initialValues?: Map<string, any>): NSUserDefaultsController;
   revert(_?: any): void;
   revertToInitialValues(_?: any): void;
@@ -10867,7 +10867,7 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   viewWillMoveToSuperview(toSuperview?: NSView): void;
   viewWillMoveToWindow(toWindow?: NSWindow): void;
   viewWillStartLiveResize(): void;
-  viewWithTag(_: number): NSView;
+  tag(_: number): NSView;
   willOpenMenuWithEvent(_: NSMenu, with_: NSEvent): void;
   willRemoveSubview(_: NSView): void;
   writeEPSInsideRectWithToPasteboard(inside: CGRect, to: NSPasteboard): void;
@@ -10881,12 +10881,12 @@ export class NSViewAnimation extends NSAnimation {
 }
 
 export class NSViewController extends NSResponder implements NSUserInterfaceItemIdentification {
-  childViewControllers: NSViewController[];
+  children: NSViewController[];
   setChildViewControllers(_: NSViewController[]);
   extensionContext: NSExtensionContext;
   nibBundle: Bundle;
   nibName: string;
-  parentViewController: NSViewController;
+  parent: NSViewController;
   preferredContentSize: CGSize;
   setPreferredContentSize(_: CGSize);
   preferredMaximumSize: CGSize;
@@ -10990,8 +10990,8 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   backingScaleFactor: number;
   backingType: NSGraphics.NSWindow.BackingStoreType;
   setBackingType(_: NSGraphics.NSWindow.BackingStoreType);
-  canBecomeKeyWindow: boolean;
-  canBecomeMainWindow: boolean;
+  canBecomeKey: boolean;
+  canBecomeMain: boolean;
   canBecomeVisibleWithoutLogin: boolean;
   setCanBecomeVisibleWithoutLogin(_: boolean);
   canHide: boolean;
@@ -11048,10 +11048,10 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   initialFirstResponder: NSView;
   setInitialFirstResponder(_: NSView);
   keyViewSelectionDirection: NSWindow.SelectionDirection;
-  isKeyWindow: boolean;
+  isKey: boolean;
   level: number;
   setLevel(_: number);
-  isMainWindow: boolean;
+  isMain: boolean;
   maxFullScreenContentSize: CGSize;
   setMaxFullScreenContentSize(_: CGSize);
   maxSize: CGSize;
@@ -11078,7 +11078,7 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   setOpaque(_: boolean);
   orderedIndex: number;
   setOrderedIndex(_: number);
-  parentWindow: NSWindow;
+  parent: NSWindow;
   setParentWindow(_: NSWindow);
   preservesContentDuringLiveResize: boolean;
   setPreservesContentDuringLiveResize(_: boolean);
@@ -11108,7 +11108,7 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   setShowsResizeIndicator(_: boolean);
   showsToolbarButton: boolean;
   setShowsToolbarButton(_: boolean);
-  stringWithSavedFrame: string;
+  frameDescriptor: string;
   styleMask: NSWindow.StyleMask;
   setStyleMask(_: NSWindow.StyleMask);
   tab: NSWindowTab;
@@ -11395,7 +11395,7 @@ export class NSWorkspace extends NSObject {
   runningApplications: NSRunningApplication[];
   isSwitchControlEnabled: boolean;
   isVoiceOverEnabled: boolean;
-  static sharedWorkspace: NSWorkspace;
+  static shared: NSWorkspace;
   urlForApplication(toOpen: URL): URL;
   urlForApplication(withBundleIdentifier: string): URL;
   activateFileViewerSelecting(_: URL[]): void;
@@ -11620,7 +11620,7 @@ export class CKFetchSubscriptionsOperation extends CKDatabaseOperation {
 }
 
 export class CKFetchWebAuthTokenOperation extends CKDatabaseOperation {
-  APIToken: string;
+  apiToken: string;
   setAPIToken(_: string);
   fetchWebAuthTokenCompletionBlock: (p1: string, p2: Error) => void;
   setFetchWebAuthTokenCompletionBlock(_: (p1: string, p2: Error) => void);
@@ -11644,7 +11644,7 @@ export class CKModifyRecordZonesOperation extends CKDatabaseOperation {
 }
 
 export class CKModifyRecordsOperation extends CKDatabaseOperation {
-  atomic: boolean;
+  isAtomic: boolean;
   setAtomic(_: boolean);
   clientChangeTokenData: Data;
   setClientChangeTokenData(_: Data);
@@ -11817,7 +11817,7 @@ export class CKServerChangeToken extends NSObject {
 }
 
 export class CKShare extends CKRecord {
-  URL: URL;
+  url: URL;
   currentUserParticipant: CKShare.Participant;
   owner: CKShare.Participant;
   participants: CKShare.Participant[];
@@ -12498,7 +12498,7 @@ export class NSManagedObjectContext extends NSObject {
   setMergePolicy(_: any);
   name: string;
   setName(_: string);
-  parentContext: NSManagedObjectContext;
+  parent: NSManagedObjectContext;
   setParentContext(_: NSManagedObjectContext);
   persistentStoreCoordinator: NSPersistentStoreCoordinator;
   setPersistentStoreCoordinator(_: NSPersistentStoreCoordinator);
@@ -12595,11 +12595,11 @@ export class NSMergeConflict extends NSObject {
 
 export class NSMergePolicy extends NSObject {
   mergeType: NSMergePolicy.NSMergePolicyType;
-  static errorMergePolicy: NSMergePolicy;
-  static mergeByPropertyObjectTrumpMergePolicy: NSMergePolicy;
-  static mergeByPropertyStoreTrumpMergePolicy: NSMergePolicy;
-  static overwriteMergePolicy: NSMergePolicy;
-  static rollbackMergePolicy: NSMergePolicy;
+  static error: NSMergePolicy;
+  static mergeByPropertyObjectTrump: NSMergePolicy;
+  static mergeByPropertyStoreTrump: NSMergePolicy;
+  static overwrite: NSMergePolicy;
+  static rollback: NSMergePolicy;
   static createWithMergeType(_: NSMergePolicy.NSMergePolicyType): NSMergePolicy;
   resolve(mergeConflicts: any[]): boolean;
   resolve(constraintConflicts: NSConstraintConflict[]): boolean;
@@ -12712,7 +12712,7 @@ export class NSPersistentStore extends NSObject {
   static metadataForPersistentStoreWithURL(error: URL): Map<string, any>;
   static migrationManagerClass(): typeof NSObject;
   static setMetadata(_?: Map<string, any>, forPersistentStoreAt?: URL): boolean;
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   configurationName: string;
   coreSpotlightExporter: NSCoreDataCoreSpotlightDelegate;
@@ -12769,7 +12769,7 @@ export class NSPersistentStoreCoordinator extends NSObject {
 }
 
 export class NSPersistentStoreDescription extends NSObject {
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   cloudKitContainerOptions: NSPersistentCloudKitContainerOptions;
   setCloudKitContainerOptions(_: NSPersistentCloudKitContainerOptions);
@@ -12836,7 +12836,7 @@ export class NSPropertyMapping extends NSObject {
 }
 
 export class NSQueryGenerationToken extends NSObject {
-  static currentQueryGenerationToken: NSQueryGenerationToken;
+  static current: NSQueryGenerationToken;
 }
 
 export class NSRelationshipDescription extends NSPropertyDescription {
@@ -15932,16 +15932,16 @@ export class CIColor extends NSObject {
   numberOfComponents: number;
   red: number;
   stringRepresentation: string;
-  static blackColor: CIColor;
-  static blueColor: CIColor;
-  static clearColor: CIColor;
-  static cyanColor: CIColor;
-  static grayColor: CIColor;
-  static greenColor: CIColor;
-  static magentaColor: CIColor;
-  static redColor: CIColor;
-  static whiteColor: CIColor;
-  static yellowColor: CIColor;
+  static black: CIColor;
+  static blue: CIColor;
+  static clear: CIColor;
+  static cyan: CIColor;
+  static gray: CIColor;
+  static green: CIColor;
+  static magenta: CIColor;
+  static red: CIColor;
+  static white: CIColor;
+  static yellow: CIColor;
   static createWithCgColor(_: any): CIColor;
   static createWithColor(_: NSColor): CIColor;
   static createWithRedWithGreenWithBlue(_: number, green: number, blue: number): CIColor;
@@ -16768,7 +16768,7 @@ export class CIImage extends NSObject {
   static createWithImageWithPortaitEffectsMatteOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
   static createWithImageWithSemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
   static createWithImageWithSemanticSegmentationMatteOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
-  CGImage: any;
+  cgImage: any;
   colorSpace: any;
   definition: CIFilterShape;
   depthData: AVDepthData;
@@ -16778,16 +16778,16 @@ export class CIImage extends NSObject {
   properties: Map<string, any>;
   semanticSegmentationMatte: AVSemanticSegmentationMatte;
   url: URL;
-  static blackImage: CIImage;
-  static blueImage: CIImage;
-  static clearImage: CIImage;
-  static cyanImage: CIImage;
-  static grayImage: CIImage;
-  static greenImage: CIImage;
-  static magentaImage: CIImage;
-  static redImage: CIImage;
-  static whiteImage: CIImage;
-  static yellowImage: CIImage;
+  static black: CIImage;
+  static blue: CIImage;
+  static clear: CIImage;
+  static cyan: CIImage;
+  static gray: CIImage;
+  static green: CIImage;
+  static magenta: CIImage;
+  static red: CIImage;
+  static white: CIImage;
+  static yellow: CIImage;
   autoAdjustmentFilters(): CIFilter[];
   autoAdjustmentFilters(options?: Map<string, any>): CIFilter[];
   draw(at: CGPoint, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number): void;
@@ -17687,13 +17687,13 @@ interface CIUnsharpMask {
 }
 
 export class CIVector extends NSObject {
-  CGAffineTransformValue: CGAffineTransform;
-  CGPointValue: CGPoint;
-  CGRectValue: CGRect;
-  W: number;
-  X: number;
-  Y: number;
-  Z: number;
+  cgAffineTransformValue: CGAffineTransform;
+  cgPointValue: CGPoint;
+  cgRectValue: CGRect;
+  w: number;
+  x: number;
+  y: number;
+  z: number;
   count: number;
   stringRepresentation: string;
   static createWithCgAffineTransform(_: CGAffineTransform): CIVector;
@@ -17893,7 +17893,7 @@ interface CLLocationManagerDelegate {
 }
 
 export class CLPlacemark extends NSObject {
-  ISOcountryCode: string;
+  isoCountryCode: string;
   administrativeArea: string;
   areasOfInterest: string[];
   country: string;
@@ -20161,14 +20161,10 @@ export class CSIndexExtensionRequestHandler extends NSObject {
 
 export class CSLocalizedString extends NSString {
   //  static createWithObjectWithItemProviderDataTypeIdentifier(typeIdentifier: Data, error: string): CSLocalizedString;
-  //  static createWithStringWithCStringEncoding(_: string, encoding: number): CSLocalizedString;
-  //  static createWithStringWithCharactersLength(_: string, length: number): CSLocalizedString;
-  //  static createWithStringWithContentsOfFileEncoding(encoding: string, error: number): CSLocalizedString;
-  //  static createWithStringWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): CSLocalizedString;
-  //  static createWithStringWithContentsOfURLEncoding(encoding: URL, error: number): CSLocalizedString;
-  //  static createWithStringWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): CSLocalizedString;
-  //  static createWithStringWithString(_: string): CSLocalizedString;
-  //  static createWithStringWithUTF8String(_: string): CSLocalizedString;
+  //  static createWithContentsOfFileEncoding(encoding: string, error: number): CSLocalizedString;
+  //  static createWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): CSLocalizedString;
+  //  static createWithContentsOfURLEncoding(encoding: URL, error: number): CSLocalizedString;
+  //  static createWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): CSLocalizedString;
   static createWithLocalizedStrings(_: Map<any, any>): CSLocalizedString;
   localizedString(): string;
 }
@@ -21327,94 +21323,22 @@ export class CWWiFiClient extends NSObject {
 }
 
 export class AffineTransform extends NSObject {
-  static transform(): AffineTransform;
   transformStruct: NSAffineTransformStruct;
   setTransformStruct(_: NSAffineTransformStruct);
-  appendTransform(_: AffineTransform): void;
+  append(_: AffineTransform): void;
   concat(): void;
   static createWithTransform(_: AffineTransform): AffineTransform;
   invert(): void;
-  prependTransform(_: AffineTransform): void;
-  rotateByDegrees(_: number): void;
-  rotateByRadians(_: number): void;
-  scaleBy(_: number): void;
-  scaleXBy(_: number, yBy: number): void;
+  prepend(_: AffineTransform): void;
+  rotate(byDegrees: number): void;
+  rotate(byRadians: number): void;
+  scale(by: number): void;
+  scaleX(by: number, yBy: number): void;
   set(): void;
-  transformBezierPath(_: NSBezierPath): NSBezierPath;
-  transformPoint(_: CGPoint): CGPoint;
-  transformSize(_: CGSize): CGSize;
-  translateXBy(_: number, yBy: number): void;
-}
-
-// @ts-ignore
-export class Array<ObjectType> extends NSObject {
-  static createWithArray<ObjectType>(): Array<ObjectType>;
-  static createWithArrayWithArray<ObjectType>(_: ObjectType[]): Array<ObjectType>;
-  static arrayWithContentsOfFile<ObjectType>(_: string): ObjectType[];
-  static arrayWithContentsOfURL<ObjectType>(_: URL): ObjectType[];
-  static createWithArrayWithObject<ObjectType>(_: ObjectType): Array<ObjectType>;
-  static createWithArrayWithObjects<ObjectType>(_: ObjectType): Array<ObjectType>;
-  static createWithArrayWithObjectsCount<ObjectType>(_: ObjectType, count: number): Array<ObjectType>;
-  count: number;
-  firstObject: ObjectType;
-  lastObject: ObjectType;
-  sortedArrayHint: Data;
-  // @ts-ignore 
-  addObserver(_: NSObject, toObjectsAtIndexes: IndexSet, forKeyPath: string, options: NSKeyValueObserving.NSKeyValueObservingOptions, context?: any): void;
-  arrayByAddingObject(_: ObjectType): ObjectType[];
-  arrayByAddingObjectsFromArray(_: ObjectType[]): ObjectType[];
-  arrayByApplyingDifference(_: CollectionDifference<any>): ObjectType[];
-  componentsJoinedByString(_: string): string;
-  containsObject(_: ObjectType): boolean;
-  descriptionWithLocale(_?: any): string;
-  descriptionWithLocale(_?: any, indent?: number): string;
-  differenceFromArray(_: ObjectType[]): CollectionDifference<any>;
-  differenceFromArray(_: ObjectType[], withOptions: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions): CollectionDifference<any>;
-  differenceFromArray(_: ObjectType[], withOptions: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions, usingEquivalenceTest: (p1: ObjectType, p2: ObjectType) => boolean): CollectionDifference<any>;
-  enumerateObjectsAtIndexes(_: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  enumerateObjectsUsingBlock(_: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  enumerateObjectsWithOptions(_: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  filteredArrayUsingPredicate(_: NSPredicate): ObjectType[];
-  firstObjectCommonWithArray(_: ObjectType[]): ObjectType;
-  indexOfObject(_: ObjectType): number;
-  indexOfObject(_: ObjectType, inRange: NSRange): number;
-  indexOfObject(_: ObjectType, inSortedRange: NSRange, options: Array.NSBinarySearchingOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): number;
-  indexOfObjectAtIndexes(_: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  indexOfObjectIdenticalTo(_: ObjectType): number;
-  indexOfObjectIdenticalTo(_: ObjectType, inRange: NSRange): number;
-  indexOfObjectPassingTest(_: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  indexOfObjectWithOptions(_: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  indexesOfObjectsAtIndexes(_: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  indexesOfObjectsPassingTest(_: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  indexesOfObjectsWithOptions(_: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // static createWithArray(_: ObjectType[]): Array<ObjectType>;
-  // static createWithArrayWithCopyItems(_: ObjectType[], copyItems: boolean): Array<ObjectType>;
-  // static createWithContentsOfFile(_: string): Array<ObjectType>;
-  // static createWithContentsOf(_: URL): Array<ObjectType>;
-  // static createWith(error: URL): Array<ObjectType>;
-  // static createWithObjects(_: ObjectType): Array<ObjectType>;
-  // static createWithObjectsWithCount(_?: ObjectType, count?: number): Array<ObjectType>;
-  isEqualToArray(_: ObjectType[]): boolean;
-  objectAtIndex(_: number): ObjectType;
-  objectAtIndexedSubscript(_: number): ObjectType;
-  objectEnumerator(): NSEnumerator<any>;
-  objectsAtIndexes(_: IndexSet): ObjectType[];
-  pathsMatchingExtensions(_: string[]): string[];
-  // @ts-ignore 
-  removeObserver(_: NSObject, fromObjectsAtIndexes: IndexSet, forKeyPath: string): void;
-  // @ts-ignore 
-  removeObserver(_: NSObject, fromObjectsAtIndexes: IndexSet, forKeyPath: string, context?: any): void;
-  reverseObjectEnumerator(): NSEnumerator<any>;
-  sortedArrayUsingComparator(_: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
-  sortedArrayUsingDescriptors(_: NSSortDescriptor[]): ObjectType[];
-  sortedArrayUsingFunction(_?: (p1: ObjectType, p2: ObjectType, p3: any) => number, context?: any): ObjectType[];
-  sortedArrayUsingFunction(_?: (p1: ObjectType, p2: ObjectType, p3: any) => number, context?: any, hint?: Data): ObjectType[];
-  sortedArrayUsingSelector(_: string): ObjectType[];
-  sortedArrayWithOptions(_: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
-  subarrayWithRange(_: NSRange): ObjectType[];
-  writeToFile(_: string, atomically: boolean): boolean;
-  writeToURL(_: URL, atomically: boolean): boolean;
-  writeToURL(error: URL): boolean;
+  transform(_: NSBezierPath): NSBezierPath;
+  transform(_: CGPoint): CGPoint;
+  transform(_: CGSize): CGSize;
+  translateX(by: number, yBy: number): void;
 }
 
 export class BlockOperation extends Operation {
@@ -21455,7 +21379,7 @@ export class Bundle extends NSObject {
   sharedSupportURL: URL;
   static allBundles: Bundle[];
   static allFrameworks: Bundle[];
-  static mainBundle: Bundle;
+  static main: Bundle;
   url(forAuxiliaryExecutable: string): URL;
   urlForImageResource(_: string): URL;
   url(forResource?: string, withExtension?: string): URL;
@@ -21517,9 +21441,8 @@ export class CachedURLResponse extends NSObject {
 }
 
 export class Calendar extends NSObject {
-  static calendarWithIdentifier(_: string): Calendar;
-  AMSymbol: string;
-  PMSymbol: string;
+  amSymbol: string;
+  pmSymbol: string;
   calendarIdentifier: string;
   eraSymbols: string[];
   firstWeekday: number;
@@ -21547,77 +21470,73 @@ export class Calendar extends NSObject {
   veryShortStandaloneWeekdaySymbols: string[];
   veryShortWeekdaySymbols: string[];
   weekdaySymbols: string[];
-  static autoupdatingCurrentCalendar: Calendar;
-  static currentCalendar: Calendar;
-  compareDate(_: Date, toDate: Date, toUnitGranularity: Calendar.Unit): NSObjCRuntime.ComparisonResult;
-  component(_: Calendar.Unit, fromDate: Date): number;
-  components(_: Calendar.Unit, fromDate: Date): DateComponents;
-  components(_: Calendar.Unit, fromDate: Date, toDate: Date, options: Calendar.Options): DateComponents;
-  components(_: Calendar.Unit, fromDateComponents: DateComponents, toDateComponents: DateComponents, options: Calendar.Options): DateComponents;
-  componentsInTimeZone(_: TimeZone, fromDate: Date): DateComponents;
+  static autoupdatingCurrent: Calendar;
+  static current: Calendar;
+  compare(_: Date, to: Date, toUnitGranularity: Calendar.Unit): NSObjCRuntime.ComparisonResult;
+  component(_: Calendar.Unit, from: Date): number;
+  components(_: Calendar.Unit, from: Date): DateComponents;
+  components(_: Calendar.Unit, from: Date, to: Date, options: Calendar.Options): DateComponents;
+  components(_: Calendar.Unit, from: DateComponents, to: DateComponents, options: Calendar.Options): DateComponents;
+  components(in_: TimeZone, from: Date): DateComponents;
   date(_: Date, matchesComponents: DateComponents): boolean;
-  dateByAddingComponents(_: DateComponents, toDate: Date, options: Calendar.Options): Date;
-  dateByAddingUnit(_: Calendar.Unit, value: number, toDate: Date, options: Calendar.Options): Date;
-  dateBySettingHour(_: number, minute: number, second: number, ofDate: Date, options: Calendar.Options): Date;
-  dateBySettingUnit(_: Calendar.Unit, value: number, ofDate: Date, options: Calendar.Options): Date;
-  dateFromComponents(_: DateComponents): Date;
-  dateWithEra(_: number, year: number, month: number, day: number, hour: number, minute: number, second: number, nanosecond: number): Date;
-  dateWithEra(_: number, yearForWeekOfYear: number, weekOfYear: number, weekday: number, hour: number, minute: number, second: number, nanosecond: number): Date;
-  enumerateDatesStartingAfterDate(_: Date, matchingComponents: DateComponents, options: Calendar.Options, usingBlock?: (p1: Date, p2: boolean, p3: boolean) => void): void;
-  getEra(_?: number, year?: number, month?: number, day?: number, fromDate?: Date): void;
-  getEra(_?: number, yearForWeekOfYear?: number, weekOfYear?: number, weekday?: number, fromDate?: Date): void;
-  getHour(_?: number, minute?: number, second?: number, nanosecond?: number, fromDate?: Date): void;
+  date(byAdding: DateComponents, to: Date, options: Calendar.Options): Date;
+  date(byAdding: Calendar.Unit, value: number, to: Date, options: Calendar.Options): Date;
+  date(bySettingHour: number, minute: number, second: number, of: Date, options: Calendar.Options): Date;
+  date(bySettingUnit: Calendar.Unit, value: number, of: Date, options: Calendar.Options): Date;
+  date(from: DateComponents): Date;
+  date(era: number, year: number, month: number, day: number, hour: number, minute: number, second: number, nanosecond: number): Date;
+  date(era: number, yearForWeekOfYear: number, weekOfYear: number, weekday: number, hour: number, minute: number, second: number, nanosecond: number): Date;
+  enumerateDates(startingAfter: Date, matching: DateComponents, options: Calendar.Options, using?: (p1: Date, p2: boolean, p3: boolean) => void): void;
+  getEra(_?: number, year?: number, month?: number, day?: number, from?: Date): void;
+  getEra(_?: number, yearForWeekOfYear?: number, weekOfYear?: number, weekday?: number, from?: Date): void;
+  getHour(_?: number, minute?: number, second?: number, nanosecond?: number, from?: Date): void;
   static createWithCalendarIdentifier(_: string): Calendar;
-  isDate(_: Date, equalToDate: Date, toUnitGranularity: Calendar.Unit): boolean;
-  isDate(_: Date, inSameDayAsDate: Date): boolean;
+  isDate(_: Date, equalTo: Date, toUnitGranularity: Calendar.Unit): boolean;
+  isDate(_: Date, inSameDayAs: Date): boolean;
   isDateInToday(_: Date): boolean;
   isDateInTomorrow(_: Date): boolean;
   isDateInWeekend(_: Date): boolean;
   isDateInYesterday(_: Date): boolean;
-  maximumRangeOfUnit(_: Calendar.Unit): NSRange;
-  minimumRangeOfUnit(_: Calendar.Unit): NSRange;
-  nextDateAfterDate(_: Date, matchingComponents: DateComponents, options: Calendar.Options): Date;
-  nextDateAfterDate(_: Date, matchingHour: number, minute: number, second: number, options: Calendar.Options): Date;
-  nextDateAfterDate(_: Date, matchingUnit: Calendar.Unit, value: number, options: Calendar.Options): Date;
-  nextWeekendStartDate(_?: Date, interval?: number, options?: Calendar.Options, afterDate?: Date): boolean;
-  ordinalityOfUnit(_: Calendar.Unit, inUnit: Calendar.Unit, forDate: Date): number;
-  rangeOfUnit(_: Calendar.Unit, inUnit: Calendar.Unit, forDate: Date): NSRange;
-  rangeOfUnit(_: Calendar.Unit, startDate?: Date, interval?: number, forDate?: Date): boolean;
-  rangeOfWeekendStartDate(_?: Date, interval?: number, containingDate?: Date): boolean;
-  startOfDayForDate(_: Date): Date;
+  maximumRange(of: Calendar.Unit): NSRange;
+  minimumRange(of: Calendar.Unit): NSRange;
+  nextDate(after: Date, matching: DateComponents, options: Calendar.Options): Date;
+  nextDate(after: Date, matchingHour: number, minute: number, second: number, options: Calendar.Options): Date;
+  nextDate(after: Date, matching: Calendar.Unit, value: number, options: Calendar.Options): Date;
+  nextWeekendStart(_?: Date, interval?: number, options?: Calendar.Options, after?: Date): boolean;
+  ordinality(of: Calendar.Unit, in_: Calendar.Unit, for_: Date): number;
+  range(of: Calendar.Unit, in_: Calendar.Unit, for_: Date): NSRange;
+  range(of: Calendar.Unit, start?: Date, interval?: number, for_?: Date): boolean;
+  range(ofWeekendStart?: Date, interval?: number, containing?: Date): boolean;
+  startOfDay(for_: Date): Date;
 }
 
 export class CharacterSet extends NSObject {
-  static characterSetWithBitmapRepresentation(_: Data): CharacterSet;
-  static characterSetWithCharactersInString(_: string): CharacterSet;
-  static characterSetWithContentsOfFile(_: string): CharacterSet;
-  static characterSetWithRange(_: NSRange): CharacterSet;
   bitmapRepresentation: Data;
-  invertedSet: CharacterSet;
+  inverted: CharacterSet;
   static URLFragmentAllowedCharacterSet: CharacterSet;
   static URLHostAllowedCharacterSet: CharacterSet;
   static URLPasswordAllowedCharacterSet: CharacterSet;
   static URLPathAllowedCharacterSet: CharacterSet;
   static URLQueryAllowedCharacterSet: CharacterSet;
   static URLUserAllowedCharacterSet: CharacterSet;
-  static alphanumericCharacterSet: CharacterSet;
-  static capitalizedLetterCharacterSet: CharacterSet;
-  static controlCharacterSet: CharacterSet;
-  static decimalDigitCharacterSet: CharacterSet;
-  static decomposableCharacterSet: CharacterSet;
-  static illegalCharacterSet: CharacterSet;
-  static letterCharacterSet: CharacterSet;
-  static lowercaseLetterCharacterSet: CharacterSet;
-  static newlineCharacterSet: CharacterSet;
-  static nonBaseCharacterSet: CharacterSet;
-  static punctuationCharacterSet: CharacterSet;
-  static symbolCharacterSet: CharacterSet;
-  static uppercaseLetterCharacterSet: CharacterSet;
-  static whitespaceAndNewlineCharacterSet: CharacterSet;
-  static whitespaceCharacterSet: CharacterSet;
+  static alphanumerics: CharacterSet;
+  static capitalizedLetters: CharacterSet;
+  static controlCharacters: CharacterSet;
+  static decimalDigits: CharacterSet;
+  static decomposables: CharacterSet;
+  static illegalCharacters: CharacterSet;
+  static letters: CharacterSet;
+  static lowercaseLetters: CharacterSet;
+  static newlines: CharacterSet;
+  static nonBaseCharacters: CharacterSet;
+  static punctuationCharacters: CharacterSet;
+  static symbols: CharacterSet;
+  static uppercaseLetters: CharacterSet;
+  static whitespacesAndNewlines: CharacterSet;
+  static whitespaces: CharacterSet;
   characterIsMember(_: string): boolean;
   hasMemberInPlane(_: number): boolean;
-  isSupersetOfSet(_: CharacterSet): boolean;
+  isSuperset(of: CharacterSet): boolean;
   longCharacterIsMember(_: number): boolean;
 }
 
@@ -21625,32 +21544,24 @@ export class CollectionDifference<ObjectType> extends NSObject {
   hasChanges: boolean;
   insertions: NSOrderedCollectionChange<any>[];
   removals: NSOrderedCollectionChange<any>[];
-  differenceByTransformingChangesWithBlock(_: (p1: NSOrderedCollectionChange<any>) => NSOrderedCollectionChange<any>): CollectionDifference<any>;
+  transformingChanges(_: (p1: NSOrderedCollectionChange<any>) => NSOrderedCollectionChange<any>): CollectionDifference<any>;
   // static createWithChanges(_: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
   // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjects(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[]): CollectionDifference<ObjectType>;
   // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjectsWithAdditionalChanges(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[], additionalChanges?: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
+  // @ts-ignore 
   createWithInverseDifference(): CollectionDifference<ObjectType>;
 }
 
 export class Data extends NSObject {
-  static createWithData(): Data;
-  static createWithDataWithBytesLength(_?: any, length?: number): Data;
-  static createWithDataWithBytesNoCopyLength(_: any, length: number): Data;
-  static createWithDataWithBytesNoCopyLengthWithFreeWhenDone(_: any, length: number, freeWhenDone: boolean): Data;
-  static createWithDataWithContentsOfFile(_: string): Data;
-  static createWithDataWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): Data;
-  static createWithDataWithContentsOfURL(_: URL): Data;
-  static createWithDataWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): Data;
-  static createWithDataWithData(_: Data): Data;
+  static createWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): Data;
+  static createWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): Data;
   bytes: any;
   length: number;
-  base64EncodedDataWithOptions(_: Data.Base64EncodingOptions): Data;
-  base64EncodedStringWithOptions(_: Data.Base64EncodingOptions): string;
-  createWithCompressedDataUsingAlgorithm(error: Data.CompressionAlgorithm): Data;
-  createWithDecompressedDataUsingAlgorithm(error: Data.CompressionAlgorithm): Data;
-  enumerateByteRangesUsingBlock(_: (p1: any, p2: NSRange, p3: boolean) => void): void;
-  static createWithBase64EncodedDataWithOptions(_: Data, options: Data.Base64DecodingOptions): Data;
-  static createWithBase64EncodedStringWithOptions(_: string, options: Data.Base64DecodingOptions): Data;
+  base64EncodedData(options: Data.Base64EncodingOptions): Data;
+  base64EncodedString(options: Data.Base64EncodingOptions): string;
+  createWithCompressedDataUsingAlgorithm(using: Data.CompressionAlgorithm): Data;
+  createWithDecompressedDataUsingAlgorithm(using: Data.CompressionAlgorithm): Data;
+  enumerateBytes(_: (p1: any, p2: NSRange, p3: boolean) => void): void;
   static createWithBytesWithLength(_?: any, length?: number): Data;
   static createWithBytesNoCopyWithLength(_: any, length: number): Data;
   static createWithBytesNoCopyWithLengthWithDeallocator(_: any, length: number, deallocator?: (p1: any, p2: number) => void): Data;
@@ -21660,41 +21571,14 @@ export class Data extends NSObject {
   static createWithContentsOf(_: URL): Data;
   static createWithContentsOf(options: URL, error: Data.ReadingOptions): Data;
   static createWithData(_: Data): Data;
-  isEqualToData(_: Data): boolean;
-  rangeOfData(_: Data, options: Data.SearchOptions, range: NSRange): NSRange;
-  subdataWithRange(_: NSRange): Data;
-  writeToFile(_: string, atomically: boolean): boolean;
+  // @ts-ignore 
+  isEqual(to: Data): boolean;
+  range(of: Data, options: Data.SearchOptions, in_: NSRange): NSRange;
+  subdata(with_: NSRange): Data;
+  write(toFile: string, atomically: boolean): boolean;
   writeToFile(options: string, error: Data.WritingOptions): boolean;
-  writeToURL(_: URL, atomically: boolean): boolean;
+  write(to: URL, atomically: boolean): boolean;
   writeToURL(options: URL, error: Data.WritingOptions): boolean;
-}
-
-// @ts-ignore
-type Date = NSDate
-export class NSDate extends NSObject {
-  static createWithDate(): Date;
-  static createWithDateWithTimeIntervalSinceDate(_: number, sinceDate: Date): Date;
-  static createWithDateWithTimeIntervalSince1970(_: number): Date;
-  static createWithDateWithTimeIntervalSinceNow(_: number): Date;
-  static createWithDateWithTimeIntervalSinceReferenceDate(_: number): Date;
-  timeIntervalSince1970: number;
-  timeIntervalSinceNow: number;
-  timeIntervalSinceReferenceDate: number;
-  static distantFuture: Date;
-  static distantPast: Date;
-  static now: Date;
-  //   static timeIntervalSinceReferenceDate: number;
-  compare(_: Date): NSObjCRuntime.ComparisonResult;
-  createWithDateByAddingTimeInterval(_: number): Date;
-  descriptionWithLocale(_?: any): string;
-  earlierDate(_: Date): Date;
-  static createWithTimeIntervalWithSinceDate(_: number, sinceDate: Date): Date;
-  static createWithTimeIntervalSince1970(_: number): Date;
-  static createWithTimeIntervalSinceNow(_: number): Date;
-  static createWithTimeIntervalSinceReferenceDate(_: number): Date;
-  isEqualToDate(_: Date): boolean;
-  laterDate(_: Date): Date;
-  timeIntervalSinceDate(_: Date): number;
 }
 
 export class DateComponents extends NSObject {
@@ -21734,10 +21618,11 @@ export class DateComponents extends NSObject {
   setYear(_: number);
   yearForWeekOfYear: number;
   setYearForWeekOfYear(_: number);
-  isValidDateInCalendar(_: Calendar): boolean;
+  isValidDate(in_: Calendar): boolean;
   // @ts-ignore 
   setValue(_: number, forComponent: Calendar.Unit): void;
-  valueForComponent(_: Calendar.Unit): number;
+  // @ts-ignore 
+  value(forComponent: Calendar.Unit): number;
 }
 
 export class DateComponentsFormatter extends Formatter {
@@ -21769,9 +21654,9 @@ export class DateComponentsFormatter extends Formatter {
 export class DateFormatter extends Formatter {
   //  static dateFormat(fromTemplate: string, options: number, locale?: Locale): string;
   static localizedString(from: Date, dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style): string;
-  AMSymbol: string;
+  amSymbol: string;
   setAMSymbol(_: string);
-  PMSymbol: string;
+  pmSymbol: string;
   setPMSymbol(_: string);
   calendar: Calendar;
   setCalendar(_: Calendar);
@@ -21850,12 +21735,13 @@ export class DateInterval extends NSObject {
   endDate: Date;
   startDate: Date;
   compare(_: DateInterval): NSObjCRuntime.ComparisonResult;
-  containsDate(_: Date): boolean;
+  contains(_: Date): boolean;
   static createWithStartDateWithDuration(_: Date, duration: number): DateInterval;
   static createWithStartDateWithEndDate(_: Date, endDate: Date): DateInterval;
-  intersectionWithDateInterval(_: DateInterval): DateInterval;
-  intersectsDateInterval(_: DateInterval): boolean;
-  isEqualToDateInterval(_: DateInterval): boolean;
+  intersection(with_: DateInterval): DateInterval;
+  intersects(_: DateInterval): boolean;
+  // @ts-ignore 
+  isEqual(to: DateInterval): boolean;
 }
 
 export class DateIntervalFormatter extends Formatter {
@@ -21874,24 +21760,19 @@ export class DateIntervalFormatter extends Formatter {
 }
 
 export class Dictionary<KeyType, ObjectType> extends NSObject {
-  static createWithDictionary<KeyType, ObjectType>(): Dictionary<KeyType, ObjectType>;
-  static dictionaryWithContentsOfFile<KeyType, ObjectType>(_: string): Map<KeyType, ObjectType>;
-  static dictionaryWithContentsOfURL<KeyType, ObjectType>(_: URL): Map<KeyType, ObjectType>;
-  static createWithDictionaryWithDictionary<KeyType, ObjectType>(_: Map<KeyType, ObjectType>): Dictionary<KeyType, ObjectType>;
-  static createWithDictionaryWithObjectForKey<KeyType, ObjectType>(_: ObjectType, forKey: KeyType): Dictionary<KeyType, ObjectType>;
-  static createWithDictionaryWithObjectsForKeys<KeyType, ObjectType>(_: ObjectType[], forKeys: KeyType[]): Dictionary<KeyType, ObjectType>;
-  static createWithDictionaryWithObjectsForKeysWithCount<KeyType, ObjectType>(_?: ObjectType, forKeys?: KeyType, count?: number): Dictionary<KeyType, ObjectType>;
-  static sharedKeySetForKeys<KeyType>(_: KeyType[]): any;
+  static sharedKeySet<KeyType>(forKeys: KeyType[]): any;
   allKeys: KeyType[];
   allValues: ObjectType[];
   count: number;
   descriptionInStringsFileFormat: string;
-  allKeysForObject(_: ObjectType): KeyType[];
-  countByEnumeratingWithState(_: NSFastEnumerationState, objects?: K, count?: number): number;
-  descriptionWithLocale(_?: any): string;
-  descriptionWithLocale(_?: any, indent?: number): string;
-  enumerateKeysAndObjectsUsingBlock(_: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
-  enumerateKeysAndObjectsWithOptions(_: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
+  // dupe name w instance property   allKeys(for_: ObjectType): KeyType[];
+  countByEnumerating(with_: NSFastEnumerationState, objects?: K, count?: number): number;
+  // @ts-ignore 
+  // dupe name w inherited static method  description(withLocale?: any): string;
+  // @ts-ignore 
+  // dupe name w inherited static method  description(withLocale?: any, indent?: number): string;
+  enumerateKeysAndObjects(_: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
+  enumerateKeysAndObjects(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
   fileCreationDate(): Date;
   fileExtensionHidden(): boolean;
   fileGroupOwnerAccountID(): number;
@@ -21916,20 +21797,22 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   // static createWithObjectsWithForKeys(_: ObjectType[], forKeys: KeyType[]): Dictionary<KeyType, ObjectType>;
   // static createWithObjectsWithForKeysWithCount(_?: ObjectType, forKeys?: KeyType, count?: number): Dictionary<KeyType, ObjectType>;
   // static createWithObjectsAndKeys(_: any): Dictionary<KeyType, ObjectType>;
-  isEqualToDictionary(_: Map<KeyType, ObjectType>): boolean;
+  // @ts-ignore 
+  isEqual(to: Map<KeyType, ObjectType>): boolean;
   keyEnumerator(): NSEnumerator<any>;
-  keysOfEntriesPassingTest(_: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
-  keysOfEntriesWithOptions(_: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
-  keysSortedByValueUsingComparator(_: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
-  keysSortedByValueUsingSelector(_: string): KeyType[];
-  keysSortedByValueWithOptions(_: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
+  keysOfEntries(passingTest: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
+  keysOfEntries(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
+  keysSortedByValue(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
+  keysSortedByValue(using: string): KeyType[];
+  keysSortedByValue(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
   objectEnumerator(): NSEnumerator<any>;
-  objectForKey(_: KeyType): ObjectType;
+  object(forKey: KeyType): ObjectType;
   objectForKeyedSubscript(_: KeyType): ObjectType;
-  objectsForKeys(_: KeyType[], notFoundMarker: ObjectType): ObjectType[];
-  valueForKey(_: string): ObjectType;
-  writeToFile(_: string, atomically: boolean): boolean;
-  writeToURL(_: URL, atomically: boolean): boolean;
+  objects(forKeys: KeyType[], notFoundMarker: ObjectType): ObjectType[];
+  // @ts-ignore 
+  value(forKey: string): ObjectType;
+  write(toFile: string, atomically: boolean): boolean;
+  write(to: URL, atomically: boolean): boolean;
   writeToURL(error: URL): boolean;
 }
 
@@ -21968,24 +21851,6 @@ export class EnergyFormatter extends Formatter {
   unitString(fromValue: number, unit: EnergyFormatter.Unit): string;
 }
 
-// @ts-ignore
-type Error = NSError
-export class NSError extends NSObject {
-  static createWithErrorWithDomainCodeWithUserInfo(_: string, code: number, userInfo?: Map<string, any>): Error;
-  static setUserInfoValueProviderForDomain(_: string, provider?: (p1: Error, p2: string) => any): void;
-  static userInfoValueProviderForDomain(_: string): (p1: Error, p2: string) => any;
-  code: number;
-  domain: string;
-  helpAnchor: string;
-  localizedDescription: string;
-  localizedFailureReason: string;
-  localizedRecoveryOptions: string[];
-  localizedRecoverySuggestion: string;
-  recoveryAttempter: any;
-  userInfo: Map<string, any>;
-  static createWithDomainWithCodeWithUserInfo(_: string, code: number, userInfo?: Map<string, any>): Error;
-}
-
 export class FileHandle extends NSObject {
   static createWithFileHandleForReadingFromURL(error: URL): FileHandle;
   static createWithFileHandleForUpdatingURL(error: URL): FileHandle;
@@ -21997,10 +21862,10 @@ export class FileHandle extends NSObject {
   setReadabilityHandler(_: (p1: FileHandle) => void);
   writeabilityHandler: (p1: FileHandle) => void;
   setWriteabilityHandler(_: (p1: FileHandle) => void);
-  static fileHandleWithNullDevice: FileHandle;
-  static fileHandleWithStandardError: FileHandle;
-  static fileHandleWithStandardInput: FileHandle;
-  static fileHandleWithStandardOutput: FileHandle;
+  static nullDevice: FileHandle;
+  static standardError: FileHandle;
+  static standardInput: FileHandle;
+  static standardOutput: FileHandle;
   acceptConnectionInBackgroundAndNotify(): void;
   acceptConnectionInBackgroundAndNotify(forModes?: string[]): void;
   closeAndReturnError(): boolean;
@@ -22037,9 +21902,9 @@ export class FileManager extends NSObject {
   homeDirectoryForCurrentUser: URL;
   temporaryDirectory: URL;
   ubiquityIdentityToken: any;
-  static defaultManager: FileManager;
-  URLForDirectory(inDomain: NSPathUtilities.FileManager.SearchPathDirectory, appropriateForURL: NSPathUtilities.FileManager.SearchPathDomainMask, create?: URL, error?: boolean): URL;
-  URLForPublishingUbiquitousItemAtURL(expirationDate: URL, error?: Date): URL;
+  static default: FileManager;
+  url(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask, appropriateFor?: URL, create?: boolean): URL;
+  url(forPublishingUbiquitousItemAt: URL, expiration?: Date): URL;
   url(forUbiquityContainerIdentifier?: string): URL;
   urls(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask): URL[];
   attributesOfFileSystemForPath(error: string): Map<string, any>;
@@ -22172,7 +22037,7 @@ export class HTTPCookieStorage extends NSObject {
   cookieAcceptPolicy: HTTPCookieStorage.HTTPCookie.AcceptPolicy;
   setCookieAcceptPolicy(_: HTTPCookieStorage.HTTPCookie.AcceptPolicy);
   cookies: HTTPCookie[];
-  static sharedHTTPCookieStorage: HTTPCookieStorage;
+  static shared: HTTPCookieStorage;
   // dupe name w instance property   cookies(for_: URL): HTTPCookie[];
   deleteCookie(_: HTTPCookie): void;
   getCookiesFor(_: URLSessionTask, completionHandler?: (p1: HTTPCookie[]) => void): void;
@@ -22213,55 +22078,50 @@ export class ISO8601DateFormatter extends Formatter {
 }
 
 export class IndexPath extends NSObject {
-  static indexPathForItem(_: number, inSection: number): IndexPath;
-  static createWithIndexPathWithIndex(_: number): IndexPath;
-  static createWithIndexPathWithIndexesLength(_?: number, length?: number): IndexPath;
   item: number;
   length: number;
   section: number;
   compare(_: IndexPath): NSObjCRuntime.ComparisonResult;
   getIndexes(_: number): void;
   getIndexes(_: number, range: NSRange): void;
-  indexAtPosition(_: number): number;
-  indexPathByAddingIndex(_: number): IndexPath;
-  indexPathByRemovingLastIndex(): IndexPath;
+  index(atPosition: number): number;
+  adding(_: number): IndexPath;
+  removingLastIndex(): IndexPath;
   static createWithIndex(_: number): IndexPath;
   static createWithIndexesWithLength(_?: number, length?: number): IndexPath;
 }
 
 export class IndexSet extends NSObject {
-  static createWithIndexSet(): IndexSet;
-  static createWithIndexSetWithIndex(_: number): IndexSet;
-  static createWithIndexSetWithIndexesInRange(_: NSRange): IndexSet;
   count: number;
   firstIndex: number;
   lastIndex: number;
-  containsIndex(_: number): boolean;
-  containsIndexes(_: IndexSet): boolean;
-  containsIndexesInRange(_: NSRange): boolean;
-  countOfIndexesInRange(_: NSRange): number;
-  enumerateIndexesInRange(_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: number, p2: boolean) => void): void;
-  enumerateIndexesUsingBlock(_: (p1: number, p2: boolean) => void): void;
-  enumerateIndexesWithOptions(_: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: number, p2: boolean) => void): void;
-  enumerateRangesInRange(_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: NSRange, p2: boolean) => void): void;
-  enumerateRangesUsingBlock(_: (p1: NSRange, p2: boolean) => void): void;
-  enumerateRangesWithOptions(_: NSObjCRuntime.NSEnumerationOptions, usingBlock: (p1: NSRange, p2: boolean) => void): void;
+  contains(_: number): boolean;
+  contains(_: IndexSet): boolean;
+  contains(in_: NSRange): boolean;
+  countOfIndexes(in_: NSRange): number;
+  enumerate(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: number, p2: boolean) => void): void;
+  enumerate(_: (p1: number, p2: boolean) => void): void;
+  enumerate(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: number, p2: boolean) => void): void;
+  enumerateRanges(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: NSRange, p2: boolean) => void): void;
+  enumerateRanges(_: (p1: NSRange, p2: boolean) => void): void;
+  enumerateRanges(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: NSRange, p2: boolean) => void): void;
   getIndexes(_: number, maxCount: number, inIndexRange?: NSRange): number;
   indexGreaterThanIndex(_: number): number;
-  indexGreaterThanOrEqualToIndex(_: number): number;
-  indexInRange(_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
+  indexGreaterThanOrEqual(to: number): number;
+  index(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
   indexLessThanIndex(_: number): number;
-  indexLessThanOrEqualToIndex(_: number): number;
-  indexPassingTest(_: (p1: number, p2: boolean) => boolean): number;
-  indexWithOptions(_: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
-  indexesInRange(_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
-  indexesPassingTest(_: (p1: number, p2: boolean) => boolean): IndexSet;
-  indexesWithOptions(_: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
+  indexLessThanOrEqual(to: number): number;
+  index(passingTest: (p1: number, p2: boolean) => boolean): number;
+  index(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
+  indexes(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
+  indexes(passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
+  indexes(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
   static createWithIndex(_: number): IndexSet;
   static createWithIndexSet(_: IndexSet): IndexSet;
   static createWithIndexesInRange(_: NSRange): IndexSet;
-  intersectsIndexesInRange(_: NSRange): boolean;
-  isEqualToIndexSet(_: IndexSet): boolean;
+  intersects(in_: NSRange): boolean;
+  // @ts-ignore 
+  isEqual(to: IndexSet): boolean;
 }
 
 export class InputStream extends Stream {
@@ -22301,15 +22161,14 @@ export class ListFormatter extends Formatter {
 }
 
 export class Locale extends NSObject {
-  static canonicalLanguageIdentifierFromString(_: string): string;
-  static canonicalLocaleIdentifierFromString(_: string): string;
-  static characterDirectionForLanguage(_: string): Locale.LanguageDirection;
-  static componentsFromLocaleIdentifier(_: string): Map<string, string>;
-  static lineDirectionForLanguage(_: string): Locale.LanguageDirection;
-  static localeIdentifierFromComponents(_: Map<string, string>): string;
-  static localeIdentifierFromWindowsLocaleCode(_: number): string;
-  static createWithLocaleWithLocaleIdentifier(_: string): Locale;
-  static windowsLocaleCodeFromLocaleIdentifier(_: string): number;
+  static canonicalLanguageIdentifier(from: string): string;
+  static canonicalLocaleIdentifier(from: string): string;
+  static characterDirection(forLanguage: string): Locale.LanguageDirection;
+  static components(fromLocaleIdentifier: string): Map<string, string>;
+  static lineDirection(forLanguage: string): Locale.LanguageDirection;
+  //  static localeIdentifier(fromComponents: Map<string, string>): string;
+  //  static localeIdentifier(fromWindowsLocaleCode: number): string;
+  static windowsLocaleCode(fromLocaleIdentifier: string): number;
   alternateQuotationBeginDelimiter: string;
   alternateQuotationEndDelimiter: string;
   calendarIdentifier: string;
@@ -22328,27 +22187,27 @@ export class Locale extends NSObject {
   scriptCode: string;
   usesMetricSystem: boolean;
   variantCode: string;
-  static ISOCountryCodes: string[];
-  static ISOCurrencyCodes: string[];
-  static ISOLanguageCodes: string[];
-  static autoupdatingCurrentLocale: Locale;
+  static isoCountryCodes: string[];
+  static isoCurrencyCodes: string[];
+  static isoLanguageCodes: string[];
+  static autoupdatingCurrent: Locale;
   static availableLocaleIdentifiers: string[];
   static commonISOCurrencyCodes: string[];
-  static currentLocale: Locale;
+  static current: Locale;
   static preferredLanguages: string[];
-  static systemLocale: Locale;
-  displayNameForKey(_: string, value: any): string;
+  static system: Locale;
+  displayName(forKey: string, value: any): string;
   static createWithLocaleIdentifier(_: string): Locale;
-  localizedStringForCalendarIdentifier(_: string): string;
-  localizedStringForCollationIdentifier(_: string): string;
-  localizedStringForCollatorIdentifier(_: string): string;
-  localizedStringForCountryCode(_: string): string;
-  localizedStringForCurrencyCode(_: string): string;
-  localizedStringForLanguageCode(_: string): string;
-  localizedStringForLocaleIdentifier(_: string): string;
-  localizedStringForScriptCode(_: string): string;
-  localizedStringForVariantCode(_: string): string;
-  objectForKey(_: string): any;
+  localizedString(forCalendarIdentifier: string): string;
+  localizedString(forCollationIdentifier: string): string;
+  localizedString(forCollatorIdentifier: string): string;
+  localizedString(forCountryCode: string): string;
+  localizedString(forCurrencyCode: string): string;
+  localizedString(forLanguageCode: string): string;
+  localizedString(forLocaleIdentifier: string): string;
+  localizedString(forScriptCode: string): string;
+  localizedString(forVariantCode: string): string;
+  object(forKey: string): any;
 }
 
 export class MassFormatter extends Formatter {
@@ -22365,11 +22224,11 @@ export class MassFormatter extends Formatter {
 export class Measurement<UnitType> extends NSObject {
   doubleValue: number;
   unit: UnitType;
-  canBeConvertedToUnit(_: Unit): boolean;
+  canBeConverted(to: Unit): boolean;
   // static createWithDoubleValueWithUnit(_: number, unit: UnitType): Measurement<UnitType>;
-  measurementByAddingMeasurement(_: Measurement<any>): Measurement<any>;
-  measurementByConvertingToUnit(_: Unit): Measurement<any>;
-  measurementBySubtractingMeasurement(_: Measurement<any>): Measurement<any>;
+  adding(_: Measurement<any>): Measurement<any>;
+  converting(to: Unit): Measurement<any>;
+  subtracting(_: Measurement<any>): Measurement<any>;
 }
 
 export class MeasurementFormatter extends Formatter {
@@ -22582,11 +22441,6 @@ interface NSCacheDelegate {
 }
 
 export class NSCalendarDate extends Date {
-  //  static createWithDate(): NSCalendarDate;
-  //  static createWithDateWithTimeIntervalSinceDate(_: number, sinceDate: Date): NSCalendarDate;
-  //  static createWithDateWithTimeIntervalSince1970(_: number): NSCalendarDate;
-  //  static createWithDateWithTimeIntervalSinceNow(_: number): NSCalendarDate;
-  //  static createWithDateWithTimeIntervalSinceReferenceDate(_: number): NSCalendarDate;
 }
 
 export class NSClassDescription extends NSObject {
@@ -22769,14 +22623,10 @@ interface NSConnectionDelegate {
 
 export class NSConstantString extends NSSimpleCString {
   //  static createWithObjectWithItemProviderDataTypeIdentifier(typeIdentifier: Data, error: string): NSConstantString;
-  //  static createWithStringWithCStringEncoding(_: string, encoding: number): NSConstantString;
-  //  static createWithStringWithCharactersLength(_: string, length: number): NSConstantString;
-  //  static createWithStringWithContentsOfFileEncoding(encoding: string, error: number): NSConstantString;
-  //  static createWithStringWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSConstantString;
-  //  static createWithStringWithContentsOfURLEncoding(encoding: URL, error: number): NSConstantString;
-  //  static createWithStringWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSConstantString;
-  //  static createWithStringWithString(_: string): NSConstantString;
-  //  static createWithStringWithUTF8String(_: string): NSConstantString;
+  //  static createWithContentsOfFileEncoding(encoding: string, error: number): NSConstantString;
+  //  static createWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSConstantString;
+  //  static createWithContentsOfURLEncoding(encoding: URL, error: number): NSConstantString;
+  //  static createWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSConstantString;
 }
 
 // export function NSContainsRect(aRect: CGRect, bRect: CGRect): boolean;
@@ -22801,14 +22651,7 @@ export class NSCountCommand extends NSScriptCommand {
 // export function NSCountMapTable(table: NSMapTable<any, any>): number;
 
 export class NSCountedSet<ObjectType> extends NSMutableSet<ObjectType> {
-  //  static createWithSet<ObjectType>(): NSCountedSet<ObjectType>;
-  //  static createWithSetWithArray<ObjectType>(_: ObjectType[]): NSCountedSet<ObjectType>;
-  //  static createWithSetWithCollectionViewIndexPath<ObjectType>(_: IndexPath): NSCountedSet<ObjectType>;
-  //  static createWithSetWithCollectionViewIndexPaths<ObjectType>(_: IndexPath[]): NSCountedSet<ObjectType>;
-  //  static createWithSetWithObject<ObjectType>(_: ObjectType): NSCountedSet<ObjectType>;
-  //  static createWithSetWithObjects<ObjectType>(_: ObjectType): NSCountedSet<ObjectType>;
-  //  static createWithSetWithObjectsCount<ObjectType>(_: ObjectType, count: number): NSCountedSet<ObjectType>;
-  //  static createWithSetWithSet<ObjectType>(_: Set<any>): NSCountedSet<ObjectType>;
+  //  static createWithObjects<ObjectType>(_: ObjectType): NSCountedSet<ObjectType>;
   // @ts-ignore 
   count(for_: ObjectType): number;
 }
@@ -22857,8 +22700,8 @@ export class NSDataDetector extends NSRegularExpression {
 export class NSDecimalNumber extends NSNumber {
   static defaultBehavior: any;
   setDefaultBehavior(_: any);
-  static maximumDecimalNumber: NSDecimalNumber;
-  static minimumDecimalNumber: NSDecimalNumber;
+  static maximum: NSDecimalNumber;
+  static minimum: NSDecimalNumber;
   static notANumber: NSDecimalNumber;
   static one: NSDecimalNumber;
   static zero: NSDecimalNumber;
@@ -22986,14 +22829,14 @@ export class NSExpression extends NSObject {
   constantValue: any;
   expressionBlock: (p1: any, p2: NSExpression[], p3: Map<any, any>) => any;
   expressionType: NSExpression.ExpressionType;
-  falseExpression: NSExpression;
+  false: NSExpression;
   function: string;
   keyPath: string;
-  leftExpression: NSExpression;
+  left: NSExpression;
   operand: NSExpression;
   predicate: NSPredicate;
-  rightExpression: NSExpression;
-  trueExpression: NSExpression;
+  right: NSExpression;
+  true: NSExpression;
   variable: string;
   allowEvaluation(): void;
   expressionValue(with_?: any, context?: Map<any, any>): any;
@@ -23095,7 +22938,7 @@ export class NSFileVersion extends NSObject {
   static removeOtherVersionsOfItemAtURL(error: URL): boolean;
   static temporaryDirectoryURLForNewVersionOfItem(at: URL): URL;
   static unresolvedConflictVersionsOfItem(at: URL): NSFileVersion[];
-  URL: URL;
+  url: URL;
   isConflict: boolean;
   isDiscardable: boolean;
   setDiscardable(_: boolean);
@@ -23506,11 +23349,7 @@ export class NSMoveCommand extends NSScriptCommand {
 }
 
 export class NSMutableArray<ObjectType> extends Array<ObjectType> {
-  //  static createWithArray<ObjectType>(): NSMutableArray<ObjectType>;
-  //  static createWithArrayWithArray<ObjectType>(_: ObjectType[]): NSMutableArray<ObjectType>;
-  //  static createWithArrayWithObject<ObjectType>(_: ObjectType): NSMutableArray<ObjectType>;
-  //  static createWithArrayWithObjects<ObjectType>(_: ObjectType): NSMutableArray<ObjectType>;
-  //  static createWithArrayWithObjectsCount<ObjectType>(_: ObjectType, count: number): NSMutableArray<ObjectType>;
+  //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableArray<ObjectType>;
   add(_: ObjectType): void;
   addObjects(from: ObjectType[]): void;
   apply(_: CollectionDifference<any>): void;
@@ -23585,15 +23424,8 @@ interface NSMutableCopying {
 }
 
 export class NSMutableData extends Data {
-  //  static createWithData(): NSMutableData;
-  //  static createWithDataWithBytesLength(_?: any, length?: number): NSMutableData;
-  //  static createWithDataWithBytesNoCopyLength(_: any, length: number): NSMutableData;
-  //  static createWithDataWithBytesNoCopyLengthWithFreeWhenDone(_: any, length: number, freeWhenDone: boolean): NSMutableData;
-  //  static createWithDataWithContentsOfFile(_: string): NSMutableData;
-  //  static createWithDataWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): NSMutableData;
-  //  static createWithDataWithContentsOfURL(_: URL): NSMutableData;
-  //  static createWithDataWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): NSMutableData;
-  //  static createWithDataWithData(_: Data): NSMutableData;
+  //  static createWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): NSMutableData;
+  //  static createWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): NSMutableData;
   length: number;
   setLength(_: number);
   mutableBytes: any;
@@ -23611,11 +23443,6 @@ export class NSMutableData extends Data {
 }
 
 export class NSMutableDictionary<KeyType, ObjectType> extends Dictionary<KeyType, ObjectType> {
-  //  static createWithDictionary<KeyType, ObjectType>(): NSMutableDictionary<KeyType, ObjectType>;
-  //  static createWithDictionaryWithDictionary<KeyType, ObjectType>(_: Map<KeyType, ObjectType>): NSMutableDictionary<KeyType, ObjectType>;
-  //  static createWithDictionaryWithObjectForKey<KeyType, ObjectType>(_: ObjectType, forKey: KeyType): NSMutableDictionary<KeyType, ObjectType>;
-  //  static createWithDictionaryWithObjectsForKeys<KeyType, ObjectType>(_: ObjectType[], forKeys: KeyType[]): NSMutableDictionary<KeyType, ObjectType>;
-  //  static createWithDictionaryWithObjectsForKeysWithCount<KeyType, ObjectType>(_?: ObjectType, forKeys?: KeyType, count?: number): NSMutableDictionary<KeyType, ObjectType>;
   addEntries(from: Map<KeyType, ObjectType>): void;
   // static createWithCapacity(_: number): NSMutableDictionary<KeyType, ObjectType>;
   removeAllObjects(): void;
@@ -23628,9 +23455,6 @@ export class NSMutableDictionary<KeyType, ObjectType> extends Dictionary<KeyType
 }
 
 export class NSMutableIndexSet extends IndexSet {
-  //  static createWithIndexSet(): NSMutableIndexSet;
-  //  static createWithIndexSetWithIndex(_: number): NSMutableIndexSet;
-  //  static createWithIndexSetWithIndexesInRange(_: NSRange): NSMutableIndexSet;
   add(_: number): void;
   add(_: IndexSet): void;
   add(in_: NSRange): void;
@@ -23642,7 +23466,7 @@ export class NSMutableIndexSet extends IndexSet {
 }
 
 export class NSMutableOrderedSet<ObjectType> extends NSOrderedSet<ObjectType> {
-  //  static createWithOrderedSetWithObjects<ObjectType>(_: ObjectType): NSMutableOrderedSet<ObjectType>;
+  //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableOrderedSet<ObjectType>;
   add(_: ObjectType): void;
   add(_?: ObjectType, count?: number): void;
   addObjects(from: ObjectType[]): void;
@@ -23676,14 +23500,7 @@ export class NSMutableOrderedSet<ObjectType> extends NSOrderedSet<ObjectType> {
 }
 
 export class NSMutableSet<ObjectType> extends Set<ObjectType> {
-  //  static createWithSet<ObjectType>(): NSMutableSet<ObjectType>;
-  //  static createWithSetWithArray<ObjectType>(_: ObjectType[]): NSMutableSet<ObjectType>;
-  //  static createWithSetWithCollectionViewIndexPath<ObjectType>(_: IndexPath): NSMutableSet<ObjectType>;
-  //  static createWithSetWithCollectionViewIndexPaths<ObjectType>(_: IndexPath[]): NSMutableSet<ObjectType>;
-  //  static createWithSetWithObject<ObjectType>(_: ObjectType): NSMutableSet<ObjectType>;
-  //  static createWithSetWithObjects<ObjectType>(_: ObjectType): NSMutableSet<ObjectType>;
-  //  static createWithSetWithObjectsCount<ObjectType>(_: ObjectType, count: number): NSMutableSet<ObjectType>;
-  //  static createWithSetWithSet<ObjectType>(_: Set<any>): NSMutableSet<ObjectType>;
+  //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableSet<ObjectType>;
   // @ts-ignore 
   add(_: ObjectType): void;
   addObjects(from: ObjectType[]): void;
@@ -23697,41 +23514,18 @@ export class NSMutableSet<ObjectType> extends Set<ObjectType> {
   union(_: Set<any>): void;
 }
 
-// @ts-ignore
-export class NSMutableString extends NSString {
-  //  static createWithObjectWithItemProviderDataTypeIdentifier(typeIdentifier: Data, error: string): NSMutableString;
-  //  static createWithStringWithCStringEncoding(_: string, encoding: number): NSMutableString;
-  //  static createWithStringWithCharactersLength(_: string, length: number): NSMutableString;
-  //  static createWithStringWithContentsOfFileEncoding(encoding: string, error: number): NSMutableString;
-  //  static createWithStringWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSMutableString;
-  //  static createWithStringWithContentsOfURLEncoding(encoding: URL, error: number): NSMutableString;
-  //  static createWithStringWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSMutableString;
-  //  static createWithStringWithString(_: string): NSMutableString;
-  //  static createWithStringWithUTF8String(_: string): NSMutableString;
-  append(_: string): void;
-  applyTransform(_: string, reverse: boolean, range: NSRange, updatedRange?: NSRange): boolean;
-  deleteCharacters(in_: NSRange): void;
-  static createWithCapacity(_: number): NSMutableString;
-  insert(_: string, at: number): void;
-  replaceCharacters(in_: NSRange, with_: string): void;
-  replaceOccurrences(of: string, with_: string, options: String.CompareOptions, range: NSRange): number;
-  setString(_: string): void;
-}
-
 export class NSMutableURLRequest extends URLRequest {
-  //  static createWithRequestWithURL(_: URL): NSMutableURLRequest;
-  //  static createWithRequestWithURLCachePolicyWithTimeoutInterval(_: URL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): NSMutableURLRequest;
-  HTTPBody: Data;
+  httpBody: Data;
   setHTTPBody(_: Data);
-  HTTPBodyStream: InputStream;
+  httpBodyStream: InputStream;
   setHTTPBodyStream(_: InputStream);
-  HTTPMethod: string;
+  httpMethod: string;
   setHTTPMethod(_: string);
-  HTTPShouldHandleCookies: boolean;
+  httpShouldHandleCookies: boolean;
   setHTTPShouldHandleCookies(_: boolean);
-  HTTPShouldUsePipelining: boolean;
+  httpShouldUsePipelining: boolean;
   setHTTPShouldUsePipelining(_: boolean);
-  URL: URL;
+  url: URL;
   setURL(_: URL);
   allHTTPHeaderFields: Map<string, string>;
   setAllHTTPHeaderFields(_: Map<string, string>);
@@ -23807,12 +23601,12 @@ export class NSOrderedCollectionChange<ObjectType> extends NSObject {
 }
 
 export class NSOrderedSet<ObjectType> extends NSObject {
-  static createWithOrderedSetWithObjects<ObjectType>(_: ObjectType): NSOrderedSet<ObjectType>;
+  static createWithObjects<ObjectType>(_: ObjectType): NSOrderedSet<ObjectType>;
   array: ObjectType[];
   count: number;
   firstObject: ObjectType;
   lastObject: ObjectType;
-  reversedOrderedSet: NSOrderedSet<any>;
+  reversed: NSOrderedSet<any>;
   set: Set<any>;
   contains(_: ObjectType): boolean;
   // @ts-ignore 
@@ -23943,7 +23737,7 @@ export class NSPredicate extends NSObject {
   allowEvaluation(): void;
   evaluate(with_?: any): boolean;
   evaluate(with_?: any, substitutionVariables?: Map<string, any>): boolean;
-  createWithPredicateWithSubstitutionVariables(_: Map<string, any>): NSPredicate;
+  createWithSubstitutionVariables(_: Map<string, any>): NSPredicate;
 }
 
 export class NSPropertySpecifier extends NSScriptObjectSpecifier {
@@ -23969,15 +23763,8 @@ export class NSProxy {
 }
 
 export class NSPurgeableData extends NSMutableData {
-  //  static createWithData(): NSPurgeableData;
-  //  static createWithDataWithBytesLength(_?: any, length?: number): NSPurgeableData;
-  //  static createWithDataWithBytesNoCopyLength(_: any, length: number): NSPurgeableData;
-  //  static createWithDataWithBytesNoCopyLengthWithFreeWhenDone(_: any, length: number, freeWhenDone: boolean): NSPurgeableData;
-  //  static createWithDataWithContentsOfFile(_: string): NSPurgeableData;
-  //  static createWithDataWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): NSPurgeableData;
-  //  static createWithDataWithContentsOfURL(_: URL): NSPurgeableData;
-  //  static createWithDataWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): NSPurgeableData;
-  //  static createWithDataWithData(_: Data): NSPurgeableData;
+  //  static createWithContentsOfFileOptions(options: string, error: Data.ReadingOptions): NSPurgeableData;
+  //  static createWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): NSPurgeableData;
 }
 
 export class NSQuitCommand extends NSScriptCommand {
@@ -24054,7 +23841,7 @@ export class NSScriptClassDescription extends NSClassDescription {
   defaultSubcontainerAttributeKey: string;
   implementationClassName: string;
   suiteName: string;
-  superclassDescription: NSScriptClassDescription;
+  superclass: NSScriptClassDescription;
   // dupe name w instance property   appleEventCode(forKey: string): number;
   forKey(_: string): NSScriptClassDescription;
   hasOrderedToManyRelationship(forKey: string): boolean;
@@ -24202,19 +23989,6 @@ export class NSSetCommand extends NSScriptCommand {
 
 // export function NSShouldRetainWithZone(anObject: any, requestedZone: any): boolean;
 
-// @ts-ignore
-export class NSSimpleCString extends NSString {
-  //  static createWithObjectWithItemProviderDataTypeIdentifier(typeIdentifier: Data, error: string): NSSimpleCString;
-  //  static createWithStringWithCStringEncoding(_: string, encoding: number): NSSimpleCString;
-  //  static createWithStringWithCharactersLength(_: string, length: number): NSSimpleCString;
-  //  static createWithStringWithContentsOfFileEncoding(encoding: string, error: number): NSSimpleCString;
-  //  static createWithStringWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSSimpleCString;
-  //  static createWithStringWithContentsOfURLEncoding(encoding: URL, error: number): NSSimpleCString;
-  //  static createWithStringWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSSimpleCString;
-  //  static createWithStringWithString(_: string): NSSimpleCString;
-  //  static createWithStringWithUTF8String(_: string): NSSimpleCString;
-}
-
 // export function NSSizeFromString(aString: string): CGSize;
 
 export class NSSocketPortNameServer extends NSPortNameServer {
@@ -24265,16 +24039,16 @@ interface NSSpellServerDelegate {
 
 export class NSString extends NSObject {
   static localizedName(of: number): string;
-  static pathWithComponents(_: string[]): string;
-  static stringEncodingForData(_: Data, encodingOptions?: Map<string, any>, convertedString?: string, usedLossyConversion?: boolean): number;
-  static createWithStringWithContentsOfFileEncoding(encoding: string, error: number): NSString;
-  static createWithStringWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSString;
-  static createWithStringWithContentsOfURLEncoding(encoding: URL, error: number): NSString;
-  static createWithStringWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSString;
-  UTF8String: string;
+  static path(withComponents: string[]): string;
+  static stringEncoding(for_: Data, encodingOptions?: Map<string, any>, convertedString?: string, usedLossyConversion?: boolean): number;
+  static createWithContentsOfFileEncoding(encoding: string, error: number): NSString;
+  static createWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): NSString;
+  static createWithContentsOfURLEncoding(encoding: URL, error: number): NSString;
+  static createWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): NSString;
+  utf8String: string;
   isAbsolutePath: boolean;
   boolValue: boolean;
-  capitalizedString: string;
+  capitalized: string;
   decomposedStringWithCanonicalMapping: string;
   decomposedStringWithCompatibilityMapping: string;
   doubleValue: number;
@@ -24285,11 +24059,11 @@ export class NSString extends NSObject {
   integerValue: number;
   lastPathComponent: string;
   length: number;
-  localizedCapitalizedString: string;
-  localizedLowercaseString: string;
-  localizedUppercaseString: string;
+  localizedCapitalized: string;
+  localizedLowercase: string;
+  localizedUppercase: string;
   longLongValue: number;
-  lowercaseString: string;
+  lowercased: string;
   pathComponents: string[];
   pathExtension: string;
   precomposedStringWithCanonicalMapping: string;
@@ -24302,41 +24076,41 @@ export class NSString extends NSObject {
   stringByRemovingPercentEncoding: string;
   stringByResolvingSymlinksInPath: string;
   stringByStandardizingPath: string;
-  uppercaseString: string;
+  uppercased: string;
   static availableStringEncodings: number;
   static defaultCStringEncoding: number;
-  boundingRectWithSize(_: CGSize, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>): CGRect;
-  boundingRectWithSize(_: CGSize, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): CGRect;
-  cStringUsingEncoding(_: number): string;
-  canBeConvertedToEncoding(_: number): boolean;
-  capitalizedStringWithLocale(_?: Locale): string;
+  boundingRect(with_: CGSize, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>): CGRect;
+  boundingRect(with_: CGSize, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): CGRect;
+  cString(using: number): string;
+  canBeConverted(to: number): boolean;
+  capitalized(with_?: Locale): string;
   caseInsensitiveCompare(_: string): NSObjCRuntime.ComparisonResult;
-  characterAtIndex(_: number): string;
-  commonPrefixWithString(_: string, options: String.CompareOptions): string;
+  character(at: number): string;
+  commonPrefix(with_: string, options: String.CompareOptions): string;
   compare(_: string): NSObjCRuntime.ComparisonResult;
   compare(_: string, options: String.CompareOptions): NSObjCRuntime.ComparisonResult;
   compare(_: string, options: String.CompareOptions, range: NSRange): NSObjCRuntime.ComparisonResult;
   compare(_: string, options: String.CompareOptions, range: NSRange, locale?: any): NSObjCRuntime.ComparisonResult;
-  completePathIntoString(_?: string, caseSensitive?: boolean, matchesIntoArray?: string[], filterTypes?: string[]): number;
-  componentsSeparatedByCharactersInSet(_: CharacterSet): string[];
-  componentsSeparatedByString(_: string): string[];
-  containsString(_: string): boolean;
-  dataUsingEncoding(_: number): Data;
-  dataUsingEncoding(_: number, allowLossyConversion: boolean): Data;
-  drawAtPoint(_: CGPoint, withAttributes?: Map<string, any>): void;
-  drawInRect(_: CGRect, withAttributes?: Map<string, any>): void;
-  drawWithRect(_: CGRect, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>): void;
-  drawWithRect(_: CGRect, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): void;
-  enumerateLinesUsingBlock(_: (p1: string, p2: boolean) => void): void;
-  enumerateLinguisticTagsInRange(_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, usingBlock?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  enumerateSubstringsInRange(_: NSRange, options: String.EnumerationOptions, usingBlock?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  getBytes(_?: any, maxLength?: number, usedLength?: number, encoding?: number, options?: String.EncodingConversionOptions, range?: NSRange, remainingRange?: NSRange): boolean;
+  completePath(into?: string, caseSensitive?: boolean, matchesInto?: string[], filterTypes?: string[]): number;
+  components(separatedBy: CharacterSet): string[];
+  components(separatedBy: string): string[];
+  contains(_: string): boolean;
+  data(using: number): Data;
+  data(using: number, allowLossyConversion: boolean): Data;
+  draw(at: CGPoint, withAttributes?: Map<string, any>): void;
+  draw(in_: CGRect, withAttributes?: Map<string, any>): void;
+  draw(with_: CGRect, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>): void;
+  draw(with_: CGRect, options: NSStringDrawing.String.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): void;
+  enumerateLines(_: (p1: string, p2: boolean) => void): void;
+  enumerateLinguisticTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
+  enumerateSubstrings(in_: NSRange, options: String.EnumerationOptions, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
+  getBytes(_?: any, maxLength?: number, usedLength?: number, encoding?: number, options?: String.EncodingConversionOptions, range?: NSRange, remaining?: NSRange): boolean;
   getCString(_: string, maxLength: number, encoding: number): boolean;
   getCharacters(_: string): void;
   getCharacters(_: string, range: NSRange): void;
   getFileSystemRepresentation(_: string, maxLength: number): boolean;
-  getLineStart(_?: number, end?: number, contentsEnd?: number, forRange?: NSRange): void;
-  getParagraphStart(_?: number, end?: number, contentsEnd?: number, forRange?: NSRange): void;
+  getLineStart(_?: number, end?: number, contentsEnd?: number, for_?: NSRange): void;
+  getParagraphStart(_?: number, end?: number, contentsEnd?: number, for_?: NSRange): void;
   hasPrefix(_: string): boolean;
   hasSuffix(_: string): boolean;
   static createWithBytesWithLengthWithEncoding(_: any, length: number, encoding: number): NSString;
@@ -24351,47 +24125,48 @@ export class NSString extends NSObject {
   static createWithDataWithEncoding(_: Data, encoding: number): NSString;
   static createWithString(_: string): NSString;
   static createWithUtF8String(_: string): NSString;
-  isEqualToString(_: string): boolean;
-  lengthOfBytesUsingEncoding(_: number): number;
-  lineRangeForRange(_: NSRange): NSRange;
-  linguisticTagsInRange(_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, tokenRanges?: NSValue[]): string[];
+  // @ts-ignore 
+  isEqual(to: string): boolean;
+  lengthOfBytes(using: number): number;
+  lineRange(for_: NSRange): NSRange;
+  linguisticTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, tokenRanges?: NSValue[]): string[];
   localizedCaseInsensitiveCompare(_: string): NSObjCRuntime.ComparisonResult;
-  localizedCaseInsensitiveContainsString(_: string): boolean;
+  localizedCaseInsensitiveContains(_: string): boolean;
   localizedCompare(_: string): NSObjCRuntime.ComparisonResult;
   localizedStandardCompare(_: string): NSObjCRuntime.ComparisonResult;
-  localizedStandardContainsString(_: string): boolean;
-  localizedStandardRangeOfString(_: string): NSRange;
-  lowercaseStringWithLocale(_?: Locale): string;
-  maximumLengthOfBytesUsingEncoding(_: number): number;
-  paragraphRangeForRange(_: NSRange): NSRange;
+  localizedStandardContains(_: string): boolean;
+  localizedStandardRange(of: string): NSRange;
+  lowercased(with_?: Locale): string;
+  maximumLengthOfBytes(using: number): number;
+  paragraphRange(for_: NSRange): NSRange;
   propertyList(): any;
   propertyListFromStringsFileFormat(): Map<any, any>;
-  rangeOfCharacterFromSet(_: CharacterSet): NSRange;
-  rangeOfCharacterFromSet(_: CharacterSet, options: String.CompareOptions): NSRange;
-  rangeOfCharacterFromSet(_: CharacterSet, options: String.CompareOptions, range: NSRange): NSRange;
-  rangeOfComposedCharacterSequenceAtIndex(_: number): NSRange;
-  rangeOfComposedCharacterSequencesForRange(_: NSRange): NSRange;
-  rangeOfString(_: string): NSRange;
-  rangeOfString(_: string, options: String.CompareOptions): NSRange;
-  rangeOfString(_: string, options: String.CompareOptions, range: NSRange): NSRange;
-  rangeOfString(_: string, options: String.CompareOptions, range: NSRange, locale?: Locale): NSRange;
-  sizeWithAttributes(_?: Map<string, any>): CGSize;
-  stringByAddingPercentEncodingWithAllowedCharacters(_: CharacterSet): string;
-  stringByAppendingPathComponent(_: string): string;
-  stringByAppendingPathExtension(_: string): string;
-  stringByAppendingString(_: string): string;
-  stringByApplyingTransform(_: string, reverse: boolean): string;
-  stringByFoldingWithOptions(_: String.CompareOptions, locale?: Locale): string;
-  stringByPaddingToLength(_: number, withString: string, startingAtIndex: number): string;
-  stringByReplacingCharactersInRange(_: NSRange, withString: string): string;
-  stringByReplacingOccurrencesOfString(_: string, withString: string): string;
-  stringByReplacingOccurrencesOfString(_: string, withString: string, options: String.CompareOptions, range: NSRange): string;
-  stringByTrimmingCharactersInSet(_: CharacterSet): string;
-  stringsByAppendingPaths(_: string[]): string[];
-  substringFromIndex(_: number): string;
-  substringToIndex(_: number): string;
-  substringWithRange(_: NSRange): string;
-  uppercaseStringWithLocale(_?: Locale): string;
+  rangeOfCharacter(from: CharacterSet): NSRange;
+  rangeOfCharacter(from: CharacterSet, options: String.CompareOptions): NSRange;
+  rangeOfCharacter(from: CharacterSet, options: String.CompareOptions, range: NSRange): NSRange;
+  rangeOfComposedCharacterSequence(at: number): NSRange;
+  rangeOfComposedCharacterSequences(for_: NSRange): NSRange;
+  range(of: string): NSRange;
+  range(of: string, options: String.CompareOptions): NSRange;
+  range(of: string, options: String.CompareOptions, range: NSRange): NSRange;
+  range(of: string, options: String.CompareOptions, range: NSRange, locale?: Locale): NSRange;
+  size(withAttributes?: Map<string, any>): CGSize;
+  addingPercentEncoding(withAllowedCharacters: CharacterSet): string;
+  appendingPathComponent(_: string): string;
+  appendingPathExtension(_: string): string;
+  appending(_: string): string;
+  applyingTransform(_: string, reverse: boolean): string;
+  folding(options: String.CompareOptions, locale?: Locale): string;
+  padding(toLength: number, withPad: string, startingAt: number): string;
+  replacingCharacters(in_: NSRange, with_: string): string;
+  replacingOccurrences(of: string, with_: string): string;
+  replacingOccurrences(of: string, with_: string, options: String.CompareOptions, range: NSRange): string;
+  trimmingCharacters(in_: CharacterSet): string;
+  strings(byAppendingPaths: string[]): string[];
+  substring(from: number): string;
+  substring(to: number): string;
+  substring(with_: NSRange): string;
+  uppercased(with_?: Locale): string;
   variantFittingPresentationWidth(_: number): string;
   writeToFile(atomically: string, encoding: boolean, error: number): boolean;
   writeToURL(atomically: URL, encoding: boolean, error: number): boolean;
@@ -24433,7 +24208,7 @@ export class NSTextCheckingResult extends NSObject {
   static replacementCheckingResult(range: NSRange, replacementString: string): NSTextCheckingResult;
   static spellCheckingResult(range: NSRange): NSTextCheckingResult;
   static transitInformationCheckingResult(range: NSRange, components: Map<string, string>): NSTextCheckingResult;
-  URL: URL;
+  url: URL;
   addressComponents: Map<string, string>;
   alternativeStrings: string[];
   components: Map<string, string>;
@@ -24525,7 +24300,7 @@ export class NSURLSessionWebSocketMessage extends NSObject {
 
 export class NSUbiquitousKeyValueStore extends NSObject {
   dictionaryRepresentation: Map<string, any>;
-  static defaultStore: NSUbiquitousKeyValueStore;
+  static default: NSUbiquitousKeyValueStore;
   array(forKey: string): any[];
   bool(forKey: string): boolean;
   data(forKey: string): Data;
@@ -24922,8 +24697,6 @@ interface NetServiceDelegate {
 }
 
 export class Notification extends NSObject {
-  static createWithNotificationWithNameObject(_: string, object_?: any): Notification;
-  static createWithNotificationWithNameObjectWithUserInfo(_: string, object_?: any, userInfo?: Map<any, any>): Notification;
   name: string;
   object: any;
   userInfo: Map<any, any>;
@@ -24946,7 +24719,7 @@ export class NotificationCenter extends NSObject {
 }
 
 export class NotificationQueue extends NSObject {
-  static defaultQueue: NotificationQueue;
+  static default: NotificationQueue;
   dequeueNotifications(matching: Notification, coalesceMask: number): void;
   enqueue(_: Notification, postingStyle: NotificationQueue.PostingStyle): void;
   enqueue(_: Notification, postingStyle: NotificationQueue.PostingStyle, coalesceMask: NotificationQueue.NotificationCoalescing, forModes?: string[]): void;
@@ -25208,7 +24981,7 @@ export class PortMessage extends NSObject {
 }
 
 export class Process extends NSObject {
-  static launchedTaskWithExecutableURL(_: URL, arguments_: string[], error?: Error, terminationHandler?: (p1: Process) => void): Process;
+  static run(_: URL, _2: string[], arguments_?: Error, terminationHandler?: (p1: Process) => void): Process;
   static launchedProcess(launchPath: string, arguments_: string[]): Process;
   arguments: string[];
   setArguments(_: string[]);
@@ -25337,9 +25110,9 @@ interface ProgressReporting {
 }
 
 export class PropertyListSerialization extends NSObject {
-  static dataWithPropertyList(format: any, options: NSPropertyList.PropertyListSerialization.PropertyListFormat, error: number): Data;
+  static data(fromPropertyList: any, format: NSPropertyList.PropertyListSerialization.PropertyListFormat, options: number): Data;
   static propertyList(_: any, isValidFor: NSPropertyList.PropertyListSerialization.PropertyListFormat): boolean;
-  static propertyListWithData(options: Data, format: NSPropertyList.PropertyListSerialization.MutabilityOptions, error?: NSPropertyList.PropertyListSerialization.PropertyListFormat): any;
+  static propertyList(from: Data, options: NSPropertyList.PropertyListSerialization.MutabilityOptions, format?: NSPropertyList.PropertyListSerialization.PropertyListFormat): any;
   static propertyListWithStream(options: InputStream, format: NSPropertyList.PropertyListSerialization.MutabilityOptions, error?: NSPropertyList.PropertyListSerialization.PropertyListFormat): any;
   static writePropertyList(_: any, to: OutputStream, format: NSPropertyList.PropertyListSerialization.PropertyListFormat, options: number): number;
 }
@@ -25362,8 +25135,8 @@ export class RelativeDateTimeFormatter extends Formatter {
 
 export class RunLoop extends NSObject {
   currentMode: string;
-  static currentRunLoop: RunLoop;
-  static mainRunLoop: RunLoop;
+  static current: RunLoop;
+  static main: RunLoop;
   acceptInput(forMode: string, before: Date): void;
   add(_: Port, forMode: string): void;
   add(_: Timer, forMode: string): void;
@@ -25396,7 +25169,7 @@ export class Scanner extends NSObject {
   scanHexDouble(_?: number): boolean;
   scanHexFloat(_?: number): boolean;
   scanHexInt64(_?: number): boolean;
-  scanInt(_?: number): boolean;
+  scanInt32(_?: number): boolean;
   scanInt(_?: number): boolean;
   scanInt64(_?: number): boolean;
   scanUnsignedLongLong(_?: number): boolean;
@@ -25458,9 +25231,9 @@ export class Thread extends NSObject {
   setThreadPriority(_: number);
   static callStackReturnAddresses: number[];
   static callStackSymbols: string[];
-  static currentThread: Thread;
+  static current: Thread;
   //   static isMainThread: boolean;
-  static mainThread: Thread;
+  static main: Thread;
   cancel(): void;
   static createWithBlock(_: () => void): Thread;
   static createWithTargetWithSelectorWithObject(_: any, selector: string, object_?: any): Thread;
@@ -25471,10 +25244,6 @@ export class Thread extends NSObject {
 export class TimeZone extends NSObject {
   //  static abbreviationDictionary(): Map<string, string>;
   static resetSystemTimeZone(): void;
-  static createWithTimeZoneForSecondsFromGMT(_: number): TimeZone;
-  static createWithTimeZoneWithAbbreviation(_: string): TimeZone;
-  static createWithTimeZoneWithName(_: string): TimeZone;
-  static createWithTimeZoneWithNameData(_: string, data?: Data): TimeZone;
   abbreviation: string;
   data: Data;
   isDaylightSavingTime: boolean;
@@ -25484,21 +25253,22 @@ export class TimeZone extends NSObject {
   secondsFromGMT: number;
   //   static abbreviationDictionary: Map<string, string>;
   setAbbreviationDictionary(_: Map<string, string>);
-  static defaultTimeZone: TimeZone;
+  static default: TimeZone;
   setDefaultTimeZone(_: TimeZone);
   static knownTimeZoneNames: string[];
-  static localTimeZone: TimeZone;
-  static systemTimeZone: TimeZone;
+  static local: TimeZone;
+  static system: TimeZone;
   static timeZoneDataVersion: string;
-  abbreviationForDate(_: Date): string;
-  daylightSavingTimeOffsetForDate(_: Date): number;
+  // dupe name w instance property   abbreviation(for_: Date): string;
+  // dupe name w instance property   daylightSavingTimeOffset(for_: Date): number;
   static createWithName(_: string): TimeZone;
   static createWithNameWithData(_: string, data?: Data): TimeZone;
-  isDaylightSavingTimeForDate(_: Date): boolean;
-  isEqualToTimeZone(_: TimeZone): boolean;
+  isDaylightSavingTime(for_: Date): boolean;
+  // @ts-ignore 
+  isEqual(to: TimeZone): boolean;
   localizedName(_: TimeZone.NameStyle, locale?: Locale): string;
-  nextDaylightSavingTimeTransitionAfterDate(_: Date): Date;
-  secondsFromGMTForDate(_: Date): number;
+  // dupe name w instance property   nextDaylightSavingTimeTransition(after: Date): Date;
+  // dupe name w instance property   secondsFromGMT(for_: Date): number;
 }
 
 export class Timer extends NSObject {
@@ -25514,31 +25284,25 @@ export class Timer extends NSObject {
   isValid: boolean;
   fire(): void;
   static createWithFireDateWithIntervalWithRepeatsWithBlock(_: Date, interval: number, repeats: boolean, block: (p1: Timer) => void): Timer;
-  static createWithFireDateWithIntervalWithTargetWithSelectorWithUserInfoWithRepeats(_: Date, interval: number, target: any, selector: string, userInfo?: any, repeats?: boolean): Timer;
   invalidate(): void;
 }
 
 export class URL extends NSObject {
-  static createWithURLByResolvingAliasFileAtURLOptions(options: URL, error: URL.BookmarkResolutionOptions): URL;
   static createWithURLByResolvingBookmarkDataOptionsWithRelativeToURLWithBookmarkDataIsStale(options: Data, relativeToURL: URL.BookmarkResolutionOptions, bookmarkDataIsStale?: URL, error?: boolean): URL;
-  static URLFromPasteboard(_: NSPasteboard): URL;
-  static URLWithDataRepresentation(_: Data, relativeToURL?: URL): URL;
-  static createWithURLWithString(_: string): URL;
-  static createWithURLWithStringRelativeToURL(_: string, relativeToURL?: URL): URL;
-  static absoluteURLWithDataRepresentation(_: Data, relativeToURL?: URL): URL;
+  //  static absoluteURL(withDataRepresentation: Data, relativeTo?: URL): URL;
   static bookmarkDataWithContentsOfURL(error: URL): Data;
-  static fileURLWithFileSystemRepresentation(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  static fileURLWithPath(_: string): URL;
-  static fileURLWithPath(_: string, isDirectory: boolean): URL;
-  static fileURLWithPath(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  static fileURLWithPath(_: string, relativeToURL?: URL): URL;
-  static fileURLWithPathComponents(_: string[]): URL;
-  static resourceValuesForKeys(_: string[], fromBookmarkData: Data): Map<string, any>;
+  //  static fileURL(withFileSystemRepresentation: string, isDirectory: boolean, relativeTo?: URL): URL;
+  //  static fileURL(withPath: string): URL;
+  //  static fileURL(withPath: string, isDirectory: boolean): URL;
+  //  static fileURL(withPath: string, isDirectory: boolean, relativeTo?: URL): URL;
+  //  static fileURL(withPath: string, relativeTo?: URL): URL;
+  //  static fileURL(withPathComponents: string[]): URL;
+  static resourceValues(forKeys: string[], fromBookmarkData: Data): Map<string, any>;
   static writeBookmarkData(toURL: Data, options: URL, error: number): boolean;
-  URLByDeletingLastPathComponent: URL;
-  URLByDeletingPathExtension: URL;
-  URLByResolvingSymlinksInPath: URL;
-  URLByStandardizingPath: URL;
+  deletingLastPathComponent: URL;
+  deletingPathExtension: URL;
+  resolvingSymlinksInPath: URL;
+  standardizingPath: URL;
   absoluteString: string;
   absoluteURL: URL;
   baseURL: URL;
@@ -25560,11 +25324,11 @@ export class URL extends NSObject {
   relativeString: string;
   resourceSpecifier: string;
   scheme: string;
-  standardizedURL: URL;
+  standardized: URL;
   user: string;
-  URLByAppendingPathComponent(_: string): URL;
-  URLByAppendingPathComponent(_: string, isDirectory: boolean): URL;
-  URLByAppendingPathExtension(_: string): URL;
+  appendingPathComponent(_: string): URL;
+  appendingPathComponent(_: string, isDirectory: boolean): URL;
+  appendingPathExtension(_: string): URL;
   bookmarkDataWithOptions(includingResourceValuesForKeys: URL.BookmarkCreationOptions, relativeToURL?: string[], error?: URL): Data;
   checkPromisedItemIsReachableAndReturnError(): boolean;
   checkResourceIsReachableAndReturnError(): boolean;
@@ -25573,7 +25337,6 @@ export class URL extends NSObject {
   getPromisedItemResourceValue(forKey?: any, error?: string): boolean;
   getResourceValue(forKey?: any, error?: string): boolean;
   static createWithAbsoluteurlWithDataRepresentationWithRelativeToURL(_: Data, relativeToURL?: URL): URL;
-  static createWithByResolvingBookmarkDataWithOptionsWithRelativeToURL(options: Data, relativeToURL: URL.BookmarkResolutionOptions, bookmarkDataIsStale?: URL, error?: boolean): URL;
   static createWithFileurlWithFileSystemRepresentationWithIsDirectoryWithRelativeToURL(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
   static createWithFileurlWithPath(_: string): URL;
   static createWithFileurlWithPathWithIsDirectory(_: string, isDirectory: boolean): URL;
@@ -25585,14 +25348,14 @@ export class URL extends NSObject {
   isFileReferenceURL(): boolean;
   promisedItemResourceValuesForKeys(error: string[]): Map<string, any>;
   removeAllCachedResourceValues(): void;
-  removeCachedResourceValueForKey(_: string): void;
+  removeCachedResourceValue(forKey: string): void;
   resourceValuesForKeys(error: string[]): Map<string, any>;
   setResourceValue(forKey?: any, error?: string): boolean;
   setResourceValues(error: Map<string, any>): boolean;
   setTemporaryResourceValue(_?: any, forKey?: string): void;
   startAccessingSecurityScopedResource(): boolean;
   stopAccessingSecurityScopedResource(): void;
-  writeToPasteboard(_: NSPasteboard): void;
+  write(to: NSPasteboard): void;
 }
 
 export class URLAuthenticationChallenge extends NSObject {
@@ -25621,7 +25384,7 @@ export class URLCache extends NSObject {
   setDiskCapacity(_: number);
   memoryCapacity: number;
   setMemoryCapacity(_: number);
-  static sharedURLCache: URLCache;
+  static shared: URLCache;
   setSharedURLCache(_: URLCache);
   cachedResponse(for_: URLRequest): CachedURLResponse;
   getCachedResponse(for_: URLSessionDataTask, completionHandler?: (p1: CachedURLResponse) => void): void;
@@ -25636,8 +25399,6 @@ export class URLCache extends NSObject {
 }
 
 export class URLComponents extends NSObject {
-  static createWithComponentsWithString(_: string): URLComponents;
-  static createWithComponentsWithURLResolvingAgainstBaseURL(_: URL, resolvingAgainstBaseURL: boolean): URLComponents;
   URL: URL;
   fragment: string;
   setFragment(_: string);
@@ -25679,7 +25440,7 @@ export class URLComponents extends NSObject {
   setScheme(_: string);
   user: string;
   setUser(_: string);
-  URLRelativeToURL(_?: URL): URL;
+  url(relativeTo?: URL): URL;
   static createWithString(_: string): URLComponents;
   static createWithUrlWithResolvingAgainstBaseURL(_: URL, resolvingAgainstBaseURL: boolean): URLComponents;
 }
@@ -25698,7 +25459,7 @@ export class URLCredential extends NSObject {
 
 export class URLCredentialStorage extends NSObject {
   allCredentials: Map<URLProtectionSpace, Map<string, URLCredential>>;
-  static sharedCredentialStorage: URLCredentialStorage;
+  static shared: URLCredentialStorage;
   credentials(for_: URLProtectionSpace): Map<string, URLCredential>;
   defaultCredential(for_: URLProtectionSpace): URLCredential;
   getCredentials(for_: URLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: Map<string, URLCredential>) => void): void;
@@ -25759,20 +25520,17 @@ interface URLProtocolClient {
 }
 
 export class URLQueryItem extends NSObject {
-  static createWithQueryItemWithNameValue(_: string, value?: string): URLQueryItem;
   name: string;
   static createWithNameWithValue(_: string, value?: string): URLQueryItem;
 }
 
 export class URLRequest extends NSObject {
-  static createWithRequestWithURL(_: URL): URLRequest;
-  static createWithRequestWithURLCachePolicyWithTimeoutInterval(_: URL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): URLRequest;
-  HTTPBody: Data;
-  HTTPBodyStream: InputStream;
-  HTTPMethod: string;
-  HTTPShouldHandleCookies: boolean;
-  HTTPShouldUsePipelining: boolean;
-  URL: URL;
+  httpBody: Data;
+  httpBodyStream: InputStream;
+  httpMethod: string;
+  httpShouldHandleCookies: boolean;
+  httpShouldUsePipelining: boolean;
+  url: URL;
   allHTTPHeaderFields: Map<string, string>;
   allowsCellularAccess: boolean;
   allowsConstrainedNetworkAccess: boolean;
@@ -25783,12 +25541,13 @@ export class URLRequest extends NSObject {
   timeoutInterval: number;
   static createWithUrl(_: URL): URLRequest;
   static createWithUrlWithCachePolicyWithTimeoutInterval(_: URL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): URLRequest;
-  valueForHTTPHeaderField(_: string): string;
+  // @ts-ignore 
+  value(forHTTPHeaderField: string): string;
 }
 
 export class URLResponse extends NSObject {
-  MIMEType: string;
-  URL: URL;
+  mimeType: string;
+  url: URL;
   expectedContentLength: number;
   suggestedFilename: string;
   textEncodingName: string;
@@ -25801,7 +25560,7 @@ export class URLSession extends NSObject {
   delegateQueue: OperationQueue;
   sessionDescription: string;
   setSessionDescription(_: string);
-  static sharedSession: URLSession;
+  static shared: URLSession;
   dataTask(with_: URLRequest): URLSessionDataTask;
   dataTask(with_: URLRequest, completionHandler?: (p1: Data, p2: URLResponse, p3: Error) => void): URLSessionDataTask;
   dataTask(with_: URL): URLSessionDataTask;
@@ -26030,9 +25789,8 @@ export class URLSessionWebSocketTask extends URLSessionTask {
 }
 
 export class UUID extends NSObject {
-  static createWithUUID(): UUID;
-  UUIDString: string;
-  getUUIDBytes(_: number): void;
+  uuidString: string;
+  getBytes(_: number): void;
   static createWithUuidBytes(_?: number): UUID;
   static createWithUuidString(_: string): UUID;
 }
@@ -26347,7 +26105,7 @@ export class UnitVolume extends Dimension {
 export class UserDefaults extends NSObject {
   static resetStandardUserDefaults(): void;
   volatileDomainNames: string[];
-  static standardUserDefaults: UserDefaults;
+  static standard: UserDefaults;
   url(forKey: string): URL;
   addSuite(named: string): void;
   array(forKey: string): any[];
@@ -26411,7 +26169,7 @@ export class XMLDTD extends XMLNode {
 }
 
 export class XMLDTDNode extends XMLNode {
-  DTDKind: XMLDTDNode.DTDKind;
+  dtdKind: XMLDTDNode.DTDKind;
   setDTDKind(_: XMLDTDNode.DTDKind);
   isExternal: boolean;
   notationName: string;
@@ -26425,11 +26183,11 @@ export class XMLDTDNode extends XMLNode {
 
 export class XMLDocument extends XMLNode {
   static replacementClass(for_: typeof NSObject): typeof NSObject;
-  DTD: XMLDTD;
+  dtd: XMLDTD;
   setDTD(_: XMLDTD);
-  MIMEType: string;
+  mimeType: string;
   setMIMEType(_: string);
-  XMLData: Data;
+  xmlData: Data;
   characterEncoding: string;
   setCharacterEncoding(_: string);
   documentContentKind: XMLDocument.ContentKind;
@@ -26506,10 +26264,10 @@ export class XMLNode extends NSObject {
   //  static prefix(forName: string): string;
   static processingInstruction(withName: string, stringValue: string): any;
   static text(withStringValue: string): any;
-  URI: string;
+  uri: string;
   setURI(_: string);
-  XMLString: string;
-  XPath: string;
+  xmlString: string;
+  xPath: string;
   childCount: number;
   children: XMLNode[];
   index: number;
@@ -26518,13 +26276,13 @@ export class XMLNode extends NSObject {
   localName: string;
   name: string;
   setName(_: string);
-  nextNode: XMLNode;
+  next: XMLNode;
   nextSibling: XMLNode;
   objectValue: any;
   setObjectValue(_: any);
   parent: XMLNode;
   prefix: string;
-  previousNode: XMLNode;
+  previous: XMLNode;
   previousSibling: XMLNode;
   rootDocument: XMLDocument;
   stringValue: string;
@@ -27356,7 +27114,7 @@ export class CADisplayLink extends NSObject {
 export class CAEDRMetadata extends NSObject {
   static hdr10(displayInfo?: Data, contentInfo?: Data, opticalOutputScale?: number): CAEDRMetadata;
   static hdr10(minLuminance: number, maxLuminance: number, opticalOutputScale: number): CAEDRMetadata;
-  static HLGMetadata: CAEDRMetadata;
+  static hlg: CAEDRMetadata;
 }
 
 export class CAEmitterCell extends NSObject {
@@ -27706,7 +27464,7 @@ interface CAMetalDrawable {
 }
 
 export class CAMetalLayer extends CALayer {
-  EDRMetadata: CAEDRMetadata;
+  edrMetadata: CAEDRMetadata;
   setEDRMetadata(_: CAEDRMetadata);
   allowsNextDrawableTimeout: boolean;
   setAllowsNextDrawableTimeout(_: boolean);
@@ -30923,7 +30681,7 @@ export namespace CKRecord {
   
   export class Reference extends NSObject {
     recordID: CKRecord.ID;
-    referenceAction: CKRecord.Reference.CKRecord_Reference_Action;
+    action: CKRecord.Reference.CKRecord_Reference_Action;
     static createWithRecordWithAction(_: CKRecord, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
     static createWithRecordIDWithAction(_: CKRecord.ID, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
   }
@@ -33681,10 +33439,6 @@ export namespace NSCustomTouchBarItem {
 export namespace NSDataAsset {
 }
 
-// @ts-ignore
-export namespace Date {
-}
-
 export namespace DateInterval {
 }
 
@@ -33901,10 +33655,6 @@ export namespace NSEntityMigrationPolicy {
 }
 
 export namespace NSEnumerator {
-}
-
-// @ts-ignore
-export namespace Error {
 }
 
 export namespace NSEvent {
@@ -37513,7 +37263,10 @@ let global = globalThis as any;
 (globalThis as any)['AUGenericView']['AUGenericViewDisplayFlags'] = {
   TitleDisplayFlag: 1,
   PropertiesDisplayFlag: 2,
-  ParametersDisplayFlag: 4
+  ParametersDisplayFlag: 4,
+  '1': 'TitleDisplayFlag',
+  '2': 'PropertiesDisplayFlag',
+  '4': 'ParametersDisplayFlag'
 };
 
 
@@ -37528,7 +37281,13 @@ let global = globalThis as any;
   ForbidCrossSiteReference: 4,
   ForbidLocalReferenceToLocal: 8,
   ForbidAll: 65535,
-  DefaultPolicy: 2
+  DefaultPolicy: 2,
+  '0': 'ForbidNone',
+  '1': 'ForbidRemoteReferenceToLocal',
+  '2': 'ForbidLocalReferenceToRemote',
+  '4': 'ForbidCrossSiteReference',
+  '8': 'ForbidLocalReferenceToLocal',
+  '65535': 'ForbidAll',
 };
 
 
@@ -37542,7 +37301,13 @@ let global = globalThis as any;
   Exporting: 2,
   Completed: 3,
   Failed: 4,
-  Cancelled: 5
+  Cancelled: 5,
+  '0': 'Unknown',
+  '1': 'Waiting',
+  '2': 'Exporting',
+  '3': 'Completed',
+  '4': 'Failed',
+  '5': 'Cancelled'
 };
 
 
@@ -37551,7 +37316,10 @@ let global = globalThis as any;
 (globalThis as any)['AVAssetImageGenerator']['Result'] = {
   Succeeded: 0,
   Failed: 1,
-  Cancelled: 2
+  Cancelled: 2,
+  '0': 'Succeeded',
+  '1': 'Failed',
+  '2': 'Cancelled'
 };
 
 
@@ -37562,7 +37330,12 @@ let global = globalThis as any;
   Reading: 1,
   Completed: 2,
   Failed: 3,
-  Cancelled: 4
+  Cancelled: 4,
+  '0': 'Unknown',
+  '1': 'Reading',
+  '2': 'Completed',
+  '3': 'Failed',
+  '4': 'Cancelled'
 };
 
 
@@ -37583,7 +37356,12 @@ let global = globalThis as any;
   Writing: 1,
   Completed: 2,
   Failed: 3,
-  Cancelled: 4
+  Cancelled: 4,
+  '0': 'Unknown',
+  '1': 'Writing',
+  '2': 'Completed',
+  '3': 'Failed',
+  '4': 'Cancelled'
 };
 
 
@@ -37596,7 +37374,12 @@ let global = globalThis as any;
   Loading: 1,
   Loaded: 2,
   Failed: 3,
-  Cancelled: 4
+  Cancelled: 4,
+  '0': 'Unknown',
+  '1': 'Loading',
+  '2': 'Loaded',
+  '3': 'Failed',
+  '4': 'Cancelled'
 };
 
 
@@ -37611,7 +37394,10 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioConverter']['AVAudioConverterInputStatus'] = {
   _HaveData: 0,
   _NoDataNow: 1,
-  _EndOfStream: 2
+  _EndOfStream: 2,
+  '0': '_HaveData',
+  '1': '_NoDataNow',
+  '2': '_EndOfStream'
 };
 
 (globalThis as any)['AVAudioConverter']['AVAudioConverterOutputStatus'] = (globalThis as any)['AVAudioConverter']['AVAudioConverterOutputStatus'] || {};
@@ -37619,14 +37405,21 @@ let global = globalThis as any;
   _HaveData: 0,
   _InputRanDry: 1,
   _EndOfStream: 2,
-  _Error: 3
+  _Error: 3,
+  '0': '_HaveData',
+  '1': '_InputRanDry',
+  '2': '_EndOfStream',
+  '3': '_Error'
 };
 
 (globalThis as any)['AVAudioConverter']['AVAudioConverterPrimeMethod'] = (globalThis as any)['AVAudioConverter']['AVAudioConverterPrimeMethod'] || {};
 (globalThis as any)['AVAudioConverter']['AVAudioConverterPrimeMethod'] = {
   _Pre: 0,
   _Normal: 1,
-  _None: 2
+  _None: 2,
+  '0': '_Pre',
+  '1': '_Normal',
+  '2': '_None'
 };
 
 
@@ -37635,13 +37428,18 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingError'] = {
   InvalidMode: -80800,
   Initialized: -80801,
-  NotRunning: -80802
+  NotRunning: -80802,
+  '-80800': 'InvalidMode',
+  '-80801': 'Initialized',
+  '-80802': 'NotRunning'
 };
 
 (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingMode'] = (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingMode'] || {};
 (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingMode'] = {
   Offline: 0,
-  Realtime: 1
+  Realtime: 1,
+  '0': 'Offline',
+  '1': 'Realtime'
 };
 
 (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingStatus'] = (globalThis as any)['AVAudioEngine']['AVAudioEngineManualRenderingStatus'] || {};
@@ -37649,7 +37447,11 @@ let global = globalThis as any;
   Error: -1,
   Success: 0,
   InsufficientDataFromInputNode: 1,
-  CannotDoInCurrentContext: 2
+  CannotDoInCurrentContext: 2,
+  '-1': 'Error',
+  '0': 'Success',
+  '1': 'InsufficientDataFromInputNode',
+  '2': 'CannotDoInCurrentContext'
 };
 
 
@@ -37658,7 +37460,10 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioEnvironmentNode']['AVAudioEnvironmentDistanceAttenuationModel'] = {
   Exponential: 1,
   Inverse: 2,
-  Linear: 3
+  Linear: 3,
+  '1': 'Exponential',
+  '2': 'Inverse',
+  '3': 'Linear'
 };
 
 (globalThis as any)['AVAudioEnvironmentNode']['AVAudioEnvironmentOutputType'] = (globalThis as any)['AVAudioEnvironmentNode']['AVAudioEnvironmentOutputType'] || {};
@@ -37666,7 +37471,11 @@ let global = globalThis as any;
   Auto: 0,
   Headphones: 1,
   BuiltInSpeakers: 2,
-  ExternalSpeakers: 3
+  ExternalSpeakers: 3,
+  '0': 'Auto',
+  '1': 'Headphones',
+  '2': 'BuiltInSpeakers',
+  '3': 'ExternalSpeakers'
 };
 
 
@@ -37679,7 +37488,12 @@ let global = globalThis as any;
   PCMFormatFloat32: 1,
   PCMFormatFloat64: 2,
   PCMFormatInt16: 3,
-  PCMFormatInt32: 4
+  PCMFormatInt32: 4,
+  '0': 'OtherFormat',
+  '1': 'PCMFormatFloat32',
+  '2': 'PCMFormatFloat64',
+  '3': 'PCMFormatInt16',
+  '4': 'PCMFormatInt32'
 };
 
 
@@ -37693,7 +37507,9 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioMixing']['AVAudio3DMixingPointSourceInHeadMode'] = (globalThis as any)['AVAudioMixing']['AVAudio3DMixingPointSourceInHeadMode'] || {};
 (globalThis as any)['AVAudioMixing']['AVAudio3DMixingPointSourceInHeadMode'] = {
   eMono: 0,
-  eBypass: 1
+  eBypass: 1,
+  '0': 'eMono',
+  '1': 'eBypass'
 };
 
 (globalThis as any)['AVAudioMixing']['AVAudio3DMixingRenderingAlgorithm'] = (globalThis as any)['AVAudioMixing']['AVAudio3DMixingRenderingAlgorithm'] || {};
@@ -37704,7 +37520,14 @@ let global = globalThis as any;
   mSoundField: 3,
   mStereoPassThrough: 5,
   mHRTFHQ: 6,
-  mAuto: 7
+  mAuto: 7,
+  '0': 'mEqualPowerPanning',
+  '1': 'mSphericalHead',
+  '2': 'mHRTF',
+  '3': 'mSoundField',
+  '5': 'mStereoPassThrough',
+  '6': 'mHRTFHQ',
+  '7': 'mAuto'
 };
 
 (globalThis as any)['AVAudioMixing']['AVAudio3DMixingSourceMode'] = (globalThis as any)['AVAudioMixing']['AVAudio3DMixingSourceMode'] || {};
@@ -37712,7 +37535,11 @@ let global = globalThis as any;
   eSpatializeIfMono: 0,
   eBypass: 1,
   ePointSource: 2,
-  eAmbienceBed: 3
+  eAmbienceBed: 3,
+  '0': 'eSpatializeIfMono',
+  '1': 'eBypass',
+  '2': 'ePointSource',
+  '3': 'eAmbienceBed'
 };
 
 
@@ -37725,14 +37552,20 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioPlayerNode']['AVAudioPlayerNodeBufferOptions'] = {
   Loops: 1,
   Interrupts: 2,
-  InterruptsAtLoop: 4
+  InterruptsAtLoop: 4,
+  '1': 'Loops',
+  '2': 'Interrupts',
+  '4': 'InterruptsAtLoop'
 };
 
 (globalThis as any)['AVAudioPlayerNode']['AVAudioPlayerNodeCompletionCallbackType'] = (globalThis as any)['AVAudioPlayerNode']['AVAudioPlayerNodeCompletionCallbackType'] || {};
 (globalThis as any)['AVAudioPlayerNode']['AVAudioPlayerNodeCompletionCallbackType'] = {
   Consumed: 0,
   Rendered: 1,
-  PlayedBack: 2
+  PlayedBack: 2,
+  '0': 'Consumed',
+  '1': 'Rendered',
+  '2': 'PlayedBack'
 };
 
 
@@ -37742,19 +37575,23 @@ let global = globalThis as any;
 (globalThis as any)['AVAudioSequencer']['AVMusicSequenceLoadOptions'] = (globalThis as any)['AVAudioSequencer']['AVMusicSequenceLoadOptions'] || {};
 (globalThis as any)['AVAudioSequencer']['AVMusicSequenceLoadOptions'] = {
   _PreserveTracks: 0,
-  _ChannelsToTracks: 1
+  _ChannelsToTracks: 1,
+  '0': '_PreserveTracks',
+  '1': '_ChannelsToTracks'
 };
 
 (globalThis as any)['AVAudioSequencer']['AVMusicTrackLoopCount'] = (globalThis as any)['AVAudioSequencer']['AVMusicTrackLoopCount'] || {};
 (globalThis as any)['AVAudioSequencer']['AVMusicTrackLoopCount'] = {
-  AVMusicTrackLoopCountForever: -1
+  AVMusicTrackLoopCountForever: -1,
+  '-1': 'AVMusicTrackLoopCountForever'
 };
 
 
 (globalThis as any)['AVAudioSession'] = (globalThis as any)['AVAudioSession'] || {};
 (globalThis as any)['AVAudioSession']['AVAudioSessionActivationOptions'] = (globalThis as any)['AVAudioSession']['AVAudioSessionActivationOptions'] || {};
 (globalThis as any)['AVAudioSession']['AVAudioSessionActivationOptions'] = {
-  AVAudioSessionActivationOptionNone: 0
+  AVAudioSessionActivationOptionNone: 0,
+  '0': 'AVAudioSessionActivationOptionNone'
 };
 
 (globalThis as any)['AVAudioSession']['CategoryOptions'] = (globalThis as any)['AVAudioSession']['CategoryOptions'] || {};
@@ -37765,7 +37602,14 @@ let global = globalThis as any;
   DefaultToSpeaker: 8,
   InterruptSpokenAudioAndMixWithOthers: 17,
   AllowBluetoothA2DP: 32,
-  AllowAirPlay: 64
+  AllowAirPlay: 64,
+  '1': 'MixWithOthers',
+  '2': 'DuckOthers',
+  '4': 'AllowBluetooth',
+  '8': 'DefaultToSpeaker',
+  '17': 'InterruptSpokenAudioAndMixWithOthers',
+  '32': 'AllowBluetoothA2DP',
+  '64': 'AllowAirPlay'
 };
 
 (globalThis as any)['AVAudioSession']['ErrorCode'] = (globalThis as any)['AVAudioSession']['ErrorCode'] || {};
@@ -37784,44 +37628,72 @@ let global = globalThis as any;
   ResourceNotAvailable: 561145203,
   Unspecified: 2003329396,
   ExpiredSession: 561210739,
-  SessionNotActive: 1768841571
+  SessionNotActive: 1768841571,
+  '0': 'None',
+  '1836282486': 'MediaServicesFailed',
+  '560030580': 'IsBusy',
+  '560161140': 'IncompatibleCategory',
+  '560557684': 'CannotInterruptOthers',
+  '1701737535': 'MissingEntitlement',
+  '1936290409': 'SiriIsRecording',
+  '561015905': 'CannotStartPlaying',
+  '561145187': 'CannotStartRecording',
+  '-50': 'BadParam',
+  '561017449': 'InsufficientPriority',
+  '561145203': 'ResourceNotAvailable',
+  '2003329396': 'Unspecified',
+  '561210739': 'ExpiredSession',
+  '1768841571': 'SessionNotActive'
 };
 
 (globalThis as any)['AVAudioSession']['IOType'] = (globalThis as any)['AVAudioSession']['IOType'] || {};
 (globalThis as any)['AVAudioSession']['IOType'] = {
   NotSpecified: 0,
-  Aggregated: 1
+  Aggregated: 1,
+  '0': 'NotSpecified',
+  '1': 'Aggregated'
 };
 
 (globalThis as any)['AVAudioSession']['InterruptionOptions'] = (globalThis as any)['AVAudioSession']['InterruptionOptions'] || {};
 (globalThis as any)['AVAudioSession']['InterruptionOptions'] = {
-  AVAudioSessionInterruptionOptionShouldResume: 1
+  AVAudioSessionInterruptionOptionShouldResume: 1,
+  '1': 'AVAudioSessionInterruptionOptionShouldResume'
 };
 
 (globalThis as any)['AVAudioSession']['InterruptionType'] = (globalThis as any)['AVAudioSession']['InterruptionType'] || {};
 (globalThis as any)['AVAudioSession']['InterruptionType'] = {
   Began: 1,
-  Ended: 0
+  Ended: 0,
+  '1': 'Began',
+  '0': 'Ended'
 };
 
 (globalThis as any)['AVAudioSession']['PortOverride'] = (globalThis as any)['AVAudioSession']['PortOverride'] || {};
 (globalThis as any)['AVAudioSession']['PortOverride'] = {
   None: 0,
-  Speaker: 1936747378
+  Speaker: 1936747378,
+  '0': 'None',
+  '1936747378': 'Speaker'
 };
 
 (globalThis as any)['AVAudioSession']['PromptStyle'] = (globalThis as any)['AVAudioSession']['PromptStyle'] || {};
 (globalThis as any)['AVAudioSession']['PromptStyle'] = {
   None: 1852796517,
   Short: 1936224884,
-  Normal: 1852992876
+  Normal: 1852992876,
+  '1852796517': 'None',
+  '1936224884': 'Short',
+  '1852992876': 'Normal'
 };
 
 (globalThis as any)['AVAudioSession']['RecordPermission'] = (globalThis as any)['AVAudioSession']['RecordPermission'] || {};
 (globalThis as any)['AVAudioSession']['RecordPermission'] = {
   Undetermined: 1970168948,
   Denied: 1684369017,
-  Granted: 1735552628
+  Granted: 1735552628,
+  '1970168948': 'Undetermined',
+  '1684369017': 'Denied',
+  '1735552628': 'Granted'
 };
 
 (globalThis as any)['AVAudioSession']['RouteChangeReason'] = (globalThis as any)['AVAudioSession']['RouteChangeReason'] || {};
@@ -37833,7 +37705,15 @@ let global = globalThis as any;
   Override: 4,
   WakeFromSleep: 6,
   NoSuitableRouteForCategory: 7,
-  RouteConfigurationChange: 8
+  RouteConfigurationChange: 8,
+  '0': 'Unknown',
+  '1': 'NewDeviceAvailable',
+  '2': 'OldDeviceUnavailable',
+  '3': 'CategoryChange',
+  '4': 'Override',
+  '6': 'WakeFromSleep',
+  '7': 'NoSuitableRouteForCategory',
+  '8': 'RouteConfigurationChange'
 };
 
 (globalThis as any)['AVAudioSession']['RouteSharingPolicy'] = (globalThis as any)['AVAudioSession']['RouteSharingPolicy'] || {};
@@ -37842,18 +37722,25 @@ let global = globalThis as any;
   LongFormAudio: 1,
   LongForm: 1,
   Independent: 2,
-  LongFormVideo: 3
+  LongFormVideo: 3,
+  '0': 'Default',
+  '1': 'LongFormAudio',
+  '2': 'Independent',
+  '3': 'LongFormVideo'
 };
 
 (globalThis as any)['AVAudioSession']['SetActiveOptions'] = (globalThis as any)['AVAudioSession']['SetActiveOptions'] || {};
 (globalThis as any)['AVAudioSession']['SetActiveOptions'] = {
-  AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation: 1
+  AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation: 1,
+  '1': 'AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation'
 };
 
 (globalThis as any)['AVAudioSession']['SilenceSecondaryAudioHintType'] = (globalThis as any)['AVAudioSession']['SilenceSecondaryAudioHintType'] || {};
 (globalThis as any)['AVAudioSession']['SilenceSecondaryAudioHintType'] = {
   Begin: 1,
-  End: 0
+  End: 0,
+  '1': 'Begin',
+  '0': 'End'
 };
 
 
@@ -37864,7 +37751,12 @@ let global = globalThis as any;
   Low: 32,
   Medium: 64,
   High: 96,
-  Max: 127
+  Max: 127,
+  '0': 'Min',
+  '32': 'Low',
+  '64': 'Medium',
+  '96': 'High',
+  '127': 'Max'
 };
 
 
@@ -37900,7 +37792,29 @@ let global = globalThis as any;
   SpeechCosmicInterference: 18,
   SpeechGoldenPi: 19,
   SpeechRadioTower: 20,
-  SpeechWaves: 21
+  SpeechWaves: 21,
+  '0': 'DrumsBitBrush',
+  '1': 'DrumsBufferBeats',
+  '2': 'DrumsLoFi',
+  '3': 'MultiBrokenSpeaker',
+  '4': 'MultiCellphoneConcert',
+  '5': 'MultiDecimated1',
+  '6': 'MultiDecimated2',
+  '7': 'MultiDecimated3',
+  '8': 'MultiDecimated4',
+  '9': 'MultiDistortedFunk',
+  '10': 'MultiDistortedCubed',
+  '11': 'MultiDistortedSquared',
+  '12': 'MultiEcho1',
+  '13': 'MultiEcho2',
+  '14': 'MultiEchoTight1',
+  '15': 'MultiEchoTight2',
+  '16': 'MultiEverythingIsBroken',
+  '17': 'SpeechAlienChatter',
+  '18': 'SpeechCosmicInterference',
+  '19': 'SpeechGoldenPi',
+  '20': 'SpeechRadioTower',
+  '21': 'SpeechWaves'
 };
 
 
@@ -37917,7 +37831,18 @@ let global = globalThis as any;
   LowShelf: 7,
   HighShelf: 8,
   ResonantLowShelf: 9,
-  ResonantHighShelf: 10
+  ResonantHighShelf: 10,
+  '0': 'Parametric',
+  '1': 'LowPass',
+  '2': 'HighPass',
+  '3': 'ResonantLowPass',
+  '4': 'ResonantHighPass',
+  '5': 'BandPass',
+  '6': 'BandStop',
+  '7': 'LowShelf',
+  '8': 'HighShelf',
+  '9': 'ResonantLowShelf',
+  '10': 'ResonantHighShelf'
 };
 
 
@@ -37942,7 +37867,20 @@ let global = globalThis as any;
   LargeRoom2: 9,
   MediumHall2: 10,
   MediumHall3: 11,
-  LargeHall2: 12
+  LargeHall2: 12,
+  '0': 'SmallRoom',
+  '1': 'MediumRoom',
+  '2': 'LargeRoom',
+  '3': 'MediumHall',
+  '4': 'LargeHall',
+  '5': 'Plate',
+  '6': 'MediumChamber',
+  '7': 'LargeChamber',
+  '8': 'Cathedral',
+  '9': 'LargeRoom2',
+  '10': 'MediumHall2',
+  '11': 'MediumHall3',
+  '12': 'LargeHall2'
 };
 
 
@@ -37970,7 +37908,10 @@ let global = globalThis as any;
 (globalThis as any)['AVCaptureDevice']['Format']['AutoFocusSystem'] = {
   None: 0,
   ContrastDetection: 1,
-  PhaseDetection: 2
+  PhaseDetection: 2,
+  '0': 'None',
+  '1': 'ContrastDetection',
+  '2': 'PhaseDetection'
 };
 
 (globalThis as any)['AVCaptureDevice']['SystemPressureState'] = (globalThis as any)['AVCaptureDevice']['SystemPressureState'] || {};
@@ -37979,7 +37920,11 @@ let global = globalThis as any;
   None: 0,
   SystemTemperature: 1,
   PeakPower: 2,
-  DepthModuleTemperature: 4
+  DepthModuleTemperature: 4,
+  '0': 'None',
+  '1': 'SystemTemperature',
+  '2': 'PeakPower',
+  '4': 'DepthModuleTemperature'
 };
 
 (globalThis as any)['AVCaptureDevice']['AVAuthorizationStatus'] = (globalThis as any)['AVCaptureDevice']['AVAuthorizationStatus'] || {};
@@ -37987,13 +37932,19 @@ let global = globalThis as any;
   NotDetermined: 0,
   Restricted: 1,
   Denied: 2,
-  Authorized: 3
+  Authorized: 3,
+  '0': 'NotDetermined',
+  '1': 'Restricted',
+  '2': 'Denied',
+  '3': 'Authorized'
 };
 
 (globalThis as any)['AVCaptureDevice']['AVCaptureColorSpace'] = (globalThis as any)['AVCaptureDevice']['AVCaptureColorSpace'] || {};
 (globalThis as any)['AVCaptureDevice']['AVCaptureColorSpace'] = {
   _sRGB: 0,
-  _P3_D65: 1
+  _P3_D65: 1,
+  '0': '_sRGB',
+  '1': '_P3_D65'
 };
 
 (globalThis as any)['AVCaptureDevice']['AVCaptureVideoStabilizationMode'] = (globalThis as any)['AVCaptureDevice']['AVCaptureVideoStabilizationMode'] || {};
@@ -38002,14 +37953,22 @@ let global = globalThis as any;
   Standard: 1,
   Cinematic: 2,
   CinematicExtended: 3,
-  Auto: -1
+  Auto: -1,
+  '0': 'Off',
+  '1': 'Standard',
+  '2': 'Cinematic',
+  '3': 'CinematicExtended',
+  '-1': 'Auto'
 };
 
 (globalThis as any)['AVCaptureDevice']['AutoFocusRangeRestriction'] = (globalThis as any)['AVCaptureDevice']['AutoFocusRangeRestriction'] || {};
 (globalThis as any)['AVCaptureDevice']['AutoFocusRangeRestriction'] = {
   None: 0,
   Near: 1,
-  Far: 2
+  Far: 2,
+  '0': 'None',
+  '1': 'Near',
+  '2': 'Far'
 };
 
 (globalThis as any)['AVCaptureDevice']['ExposureMode'] = (globalThis as any)['AVCaptureDevice']['ExposureMode'] || {};
@@ -38017,21 +37976,31 @@ let global = globalThis as any;
   Locked: 0,
   AutoExpose: 1,
   ContinuousAutoExposure: 2,
-  Custom: 3
+  Custom: 3,
+  '0': 'Locked',
+  '1': 'AutoExpose',
+  '2': 'ContinuousAutoExposure',
+  '3': 'Custom'
 };
 
 (globalThis as any)['AVCaptureDevice']['FlashMode'] = (globalThis as any)['AVCaptureDevice']['FlashMode'] || {};
 (globalThis as any)['AVCaptureDevice']['FlashMode'] = {
   Off: 0,
   On: 1,
-  Auto: 2
+  Auto: 2,
+  '0': 'Off',
+  '1': 'On',
+  '2': 'Auto'
 };
 
 (globalThis as any)['AVCaptureDevice']['FocusMode'] = (globalThis as any)['AVCaptureDevice']['FocusMode'] || {};
 (globalThis as any)['AVCaptureDevice']['FocusMode'] = {
   Locked: 0,
   AutoFocus: 1,
-  ContinuousAutoFocus: 2
+  ContinuousAutoFocus: 2,
+  '0': 'Locked',
+  '1': 'AutoFocus',
+  '2': 'ContinuousAutoFocus'
 };
 
 (globalThis as any)['AVCaptureDevice']['LensStabilizationStatus'] = (globalThis as any)['AVCaptureDevice']['LensStabilizationStatus'] || {};
@@ -38040,34 +38009,50 @@ let global = globalThis as any;
   Off: 1,
   Active: 2,
   OutOfRange: 3,
-  Unavailable: 4
+  Unavailable: 4,
+  '0': 'Unsupported',
+  '1': 'Off',
+  '2': 'Active',
+  '3': 'OutOfRange',
+  '4': 'Unavailable'
 };
 
 (globalThis as any)['AVCaptureDevice']['Position'] = (globalThis as any)['AVCaptureDevice']['Position'] || {};
 (globalThis as any)['AVCaptureDevice']['Position'] = {
   Unspecified: 0,
   Back: 1,
-  Front: 2
+  Front: 2,
+  '0': 'Unspecified',
+  '1': 'Back',
+  '2': 'Front'
 };
 
 (globalThis as any)['AVCaptureDevice']['TorchMode'] = (globalThis as any)['AVCaptureDevice']['TorchMode'] || {};
 (globalThis as any)['AVCaptureDevice']['TorchMode'] = {
   Off: 0,
   On: 1,
-  Auto: 2
+  Auto: 2,
+  '0': 'Off',
+  '1': 'On',
+  '2': 'Auto'
 };
 
 (globalThis as any)['AVCaptureDevice']['TransportControlsPlaybackMode'] = (globalThis as any)['AVCaptureDevice']['TransportControlsPlaybackMode'] || {};
 (globalThis as any)['AVCaptureDevice']['TransportControlsPlaybackMode'] = {
   NotPlayingMode: 0,
-  PlayingMode: 1
+  PlayingMode: 1,
+  '0': 'NotPlayingMode',
+  '1': 'PlayingMode'
 };
 
 (globalThis as any)['AVCaptureDevice']['WhiteBalanceMode'] = (globalThis as any)['AVCaptureDevice']['WhiteBalanceMode'] || {};
 (globalThis as any)['AVCaptureDevice']['WhiteBalanceMode'] = {
   Locked: 0,
   AutoWhiteBalance: 1,
-  ContinuousAutoWhiteBalance: 2
+  ContinuousAutoWhiteBalance: 2,
+  '0': 'Locked',
+  '1': 'AutoWhiteBalance',
+  '2': 'ContinuousAutoWhiteBalance'
 };
 
 
@@ -38084,7 +38069,11 @@ let global = globalThis as any;
   None: 0,
   LateData: 1,
   OutOfBuffers: 2,
-  Discontinuity: 3
+  Discontinuity: 3,
+  '0': 'None',
+  '1': 'LateData',
+  '2': 'OutOfBuffers',
+  '3': 'Discontinuity'
 };
 
 
@@ -38095,14 +38084,20 @@ let global = globalThis as any;
   NotDetermined: 0,
   Restricted: 1,
   Denied: 2,
-  Authorized: 3
+  Authorized: 3,
+  '0': 'NotDetermined',
+  '1': 'Restricted',
+  '2': 'Denied',
+  '3': 'Authorized'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['AVCaptureColorSpace'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['AVCaptureColorSpace'] || {};
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['AVCaptureColorSpace'] = {
   _sRGB: 0,
-  _P3_D65: 1
+  _P3_D65: 1,
+  '0': '_sRGB',
+  '1': '_P3_D65'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38112,7 +38107,12 @@ let global = globalThis as any;
   Standard: 1,
   Cinematic: 2,
   CinematicExtended: 3,
-  Auto: -1
+  Auto: -1,
+  '0': 'Off',
+  '1': 'Standard',
+  '2': 'Cinematic',
+  '3': 'CinematicExtended',
+  '-1': 'Auto'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38120,7 +38120,10 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['AutoFocusRangeRestriction'] = {
   None: 0,
   Near: 1,
-  Far: 2
+  Far: 2,
+  '0': 'None',
+  '1': 'Near',
+  '2': 'Far'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38129,7 +38132,11 @@ let global = globalThis as any;
   Locked: 0,
   AutoExpose: 1,
   ContinuousAutoExposure: 2,
-  Custom: 3
+  Custom: 3,
+  '0': 'Locked',
+  '1': 'AutoExpose',
+  '2': 'ContinuousAutoExposure',
+  '3': 'Custom'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38137,7 +38144,10 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['FlashMode'] = {
   Off: 0,
   On: 1,
-  Auto: 2
+  Auto: 2,
+  '0': 'Off',
+  '1': 'On',
+  '2': 'Auto'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38145,7 +38155,10 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['FocusMode'] = {
   Locked: 0,
   AutoFocus: 1,
-  ContinuousAutoFocus: 2
+  ContinuousAutoFocus: 2,
+  '0': 'Locked',
+  '1': 'AutoFocus',
+  '2': 'ContinuousAutoFocus'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38155,7 +38168,12 @@ let global = globalThis as any;
   Off: 1,
   Active: 2,
   OutOfRange: 3,
-  Unavailable: 4
+  Unavailable: 4,
+  '0': 'Unsupported',
+  '1': 'Off',
+  '2': 'Active',
+  '3': 'OutOfRange',
+  '4': 'Unavailable'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38163,7 +38181,10 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['Position'] = {
   Unspecified: 0,
   Back: 1,
-  Front: 2
+  Front: 2,
+  '0': 'Unspecified',
+  '1': 'Back',
+  '2': 'Front'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38171,14 +38192,19 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['TorchMode'] = {
   Off: 0,
   On: 1,
-  Auto: 2
+  Auto: 2,
+  '0': 'Off',
+  '1': 'On',
+  '2': 'Auto'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['TransportControlsPlaybackMode'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['TransportControlsPlaybackMode'] || {};
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['TransportControlsPlaybackMode'] = {
   NotPlayingMode: 0,
-  PlayingMode: 1
+  PlayingMode: 1,
+  '0': 'NotPlayingMode',
+  '1': 'PlayingMode'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] = (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice'] || {};
@@ -38186,14 +38212,20 @@ let global = globalThis as any;
 (globalThis as any)['AVCapturePhotoOutput']['AVCaptureDevice']['WhiteBalanceMode'] = {
   Locked: 0,
   AutoWhiteBalance: 1,
-  ContinuousAutoWhiteBalance: 2
+  ContinuousAutoWhiteBalance: 2,
+  '0': 'Locked',
+  '1': 'AutoWhiteBalance',
+  '2': 'ContinuousAutoWhiteBalance'
 };
 
 (globalThis as any)['AVCapturePhotoOutput']['QualityPrioritization'] = (globalThis as any)['AVCapturePhotoOutput']['QualityPrioritization'] || {};
 (globalThis as any)['AVCapturePhotoOutput']['QualityPrioritization'] = {
   Speed: 1,
   Balanced: 2,
-  Quality: 3
+  Quality: 3,
+  '1': 'Speed',
+  '2': 'Balanced',
+  '3': 'Quality'
 };
 
 
@@ -38203,7 +38235,11 @@ let global = globalThis as any;
   Portrait: 1,
   PortraitUpsideDown: 2,
   LandscapeRight: 3,
-  LandscapeLeft: 4
+  LandscapeLeft: 4,
+  '1': 'Portrait',
+  '2': 'PortraitUpsideDown',
+  '3': 'LandscapeRight',
+  '4': 'LandscapeLeft'
 };
 
 (globalThis as any)['AVCaptureSession']['AVVideoFieldMode'] = (globalThis as any)['AVCaptureSession']['AVVideoFieldMode'] || {};
@@ -38211,7 +38247,11 @@ let global = globalThis as any;
   Both: 0,
   TopOnly: 1,
   BottomOnly: 2,
-  Deinterlace: 3
+  Deinterlace: 3,
+  '0': 'Both',
+  '1': 'TopOnly',
+  '2': 'BottomOnly',
+  '3': 'Deinterlace'
 };
 
 (globalThis as any)['AVCaptureSession']['InterruptionReason'] = (globalThis as any)['AVCaptureSession']['InterruptionReason'] || {};
@@ -38220,7 +38260,12 @@ let global = globalThis as any;
   AudioDeviceInUseByAnotherClient: 2,
   VideoDeviceInUseByAnotherClient: 3,
   VideoDeviceNotAvailableWithMultipleForegroundApps: 4,
-  VideoDeviceNotAvailableDueToSystemPressure: 5
+  VideoDeviceNotAvailableDueToSystemPressure: 5,
+  '1': 'VideoDeviceNotAvailableInBackground',
+  '2': 'AudioDeviceInUseByAnotherClient',
+  '3': 'VideoDeviceInUseByAnotherClient',
+  '4': 'VideoDeviceNotAvailableWithMultipleForegroundApps',
+  '5': 'VideoDeviceNotAvailableDueToSystemPressure'
 };
 
 
@@ -38234,7 +38279,10 @@ let global = globalThis as any;
   Inline: 0,
   Floating: 1,
   InlineDeviceSelection: 2,
-  Default: 0
+  Default: 0,
+  '0': 'Inline',
+  '1': 'Floating',
+  '2': 'InlineDeviceSelection',
 };
 
 
@@ -38253,7 +38301,13 @@ let global = globalThis as any;
   Renewed: 2,
   Retried: 3,
   Cancelled: 4,
-  Failed: 5
+  Failed: 5,
+  '0': 'RequestingResponse',
+  '1': 'ReceivedResponse',
+  '2': 'Renewed',
+  '3': 'Retried',
+  '4': 'Cancelled',
+  '5': 'Failed'
 };
 
 
@@ -38261,13 +38315,17 @@ let global = globalThis as any;
 (globalThis as any)['AVDepthData']['Accuracy'] = (globalThis as any)['AVDepthData']['Accuracy'] || {};
 (globalThis as any)['AVDepthData']['Accuracy'] = {
   Relative: 0,
-  Absolute: 1
+  Absolute: 1,
+  '0': 'Relative',
+  '1': 'Absolute'
 };
 
 (globalThis as any)['AVDepthData']['Quality'] = (globalThis as any)['AVDepthData']['Quality'] || {};
 (globalThis as any)['AVDepthData']['Quality'] = {
   Low: 0,
-  High: 1
+  High: 1,
+  '0': 'Low',
+  '1': 'High'
 };
 
 
@@ -38339,7 +38397,73 @@ let global = globalThis as any;
   ExternalPlaybackNotSupportedForAsset: -11870,
   OperationNotSupportedForPreset: -11871,
   SessionHardwareCostOverage: -11872,
-  UnsupportedDeviceActiveFormat: -11873
+  UnsupportedDeviceActiveFormat: -11873,
+  '-11800': 'Unknown',
+  '-11801': 'OutOfMemory',
+  '-11803': 'SessionNotRunning',
+  '-11804': 'DeviceAlreadyUsedByAnotherSession',
+  '-11805': 'NoDataCaptured',
+  '-11806': 'SessionConfigurationChanged',
+  '-11807': 'DiskFull',
+  '-11808': 'DeviceWasDisconnected',
+  '-11809': 'MediaChanged',
+  '-11810': 'MaximumDurationReached',
+  '-11811': 'MaximumFileSizeReached',
+  '-11812': 'MediaDiscontinuity',
+  '-11813': 'MaximumNumberOfSamplesForFileFormatReached',
+  '-11814': 'DeviceNotConnected',
+  '-11815': 'DeviceInUseByAnotherApplication',
+  '-11817': 'DeviceLockedForConfigurationByAnotherProcess',
+  '-11820': 'ExportFailed',
+  '-11821': 'DecodeFailed',
+  '-11822': 'InvalidSourceMedia',
+  '-11823': 'FileAlreadyExists',
+  '-11824': 'CompositionTrackSegmentsNotContiguous',
+  '-11825': 'InvalidCompositionTrackSegmentDuration',
+  '-11826': 'InvalidCompositionTrackSegmentSourceStartTime',
+  '-11827': 'InvalidCompositionTrackSegmentSourceDuration',
+  '-11828': 'FileFormatNotRecognized',
+  '-11829': 'FileFailedToParse',
+  '-11830': 'MaximumStillImageCaptureRequestsExceeded',
+  '-11831': 'ContentIsProtected',
+  '-11832': 'NoImageAtTime',
+  '-11833': 'DecoderNotFound',
+  '-11834': 'EncoderNotFound',
+  '-11835': 'ContentIsNotAuthorized',
+  '-11836': 'ApplicationIsNotAuthorized',
+  '-11838': 'OperationNotSupportedForAsset',
+  '-11839': 'DecoderTemporarilyUnavailable',
+  '-11840': 'EncoderTemporarilyUnavailable',
+  '-11841': 'InvalidVideoComposition',
+  '-11842': 'ReferenceForbiddenByReferencePolicy',
+  '-11843': 'InvalidOutputURLPathExtension',
+  '-11844': 'ScreenCaptureFailed',
+  '-11845': 'DisplayWasDisabled',
+  '-11846': 'TorchLevelUnavailable',
+  '-11848': 'IncompatibleAsset',
+  '-11849': 'FailedToLoadMediaData',
+  '-11850': 'ServerIncorrectlyConfigured',
+  '-11852': 'ApplicationIsNotAuthorizedToUseDevice',
+  '-11853': 'FailedToParse',
+  '-11854': 'FileTypeDoesNotSupportSampleReferences',
+  '-11855': 'UndecodableMediaData',
+  '-11856': 'AirPlayControllerRequiresInternet',
+  '-11857': 'AirPlayReceiverRequiresInternet',
+  '-11858': 'VideoCompositorFailed',
+  '-11860': 'CreateContentKeyRequestFailed',
+  '-11861': 'UnsupportedOutputSettings',
+  '-11862': 'OperationNotAllowed',
+  '-11863': 'ContentIsUnavailable',
+  '-11864': 'FormatUnsupported',
+  '-11865': 'MalformedDepth',
+  '-11866': 'ContentNotUpdated',
+  '-11867': 'NoLongerPlayable',
+  '-11868': 'NoCompatibleAlternatesForExternalDisplay',
+  '-11869': 'NoSourceTrack',
+  '-11870': 'ExternalPlaybackNotSupportedForAsset',
+  '-11871': 'OperationNotSupportedForPreset',
+  '-11872': 'SessionHardwareCostOverage',
+  '-11873': 'UnsupportedDeviceActiveFormat'
 };
 
 
@@ -38357,7 +38481,9 @@ let global = globalThis as any;
 (globalThis as any)['AVMovie']['AVMovieWritingOptions'] = (globalThis as any)['AVMovie']['AVMovieWritingOptions'] || {};
 (globalThis as any)['AVMovie']['AVMovieWritingOptions'] = {
   AddMovieHeaderToDestination: 0,
-  TruncateDestinationToMovieHeaderOnly: 1
+  TruncateDestinationToMovieHeaderOnly: 1,
+  '0': 'AddMovieHeaderToDestination',
+  '1': 'TruncateDestinationToMovieHeaderOnly'
 };
 
 
@@ -38372,28 +38498,40 @@ let global = globalThis as any;
 (globalThis as any)['AVPlayer']['ActionAtItemEnd'] = {
   Advance: 0,
   Pause: 1,
-  None: 2
+  None: 2,
+  '0': 'Advance',
+  '1': 'Pause',
+  '2': 'None'
 };
 
 (globalThis as any)['AVPlayer']['HDRMode'] = (globalThis as any)['AVPlayer']['HDRMode'] || {};
 (globalThis as any)['AVPlayer']['HDRMode'] = {
   HLG: 1,
   HDR10: 2,
-  DolbyVision: 4
+  DolbyVision: 4,
+  '1': 'HLG',
+  '2': 'HDR10',
+  '4': 'DolbyVision'
 };
 
 (globalThis as any)['AVPlayer']['Status'] = (globalThis as any)['AVPlayer']['Status'] || {};
 (globalThis as any)['AVPlayer']['Status'] = {
   Unknown: 0,
   ReadyToPlay: 1,
-  Failed: 2
+  Failed: 2,
+  '0': 'Unknown',
+  '1': 'ReadyToPlay',
+  '2': 'Failed'
 };
 
 (globalThis as any)['AVPlayer']['TimeControlStatus'] = (globalThis as any)['AVPlayer']['TimeControlStatus'] || {};
 (globalThis as any)['AVPlayer']['TimeControlStatus'] = {
   Paused: 0,
   WaitingToPlayAtSpecifiedRate: 1,
-  Playing: 2
+  Playing: 2,
+  '0': 'Paused',
+  '1': 'WaitingToPlayAtSpecifiedRate',
+  '2': 'Playing'
 };
 
 
@@ -38402,7 +38540,10 @@ let global = globalThis as any;
 (globalThis as any)['AVPlayerItem']['Status'] = {
   Unknown: 0,
   ReadyToPlay: 1,
-  Failed: 2
+  Failed: 2,
+  '0': 'Unknown',
+  '1': 'ReadyToPlay',
+  '2': 'Failed'
 };
 
 
@@ -38417,7 +38558,14 @@ let global = globalThis as any;
   TimedOut: 3,
   Busy: 4,
   NotAvailable: 5,
-  NotPossible: 6
+  NotPossible: 6,
+  '0': 'Unknown',
+  '1': 'Completed',
+  '2': 'Cancelled',
+  '3': 'TimedOut',
+  '4': 'Busy',
+  '5': 'NotAvailable',
+  '6': 'NotPossible'
 };
 
 
@@ -38431,7 +38579,11 @@ let global = globalThis as any;
   Unknown: 0,
   Ready: 1,
   Failed: 2,
-  Cancelled: 3
+  Cancelled: 3,
+  '0': 'Unknown',
+  '1': 'Ready',
+  '2': 'Failed',
+  '3': 'Cancelled'
 };
 
 
@@ -38444,13 +38596,19 @@ let global = globalThis as any;
   Inline: 1,
   Floating: 2,
   Minimal: 3,
-  Default: 1
+  Default: 1,
+  '0': 'None',
+  '1': 'Inline',
+  '2': 'Floating',
+  '3': 'Minimal',
 };
 
 (globalThis as any)['AVPlayerView']['AVPlayerViewTrimResult'] = (globalThis as any)['AVPlayerView']['AVPlayerViewTrimResult'] || {};
 (globalThis as any)['AVPlayerView']['AVPlayerViewTrimResult'] = {
   OKButton: 0,
-  CancelButton: 1
+  CancelButton: 1,
+  '0': 'OKButton',
+  '1': 'CancelButton'
 };
 
 
@@ -38461,7 +38619,10 @@ let global = globalThis as any;
 (globalThis as any)['AVQueuedSampleBufferRendering']['AVQueuedSampleBufferRenderingStatus'] = {
   Unknown: 0,
   Rendering: 1,
-  Failed: 2
+  Failed: 2,
+  '0': 'Unknown',
+  '1': 'Rendering',
+  '2': 'Failed'
 };
 
 
@@ -38473,7 +38634,11 @@ let global = globalThis as any;
   Normal: 0,
   NormalHighlighted: 1,
   Active: 2,
-  ActiveHighlighted: 3
+  ActiveHighlighted: 3,
+  '0': 'Normal',
+  '1': 'NormalHighlighted',
+  '2': 'Active',
+  '3': 'ActiveHighlighted'
 };
 
 
@@ -38487,7 +38652,10 @@ let global = globalThis as any;
 (globalThis as any)['AVSampleBufferGenerator']['AVSampleBufferRequest']['Direction'] = {
   Forward: 1,
   None: 0,
-  Reverse: -1
+  Reverse: -1,
+  '1': 'Forward',
+  '0': 'None',
+  '-1': 'Reverse'
 };
 
 (globalThis as any)['AVSampleBufferGenerator']['AVSampleBufferRequest'] = (globalThis as any)['AVSampleBufferGenerator']['AVSampleBufferRequest'] || {};
@@ -38495,7 +38663,10 @@ let global = globalThis as any;
 (globalThis as any)['AVSampleBufferGenerator']['AVSampleBufferRequest']['Mode'] = {
   Immediate: 0,
   Scheduled: 1,
-  Opportunistic: 2
+  Opportunistic: 2,
+  '0': 'Immediate',
+  '1': 'Scheduled',
+  '2': 'Opportunistic'
 };
 
 
@@ -38509,20 +38680,27 @@ let global = globalThis as any;
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechBoundary'] = (globalThis as any)['AVSpeechSynthesis']['AVSpeechBoundary'] || {};
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechBoundary'] = {
   Immediate: 0,
-  Word: 1
+  Word: 1,
+  '0': 'Immediate',
+  '1': 'Word'
 };
 
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceGender'] = (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceGender'] || {};
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceGender'] = {
   Unspecified: 0,
   Male: 1,
-  Female: 2
+  Female: 2,
+  '0': 'Unspecified',
+  '1': 'Male',
+  '2': 'Female'
 };
 
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceQuality'] = (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceQuality'] || {};
 (globalThis as any)['AVSpeechSynthesis']['AVSpeechSynthesisVoiceQuality'] = {
   Default: 1,
-  Enhanced: 2
+  Enhanced: 2,
+  '1': 'Default',
+  '2': 'Enhanced'
 };
 
 
@@ -38541,7 +38719,10 @@ let global = globalThis as any;
 (globalThis as any)['Array']['NSBinarySearchingOptions'] = {
   FirstEqual: 256,
   LastEqual: 512,
-  InsertionIndex: 1024
+  InsertionIndex: 1024,
+  '256': 'FirstEqual',
+  '512': 'LastEqual',
+  '1024': 'InsertionIndex'
 };
 
 
@@ -38549,7 +38730,9 @@ let global = globalThis as any;
 (globalThis as any)['AudioHardware']['AudioHardwarePowerHint'] = (globalThis as any)['AudioHardware']['AudioHardwarePowerHint'] || {};
 (globalThis as any)['AudioHardware']['AudioHardwarePowerHint'] = {
   None: 0,
-  FavorSavingPower: 1
+  FavorSavingPower: 1,
+  '0': 'None',
+  '1': 'FavorSavingPower'
 };
 
 
@@ -38558,7 +38741,10 @@ let global = globalThis as any;
 (globalThis as any)['AudioServerPlugIn']['AudioDeviceClockAlgorithmSelector'] = {
   mRaw: 1918990199,
   mSimpleIIR: 1768518246,
-  m12PtMovingWindowAverage: 1835103847
+  m12PtMovingWindowAverage: 1835103847,
+  '1918990199': 'mRaw',
+  '1768518246': 'mSimpleIIR',
+  '1835103847': 'm12PtMovingWindowAverage'
 };
 
 (globalThis as any)['AudioServerPlugIn']['AudioServerPlugInIOOperation'] = (globalThis as any)['AudioServerPlugIn']['AudioServerPlugInIOOperation'] || {};
@@ -38572,7 +38758,17 @@ let global = globalThis as any;
   MixOutput: 1835628655,
   ProcessMix: 1886218616,
   ConvertMix: 1668114808,
-  WriteMix: 1919513701
+  WriteMix: 1919513701,
+  '1953002084': 'Thread',
+  '1668899692': 'Cycle',
+  '1919246692': 'ReadInput',
+  '1667853936': 'ConvertInput',
+  '1885957744': 'ProcessInput',
+  '1886352756': 'ProcessOutput',
+  '1835628655': 'MixOutput',
+  '1886218616': 'ProcessMix',
+  '1668114808': 'ConvertMix',
+  '1919513701': 'WriteMix'
 };
 
 
@@ -38580,7 +38776,8 @@ let global = globalThis as any;
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['AVAudioSessionActivationOptions'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['AVAudioSessionActivationOptions'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['AVAudioSessionActivationOptions'] = {
-  AVAudioSessionActivationOptionNone: 0
+  AVAudioSessionActivationOptionNone: 0,
+  '0': 'AVAudioSessionActivationOptionNone'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38592,7 +38789,14 @@ let global = globalThis as any;
   DefaultToSpeaker: 8,
   InterruptSpokenAudioAndMixWithOthers: 17,
   AllowBluetoothA2DP: 32,
-  AllowAirPlay: 64
+  AllowAirPlay: 64,
+  '1': 'MixWithOthers',
+  '2': 'DuckOthers',
+  '4': 'AllowBluetooth',
+  '8': 'DefaultToSpeaker',
+  '17': 'InterruptSpokenAudioAndMixWithOthers',
+  '32': 'AllowBluetoothA2DP',
+  '64': 'AllowAirPlay'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38612,34 +38816,56 @@ let global = globalThis as any;
   ResourceNotAvailable: 561145203,
   Unspecified: 2003329396,
   ExpiredSession: 561210739,
-  SessionNotActive: 1768841571
+  SessionNotActive: 1768841571,
+  '0': 'None',
+  '1836282486': 'MediaServicesFailed',
+  '560030580': 'IsBusy',
+  '560161140': 'IncompatibleCategory',
+  '560557684': 'CannotInterruptOthers',
+  '1701737535': 'MissingEntitlement',
+  '1936290409': 'SiriIsRecording',
+  '561015905': 'CannotStartPlaying',
+  '561145187': 'CannotStartRecording',
+  '-50': 'BadParam',
+  '561017449': 'InsufficientPriority',
+  '561145203': 'ResourceNotAvailable',
+  '2003329396': 'Unspecified',
+  '561210739': 'ExpiredSession',
+  '1768841571': 'SessionNotActive'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['IOType'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['IOType'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['IOType'] = {
   NotSpecified: 0,
-  Aggregated: 1
+  Aggregated: 1,
+  '0': 'NotSpecified',
+  '1': 'Aggregated'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionOptions'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionOptions'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionOptions'] = {
-  AVAudioSessionInterruptionOptionShouldResume: 1
+  AVAudioSessionInterruptionOptionShouldResume: 1,
+  '1': 'AVAudioSessionInterruptionOptionShouldResume'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionType'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionType'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['InterruptionType'] = {
   Began: 1,
-  Ended: 0
+  Ended: 0,
+  '1': 'Began',
+  '0': 'Ended'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['PortOverride'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['PortOverride'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['PortOverride'] = {
   None: 0,
-  Speaker: 1936747378
+  Speaker: 1936747378,
+  '0': 'None',
+  '1936747378': 'Speaker'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38647,7 +38873,10 @@ let global = globalThis as any;
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['PromptStyle'] = {
   None: 1852796517,
   Short: 1936224884,
-  Normal: 1852992876
+  Normal: 1852992876,
+  '1852796517': 'None',
+  '1936224884': 'Short',
+  '1852992876': 'Normal'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38655,7 +38884,10 @@ let global = globalThis as any;
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['RecordPermission'] = {
   Undetermined: 1970168948,
   Denied: 1684369017,
-  Granted: 1735552628
+  Granted: 1735552628,
+  '1970168948': 'Undetermined',
+  '1684369017': 'Denied',
+  '1735552628': 'Granted'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38668,7 +38900,15 @@ let global = globalThis as any;
   Override: 4,
   WakeFromSleep: 6,
   NoSuitableRouteForCategory: 7,
-  RouteConfigurationChange: 8
+  RouteConfigurationChange: 8,
+  '0': 'Unknown',
+  '1': 'NewDeviceAvailable',
+  '2': 'OldDeviceUnavailable',
+  '3': 'CategoryChange',
+  '4': 'Override',
+  '6': 'WakeFromSleep',
+  '7': 'NoSuitableRouteForCategory',
+  '8': 'RouteConfigurationChange'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
@@ -38678,20 +38918,27 @@ let global = globalThis as any;
   LongFormAudio: 1,
   LongForm: 1,
   Independent: 2,
-  LongFormVideo: 3
+  LongFormVideo: 3,
+  '0': 'Default',
+  '1': 'LongFormAudio',
+  '2': 'Independent',
+  '3': 'LongFormVideo'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SetActiveOptions'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SetActiveOptions'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SetActiveOptions'] = {
-  AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation: 1
+  AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation: 1,
+  '1': 'AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation'
 };
 
 (globalThis as any)['AudioSessionTypes']['AVAudioSession'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SilenceSecondaryAudioHintType'] = (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SilenceSecondaryAudioHintType'] || {};
 (globalThis as any)['AudioSessionTypes']['AVAudioSession']['SilenceSecondaryAudioHintType'] = {
   Begin: 1,
-  End: 0
+  End: 0,
+  '1': 'Begin',
+  '0': 'End'
 };
 
 
@@ -38701,7 +38948,11 @@ let global = globalThis as any;
   File: 0,
   Memory: 1,
   Decimal: 2,
-  Binary: 3
+  Binary: 3,
+  '0': 'File',
+  '1': 'Memory',
+  '2': 'Decimal',
+  '3': 'Binary'
 };
 
 (globalThis as any)['ByteCountFormatter']['Units'] = (globalThis as any)['ByteCountFormatter']['Units'] || {};
@@ -38716,7 +38967,18 @@ let global = globalThis as any;
   EB: 64,
   ZB: 128,
   YBOrHigher: 65280,
-  All: 65535
+  All: 65535,
+  '0': 'Default',
+  '1': 'Bytes',
+  '2': 'KB',
+  '4': 'MB',
+  '8': 'GB',
+  '16': 'TB',
+  '32': 'PB',
+  '64': 'EB',
+  '128': 'ZB',
+  '65280': 'YBOrHigher',
+  '65535': 'All'
 };
 
 
@@ -38732,7 +38994,15 @@ let global = globalThis as any;
   MinY: 4,
   MidY: 5,
   MaxY: 6,
-  Height: 7
+  Height: 7,
+  '0': 'MinX',
+  '1': 'MidX',
+  '2': 'MaxX',
+  '3': 'Width',
+  '4': 'MinY',
+  '5': 'MidY',
+  '6': 'MaxY',
+  '7': 'Height'
 };
 
 
@@ -38755,7 +39025,14 @@ let global = globalThis as any;
   MaxXMargin: 4,
   MinYMargin: 8,
   HeightSizable: 16,
-  MaxYMargin: 32
+  MaxYMargin: 32,
+  '0': 'NotSizable',
+  '1': 'MinXMargin',
+  '2': 'WidthSizable',
+  '4': 'MaxXMargin',
+  '8': 'MinYMargin',
+  '16': 'HeightSizable',
+  '32': 'MaxYMargin'
 };
 
 (globalThis as any)['CALayer']['CACornerMask'] = (globalThis as any)['CALayer']['CACornerMask'] || {};
@@ -38763,7 +39040,11 @@ let global = globalThis as any;
   inXMinYCorner: 1,
   axXMinYCorner: 2,
   inXMaxYCorner: 4,
-  axXMaxYCorner: 8
+  axXMaxYCorner: 8,
+  '1': 'inXMinYCorner',
+  '2': 'axXMinYCorner',
+  '4': 'inXMaxYCorner',
+  '8': 'axXMaxYCorner'
 };
 
 (globalThis as any)['CALayer']['CAEdgeAntialiasingMask'] = (globalThis as any)['CALayer']['CAEdgeAntialiasingMask'] || {};
@@ -38771,7 +39052,11 @@ let global = globalThis as any;
   LeftEdge: 1,
   RightEdge: 2,
   BottomEdge: 4,
-  TopEdge: 8
+  TopEdge: 8,
+  '1': 'LeftEdge',
+  '2': 'RightEdge',
+  '4': 'BottomEdge',
+  '8': 'TopEdge'
 };
 
 
@@ -38812,13 +39097,16 @@ let global = globalThis as any;
 (globalThis as any)['CBCentralManager'] = (globalThis as any)['CBCentralManager'] || {};
 (globalThis as any)['CBCentralManager']['CBCentralManagerFeature'] = (globalThis as any)['CBCentralManager']['CBCentralManagerFeature'] || {};
 (globalThis as any)['CBCentralManager']['CBCentralManagerFeature'] = {
-  CBCentralManagerFeatureExtendedScanAndConnect: 1
+  CBCentralManagerFeatureExtendedScanAndConnect: 1,
+  '1': 'CBCentralManagerFeatureExtendedScanAndConnect'
 };
 
 (globalThis as any)['CBCentralManager']['CBConnectionEvent'] = (globalThis as any)['CBCentralManager']['CBConnectionEvent'] || {};
 (globalThis as any)['CBCentralManager']['CBConnectionEvent'] = {
   Disconnected: 0,
-  Connected: 1
+  Connected: 1,
+  '0': 'Disconnected',
+  '1': 'Connected'
 };
 
 
@@ -38828,7 +39116,11 @@ let global = globalThis as any;
   Readable: 1,
   Writeable: 2,
   ReadEncryptionRequired: 4,
-  WriteEncryptionRequired: 8
+  WriteEncryptionRequired: 8,
+  '1': 'Readable',
+  '2': 'Writeable',
+  '4': 'ReadEncryptionRequired',
+  '8': 'WriteEncryptionRequired'
 };
 
 (globalThis as any)['CBCharacteristic']['CBCharacteristicProperties'] = (globalThis as any)['CBCharacteristic']['CBCharacteristicProperties'] || {};
@@ -38842,7 +39134,17 @@ let global = globalThis as any;
   AuthenticatedSignedWrites: 64,
   ExtendedProperties: 128,
   NotifyEncryptionRequired: 256,
-  IndicateEncryptionRequired: 512
+  IndicateEncryptionRequired: 512,
+  '1': 'Broadcast',
+  '2': 'Read',
+  '4': 'WriteWithoutResponse',
+  '8': 'Write',
+  '16': 'Notify',
+  '32': 'Indicate',
+  '64': 'AuthenticatedSignedWrites',
+  '128': 'ExtendedProperties',
+  '256': 'NotifyEncryptionRequired',
+  '512': 'IndicateEncryptionRequired'
 };
 
 
@@ -38868,7 +39170,25 @@ let global = globalThis as any;
   UnlikelyError: 14,
   InsufficientEncryption: 15,
   UnsupportedGroupType: 16,
-  InsufficientResources: 17
+  InsufficientResources: 17,
+  '0': 'Success',
+  '1': 'InvalidHandle',
+  '2': 'ReadNotPermitted',
+  '3': 'WriteNotPermitted',
+  '4': 'InvalidPdu',
+  '5': 'InsufficientAuthentication',
+  '6': 'RequestNotSupported',
+  '7': 'InvalidOffset',
+  '8': 'InsufficientAuthorization',
+  '9': 'PrepareQueueFull',
+  '10': 'AttributeNotFound',
+  '11': 'AttributeNotLong',
+  '12': 'InsufficientEncryptionKeySize',
+  '13': 'InvalidAttributeValueLength',
+  '14': 'UnlikelyError',
+  '15': 'InsufficientEncryption',
+  '16': 'UnsupportedGroupType',
+  '17': 'InsufficientResources'
 };
 
 (globalThis as any)['CBError']['CBError'] = (globalThis as any)['CBError']['CBError'] || {};
@@ -38889,7 +39209,23 @@ let global = globalThis as any;
   UnknownDevice: 12,
   OperationNotSupported: 13,
   PeerRemovedPairingInformation: 14,
-  EncryptionTimedOut: 15
+  EncryptionTimedOut: 15,
+  '0': 'Unknown',
+  '1': 'InvalidParameters',
+  '2': 'InvalidHandle',
+  '3': 'NotConnected',
+  '4': 'OutOfSpace',
+  '5': 'OperationCancelled',
+  '6': 'ConnectionTimeout',
+  '7': 'PeripheralDisconnected',
+  '8': 'UUIDNotAllowed',
+  '9': 'AlreadyAdvertising',
+  '10': 'ConnectionFailed',
+  '11': 'ConnectionLimitReached',
+  '12': 'UnkownDevice',
+  '13': 'OperationNotSupported',
+  '14': 'PeerRemovedPairingInformation',
+  '15': 'EncryptionTimedOut'
 };
 
 
@@ -38901,7 +39237,11 @@ let global = globalThis as any;
   NotDetermined: 0,
   Restricted: 1,
   Denied: 2,
-  AllowedAlways: 3
+  AllowedAlways: 3,
+  '0': 'NotDetermined',
+  '1': 'Restricted',
+  '2': 'Denied',
+  '3': 'AllowedAlways'
 };
 
 (globalThis as any)['CBManager']['CBManagerState'] = (globalThis as any)['CBManager']['CBManagerState'] || {};
@@ -38911,7 +39251,13 @@ let global = globalThis as any;
   Unsupported: 2,
   Unauthorized: 3,
   PoweredOff: 4,
-  PoweredOn: 5
+  PoweredOn: 5,
+  '0': 'Unknown',
+  '1': 'Resetting',
+  '2': 'Unsupported',
+  '3': 'Unauthorized',
+  '4': 'PoweredOff',
+  '5': 'PoweredOn'
 };
 
 
@@ -38921,7 +39267,9 @@ let global = globalThis as any;
 (globalThis as any)['CBPeripheral']['CBCharacteristicWriteType'] = (globalThis as any)['CBPeripheral']['CBCharacteristicWriteType'] || {};
 (globalThis as any)['CBPeripheral']['CBCharacteristicWriteType'] = {
   Response: 0,
-  outResponse: 1
+  outResponse: 1,
+  '0': 'Response',
+  '1': 'outResponse'
 };
 
 (globalThis as any)['CBPeripheral']['CBPeripheralState'] = (globalThis as any)['CBPeripheral']['CBPeripheralState'] || {};
@@ -38929,7 +39277,11 @@ let global = globalThis as any;
   Disconnected: 0,
   Connecting: 1,
   Connected: 2,
-  Disconnecting: 3
+  Disconnecting: 3,
+  '0': 'Disconnected',
+  '1': 'Connecting',
+  '2': 'Connected',
+  '3': 'Disconnecting'
 };
 
 
@@ -38938,7 +39290,10 @@ let global = globalThis as any;
 (globalThis as any)['CBPeripheralManager']['CBPeripheralManagerConnectionLatency'] = {
   Low: 0,
   Medium: 1,
-  High: 2
+  High: 2,
+  '0': 'Low',
+  '1': 'Medium',
+  '2': 'High'
 };
 
 
@@ -38951,7 +39306,10 @@ let global = globalThis as any;
 (globalThis as any)['CFBase']['CFComparisonResult'] = {
   LessThan: -1,
   EqualTo: 0,
-  GreaterThan: 1
+  GreaterThan: 1,
+  '-1': 'LessThan',
+  '0': 'EqualTo',
+  '1': 'GreaterThan'
 };
 
 
@@ -38960,7 +39318,10 @@ let global = globalThis as any;
 (globalThis as any)['CFByteOrder']['__CFByteOrder'] = {
   Unknown: 0,
   LittleEndian: 1,
-  BigEndian: 2
+  BigEndian: 2,
+  '0': 'Unknown',
+  '1': 'LittleEndian',
+  '2': 'BigEndian'
 };
 
 
@@ -38980,7 +39341,21 @@ let global = globalThis as any;
   Quarter: 2048,
   WeekOfMonth: 4096,
   WeekOfYear: 8192,
-  YearForWeekOfYear: 16384
+  YearForWeekOfYear: 16384,
+  '2': 'Era',
+  '4': 'Year',
+  '8': 'Month',
+  '16': 'Day',
+  '32': 'Hour',
+  '64': 'Minute',
+  '128': 'Second',
+  '256': 'Week',
+  '512': 'Weekday',
+  '1024': 'WeekdayOrdinal',
+  '2048': 'Quarter',
+  '4096': 'WeekOfMonth',
+  '8192': 'WeekOfYear',
+  '16384': 'YearForWeekOfYear'
 };
 
 
@@ -39001,7 +39376,22 @@ let global = globalThis as any;
   CapitalizedLetter: 13,
   Symbol: 14,
   Newline: 15,
-  Illegal: 12
+  Illegal: 12,
+  '1': 'Control',
+  '2': 'Whitespace',
+  '3': 'WhitespaceAndNewline',
+  '4': 'DecimalDigit',
+  '5': 'Letter',
+  '6': 'LowercaseLetter',
+  '7': 'UppercaseLetter',
+  '8': 'NonBase',
+  '9': 'Decomposable',
+  '10': 'AlphaNumeric',
+  '11': 'Punctuation',
+  '13': 'CapitalizedLetter',
+  '14': 'Symbol',
+  '15': 'Newline',
+  '12': 'Illegal'
 };
 
 
@@ -39009,7 +39399,9 @@ let global = globalThis as any;
 (globalThis as any)['CFData']['CFDataSearchFlags'] = (globalThis as any)['CFData']['CFDataSearchFlags'] || {};
 (globalThis as any)['CFData']['CFDataSearchFlags'] = {
   Backwards: 1,
-  Anchored: 2
+  Anchored: 2,
+  '1': 'Backwards',
+  '2': 'Anchored'
 };
 
 
@@ -39022,7 +39414,14 @@ let global = globalThis as any;
   UnitsHours: 8,
   UnitsMinutes: 16,
   UnitsSeconds: 32,
-  AllUnits: 16777215
+  AllUnits: 16777215,
+  '1': 'UnitsYears',
+  '2': 'UnitsMonths',
+  '4': 'UnitsDays',
+  '8': 'UnitsHours',
+  '16': 'UnitsMinutes',
+  '32': 'UnitsSeconds',
+  '16777215': 'AllUnits'
 };
 
 
@@ -39033,7 +39432,12 @@ let global = globalThis as any;
   ShortStyle: 1,
   MediumStyle: 2,
   LongStyle: 3,
-  FullStyle: 4
+  FullStyle: 4,
+  '0': 'NoStyle',
+  '1': 'ShortStyle',
+  '2': 'MediumStyle',
+  '3': 'LongStyle',
+  '4': 'FullStyle'
 };
 
 (globalThis as any)['CFDateFormatter']['CFISO8601DateFormatOptions'] = (globalThis as any)['CFDateFormatter']['CFISO8601DateFormatOptions'] || {};
@@ -39051,7 +39455,21 @@ let global = globalThis as any;
   WithFractionalSeconds: 2048,
   WithFullDate: 275,
   WithFullTime: 1632,
-  WithInternetDateTime: 1907
+  WithInternetDateTime: 1907,
+  '1': 'WithYear',
+  '2': 'WithMonth',
+  '4': 'WithWeekOfYear',
+  '16': 'WithDay',
+  '32': 'WithTime',
+  '64': 'WithTimeZone',
+  '128': 'WithSpaceBetweenDateAndTime',
+  '256': 'WithDashSeparatorInDate',
+  '512': 'WithColonSeparatorInTime',
+  '1024': 'WithColonSeparatorInTimeZone',
+  '2048': 'WithFractionalSeconds',
+  '275': 'WithFullDate',
+  '1632': 'WithFullTime',
+  '1907': 'WithInternetDateTime'
 };
 
 
@@ -39063,7 +39481,13 @@ let global = globalThis as any;
   Mode: 4,
   OwnerUUID: 8,
   GroupUUID: 16,
-  AccessControlList: 32
+  AccessControlList: 32,
+  '1': 'Owner',
+  '2': 'Group',
+  '4': 'Mode',
+  '8': 'OwnerUUID',
+  '16': 'GroupUUID',
+  '32': 'AccessControlList'
 };
 
 
@@ -39074,7 +39498,12 @@ let global = globalThis as any;
   LeftToRight: 1,
   RightToLeft: 2,
   TopToBottom: 3,
-  BottomToTop: 4
+  BottomToTop: 4,
+  '0': 'Unknown',
+  '1': 'LeftToRight',
+  '2': 'RightToLeft',
+  '3': 'TopToBottom',
+  '4': 'BottomToTop'
 };
 
 
@@ -39084,7 +39513,11 @@ let global = globalThis as any;
   Drop: 1,
   Coalesce: 2,
   Hold: 3,
-  DeliverImmediately: 4
+  DeliverImmediately: 4,
+  '1': 'Drop',
+  '2': 'Coalesce',
+  '3': 'Hold',
+  '4': 'DeliverImmediately'
 };
 
 
@@ -39107,14 +39540,31 @@ let global = globalThis as any;
   CFIndexType: 14,
   NSIntegerType: 15,
   CGFloatType: 16,
-  MaxType: 16
+  MaxType: 16,
+  '1': 'SInt8Type',
+  '2': 'SInt16Type',
+  '3': 'SInt32Type',
+  '4': 'SInt64Type',
+  '5': 'Float32Type',
+  '6': 'Float64Type',
+  '7': 'CharType',
+  '8': 'ShortType',
+  '9': 'IntType',
+  '10': 'LongType',
+  '11': 'LongLongType',
+  '12': 'FloatType',
+  '13': 'DoubleType',
+  '14': 'CFIndexType',
+  '15': 'NSIntegerType',
+  '16': 'CGFloatType',
 };
 
 
 (globalThis as any)['CFNumberFormatter'] = (globalThis as any)['CFNumberFormatter'] || {};
 (globalThis as any)['CFNumberFormatter']['CFNumberFormatterOptionFlags'] = (globalThis as any)['CFNumberFormatter']['CFNumberFormatterOptionFlags'] || {};
 (globalThis as any)['CFNumberFormatter']['CFNumberFormatterOptionFlags'] = {
-  kCFNumberFormatterParseIntegersOnly: 1
+  kCFNumberFormatterParseIntegersOnly: 1,
+  '1': 'kCFNumberFormatterParseIntegersOnly'
 };
 
 (globalThis as any)['CFNumberFormatter']['CFNumberFormatterPadPosition'] = (globalThis as any)['CFNumberFormatter']['CFNumberFormatterPadPosition'] || {};
@@ -39122,7 +39572,11 @@ let global = globalThis as any;
   BeforePrefix: 0,
   AfterPrefix: 1,
   BeforeSuffix: 2,
-  AfterSuffix: 3
+  AfterSuffix: 3,
+  '0': 'BeforePrefix',
+  '1': 'AfterPrefix',
+  '2': 'BeforeSuffix',
+  '3': 'AfterSuffix'
 };
 
 (globalThis as any)['CFNumberFormatter']['CFNumberFormatterRoundingMode'] = (globalThis as any)['CFNumberFormatter']['CFNumberFormatterRoundingMode'] || {};
@@ -39133,7 +39587,14 @@ let global = globalThis as any;
   Up: 3,
   HalfEven: 4,
   HalfDown: 5,
-  HalfUp: 6
+  HalfUp: 6,
+  '0': 'Ceiling',
+  '1': 'Floor',
+  '2': 'Down',
+  '3': 'Up',
+  '4': 'HalfEven',
+  '5': 'HalfDown',
+  '6': 'HalfUp'
 };
 
 (globalThis as any)['CFNumberFormatter']['CFNumberFormatterStyle'] = (globalThis as any)['CFNumberFormatter']['CFNumberFormatterStyle'] || {};
@@ -39147,7 +39608,17 @@ let global = globalThis as any;
   OrdinalStyle: 6,
   CurrencyISOCodeStyle: 8,
   CurrencyPluralStyle: 9,
-  CurrencyAccountingStyle: 10
+  CurrencyAccountingStyle: 10,
+  '0': 'NoStyle',
+  '1': 'DecimalStyle',
+  '2': 'CurrencyStyle',
+  '3': 'PercentStyle',
+  '4': 'ScientificStyle',
+  '5': 'SpellOutStyle',
+  '6': 'OrdinalStyle',
+  '8': 'CurrencyISOCodeStyle',
+  '9': 'CurrencyPluralStyle',
+  '10': 'CurrencyAccountingStyle'
 };
 
 
@@ -39156,14 +39627,20 @@ let global = globalThis as any;
 (globalThis as any)['CFPropertyList']['CFPropertyListFormat'] = {
   OpenStepFormat: 1,
   XMLFormat_v1_0: 100,
-  BinaryFormat_v1_0: 200
+  BinaryFormat_v1_0: 200,
+  '1': 'OpenStepFormat',
+  '100': 'XMLFormat_v1_0',
+  '200': 'BinaryFormat_v1_0'
 };
 
 (globalThis as any)['CFPropertyList']['CFPropertyListMutabilityOptions'] = (globalThis as any)['CFPropertyList']['CFPropertyListMutabilityOptions'] || {};
 (globalThis as any)['CFPropertyList']['CFPropertyListMutabilityOptions'] = {
   Immutable: 0,
   MutableContainers: 1,
-  MutableContainersAndLeaves: 2
+  MutableContainersAndLeaves: 2,
+  '0': 'Immutable',
+  '1': 'MutableContainers',
+  '2': 'MutableContainersAndLeaves'
 };
 
 
@@ -39176,7 +39653,14 @@ let global = globalThis as any;
   BeforeWaiting: 32,
   AfterWaiting: 64,
   Exit: 128,
-  AllActivities: 268435455
+  AllActivities: 268435455,
+  '1': 'Entry',
+  '2': 'BeforeTimers',
+  '4': 'BeforeSources',
+  '32': 'BeforeWaiting',
+  '64': 'AfterWaiting',
+  '128': 'Exit',
+  '268435455': 'AllActivities'
 };
 
 (globalThis as any)['CFRunLoop']['CFRunLoopRunResult'] = (globalThis as any)['CFRunLoop']['CFRunLoopRunResult'] || {};
@@ -39184,7 +39668,11 @@ let global = globalThis as any;
   Finished: 1,
   Stopped: 2,
   TimedOut: 3,
-  HandledSource: 4
+  HandledSource: 4,
+  '1': 'Finished',
+  '2': 'Stopped',
+  '3': 'TimedOut',
+  '4': 'HandledSource'
 };
 
 
@@ -39196,14 +39684,23 @@ let global = globalThis as any;
   AcceptCallBack: 2,
   DataCallBack: 3,
   ConnectCallBack: 4,
-  WriteCallBack: 8
+  WriteCallBack: 8,
+  '0': 'NoCallBack',
+  '1': 'ReadCallBack',
+  '2': 'AcceptCallBack',
+  '3': 'DataCallBack',
+  '4': 'ConnectCallBack',
+  '8': 'WriteCallBack'
 };
 
 (globalThis as any)['CFSocket']['CFSocketError'] = (globalThis as any)['CFSocket']['CFSocketError'] || {};
 (globalThis as any)['CFSocket']['CFSocketError'] = {
   Success: 0,
   Error: -1,
-  Timeout: -2
+  Timeout: -2,
+  '0': 'Success',
+  '-1': 'Error',
+  '-2': 'Timeout'
 };
 
 
@@ -39212,7 +39709,10 @@ let global = globalThis as any;
 (globalThis as any)['CFStream']['CFStreamErrorDomain'] = {
   Custom: -1,
   POSIX: 1,
-  MacOSStatus: 2
+  MacOSStatus: 2,
+  '-1': 'Custom',
+  '1': 'POSIX',
+  '2': 'MacOSStatus'
 };
 
 (globalThis as any)['CFStream']['CFStreamEventType'] = (globalThis as any)['CFStream']['CFStreamEventType'] || {};
@@ -39222,7 +39722,13 @@ let global = globalThis as any;
   HasBytesAvailable: 2,
   CanAcceptBytes: 4,
   ErrorOccurred: 8,
-  EndEncountered: 16
+  EndEncountered: 16,
+  '0': 'None',
+  '1': 'OpenCompleted',
+  '2': 'HasBytesAvailable',
+  '4': 'CanAcceptBytes',
+  '8': 'ErrorOccurred',
+  '16': 'EndEncountered'
 };
 
 (globalThis as any)['CFStream']['CFStreamStatus'] = (globalThis as any)['CFStream']['CFStreamStatus'] || {};
@@ -39234,7 +39740,15 @@ let global = globalThis as any;
   Writing: 4,
   AtEnd: 5,
   Closed: 6,
-  Error: 7
+  Error: 7,
+  '0': 'NotOpen',
+  '1': 'Opening',
+  '2': 'Open',
+  '3': 'Reading',
+  '4': 'Writing',
+  '5': 'AtEnd',
+  '6': 'Closed',
+  '7': 'Error'
 };
 
 
@@ -39254,7 +39768,20 @@ let global = globalThis as any;
   UTF16LE: 335544576,
   UTF32: 201326848,
   UTF32BE: 402653440,
-  UTF32LE: 469762304
+  UTF32LE: 469762304,
+  '0': 'MacRoman',
+  '1280': 'WindowsLatin1',
+  '513': 'ISOLatin1',
+  '2817': 'NextStepLatin',
+  '1536': 'ASCII',
+  '256': 'Unicode',
+  '134217984': 'UTF8',
+  '3071': 'NonLossyASCII',
+  '268435712': 'UTF16BE',
+  '335544576': 'UTF16LE',
+  '201326848': 'UTF32',
+  '402653440': 'UTF32BE',
+  '469762304': 'UTF32LE'
 };
 
 (globalThis as any)['CFString']['CFStringCompareFlags'] = (globalThis as any)['CFString']['CFStringCompareFlags'] || {};
@@ -39267,7 +39794,16 @@ let global = globalThis as any;
   Numerically: 64,
   DiacriticInsensitive: 128,
   WidthInsensitive: 256,
-  ForcedOrdering: 512
+  ForcedOrdering: 512,
+  '1': 'CaseInsensitive',
+  '4': 'Backwards',
+  '8': 'Anchored',
+  '16': 'Nonliteral',
+  '32': 'Localized',
+  '64': 'Numerically',
+  '128': 'DiacriticInsensitive',
+  '256': 'WidthInsensitive',
+  '512': 'ForcedOrdering'
 };
 
 (globalThis as any)['CFString']['CFStringNormalizationForm'] = (globalThis as any)['CFString']['CFStringNormalizationForm'] || {};
@@ -39275,7 +39811,11 @@ let global = globalThis as any;
   D: 0,
   KD: 1,
   C: 2,
-  KC: 3
+  KC: 3,
+  '0': 'D',
+  '1': 'KD',
+  '2': 'C',
+  '3': 'KC'
 };
 
 
@@ -39410,7 +39950,135 @@ let global = globalThis as any;
   EBCDIC_CP037: 3074,
   UTF7: 67109120,
   UTF7_IMAP: 2576,
-  ShiftJIS_X0213_00: 1576
+  ShiftJIS_X0213_00: 1576,
+  '1': 'MacJapanese',
+  '2': 'MacChineseTrad',
+  '3': 'MacKorean',
+  '4': 'MacArabic',
+  '5': 'MacHebrew',
+  '6': 'MacGreek',
+  '7': 'MacCyrillic',
+  '9': 'MacDevanagari',
+  '10': 'MacGurmukhi',
+  '11': 'MacGujarati',
+  '12': 'MacOriya',
+  '13': 'MacBengali',
+  '14': 'MacTamil',
+  '15': 'MacTelugu',
+  '16': 'MacKannada',
+  '17': 'MacMalayalam',
+  '18': 'MacSinhalese',
+  '19': 'MacBurmese',
+  '20': 'MacKhmer',
+  '21': 'MacThai',
+  '22': 'MacLaotian',
+  '23': 'MacGeorgian',
+  '24': 'MacArmenian',
+  '25': 'MacChineseSimp',
+  '26': 'MacTibetan',
+  '27': 'MacMongolian',
+  '28': 'MacEthiopic',
+  '29': 'MacCentralEurRoman',
+  '30': 'MacVietnamese',
+  '31': 'MacExtArabic',
+  '33': 'MacSymbol',
+  '34': 'MacDingbats',
+  '35': 'MacTurkish',
+  '36': 'MacCroatian',
+  '37': 'MacIcelandic',
+  '38': 'MacRomanian',
+  '39': 'MacCeltic',
+  '40': 'MacGaelic',
+  '140': 'MacFarsi',
+  '152': 'MacUkrainian',
+  '236': 'MacInuit',
+  '252': 'MacVT100',
+  '255': 'MacHFS',
+  '514': 'ISOLatin2',
+  '515': 'ISOLatin3',
+  '516': 'ISOLatin4',
+  '517': 'ISOLatinCyrillic',
+  '518': 'ISOLatinArabic',
+  '519': 'ISOLatinGreek',
+  '520': 'ISOLatinHebrew',
+  '521': 'ISOLatin5',
+  '522': 'ISOLatin6',
+  '523': 'ISOLatinThai',
+  '525': 'ISOLatin7',
+  '526': 'ISOLatin8',
+  '527': 'ISOLatin9',
+  '528': 'ISOLatin10',
+  '1024': 'DOSLatinUS',
+  '1029': 'DOSGreek',
+  '1030': 'DOSBalticRim',
+  '1040': 'DOSLatin1',
+  '1041': 'DOSGreek1',
+  '1042': 'DOSLatin2',
+  '1043': 'DOSCyrillic',
+  '1044': 'DOSTurkish',
+  '1045': 'DOSPortuguese',
+  '1046': 'DOSIcelandic',
+  '1047': 'DOSHebrew',
+  '1048': 'DOSCanadianFrench',
+  '1049': 'DOSArabic',
+  '1050': 'DOSNordic',
+  '1051': 'DOSRussian',
+  '1052': 'DOSGreek2',
+  '1053': 'DOSThai',
+  '1056': 'DOSJapanese',
+  '1057': 'DOSChineseSimplif',
+  '1058': 'DOSKorean',
+  '1059': 'DOSChineseTrad',
+  '1281': 'WindowsLatin2',
+  '1282': 'WindowsCyrillic',
+  '1283': 'WindowsGreek',
+  '1284': 'WindowsLatin5',
+  '1285': 'WindowsHebrew',
+  '1286': 'WindowsArabic',
+  '1287': 'WindowsBalticRim',
+  '1288': 'WindowsVietnamese',
+  '1296': 'WindowsKoreanJohab',
+  '1537': 'ANSEL',
+  '1568': 'JIS_X0201_76',
+  '1569': 'JIS_X0208_83',
+  '1570': 'JIS_X0208_90',
+  '1571': 'JIS_X0212_90',
+  '1572': 'JIS_C6226_78',
+  '1576': 'ShiftJIS_X0213',
+  '1577': 'ShiftJIS_X0213_MenKuTen',
+  '1584': 'GB_2312_80',
+  '1585': 'GBK_95',
+  '1586': 'GB_18030_2000',
+  '1600': 'KSC_5601_87',
+  '1601': 'KSC_5601_92_Johab',
+  '1617': 'CNS_11643_92_P1',
+  '1618': 'CNS_11643_92_P2',
+  '1619': 'CNS_11643_92_P3',
+  '2080': 'ISO_2022_JP',
+  '2081': 'ISO_2022_JP_2',
+  '2082': 'ISO_2022_JP_1',
+  '2083': 'ISO_2022_JP_3',
+  '2096': 'ISO_2022_CN',
+  '2097': 'ISO_2022_CN_EXT',
+  '2112': 'ISO_2022_KR',
+  '2336': 'EUC_JP',
+  '2352': 'EUC_CN',
+  '2353': 'EUC_TW',
+  '2368': 'EUC_KR',
+  '2561': 'ShiftJIS',
+  '2562': 'KOI8_R',
+  '2563': 'Big5',
+  '2564': 'MacRomanLatin1',
+  '2565': 'HZ_GB_2312',
+  '2566': 'Big5_HKSCS_1999',
+  '2567': 'VISCII',
+  '2568': 'KOI8_U',
+  '2569': 'Big5_E',
+  '2818': 'NextStepJapanese',
+  '3073': 'EBCDIC_US',
+  '3074': 'EBCDIC_CP037',
+  '67109120': 'UTF7',
+  '2576': 'UTF7_IMAP',
 };
 
 
@@ -39423,7 +40091,14 @@ let global = globalThis as any;
   HasDerivedSubTokensMask: 4,
   HasHasNumbersMask: 8,
   HasNonLettersMask: 16,
-  IsCJWordMask: 32
+  IsCJWordMask: 32,
+  '0': 'None',
+  '1': 'Normal',
+  '2': 'HasSubTokensMask',
+  '4': 'HasDerivedSubTokensMask',
+  '8': 'HasHasNumbersMask',
+  '16': 'HasNonLettersMask',
+  '32': 'IsCJWordMask'
 };
 
 
@@ -39435,7 +40110,13 @@ let global = globalThis as any;
   DaylightSaving: 2,
   ShortDaylightSaving: 3,
   Generic: 4,
-  ShortGeneric: 5
+  ShortGeneric: 5,
+  '0': 'Standard',
+  '1': 'ShortStandard',
+  '2': 'DaylightSaving',
+  '3': 'ShortDaylightSaving',
+  '4': 'Generic',
+  '5': 'ShortGeneric'
 };
 
 
@@ -39446,7 +40127,12 @@ let global = globalThis as any;
   SuitableForBookmarkFile: 1024,
   WithSecurityScope: 2048,
   SecurityScopeAllowOnlyReadAccess: 4096,
-  PreferFileIDResolutionMask: 256
+  PreferFileIDResolutionMask: 256,
+  '512': 'MinimalBookmarkMask',
+  '1024': 'SuitableForBookmarkFile',
+  '2048': 'WithSecurityScope',
+  '4096': 'SecurityScopeAllowOnlyReadAccess',
+  '256': 'PreferFileIDResolutionMask'
 };
 
 (globalThis as any)['CFURL']['CFURLBookmarkResolutionOptions'] = (globalThis as any)['CFURL']['CFURLBookmarkResolutionOptions'] || {};
@@ -39455,7 +40141,10 @@ let global = globalThis as any;
   URLBookmarkResolutionWithoutMountingMask: 512,
   URLBookmarkResolutionWithSecurityScope: 1024,
   BookmarkResolutionWithoutUIMask: 256,
-  BookmarkResolutionWithoutMountingMask: 512
+  BookmarkResolutionWithoutMountingMask: 512,
+  '256': 'URLBookmarkResolutionWithoutUIMask',
+  '512': 'URLBookmarkResolutionWithoutMountingMask',
+  '1024': 'URLBookmarkResolutionWithSecurityScope',
 };
 
 (globalThis as any)['CFURL']['CFURLComponentType'] = (globalThis as any)['CFURL']['CFURLComponentType'] || {};
@@ -39471,14 +40160,29 @@ let global = globalThis as any;
   Port: 9,
   ParameterString: 10,
   Query: 11,
-  Fragment: 12
+  Fragment: 12,
+  '1': 'Scheme',
+  '2': 'NetLocation',
+  '3': 'Path',
+  '4': 'ResourceSpecifier',
+  '5': 'User',
+  '6': 'Password',
+  '7': 'UserInfo',
+  '8': 'Host',
+  '9': 'Port',
+  '10': 'ParameterString',
+  '11': 'Query',
+  '12': 'Fragment'
 };
 
 (globalThis as any)['CFURL']['CFURLPathStyle'] = (globalThis as any)['CFURL']['CFURLPathStyle'] || {};
 (globalThis as any)['CFURL']['CFURLPathStyle'] = {
   POSIXPathStyle: 0,
   HFSPathStyle: 1,
-  WindowsPathStyle: 2
+  WindowsPathStyle: 2,
+  '0': 'POSIXPathStyle',
+  '1': 'HFSPathStyle',
+  '2': 'WindowsPathStyle'
 };
 
 
@@ -39492,7 +40196,15 @@ let global = globalThis as any;
   SkipPackageContents: 8,
   IncludeDirectoriesPreOrder: 16,
   IncludeDirectoriesPostOrder: 32,
-  GenerateRelativePathURLs: 64
+  GenerateRelativePathURLs: 64,
+  '0': 'DefaultBehavior',
+  '1': 'DescendRecursively',
+  '2': 'SkipInvisibles',
+  '4': 'GenerateFileReferenceURLs',
+  '8': 'SkipPackageContents',
+  '16': 'IncludeDirectoriesPreOrder',
+  '32': 'IncludeDirectoriesPostOrder',
+  '64': 'GenerateRelativePathURLs'
 };
 
 (globalThis as any)['CFURLEnumerator']['CFURLEnumeratorResult'] = (globalThis as any)['CFURLEnumerator']['CFURLEnumeratorResult'] || {};
@@ -39500,7 +40212,11 @@ let global = globalThis as any;
   Success: 1,
   End: 2,
   Error: 3,
-  DirectoryPostOrderSuccess: 4
+  DirectoryPostOrderSuccess: 4,
+  '1': 'Success',
+  '2': 'End',
+  '3': 'Error',
+  '4': 'DirectoryPostOrderSuccess'
 };
 
 
@@ -39511,7 +40227,12 @@ let global = globalThis as any;
   ParsedInternal: 1,
   ParsedExternal: 2,
   Unparsed: 3,
-  Character: 4
+  Character: 4,
+  '0': 'Parameter',
+  '1': 'ParsedInternal',
+  '2': 'ParsedExternal',
+  '3': 'Unparsed',
+  '4': 'Character'
 };
 
 (globalThis as any)['CFXMLNode']['CFXMLNodeTypeCode'] = (globalThis as any)['CFXMLNode']['CFXMLNodeTypeCode'] || {};
@@ -39530,7 +40251,22 @@ let global = globalThis as any;
   Whitespace: 12,
   Notation: 13,
   ElementTypeDeclaration: 14,
-  AttributeListDeclaration: 15
+  AttributeListDeclaration: 15,
+  '1': 'Document',
+  '2': 'Element',
+  '3': 'Attribute',
+  '4': 'ProcessingInstruction',
+  '5': 'Comment',
+  '6': 'Text',
+  '7': 'CDATASection',
+  '8': 'DocumentFragment',
+  '9': 'Entity',
+  '10': 'EntityReference',
+  '11': 'DocumentType',
+  '12': 'Whitespace',
+  '13': 'Notation',
+  '14': 'ElementTypeDeclaration',
+  '15': 'AttributeListDeclaration'
 };
 
 
@@ -39544,7 +40280,15 @@ let global = globalThis as any;
   ResolveExternalEntities: 16,
   AddImpliedAttributes: 32,
   AllOptions: 16777215,
-  NoOptions: 0
+  NoOptions: 0,
+  '1': 'ValidateDocument',
+  '2': 'SkipMetaData',
+  '4': 'ReplacePhysicalEntities',
+  '8': 'SkipWhitespace',
+  '16': 'ResolveExternalEntities',
+  '32': 'AddImpliedAttributes',
+  '16777215': 'AllOptions',
+  '0': 'NoOptions'
 };
 
 (globalThis as any)['CFXMLParser']['CFXMLParserStatusCode'] = (globalThis as any)['CFXMLParser']['CFXMLParserStatusCode'] || {};
@@ -39566,7 +40310,25 @@ let global = globalThis as any;
   ErrorMalformedComment: 12,
   ErrorMalformedCharacterReference: 13,
   ErrorMalformedParsedCharacterData: 14,
-  ErrorNoData: 15
+  ErrorNoData: 15,
+  '-2': 'StatusParseNotBegun',
+  '-1': 'StatusParseInProgress',
+  '0': 'StatusParseSuccessful',
+  '1': 'ErrorUnexpectedEOF',
+  '2': 'ErrorUnknownEncoding',
+  '3': 'ErrorEncodingConversionFailure',
+  '4': 'ErrorMalformedProcessingInstruction',
+  '5': 'ErrorMalformedDTD',
+  '6': 'ErrorMalformedName',
+  '7': 'ErrorMalformedCDSect',
+  '8': 'ErrorMalformedCloseTag',
+  '9': 'ErrorMalformedStartTag',
+  '10': 'ErrorMalformedDocument',
+  '11': 'ErrorElementlessDocument',
+  '12': 'ErrorMalformedComment',
+  '13': 'ErrorMalformedCharacterReference',
+  '14': 'ErrorMalformedParsedCharacterData',
+  '15': 'ErrorNoData'
 };
 
 
@@ -39575,7 +40337,10 @@ let global = globalThis as any;
 (globalThis as any)['CGColorConversionInfo']['CGColorConversionInfoTransformType'] = {
   FromSpace: 0,
   ToSpace: 1,
-  ApplySpace: 2
+  ApplySpace: 2,
+  '0': 'FromSpace',
+  '1': 'ToSpace',
+  '2': 'ApplySpace'
 };
 
 
@@ -39586,7 +40351,12 @@ let global = globalThis as any;
   AbsoluteColorimetric: 1,
   RelativeColorimetric: 2,
   Perceptual: 3,
-  Saturation: 4
+  Saturation: 4,
+  '0': 'Default',
+  '1': 'AbsoluteColorimetric',
+  '2': 'RelativeColorimetric',
+  '3': 'Perceptual',
+  '4': 'Saturation'
 };
 
 (globalThis as any)['CGColorSpace']['CGColorSpaceModel'] = (globalThis as any)['CGColorSpace']['CGColorSpaceModel'] || {};
@@ -39599,7 +40369,16 @@ let global = globalThis as any;
   DeviceN: 4,
   Indexed: 5,
   Pattern: 6,
-  XYZ: 7
+  XYZ: 7,
+  '-1': 'Unknown',
+  '0': 'Monochrome',
+  '1': 'RGB',
+  '2': 'CMYK',
+  '3': 'Lab',
+  '4': 'DeviceN',
+  '5': 'Indexed',
+  '6': 'Pattern',
+  '7': 'XYZ'
 };
 
 
@@ -39633,7 +40412,35 @@ let global = globalThis as any;
   DestinationAtop: 24,
   XOR: 25,
   PlusDarker: 26,
-  PlusLighter: 27
+  PlusLighter: 27,
+  '0': 'Normal',
+  '1': 'Multiply',
+  '2': 'Screen',
+  '3': 'Overlay',
+  '4': 'Darken',
+  '5': 'Lighten',
+  '6': 'ColorDodge',
+  '7': 'ColorBurn',
+  '8': 'SoftLight',
+  '9': 'HardLight',
+  '10': 'Difference',
+  '11': 'Exclusion',
+  '12': 'Hue',
+  '13': 'Saturation',
+  '14': 'Color',
+  '15': 'Luminosity',
+  '16': 'Clear',
+  '17': 'Copy',
+  '18': 'SourceIn',
+  '19': 'SourceOut',
+  '20': 'SourceAtop',
+  '21': 'DestinationOver',
+  '22': 'DestinationIn',
+  '23': 'DestinationOut',
+  '24': 'DestinationAtop',
+  '25': 'XOR',
+  '26': 'PlusDarker',
+  '27': 'PlusLighter'
 };
 
 (globalThis as any)['CGContext']['CGInterpolationQuality'] = (globalThis as any)['CGContext']['CGInterpolationQuality'] || {};
@@ -39642,7 +40449,12 @@ let global = globalThis as any;
   None: 1,
   Low: 2,
   Medium: 4,
-  High: 3
+  High: 3,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Low',
+  '4': 'Medium',
+  '3': 'High'
 };
 
 (globalThis as any)['CGContext']['CGPathDrawingMode'] = (globalThis as any)['CGContext']['CGPathDrawingMode'] || {};
@@ -39651,7 +40463,12 @@ let global = globalThis as any;
   EOFill: 1,
   Stroke: 2,
   FillStroke: 3,
-  EOFillStroke: 4
+  EOFillStroke: 4,
+  '0': 'Fill',
+  '1': 'EOFill',
+  '2': 'Stroke',
+  '3': 'FillStroke',
+  '4': 'EOFillStroke'
 };
 
 (globalThis as any)['CGContext']['CGTextDrawingMode'] = (globalThis as any)['CGContext']['CGTextDrawingMode'] || {};
@@ -39663,7 +40480,15 @@ let global = globalThis as any;
   FillClip: 4,
   StrokeClip: 5,
   FillStrokeClip: 6,
-  Clip: 7
+  Clip: 7,
+  '0': 'Fill',
+  '1': 'Stroke',
+  '2': 'FillStroke',
+  '3': 'Invisible',
+  '4': 'FillClip',
+  '5': 'StrokeClip',
+  '6': 'FillStrokeClip',
+  '7': 'Clip'
 };
 
 
@@ -39671,7 +40496,9 @@ let global = globalThis as any;
 (globalThis as any)['CGDirectDisplay']['CGCaptureOptions'] = (globalThis as any)['CGDirectDisplay']['CGCaptureOptions'] || {};
 (globalThis as any)['CGDirectDisplay']['CGCaptureOptions'] = {
   Options: 0,
-  Fill: 1
+  Fill: 1,
+  '0': 'Options',
+  '1': 'Fill'
 };
 
 
@@ -39680,7 +40507,10 @@ let global = globalThis as any;
 (globalThis as any)['CGDisplayConfiguration']['CGConfigureOption'] = {
   ForAppOnly: 0,
   ForSession: 1,
-  Permanently: 2
+  Permanently: 2,
+  '0': 'ForAppOnly',
+  '1': 'ForSession',
+  '2': 'Permanently'
 };
 
 (globalThis as any)['CGDisplayConfiguration']['CGDisplayChangeSummaryFlags'] = (globalThis as any)['CGDisplayConfiguration']['CGDisplayChangeSummaryFlags'] || {};
@@ -39695,7 +40525,18 @@ let global = globalThis as any;
   DisabledFlag: 512,
   MirrorFlag: 1024,
   UnMirrorFlag: 2048,
-  DesktopShapeChangedFlag: 4096
+  DesktopShapeChangedFlag: 4096,
+  '1': 'BeginConfigurationFlag',
+  '2': 'MovedFlag',
+  '4': 'SetMainFlag',
+  '8': 'SetModeFlag',
+  '16': 'AddFlag',
+  '32': 'RemoveFlag',
+  '256': 'EnabledFlag',
+  '512': 'DisabledFlag',
+  '1024': 'MirrorFlag',
+  '2048': 'UnMirrorFlag',
+  '4096': 'DesktopShapeChangedFlag'
 };
 
 
@@ -39705,7 +40546,11 @@ let global = globalThis as any;
   FrameComplete: 0,
   FrameIdle: 1,
   FrameBlank: 2,
-  Stopped: 3
+  Stopped: 3,
+  '0': 'FrameComplete',
+  '1': 'FrameIdle',
+  '2': 'FrameBlank',
+  '3': 'Stopped'
 };
 
 (globalThis as any)['CGDisplayStream']['CGDisplayStreamUpdateRectType'] = (globalThis as any)['CGDisplayStream']['CGDisplayStreamUpdateRectType'] || {};
@@ -39713,7 +40558,11 @@ let global = globalThis as any;
   RefreshedRects: 0,
   MovedRects: 1,
   DirtyRects: 2,
-  ReducedDirtyRects: 3
+  ReducedDirtyRects: 3,
+  '0': 'RefreshedRects',
+  '1': 'MovedRects',
+  '2': 'DirtyRects',
+  '3': 'ReducedDirtyRects'
 };
 
 
@@ -39730,7 +40579,18 @@ let global = globalThis as any;
   RangeCheck: 1007,
   TypeCheck: 1008,
   InvalidOperation: 1010,
-  NoneAvailable: 1011
+  NoneAvailable: 1011,
+  '0': 'Success',
+  '1000': 'Failure',
+  '1001': 'IllegalArgument',
+  '1002': 'InvalidConnection',
+  '1003': 'InvalidContext',
+  '1004': 'CannotComplete',
+  '1006': 'NotImplemented',
+  '1007': 'RangeCheck',
+  '1008': 'TypeCheck',
+  '1010': 'InvalidOperation',
+  '1011': 'NoneAvailable'
 };
 
 
@@ -39796,7 +40656,67 @@ let global = globalThis as any;
   MouseEventWindowUnderMousePointer: 91,
   MouseEventWindowUnderMousePointerThatCanHandleThisEvent: 92,
   EventUnacceleratedPointerMovementX: 170,
-  EventUnacceleratedPointerMovementY: 171
+  EventUnacceleratedPointerMovementY: 171,
+  '0': 'MouseEventNumber',
+  '1': 'MouseEventClickState',
+  '2': 'MouseEventPressure',
+  '3': 'MouseEventButtonNumber',
+  '4': 'MouseEventDeltaX',
+  '5': 'MouseEventDeltaY',
+  '6': 'MouseEventInstantMouser',
+  '7': 'MouseEventSubtype',
+  '8': 'KeyboardEventAutorepeat',
+  '9': 'KeyboardEventKeycode',
+  '10': 'KeyboardEventKeyboardType',
+  '11': 'ScrollWheelEventDeltaAxis1',
+  '12': 'ScrollWheelEventDeltaAxis2',
+  '13': 'ScrollWheelEventDeltaAxis3',
+  '93': 'ScrollWheelEventFixedPtDeltaAxis1',
+  '94': 'ScrollWheelEventFixedPtDeltaAxis2',
+  '95': 'ScrollWheelEventFixedPtDeltaAxis3',
+  '96': 'ScrollWheelEventPointDeltaAxis1',
+  '97': 'ScrollWheelEventPointDeltaAxis2',
+  '98': 'ScrollWheelEventPointDeltaAxis3',
+  '99': 'ScrollWheelEventScrollPhase',
+  '100': 'ScrollWheelEventScrollCount',
+  '123': 'ScrollWheelEventMomentumPhase',
+  '14': 'ScrollWheelEventInstantMouser',
+  '15': 'TabletEventPointX',
+  '16': 'TabletEventPointY',
+  '17': 'TabletEventPointZ',
+  '18': 'TabletEventPointButtons',
+  '19': 'TabletEventPointPressure',
+  '20': 'TabletEventTiltX',
+  '21': 'TabletEventTiltY',
+  '22': 'TabletEventRotation',
+  '23': 'TabletEventTangentialPressure',
+  '24': 'TabletEventDeviceID',
+  '25': 'TabletEventVendor1',
+  '26': 'TabletEventVendor2',
+  '27': 'TabletEventVendor3',
+  '28': 'TabletProximityEventVendorID',
+  '29': 'TabletProximityEventTabletID',
+  '30': 'TabletProximityEventPointerID',
+  '31': 'TabletProximityEventDeviceID',
+  '32': 'TabletProximityEventSystemTabletID',
+  '33': 'TabletProximityEventVendorPointerType',
+  '34': 'TabletProximityEventVendorPointerSerialNumber',
+  '35': 'TabletProximityEventVendorUniqueID',
+  '36': 'TabletProximityEventCapabilityMask',
+  '37': 'TabletProximityEventPointerType',
+  '38': 'TabletProximityEventEnterProximity',
+  '39': 'EventTargetProcessSerialNumber',
+  '40': 'EventTargetUnixProcessID',
+  '41': 'EventSourceUnixProcessID',
+  '42': 'EventSourceUserData',
+  '43': 'EventSourceUserID',
+  '44': 'EventSourceGroupID',
+  '45': 'EventSourceStateID',
+  '88': 'ScrollWheelEventIsContinuous',
+  '91': 'MouseEventWindowUnderMousePointer',
+  '92': 'MouseEventWindowUnderMousePointerThatCanHandleThisEvent',
+  '170': 'EventUnacceleratedPointerMovementX',
+  '171': 'EventUnacceleratedPointerMovementY'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventFlags'] = (globalThis as any)['CGEventTypes']['CGEventFlags'] || {};
@@ -39809,40 +40729,62 @@ let global = globalThis as any;
   Help: 4194304,
   SecondaryFn: 8388608,
   NumericPad: 2097152,
-  NonCoalesced: 256
+  NonCoalesced: 256,
+  '65536': 'AlphaShift',
+  '131072': 'Shift',
+  '262144': 'Control',
+  '524288': 'Alternate',
+  '1048576': 'Command',
+  '4194304': 'Help',
+  '8388608': 'SecondaryFn',
+  '2097152': 'NumericPad',
+  '256': 'NonCoalesced'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventMouseSubtype'] = (globalThis as any)['CGEventTypes']['CGEventMouseSubtype'] || {};
 (globalThis as any)['CGEventTypes']['CGEventMouseSubtype'] = {
   Default: 0,
   TabletPoint: 1,
-  TabletProximity: 2
+  TabletProximity: 2,
+  '0': 'Default',
+  '1': 'TabletPoint',
+  '2': 'TabletProximity'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventSourceStateID'] = (globalThis as any)['CGEventTypes']['CGEventSourceStateID'] || {};
 (globalThis as any)['CGEventTypes']['CGEventSourceStateID'] = {
   Private: -1,
   CombinedSessionState: 0,
-  HIDSystemState: 1
+  HIDSystemState: 1,
+  '-1': 'Private',
+  '0': 'CombinedSessionState',
+  '1': 'HIDSystemState'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventTapLocation'] = (globalThis as any)['CGEventTypes']['CGEventTapLocation'] || {};
 (globalThis as any)['CGEventTypes']['CGEventTapLocation'] = {
   HIDEventTap: 0,
   SessionEventTap: 1,
-  AnnotatedSessionEventTap: 2
+  AnnotatedSessionEventTap: 2,
+  '0': 'HIDEventTap',
+  '1': 'SessionEventTap',
+  '2': 'AnnotatedSessionEventTap'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventTapOptions'] = (globalThis as any)['CGEventTypes']['CGEventTapOptions'] || {};
 (globalThis as any)['CGEventTypes']['CGEventTapOptions'] = {
   Default: 0,
-  ListenOnly: 1
+  ListenOnly: 1,
+  '0': 'Default',
+  '1': 'ListenOnly'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventTapPlacement'] = (globalThis as any)['CGEventTypes']['CGEventTapPlacement'] || {};
 (globalThis as any)['CGEventTypes']['CGEventTapPlacement'] = {
   HeadInsertEventTap: 0,
-  TailAppendEventTap: 1
+  TailAppendEventTap: 1,
+  '0': 'HeadInsertEventTap',
+  '1': 'TailAppendEventTap'
 };
 
 (globalThis as any)['CGEventTypes']['CGEventType'] = (globalThis as any)['CGEventTypes']['CGEventType'] || {};
@@ -39865,7 +40807,26 @@ let global = globalThis as any;
   OtherMouseUp: 26,
   OtherMouseDragged: 27,
   TapDisabledByTimeout: 4294967294,
-  TapDisabledByUserInput: 4294967295
+  TapDisabledByUserInput: 4294967295,
+  '0': 'Null',
+  '1': 'LeftMouseDown',
+  '2': 'LeftMouseUp',
+  '3': 'RightMouseDown',
+  '4': 'RightMouseUp',
+  '5': 'MouseMoved',
+  '6': 'LeftMouseDragged',
+  '7': 'RightMouseDragged',
+  '10': 'KeyDown',
+  '11': 'KeyUp',
+  '12': 'FlagsChanged',
+  '22': 'ScrollWheel',
+  '23': 'TabletPointer',
+  '24': 'TabletProximity',
+  '25': 'OtherMouseDown',
+  '26': 'OtherMouseUp',
+  '27': 'OtherMouseDragged',
+  '4294967294': 'TapDisabledByTimeout',
+  '4294967295': 'TapDisabledByUserInput'
 };
 
 (globalThis as any)['CGEventTypes']['CGGesturePhase'] = (globalThis as any)['CGEventTypes']['CGGesturePhase'] || {};
@@ -39875,7 +40836,13 @@ let global = globalThis as any;
   Changed: 2,
   Ended: 4,
   Cancelled: 8,
-  MayBegin: 128
+  MayBegin: 128,
+  '0': 'None',
+  '1': 'Began',
+  '2': 'Changed',
+  '4': 'Ended',
+  '8': 'Cancelled',
+  '128': 'MayBegin'
 };
 
 (globalThis as any)['CGEventTypes']['CGMomentumScrollPhase'] = (globalThis as any)['CGEventTypes']['CGMomentumScrollPhase'] || {};
@@ -39883,20 +40850,29 @@ let global = globalThis as any;
   None: 0,
   Begin: 1,
   Continue: 2,
-  End: 3
+  End: 3,
+  '0': 'None',
+  '1': 'Begin',
+  '2': 'Continue',
+  '3': 'End'
 };
 
 (globalThis as any)['CGEventTypes']['CGMouseButton'] = (globalThis as any)['CGEventTypes']['CGMouseButton'] || {};
 (globalThis as any)['CGEventTypes']['CGMouseButton'] = {
   Left: 0,
   Right: 1,
-  Center: 2
+  Center: 2,
+  '0': 'Left',
+  '1': 'Right',
+  '2': 'Center'
 };
 
 (globalThis as any)['CGEventTypes']['CGScrollEventUnit'] = (globalThis as any)['CGEventTypes']['CGScrollEventUnit'] || {};
 (globalThis as any)['CGEventTypes']['CGScrollEventUnit'] = {
   Pixel: 0,
-  Line: 1
+  Line: 1,
+  '0': 'Pixel',
+  '1': 'Line'
 };
 
 (globalThis as any)['CGEventTypes']['CGScrollPhase'] = (globalThis as any)['CGEventTypes']['CGScrollPhase'] || {};
@@ -39905,7 +40881,12 @@ let global = globalThis as any;
   Changed: 2,
   Ended: 4,
   Cancelled: 8,
-  MayBegin: 128
+  MayBegin: 128,
+  '1': 'Began',
+  '2': 'Changed',
+  '4': 'Ended',
+  '8': 'Cancelled',
+  '128': 'MayBegin'
 };
 
 
@@ -39914,13 +40895,18 @@ let global = globalThis as any;
 (globalThis as any)['CGFont']['CGFontPostScriptFormat'] = {
   e1: 1,
   e3: 3,
-  e42: 42
+  e42: 42,
+  '1': 'e1',
+  '3': 'e3',
+  '42': 'e42'
 };
 
 (globalThis as any)['CGFont']['CGGlyphDeprecatedEnum'] = (globalThis as any)['CGFont']['CGGlyphDeprecatedEnum'] || {};
 (globalThis as any)['CGFont']['CGGlyphDeprecatedEnum'] = {
   in: 0,
-  ax: 1
+  ax: 1,
+  '0': 'in',
+  '1': 'ax'
 };
 
 
@@ -39930,7 +40916,11 @@ let global = globalThis as any;
   inXEdge: 0,
   inYEdge: 1,
   axXEdge: 2,
-  axYEdge: 3
+  axYEdge: 3,
+  '0': 'inXEdge',
+  '1': 'inYEdge',
+  '2': 'axXEdge',
+  '3': 'axYEdge'
 };
 
 
@@ -39938,7 +40928,9 @@ let global = globalThis as any;
 (globalThis as any)['CGGradient']['CGGradientDrawingOptions'] = (globalThis as any)['CGGradient']['CGGradientDrawingOptions'] || {};
 (globalThis as any)['CGGradient']['CGGradientDrawingOptions'] = {
   BeforeStartLocation: 1,
-  AfterEndLocation: 2
+  AfterEndLocation: 2,
+  '1': 'BeforeStartLocation',
+  '2': 'AfterEndLocation'
 };
 
 
@@ -39953,7 +40945,16 @@ let global = globalThis as any;
   ByteOrder16Little: 4096,
   ByteOrder32Little: 8192,
   ByteOrder16Big: 12288,
-  ByteOrder32Big: 16384
+  ByteOrder32Big: 16384,
+  '31': 'AlphaInfoMask',
+  '3840': 'FloatInfoMask',
+  '256': 'FloatComponents',
+  '28672': 'ByteOrderMask',
+  '0': 'ByteOrderDefault',
+  '4096': 'ByteOrder16Little',
+  '8192': 'ByteOrder32Little',
+  '12288': 'ByteOrder16Big',
+  '16384': 'ByteOrder32Big'
 };
 
 (globalThis as any)['CGImage']['CGImageAlphaInfo'] = (globalThis as any)['CGImage']['CGImageAlphaInfo'] || {};
@@ -39965,7 +40966,15 @@ let global = globalThis as any;
   First: 4,
   NoneSkipLast: 5,
   NoneSkipFirst: 6,
-  Only: 7
+  Only: 7,
+  '0': 'None',
+  '1': 'PremultipliedLast',
+  '2': 'PremultipliedFirst',
+  '3': 'Last',
+  '4': 'First',
+  '5': 'NoneSkipLast',
+  '6': 'NoneSkipFirst',
+  '7': 'Only'
 };
 
 (globalThis as any)['CGImage']['CGImageByteOrderInfo'] = (globalThis as any)['CGImage']['CGImageByteOrderInfo'] || {};
@@ -39975,7 +40984,13 @@ let global = globalThis as any;
   r16Little: 4096,
   r32Little: 8192,
   r16Big: 12288,
-  r32Big: 16384
+  r32Big: 16384,
+  '28672': 'rMask',
+  '0': 'rDefault',
+  '4096': 'r16Little',
+  '8192': 'r32Little',
+  '12288': 'r16Big',
+  '16384': 'r32Big'
 };
 
 (globalThis as any)['CGImage']['CGImagePixelFormatInfo'] = (globalThis as any)['CGImage']['CGImagePixelFormatInfo'] || {};
@@ -39985,7 +41000,13 @@ let global = globalThis as any;
   RGB555: 65536,
   RGB565: 131072,
   RGB101010: 196608,
-  RGBCIF10: 262144
+  RGBCIF10: 262144,
+  '983040': 'Mask',
+  '0': 'Packed',
+  '65536': 'RGB555',
+  '131072': 'RGB565',
+  '196608': 'RGB101010',
+  '262144': 'RGBCIF10'
 };
 
 
@@ -40040,7 +41061,56 @@ let global = globalThis as any;
   WarichuPunctiation: 606,
   Figure: 700,
   Formula: 701,
-  Form: 702
+  Form: 702,
+  '100': 'Document',
+  '101': 'Part',
+  '102': 'Art',
+  '103': 'Section',
+  '104': 'Div',
+  '105': 'BlockQuote',
+  '106': 'Caption',
+  '107': 'TOC',
+  '108': 'TOCI',
+  '109': 'Index',
+  '110': 'NonStructure',
+  '111': 'Private',
+  '200': 'Paragraph',
+  '201': 'Header',
+  '202': 'Header1',
+  '203': 'Header2',
+  '204': 'Header3',
+  '205': 'Header4',
+  '206': 'Header5',
+  '207': 'Header6',
+  '300': 'List',
+  '301': 'ListItem',
+  '302': 'Label',
+  '303': 'ListBody',
+  '400': 'Table',
+  '401': 'TableRow',
+  '402': 'TableHeaderCell',
+  '403': 'TableDataCell',
+  '404': 'TableHeader',
+  '405': 'TableBody',
+  '406': 'TableFooter',
+  '500': 'Span',
+  '501': 'Quote',
+  '502': 'Note',
+  '503': 'Reference',
+  '504': 'Bibliography',
+  '505': 'Code',
+  '506': 'Link',
+  '507': 'Annotation',
+  '600': 'Ruby',
+  '601': 'RubyBaseText',
+  '602': 'RubyAnnotationText',
+  '603': 'RubyPunctuation',
+  '604': 'Warichu',
+  '605': 'WarichuText',
+  '606': 'WarichuPunctiation',
+  '700': 'Figure',
+  '701': 'Formula',
+  '702': 'Form'
 };
 
 
@@ -40054,7 +41124,15 @@ let global = globalThis as any;
   ContentCopying: 16,
   ContentAccessibility: 32,
   Commenting: 64,
-  FormFieldEntry: 128
+  FormFieldEntry: 128,
+  '1': 'LowQualityPrinting',
+  '2': 'HighQualityPrinting',
+  '4': 'DocumentChanges',
+  '8': 'DocumentAssembly',
+  '16': 'ContentCopying',
+  '32': 'ContentAccessibility',
+  '64': 'Commenting',
+  '128': 'FormFieldEntry'
 };
 
 
@@ -40069,7 +41147,16 @@ let global = globalThis as any;
   String: 6,
   Array: 7,
   Dictionary: 8,
-  Stream: 9
+  Stream: 9,
+  '1': 'Null',
+  '2': 'Boolean',
+  '3': 'Integer',
+  '4': 'Real',
+  '5': 'Name',
+  '6': 'String',
+  '7': 'Array',
+  '8': 'Dictionary',
+  '9': 'Stream'
 };
 
 
@@ -40080,7 +41167,12 @@ let global = globalThis as any;
   CropBox: 1,
   BleedBox: 2,
   TrimBox: 3,
-  ArtBox: 4
+  ArtBox: 4,
+  '0': 'MediaBox',
+  '1': 'CropBox',
+  '2': 'BleedBox',
+  '3': 'TrimBox',
+  '4': 'ArtBox'
 };
 
 
@@ -40089,7 +41181,10 @@ let global = globalThis as any;
 (globalThis as any)['CGPDFStream']['CGPDFDataFormat'] = {
   Raw: 0,
   JPEGEncoded: 1,
-  JPEG2000: 2
+  JPEG2000: 2,
+  '0': 'Raw',
+  '1': 'JPEGEncoded',
+  '2': 'JPEG2000'
 };
 
 
@@ -40098,14 +41193,20 @@ let global = globalThis as any;
 (globalThis as any)['CGPath']['CGLineCap'] = {
   Butt: 0,
   Round: 1,
-  Square: 2
+  Square: 2,
+  '0': 'Butt',
+  '1': 'Round',
+  '2': 'Square'
 };
 
 (globalThis as any)['CGPath']['CGLineJoin'] = (globalThis as any)['CGPath']['CGLineJoin'] || {};
 (globalThis as any)['CGPath']['CGLineJoin'] = {
   Miter: 0,
   Round: 1,
-  Bevel: 2
+  Bevel: 2,
+  '0': 'Miter',
+  '1': 'Round',
+  '2': 'Bevel'
 };
 
 (globalThis as any)['CGPath']['CGPathElementType'] = (globalThis as any)['CGPath']['CGPathElementType'] || {};
@@ -40114,7 +41215,12 @@ let global = globalThis as any;
   AddLineToPoint: 1,
   AddQuadCurveToPoint: 2,
   AddCurveToPoint: 3,
-  CloseSubpath: 4
+  CloseSubpath: 4,
+  '0': 'MoveToPoint',
+  '1': 'AddLineToPoint',
+  '2': 'AddQuadCurveToPoint',
+  '3': 'AddCurveToPoint',
+  '4': 'CloseSubpath'
 };
 
 
@@ -40123,7 +41229,10 @@ let global = globalThis as any;
 (globalThis as any)['CGPattern']['CGPatternTiling'] = {
   NoDistortion: 0,
   ConstantSpacingMinimalDistortion: 1,
-  ConstantSpacing: 2
+  ConstantSpacing: 2,
+  '0': 'NoDistortion',
+  '1': 'ConstantSpacingMinimalDistortion',
+  '2': 'ConstantSpacing'
 };
 
 
@@ -40132,21 +41241,30 @@ let global = globalThis as any;
 (globalThis as any)['CGRemoteOperation']['CGEventFilterMask'] = {
   LocalMouseEvents: 1,
   LocalKeyboardEvents: 2,
-  SystemDefinedEvents: 4
+  SystemDefinedEvents: 4,
+  '1': 'LocalMouseEvents',
+  '2': 'LocalKeyboardEvents',
+  '4': 'SystemDefinedEvents'
 };
 
 (globalThis as any)['CGRemoteOperation']['CGEventSuppressionState'] = (globalThis as any)['CGRemoteOperation']['CGEventSuppressionState'] || {};
 (globalThis as any)['CGRemoteOperation']['CGEventSuppressionState'] = {
   EventSuppressionStateSuppressionInterval: 0,
   EventSuppressionStateRemoteMouseDrag: 1,
-  NumberOfEventSuppressionStates: 2
+  NumberOfEventSuppressionStates: 2,
+  '0': 'EventSuppressionStateSuppressionInterval',
+  '1': 'EventSuppressionStateRemoteMouseDrag',
+  '2': 'NumberOfEventSuppressionStates'
 };
 
 (globalThis as any)['CGRemoteOperation']['CGScreenUpdateOperation'] = (globalThis as any)['CGRemoteOperation']['CGScreenUpdateOperation'] || {};
 (globalThis as any)['CGRemoteOperation']['CGScreenUpdateOperation'] = {
   Refresh: 0,
   Move: 1,
-  ReducedDirtyRectangleCount: 2147483648
+  ReducedDirtyRectangleCount: 2147483648,
+  '0': 'Refresh',
+  '1': 'Move',
+  '2147483648': 'ReducedDirtyRectangleCount'
 };
 
 
@@ -40155,7 +41273,10 @@ let global = globalThis as any;
 (globalThis as any)['CGWindow']['CGWindowBackingType'] = {
   Retained: 0,
   Nonretained: 1,
-  Buffered: 2
+  Buffered: 2,
+  '0': 'Retained',
+  '1': 'Nonretained',
+  '2': 'Buffered'
 };
 
 (globalThis as any)['CGWindow']['CGWindowImageOption'] = (globalThis as any)['CGWindow']['CGWindowImageOption'] || {};
@@ -40165,7 +41286,13 @@ let global = globalThis as any;
   ShouldBeOpaque: 2,
   OnlyShadows: 4,
   BestResolution: 8,
-  NominalResolution: 16
+  NominalResolution: 16,
+  '0': 'Default',
+  '1': 'BoundsIgnoreFraming',
+  '2': 'ShouldBeOpaque',
+  '4': 'OnlyShadows',
+  '8': 'BestResolution',
+  '16': 'NominalResolution'
 };
 
 (globalThis as any)['CGWindow']['CGWindowListOption'] = (globalThis as any)['CGWindow']['CGWindowListOption'] || {};
@@ -40175,14 +41302,23 @@ let global = globalThis as any;
   OptionOnScreenAboveWindow: 2,
   OptionOnScreenBelowWindow: 4,
   OptionIncludingWindow: 8,
-  ExcludeDesktopElements: 16
+  ExcludeDesktopElements: 16,
+  '0': 'OptionAll',
+  '1': 'OptionOnScreenOnly',
+  '2': 'OptionOnScreenAboveWindow',
+  '4': 'OptionOnScreenBelowWindow',
+  '8': 'OptionIncludingWindow',
+  '16': 'ExcludeDesktopElements'
 };
 
 (globalThis as any)['CGWindow']['CGWindowSharingType'] = (globalThis as any)['CGWindow']['CGWindowSharingType'] || {};
 (globalThis as any)['CGWindow']['CGWindowSharingType'] = {
   None: 0,
   ReadOnly: 1,
-  ReadWrite: 2
+  ReadWrite: 2,
+  '0': 'None',
+  '1': 'ReadOnly',
+  '2': 'ReadWrite'
 };
 
 
@@ -40210,7 +41346,29 @@ let global = globalThis as any;
   DesktopIconWindowLevelKey: 18,
   CursorWindowLevelKey: 19,
   AssistiveTechHighWindowLevelKey: 20,
-  NumberOfWindowLevelKeys: 21
+  NumberOfWindowLevelKeys: 21,
+  '0': 'BaseWindowLevelKey',
+  '1': 'MinimumWindowLevelKey',
+  '2': 'DesktopWindowLevelKey',
+  '3': 'BackstopMenuLevelKey',
+  '4': 'NormalWindowLevelKey',
+  '5': 'FloatingWindowLevelKey',
+  '6': 'TornOffMenuWindowLevelKey',
+  '7': 'DockWindowLevelKey',
+  '8': 'MainMenuWindowLevelKey',
+  '9': 'StatusWindowLevelKey',
+  '10': 'ModalPanelWindowLevelKey',
+  '11': 'PopUpMenuWindowLevelKey',
+  '12': 'DraggingWindowLevelKey',
+  '13': 'ScreenSaverWindowLevelKey',
+  '14': 'MaximumWindowLevelKey',
+  '15': 'OverlayWindowLevelKey',
+  '16': 'HelpWindowLevelKey',
+  '17': 'UtilityWindowLevelKey',
+  '18': 'DesktopIconWindowLevelKey',
+  '19': 'CursorWindowLevelKey',
+  '20': 'AssistiveTechHighWindowLevelKey',
+  '21': 'NumberOfWindowLevelKeys'
 };
 
 
@@ -40218,7 +41376,9 @@ let global = globalThis as any;
 (globalThis as any)['CHHapticEngine']['FinishedAction'] = (globalThis as any)['CHHapticEngine']['FinishedAction'] || {};
 (globalThis as any)['CHHapticEngine']['FinishedAction'] = {
   StopEngine: 1,
-  LeaveEngineRunning: 2
+  LeaveEngineRunning: 2,
+  '1': 'StopEngine',
+  '2': 'LeaveEngineRunning'
 };
 
 (globalThis as any)['CHHapticEngine']['StoppedReason'] = (globalThis as any)['CHHapticEngine']['StoppedReason'] || {};
@@ -40227,7 +41387,12 @@ let global = globalThis as any;
   ApplicationSuspended: 2,
   IdleTimeout: 3,
   NotifyWhenFinished: 4,
-  SystemError: -1
+  SystemError: -1,
+  '1': 'AudioSessionInterrupt',
+  '2': 'ApplicationSuspended',
+  '3': 'IdleTimeout',
+  '4': 'NotifyWhenFinished',
+  '-1': 'SystemError'
 };
 
 
@@ -40254,7 +41419,28 @@ let global = globalThis as any;
   BadParameterEntry: -4831,
   InvalidTime: -4840,
   UnknownError: -4898,
-  MemoryError: -4899
+  MemoryError: -4899,
+  '-4805': 'EngineNotRunning',
+  '-4806': 'OperationNotPermitted',
+  '-4808': 'EngineStartTimeout',
+  '-4809': 'NotSupported',
+  '-4810': 'ServerInitFailed',
+  '-4811': 'ServerInterrupted',
+  '-4812': 'InvalidPatternPlayer',
+  '-4813': 'InvalidPatternData',
+  '-4814': 'InvalidPatternDictionary',
+  '-4815': 'InvalidAudioSession',
+  '-4820': 'InvalidParameterType',
+  '-4821': 'InvalidEventType',
+  '-4822': 'InvalidEventTime',
+  '-4823': 'InvalidEventDuration',
+  '-4824': 'InvalidAudioResource',
+  '-4825': 'ResourceNotAvailable',
+  '-4830': 'BadEventEntry',
+  '-4831': 'BadParameterEntry',
+  '-4840': 'InvalidTime',
+  '-4898': 'UnknownError',
+  '-4899': 'MemoryError'
 };
 
 
@@ -40270,7 +41456,13 @@ let global = globalThis as any;
   n080: 80,
   n100: 100,
   n140: 140,
-  n200: 200
+  n200: 200,
+  '0': 'n000',
+  '50': 'n050',
+  '80': 'n080',
+  '100': 'n100',
+  '140': 'n140',
+  '200': 'n200'
 };
 
 (globalThis as any)['CIBarcodeDescriptor']['CIQRCodeErrorCorrectionLevel'] = (globalThis as any)['CIBarcodeDescriptor']['CIQRCodeErrorCorrectionLevel'] || {};
@@ -40278,7 +41470,11 @@ let global = globalThis as any;
   L: 76,
   M: 77,
   Q: 81,
-  H: 72
+  H: 72,
+  '76': 'L',
+  '77': 'M',
+  '81': 'Q',
+  '72': 'H'
 };
 
 
@@ -40309,7 +41505,10 @@ let global = globalThis as any;
 (globalThis as any)['CIRenderDestination']['CIRenderDestinationAlphaMode'] = {
   None: 0,
   Premultiplied: 1,
-  Unpremultiplied: 2
+  Unpremultiplied: 2,
+  '0': 'None',
+  '1': 'Premultiplied',
+  '2': 'Unpremultiplied'
 };
 
 
@@ -40327,7 +41526,11 @@ let global = globalThis as any;
   CouldNotDetermine: 0,
   Available: 1,
   Restricted: 2,
-  NoAccount: 3
+  NoAccount: 3,
+  '0': 'CouldNotDetermine',
+  '1': 'Available',
+  '2': 'Restricted',
+  '3': 'NoAccount'
 };
 
 (globalThis as any)['CKContainer']['CKContainer_Application_PermissionStatus'] = (globalThis as any)['CKContainer']['CKContainer_Application_PermissionStatus'] || {};
@@ -40335,12 +41538,17 @@ let global = globalThis as any;
   InitialState: 0,
   CouldNotComplete: 1,
   Denied: 2,
-  Granted: 3
+  Granted: 3,
+  '0': 'InitialState',
+  '1': 'CouldNotComplete',
+  '2': 'Denied',
+  '3': 'Granted'
 };
 
 (globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] = (globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] || {};
 (globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] = {
-  CKApplicationPermissionUserDiscoverability: 1
+  CKApplicationPermissionUserDiscoverability: 1,
+  '1': 'CKApplicationPermissionUserDiscoverability'
 };
 
 
@@ -40349,7 +41557,10 @@ let global = globalThis as any;
 (globalThis as any)['CKDatabase']['Scope'] = {
   Public: 1,
   Private: 2,
-  Shared: 3
+  Shared: 3,
+  '1': 'Public',
+  '2': 'Private',
+  '3': 'Shared'
 };
 
 
@@ -40396,7 +41607,42 @@ let global = globalThis as any;
   ManagedAccountRestricted: 32,
   ParticipantMayNeedVerification: 33,
   ServerResponseLost: 34,
-  AssetNotAvailable: 35
+  AssetNotAvailable: 35,
+  '1': 'InternalError',
+  '2': 'PartialFailure',
+  '3': 'NetworkUnavailable',
+  '4': 'NetworkFailure',
+  '5': 'BadContainer',
+  '6': 'ServiceUnavailable',
+  '7': 'RequestRateLimited',
+  '8': 'MissingEntitlement',
+  '9': 'NotAuthenticated',
+  '10': 'PermissionFailure',
+  '11': 'UnknownItem',
+  '12': 'InvalidArguments',
+  '13': 'ResultsTruncated',
+  '14': 'ServerRecordChanged',
+  '15': 'ServerRejectedRequest',
+  '16': 'AssetFileNotFound',
+  '17': 'AssetFileModified',
+  '18': 'IncompatibleVersion',
+  '19': 'ConstraintViolation',
+  '20': 'OperationCancelled',
+  '21': 'ChangeTokenExpired',
+  '22': 'BatchRequestFailed',
+  '23': 'ZoneBusy',
+  '24': 'BadDatabase',
+  '25': 'QuotaExceeded',
+  '26': 'ZoneNotFound',
+  '27': 'LimitExceeded',
+  '28': 'UserDeletedZone',
+  '29': 'TooManyParticipants',
+  '30': 'AlreadyShared',
+  '31': 'ReferenceViolation',
+  '32': 'ManagedAccountRestricted',
+  '33': 'ParticipantMayNeedVerification',
+  '34': 'ServerResponseLost',
+  '35': 'AssetNotAvailable'
 };
 
 
@@ -40425,7 +41671,10 @@ let global = globalThis as any;
 (globalThis as any)['CKModifyRecordsOperation']['RecordSavePolicy'] = {
   IfServerRecordUnchanged: 0,
   ChangedKeys: 1,
-  AllKeys: 2
+  AllKeys: 2,
+  '0': 'IfServerRecordUnchanged',
+  '1': 'ChangedKeys',
+  '2': 'AllKeys'
 };
 
 
@@ -40437,7 +41686,10 @@ let global = globalThis as any;
 (globalThis as any)['CKNotification']['CKQueryNotification']['Reason'] = {
   Created: 1,
   Updated: 2,
-  Deleted: 3
+  Deleted: 3,
+  '1': 'Created',
+  '2': 'Updated',
+  '3': 'Deleted'
 };
 
 (globalThis as any)['CKNotification']['NotificationType'] = (globalThis as any)['CKNotification']['NotificationType'] || {};
@@ -40445,7 +41697,11 @@ let global = globalThis as any;
   Query: 1,
   RecordZone: 2,
   ReadNotification: 3,
-  Database: 4
+  Database: 4,
+  '1': 'Query',
+  '2': 'RecordZone',
+  '3': 'ReadNotification',
+  '4': 'Database'
 };
 
 
@@ -40461,7 +41717,15 @@ let global = globalThis as any;
   HundredsOfMegabytes: 4,
   Gigabytes: 5,
   TensOfGigabytes: 6,
-  HundredsOfGigabytes: 7
+  HundredsOfGigabytes: 7,
+  '0': 'Unknown',
+  '1': 'Kilobytes',
+  '2': 'Megabytes',
+  '3': 'TensOfMegabytes',
+  '4': 'HundredsOfMegabytes',
+  '5': 'Gigabytes',
+  '6': 'TensOfGigabytes',
+  '7': 'HundredsOfGigabytes'
 };
 
 
@@ -40476,7 +41740,10 @@ let global = globalThis as any;
 (globalThis as any)['CKRecordZone']['Capabilities'] = {
   FetchChanges: 1,
   Atomic: 2,
-  Sharing: 4
+  Sharing: 4,
+  '1': 'FetchChanges',
+  '2': 'Atomic',
+  '4': 'Sharing'
 };
 
 
@@ -40489,14 +41756,21 @@ let global = globalThis as any;
   RecordCreation: 1,
   RecordUpdate: 2,
   RecordDeletion: 4,
-  ce: 8
+  ce: 8,
+  '1': 'RecordCreation',
+  '2': 'RecordUpdate',
+  '4': 'RecordDeletion',
+  '8': 'ce'
 };
 
 (globalThis as any)['CKSubscription']['SubscriptionType'] = (globalThis as any)['CKSubscription']['SubscriptionType'] || {};
 (globalThis as any)['CKSubscription']['SubscriptionType'] = {
   Query: 1,
   RecordZone: 2,
-  Database: 3
+  Database: 3,
+  '1': 'Query',
+  '2': 'RecordZone',
+  '3': 'Database'
 };
 
 
@@ -40528,7 +41802,25 @@ let global = globalThis as any;
   DeferredDistanceFiltered: 14,
   DeferredCanceled: 15,
   RangingUnavailable: 16,
-  RangingFailure: 17
+  RangingFailure: 17,
+  '0': 'LocationUnknown',
+  '1': 'Denied',
+  '2': 'Network',
+  '3': 'HeadingFailure',
+  '4': 'RegionMonitoringDenied',
+  '5': 'RegionMonitoringFailure',
+  '6': 'RegionMonitoringSetupDelayed',
+  '7': 'RegionMonitoringResponseDelayed',
+  '8': 'GeocodeFoundNoResult',
+  '9': 'GeocodeFoundPartialResult',
+  '10': 'GeocodeCanceled',
+  '11': 'DeferredFailed',
+  '12': 'DeferredNotUpdatingLocation',
+  '13': 'DeferredAccuracyTooLow',
+  '14': 'DeferredDistanceFiltered',
+  '15': 'DeferredCanceled',
+  '16': 'RangingUnavailable',
+  '17': 'RangingFailure'
 };
 
 
@@ -40545,7 +41837,12 @@ let global = globalThis as any;
   AutomotiveNavigation: 2,
   Fitness: 3,
   OtherNavigation: 4,
-  Airborne: 5
+  Airborne: 5,
+  '1': 'Other',
+  '2': 'AutomotiveNavigation',
+  '3': 'Fitness',
+  '4': 'OtherNavigation',
+  '5': 'Airborne'
 };
 
 (globalThis as any)['CLLocationManager']['CLAuthorizationStatus'] = (globalThis as any)['CLLocationManager']['CLAuthorizationStatus'] || {};
@@ -40555,7 +41852,12 @@ let global = globalThis as any;
   Denied: 2,
   AuthorizedAlways: 3,
   AuthorizedWhenInUse: 4,
-  Authorized: 3
+  Authorized: 3,
+  '0': 'NotDetermined',
+  '1': 'Restricted',
+  '2': 'Denied',
+  '3': 'AuthorizedAlways',
+  '4': 'AuthorizedWhenInUse',
 };
 
 (globalThis as any)['CLLocationManager']['CLDeviceOrientation'] = (globalThis as any)['CLLocationManager']['CLDeviceOrientation'] || {};
@@ -40566,7 +41868,14 @@ let global = globalThis as any;
   LandscapeLeft: 3,
   LandscapeRight: 4,
   FaceUp: 5,
-  FaceDown: 6
+  FaceDown: 6,
+  '0': 'Unknown',
+  '1': 'Portrait',
+  '2': 'PortraitUpsideDown',
+  '3': 'LandscapeLeft',
+  '4': 'LandscapeRight',
+  '5': 'FaceUp',
+  '6': 'FaceDown'
 };
 
 
@@ -40578,14 +41887,21 @@ let global = globalThis as any;
   Unknown: 0,
   Immediate: 1,
   Near: 2,
-  Far: 3
+  Far: 3,
+  '0': 'Unknown',
+  '1': 'Immediate',
+  '2': 'Near',
+  '3': 'Far'
 };
 
 (globalThis as any)['CLRegion']['CLRegionState'] = (globalThis as any)['CLRegion']['CLRegionState'] || {};
 (globalThis as any)['CLRegion']['CLRegionState'] = {
   Unknown: 0,
   Inside: 1,
-  Outside: 2
+  Outside: 2,
+  '0': 'Unknown',
+  '1': 'Inside',
+  '2': 'Outside'
 };
 
 
@@ -40599,7 +41915,11 @@ let global = globalThis as any;
   ArbitraryZVertical: 1,
   ArbitraryCorrectedZVertical: 2,
   MagneticNorthZVertical: 4,
-  TrueNorthZVertical: 8
+  TrueNorthZVertical: 8,
+  '1': 'ArbitraryZVertical',
+  '2': 'ArbitraryCorrectedZVertical',
+  '4': 'MagneticNorthZVertical',
+  '8': 'TrueNorthZVertical'
 };
 
 
@@ -40609,7 +41929,11 @@ let global = globalThis as any;
   NotDetermined: 0,
   Restricted: 1,
   Denied: 2,
-  Authorized: 3
+  Authorized: 3,
+  '0': 'NotDetermined',
+  '1': 'Restricted',
+  '2': 'Denied',
+  '3': 'Authorized'
 };
 
 
@@ -40619,7 +41943,11 @@ let global = globalThis as any;
   Uncalibrated: -1,
   Low: 0,
   Medium: 1,
-  High: 2
+  High: 2,
+  '-1': 'Uncalibrated',
+  '0': 'Low',
+  '1': 'Medium',
+  '2': 'High'
 };
 
 
@@ -40637,7 +41965,19 @@ let global = globalThis as any;
   InvalidAction: 108,
   NotAvailable: 109,
   NotEntitled: 110,
-  NotAuthorized: 111
+  NotAuthorized: 111,
+  '100': 'NULL',
+  '101': 'DeviceRequiresMovement',
+  '102': 'TrueNorthNotAvailable',
+  '103': 'Unknown',
+  '104': 'MotionActivityNotAvailable',
+  '105': 'MotionActivityNotAuthorized',
+  '106': 'MotionActivityNotEntitled',
+  '107': 'InvalidParameter',
+  '108': 'InvalidAction',
+  '109': 'NotAvailable',
+  '110': 'NotEntitled',
+  '111': 'NotAuthorized'
 };
 
 
@@ -40648,7 +41988,10 @@ let global = globalThis as any;
 (globalThis as any)['CMMotionActivity']['CMMotionActivityConfidence'] = {
   Low: 0,
   Medium: 1,
-  High: 2
+  High: 2,
+  '0': 'Low',
+  '1': 'Medium',
+  '2': 'High'
 };
 
 
@@ -40662,7 +42005,9 @@ let global = globalThis as any;
 (globalThis as any)['CMPedometer']['CMPedometerEventType'] = (globalThis as any)['CMPedometer']['CMPedometerEventType'] || {};
 (globalThis as any)['CMPedometer']['CMPedometerEventType'] = {
   Pause: 0,
-  Resume: 1
+  Resume: 1,
+  '0': 'Pause',
+  '1': 'Resume'
 };
 
 
@@ -40678,7 +42023,13 @@ let global = globalThis as any;
   _PositiveInfinity: 4,
   _NegativeInfinity: 8,
   _Indefinite: 16,
-  _ImpliedValueFlagsMask: 28
+  _ImpliedValueFlagsMask: 28,
+  '1': '_Valid',
+  '2': '_HasBeenRounded',
+  '4': '_PositiveInfinity',
+  '8': '_NegativeInfinity',
+  '16': '_Indefinite',
+  '28': '_ImpliedValueFlagsMask'
 };
 
 (globalThis as any)['CMTime']['CMTimeRoundingMethod'] = (globalThis as any)['CMTime']['CMTimeRoundingMethod'] || {};
@@ -40689,7 +42040,13 @@ let global = globalThis as any;
   _QuickTime: 4,
   _RoundTowardPositiveInfinity: 5,
   _RoundTowardNegativeInfinity: 6,
-  _Default: 1
+  _Default: 1,
+  '1': '_RoundHalfAwayFromZero',
+  '2': '_RoundTowardZero',
+  '3': '_RoundAwayFromZero',
+  '4': '_QuickTime',
+  '5': '_RoundTowardPositiveInfinity',
+  '6': '_RoundTowardNegativeInfinity',
 };
 
 
@@ -40701,7 +42058,11 @@ let global = globalThis as any;
   Unknown: -2000,
   IndexUnreachable: -2001,
   InvalidQuery: -2002,
-  Cancelled: -2003
+  Cancelled: -2003,
+  '-2000': 'Unknown',
+  '-2001': 'IndexUnreachable',
+  '-2002': 'InvalidQuery',
+  '-2003': 'Cancelled'
 };
 
 
@@ -40714,7 +42075,14 @@ let global = globalThis as any;
   InvalidClientStateError: -1002,
   RemoteConnectionError: -1003,
   QuotaExceeded: -1004,
-  IndexingUnsupported: -1005
+  IndexingUnsupported: -1005,
+  '-1': 'UnknownError',
+  '-1000': 'IndexUnavailableError',
+  '-1001': 'InvalidItemError',
+  '-1002': 'InvalidClientStateError',
+  '-1003': 'RemoteConnectionError',
+  '-1004': 'QuotaExceeded',
+  '-1005': 'IndexingUnsupported'
 };
 
 
@@ -40727,13 +42095,18 @@ let global = globalThis as any;
 (globalThis as any)['CTFont']['CTFontOptions'] = {
   Default: 0,
   PreventAutoActivation: 1,
-  PreferSystemFont: 4
+  PreferSystemFont: 4,
+  '0': 'Default',
+  '1': 'PreventAutoActivation',
+  '4': 'PreferSystemFont'
 };
 
 (globalThis as any)['CTFont']['CTFontTableOptions'] = (globalThis as any)['CTFont']['CTFontTableOptions'] || {};
 (globalThis as any)['CTFont']['CTFontTableOptions'] = {
   NoOptions: 0,
-  ExcludeSynthetic: 1
+  ExcludeSynthetic: 1,
+  '0': 'NoOptions',
+  '1': 'ExcludeSynthetic'
 };
 
 (globalThis as any)['CTFont']['CTFontUIFontType'] = (globalThis as any)['CTFont']['CTFontUIFontType'] || {};
@@ -40793,7 +42166,35 @@ let global = globalThis as any;
   MessageFontType: 23,
   PaletteFontType: 24,
   ToolTipFontType: 25,
-  ControlContentFontType: 26
+  ControlContentFontType: 26,
+  '4294967295': 'UIFontNone',
+  '0': 'UIFontUser',
+  '1': 'UIFontUserFixedPitch',
+  '2': 'UIFontSystem',
+  '3': 'UIFontEmphasizedSystem',
+  '4': 'UIFontSmallSystem',
+  '5': 'UIFontSmallEmphasizedSystem',
+  '6': 'UIFontMiniSystem',
+  '7': 'UIFontMiniEmphasizedSystem',
+  '8': 'UIFontViews',
+  '9': 'UIFontApplication',
+  '10': 'UIFontLabel',
+  '11': 'UIFontMenuTitle',
+  '12': 'UIFontMenuItem',
+  '13': 'UIFontMenuItemMark',
+  '14': 'UIFontMenuItemCmdKey',
+  '15': 'UIFontWindowTitle',
+  '16': 'UIFontPushButton',
+  '17': 'UIFontUtilityWindowTitle',
+  '18': 'UIFontAlertHeader',
+  '19': 'UIFontSystemDetail',
+  '20': 'UIFontEmphasizedSystemDetail',
+  '21': 'UIFontToolbar',
+  '22': 'UIFontSmallToolbar',
+  '23': 'UIFontMessage',
+  '24': 'UIFontPalette',
+  '25': 'UIFontToolTip',
+  '26': 'UIFontControlContent',
 };
 
 
@@ -40802,7 +42203,10 @@ let global = globalThis as any;
 (globalThis as any)['CTFontCollection']['CTFontCollectionCopyOptions'] = {
   DefaultOptions: 0,
   Unique: 1,
-  StandardSort: 2
+  StandardSort: 2,
+  '0': 'DefaultOptions',
+  '1': 'Unique',
+  '2': 'StandardSort'
 };
 
 
@@ -40817,7 +42221,16 @@ let global = globalThis as any;
   Downloading: 5,
   DidFinishDownloading: 6,
   DidMatch: 7,
-  DidFailWithError: 8
+  DidFailWithError: 8,
+  '0': 'DidBegin',
+  '1': 'DidFinish',
+  '2': 'WillBeginQuerying',
+  '3': 'Stalled',
+  '4': 'WillBeginDownloading',
+  '5': 'Downloading',
+  '6': 'DidFinishDownloading',
+  '7': 'DidMatch',
+  '8': 'DidFailWithError'
 };
 
 (globalThis as any)['CTFontDescriptor']['CTFontFormat'] = (globalThis as any)['CTFontDescriptor']['CTFontFormat'] || {};
@@ -40827,7 +42240,13 @@ let global = globalThis as any;
   OpenTypeTrueType: 2,
   TrueType: 3,
   PostScript: 4,
-  Bitmap: 5
+  Bitmap: 5,
+  '0': 'Unrecognized',
+  '1': 'OpenTypePostScript',
+  '2': 'OpenTypeTrueType',
+  '3': 'TrueType',
+  '4': 'PostScript',
+  '5': 'Bitmap'
 };
 
 (globalThis as any)['CTFontDescriptor']['CTFontOrientation'] = (globalThis as any)['CTFontDescriptor']['CTFontOrientation'] || {};
@@ -40837,7 +42256,10 @@ let global = globalThis as any;
   OrientationVertical: 2,
   DefaultOrientation: 0,
   HorizontalOrientation: 1,
-  VerticalOrientation: 2
+  VerticalOrientation: 2,
+  '0': 'OrientationDefault',
+  '1': 'OrientationHorizontal',
+  '2': 'OrientationVertical',
 };
 
 
@@ -40847,7 +42269,11 @@ let global = globalThis as any;
   Default: 0,
   Disabled: 1,
   Enabled: 2,
-  PromptUser: 3
+  PromptUser: 3,
+  '0': 'Default',
+  '1': 'Disabled',
+  '2': 'Enabled',
+  '3': 'PromptUser'
 };
 
 (globalThis as any)['CTFontManager']['CTFontManagerScope'] = (globalThis as any)['CTFontManager']['CTFontManagerScope'] || {};
@@ -40856,7 +42282,11 @@ let global = globalThis as any;
   Process: 1,
   Persistent: 2,
   Session: 3,
-  User: 2
+  User: 2,
+  '0': 'None',
+  '1': 'Process',
+  '2': 'Persistent',
+  '3': 'Session',
 };
 
 
@@ -40878,7 +42308,23 @@ let global = globalThis as any;
   InsufficientInfo: 303,
   CancelledByUser: 304,
   DuplicatedName: 305,
-  InvalidFilePath: 306
+  InvalidFilePath: 306,
+  '101': 'FileNotFound',
+  '102': 'InsufficientPermissions',
+  '103': 'UnrecognizedFormat',
+  '104': 'InvalidFontData',
+  '105': 'AlreadyRegistered',
+  '106': 'ExceededResourceLimit',
+  '107': 'AssetNotFound',
+  '201': 'NotRegistered',
+  '202': 'InUse',
+  '203': 'SystemRequired',
+  '301': 'RegistrationFailed',
+  '302': 'MissingEntitlement',
+  '303': 'InsufficientInfo',
+  '304': 'CancelledByUser',
+  '305': 'DuplicatedName',
+  '306': 'InvalidFilePath'
 };
 
 
@@ -40906,7 +42352,18 @@ let global = globalThis as any;
   SansSerifClass: 2147483648,
   OrnamentalsClass: 2415919104,
   ScriptsClass: 2684354560,
-  SymbolicClass: 3221225472
+  SymbolicClass: 3221225472,
+  '0': 'ClassUnknown',
+  '268435456': 'ClassOldStyleSerifs',
+  '536870912': 'ClassTransitionalSerifs',
+  '805306368': 'ClassModernSerifs',
+  '1073741824': 'ClassClarendonSerifs',
+  '1342177280': 'ClassSlabSerifs',
+  '1879048192': 'ClassFreeformSerifs',
+  '2147483648': 'ClassSansSerif',
+  '2415919104': 'ClassOrnamentals',
+  '2684354560': 'ClassScripts',
+  '3221225472': 'ClassSymbolic',
 };
 
 (globalThis as any)['CTFontTraits']['CTFontSymbolicTraits'] = (globalThis as any)['CTFontTraits']['CTFontSymbolicTraits'] || {};
@@ -40930,7 +42387,17 @@ let global = globalThis as any;
   UIOptimizedTrait: 4096,
   ColorGlyphsTrait: 8192,
   CompositeTrait: 16384,
-  ClassMaskTrait: 4026531840
+  ClassMaskTrait: 4026531840,
+  '1': 'TraitItalic',
+  '2': 'TraitBold',
+  '32': 'TraitExpanded',
+  '64': 'TraitCondensed',
+  '1024': 'TraitMonoSpace',
+  '2048': 'TraitVertical',
+  '4096': 'TraitUIOptimized',
+  '8192': 'TraitColorGlyphs',
+  '16384': 'TraitComposite',
+  '4026531840': 'TraitClassMask',
 };
 
 
@@ -40938,14 +42405,19 @@ let global = globalThis as any;
 (globalThis as any)['CTFrame']['CTFramePathFillRule'] = (globalThis as any)['CTFrame']['CTFramePathFillRule'] || {};
 (globalThis as any)['CTFrame']['CTFramePathFillRule'] = {
   EvenOdd: 0,
-  WindingNumber: 1
+  WindingNumber: 1,
+  '0': 'EvenOdd',
+  '1': 'WindingNumber'
 };
 
 (globalThis as any)['CTFrame']['CTFrameProgression'] = (globalThis as any)['CTFrame']['CTFrameProgression'] || {};
 (globalThis as any)['CTFrame']['CTFrameProgression'] = {
   TopToBottom: 0,
   RightToLeft: 1,
-  LeftToRight: 2
+  LeftToRight: 2,
+  '0': 'TopToBottom',
+  '1': 'RightToLeft',
+  '2': 'LeftToRight'
 };
 
 
@@ -40963,7 +42435,13 @@ let global = globalThis as any;
   AdobeGB1CharacterCollection: 2,
   AdobeJapan1CharacterCollection: 3,
   AdobeJapan2CharacterCollection: 4,
-  AdobeKorea1CharacterCollection: 5
+  AdobeKorea1CharacterCollection: 5,
+  '0': 'CharacterCollectionIdentityMapping',
+  '1': 'CharacterCollectionAdobeCNS1',
+  '2': 'CharacterCollectionAdobeGB1',
+  '3': 'CharacterCollectionAdobeJapan1',
+  '4': 'CharacterCollectionAdobeJapan2',
+  '5': 'CharacterCollectionAdobeKorea1',
 };
 
 
@@ -40975,14 +42453,23 @@ let global = globalThis as any;
   UseHangingPunctuation: 4,
   UseGlyphPathBounds: 8,
   UseOpticalBounds: 16,
-  IncludeLanguageExtents: 32
+  IncludeLanguageExtents: 32,
+  '1': 'ExcludeTypographicLeading',
+  '2': 'ExcludeTypographicShifts',
+  '4': 'UseHangingPunctuation',
+  '8': 'UseGlyphPathBounds',
+  '16': 'UseOpticalBounds',
+  '32': 'IncludeLanguageExtents'
 };
 
 (globalThis as any)['CTLine']['CTLineTruncationType'] = (globalThis as any)['CTLine']['CTLineTruncationType'] || {};
 (globalThis as any)['CTLine']['CTLineTruncationType'] = {
   Start: 0,
   End: 1,
-  Middle: 2
+  Middle: 2,
+  '0': 'Start',
+  '1': 'End',
+  '2': 'Middle'
 };
 
 
@@ -40994,7 +42481,13 @@ let global = globalThis as any;
   Clipping: 2,
   TruncatingHead: 3,
   TruncatingTail: 4,
-  TruncatingMiddle: 5
+  TruncatingMiddle: 5,
+  '0': 'WordWrapping',
+  '1': 'CharWrapping',
+  '2': 'Clipping',
+  '3': 'TruncatingHead',
+  '4': 'TruncatingTail',
+  '5': 'TruncatingMiddle'
 };
 
 (globalThis as any)['CTParagraphStyle']['CTParagraphStyleSpecifier'] = (globalThis as any)['CTParagraphStyle']['CTParagraphStyleSpecifier'] || {};
@@ -41017,7 +42510,26 @@ let global = globalThis as any;
   MinimumLineSpacing: 15,
   LineSpacingAdjustment: 16,
   LineBoundsOptions: 17,
-  Count: 18
+  Count: 18,
+  '0': 'Alignment',
+  '1': 'FirstLineHeadIndent',
+  '2': 'HeadIndent',
+  '3': 'TailIndent',
+  '4': 'TabStops',
+  '5': 'DefaultTabInterval',
+  '6': 'LineBreakMode',
+  '7': 'LineHeightMultiple',
+  '8': 'MaximumLineHeight',
+  '9': 'MinimumLineHeight',
+  '10': 'LineSpacing',
+  '11': 'ParagraphSpacing',
+  '12': 'ParagraphSpacingBefore',
+  '13': 'BaseWritingDirection',
+  '14': 'MaximumLineSpacing',
+  '15': 'MinimumLineSpacing',
+  '16': 'LineSpacingAdjustment',
+  '17': 'LineBoundsOptions',
+  '18': 'Count'
 };
 
 (globalThis as any)['CTParagraphStyle']['CTTextAlignment'] = (globalThis as any)['CTParagraphStyle']['CTTextAlignment'] || {};
@@ -41031,14 +42543,22 @@ let global = globalThis as any;
   RightTextAlignment: 1,
   CenterTextAlignment: 2,
   JustifiedTextAlignment: 3,
-  NaturalTextAlignment: 4
+  NaturalTextAlignment: 4,
+  '0': 'TextAlignmentLeft',
+  '1': 'TextAlignmentRight',
+  '2': 'TextAlignmentCenter',
+  '3': 'TextAlignmentJustified',
+  '4': 'TextAlignmentNatural',
 };
 
 (globalThis as any)['CTParagraphStyle']['CTWritingDirection'] = (globalThis as any)['CTParagraphStyle']['CTWritingDirection'] || {};
 (globalThis as any)['CTParagraphStyle']['CTWritingDirection'] = {
   Natural: -1,
   LeftToRight: 0,
-  RightToLeft: 1
+  RightToLeft: 1,
+  '-1': 'Natural',
+  '0': 'LeftToRight',
+  '1': 'RightToLeft'
 };
 
 
@@ -41052,7 +42572,15 @@ let global = globalThis as any;
   End: 3,
   DistributeLetter: 4,
   DistributeSpace: 5,
-  LineEdge: 6
+  LineEdge: 6,
+  '255': 'Invalid',
+  '0': 'Auto',
+  '1': 'Start',
+  '2': 'Center',
+  '3': 'End',
+  '4': 'DistributeLetter',
+  '5': 'DistributeSpace',
+  '6': 'LineEdge'
 };
 
 (globalThis as any)['CTRubyAnnotation']['CTRubyOverhang'] = (globalThis as any)['CTRubyAnnotation']['CTRubyOverhang'] || {};
@@ -41061,7 +42589,12 @@ let global = globalThis as any;
   Auto: 0,
   Start: 1,
   End: 2,
-  None: 3
+  None: 3,
+  '255': 'Invalid',
+  '0': 'Auto',
+  '1': 'Start',
+  '2': 'End',
+  '3': 'None'
 };
 
 (globalThis as any)['CTRubyAnnotation']['CTRubyPosition'] = (globalThis as any)['CTRubyAnnotation']['CTRubyPosition'] || {};
@@ -41070,7 +42603,12 @@ let global = globalThis as any;
   After: 1,
   InterCharacter: 2,
   Inline: 3,
-  Count: 4
+  Count: 4,
+  '0': 'Before',
+  '1': 'After',
+  '2': 'InterCharacter',
+  '3': 'Inline',
+  '4': 'Count'
 };
 
 
@@ -41080,7 +42618,11 @@ let global = globalThis as any;
   NoStatus: 0,
   RightToLeft: 1,
   NonMonotonic: 2,
-  HasNonIdentityMatrix: 4
+  HasNonIdentityMatrix: 4,
+  '0': 'NoStatus',
+  '1': 'RightToLeft',
+  '2': 'NonMonotonic',
+  '4': 'HasNonIdentityMatrix'
 };
 
 
@@ -41090,7 +42632,11 @@ let global = globalThis as any;
   None: 0,
   Single: 1,
   Thick: 2,
-  Double: 9
+  Double: 9,
+  '0': 'None',
+  '1': 'Single',
+  '2': 'Thick',
+  '9': 'Double'
 };
 
 (globalThis as any)['CTStringAttributes']['CTUnderlineStyleModifiers'] = (globalThis as any)['CTStringAttributes']['CTUnderlineStyleModifiers'] || {};
@@ -41099,7 +42645,12 @@ let global = globalThis as any;
   Dot: 256,
   Dash: 512,
   DashDot: 768,
-  DashDotDot: 1024
+  DashDotDot: 1024,
+  '0': 'Solid',
+  '256': 'Dot',
+  '512': 'Dash',
+  '768': 'DashDot',
+  '1024': 'DashDotDot'
 };
 
 
@@ -41107,7 +42658,9 @@ let global = globalThis as any;
 (globalThis as any)['CVBase']['CVSMPTETimeFlags'] = (globalThis as any)['CVBase']['CVSMPTETimeFlags'] || {};
 (globalThis as any)['CVBase']['CVSMPTETimeFlags'] = {
   Valid: 1,
-  Running: 2
+  Running: 2,
+  '1': 'Valid',
+  '2': 'Running'
 };
 
 (globalThis as any)['CVBase']['CVSMPTETimeType'] = (globalThis as any)['CVBase']['CVSMPTETimeType'] || {};
@@ -41119,12 +42672,21 @@ let global = globalThis as any;
   e2997: 4,
   e2997Drop: 5,
   e60: 6,
-  e5994: 7
+  e5994: 7,
+  '0': 'e24',
+  '1': 'e25',
+  '2': 'e30Drop',
+  '3': 'e30',
+  '4': 'e2997',
+  '5': 'e2997Drop',
+  '6': 'e60',
+  '7': 'e5994'
 };
 
 (globalThis as any)['CVBase']['CVTimeFlags'] = (globalThis as any)['CVBase']['CVTimeFlags'] || {};
 (globalThis as any)['CVBase']['CVTimeFlags'] = {
-  kCVTimeIsIndefinite: 1
+  kCVTimeIsIndefinite: 1,
+  '1': 'kCVTimeIsIndefinite'
 };
 
 (globalThis as any)['CVBase']['CVTimeStampFlags'] = (globalThis as any)['CVBase']['CVTimeStampFlags'] || {};
@@ -41137,7 +42699,16 @@ let global = globalThis as any;
   TopField: 65536,
   BottomField: 131072,
   VideoHostTimeValid: 3,
-  IsInterlaced: 196608
+  IsInterlaced: 196608,
+  '1': 'VideoTimeValid',
+  '2': 'HostTimeValid',
+  '4': 'SMPTETimeValid',
+  '8': 'VideoRefreshPeriodValid',
+  '16': 'RateScalarValid',
+  '65536': 'TopField',
+  '131072': 'BottomField',
+  '3': 'VideoHostTimeValid',
+  '196608': 'IsInterlaced'
 };
 
 
@@ -41145,21 +42716,25 @@ let global = globalThis as any;
 (globalThis as any)['CVBuffer']['CVAttachmentMode'] = (globalThis as any)['CVBuffer']['CVAttachmentMode'] || {};
 (globalThis as any)['CVBuffer']['CVAttachmentMode'] = {
   dNotPropagate: 0,
-  dPropagate: 1
+  dPropagate: 1,
+  '0': 'dNotPropagate',
+  '1': 'dPropagate'
 };
 
 
 (globalThis as any)['CVPixelBuffer'] = (globalThis as any)['CVPixelBuffer'] || {};
 (globalThis as any)['CVPixelBuffer']['CVPixelBufferLockFlags'] = (globalThis as any)['CVPixelBuffer']['CVPixelBufferLockFlags'] || {};
 (globalThis as any)['CVPixelBuffer']['CVPixelBufferLockFlags'] = {
-  kCVPixelBufferLock_ReadOnly: 1
+  kCVPixelBufferLock_ReadOnly: 1,
+  '1': 'kCVPixelBufferLock_ReadOnly'
 };
 
 
 (globalThis as any)['CVPixelBufferPool'] = (globalThis as any)['CVPixelBufferPool'] || {};
 (globalThis as any)['CVPixelBufferPool']['CVPixelBufferPoolFlushFlags'] = (globalThis as any)['CVPixelBufferPool']['CVPixelBufferPoolFlushFlags'] || {};
 (globalThis as any)['CVPixelBufferPool']['CVPixelBufferPoolFlushFlags'] = {
-  kCVPixelBufferPoolFlushExcessBuffers: 1
+  kCVPixelBufferPoolFlushExcessBuffers: 1,
+  '1': 'kCVPixelBufferPoolFlushExcessBuffers'
 };
 
 
@@ -41185,7 +42760,15 @@ let global = globalThis as any;
   MatchNextTimePreservingSmallerUnits: 512,
   MatchNextTime: 1024,
   MatchFirst: 4096,
-  MatchLast: 8192
+  MatchLast: 8192,
+  '1': 'WrapComponents',
+  '2': 'MatchStrictly',
+  '4': 'SearchBackwards',
+  '256': 'MatchPreviousTimePreservingSmallerUnits',
+  '512': 'MatchNextTimePreservingSmallerUnits',
+  '1024': 'MatchNextTime',
+  '4096': 'MatchFirst',
+  '8192': 'MatchLast'
 };
 
 (globalThis as any)['Calendar']['Unit'] = (globalThis as any)['Calendar']['Unit'] || {};
@@ -41221,7 +42804,24 @@ let global = globalThis as any;
   WeekOfYearCalendarUnit: 8192,
   YearForWeekOfYearCalendarUnit: 16384,
   CalendarCalendarUnit: 1048576,
-  TimeZoneCalendarUnit: 2097152
+  TimeZoneCalendarUnit: 2097152,
+  '2': 'CalendarUnitEra',
+  '4': 'CalendarUnitYear',
+  '8': 'CalendarUnitMonth',
+  '16': 'CalendarUnitDay',
+  '32': 'CalendarUnitHour',
+  '64': 'CalendarUnitMinute',
+  '128': 'CalendarUnitSecond',
+  '512': 'CalendarUnitWeekday',
+  '1024': 'CalendarUnitWeekdayOrdinal',
+  '2048': 'CalendarUnitQuarter',
+  '4096': 'CalendarUnitWeekOfMonth',
+  '8192': 'CalendarUnitWeekOfYear',
+  '16384': 'CalendarUnitYearForWeekOfYear',
+  '32768': 'CalendarUnitNanosecond',
+  '1048576': 'CalendarUnitCalendar',
+  '2097152': 'CalendarUnitTimeZone',
+  '256': 'WeekCalendarUnit',
 };
 
 
@@ -41230,7 +42830,10 @@ let global = globalThis as any;
 (globalThis as any)['CollectionDifference']['NSOrderedCollectionDifferenceCalculationOptions'] = {
   OmitInsertedObjects: 1,
   OmitRemovedObjects: 2,
-  InferMoves: 4
+  InferMoves: 4,
+  '1': 'OmitInsertedObjects',
+  '2': 'OmitRemovedObjects',
+  '4': 'InferMoves'
 };
 
 
@@ -41263,7 +42866,30 @@ let global = globalThis as any;
   _RightTopMiddle: 8388608,
   _LeftTopRear: 16777216,
   _CenterTopRear: 33554432,
-  _RightTopRear: 67108864
+  _RightTopRear: 67108864,
+  '1': '_Left',
+  '2': '_Right',
+  '4': '_Center',
+  '8': '_LFEScreen',
+  '16': '_LeftSurround',
+  '32': '_RightSurround',
+  '64': '_LeftCenter',
+  '128': '_RightCenter',
+  '256': '_CenterSurround',
+  '512': '_LeftSurroundDirect',
+  '1024': '_RightSurroundDirect',
+  '2048': '_TopCenterSurround',
+  '4096': '_VerticalHeightLeft',
+  '8192': '_VerticalHeightCenter',
+  '16384': '_VerticalHeightRight',
+  '32768': '_TopBackLeft',
+  '65536': '_TopBackCenter',
+  '131072': '_TopBackRight',
+  '2097152': '_LeftTopMiddle',
+  '8388608': '_RightTopMiddle',
+  '16777216': '_LeftTopRear',
+  '33554432': '_CenterTopRear',
+  '67108864': '_RightTopRear'
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['AudioChannelCoordinateIndex'] = (globalThis as any)['CoreAudioBaseTypes']['AudioChannelCoordinateIndex'] || {};
@@ -41273,7 +42899,10 @@ let global = globalThis as any;
   _DownUp: 2,
   _Azimuth: 0,
   _Elevation: 1,
-  _Distance: 2
+  _Distance: 2,
+  '0': '_LeftRight',
+  '1': '_BackFront',
+  '2': '_DownUp',
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['AudioChannelFlags'] = (globalThis as any)['CoreAudioBaseTypes']['AudioChannelFlags'] || {};
@@ -41281,7 +42910,11 @@ let global = globalThis as any;
   _AllOff: 0,
   _RectangularCoordinates: 1,
   _SphericalCoordinates: 2,
-  _Meters: 4
+  _Meters: 4,
+  '0': '_AllOff',
+  '1': '_RectangularCoordinates',
+  '2': '_SphericalCoordinates',
+  '4': '_Meters'
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['AudioTimeStampFlags'] = (globalThis as any)['CoreAudioBaseTypes']['AudioTimeStampFlags'] || {};
@@ -41292,7 +42925,14 @@ let global = globalThis as any;
   RateScalarValid: 4,
   WordClockTimeValid: 8,
   SMPTETimeValid: 16,
-  SampleHostTimeValid: 3
+  SampleHostTimeValid: 3,
+  '0': 'NothingValid',
+  '1': 'SampleTimeValid',
+  '2': 'HostTimeValid',
+  '4': 'RateScalarValid',
+  '8': 'WordClockTimeValid',
+  '16': 'SMPTETimeValid',
+  '3': 'SampleHostTimeValid'
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['MPEG4ObjectID'] = (globalThis as any)['CoreAudioBaseTypes']['MPEG4ObjectID'] || {};
@@ -41305,14 +42945,26 @@ let global = globalThis as any;
   t_AAC_Scalable: 6,
   t_TwinVQ: 7,
   t_CELP: 8,
-  t_HVXC: 9
+  t_HVXC: 9,
+  '1': 't_AAC_Main',
+  '2': 't_AAC_LC',
+  '3': 't_AAC_SSR',
+  '4': 't_AAC_LTP',
+  '5': 't_AAC_SBR',
+  '6': 't_AAC_Scalable',
+  '7': 't_TwinVQ',
+  '8': 't_CELP',
+  '9': 't_HVXC'
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['SMPTETimeFlags'] = (globalThis as any)['CoreAudioBaseTypes']['SMPTETimeFlags'] || {};
 (globalThis as any)['CoreAudioBaseTypes']['SMPTETimeFlags'] = {
   Unknown: 0,
   Valid: 1,
-  Running: 2
+  Running: 2,
+  '0': 'Unknown',
+  '1': 'Valid',
+  '2': 'Running'
 };
 
 (globalThis as any)['CoreAudioBaseTypes']['SMPTETimeType'] = (globalThis as any)['CoreAudioBaseTypes']['SMPTETimeType'] || {};
@@ -41328,7 +42980,19 @@ let global = globalThis as any;
   e60Drop: 8,
   e5994Drop: 9,
   e50: 10,
-  e2398: 11
+  e2398: 11,
+  '0': 'e24',
+  '1': 'e25',
+  '2': 'e30Drop',
+  '3': 'e30',
+  '4': 'e2997',
+  '5': 'e2997Drop',
+  '6': 'e60',
+  '7': 'e5994',
+  '8': 'e60Drop',
+  '9': 'e5994Drop',
+  '10': 'e50',
+  '11': 'e2398'
 };
 
 
@@ -41337,7 +43001,10 @@ let global = globalThis as any;
 (globalThis as any)['CoreWLANTypes']['CWChannelBand'] = {
   dUnknown: 0,
   d2GHz: 1,
-  d5GHz: 2
+  d5GHz: 2,
+  '0': 'dUnknown',
+  '1': 'd2GHz',
+  '2': 'd5GHz'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWChannelWidth'] = (globalThis as any)['CoreWLANTypes']['CWChannelWidth'] || {};
@@ -41346,7 +43013,12 @@ let global = globalThis as any;
   h20MHz: 1,
   h40MHz: 2,
   h80MHz: 3,
-  h160MHz: 4
+  h160MHz: 4,
+  '0': 'hUnknown',
+  '1': 'h20MHz',
+  '2': 'h40MHz',
+  '3': 'h80MHz',
+  '4': 'h160MHz'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWCipherKeyFlags'] = (globalThis as any)['CoreWLANTypes']['CWCipherKeyFlags'] || {};
@@ -41355,7 +43027,12 @@ let global = globalThis as any;
   Unicast: 2,
   Multicast: 4,
   Tx: 8,
-  Rx: 16
+  Rx: 16,
+  '0': 'None',
+  '2': 'Unicast',
+  '4': 'Multicast',
+  '8': 'Tx',
+  '16': 'Rx'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWErr'] = (globalThis as any)['CoreWLANTypes']['CWErr'] || {};
@@ -41393,7 +43070,41 @@ let global = globalThis as any;
   ReferenceNotBoundErr: -3928,
   IPCFailureErr: -3929,
   OperationNotPermittedErr: -3930,
-  Err: -3931
+  Err: -3931,
+  '0': 'NoErr',
+  '1': 'EAPOLErr',
+  '-3900': 'InvalidParameterErr',
+  '-3901': 'NoMemoryErr',
+  '-3902': 'UnknownErr',
+  '-3903': 'NotSupportedErr',
+  '-3904': 'InvalidFormatErr',
+  '-3905': 'TimeoutErr',
+  '-3906': 'UnspecifiedFailureErr',
+  '-3907': 'UnsupportedCapabilitiesErr',
+  '-3908': 'ReassociationDeniedErr',
+  '-3909': 'AssociationDeniedErr',
+  '-3910': 'AuthenticationAlgorithmUnsupportedErr',
+  '-3911': 'InvalidAuthenticationSequenceNumberErr',
+  '-3912': 'ChallengeFailureErr',
+  '-3913': 'APFullErr',
+  '-3914': 'UnsupportedRateSetErr',
+  '-3915': 'ShortSlotUnsupportedErr',
+  '-3916': 'DSSSOFDMUnsupportedErr',
+  '-3917': 'InvalidInformationElementErr',
+  '-3918': 'InvalidGroupCipherErr',
+  '-3919': 'InvalidPairwiseCipherErr',
+  '-3920': 'InvalidAKMPErr',
+  '-3921': 'UnsupportedRSNVersionErr',
+  '-3922': 'InvalidRSNCapabilitiesErr',
+  '-3923': 'CipherSuiteRejectedErr',
+  '-3924': 'InvalidPMKErr',
+  '-3925': 'SupplicantTimeoutErr',
+  '-3926': 'HTFeaturesNotSupportedErr',
+  '-3927': 'PCOTransitionTimeNotSupportedErr',
+  '-3928': 'ReferenceNotBoundErr',
+  '-3929': 'IPCFailureErr',
+  '-3930': 'OperationNotPermittedErr',
+  '-3931': 'Err'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWEventType'] = (globalThis as any)['CoreWLANTypes']['CWEventType'] || {};
@@ -41409,14 +43120,29 @@ let global = globalThis as any;
   ScanCacheUpdated: 8,
   VirtualInterfaceStateChanged: 9,
   RangingReportEvent: 10,
-  Unknown: 9223372036854775807
+  Unknown: 9223372036854775807,
+  '0': 'None',
+  '1': 'PowerDidChange',
+  '2': 'SSIDDidChange',
+  '3': 'BSSIDDidChange',
+  '4': 'CountryCodeDidChange',
+  '5': 'LinkDidChange',
+  '6': 'LinkQualityDidChange',
+  '7': 'ModeDidChange',
+  '8': 'ScanCacheUpdated',
+  '9': 'VirtualInterfaceStateChanged',
+  '10': 'RangingReportEvent',
+  '9223372036854775807': 'Unknown'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWIBSSModeSecurity'] = (globalThis as any)['CoreWLANTypes']['CWIBSSModeSecurity'] || {};
 (globalThis as any)['CoreWLANTypes']['CWIBSSModeSecurity'] = {
   None: 0,
   WEP40: 1,
-  WEP104: 2
+  WEP104: 2,
+  '0': 'None',
+  '1': 'WEP40',
+  '2': 'WEP104'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWInterfaceMode'] = (globalThis as any)['CoreWLANTypes']['CWInterfaceMode'] || {};
@@ -41424,14 +43150,21 @@ let global = globalThis as any;
   None: 0,
   Station: 1,
   IBSS: 2,
-  HostAP: 3
+  HostAP: 3,
+  '0': 'None',
+  '1': 'Station',
+  '2': 'IBSS',
+  '3': 'HostAP'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWKeychainDomain'] = (globalThis as any)['CoreWLANTypes']['CWKeychainDomain'] || {};
 (globalThis as any)['CoreWLANTypes']['CWKeychainDomain'] = {
   None: 0,
   User: 1,
-  System: 2
+  System: 2,
+  '0': 'None',
+  '1': 'User',
+  '2': 'System'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWPHYMode'] = (globalThis as any)['CoreWLANTypes']['CWPHYMode'] || {};
@@ -41441,7 +43174,13 @@ let global = globalThis as any;
   e11b: 2,
   e11g: 3,
   e11n: 4,
-  e11ac: 5
+  e11ac: 5,
+  '0': 'eNone',
+  '1': 'e11a',
+  '2': 'e11b',
+  '3': 'e11g',
+  '4': 'e11n',
+  '5': 'e11ac'
 };
 
 (globalThis as any)['CoreWLANTypes']['CWSecurity'] = (globalThis as any)['CoreWLANTypes']['CWSecurity'] || {};
@@ -41460,14 +43199,30 @@ let global = globalThis as any;
   WPA3Personal: 11,
   WPA3Enterprise: 12,
   WPA3Transition: 13,
-  Unknown: 9223372036854775807
+  Unknown: 9223372036854775807,
+  '0': 'None',
+  '1': 'WEP',
+  '2': 'WPAPersonal',
+  '3': 'WPAPersonalMixed',
+  '4': 'WPA2Personal',
+  '5': 'Personal',
+  '6': 'DynamicWEP',
+  '7': 'WPAEnterprise',
+  '8': 'WPAEnterpriseMixed',
+  '9': 'WPA2Enterprise',
+  '10': 'Enterprise',
+  '11': 'WPA3Personal',
+  '12': 'WPA3Enterprise',
+  '13': 'WPA3Transition',
+  '9223372036854775807': 'Unknown'
 };
 
 
 (globalThis as any)['Data'] = (globalThis as any)['Data'] || {};
 (globalThis as any)['Data']['Base64DecodingOptions'] = (globalThis as any)['Data']['Base64DecodingOptions'] || {};
 (globalThis as any)['Data']['Base64DecodingOptions'] = {
-  NSDataBase64DecodingIgnoreUnknownCharacters: 1
+  NSDataBase64DecodingIgnoreUnknownCharacters: 1,
+  '1': 'NSDataBase64DecodingIgnoreUnknownCharacters'
 };
 
 (globalThis as any)['Data']['Base64EncodingOptions'] = (globalThis as any)['Data']['Base64EncodingOptions'] || {};
@@ -41475,7 +43230,11 @@ let global = globalThis as any;
   ing64CharacterLineLength: 1,
   ing76CharacterLineLength: 2,
   ingEndLineWithCarriageReturn: 16,
-  ingEndLineWithLineFeed: 32
+  ingEndLineWithLineFeed: 32,
+  '1': 'ing64CharacterLineLength',
+  '2': 'ing76CharacterLineLength',
+  '16': 'ingEndLineWithCarriageReturn',
+  '32': 'ingEndLineWithLineFeed'
 };
 
 (globalThis as any)['Data']['CompressionAlgorithm'] = (globalThis as any)['Data']['CompressionAlgorithm'] || {};
@@ -41483,7 +43242,11 @@ let global = globalThis as any;
   LZFSE: 0,
   LZ4: 1,
   LZMA: 2,
-  Zlib: 3
+  Zlib: 3,
+  '0': 'LZFSE',
+  '1': 'LZ4',
+  '2': 'LZMA',
+  '3': 'Zlib'
 };
 
 (globalThis as any)['Data']['ReadingOptions'] = (globalThis as any)['Data']['ReadingOptions'] || {};
@@ -41493,13 +43256,18 @@ let global = globalThis as any;
   DataReadingMappedAlways: 8,
   DataReadingMapped: 1,
   MappedRead: 1,
-  UncachedRead: 2
+  UncachedRead: 2,
+  '1': 'DataReadingMappedIfSafe',
+  '2': 'DataReadingUncached',
+  '8': 'DataReadingMappedAlways',
 };
 
 (globalThis as any)['Data']['SearchOptions'] = (globalThis as any)['Data']['SearchOptions'] || {};
 (globalThis as any)['Data']['SearchOptions'] = {
   Backwards: 1,
-  Anchored: 2
+  Anchored: 2,
+  '1': 'Backwards',
+  '2': 'Anchored'
 };
 
 (globalThis as any)['Data']['WritingOptions'] = (globalThis as any)['Data']['WritingOptions'] || {};
@@ -41511,7 +43279,14 @@ let global = globalThis as any;
   DataWritingFileProtectionCompleteUnlessOpen: 805306368,
   DataWritingFileProtectionCompleteUntilFirstUserAuthentication: 1073741824,
   DataWritingFileProtectionMask: 4026531840,
-  AtomicWrite: 1
+  AtomicWrite: 1,
+  '1': 'DataWritingAtomic',
+  '2': 'DataWritingWithoutOverwriting',
+  '268435456': 'DataWritingFileProtectionNone',
+  '536870912': 'DataWritingFileProtectionComplete',
+  '805306368': 'DataWritingFileProtectionCompleteUnlessOpen',
+  '1073741824': 'DataWritingFileProtectionCompleteUntilFirstUserAuthentication',
+  '4026531840': 'DataWritingFileProtectionMask',
 };
 
 
@@ -41523,7 +43298,13 @@ let global = globalThis as any;
   Short: 2,
   Full: 3,
   SpellOut: 4,
-  Brief: 5
+  Brief: 5,
+  '0': 'Positional',
+  '1': 'Abbreviated',
+  '2': 'Short',
+  '3': 'Full',
+  '4': 'SpellOut',
+  '5': 'Brief'
 };
 
 (globalThis as any)['DateComponentsFormatter']['ZeroFormattingBehavior'] = (globalThis as any)['DateComponentsFormatter']['ZeroFormattingBehavior'] || {};
@@ -41534,7 +43315,14 @@ let global = globalThis as any;
   DropMiddle: 4,
   DropTrailing: 8,
   DropAll: 14,
-  Pad: 65536
+  Pad: 65536,
+  '0': 'None',
+  '1': 'Default',
+  '2': 'DropLeading',
+  '4': 'DropMiddle',
+  '8': 'DropTrailing',
+  '14': 'DropAll',
+  '65536': 'Pad'
 };
 
 
@@ -41543,7 +43331,10 @@ let global = globalThis as any;
 (globalThis as any)['DateFormatter']['Behavior'] = {
   rDefault: 0,
   r10_0: 1000,
-  r10_4: 1040
+  r10_4: 1040,
+  '0': 'rDefault',
+  '1000': 'r10_0',
+  '1040': 'r10_4'
 };
 
 (globalThis as any)['DateFormatter']['Style'] = (globalThis as any)['DateFormatter']['Style'] || {};
@@ -41552,7 +43343,12 @@ let global = globalThis as any;
   ShortStyle: 1,
   MediumStyle: 2,
   LongStyle: 3,
-  FullStyle: 4
+  FullStyle: 4,
+  '0': 'NoStyle',
+  '1': 'ShortStyle',
+  '2': 'MediumStyle',
+  '3': 'LongStyle',
+  '4': 'FullStyle'
 };
 
 
@@ -41563,7 +43359,12 @@ let global = globalThis as any;
   ShortStyle: 1,
   MediumStyle: 2,
   LongStyle: 3,
-  FullStyle: 4
+  FullStyle: 4,
+  '0': 'NoStyle',
+  '1': 'ShortStyle',
+  '2': 'MediumStyle',
+  '3': 'LongStyle',
+  '4': 'FullStyle'
 };
 
 
@@ -41571,7 +43372,9 @@ let global = globalThis as any;
 (globalThis as any)['DistributedNotificationCenter']['Options'] = (globalThis as any)['DistributedNotificationCenter']['Options'] || {};
 (globalThis as any)['DistributedNotificationCenter']['Options'] = {
   DeliverImmediately: 1,
-  PostToAllSessions: 2
+  PostToAllSessions: 2,
+  '1': 'DeliverImmediately',
+  '2': 'PostToAllSessions'
 };
 
 (globalThis as any)['DistributedNotificationCenter']['SuspensionBehavior'] = (globalThis as any)['DistributedNotificationCenter']['SuspensionBehavior'] || {};
@@ -41579,7 +43382,11 @@ let global = globalThis as any;
   Drop: 1,
   Coalesce: 2,
   Hold: 3,
-  DeliverImmediately: 4
+  DeliverImmediately: 4,
+  '1': 'Drop',
+  '2': 'Coalesce',
+  '3': 'Hold',
+  '4': 'DeliverImmediately'
 };
 
 
@@ -41589,7 +43396,11 @@ let global = globalThis as any;
   Joule: 11,
   Kilojoule: 14,
   Calorie: 1793,
-  Kilocalorie: 1794
+  Kilocalorie: 1794,
+  '11': 'Joule',
+  '14': 'Kilojoule',
+  '1793': 'Calorie',
+  '1794': 'Kilocalorie'
 };
 
 
@@ -41600,13 +43411,20 @@ let global = globalThis as any;
   SkipsPackageDescendants: 2,
   SkipsHiddenFiles: 4,
   IncludesDirectoriesPostOrder: 8,
-  ProducesRelativePathURLs: 16
+  ProducesRelativePathURLs: 16,
+  '1': 'SkipsSubdirectoryDescendants',
+  '2': 'SkipsPackageDescendants',
+  '4': 'SkipsHiddenFiles',
+  '8': 'IncludesDirectoriesPostOrder',
+  '16': 'ProducesRelativePathURLs'
 };
 
 (globalThis as any)['FileManager']['ItemReplacementOptions'] = (globalThis as any)['FileManager']['ItemReplacementOptions'] || {};
 (globalThis as any)['FileManager']['ItemReplacementOptions'] = {
   UsingNewMetadataOnly: 1,
-  WithoutDeletingBackupItem: 2
+  WithoutDeletingBackupItem: 2,
+  '1': 'UsingNewMetadataOnly',
+  '2': 'WithoutDeletingBackupItem'
 };
 
 (globalThis as any)['FileManager']['SearchPathDirectory'] = (globalThis as any)['FileManager']['SearchPathDirectory'] || {};
@@ -41637,7 +43455,34 @@ let global = globalThis as any;
   ItemReplacementDirectory: 99,
   AllApplicationsDirectory: 100,
   AllLibrariesDirectory: 101,
-  TrashDirectory: 102
+  TrashDirectory: 102,
+  '1': 'ApplicationDirectory',
+  '2': 'DemoApplicationDirectory',
+  '3': 'DeveloperApplicationDirectory',
+  '4': 'AdminApplicationDirectory',
+  '5': 'LibraryDirectory',
+  '6': 'DeveloperDirectory',
+  '7': 'UserDirectory',
+  '8': 'DocumentationDirectory',
+  '9': 'DocumentDirectory',
+  '10': 'CoreServiceDirectory',
+  '11': 'AutosavedInformationDirectory',
+  '12': 'DesktopDirectory',
+  '13': 'CachesDirectory',
+  '14': 'ApplicationSupportDirectory',
+  '15': 'DownloadsDirectory',
+  '16': 'InputMethodsDirectory',
+  '17': 'MoviesDirectory',
+  '18': 'MusicDirectory',
+  '19': 'PicturesDirectory',
+  '20': 'PrinterDescriptionDirectory',
+  '21': 'SharedPublicDirectory',
+  '22': 'PreferencePanesDirectory',
+  '23': 'ApplicationScriptsDirectory',
+  '99': 'ItemReplacementDirectory',
+  '100': 'AllApplicationsDirectory',
+  '101': 'AllLibrariesDirectory',
+  '102': 'TrashDirectory'
 };
 
 (globalThis as any)['FileManager']['SearchPathDomainMask'] = (globalThis as any)['FileManager']['SearchPathDomainMask'] || {};
@@ -41646,26 +43491,38 @@ let global = globalThis as any;
   LocalDomainMask: 2,
   NetworkDomainMask: 4,
   SystemDomainMask: 8,
-  AllDomainsMask: 65535
+  AllDomainsMask: 65535,
+  '1': 'UserDomainMask',
+  '2': 'LocalDomainMask',
+  '4': 'NetworkDomainMask',
+  '8': 'SystemDomainMask',
+  '65535': 'AllDomainsMask'
 };
 
 (globalThis as any)['FileManager']['URLRelationship'] = (globalThis as any)['FileManager']['URLRelationship'] || {};
 (globalThis as any)['FileManager']['URLRelationship'] = {
   Contains: 0,
   Same: 1,
-  Other: 2
+  Other: 2,
+  '0': 'Contains',
+  '1': 'Same',
+  '2': 'Other'
 };
 
 (globalThis as any)['FileManager']['UnmountOptions'] = (globalThis as any)['FileManager']['UnmountOptions'] || {};
 (globalThis as any)['FileManager']['UnmountOptions'] = {
   AllPartitionsAndEjectDisk: 1,
-  WithoutUI: 2
+  WithoutUI: 2,
+  '1': 'AllPartitionsAndEjectDisk',
+  '2': 'WithoutUI'
 };
 
 (globalThis as any)['FileManager']['VolumeEnumerationOptions'] = (globalThis as any)['FileManager']['VolumeEnumerationOptions'] || {};
 (globalThis as any)['FileManager']['VolumeEnumerationOptions'] = {
   SkipHiddenVolumes: 2,
-  ProduceFileReferenceURLs: 4
+  ProduceFileReferenceURLs: 4,
+  '2': 'SkipHiddenVolumes',
+  '4': 'ProduceFileReferenceURLs'
 };
 
 
@@ -41673,13 +43530,17 @@ let global = globalThis as any;
 (globalThis as any)['FileWrapper']['ReadingOptions'] = (globalThis as any)['FileWrapper']['ReadingOptions'] || {};
 (globalThis as any)['FileWrapper']['ReadingOptions'] = {
   Immediate: 1,
-  WithoutMapping: 2
+  WithoutMapping: 2,
+  '1': 'Immediate',
+  '2': 'WithoutMapping'
 };
 
 (globalThis as any)['FileWrapper']['WritingOptions'] = (globalThis as any)['FileWrapper']['WritingOptions'] || {};
 (globalThis as any)['FileWrapper']['WritingOptions'] = {
   Atomic: 1,
-  WithNameUpdating: 2
+  WithNameUpdating: 2,
+  '1': 'Atomic',
+  '2': 'WithNameUpdating'
 };
 
 
@@ -41691,14 +43552,23 @@ let global = globalThis as any;
   Standalone: 2,
   ListItem: 3,
   BeginningOfSentence: 4,
-  MiddleOfSentence: 5
+  MiddleOfSentence: 5,
+  '0': 'Unknown',
+  '1': 'Dynamic',
+  '2': 'Standalone',
+  '3': 'ListItem',
+  '4': 'BeginningOfSentence',
+  '5': 'MiddleOfSentence'
 };
 
 (globalThis as any)['Formatter']['UnitStyle'] = (globalThis as any)['Formatter']['UnitStyle'] || {};
 (globalThis as any)['Formatter']['UnitStyle'] = {
   Short: 1,
   Medium: 2,
-  Long: 3
+  Long: 3,
+  '1': 'Short',
+  '2': 'Medium',
+  '3': 'Long'
 };
 
 
@@ -41708,7 +43578,10 @@ let global = globalThis as any;
 (globalThis as any)['HTTPCookieStorage']['HTTPCookie']['AcceptPolicy'] = {
   Always: 0,
   Never: 1,
-  OnlyFromMainDocumentDomain: 2
+  OnlyFromMainDocumentDomain: 2,
+  '0': 'Always',
+  '1': 'Never',
+  '2': 'OnlyFromMainDocumentDomain'
 };
 
 
@@ -41717,13 +43590,18 @@ let global = globalThis as any;
 (globalThis as any)['IKCameraDeviceView']['IKCameraDeviceViewDisplayMode'] = {
   None: -1,
   Table: 0,
-  Icon: 1
+  Icon: 1,
+  '-1': 'None',
+  '0': 'Table',
+  '1': 'Icon'
 };
 
 (globalThis as any)['IKCameraDeviceView']['IKCameraDeviceViewTransferMode'] = (globalThis as any)['IKCameraDeviceView']['IKCameraDeviceViewTransferMode'] || {};
 (globalThis as any)['IKCameraDeviceView']['IKCameraDeviceViewTransferMode'] = {
   FileBased: 0,
-  MemoryBased: 1
+  MemoryBased: 1,
+  '0': 'FileBased',
+  '1': 'MemoryBased'
 };
 
 
@@ -41732,7 +43610,10 @@ let global = globalThis as any;
 (globalThis as any)['IKDeviceBrowserView']['IKDeviceBrowserViewDisplayMode'] = {
   Table: 0,
   Outline: 1,
-  Icon: 2
+  Icon: 2,
+  '0': 'Table',
+  '1': 'Outline',
+  '2': 'Icon'
 };
 
 
@@ -41747,7 +43628,10 @@ let global = globalThis as any;
 (globalThis as any)['IKImageBrowserCell']['IKImageBrowserCellState'] = {
   NoImage: 0,
   Invalid: 1,
-  Ready: 2
+  Ready: 2,
+  '0': 'NoImage',
+  '1': 'Invalid',
+  '2': 'Ready'
 };
 
 
@@ -41755,7 +43639,9 @@ let global = globalThis as any;
 (globalThis as any)['IKImageBrowserView']['IKImageBrowserDropOperation'] = (globalThis as any)['IKImageBrowserView']['IKImageBrowserDropOperation'] || {};
 (globalThis as any)['IKImageBrowserView']['IKImageBrowserDropOperation'] = {
   On: 0,
-  Before: 1
+  Before: 1,
+  '0': 'On',
+  '1': 'Before'
 };
 
 
@@ -41772,13 +43658,18 @@ let global = globalThis as any;
 (globalThis as any)['IKScannerDeviceView']['IKScannerDeviceViewDisplayMode'] = {
   None: -1,
   Simple: 0,
-  Advanced: 1
+  Advanced: 1,
+  '-1': 'None',
+  '0': 'Simple',
+  '1': 'Advanced'
 };
 
 (globalThis as any)['IKScannerDeviceView']['IKScannerDeviceViewTransferMode'] = (globalThis as any)['IKScannerDeviceView']['IKScannerDeviceViewTransferMode'] || {};
 (globalThis as any)['IKScannerDeviceView']['IKScannerDeviceViewTransferMode'] = {
   FileBased: 0,
-  MemoryBased: 1
+  MemoryBased: 1,
+  '0': 'FileBased',
+  '1': 'MemoryBased'
 };
 
 
@@ -41800,7 +43691,21 @@ let global = globalThis as any;
   WithFractionalSeconds: 2048,
   WithFullDate: 275,
   WithFullTime: 1632,
-  WithInternetDateTime: 1907
+  WithInternetDateTime: 1907,
+  '1': 'WithYear',
+  '2': 'WithMonth',
+  '4': 'WithWeekOfYear',
+  '16': 'WithDay',
+  '32': 'WithTime',
+  '64': 'WithTimeZone',
+  '128': 'WithSpaceBetweenDateAndTime',
+  '256': 'WithDashSeparatorInDate',
+  '512': 'WithColonSeparatorInTime',
+  '1024': 'WithColonSeparatorInTimeZone',
+  '2048': 'WithFractionalSeconds',
+  '275': 'WithFullDate',
+  '1632': 'WithFullTime',
+  '1907': 'WithInternetDateTime'
 };
 
 
@@ -41810,7 +43715,10 @@ let global = globalThis as any;
   MutableContainers: 1,
   MutableLeaves: 2,
   FragmentsAllowed: 4,
-  AllowFragments: 4
+  AllowFragments: 4,
+  '1': 'MutableContainers',
+  '2': 'MutableLeaves',
+  '4': 'FragmentsAllowed',
 };
 
 (globalThis as any)['JSONSerialization']['WritingOptions'] = (globalThis as any)['JSONSerialization']['WritingOptions'] || {};
@@ -41818,7 +43726,11 @@ let global = globalThis as any;
   PrettyPrinted: 1,
   SortedKeys: 2,
   FragmentsAllowed: 4,
-  WithoutEscapingSlashes: 8
+  WithoutEscapingSlashes: 8,
+  '1': 'PrettyPrinted',
+  '2': 'SortedKeys',
+  '4': 'FragmentsAllowed',
+  '8': 'WithoutEscapingSlashes'
 };
 
 
@@ -41826,7 +43738,9 @@ let global = globalThis as any;
 (globalThis as any)['LSInfo']['LSAcceptanceFlags'] = (globalThis as any)['LSInfo']['LSAcceptanceFlags'] || {};
 (globalThis as any)['LSInfo']['LSAcceptanceFlags'] = {
   Default: 1,
-  AllowLoginUI: 2
+  AllowLoginUI: 2,
+  '1': 'Default',
+  '2': 'AllowLoginUI'
 };
 
 (globalThis as any)['LSInfo']['LSRolesMask'] = (globalThis as any)['LSInfo']['LSRolesMask'] || {};
@@ -41835,7 +43749,12 @@ let global = globalThis as any;
   Viewer: 2,
   Editor: 4,
   Shell: 8,
-  All: 4294967295
+  All: 4294967295,
+  '1': 'None',
+  '2': 'Viewer',
+  '4': 'Editor',
+  '8': 'Shell',
+  '4294967295': 'All'
 };
 
 
@@ -41843,7 +43762,9 @@ let global = globalThis as any;
 (globalThis as any)['LSInfoDeprecated']['LSHandlerOptions'] = (globalThis as any)['LSInfoDeprecated']['LSHandlerOptions'] || {};
 (globalThis as any)['LSInfoDeprecated']['LSHandlerOptions'] = {
   Default: 0,
-  IgnoreCreator: 1
+  IgnoreCreator: 1,
+  '0': 'Default',
+  '1': 'IgnoreCreator'
 };
 
 (globalThis as any)['LSInfoDeprecated']['LSItemInfoFlags'] = (globalThis as any)['LSInfoDeprecated']['LSItemInfoFlags'] || {};
@@ -41861,7 +43782,21 @@ let global = globalThis as any;
   AppPrefersClassic: 1024,
   AppIsScriptable: 2048,
   IsVolume: 4096,
-  ExtensionIsHidden: 1048576
+  ExtensionIsHidden: 1048576,
+  '1': 'IsPlainFile',
+  '2': 'IsPackage',
+  '4': 'IsApplication',
+  '8': 'IsContainer',
+  '16': 'IsAliasFile',
+  '32': 'IsSymlink',
+  '64': 'IsInvisible',
+  '128': 'IsNativeApp',
+  '256': 'IsClassicApp',
+  '512': 'AppPrefersNative',
+  '1024': 'AppPrefersClassic',
+  '2048': 'AppIsScriptable',
+  '4096': 'IsVolume',
+  '1048576': 'ExtensionIsHidden'
 };
 
 (globalThis as any)['LSInfoDeprecated']['LSRequestedInfo'] = (globalThis as any)['LSInfoDeprecated']['LSRequestedInfo'] || {};
@@ -41873,7 +43808,15 @@ let global = globalThis as any;
   AllFlags: 16,
   IconAndKind: 32,
   ExtensionFlagsOnly: 64,
-  AllInfo: 4294967295
+  AllInfo: 4294967295,
+  '1': 'Extension',
+  '2': 'TypeCreator',
+  '4': 'BasicFlagsOnly',
+  '8': 'AppTypeFlags',
+  '16': 'AllFlags',
+  '32': 'IconAndKind',
+  '64': 'ExtensionFlagsOnly',
+  '4294967295': 'AllInfo'
 };
 
 
@@ -41888,7 +43831,16 @@ let global = globalThis as any;
   Async: 65536,
   NewInstance: 524288,
   AndHide: 1048576,
-  AndHideOthers: 2097152
+  AndHideOthers: 2097152,
+  '1': 'Defaults',
+  '2': 'AndPrint',
+  '64': 'AndDisplayErrors',
+  '256': 'DontAddToRecents',
+  '512': 'DontSwitch',
+  '65536': 'Async',
+  '524288': 'NewInstance',
+  '1048576': 'AndHide',
+  '2097152': 'AndHideOthers'
 };
 
 
@@ -41902,7 +43854,15 @@ let global = globalThis as any;
   Inch: 1281,
   Foot: 1282,
   Yard: 1283,
-  Mile: 1284
+  Mile: 1284,
+  '8': 'Millimeter',
+  '9': 'Centimeter',
+  '11': 'Meter',
+  '14': 'Kilometer',
+  '1281': 'Inch',
+  '1282': 'Foot',
+  '1283': 'Yard',
+  '1284': 'Mile'
 };
 
 
@@ -41913,7 +43873,12 @@ let global = globalThis as any;
   LeftToRight: 1,
   RightToLeft: 2,
   TopToBottom: 3,
-  BottomToTop: 4
+  BottomToTop: 4,
+  '0': 'Unknown',
+  '1': 'LeftToRight',
+  '2': 'RightToLeft',
+  '3': 'TopToBottom',
+  '4': 'BottomToTop'
 };
 
 
@@ -41921,7 +43886,9 @@ let global = globalThis as any;
 (globalThis as any)['MDLabel']['MDLabelDomain'] = (globalThis as any)['MDLabel']['MDLabelDomain'] || {};
 (globalThis as any)['MDLabel']['MDLabelDomain'] = {
   UserDomain: 0,
-  LocalDomain: 1
+  LocalDomain: 1,
+  '0': 'UserDomain',
+  '1': 'LocalDomain'
 };
 
 
@@ -41930,12 +43897,16 @@ let global = globalThis as any;
 (globalThis as any)['MDQuery']['MDQueryOptionFlags'] = {
   Synchronous: 1,
   WantsUpdates: 4,
-  AllowFSTranslation: 8
+  AllowFSTranslation: 8,
+  '1': 'Synchronous',
+  '4': 'WantsUpdates',
+  '8': 'AllowFSTranslation'
 };
 
 (globalThis as any)['MDQuery']['MDQuerySortOptionFlags'] = (globalThis as any)['MDQuery']['MDQuerySortOptionFlags'] || {};
 (globalThis as any)['MDQuery']['MDQuerySortOptionFlags'] = {
-  kMDQueryReverseSortOrderFlag: 1
+  kMDQueryReverseSortOrderFlag: 1,
+  '1': 'kMDQueryReverseSortOrderFlag'
 };
 
 
@@ -41948,7 +43919,14 @@ let global = globalThis as any;
   PropertyChanged: 4,
   ThruConnectionsChanged: 5,
   SerialPortOwnerChanged: 6,
-  IOError: 7
+  IOError: 7,
+  '1': 'SetupChanged',
+  '2': 'ObjectAdded',
+  '3': 'ObjectRemoved',
+  '4': 'PropertyChanged',
+  '5': 'ThruConnectionsChanged',
+  '6': 'SerialPortOwnerChanged',
+  '7': 'IOError'
 };
 
 (globalThis as any)['MIDIServices']['MIDIObjectType'] = (globalThis as any)['MIDIServices']['MIDIObjectType'] || {};
@@ -41961,7 +43939,16 @@ let global = globalThis as any;
   _ExternalDevice: 16,
   _ExternalEntity: 17,
   _ExternalSource: 18,
-  _ExternalDestination: 19
+  _ExternalDestination: 19,
+  '-1': '_Other',
+  '0': '_Device',
+  '1': '_Entity',
+  '2': '_Source',
+  '3': '_Destination',
+  '16': '_ExternalDevice',
+  '17': '_ExternalEntity',
+  '18': '_ExternalSource',
+  '19': '_ExternalDestination'
 };
 
 
@@ -41973,7 +43960,13 @@ let global = globalThis as any;
   e_7BitRPN: 2,
   e_14BitRPN: 3,
   e_7BitNRPN: 4,
-  e_14BitNRPN: 5
+  e_14BitNRPN: 5,
+  '0': 'e_7Bit',
+  '1': 'e_14Bit',
+  '2': 'e_7BitRPN',
+  '3': 'e_14BitRPN',
+  '4': 'e_7BitNRPN',
+  '5': 'e_14BitNRPN'
 };
 
 (globalThis as any)['MIDIThruConnection']['MIDITransformType'] = (globalThis as any)['MIDIThruConnection']['MIDITransformType'] || {};
@@ -41985,7 +43978,15 @@ let global = globalThis as any;
   _Scale: 9,
   _MinValue: 10,
   _MaxValue: 11,
-  _MapValue: 12
+  _MapValue: 12,
+  '0': '_None',
+  '1': '_FilterOut',
+  '2': '_MapControl',
+  '8': '_Add',
+  '9': '_Scale',
+  '10': '_MinValue',
+  '11': '_MaxValue',
+  '12': '_MapValue'
 };
 
 
@@ -42007,7 +44008,15 @@ let global = globalThis as any;
   Image: 4,
   MultiArray: 5,
   Dictionary: 6,
-  Sequence: 7
+  Sequence: 7,
+  '0': 'Invalid',
+  '1': 'Int64',
+  '2': 'Double',
+  '3': 'String',
+  '4': 'Image',
+  '5': 'MultiArray',
+  '6': 'Dictionary',
+  '7': 'Sequence'
 };
 
 
@@ -42024,7 +44033,10 @@ let global = globalThis as any;
 (globalThis as any)['MLImageSizeConstraintType']['MLImageSizeConstraintType'] = {
   Unspecified: 0,
   Enumerated: 2,
-  Range: 3
+  Range: 3,
+  '0': 'Unspecified',
+  '2': 'Enumerated',
+  '3': 'Range'
 };
 
 
@@ -42039,7 +44051,10 @@ let global = globalThis as any;
 (globalThis as any)['MLModelConfiguration']['MLComputeUnits'] = {
   CPUOnly: 0,
   CPUAndGPU: 1,
-  All: 2
+  All: 2,
+  '0': 'CPUOnly',
+  '1': 'CPUAndGPU',
+  '2': 'All'
 };
 
 
@@ -42054,7 +44069,14 @@ let global = globalThis as any;
   CustomLayer: 4,
   CustomModel: 5,
   Update: 6,
-  Parameters: 7
+  Parameters: 7,
+  '0': 'Generic',
+  '1': 'FeatureType',
+  '3': 'IO',
+  '4': 'CustomLayer',
+  '5': 'CustomModel',
+  '6': 'Update',
+  '7': 'Parameters'
 };
 
 
@@ -42063,7 +44085,10 @@ let global = globalThis as any;
 (globalThis as any)['MLMultiArray']['MLMultiArrayDataType'] = {
   Double: 65600,
   Float32: 65568,
-  Int32: 131104
+  Int32: 131104,
+  '65600': 'Double',
+  '65568': 'Float32',
+  '131104': 'Int32'
 };
 
 
@@ -42076,7 +44101,10 @@ let global = globalThis as any;
 (globalThis as any)['MLMultiArrayShapeConstraintType']['MLMultiArrayShapeConstraintType'] = {
   Unspecified: 1,
   Enumerated: 2,
-  Range: 3
+  Range: 3,
+  '1': 'Unspecified',
+  '2': 'Enumerated',
+  '3': 'Range'
 };
 
 
@@ -42099,7 +44127,12 @@ let global = globalThis as any;
   Running: 2,
   Cancelling: 3,
   Completed: 4,
-  Failed: 5
+  Failed: 5,
+  '1': 'Suspended',
+  '2': 'Running',
+  '3': 'Cancelling',
+  '4': 'Completed',
+  '5': 'Failed'
 };
 
 
@@ -42110,7 +44143,10 @@ let global = globalThis as any;
 (globalThis as any)['MLUpdateProgressEvent']['MLUpdateProgressEvent'] = {
   TrainingBegin: 1,
   EpochEnd: 2,
-  MiniBatchEnd: 4
+  MiniBatchEnd: 4,
+  '1': 'TrainingBegin',
+  '2': 'EpochEnd',
+  '4': 'MiniBatchEnd'
 };
 
 
@@ -42123,7 +44159,12 @@ let global = globalThis as any;
   Kilogram: 14,
   Ounce: 1537,
   Pound: 1538,
-  Stone: 1539
+  Stone: 1539,
+  '11': 'Gram',
+  '14': 'Kilogram',
+  '1537': 'Ounce',
+  '1538': 'Pound',
+  '1539': 'Stone'
 };
 
 
@@ -42132,7 +44173,10 @@ let global = globalThis as any;
 (globalThis as any)['MeasurementFormatter']['UnitOptions'] = {
   ProvidedUnit: 1,
   NaturalScale: 2,
-  TemperatureWithoutUnit: 4
+  TemperatureWithoutUnit: 4,
+  '1': 'ProvidedUnit',
+  '2': 'NaturalScale',
+  '4': 'TemperatureWithoutUnit'
 };
 
 
@@ -42143,14 +44187,20 @@ let global = globalThis as any;
 (globalThis as any)['NSAccessibility']['AnnotationPosition'] = {
   FullRange: 0,
   Start: 1,
-  End: 2
+  End: 2,
+  '0': 'FullRange',
+  '1': 'Start',
+  '2': 'End'
 };
 
 (globalThis as any)['NSAccessibility']['Orientation'] = (globalThis as any)['NSAccessibility']['Orientation'] || {};
 (globalThis as any)['NSAccessibility']['Orientation'] = {
   Unknown: 0,
   Vertical: 1,
-  Horizontal: 2
+  Horizontal: 2,
+  '0': 'Unknown',
+  '1': 'Vertical',
+  '2': 'Horizontal'
 };
 
 (globalThis as any)['NSAccessibility']['RulerMarkerType'] = (globalThis as any)['NSAccessibility']['RulerMarkerType'] || {};
@@ -42162,14 +44212,25 @@ let global = globalThis as any;
   TabStopDecimal: 4,
   IndentHead: 5,
   IndentTail: 6,
-  IndentFirstLine: 7
+  IndentFirstLine: 7,
+  '0': 'Unknown',
+  '1': 'TabStopLeft',
+  '2': 'TabStopRight',
+  '3': 'TabStopCenter',
+  '4': 'TabStopDecimal',
+  '5': 'IndentHead',
+  '6': 'IndentTail',
+  '7': 'IndentFirstLine'
 };
 
 (globalThis as any)['NSAccessibility']['SortDirection'] = (globalThis as any)['NSAccessibility']['SortDirection'] || {};
 (globalThis as any)['NSAccessibility']['SortDirection'] = {
   Unknown: 0,
   Ascending: 1,
-  Descending: 2
+  Descending: 2,
+  '0': 'Unknown',
+  '1': 'Ascending',
+  '2': 'Descending'
 };
 
 (globalThis as any)['NSAccessibility']['Units'] = (globalThis as any)['NSAccessibility']['Units'] || {};
@@ -42178,7 +44239,12 @@ let global = globalThis as any;
   Inches: 1,
   Centimeters: 2,
   Points: 3,
-  Picas: 4
+  Picas: 4,
+  '0': 'Unknown',
+  '1': 'Inches',
+  '2': 'Centimeters',
+  '3': 'Points',
+  '4': 'Picas'
 };
 
 
@@ -42188,7 +44254,10 @@ let global = globalThis as any;
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility']['AnnotationPosition'] = {
   FullRange: 0,
   Start: 1,
-  End: 2
+  End: 2,
+  '0': 'FullRange',
+  '1': 'Start',
+  '2': 'End'
 };
 
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] = (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] || {};
@@ -42196,7 +44265,10 @@ let global = globalThis as any;
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility']['Orientation'] = {
   Unknown: 0,
   Vertical: 1,
-  Horizontal: 2
+  Horizontal: 2,
+  '0': 'Unknown',
+  '1': 'Vertical',
+  '2': 'Horizontal'
 };
 
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] = (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] || {};
@@ -42209,7 +44281,15 @@ let global = globalThis as any;
   TabStopDecimal: 4,
   IndentHead: 5,
   IndentTail: 6,
-  IndentFirstLine: 7
+  IndentFirstLine: 7,
+  '0': 'Unknown',
+  '1': 'TabStopLeft',
+  '2': 'TabStopRight',
+  '3': 'TabStopCenter',
+  '4': 'TabStopDecimal',
+  '5': 'IndentHead',
+  '6': 'IndentTail',
+  '7': 'IndentFirstLine'
 };
 
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] = (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] || {};
@@ -42217,7 +44297,10 @@ let global = globalThis as any;
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility']['SortDirection'] = {
   Unknown: 0,
   Ascending: 1,
-  Descending: 2
+  Descending: 2,
+  '0': 'Unknown',
+  '1': 'Ascending',
+  '2': 'Descending'
 };
 
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] = (globalThis as any)['NSAccessibilityConstants']['NSAccessibility'] || {};
@@ -42227,14 +44310,22 @@ let global = globalThis as any;
   Inches: 1,
   Centimeters: 2,
   Points: 3,
-  Picas: 4
+  Picas: 4,
+  '0': 'Unknown',
+  '1': 'Inches',
+  '2': 'Centimeters',
+  '3': 'Points',
+  '4': 'Picas'
 };
 
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibilityPriorityLevel'] = (globalThis as any)['NSAccessibilityConstants']['NSAccessibilityPriorityLevel'] || {};
 (globalThis as any)['NSAccessibilityConstants']['NSAccessibilityPriorityLevel'] = {
   Low: 10,
   Medium: 50,
-  High: 90
+  High: 90,
+  '10': 'Low',
+  '50': 'Medium',
+  '90': 'High'
 };
 
 
@@ -42263,13 +44354,36 @@ let global = globalThis as any;
   Table: 17,
   TextField: 18,
   UnderlinedText: 19,
-  VisitedLink: 20
+  VisitedLink: 20,
+  '0': 'Custom',
+  '1': 'Any',
+  '2': 'Annotation',
+  '3': 'BoldText',
+  '4': 'Heading',
+  '5': 'HeadingLevel1',
+  '6': 'HeadingLevel2',
+  '7': 'HeadingLevel3',
+  '8': 'HeadingLevel4',
+  '9': 'HeadingLevel5',
+  '10': 'HeadingLevel6',
+  '11': 'Image',
+  '12': 'ItalicText',
+  '13': 'Landmark',
+  '14': 'Link',
+  '15': 'List',
+  '16': 'MisspelledWord',
+  '17': 'Table',
+  '18': 'TextField',
+  '19': 'UnderlinedText',
+  '20': 'VisitedLink'
 };
 
 (globalThis as any)['NSAccessibilityCustomRotor']['SearchDirection'] = (globalThis as any)['NSAccessibilityCustomRotor']['SearchDirection'] || {};
 (globalThis as any)['NSAccessibilityCustomRotor']['SearchDirection'] = {
   Previous: 0,
-  Next: 1
+  Next: 1,
+  '0': 'Previous',
+  '1': 'Next'
 };
 
 
@@ -42282,7 +44396,10 @@ let global = globalThis as any;
 (globalThis as any)['NSAlert']['Style'] = {
   Warning: 0,
   Informational: 1,
-  Critical: 2
+  Critical: 2,
+  '0': 'Warning',
+  '1': 'Informational',
+  '2': 'Critical'
 };
 
 
@@ -42293,7 +44410,10 @@ let global = globalThis as any;
 (globalThis as any)['NSAnimation']['BlockingMode'] = {
   Blocking: 0,
   Nonblocking: 1,
-  NonblockingThreaded: 2
+  NonblockingThreaded: 2,
+  '0': 'Blocking',
+  '1': 'Nonblocking',
+  '2': 'NonblockingThreaded'
 };
 
 (globalThis as any)['NSAnimation']['Curve'] = (globalThis as any)['NSAnimation']['Curve'] || {};
@@ -42301,7 +44421,11 @@ let global = globalThis as any;
   EaseInOut: 0,
   EaseIn: 1,
   EaseOut: 2,
-  Linear: 3
+  Linear: 3,
+  '0': 'EaseInOut',
+  '1': 'EaseIn',
+  '2': 'EaseOut',
+  '3': 'Linear'
 };
 
 
@@ -42322,7 +44446,18 @@ let global = globalThis as any;
   DontRecord: 4096,
   DontExecute: 8192,
   DontAnnotate: 65536,
-  DefaultOptions: 35
+  DefaultOptions: 35,
+  '1': 'NoReply',
+  '2': 'QueueReply',
+  '3': 'WaitForReply',
+  '16': 'NeverInteract',
+  '32': 'CanInteract',
+  '48': 'AlwaysInteract',
+  '64': 'CanSwitchLayer',
+  '4096': 'DontRecord',
+  '8192': 'DontExecute',
+  '65536': 'DontAnnotate',
+  '35': 'DefaultOptions'
 };
 
 
@@ -42334,26 +44469,35 @@ let global = globalThis as any;
 (globalThis as any)['NSApplication']['ActivationOptions'] = (globalThis as any)['NSApplication']['ActivationOptions'] || {};
 (globalThis as any)['NSApplication']['ActivationOptions'] = {
   AllWindows: 1,
-  IgnoringOtherApps: 2
+  IgnoringOtherApps: 2,
+  '1': 'AllWindows',
+  '2': 'IgnoringOtherApps'
 };
 
 (globalThis as any)['NSApplication']['ActivationPolicy'] = (globalThis as any)['NSApplication']['ActivationPolicy'] || {};
 (globalThis as any)['NSApplication']['ActivationPolicy'] = {
   Regular: 0,
   Accessory: 1,
-  Prohibited: 2
+  Prohibited: 2,
+  '0': 'Regular',
+  '1': 'Accessory',
+  '2': 'Prohibited'
 };
 
 (globalThis as any)['NSApplication']['DelegateReply'] = (globalThis as any)['NSApplication']['DelegateReply'] || {};
 (globalThis as any)['NSApplication']['DelegateReply'] = {
   Success: 0,
   Cancel: 1,
-  Failure: 2
+  Failure: 2,
+  '0': 'Success',
+  '1': 'Cancel',
+  '2': 'Failure'
 };
 
 (globalThis as any)['NSApplication']['OcclusionState'] = (globalThis as any)['NSApplication']['OcclusionState'] || {};
 (globalThis as any)['NSApplication']['OcclusionState'] = {
-  NSApplicationOcclusionStateVisible: 2
+  NSApplicationOcclusionStateVisible: 2,
+  '2': 'NSApplicationOcclusionStateVisible'
 };
 
 (globalThis as any)['NSApplication']['PresentationOptions'] = (globalThis as any)['NSApplication']['PresentationOptions'] || {};
@@ -42371,7 +44515,21 @@ let global = globalThis as any;
   DisableMenuBarTransparency: 512,
   FullScreen: 1024,
   AutoHideToolbar: 2048,
-  DisableCursorLocationAssistance: 4096
+  DisableCursorLocationAssistance: 4096,
+  '0': 'Default',
+  '1': 'AutoHideDock',
+  '2': 'HideDock',
+  '4': 'AutoHideMenuBar',
+  '8': 'HideMenuBar',
+  '16': 'DisableAppleMenu',
+  '32': 'DisableProcessSwitching',
+  '64': 'DisableForceQuit',
+  '128': 'DisableSessionTermination',
+  '256': 'DisableHideApplication',
+  '512': 'DisableMenuBarTransparency',
+  '1024': 'FullScreen',
+  '2048': 'AutoHideToolbar',
+  '4096': 'DisableCursorLocationAssistance'
 };
 
 (globalThis as any)['NSApplication']['PrintReply'] = (globalThis as any)['NSApplication']['PrintReply'] || {};
@@ -42379,7 +44537,11 @@ let global = globalThis as any;
   Cancelled: 0,
   Success: 1,
   Failure: 3,
-  ReplyLater: 2
+  ReplyLater: 2,
+  '0': 'Cancelled',
+  '1': 'Success',
+  '3': 'Failure',
+  '2': 'ReplyLater'
 };
 
 (globalThis as any)['NSApplication']['RemoteNotificationType'] = (globalThis as any)['NSApplication']['RemoteNotificationType'] || {};
@@ -42387,25 +44549,35 @@ let global = globalThis as any;
   None: 0,
   Badge: 1,
   Sound: 2,
-  Alert: 4
+  Alert: 4,
+  '0': 'None',
+  '1': 'Badge',
+  '2': 'Sound',
+  '4': 'Alert'
 };
 
 (globalThis as any)['NSApplication']['RequestUserAttentionType'] = (globalThis as any)['NSApplication']['RequestUserAttentionType'] || {};
 (globalThis as any)['NSApplication']['RequestUserAttentionType'] = {
   CriticalRequest: 0,
-  InformationalRequest: 10
+  InformationalRequest: 10,
+  '0': 'CriticalRequest',
+  '10': 'InformationalRequest'
 };
 
 (globalThis as any)['NSApplication']['TerminateReply'] = (globalThis as any)['NSApplication']['TerminateReply'] || {};
 (globalThis as any)['NSApplication']['TerminateReply'] = {
   Cancel: 0,
   Now: 1,
-  Later: 2
+  Later: 2,
+  '0': 'Cancel',
+  '1': 'Now',
+  '2': 'Later'
 };
 
 (globalThis as any)['NSApplication']['WindowListOptions'] = (globalThis as any)['NSApplication']['WindowListOptions'] || {};
 (globalThis as any)['NSApplication']['WindowListOptions'] = {
-  NSWindowListOrderedFrontToBack: 1
+  NSWindowListOrderedFrontToBack: 1,
+  '1': 'NSWindowListOrderedFrontToBack'
 };
 
 
@@ -42432,7 +44604,22 @@ let global = globalThis as any;
   UUIDAttributeType: 1100,
   URIAttributeType: 1200,
   TransformableAttributeType: 1800,
-  ObjectIDAttributeType: 2000
+  ObjectIDAttributeType: 2000,
+  '0': 'UndefinedAttributeType',
+  '100': 'Integer16AttributeType',
+  '200': 'Integer32AttributeType',
+  '300': 'Integer64AttributeType',
+  '400': 'DecimalAttributeType',
+  '500': 'DoubleAttributeType',
+  '600': 'FloatAttributeType',
+  '700': 'StringAttributeType',
+  '800': 'BooleanAttributeType',
+  '900': 'DateAttributeType',
+  '1000': 'BinaryDataAttributeType',
+  '1100': 'UUIDAttributeType',
+  '1200': 'URIAttributeType',
+  '1800': 'TransformableAttributeType',
+  '2000': 'ObjectIDAttributeType'
 };
 
 
@@ -42440,13 +44627,17 @@ let global = globalThis as any;
 (globalThis as any)['NSAttributedString']['EnumerationOptions'] = (globalThis as any)['NSAttributedString']['EnumerationOptions'] || {};
 (globalThis as any)['NSAttributedString']['EnumerationOptions'] = {
   Reverse: 2,
-  LongestEffectiveRangeNotRequired: 1048576
+  LongestEffectiveRangeNotRequired: 1048576,
+  '2': 'Reverse',
+  '1048576': 'LongestEffectiveRangeNotRequired'
 };
 
 (globalThis as any)['NSAttributedString']['NSTextScalingType'] = (globalThis as any)['NSAttributedString']['NSTextScalingType'] || {};
 (globalThis as any)['NSAttributedString']['NSTextScalingType'] = {
   Standard: 0,
-  iOS: 1
+  iOS: 1,
+  '0': 'Standard',
+  '1': 'iOS'
 };
 
 (globalThis as any)['NSAttributedString']['NSUnderlineStyle'] = (globalThis as any)['NSAttributedString']['NSUnderlineStyle'] || {};
@@ -42460,19 +44651,32 @@ let global = globalThis as any;
   PatternDash: 512,
   PatternDashDot: 768,
   PatternDashDotDot: 1024,
-  ByWord: 32768
+  ByWord: 32768,
+  '0': 'None',
+  '1': 'Single',
+  '2': 'Thick',
+  '9': 'Double',
+  '256': 'PatternDot',
+  '512': 'PatternDash',
+  '768': 'PatternDashDot',
+  '1024': 'PatternDashDotDot',
+  '32768': 'ByWord'
 };
 
 (globalThis as any)['NSAttributedString']['NSWritingDirectionFormatType'] = (globalThis as any)['NSAttributedString']['NSWritingDirectionFormatType'] || {};
 (globalThis as any)['NSAttributedString']['NSWritingDirectionFormatType'] = {
   Embedding: 0,
-  Override: 2
+  Override: 2,
+  '0': 'Embedding',
+  '2': 'Override'
 };
 
 (globalThis as any)['NSAttributedString']['SpellingState'] = (globalThis as any)['NSAttributedString']['SpellingState'] || {};
 (globalThis as any)['NSAttributedString']['SpellingState'] = {
   SpellingFlag: 1,
-  GrammarFlag: 2
+  GrammarFlag: 2,
+  '1': 'SpellingFlag',
+  '2': 'GrammarFlag'
 };
 
 
@@ -42482,7 +44686,9 @@ let global = globalThis as any;
 (globalThis as any)['NSBackgroundActivityScheduler']['Result'] = (globalThis as any)['NSBackgroundActivityScheduler']['Result'] || {};
 (globalThis as any)['NSBackgroundActivityScheduler']['Result'] = {
   Finished: 1,
-  Deferred: 2
+  Deferred: 2,
+  '1': 'Finished',
+  '2': 'Deferred'
 };
 
 
@@ -42498,27 +44704,39 @@ let global = globalThis as any;
   MoveTo: 0,
   LineTo: 1,
   CurveTo: 2,
-  ClosePath: 3
+  ClosePath: 3,
+  '0': 'MoveTo',
+  '1': 'LineTo',
+  '2': 'CurveTo',
+  '3': 'ClosePath'
 };
 
 (globalThis as any)['NSBezierPath']['LineCapStyle'] = (globalThis as any)['NSBezierPath']['LineCapStyle'] || {};
 (globalThis as any)['NSBezierPath']['LineCapStyle'] = {
   Butt: 0,
   Round: 1,
-  Square: 2
+  Square: 2,
+  '0': 'Butt',
+  '1': 'Round',
+  '2': 'Square'
 };
 
 (globalThis as any)['NSBezierPath']['LineJoinStyle'] = (globalThis as any)['NSBezierPath']['LineJoinStyle'] || {};
 (globalThis as any)['NSBezierPath']['LineJoinStyle'] = {
   Miter: 0,
   Round: 1,
-  Bevel: 2
+  Bevel: 2,
+  '0': 'Miter',
+  '1': 'Round',
+  '2': 'Bevel'
 };
 
 (globalThis as any)['NSBezierPath']['WindingRule'] = (globalThis as any)['NSBezierPath']['WindingRule'] || {};
 (globalThis as any)['NSBezierPath']['WindingRule'] = {
   NonZero: 0,
-  EvenOdd: 1
+  EvenOdd: 1,
+  '0': 'NonZero',
+  '1': 'EvenOdd'
 };
 
 
@@ -42530,7 +44748,13 @@ let global = globalThis as any;
   GIF: 2,
   JPEG: 3,
   PNG: 4,
-  JPEG2000: 5
+  JPEG2000: 5,
+  '0': 'TIFF',
+  '1': 'BMP',
+  '2': 'GIF',
+  '3': 'JPEG',
+  '4': 'PNG',
+  '5': 'JPEG2000'
 };
 
 (globalThis as any)['NSBitmapImageRep']['Format'] = (globalThis as any)['NSBitmapImageRep']['Format'] || {};
@@ -42541,7 +44765,14 @@ let global = globalThis as any;
   SixteenBitLittleEndian: 256,
   ThirtyTwoBitLittleEndian: 512,
   SixteenBitBigEndian: 1024,
-  ThirtyTwoBitBigEndian: 2048
+  ThirtyTwoBitBigEndian: 2048,
+  '1': 'AlphaFirst',
+  '2': 'AlphaNonpremultiplied',
+  '4': 'FloatingPointSamples',
+  '256': 'SixteenBitLittleEndian',
+  '512': 'ThirtyTwoBitLittleEndian',
+  '1024': 'SixteenBitBigEndian',
+  '2048': 'ThirtyTwoBitBigEndian'
 };
 
 (globalThis as any)['NSBitmapImageRep']['LoadStatus'] = (globalThis as any)['NSBitmapImageRep']['LoadStatus'] || {};
@@ -42551,7 +44782,13 @@ let global = globalThis as any;
   WillNeedAllData: -3,
   InvalidData: -4,
   UnexpectedEOF: -5,
-  Completed: -6
+  Completed: -6,
+  '-1': 'UnknownType',
+  '-2': 'ReadingHeader',
+  '-3': 'WillNeedAllData',
+  '-4': 'InvalidData',
+  '-5': 'UnexpectedEOF',
+  '-6': 'Completed'
 };
 
 (globalThis as any)['NSBitmapImageRep']['TIFFCompression'] = (globalThis as any)['NSBitmapImageRep']['TIFFCompression'] || {};
@@ -42563,7 +44800,15 @@ let global = globalThis as any;
   JPEG: 6,
   NEXT: 32766,
   PackBits: 32773,
-  OldJPEG: 32865
+  OldJPEG: 32865,
+  '1': 'None',
+  '3': 'CCITTFAX3',
+  '4': 'CCITTFAX4',
+  '5': 'LZW',
+  '6': 'JPEG',
+  '32766': 'NEXT',
+  '32773': 'PackBits',
+  '32865': 'OldJPEG'
 };
 
 
@@ -42572,7 +44817,10 @@ let global = globalThis as any;
 (globalThis as any)['NSBox']['BoxType'] = {
   Primary: 0,
   Separator: 2,
-  Custom: 4
+  Custom: 4,
+  '0': 'Primary',
+  '2': 'Separator',
+  '4': 'Custom'
 };
 
 (globalThis as any)['NSBox']['TitlePosition'] = (globalThis as any)['NSBox']['TitlePosition'] || {};
@@ -42583,7 +44831,14 @@ let global = globalThis as any;
   BelowTop: 3,
   AboveBottom: 4,
   AtBottom: 5,
-  BelowBottom: 6
+  BelowBottom: 6,
+  '0': 'NoTitle',
+  '1': 'AboveTop',
+  '2': 'AtTop',
+  '3': 'BelowTop',
+  '4': 'AboveBottom',
+  '5': 'AtBottom',
+  '6': 'BelowBottom'
 };
 
 
@@ -42592,13 +44847,18 @@ let global = globalThis as any;
 (globalThis as any)['NSBrowser']['ColumnResizingType'] = {
   NoColumnResizing: 0,
   AutoColumnResizing: 1,
-  UserColumnResizing: 2
+  UserColumnResizing: 2,
+  '0': 'NoColumnResizing',
+  '1': 'AutoColumnResizing',
+  '2': 'UserColumnResizing'
 };
 
 (globalThis as any)['NSBrowser']['DropOperation'] = (globalThis as any)['NSBrowser']['DropOperation'] || {};
 (globalThis as any)['NSBrowser']['DropOperation'] = {
   On: 0,
-  Above: 1
+  Above: 1,
+  '0': 'On',
+  '1': 'Above'
 };
 
 
@@ -42621,7 +44881,20 @@ let global = globalThis as any;
   RoundRect: 12,
   Recessed: 13,
   RoundedDisclosure: 14,
-  Inline: 15
+  Inline: 15,
+  '1': 'Rounded',
+  '2': 'RegularSquare',
+  '5': 'Disclosure',
+  '6': 'ShadowlessSquare',
+  '7': 'Circular',
+  '8': 'TexturedSquare',
+  '9': 'HelpButton',
+  '10': 'SmallSquare',
+  '11': 'TexturedRounded',
+  '12': 'RoundRect',
+  '13': 'Recessed',
+  '14': 'RoundedDisclosure',
+  '15': 'Inline'
 };
 
 (globalThis as any)['NSButton']['ButtonType'] = (globalThis as any)['NSButton']['ButtonType'] || {};
@@ -42635,7 +44908,17 @@ let global = globalThis as any;
   OnOff: 6,
   MomentaryPushIn: 7,
   Accelerator: 8,
-  MultiLevelAccelerator: 9
+  MultiLevelAccelerator: 9,
+  '0': 'MomentaryLight',
+  '1': 'PushOnPushOff',
+  '2': 'Toggle',
+  '3': 'Switch',
+  '4': 'Radio',
+  '5': 'MomentaryChange',
+  '6': 'OnOff',
+  '7': 'MomentaryPushIn',
+  '8': 'Accelerator',
+  '9': 'MultiLevelAccelerator'
 };
 
 
@@ -42655,7 +44938,20 @@ let global = globalThis as any;
   RoundRect: 12,
   Recessed: 13,
   RoundedDisclosure: 14,
-  Inline: 15
+  Inline: 15,
+  '1': 'Rounded',
+  '2': 'RegularSquare',
+  '5': 'Disclosure',
+  '6': 'ShadowlessSquare',
+  '7': 'Circular',
+  '8': 'TexturedSquare',
+  '9': 'HelpButton',
+  '10': 'SmallSquare',
+  '11': 'TexturedRounded',
+  '12': 'RoundRect',
+  '13': 'Recessed',
+  '14': 'RoundedDisclosure',
+  '15': 'Inline'
 };
 
 (globalThis as any)['NSButtonCell']['NSButton'] = (globalThis as any)['NSButtonCell']['NSButton'] || {};
@@ -42670,7 +44966,17 @@ let global = globalThis as any;
   OnOff: 6,
   MomentaryPushIn: 7,
   Accelerator: 8,
-  MultiLevelAccelerator: 9
+  MultiLevelAccelerator: 9,
+  '0': 'MomentaryLight',
+  '1': 'PushOnPushOff',
+  '2': 'Toggle',
+  '3': 'Switch',
+  '4': 'Radio',
+  '5': 'MomentaryChange',
+  '6': 'OnOff',
+  '7': 'MomentaryPushIn',
+  '8': 'Accelerator',
+  '9': 'MultiLevelAccelerator'
 };
 
 
@@ -42688,7 +44994,10 @@ let global = globalThis as any;
 (globalThis as any)['NSCell']['NSControl']['ControlSize'] = {
   Regular: 0,
   Small: 1,
-  Mini: 2
+  Mini: 2,
+  '0': 'Regular',
+  '1': 'Small',
+  '2': 'Mini'
 };
 
 (globalThis as any)['NSCell']['NSControl'] = (globalThis as any)['NSCell']['NSControl'] || {};
@@ -42702,7 +45011,16 @@ let global = globalThis as any;
   ImageAbove: 5,
   ImageOverlaps: 6,
   ImageLeading: 7,
-  ImageTrailing: 8
+  ImageTrailing: 8,
+  '0': 'NoImage',
+  '1': 'ImageOnly',
+  '2': 'ImageLeft',
+  '3': 'ImageRight',
+  '4': 'ImageBelow',
+  '5': 'ImageAbove',
+  '6': 'ImageOverlaps',
+  '7': 'ImageLeading',
+  '8': 'ImageTrailing'
 };
 
 (globalThis as any)['NSCell']['NSView'] = (globalThis as any)['NSCell']['NSView'] || {};
@@ -42714,7 +45032,14 @@ let global = globalThis as any;
   MaxXMargin: 4,
   MinYMargin: 8,
   HeightSizable: 16,
-  MaxYMargin: 32
+  MaxYMargin: 32,
+  '0': 'NotSizable',
+  '1': 'MinXMargin',
+  '2': 'WidthSizable',
+  '4': 'MaxXMargin',
+  '8': 'MinYMargin',
+  '16': 'HeightSizable',
+  '32': 'MaxYMargin'
 };
 
 (globalThis as any)['NSCell']['NSView'] = (globalThis as any)['NSCell']['NSView'] || {};
@@ -42723,7 +45048,11 @@ let global = globalThis as any;
   Normal: 0,
   Emphasized: 1,
   Raised: 2,
-  Lowered: 3
+  Lowered: 3,
+  '0': 'Normal',
+  '1': 'Emphasized',
+  '2': 'Raised',
+  '3': 'Lowered'
 };
 
 (globalThis as any)['NSCell']['NSView'] = (globalThis as any)['NSCell']['NSView'] || {};
@@ -42740,7 +45069,19 @@ let global = globalThis as any;
   Bottom: 8,
   BottomLeft: 9,
   Left: 10,
-  TopLeft: 11
+  TopLeft: 11,
+  '0': 'ScaleAxesIndependently',
+  '1': 'ScaleProportionallyToFit',
+  '2': 'ScaleProportionallyToFill',
+  '3': 'Center',
+  '4': 'Top',
+  '5': 'TopRight',
+  '6': 'Right',
+  '7': 'BottomRight',
+  '8': 'Bottom',
+  '9': 'BottomLeft',
+  '10': 'Left',
+  '11': 'TopLeft'
 };
 
 (globalThis as any)['NSCell']['NSView'] = (globalThis as any)['NSCell']['NSView'] || {};
@@ -42750,7 +45091,12 @@ let global = globalThis as any;
   OnSetNeedsDisplay: 1,
   DuringViewResize: 2,
   BeforeViewResize: 3,
-  Crossfade: 4
+  Crossfade: 4,
+  '0': 'Never',
+  '1': 'OnSetNeedsDisplay',
+  '2': 'DuringViewResize',
+  '3': 'BeforeViewResize',
+  '4': 'Crossfade'
 };
 
 (globalThis as any)['NSCell']['NSView'] = (globalThis as any)['NSCell']['NSView'] || {};
@@ -42759,7 +45105,11 @@ let global = globalThis as any;
   NoBorder: 0,
   LineBorder: 1,
   BezelBorder: 2,
-  GrooveBorder: 3
+  GrooveBorder: 3,
+  '0': 'NoBorder',
+  '1': 'LineBorder',
+  '2': 'BezelBorder',
+  '3': 'GrooveBorder'
 };
 
 (globalThis as any)['NSCell']['Attribute'] = (globalThis as any)['NSCell']['Attribute'] || {};
@@ -42780,14 +45130,34 @@ let global = globalThis as any;
   CellHasImageOnLeftOrBottom: 13,
   CellChangesContents: 14,
   CellIsInsetButton: 15,
-  CellAllowsMixedState: 16
+  CellAllowsMixedState: 16,
+  '0': 'CellDisabled',
+  '1': 'CellState',
+  '2': 'PushInCell',
+  '3': 'CellEditable',
+  '4': 'ChangeGrayCell',
+  '5': 'CellHighlighted',
+  '6': 'CellLightsByContents',
+  '7': 'CellLightsByGray',
+  '8': 'ChangeBackgroundCell',
+  '9': 'CellLightsByBackground',
+  '10': 'CellIsBordered',
+  '11': 'CellHasOverlappingImage',
+  '12': 'CellHasImageHorizontal',
+  '13': 'CellHasImageOnLeftOrBottom',
+  '14': 'CellChangesContents',
+  '15': 'CellIsInsetButton',
+  '16': 'CellAllowsMixedState'
 };
 
 (globalThis as any)['NSCell']['CellType'] = (globalThis as any)['NSCell']['CellType'] || {};
 (globalThis as any)['NSCell']['CellType'] = {
   NullCellType: 0,
   TextCellType: 1,
-  ImageCellType: 2
+  ImageCellType: 2,
+  '0': 'NullCellType',
+  '1': 'TextCellType',
+  '2': 'ImageCellType'
 };
 
 (globalThis as any)['NSCell']['HitResult'] = (globalThis as any)['NSCell']['HitResult'] || {};
@@ -42795,7 +45165,11 @@ let global = globalThis as any;
   None: 0,
   ContentArea: 1,
   EditableTextArea: 2,
-  TrackableArea: 4
+  TrackableArea: 4,
+  '0': 'None',
+  '1': 'ContentArea',
+  '2': 'EditableTextArea',
+  '4': 'TrackableArea'
 };
 
 (globalThis as any)['NSCell']['NSControlTint'] = (globalThis as any)['NSCell']['NSControlTint'] || {};
@@ -42803,7 +45177,11 @@ let global = globalThis as any;
   DefaultControlTint: 0,
   BlueControlTint: 1,
   GraphiteControlTint: 6,
-  ClearControlTint: 7
+  ClearControlTint: 7,
+  '0': 'DefaultControlTint',
+  '1': 'BlueControlTint',
+  '6': 'GraphiteControlTint',
+  '7': 'ClearControlTint'
 };
 
 (globalThis as any)['NSCell']['NSImageScaling'] = (globalThis as any)['NSCell']['NSImageScaling'] || {};
@@ -42814,7 +45192,11 @@ let global = globalThis as any;
   ImageScaleProportionallyUpOrDown: 3,
   ScaleProportionally: 0,
   ScaleToFit: 1,
-  ScaleNone: 2
+  ScaleNone: 2,
+  '0': 'ImageScaleProportionallyDown',
+  '1': 'ImageScaleAxesIndependently',
+  '2': 'ImageScaleNone',
+  '3': 'ImageScaleProportionallyUpOrDown',
 };
 
 (globalThis as any)['NSCell']['StyleMask'] = (globalThis as any)['NSCell']['StyleMask'] || {};
@@ -42823,7 +45205,12 @@ let global = globalThis as any;
   ContentsCellMask: 1,
   PushInCellMask: 2,
   ChangeGrayCellMask: 4,
-  ChangeBackgroundCellMask: 8
+  ChangeBackgroundCellMask: 8,
+  '0': 'NoCellMask',
+  '1': 'ContentsCellMask',
+  '2': 'PushInCellMask',
+  '4': 'ChangeGrayCellMask',
+  '8': 'ChangeBackgroundCellMask'
 };
 
 
@@ -42839,7 +45226,9 @@ let global = globalThis as any;
 (globalThis as any)['NSCoder']['DecodingFailurePolicy'] = (globalThis as any)['NSCoder']['DecodingFailurePolicy'] || {};
 (globalThis as any)['NSCoder']['DecodingFailurePolicy'] = {
   RaiseException: 0,
-  SetErrorAndReturn: 1
+  SetErrorAndReturn: 1,
+  '0': 'RaiseException',
+  '1': 'SetErrorAndReturn'
 };
 
 
@@ -42850,19 +45239,27 @@ let global = globalThis as any;
   None: 0,
   ForSelection: 1,
   ForDeselection: 2,
-  AsDropTarget: 3
+  AsDropTarget: 3,
+  '0': 'None',
+  '1': 'ForSelection',
+  '2': 'ForDeselection',
+  '3': 'AsDropTarget'
 };
 
 (globalThis as any)['NSCollectionView']['DropOperation'] = (globalThis as any)['NSCollectionView']['DropOperation'] || {};
 (globalThis as any)['NSCollectionView']['DropOperation'] = {
   On: 0,
-  Before: 1
+  Before: 1,
+  '0': 'On',
+  '1': 'Before'
 };
 
 (globalThis as any)['NSCollectionView']['ScrollDirection'] = (globalThis as any)['NSCollectionView']['ScrollDirection'] || {};
 (globalThis as any)['NSCollectionView']['ScrollDirection'] = {
   Vertical: 0,
-  Horizontal: 1
+  Horizontal: 1,
+  '0': 'Vertical',
+  '1': 'Horizontal'
 };
 
 (globalThis as any)['NSCollectionView']['ScrollPosition'] = (globalThis as any)['NSCollectionView']['ScrollPosition'] || {};
@@ -42877,7 +45274,18 @@ let global = globalThis as any;
   Right: 32,
   LeadingEdge: 64,
   TrailingEdge: 128,
-  NearestVerticalEdge: 256
+  NearestVerticalEdge: 256,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'CenteredVertically',
+  '4': 'Bottom',
+  '512': 'NearestHorizontalEdge',
+  '8': 'Left',
+  '16': 'CenteredHorizontally',
+  '32': 'Right',
+  '64': 'LeadingEdge',
+  '128': 'TrailingEdge',
+  '256': 'NearestVerticalEdge'
 };
 
 (globalThis as any)['NSCollectionView']['UpdateAction'] = (globalThis as any)['NSCollectionView']['UpdateAction'] || {};
@@ -42886,7 +45294,12 @@ let global = globalThis as any;
   Delete: 1,
   Reload: 2,
   Move: 3,
-  None: 4
+  None: 4,
+  '0': 'Insert',
+  '1': 'Delete',
+  '2': 'Reload',
+  '3': 'Move',
+  '4': 'None'
 };
 
 
@@ -42898,7 +45311,13 @@ let global = globalThis as any;
   ContinuousGroupLeadingBoundary: 2,
   Paging: 3,
   GroupPaging: 4,
-  GroupPagingCentered: 5
+  GroupPagingCentered: 5,
+  '0': 'None',
+  '1': 'Continuous',
+  '2': 'ContinuousGroupLeadingBoundary',
+  '3': 'Paging',
+  '4': 'GroupPaging',
+  '5': 'GroupPagingCentered'
 };
 
 (globalThis as any)['NSCollectionViewCompositionalLayout']['NSDirectionalRectEdge'] = (globalThis as any)['NSCollectionViewCompositionalLayout']['NSDirectionalRectEdge'] || {};
@@ -42908,7 +45327,13 @@ let global = globalThis as any;
   Leading: 2,
   Bottom: 4,
   Trailing: 8,
-  All: 15
+  All: 15,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'Leading',
+  '4': 'Bottom',
+  '8': 'Trailing',
+  '15': 'All'
 };
 
 (globalThis as any)['NSCollectionViewCompositionalLayout']['NSRectAlignment'] = (globalThis as any)['NSCollectionViewCompositionalLayout']['NSRectAlignment'] || {};
@@ -42921,7 +45346,16 @@ let global = globalThis as any;
   Bottom: 5,
   BottomTrailing: 6,
   Trailing: 7,
-  TopTrailing: 8
+  TopTrailing: 8,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'TopLeading',
+  '3': 'Leading',
+  '4': 'BottomLeading',
+  '5': 'Bottom',
+  '6': 'BottomTrailing',
+  '7': 'Trailing',
+  '8': 'TopTrailing'
 };
 
 
@@ -42930,14 +45364,18 @@ let global = globalThis as any;
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['DropOperation'] = (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['DropOperation'] || {};
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['DropOperation'] = {
   On: 0,
-  Before: 1
+  Before: 1,
+  '0': 'On',
+  '1': 'Before'
 };
 
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] || {};
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['ScrollDirection'] = (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['ScrollDirection'] || {};
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView']['ScrollDirection'] = {
   Vertical: 0,
-  Horizontal: 1
+  Horizontal: 1,
+  '0': 'Vertical',
+  '1': 'Horizontal'
 };
 
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] || {};
@@ -42953,7 +45391,18 @@ let global = globalThis as any;
   Right: 32,
   LeadingEdge: 64,
   TrailingEdge: 128,
-  NearestVerticalEdge: 256
+  NearestVerticalEdge: 256,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'CenteredVertically',
+  '4': 'Bottom',
+  '512': 'NearestHorizontalEdge',
+  '8': 'Left',
+  '16': 'CenteredHorizontally',
+  '32': 'Right',
+  '64': 'LeadingEdge',
+  '128': 'TrailingEdge',
+  '256': 'NearestVerticalEdge'
 };
 
 (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewFlowLayout']['NSCollectionView'] || {};
@@ -42963,7 +45412,12 @@ let global = globalThis as any;
   Delete: 1,
   Reload: 2,
   Move: 3,
-  None: 4
+  None: 4,
+  '0': 'Insert',
+  '1': 'Delete',
+  '2': 'Reload',
+  '3': 'Move',
+  '4': 'None'
 };
 
 
@@ -42974,14 +45428,18 @@ let global = globalThis as any;
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['DropOperation'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['DropOperation'] || {};
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['DropOperation'] = {
   On: 0,
-  Before: 1
+  Before: 1,
+  '0': 'On',
+  '1': 'Before'
 };
 
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] || {};
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['ScrollDirection'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['ScrollDirection'] || {};
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView']['ScrollDirection'] = {
   Vertical: 0,
-  Horizontal: 1
+  Horizontal: 1,
+  '0': 'Vertical',
+  '1': 'Horizontal'
 };
 
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] || {};
@@ -42997,7 +45455,18 @@ let global = globalThis as any;
   Right: 32,
   LeadingEdge: 64,
   TrailingEdge: 128,
-  NearestVerticalEdge: 256
+  NearestVerticalEdge: 256,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'CenteredVertically',
+  '4': 'Bottom',
+  '512': 'NearestHorizontalEdge',
+  '8': 'Left',
+  '16': 'CenteredHorizontally',
+  '32': 'Right',
+  '64': 'LeadingEdge',
+  '128': 'TrailingEdge',
+  '256': 'NearestVerticalEdge'
 };
 
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionView'] || {};
@@ -43007,7 +45476,12 @@ let global = globalThis as any;
   Delete: 1,
   Reload: 2,
   Move: 3,
-  None: 4
+  None: 4,
+  '0': 'Insert',
+  '1': 'Delete',
+  '2': 'Reload',
+  '3': 'Move',
+  '4': 'None'
 };
 
 (globalThis as any)['NSCollectionViewLayout']['NSCollectionElementCategory'] = (globalThis as any)['NSCollectionViewLayout']['NSCollectionElementCategory'] || {};
@@ -43015,7 +45489,11 @@ let global = globalThis as any;
   Item: 0,
   SupplementaryView: 1,
   DecorationView: 2,
-  InterItemGap: 3
+  InterItemGap: 3,
+  '0': 'Item',
+  '1': 'SupplementaryView',
+  '2': 'DecorationView',
+  '3': 'InterItemGap'
 };
 
 
@@ -43026,7 +45504,10 @@ let global = globalThis as any;
 (globalThis as any)['NSColor']['ColorType'] = {
   ComponentBased: 0,
   Pattern: 1,
-  Catalog: 2
+  Catalog: 2,
+  '0': 'ComponentBased',
+  '1': 'Pattern',
+  '2': 'Catalog'
 };
 
 (globalThis as any)['NSColor']['SystemEffect'] = (globalThis as any)['NSColor']['SystemEffect'] || {};
@@ -43035,7 +45516,12 @@ let global = globalThis as any;
   Pressed: 1,
   DeepPressed: 2,
   Disabled: 3,
-  Rollover: 4
+  Rollover: 4,
+  '0': 'None',
+  '1': 'Pressed',
+  '2': 'DeepPressed',
+  '3': 'Disabled',
+  '4': 'Rollover'
 };
 
 
@@ -43052,7 +45538,16 @@ let global = globalThis as any;
   CustomPalette: 4,
   ColorList: 5,
   Wheel: 6,
-  Crayon: 7
+  Crayon: 7,
+  '-1': 'None',
+  '0': 'Gray',
+  '1': 'RGB',
+  '2': 'CMYK',
+  '3': 'HSB',
+  '4': 'CustomPalette',
+  '5': 'ColorList',
+  '6': 'Wheel',
+  '7': 'Crayon'
 };
 
 (globalThis as any)['NSColorPanel']['Options'] = (globalThis as any)['NSColorPanel']['Options'] || {};
@@ -43065,7 +45560,16 @@ let global = globalThis as any;
   ColorListModeMask: 32,
   WheelModeMask: 64,
   CrayonModeMask: 128,
-  AllModesMask: 65535
+  AllModesMask: 65535,
+  '1': 'GrayModeMask',
+  '2': 'RGBModeMask',
+  '4': 'CMYKModeMask',
+  '8': 'HSBModeMask',
+  '16': 'CustomPaletteModeMask',
+  '32': 'ColorListModeMask',
+  '64': 'WheelModeMask',
+  '128': 'CrayonModeMask',
+  '65535': 'AllModesMask'
 };
 
 
@@ -43085,7 +45589,15 @@ let global = globalThis as any;
   LAB: 3,
   DeviceN: 4,
   Indexed: 5,
-  Patterned: 6
+  Patterned: 6,
+  '-1': 'Unknown',
+  '0': 'Gray',
+  '1': 'RGB',
+  '2': 'CMYK',
+  '3': 'LAB',
+  '4': 'DeviceN',
+  '5': 'Indexed',
+  '6': 'Patterned'
 };
 
 
@@ -43100,7 +45612,10 @@ let global = globalThis as any;
 (globalThis as any)['NSComparisonPredicate']['Modifier'] = {
   DirectPredicateModifier: 0,
   AllPredicateModifier: 1,
-  AnyPredicateModifier: 2
+  AnyPredicateModifier: 2,
+  '0': 'DirectPredicateModifier',
+  '1': 'AllPredicateModifier',
+  '2': 'AnyPredicateModifier'
 };
 
 (globalThis as any)['NSComparisonPredicate']['Operator'] = (globalThis as any)['NSComparisonPredicate']['Operator'] || {};
@@ -43118,14 +45633,31 @@ let global = globalThis as any;
   InPredicateOperatorType: 10,
   CustomSelectorPredicateOperatorType: 11,
   ContainsPredicateOperatorType: 99,
-  BetweenPredicateOperatorType: 100
+  BetweenPredicateOperatorType: 100,
+  '0': 'LessThanPredicateOperatorType',
+  '1': 'LessThanOrEqualToPredicateOperatorType',
+  '2': 'GreaterThanPredicateOperatorType',
+  '3': 'GreaterThanOrEqualToPredicateOperatorType',
+  '4': 'EqualToPredicateOperatorType',
+  '5': 'NotEqualToPredicateOperatorType',
+  '6': 'MatchesPredicateOperatorType',
+  '7': 'LikePredicateOperatorType',
+  '8': 'BeginsWithPredicateOperatorType',
+  '9': 'EndsWithPredicateOperatorType',
+  '10': 'InPredicateOperatorType',
+  '11': 'CustomSelectorPredicateOperatorType',
+  '99': 'ContainsPredicateOperatorType',
+  '100': 'BetweenPredicateOperatorType'
 };
 
 (globalThis as any)['NSComparisonPredicate']['Options'] = (globalThis as any)['NSComparisonPredicate']['Options'] || {};
 (globalThis as any)['NSComparisonPredicate']['Options'] = {
   CaseInsensitivePredicateOption: 1,
   DiacriticInsensitivePredicateOption: 2,
-  NormalizedPredicateOption: 4
+  NormalizedPredicateOption: 4,
+  '1': 'CaseInsensitivePredicateOption',
+  '2': 'DiacriticInsensitivePredicateOption',
+  '4': 'NormalizedPredicateOption'
 };
 
 
@@ -43134,7 +45666,10 @@ let global = globalThis as any;
 (globalThis as any)['NSCompoundPredicate']['LogicalType'] = {
   NotPredicateType: 0,
   AndPredicateType: 1,
-  OrPredicateType: 2
+  OrPredicateType: 2,
+  '0': 'NotPredicateType',
+  '1': 'AndPredicateType',
+  '2': 'OrPredicateType'
 };
 
 
@@ -43145,7 +45680,10 @@ let global = globalThis as any;
 (globalThis as any)['NSControl']['ControlSize'] = {
   Regular: 0,
   Small: 1,
-  Mini: 2
+  Mini: 2,
+  '0': 'Regular',
+  '1': 'Small',
+  '2': 'Mini'
 };
 
 (globalThis as any)['NSControl']['ImagePosition'] = (globalThis as any)['NSControl']['ImagePosition'] || {};
@@ -43158,7 +45696,16 @@ let global = globalThis as any;
   ImageAbove: 5,
   ImageOverlaps: 6,
   ImageLeading: 7,
-  ImageTrailing: 8
+  ImageTrailing: 8,
+  '0': 'NoImage',
+  '1': 'ImageOnly',
+  '2': 'ImageLeft',
+  '3': 'ImageRight',
+  '4': 'ImageBelow',
+  '5': 'ImageAbove',
+  '6': 'ImageOverlaps',
+  '7': 'ImageLeading',
+  '8': 'ImageTrailing'
 };
 
 
@@ -43174,8 +45721,6 @@ let global = globalThis as any;
 
 (globalThis as any)['NSDataAsset'] = (globalThis as any)['NSDataAsset'] || {};
 
-(globalThis as any)['Date'] = (globalThis as any)['Date'] || {};
-
 (globalThis as any)['DateInterval'] = (globalThis as any)['DateInterval'] || {};
 
 (globalThis as any)['NSDatePicker'] = (globalThis as any)['NSDatePicker'] || {};
@@ -43186,20 +45731,31 @@ let global = globalThis as any;
   TimeZone: 16,
   YearMonth: 192,
   YearMonthDay: 224,
-  Era: 256
+  Era: 256,
+  '12': 'HourMinute',
+  '14': 'HourMinuteSecond',
+  '16': 'TimeZone',
+  '192': 'YearMonth',
+  '224': 'YearMonthDay',
+  '256': 'Era'
 };
 
 (globalThis as any)['NSDatePicker']['Mode'] = (globalThis as any)['NSDatePicker']['Mode'] || {};
 (globalThis as any)['NSDatePicker']['Mode'] = {
   Single: 0,
-  Range: 1
+  Range: 1,
+  '0': 'Single',
+  '1': 'Range'
 };
 
 (globalThis as any)['NSDatePicker']['Style'] = (globalThis as any)['NSDatePicker']['Style'] || {};
 (globalThis as any)['NSDatePicker']['Style'] = {
   TextFieldAndStepper: 0,
   ClockAndCalendar: 1,
-  TextField: 2
+  TextField: 2,
+  '0': 'TextFieldAndStepper',
+  '1': 'ClockAndCalendar',
+  '2': 'TextField'
 };
 
 
@@ -43212,14 +45768,22 @@ let global = globalThis as any;
   TimeZone: 16,
   YearMonth: 192,
   YearMonthDay: 224,
-  Era: 256
+  Era: 256,
+  '12': 'HourMinute',
+  '14': 'HourMinuteSecond',
+  '16': 'TimeZone',
+  '192': 'YearMonth',
+  '224': 'YearMonthDay',
+  '256': 'Era'
 };
 
 (globalThis as any)['NSDatePickerCell']['NSDatePicker'] = (globalThis as any)['NSDatePickerCell']['NSDatePicker'] || {};
 (globalThis as any)['NSDatePickerCell']['NSDatePicker']['Mode'] = (globalThis as any)['NSDatePickerCell']['NSDatePicker']['Mode'] || {};
 (globalThis as any)['NSDatePickerCell']['NSDatePicker']['Mode'] = {
   Single: 0,
-  Range: 1
+  Range: 1,
+  '0': 'Single',
+  '1': 'Range'
 };
 
 (globalThis as any)['NSDatePickerCell']['NSDatePicker'] = (globalThis as any)['NSDatePickerCell']['NSDatePicker'] || {};
@@ -43227,7 +45791,10 @@ let global = globalThis as any;
 (globalThis as any)['NSDatePickerCell']['NSDatePicker']['Style'] = {
   TextFieldAndStepper: 0,
   ClockAndCalendar: 1,
-  TextField: 2
+  TextField: 2,
+  '0': 'TextFieldAndStepper',
+  '1': 'ClockAndCalendar',
+  '2': 'TextField'
 };
 
 
@@ -43239,7 +45806,12 @@ let global = globalThis as any;
   LossOfPrecision: 1,
   Underflow: 2,
   Overflow: 3,
-  DivideByZero: 4
+  DivideByZero: 4,
+  '0': 'NoError',
+  '1': 'LossOfPrecision',
+  '2': 'Underflow',
+  '3': 'Overflow',
+  '4': 'DivideByZero'
 };
 
 (globalThis as any)['NSDecimal']['NSDecimalNumber'] = (globalThis as any)['NSDecimal']['NSDecimalNumber'] || {};
@@ -43248,7 +45820,11 @@ let global = globalThis as any;
   Plain: 0,
   Down: 1,
   Up: 2,
-  Bankers: 3
+  Bankers: 3,
+  '0': 'Plain',
+  '1': 'Down',
+  '2': 'Up',
+  '3': 'Bankers'
 };
 
 
@@ -43259,7 +45835,12 @@ let global = globalThis as any;
   LossOfPrecision: 1,
   Underflow: 2,
   Overflow: 3,
-  DivideByZero: 4
+  DivideByZero: 4,
+  '0': 'NoError',
+  '1': 'LossOfPrecision',
+  '2': 'Underflow',
+  '3': 'Overflow',
+  '4': 'DivideByZero'
 };
 
 (globalThis as any)['NSDecimalNumber']['RoundingMode'] = (globalThis as any)['NSDecimalNumber']['RoundingMode'] || {};
@@ -43267,7 +45848,11 @@ let global = globalThis as any;
   Plain: 0,
   Down: 1,
   Up: 2,
-  Bankers: 3
+  Bankers: 3,
+  '0': 'Plain',
+  '1': 'Down',
+  '2': 'Up',
+  '3': 'Bankers'
 };
 
 
@@ -43292,7 +45877,14 @@ let global = globalThis as any;
   Cleared: 2,
   ReadOtherContents: 3,
   Autosaved: 4,
-  Discardable: 256
+  Discardable: 256,
+  '0': 'Done',
+  '1': 'Undone',
+  '5': 'Redone',
+  '2': 'Cleared',
+  '3': 'ReadOtherContents',
+  '4': 'Autosaved',
+  '256': 'Discardable'
 };
 
 (globalThis as any)['NSDocument']['SaveOperationType'] = (globalThis as any)['NSDocument']['SaveOperationType'] || {};
@@ -43303,7 +45895,13 @@ let global = globalThis as any;
   AutosaveInPlaceOperation: 4,
   AutosaveElsewhereOperation: 3,
   AutosaveAsOperation: 5,
-  AutosaveOperation: 3
+  AutosaveOperation: 3,
+  '0': 'SaveOperation',
+  '1': 'SaveAsOperation',
+  '2': 'SaveToOperation',
+  '4': 'AutosaveInPlaceOperation',
+  '3': 'AutosaveElsewhereOperation',
+  '5': 'AutosaveAsOperation',
 };
 
 
@@ -43321,13 +45919,24 @@ let global = globalThis as any;
   Delete: 32,
   Every: -1,
   All_Obsolete: 15,
-  All: 15
+  All: 15,
+  '0': 'None',
+  '1': 'Copy',
+  '2': 'Link',
+  '4': 'Generic',
+  '8': 'Private',
+  '16': 'Move',
+  '32': 'Delete',
+  '-1': 'Every',
+  '15': 'All_Obsolete',
 };
 
 (globalThis as any)['NSDragging']['NSDraggingContext'] = (globalThis as any)['NSDragging']['NSDraggingContext'] || {};
 (globalThis as any)['NSDragging']['NSDraggingContext'] = {
   OutsideApplication: 0,
-  WithinApplication: 1
+  WithinApplication: 1,
+  '0': 'OutsideApplication',
+  '1': 'WithinApplication'
 };
 
 (globalThis as any)['NSDragging']['NSDraggingFormation'] = (globalThis as any)['NSDragging']['NSDraggingFormation'] || {};
@@ -43336,20 +45945,30 @@ let global = globalThis as any;
   None: 1,
   Pile: 2,
   List: 3,
-  Stack: 4
+  Stack: 4,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Pile',
+  '3': 'List',
+  '4': 'Stack'
 };
 
 (globalThis as any)['NSDragging']['NSDraggingItemEnumerationOptions'] = (globalThis as any)['NSDragging']['NSDraggingItemEnumerationOptions'] || {};
 (globalThis as any)['NSDragging']['NSDraggingItemEnumerationOptions'] = {
   oncurrent: 1,
-  learNonenumeratedImages: 65536
+  learNonenumeratedImages: 65536,
+  '1': 'oncurrent',
+  '65536': 'learNonenumeratedImages'
 };
 
 (globalThis as any)['NSDragging']['NSSpringLoadingHighlight'] = (globalThis as any)['NSDragging']['NSSpringLoadingHighlight'] || {};
 (globalThis as any)['NSDragging']['NSSpringLoadingHighlight'] = {
   None: 0,
   Standard: 1,
-  Emphasized: 2
+  Emphasized: 2,
+  '0': 'None',
+  '1': 'Standard',
+  '2': 'Emphasized'
 };
 
 (globalThis as any)['NSDragging']['NSSpringLoadingOptions'] = (globalThis as any)['NSDragging']['NSSpringLoadingOptions'] || {};
@@ -43357,7 +45976,11 @@ let global = globalThis as any;
   Disabled: 0,
   Enabled: 1,
   ContinuousActivation: 2,
-  NoHover: 8
+  NoHover: 8,
+  '0': 'Disabled',
+  '1': 'Enabled',
+  '2': 'ContinuousActivation',
+  '8': 'NoHover'
 };
 
 
@@ -43371,7 +45994,11 @@ let global = globalThis as any;
   ClosedState: 0,
   OpeningState: 1,
   OpenState: 2,
-  ClosingState: 3
+  ClosingState: 3,
+  '0': 'ClosedState',
+  '1': 'OpeningState',
+  '2': 'OpenState',
+  '3': 'ClosingState'
 };
 
 
@@ -43387,7 +46014,13 @@ let global = globalThis as any;
   AddEntityMappingType: 2,
   RemoveEntityMappingType: 3,
   CopyEntityMappingType: 4,
-  TransformEntityMappingType: 5
+  TransformEntityMappingType: 5,
+  '0': 'UndefinedEntityMappingType',
+  '1': 'CustomEntityMappingType',
+  '2': 'AddEntityMappingType',
+  '3': 'RemoveEntityMappingType',
+  '4': 'CopyEntityMappingType',
+  '5': 'TransformEntityMappingType'
 };
 
 
@@ -43395,14 +46028,15 @@ let global = globalThis as any;
 
 (globalThis as any)['NSEnumerator'] = (globalThis as any)['NSEnumerator'] || {};
 
-(globalThis as any)['Error'] = (globalThis as any)['Error'] || {};
-
 (globalThis as any)['NSEvent'] = (globalThis as any)['NSEvent'] || {};
 (globalThis as any)['NSEvent']['ButtonMask'] = (globalThis as any)['NSEvent']['ButtonMask'] || {};
 (globalThis as any)['NSEvent']['ButtonMask'] = {
   Tip: 1,
   LowerSide: 2,
-  UpperSide: 4
+  UpperSide: 4,
+  '1': 'Tip',
+  '2': 'LowerSide',
+  '4': 'UpperSide'
 };
 
 (globalThis as any)['NSEvent']['EventSubtype'] = (globalThis as any)['NSEvent']['EventSubtype'] || {};
@@ -43416,7 +46050,13 @@ let global = globalThis as any;
   MouseEvent: 0,
   TabletPoint: 1,
   TabletProximity: 2,
-  Touch: 3
+  Touch: 3,
+  '0': 'WindowExposed',
+  '1': 'ApplicationActivated',
+  '2': 'ApplicationDeactivated',
+  '4': 'WindowMoved',
+  '8': 'ScreenChanged',
+  '3': 'Touch'
 };
 
 (globalThis as any)['NSEvent']['EventType'] = (globalThis as any)['NSEvent']['EventType'] || {};
@@ -43454,7 +46094,41 @@ let global = globalThis as any;
   QuickLook: 33,
   Pressure: 34,
   DirectTouch: 37,
-  ChangeMode: 38
+  ChangeMode: 38,
+  '1': 'LeftMouseDown',
+  '2': 'LeftMouseUp',
+  '3': 'RightMouseDown',
+  '4': 'RightMouseUp',
+  '5': 'MouseMoved',
+  '6': 'LeftMouseDragged',
+  '7': 'RightMouseDragged',
+  '8': 'MouseEntered',
+  '9': 'MouseExited',
+  '10': 'KeyDown',
+  '11': 'KeyUp',
+  '12': 'FlagsChanged',
+  '13': 'AppKitDefined',
+  '14': 'SystemDefined',
+  '15': 'ApplicationDefined',
+  '16': 'Periodic',
+  '17': 'CursorUpdate',
+  '22': 'ScrollWheel',
+  '23': 'TabletPoint',
+  '24': 'TabletProximity',
+  '25': 'OtherMouseDown',
+  '26': 'OtherMouseUp',
+  '27': 'OtherMouseDragged',
+  '29': 'Gesture',
+  '30': 'Magnify',
+  '31': 'Swipe',
+  '18': 'Rotate',
+  '19': 'BeginGesture',
+  '20': 'EndGesture',
+  '32': 'SmartMagnify',
+  '33': 'QuickLook',
+  '34': 'Pressure',
+  '37': 'DirectTouch',
+  '38': 'ChangeMode'
 };
 
 (globalThis as any)['NSEvent']['EventTypeMask'] = (globalThis as any)['NSEvent']['EventTypeMask'] || {};
@@ -43492,14 +46166,51 @@ let global = globalThis as any;
   Pressure: 17179869184,
   DirectTouch: 137438953472,
   ChangeMode: 274877906944,
-  Any: -1
+  Any: -1,
+  '2': 'LeftMouseDown',
+  '4': 'LeftMouseUp',
+  '8': 'RightMouseDown',
+  '16': 'RightMouseUp',
+  '32': 'MouseMoved',
+  '64': 'LeftMouseDragged',
+  '128': 'RightMouseDragged',
+  '256': 'MouseEntered',
+  '512': 'MouseExited',
+  '1024': 'KeyDown',
+  '2048': 'KeyUp',
+  '4096': 'FlagsChanged',
+  '8192': 'AppKitDefined',
+  '16384': 'SystemDefined',
+  '32768': 'ApplicationDefined',
+  '65536': 'Periodic',
+  '131072': 'CursorUpdate',
+  '4194304': 'ScrollWheel',
+  '8388608': 'TabletPoint',
+  '16777216': 'TabletProximity',
+  '33554432': 'OtherMouseDown',
+  '67108864': 'OtherMouseUp',
+  '134217728': 'OtherMouseDragged',
+  '536870912': 'Gesture',
+  '1073741824': 'Magnify',
+  '2147483648': 'Swipe',
+  '262144': 'Rotate',
+  '524288': 'BeginGesture',
+  '1048576': 'EndGesture',
+  '4294967296': 'SmartMagnify',
+  '17179869184': 'Pressure',
+  '137438953472': 'DirectTouch',
+  '274877906944': 'ChangeMode',
+  '-1': 'Any'
 };
 
 (globalThis as any)['NSEvent']['GestureAxis'] = (globalThis as any)['NSEvent']['GestureAxis'] || {};
 (globalThis as any)['NSEvent']['GestureAxis'] = {
   None: 0,
   Horizontal: 1,
-  Vertical: 2
+  Vertical: 2,
+  '0': 'None',
+  '1': 'Horizontal',
+  '2': 'Vertical'
 };
 
 (globalThis as any)['NSEvent']['ModifierFlags'] = (globalThis as any)['NSEvent']['ModifierFlags'] || {};
@@ -43512,7 +46223,16 @@ let global = globalThis as any;
   NumericPad: 2097152,
   Help: 4194304,
   Function: 8388608,
-  DeviceIndependentFlagsMask: 4294901760
+  DeviceIndependentFlagsMask: 4294901760,
+  '65536': 'CapsLock',
+  '131072': 'Shift',
+  '262144': 'Control',
+  '524288': 'Option',
+  '1048576': 'Command',
+  '2097152': 'NumericPad',
+  '4194304': 'Help',
+  '8388608': 'Function',
+  '4294901760': 'DeviceIndependentFlagsMask'
 };
 
 (globalThis as any)['NSEvent']['Phase'] = (globalThis as any)['NSEvent']['Phase'] || {};
@@ -43523,7 +46243,14 @@ let global = globalThis as any;
   Changed: 4,
   Ended: 8,
   Cancelled: 16,
-  MayBegin: 32
+  MayBegin: 32,
+  '0': 'None',
+  '1': 'Began',
+  '2': 'Stationary',
+  '4': 'Changed',
+  '8': 'Ended',
+  '16': 'Cancelled',
+  '32': 'MayBegin'
 };
 
 (globalThis as any)['NSEvent']['PointingDeviceType'] = (globalThis as any)['NSEvent']['PointingDeviceType'] || {};
@@ -43531,7 +46258,11 @@ let global = globalThis as any;
   Unknown: 0,
   Pen: 1,
   Cursor: 2,
-  Eraser: 3
+  Eraser: 3,
+  '0': 'Unknown',
+  '1': 'Pen',
+  '2': 'Cursor',
+  '3': 'Eraser'
 };
 
 (globalThis as any)['NSEvent']['PressureBehavior'] = (globalThis as any)['NSEvent']['PressureBehavior'] || {};
@@ -43542,13 +46273,22 @@ let global = globalThis as any;
   PrimaryGeneric: 2,
   PrimaryAccelerator: 3,
   PrimaryDeepClick: 5,
-  PrimaryDeepDrag: 6
+  PrimaryDeepDrag: 6,
+  '-1': 'Unknown',
+  '0': 'PrimaryDefault',
+  '1': 'PrimaryClick',
+  '2': 'PrimaryGeneric',
+  '3': 'PrimaryAccelerator',
+  '5': 'PrimaryDeepClick',
+  '6': 'PrimaryDeepDrag'
 };
 
 (globalThis as any)['NSEvent']['SwipeTrackingOptions'] = (globalThis as any)['NSEvent']['SwipeTrackingOptions'] || {};
 (globalThis as any)['NSEvent']['SwipeTrackingOptions'] = {
   LockDirection: 1,
-  ClampGestureAmount: 2
+  ClampGestureAmount: 2,
+  '1': 'LockDirection',
+  '2': 'ClampGestureAmount'
 };
 
 
@@ -43569,7 +46309,20 @@ let global = globalThis as any;
   AggregateExpressionType: 14,
   AnyKeyExpressionType: 15,
   BlockExpressionType: 19,
-  ConditionalExpressionType: 20
+  ConditionalExpressionType: 20,
+  '0': 'ConstantValueExpressionType',
+  '1': 'EvaluatedObjectExpressionType',
+  '2': 'VariableExpressionType',
+  '3': 'KeyPathExpressionType',
+  '4': 'FunctionExpressionType',
+  '5': 'UnionSetExpressionType',
+  '6': 'IntersectSetExpressionType',
+  '7': 'MinusSetExpressionType',
+  '13': 'SubqueryExpressionType',
+  '14': 'AggregateExpressionType',
+  '15': 'AnyKeyExpressionType',
+  '19': 'BlockExpressionType',
+  '20': 'ConditionalExpressionType'
 };
 
 
@@ -43585,7 +46338,9 @@ let global = globalThis as any;
 (globalThis as any)['NSFetchIndexElementDescription']['NSFetchIndexElementType'] = (globalThis as any)['NSFetchIndexElementDescription']['NSFetchIndexElementType'] || {};
 (globalThis as any)['NSFetchIndexElementDescription']['NSFetchIndexElementType'] = {
   Binary: 0,
-  RTree: 1
+  RTree: 1,
+  '0': 'Binary',
+  '1': 'RTree'
 };
 
 
@@ -43595,7 +46350,11 @@ let global = globalThis as any;
   ManagedObjectResultType: 0,
   ManagedObjectIDResultType: 1,
   DictionaryResultType: 2,
-  CountResultType: 4
+  CountResultType: 4,
+  '0': 'ManagedObjectResultType',
+  '1': 'ManagedObjectIDResultType',
+  '2': 'DictionaryResultType',
+  '4': 'CountResultType'
 };
 
 
@@ -43609,7 +46368,11 @@ let global = globalThis as any;
   Insert: 1,
   Delete: 2,
   Move: 3,
-  Update: 4
+  Update: 4,
+  '1': 'Insert',
+  '2': 'Delete',
+  '3': 'Move',
+  '4': 'Update'
 };
 
 
@@ -43619,7 +46382,11 @@ let global = globalThis as any;
   WithoutChanges: 1,
   ResolvesSymbolicLink: 2,
   ImmediatelyAvailableMetadataOnly: 4,
-  ForUploading: 8
+  ForUploading: 8,
+  '1': 'WithoutChanges',
+  '2': 'ResolvesSymbolicLink',
+  '4': 'ImmediatelyAvailableMetadataOnly',
+  '8': 'ForUploading'
 };
 
 (globalThis as any)['NSFileCoordinator']['WritingOptions'] = (globalThis as any)['NSFileCoordinator']['WritingOptions'] || {};
@@ -43628,7 +46395,12 @@ let global = globalThis as any;
   ForMoving: 2,
   ForMerging: 4,
   ForReplacing: 8,
-  ContentIndependentMetadataOnly: 16
+  ContentIndependentMetadataOnly: 16,
+  '1': 'ForDeleting',
+  '2': 'ForMoving',
+  '4': 'ForMerging',
+  '8': 'ForReplacing',
+  '16': 'ContentIndependentMetadataOnly'
 };
 
 
@@ -43641,12 +46413,14 @@ let global = globalThis as any;
 (globalThis as any)['NSFileVersion'] = (globalThis as any)['NSFileVersion'] || {};
 (globalThis as any)['NSFileVersion']['AddingOptions'] = (globalThis as any)['NSFileVersion']['AddingOptions'] || {};
 (globalThis as any)['NSFileVersion']['AddingOptions'] = {
-  NSFileVersionAddingByMoving: 1
+  NSFileVersionAddingByMoving: 1,
+  '1': 'NSFileVersionAddingByMoving'
 };
 
 (globalThis as any)['NSFileVersion']['ReplacingOptions'] = (globalThis as any)['NSFileVersion']['ReplacingOptions'] || {};
 (globalThis as any)['NSFileVersion']['ReplacingOptions'] = {
-  NSFileVersionReplacingByMoving: 1
+  NSFileVersionReplacingByMoving: 1,
+  '1': 'NSFileVersionReplacingByMoving'
 };
 
 
@@ -43656,14 +46430,19 @@ let global = globalThis as any;
   DefaultRenderingMode: 0,
   AntialiasedRenderingMode: 1,
   IntegerAdvancementsRenderingMode: 2,
-  AntialiasedIntegerAdvancementsRenderingMode: 3
+  AntialiasedIntegerAdvancementsRenderingMode: 3,
+  '0': 'DefaultRenderingMode',
+  '1': 'AntialiasedRenderingMode',
+  '2': 'IntegerAdvancementsRenderingMode',
+  '3': 'AntialiasedIntegerAdvancementsRenderingMode'
 };
 
 
 (globalThis as any)['NSFontAssetRequest'] = (globalThis as any)['NSFontAssetRequest'] || {};
 (globalThis as any)['NSFontAssetRequest']['Options'] = (globalThis as any)['NSFontAssetRequest']['Options'] || {};
 (globalThis as any)['NSFontAssetRequest']['Options'] = {
-  NSFontAssetRequestOptionUsesStandardUI: 1
+  NSFontAssetRequestOptionUsesStandardUI: 1,
+  '1': 'NSFontAssetRequestOptionUsesStandardUI'
 };
 
 
@@ -43672,7 +46451,10 @@ let global = globalThis as any;
 (globalThis as any)['NSFontCollection']['Visibility'] = {
   Process: 1,
   User: 2,
-  Computer: 4
+  Computer: 4,
+  '1': 'Process',
+  '2': 'User',
+  '4': 'Computer'
 };
 
 
@@ -43699,7 +46481,28 @@ let global = globalThis as any;
   ClassSansSerif: 2147483648,
   ClassOrnamentals: 2415919104,
   ClassScripts: 2684354560,
-  ClassSymbolic: 3221225472
+  ClassSymbolic: 3221225472,
+  '1': 'TraitItalic',
+  '2': 'TraitBold',
+  '32': 'TraitExpanded',
+  '64': 'TraitCondensed',
+  '1024': 'TraitMonoSpace',
+  '2048': 'TraitVertical',
+  '4096': 'TraitUIOptimized',
+  '32768': 'TraitTightLeading',
+  '65536': 'TraitLooseLeading',
+  '4026531840': 'ClassMask',
+  '0': 'ClassUnknown',
+  '268435456': 'ClassOldStyleSerifs',
+  '536870912': 'ClassTransitionalSerifs',
+  '805306368': 'ClassModernSerifs',
+  '1073741824': 'ClassClarendonSerifs',
+  '1342177280': 'ClassSlabSerifs',
+  '1879048192': 'ClassFreeformSerifs',
+  '2147483648': 'ClassSansSerif',
+  '2415919104': 'ClassOrnamentals',
+  '2684354560': 'ClassScripts',
+  '3221225472': 'ClassSymbolic'
 };
 
 
@@ -43713,12 +46516,21 @@ let global = globalThis as any;
   SizeDownFontAction: 4,
   HeavierFontAction: 5,
   LighterFontAction: 6,
-  RemoveTraitFontAction: 7
+  RemoveTraitFontAction: 7,
+  '0': 'NoFontChangeAction',
+  '1': 'ViaPanelFontAction',
+  '2': 'AddTraitFontAction',
+  '3': 'SizeUpFontAction',
+  '4': 'SizeDownFontAction',
+  '5': 'HeavierFontAction',
+  '6': 'LighterFontAction',
+  '7': 'RemoveTraitFontAction'
 };
 
 (globalThis as any)['NSFontManager']['NSFontCollectionOptions'] = (globalThis as any)['NSFontManager']['NSFontCollectionOptions'] || {};
 (globalThis as any)['NSFontManager']['NSFontCollectionOptions'] = {
-  NSFontCollectionApplicationOnlyMask: 1
+  NSFontCollectionApplicationOnlyMask: 1,
+  '1': 'NSFontCollectionApplicationOnlyMask'
 };
 
 (globalThis as any)['NSFontManager']['NSFontTraitMask'] = (globalThis as any)['NSFontManager']['NSFontTraitMask'] || {};
@@ -43734,7 +46546,19 @@ let global = globalThis as any;
   PosterFontMask: 256,
   CompressedFontMask: 512,
   FixedPitchFontMask: 1024,
-  UnitalicFontMask: 16777216
+  UnitalicFontMask: 16777216,
+  '1': 'ItalicFontMask',
+  '2': 'BoldFontMask',
+  '4': 'UnboldFontMask',
+  '8': 'NonStandardCharacterSetFontMask',
+  '16': 'NarrowFontMask',
+  '32': 'ExpandedFontMask',
+  '64': 'CondensedFontMask',
+  '128': 'SmallCapsFontMask',
+  '256': 'PosterFontMask',
+  '512': 'CompressedFontMask',
+  '1024': 'FixedPitchFontMask',
+  '16777216': 'UnitalicFontMask'
 };
 
 
@@ -43751,7 +46575,18 @@ let global = globalThis as any;
   MaskShadowEffect: 4096,
   MaskAllEffects: 1048320,
   sMaskStandardModes: 65535,
-  sMaskAllModes: 4294967295
+  sMaskAllModes: 4294967295,
+  '1': 'MaskFace',
+  '2': 'MaskSize',
+  '4': 'MaskCollection',
+  '256': 'MaskUnderlineEffect',
+  '512': 'MaskStrikethroughEffect',
+  '1024': 'MaskTextColorEffect',
+  '2048': 'MaskDocumentColorEffect',
+  '4096': 'MaskShadowEffect',
+  '1048320': 'MaskAllEffects',
+  '65535': 'sMaskStandardModes',
+  '4294967295': 'sMaskAllModes'
 };
 
 
@@ -43783,7 +46618,29 @@ let global = globalThis as any;
   RectFlipped: -9223372036854775808,
   AllEdgesInward: 15,
   AllEdgesOutward: 3840,
-  AllEdgesNearest: 983040
+  AllEdgesNearest: 983040,
+  '1': 'MinXInward',
+  '2': 'MinYInward',
+  '4': 'MaxXInward',
+  '8': 'MaxYInward',
+  '16': 'WidthInward',
+  '32': 'HeightInward',
+  '256': 'MinXOutward',
+  '512': 'MinYOutward',
+  '1024': 'MaxXOutward',
+  '2048': 'MaxYOutward',
+  '4096': 'WidthOutward',
+  '8192': 'HeightOutward',
+  '65536': 'MinXNearest',
+  '131072': 'MinYNearest',
+  '262144': 'MaxXNearest',
+  '524288': 'MaxYNearest',
+  '1048576': 'WidthNearest',
+  '2097152': 'HeightNearest',
+  '-9223372036854775808': 'RectFlipped',
+  '15': 'AllEdgesInward',
+  '3840': 'AllEdgesOutward',
+  '983040': 'AllEdgesNearest'
 };
 
 (globalThis as any)['NSGeometry']['NSRectEdge'] = (globalThis as any)['NSGeometry']['NSRectEdge'] || {};
@@ -43795,7 +46652,11 @@ let global = globalThis as any;
   MinXEdge: 0,
   MinYEdge: 1,
   MaxXEdge: 2,
-  MaxYEdge: 3
+  MaxYEdge: 3,
+  '0': 'RectEdgeMinX',
+  '1': 'RectEdgeMinY',
+  '2': 'RectEdgeMaxX',
+  '3': 'RectEdgeMaxY',
 };
 
 
@@ -43808,7 +46669,13 @@ let global = globalThis as any;
   Ended: 3,
   Cancelled: 4,
   Failed: 5,
-  Recognized: 3
+  Recognized: 3,
+  '0': 'Possible',
+  '1': 'Began',
+  '2': 'Changed',
+  '3': 'Ended',
+  '4': 'Cancelled',
+  '5': 'Failed',
 };
 
 
@@ -43822,7 +46689,13 @@ let global = globalThis as any;
   AdobeGB1CharacterCollection: 2,
   AdobeJapan1CharacterCollection: 3,
   AdobeJapan2CharacterCollection: 4,
-  AdobeKorea1CharacterCollection: 5
+  AdobeKorea1CharacterCollection: 5,
+  '0': 'IdentityMappingCharacterCollection',
+  '1': 'AdobeCNS1CharacterCollection',
+  '2': 'AdobeGB1CharacterCollection',
+  '3': 'AdobeJapan1CharacterCollection',
+  '4': 'AdobeJapan2CharacterCollection',
+  '5': 'AdobeKorea1CharacterCollection'
 };
 
 
@@ -43830,7 +46703,9 @@ let global = globalThis as any;
 (globalThis as any)['NSGradient']['DrawingOptions'] = (globalThis as any)['NSGradient']['DrawingOptions'] || {};
 (globalThis as any)['NSGradient']['DrawingOptions'] = {
   BeforeStartingLocation: 1,
-  AfterEndingLocation: 2
+  AfterEndingLocation: 2,
+  '1': 'BeforeStartingLocation',
+  '2': 'AfterEndingLocation'
 };
 
 
@@ -43842,7 +46717,12 @@ let global = globalThis as any;
   None: 2,
   DocumentWindow: 3,
   UtilityWindow: 4,
-  AlertPanel: 5
+  AlertPanel: 5,
+  '0': 'Default',
+  '2': 'None',
+  '3': 'DocumentWindow',
+  '4': 'UtilityWindow',
+  '5': 'AlertPanel'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43850,7 +46730,10 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['BackingStoreType'] = {
   Retained: 0,
   Nonretained: 1,
-  Buffered: 2
+  Buffered: 2,
+  '0': 'Retained',
+  '1': 'Nonretained',
+  '2': 'Buffered'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43861,7 +46744,13 @@ let global = globalThis as any;
   ZoomButton: 2,
   ToolbarButton: 3,
   DocumentIconButton: 4,
-  DocumentVersionsButton: 6
+  DocumentVersionsButton: 6,
+  '0': 'CloseButton',
+  '1': 'MiniaturizeButton',
+  '2': 'ZoomButton',
+  '3': 'ToolbarButton',
+  '4': 'DocumentIconButton',
+  '6': 'DocumentVersionsButton'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43879,7 +46768,20 @@ let global = globalThis as any;
   FullScreenAuxiliary: 256,
   FullScreenNone: 512,
   FullScreenAllowsTiling: 2048,
-  FullScreenDisallowsTiling: 4096
+  FullScreenDisallowsTiling: 4096,
+  '0': 'Default',
+  '1': 'CanJoinAllSpaces',
+  '2': 'MoveToActiveSpace',
+  '4': 'Managed',
+  '8': 'Transient',
+  '16': 'Stationary',
+  '32': 'ParticipatesInCycle',
+  '64': 'IgnoresCycle',
+  '128': 'FullScreenPrimary',
+  '256': 'FullScreenAuxiliary',
+  '512': 'FullScreenNone',
+  '2048': 'FullScreenAllowsTiling',
+  '4096': 'FullScreenDisallowsTiling'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43887,20 +46789,26 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['Depth'] = {
   TwentyfourBitRGB: 520,
   SixtyfourBitRGB: 528,
-  OnehundredtwentyeightBitRGB: 544
+  OnehundredtwentyeightBitRGB: 544,
+  '520': 'TwentyfourBitRGB',
+  '528': 'SixtyfourBitRGB',
+  '544': 'OnehundredtwentyeightBitRGB'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['NumberListOptions'] = (globalThis as any)['NSGraphics']['NSWindow']['NumberListOptions'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['NumberListOptions'] = {
   Applications: 1,
-  Spaces: 16
+  Spaces: 16,
+  '1': 'Applications',
+  '16': 'Spaces'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['OcclusionState'] = (globalThis as any)['NSGraphics']['NSWindow']['OcclusionState'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['OcclusionState'] = {
-  NSWindowOcclusionStateVisible: 2
+  NSWindowOcclusionStateVisible: 2,
+  '2': 'NSWindowOcclusionStateVisible'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43908,7 +46816,10 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['OrderingMode'] = {
   Above: 1,
   Below: -1,
-  Out: 0
+  Out: 0,
+  '1': 'Above',
+  '-1': 'Below',
+  '0': 'Out'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43916,7 +46827,10 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['SelectionDirection'] = {
   DirectSelection: 0,
   SelectingNext: 1,
-  SelectingPrevious: 2
+  SelectingPrevious: 2,
+  '0': 'DirectSelection',
+  '1': 'SelectingNext',
+  '2': 'SelectingPrevious'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43924,7 +46838,10 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['SharingType'] = {
   None: 0,
   ReadOnly: 1,
-  ReadWrite: 2
+  ReadWrite: 2,
+  '0': 'None',
+  '1': 'ReadOnly',
+  '2': 'ReadWrite'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43942,7 +46859,20 @@ let global = globalThis as any;
   UtilityWindow: 16,
   DocModalWindow: 64,
   NonactivatingPanel: 128,
-  HUDWindow: 8192
+  HUDWindow: 8192,
+  '0': 'Borderless',
+  '1': 'Titled',
+  '2': 'Closable',
+  '4': 'Miniaturizable',
+  '8': 'Resizable',
+  '256': 'TexturedBackground',
+  '4096': 'UnifiedTitleAndToolbar',
+  '16384': 'FullScreen',
+  '32768': 'FullSizeContentView',
+  '16': 'UtilityWindow',
+  '64': 'DocModalWindow',
+  '128': 'NonactivatingPanel',
+  '8192': 'HUDWindow'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43950,14 +46880,19 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['TabbingMode'] = {
   Automatic: 0,
   Preferred: 1,
-  Disallowed: 2
+  Disallowed: 2,
+  '0': 'Automatic',
+  '1': 'Preferred',
+  '2': 'Disallowed'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['TitleVisibility'] = (globalThis as any)['NSGraphics']['NSWindow']['TitleVisibility'] || {};
 (globalThis as any)['NSGraphics']['NSWindow']['TitleVisibility'] = {
   Visible: 0,
-  Hidden: 1
+  Hidden: 1,
+  '0': 'Visible',
+  '1': 'Hidden'
 };
 
 (globalThis as any)['NSGraphics']['NSWindow'] = (globalThis as any)['NSGraphics']['NSWindow'] || {};
@@ -43965,13 +46900,18 @@ let global = globalThis as any;
 (globalThis as any)['NSGraphics']['NSWindow']['UserTabbingPreference'] = {
   Manual: 0,
   Always: 1,
-  InFullScreen: 2
+  InFullScreen: 2,
+  '0': 'Manual',
+  '1': 'Always',
+  '2': 'InFullScreen'
 };
 
 (globalThis as any)['NSGraphics']['NSAnimationEffect'] = (globalThis as any)['NSGraphics']['NSAnimationEffect'] || {};
 (globalThis as any)['NSGraphics']['NSAnimationEffect'] = {
   DisappearingItemDefault: 0,
-  Poof: 10
+  Poof: 10,
+  '0': 'DisappearingItemDefault',
+  '10': 'Poof'
 };
 
 (globalThis as any)['NSGraphics']['NSColorRenderingIntent'] = (globalThis as any)['NSGraphics']['NSColorRenderingIntent'] || {};
@@ -43980,7 +46920,12 @@ let global = globalThis as any;
   AbsoluteColorimetric: 1,
   RelativeColorimetric: 2,
   Perceptual: 3,
-  Saturation: 4
+  Saturation: 4,
+  '0': 'Default',
+  '1': 'AbsoluteColorimetric',
+  '2': 'RelativeColorimetric',
+  '3': 'Perceptual',
+  '4': 'Saturation'
 };
 
 (globalThis as any)['NSGraphics']['NSCompositingOperation'] = (globalThis as any)['NSGraphics']['NSCompositingOperation'] || {};
@@ -44013,27 +46958,64 @@ let global = globalThis as any;
   Hue: 25,
   Saturation: 26,
   Color: 27,
-  Luminosity: 28
+  Luminosity: 28,
+  '0': 'Clear',
+  '1': 'Copy',
+  '2': 'SourceOver',
+  '3': 'SourceIn',
+  '4': 'SourceOut',
+  '5': 'SourceAtop',
+  '6': 'DestinationOver',
+  '7': 'DestinationIn',
+  '8': 'DestinationOut',
+  '9': 'DestinationAtop',
+  '10': 'XOR',
+  '11': 'PlusDarker',
+  '12': 'Highlight',
+  '13': 'PlusLighter',
+  '14': 'Multiply',
+  '15': 'Screen',
+  '16': 'Overlay',
+  '17': 'Darken',
+  '18': 'Lighten',
+  '19': 'ColorDodge',
+  '20': 'ColorBurn',
+  '21': 'SoftLight',
+  '22': 'HardLight',
+  '23': 'Difference',
+  '24': 'Exclusion',
+  '25': 'Hue',
+  '26': 'Saturation',
+  '27': 'Color',
+  '28': 'Luminosity'
 };
 
 (globalThis as any)['NSGraphics']['NSDisplayGamut'] = (globalThis as any)['NSGraphics']['NSDisplayGamut'] || {};
 (globalThis as any)['NSGraphics']['NSDisplayGamut'] = {
   SRGB: 1,
-  P3: 2
+  P3: 2,
+  '1': 'SRGB',
+  '2': 'P3'
 };
 
 (globalThis as any)['NSGraphics']['NSFocusRingPlacement'] = (globalThis as any)['NSGraphics']['NSFocusRingPlacement'] || {};
 (globalThis as any)['NSGraphics']['NSFocusRingPlacement'] = {
   Only: 0,
   Below: 1,
-  Above: 2
+  Above: 2,
+  '0': 'Only',
+  '1': 'Below',
+  '2': 'Above'
 };
 
 (globalThis as any)['NSGraphics']['NSFocusRingType'] = (globalThis as any)['NSGraphics']['NSFocusRingType'] || {};
 (globalThis as any)['NSGraphics']['NSFocusRingType'] = {
   Default: 0,
   None: 1,
-  Exterior: 2
+  Exterior: 2,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Exterior'
 };
 
 
@@ -44044,7 +47026,12 @@ let global = globalThis as any;
   None: 1,
   Low: 2,
   Medium: 4,
-  High: 3
+  High: 3,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Low',
+  '4': 'Medium',
+  '3': 'High'
 };
 
 
@@ -44059,7 +47046,13 @@ let global = globalThis as any;
   Trailing: 3,
   Bottom: 3,
   Center: 4,
-  Fill: 5
+  Fill: 5,
+  '0': 'Inherited',
+  '1': 'None',
+  '2': 'Leading',
+  '3': 'Trailing',
+  '4': 'Center',
+  '5': 'Fill'
 };
 
 (globalThis as any)['NSGridView']['NSGridRow'] = (globalThis as any)['NSGridView']['NSGridRow'] || {};
@@ -44068,7 +47061,11 @@ let global = globalThis as any;
   Inherited: 0,
   None: 1,
   FirstBaseline: 2,
-  LastBaseline: 3
+  LastBaseline: 3,
+  '0': 'Inherited',
+  '1': 'None',
+  '2': 'FirstBaseline',
+  '3': 'LastBaseline'
 };
 
 
@@ -44079,7 +47076,10 @@ let global = globalThis as any;
 (globalThis as any)['HTTPCookie']['AcceptPolicy'] = {
   Always: 0,
   Never: 1,
-  OnlyFromMainDocumentDomain: 2
+  OnlyFromMainDocumentDomain: 2,
+  '0': 'Always',
+  '1': 'Never',
+  '2': 'OnlyFromMainDocumentDomain'
 };
 
 
@@ -44089,7 +47089,10 @@ let global = globalThis as any;
 (globalThis as any)['NSHapticFeedback']['NSHapticFeedbackManager']['FeedbackPattern'] = {
   Generic: 0,
   Alignment: 1,
-  LevelChange: 2
+  LevelChange: 2,
+  '0': 'Generic',
+  '1': 'Alignment',
+  '2': 'LevelChange'
 };
 
 (globalThis as any)['NSHapticFeedback']['NSHapticFeedbackManager'] = (globalThis as any)['NSHapticFeedback']['NSHapticFeedbackManager'] || {};
@@ -44097,7 +47100,10 @@ let global = globalThis as any;
 (globalThis as any)['NSHapticFeedback']['NSHapticFeedbackManager']['PerformanceTime'] = {
   Default: 0,
   Now: 1,
-  DrawCompleted: 2
+  DrawCompleted: 2,
+  '0': 'Default',
+  '1': 'Now',
+  '2': 'DrawCompleted'
 };
 
 
@@ -44113,14 +47119,21 @@ let global = globalThis as any;
   Default: 0,
   Always: 1,
   BySize: 2,
-  Never: 3
+  Never: 3,
+  '0': 'Default',
+  '1': 'Always',
+  '2': 'BySize',
+  '3': 'Never'
 };
 
 (globalThis as any)['NSImage']['LayoutDirection'] = (globalThis as any)['NSImage']['LayoutDirection'] || {};
 (globalThis as any)['NSImage']['LayoutDirection'] = {
   Unspecified: -1,
   LeftToRight: 2,
-  RightToLeft: 3
+  RightToLeft: 3,
+  '-1': 'Unspecified',
+  '2': 'LeftToRight',
+  '3': 'RightToLeft'
 };
 
 (globalThis as any)['NSImage']['LoadStatus'] = (globalThis as any)['NSImage']['LoadStatus'] || {};
@@ -44129,13 +47142,20 @@ let global = globalThis as any;
   Cancelled: 1,
   InvalidData: 2,
   UnexpectedEOF: 3,
-  ReadError: 4
+  ReadError: 4,
+  '0': 'Completed',
+  '1': 'Cancelled',
+  '2': 'InvalidData',
+  '3': 'UnexpectedEOF',
+  '4': 'ReadError'
 };
 
 (globalThis as any)['NSImage']['ResizingMode'] = (globalThis as any)['NSImage']['ResizingMode'] || {};
 (globalThis as any)['NSImage']['ResizingMode'] = {
   Stretch: 0,
-  Tile: 1
+  Tile: 1,
+  '0': 'Stretch',
+  '1': 'Tile'
 };
 
 
@@ -44147,7 +47167,12 @@ let global = globalThis as any;
   Photo: 1,
   GrayBezel: 2,
   Groove: 3,
-  Button: 4
+  Button: 4,
+  '0': 'None',
+  '1': 'Photo',
+  '2': 'GrayBezel',
+  '3': 'Groove',
+  '4': 'Button'
 };
 
 (globalThis as any)['NSImageCell']['NSImageAlignment'] = (globalThis as any)['NSImageCell']['NSImageAlignment'] || {};
@@ -44160,7 +47185,16 @@ let global = globalThis as any;
   Bottom: 5,
   BottomLeft: 6,
   BottomRight: 7,
-  Right: 8
+  Right: 8,
+  '0': 'Center',
+  '1': 'Top',
+  '2': 'TopLeft',
+  '3': 'TopRight',
+  '4': 'Left',
+  '5': 'Bottom',
+  '6': 'BottomLeft',
+  '7': 'BottomRight',
+  '8': 'Right'
 };
 
 
@@ -44171,7 +47205,11 @@ let global = globalThis as any;
   Default: 0,
   Always: 1,
   BySize: 2,
-  Never: 3
+  Never: 3,
+  '0': 'Default',
+  '1': 'Always',
+  '2': 'BySize',
+  '3': 'Never'
 };
 
 (globalThis as any)['NSImageRep']['NSImage'] = (globalThis as any)['NSImageRep']['NSImage'] || {};
@@ -44179,7 +47217,10 @@ let global = globalThis as any;
 (globalThis as any)['NSImageRep']['NSImage']['LayoutDirection'] = {
   Unspecified: -1,
   LeftToRight: 2,
-  RightToLeft: 3
+  RightToLeft: 3,
+  '-1': 'Unspecified',
+  '2': 'LeftToRight',
+  '3': 'RightToLeft'
 };
 
 (globalThis as any)['NSImageRep']['NSImage'] = (globalThis as any)['NSImageRep']['NSImage'] || {};
@@ -44189,14 +47230,21 @@ let global = globalThis as any;
   Cancelled: 1,
   InvalidData: 2,
   UnexpectedEOF: 3,
-  ReadError: 4
+  ReadError: 4,
+  '0': 'Completed',
+  '1': 'Cancelled',
+  '2': 'InvalidData',
+  '3': 'UnexpectedEOF',
+  '4': 'ReadError'
 };
 
 (globalThis as any)['NSImageRep']['NSImage'] = (globalThis as any)['NSImageRep']['NSImage'] || {};
 (globalThis as any)['NSImageRep']['NSImage']['ResizingMode'] = (globalThis as any)['NSImageRep']['NSImage']['ResizingMode'] || {};
 (globalThis as any)['NSImageRep']['NSImage']['ResizingMode'] = {
   Stretch: 0,
-  Tile: 1
+  Tile: 1,
+  '0': 'Stretch',
+  '1': 'Tile'
 };
 
 
@@ -44207,7 +47255,12 @@ let global = globalThis as any;
   Photo: 1,
   GrayBezel: 2,
   Groove: 3,
-  Button: 4
+  Button: 4,
+  '0': 'None',
+  '1': 'Photo',
+  '2': 'GrayBezel',
+  '3': 'Groove',
+  '4': 'Button'
 };
 
 
@@ -44227,12 +47280,17 @@ let global = globalThis as any;
   UnknownError: -1,
   ItemUnavailableError: -1000,
   UnexpectedValueClassError: -1100,
-  UnavailableCoercionError: -1200
+  UnavailableCoercionError: -1200,
+  '-1': 'UnknownError',
+  '-1000': 'ItemUnavailableError',
+  '-1100': 'UnexpectedValueClassError',
+  '-1200': 'UnavailableCoercionError'
 };
 
 (globalThis as any)['NSItemProvider']['NSItemProviderFileOptions'] = (globalThis as any)['NSItemProvider']['NSItemProviderFileOptions'] || {};
 (globalThis as any)['NSItemProvider']['NSItemProviderFileOptions'] = {
-  NSItemProviderFileOptionOpenInPlace: 1
+  NSItemProviderFileOptionOpenInPlace: 1,
+  '1': 'NSItemProviderFileOptionOpenInPlace'
 };
 
 (globalThis as any)['NSItemProvider']['NSItemProviderRepresentationVisibility'] = (globalThis as any)['NSItemProvider']['NSItemProviderRepresentationVisibility'] || {};
@@ -44240,7 +47298,11 @@ let global = globalThis as any;
   All: 0,
   Team: 1,
   Group: 2,
-  OwnProcess: 3
+  OwnProcess: 3,
+  '0': 'All',
+  '1': 'Team',
+  '2': 'Group',
+  '3': 'OwnProcess'
 };
 
 
@@ -44250,7 +47312,11 @@ let global = globalThis as any;
   Setting: 1,
   Insertion: 2,
   Removal: 3,
-  Replacement: 4
+  Replacement: 4,
+  '1': 'Setting',
+  '2': 'Insertion',
+  '3': 'Removal',
+  '4': 'Replacement'
 };
 
 (globalThis as any)['NSKeyValueObserving']['NSKeyValueObservingOptions'] = (globalThis as any)['NSKeyValueObserving']['NSKeyValueObservingOptions'] || {};
@@ -44258,7 +47324,11 @@ let global = globalThis as any;
   New: 1,
   Old: 2,
   Initial: 4,
-  Prior: 8
+  Prior: 8,
+  '1': 'New',
+  '2': 'Old',
+  '4': 'Initial',
+  '8': 'Prior'
 };
 
 (globalThis as any)['NSKeyValueObserving']['NSKeyValueSetMutationKind'] = (globalThis as any)['NSKeyValueObserving']['NSKeyValueSetMutationKind'] || {};
@@ -44266,7 +47336,11 @@ let global = globalThis as any;
   UnionSetMutation: 1,
   MinusSetMutation: 2,
   IntersectSetMutation: 3,
-  SetSetMutation: 4
+  SetSetMutation: 4,
+  '1': 'UnionSetMutation',
+  '2': 'MinusSetMutation',
+  '3': 'IntersectSetMutation',
+  '4': 'SetSetMutation'
 };
 
 
@@ -44290,7 +47364,20 @@ let global = globalThis as any;
   LastBaseline: 11,
   Baseline: 11,
   FirstBaseline: 12,
-  NotAnAttribute: 0
+  NotAnAttribute: 0,
+  '1': 'Left',
+  '2': 'Right',
+  '3': 'Top',
+  '4': 'Bottom',
+  '5': 'Leading',
+  '6': 'Trailing',
+  '7': 'Width',
+  '8': 'Height',
+  '9': 'CenterX',
+  '10': 'CenterY',
+  '11': 'LastBaseline',
+  '12': 'FirstBaseline',
+  '0': 'NotAnAttribute'
 };
 
 (globalThis as any)['NSLayoutConstraint']['FormatOptions'] = (globalThis as any)['NSLayoutConstraint']['FormatOptions'] || {};
@@ -44310,20 +47397,40 @@ let global = globalThis as any;
   DirectionLeadingToTrailing: 0,
   DirectionLeftToRight: 65536,
   DirectionRightToLeft: 131072,
-  DirectionMask: 196608
+  DirectionMask: 196608,
+  '2': 'AlignAllLeft',
+  '4': 'AlignAllRight',
+  '8': 'AlignAllTop',
+  '16': 'AlignAllBottom',
+  '32': 'AlignAllLeading',
+  '64': 'AlignAllTrailing',
+  '512': 'AlignAllCenterX',
+  '1024': 'AlignAllCenterY',
+  '2048': 'AlignAllLastBaseline',
+  '4096': 'AlignAllFirstBaseline',
+  '65535': 'AlignmentMask',
+  '0': 'DirectionLeadingToTrailing',
+  '65536': 'DirectionLeftToRight',
+  '131072': 'DirectionRightToLeft',
+  '196608': 'DirectionMask'
 };
 
 (globalThis as any)['NSLayoutConstraint']['Orientation'] = (globalThis as any)['NSLayoutConstraint']['Orientation'] || {};
 (globalThis as any)['NSLayoutConstraint']['Orientation'] = {
   Horizontal: 0,
-  Vertical: 1
+  Vertical: 1,
+  '0': 'Horizontal',
+  '1': 'Vertical'
 };
 
 (globalThis as any)['NSLayoutConstraint']['Relation'] = (globalThis as any)['NSLayoutConstraint']['Relation'] || {};
 (globalThis as any)['NSLayoutConstraint']['Relation'] = {
   LessThanOrEqual: -1,
   Equal: 0,
-  GreaterThanOrEqual: 1
+  GreaterThanOrEqual: 1,
+  '-1': 'LessThanOrEqual',
+  '0': 'Equal',
+  '1': 'GreaterThanOrEqual'
 };
 
 
@@ -44337,7 +47444,13 @@ let global = globalThis as any;
   HorizontalTab: 4,
   LineBreak: 8,
   ParagraphBreak: 16,
-  ContainerBreak: 32
+  ContainerBreak: 32,
+  '1': 'ZeroAdvancement',
+  '2': 'Whitespace',
+  '4': 'HorizontalTab',
+  '8': 'LineBreak',
+  '16': 'ParagraphBreak',
+  '32': 'ContainerBreak'
 };
 
 (globalThis as any)['NSLayoutManager']['GlyphProperty'] = (globalThis as any)['NSLayoutManager']['GlyphProperty'] || {};
@@ -44345,13 +47458,19 @@ let global = globalThis as any;
   Null: 1,
   ControlCharacter: 2,
   Elastic: 4,
-  NonBaseCharacter: 8
+  NonBaseCharacter: 8,
+  '1': 'Null',
+  '2': 'ControlCharacter',
+  '4': 'Elastic',
+  '8': 'NonBaseCharacter'
 };
 
 (globalThis as any)['NSLayoutManager']['TextLayoutOrientation'] = (globalThis as any)['NSLayoutManager']['TextLayoutOrientation'] || {};
 (globalThis as any)['NSLayoutManager']['TextLayoutOrientation'] = {
   Horizontal: 0,
-  Vertical: 1
+  Vertical: 1,
+  '0': 'Horizontal',
+  '1': 'Vertical'
 };
 
 (globalThis as any)['NSLayoutManager']['TypesetterBehavior'] = (globalThis as any)['NSLayoutManager']['TypesetterBehavior'] || {};
@@ -44361,7 +47480,13 @@ let global = globalThis as any;
   Behavior_10_2_WithCompatibility: 1,
   Behavior_10_2: 2,
   Behavior_10_3: 3,
-  Behavior_10_4: 4
+  Behavior_10_4: 4,
+  '-1': 'LatestBehavior',
+  '0': 'OriginalBehavior',
+  '1': 'Behavior_10_2_WithCompatibility',
+  '2': 'Behavior_10_2',
+  '3': 'Behavior_10_3',
+  '4': 'Behavior_10_4'
 };
 
 
@@ -44370,7 +47495,10 @@ let global = globalThis as any;
 (globalThis as any)['NSLevelIndicator']['PlaceholderVisibility'] = {
   Automatic: 0,
   Always: 1,
-  WhileEditing: 2
+  WhileEditing: 2,
+  '0': 'Automatic',
+  '1': 'Always',
+  '2': 'WhileEditing'
 };
 
 (globalThis as any)['NSLevelIndicator']['Style'] = (globalThis as any)['NSLevelIndicator']['Style'] || {};
@@ -44378,7 +47506,11 @@ let global = globalThis as any;
   Relevancy: 0,
   ContinuousCapacity: 1,
   DiscreteCapacity: 2,
-  Rating: 3
+  Rating: 3,
+  '0': 'Relevancy',
+  '1': 'ContinuousCapacity',
+  '2': 'DiscreteCapacity',
+  '3': 'Rating'
 };
 
 
@@ -44388,7 +47520,10 @@ let global = globalThis as any;
 (globalThis as any)['NSLevelIndicatorCell']['NSLevelIndicator']['PlaceholderVisibility'] = {
   Automatic: 0,
   Always: 1,
-  WhileEditing: 2
+  WhileEditing: 2,
+  '0': 'Automatic',
+  '1': 'Always',
+  '2': 'WhileEditing'
 };
 
 (globalThis as any)['NSLevelIndicatorCell']['NSLevelIndicator'] = (globalThis as any)['NSLevelIndicatorCell']['NSLevelIndicator'] || {};
@@ -44397,7 +47532,11 @@ let global = globalThis as any;
   Relevancy: 0,
   ContinuousCapacity: 1,
   DiscreteCapacity: 2,
-  Rating: 3
+  Rating: 3,
+  '0': 'Relevancy',
+  '1': 'ContinuousCapacity',
+  '2': 'DiscreteCapacity',
+  '3': 'Rating'
 };
 
 
@@ -44407,7 +47546,11 @@ let global = globalThis as any;
   Word: 0,
   Sentence: 1,
   Paragraph: 2,
-  Document: 3
+  Document: 3,
+  '0': 'Word',
+  '1': 'Sentence',
+  '2': 'Paragraph',
+  '3': 'Document'
 };
 
 (globalThis as any)['NSLinguisticTagger']['Options'] = (globalThis as any)['NSLinguisticTagger']['Options'] || {};
@@ -44416,7 +47559,12 @@ let global = globalThis as any;
   OmitPunctuation: 2,
   OmitWhitespace: 4,
   OmitOther: 8,
-  JoinNames: 16
+  JoinNames: 16,
+  '1': 'OmitWords',
+  '2': 'OmitPunctuation',
+  '4': 'OmitWhitespace',
+  '8': 'OmitOther',
+  '16': 'JoinNames'
 };
 
 
@@ -44434,7 +47582,13 @@ let global = globalThis as any;
   UndoUpdate: 8,
   Rollback: 16,
   Refresh: 32,
-  MergePolicy: 64
+  MergePolicy: 64,
+  '2': 'UndoInsertion',
+  '4': 'UndoDeletion',
+  '8': 'UndoUpdate',
+  '16': 'Rollback',
+  '32': 'Refresh',
+  '64': 'MergePolicy'
 };
 
 
@@ -44443,7 +47597,10 @@ let global = globalThis as any;
 (globalThis as any)['NSManagedObjectContext']['NSManagedObjectContextConcurrencyType'] = {
   ConfinementConcurrencyType: 0,
   PrivateQueueConcurrencyType: 1,
-  MainQueueConcurrencyType: 2
+  MainQueueConcurrencyType: 2,
+  '0': 'ConfinementConcurrencyType',
+  '1': 'PrivateQueueConcurrencyType',
+  '2': 'MainQueueConcurrencyType'
 };
 
 
@@ -44461,7 +47618,11 @@ let global = globalThis as any;
   RadioModeMatrix: 0,
   HighlightModeMatrix: 1,
   ListModeMatrix: 2,
-  TrackModeMatrix: 3
+  TrackModeMatrix: 3,
+  '0': 'RadioModeMatrix',
+  '1': 'HighlightModeMatrix',
+  '2': 'ListModeMatrix',
+  '3': 'TrackModeMatrix'
 };
 
 
@@ -44472,7 +47633,10 @@ let global = globalThis as any;
 (globalThis as any)['NSMediaLibraryBrowserController']['Library'] = {
   Audio: 1,
   Image: 2,
-  Movie: 4
+  Movie: 4,
+  '1': 'Audio',
+  '2': 'Image',
+  '4': 'Movie'
 };
 
 
@@ -44484,7 +47648,13 @@ let global = globalThis as any;
   KeyEquivalent: 4,
   Image: 8,
   Enabled: 16,
-  AccessibilityDescription: 32
+  AccessibilityDescription: 32,
+  '1': 'Title',
+  '2': 'AttributedTitle',
+  '4': 'KeyEquivalent',
+  '8': 'Image',
+  '16': 'Enabled',
+  '32': 'AccessibilityDescription'
 };
 
 
@@ -44501,7 +47671,12 @@ let global = globalThis as any;
   MergeByPropertyStoreTrumpMergePolicyType: 1,
   MergeByPropertyObjectTrumpMergePolicyType: 2,
   OverwriteMergePolicyType: 3,
-  RollbackMergePolicyType: 4
+  RollbackMergePolicyType: 4,
+  '0': 'ErrorMergePolicyType',
+  '1': 'MergeByPropertyStoreTrumpMergePolicyType',
+  '2': 'MergeByPropertyObjectTrumpMergePolicyType',
+  '3': 'OverwriteMergePolicyType',
+  '4': 'RollbackMergePolicyType'
 };
 
 
@@ -44520,14 +47695,24 @@ let global = globalThis as any;
   BadArgumentError: -72004,
   CancelledError: -72005,
   InvalidError: -72006,
-  TimeoutError: -72007
+  TimeoutError: -72007,
+  '-72000': 'UnknownError',
+  '-72001': 'CollisionError',
+  '-72002': 'NotFoundError',
+  '-72003': 'ActivityInProgress',
+  '-72004': 'BadArgumentError',
+  '-72005': 'CancelledError',
+  '-72006': 'InvalidError',
+  '-72007': 'TimeoutError'
 };
 
 (globalThis as any)['NSNetServices']['NetService'] = (globalThis as any)['NSNetServices']['NetService'] || {};
 (globalThis as any)['NSNetServices']['NetService']['Options'] = (globalThis as any)['NSNetServices']['NetService']['Options'] || {};
 (globalThis as any)['NSNetServices']['NetService']['Options'] = {
   NoAutoRename: 1,
-  ListenForConnections: 2
+  ListenForConnections: 2,
+  '1': 'NoAutoRename',
+  '2': 'ListenForConnections'
 };
 
 
@@ -44540,14 +47725,20 @@ let global = globalThis as any;
 (globalThis as any)['NotificationQueue']['NotificationCoalescing'] = {
   NoCoalescing: 0,
   CoalescingOnName: 1,
-  CoalescingOnSender: 2
+  CoalescingOnSender: 2,
+  '0': 'NoCoalescing',
+  '1': 'CoalescingOnName',
+  '2': 'CoalescingOnSender'
 };
 
 (globalThis as any)['NotificationQueue']['PostingStyle'] = (globalThis as any)['NotificationQueue']['PostingStyle'] || {};
 (globalThis as any)['NotificationQueue']['PostingStyle'] = {
   WhenIdle: 1,
   ASAP: 2,
-  Now: 3
+  Now: 3,
+  '1': 'WhenIdle',
+  '2': 'ASAP',
+  '3': 'Now'
 };
 
 
@@ -44556,7 +47747,10 @@ let global = globalThis as any;
 (globalThis as any)['NumberFormatter']['Behavior'] = {
   rDefault: 0,
   r10_0: 1000,
-  r10_4: 1040
+  r10_4: 1040,
+  '0': 'rDefault',
+  '1000': 'r10_0',
+  '1040': 'r10_4'
 };
 
 (globalThis as any)['NumberFormatter']['PadPosition'] = (globalThis as any)['NumberFormatter']['PadPosition'] || {};
@@ -44564,7 +47758,11 @@ let global = globalThis as any;
   BeforePrefix: 0,
   AfterPrefix: 1,
   BeforeSuffix: 2,
-  AfterSuffix: 3
+  AfterSuffix: 3,
+  '0': 'BeforePrefix',
+  '1': 'AfterPrefix',
+  '2': 'BeforeSuffix',
+  '3': 'AfterSuffix'
 };
 
 (globalThis as any)['NumberFormatter']['RoundingMode'] = (globalThis as any)['NumberFormatter']['RoundingMode'] || {};
@@ -44575,7 +47773,14 @@ let global = globalThis as any;
   Up: 3,
   HalfEven: 4,
   HalfDown: 5,
-  HalfUp: 6
+  HalfUp: 6,
+  '0': 'Ceiling',
+  '1': 'Floor',
+  '2': 'Down',
+  '3': 'Up',
+  '4': 'HalfEven',
+  '5': 'HalfDown',
+  '6': 'HalfUp'
 };
 
 (globalThis as any)['NumberFormatter']['Style'] = (globalThis as any)['NumberFormatter']['Style'] || {};
@@ -44589,7 +47794,17 @@ let global = globalThis as any;
   OrdinalStyle: 6,
   CurrencyISOCodeStyle: 8,
   CurrencyPluralStyle: 9,
-  CurrencyAccountingStyle: 10
+  CurrencyAccountingStyle: 10,
+  '0': 'NoStyle',
+  '1': 'DecimalStyle',
+  '2': 'CurrencyStyle',
+  '3': 'PercentStyle',
+  '4': 'ScientificStyle',
+  '5': 'SpellOutStyle',
+  '6': 'OrdinalStyle',
+  '8': 'CurrencyISOCodeStyle',
+  '9': 'CurrencyPluralStyle',
+  '10': 'CurrencyAccountingStyle'
 };
 
 
@@ -44598,19 +47813,26 @@ let global = globalThis as any;
 (globalThis as any)['NSObjCRuntime']['ComparisonResult'] = {
   Ascending: -1,
   Same: 0,
-  Descending: 1
+  Descending: 1,
+  '-1': 'Ascending',
+  '0': 'Same',
+  '1': 'Descending'
 };
 
 (globalThis as any)['NSObjCRuntime']['NSEnumerationOptions'] = (globalThis as any)['NSObjCRuntime']['NSEnumerationOptions'] || {};
 (globalThis as any)['NSObjCRuntime']['NSEnumerationOptions'] = {
   Concurrent: 1,
-  Reverse: 2
+  Reverse: 2,
+  '1': 'Concurrent',
+  '2': 'Reverse'
 };
 
 (globalThis as any)['NSObjCRuntime']['NSSortOptions'] = (globalThis as any)['NSObjCRuntime']['NSSortOptions'] || {};
 (globalThis as any)['NSObjCRuntime']['NSSortOptions'] = {
   Concurrent: 1,
-  Stable: 16
+  Stable: 16,
+  '1': 'Concurrent',
+  '16': 'Stable'
 };
 
 (globalThis as any)['NSObjCRuntime']['QualityOfService'] = (globalThis as any)['NSObjCRuntime']['QualityOfService'] || {};
@@ -44619,7 +47841,12 @@ let global = globalThis as any;
   UserInitiated: 25,
   Utility: 17,
   Background: 9,
-  Default: -1
+  Default: -1,
+  '33': 'UserInteractive',
+  '25': 'UserInitiated',
+  '17': 'Utility',
+  '9': 'Background',
+  '-1': 'Default'
 };
 
 
@@ -44634,7 +47861,12 @@ let global = globalThis as any;
   Low: -4,
   Normal: 0,
   High: 4,
-  VeryHigh: 8
+  VeryHigh: 8,
+  '-8': 'VeryLow',
+  '-4': 'Low',
+  '0': 'Normal',
+  '4': 'High',
+  '8': 'VeryHigh'
 };
 
 
@@ -44642,7 +47874,9 @@ let global = globalThis as any;
 (globalThis as any)['NSOrderedCollectionChange']['NSCollectionChangeType'] = (globalThis as any)['NSOrderedCollectionChange']['NSCollectionChangeType'] || {};
 (globalThis as any)['NSOrderedCollectionChange']['NSCollectionChangeType'] = {
   Insert: 0,
-  Remove: 1
+  Remove: 1,
+  '0': 'Insert',
+  '1': 'Remove'
 };
 
 
@@ -44661,7 +47895,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPDFPanel']['Options'] = {
   ShowsPaperSize: 4,
   ShowsOrientation: 8,
-  RequestsParentDirectory: 16777216
+  RequestsParentDirectory: 16777216,
+  '4': 'ShowsPaperSize',
+  '8': 'ShowsOrientation',
+  '16777216': 'RequestsParentDirectory'
 };
 
 
@@ -44672,7 +47909,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPageController']['TransitionStyle'] = {
   StackHistory: 0,
   StackBook: 1,
-  HorizontalStrip: 2
+  HorizontalStrip: 2,
+  '0': 'StackHistory',
+  '1': 'StackBook',
+  '2': 'HorizontalStrip'
 };
 
 
@@ -44690,7 +47930,13 @@ let global = globalThis as any;
   Clipping: 2,
   TruncatingHead: 3,
   TruncatingTail: 4,
-  TruncatingMiddle: 5
+  TruncatingMiddle: 5,
+  '0': 'WordWrapping',
+  '1': 'CharWrapping',
+  '2': 'Clipping',
+  '3': 'TruncatingHead',
+  '4': 'TruncatingTail',
+  '5': 'TruncatingMiddle'
 };
 
 (globalThis as any)['NSParagraphStyle']['TextTabType'] = (globalThis as any)['NSParagraphStyle']['TextTabType'] || {};
@@ -44698,14 +47944,19 @@ let global = globalThis as any;
   LeftTabStopType: 0,
   RightTabStopType: 1,
   CenterTabStopType: 2,
-  DecimalTabStopType: 3
+  DecimalTabStopType: 3,
+  '0': 'LeftTabStopType',
+  '1': 'RightTabStopType',
+  '2': 'CenterTabStopType',
+  '3': 'DecimalTabStopType'
 };
 
 
 (globalThis as any)['NSPasteboard'] = (globalThis as any)['NSPasteboard'] || {};
 (globalThis as any)['NSPasteboard']['ContentsOptions'] = (globalThis as any)['NSPasteboard']['ContentsOptions'] || {};
 (globalThis as any)['NSPasteboard']['ContentsOptions'] = {
-  NSPasteboardContentsCurrentHostOnly: 1
+  NSPasteboardContentsCurrentHostOnly: 1,
+  '1': 'NSPasteboardContentsCurrentHostOnly'
 };
 
 (globalThis as any)['NSPasteboard']['ReadingOptions'] = (globalThis as any)['NSPasteboard']['ReadingOptions'] || {};
@@ -44713,12 +47964,17 @@ let global = globalThis as any;
   Data: 0,
   String: 1,
   PropertyList: 2,
-  KeyedArchive: 4
+  KeyedArchive: 4,
+  '0': 'Data',
+  '1': 'String',
+  '2': 'PropertyList',
+  '4': 'KeyedArchive'
 };
 
 (globalThis as any)['NSPasteboard']['WritingOptions'] = (globalThis as any)['NSPasteboard']['WritingOptions'] || {};
 (globalThis as any)['NSPasteboard']['WritingOptions'] = {
-  NSPasteboardWritingPromised: 512
+  NSPasteboardWritingPromised: 512,
+  '512': 'NSPasteboardWritingPromised'
 };
 
 
@@ -44730,7 +47986,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPathCell']['NSPathControl']['Style'] = {
   Standard: 0,
   PopUp: 2,
-  NavigationBar: 1
+  NavigationBar: 1,
+  '0': 'Standard',
+  '2': 'PopUp',
+  '1': 'NavigationBar'
 };
 
 
@@ -44741,7 +48000,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPathControl']['Style'] = {
   Standard: 0,
   PopUp: 2,
-  NavigationBar: 1
+  NavigationBar: 1,
+  '0': 'Standard',
+  '2': 'PopUp',
+  '1': 'NavigationBar'
 };
 
 
@@ -44755,14 +48017,21 @@ let global = globalThis as any;
   SkipsPackageDescendants: 2,
   SkipsHiddenFiles: 4,
   IncludesDirectoriesPostOrder: 8,
-  ProducesRelativePathURLs: 16
+  ProducesRelativePathURLs: 16,
+  '1': 'SkipsSubdirectoryDescendants',
+  '2': 'SkipsPackageDescendants',
+  '4': 'SkipsHiddenFiles',
+  '8': 'IncludesDirectoriesPostOrder',
+  '16': 'ProducesRelativePathURLs'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['ItemReplacementOptions'] = (globalThis as any)['NSPathUtilities']['FileManager']['ItemReplacementOptions'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['ItemReplacementOptions'] = {
   UsingNewMetadataOnly: 1,
-  WithoutDeletingBackupItem: 2
+  WithoutDeletingBackupItem: 2,
+  '1': 'UsingNewMetadataOnly',
+  '2': 'WithoutDeletingBackupItem'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
@@ -44794,7 +48063,34 @@ let global = globalThis as any;
   ItemReplacementDirectory: 99,
   AllApplicationsDirectory: 100,
   AllLibrariesDirectory: 101,
-  TrashDirectory: 102
+  TrashDirectory: 102,
+  '1': 'ApplicationDirectory',
+  '2': 'DemoApplicationDirectory',
+  '3': 'DeveloperApplicationDirectory',
+  '4': 'AdminApplicationDirectory',
+  '5': 'LibraryDirectory',
+  '6': 'DeveloperDirectory',
+  '7': 'UserDirectory',
+  '8': 'DocumentationDirectory',
+  '9': 'DocumentDirectory',
+  '10': 'CoreServiceDirectory',
+  '11': 'AutosavedInformationDirectory',
+  '12': 'DesktopDirectory',
+  '13': 'CachesDirectory',
+  '14': 'ApplicationSupportDirectory',
+  '15': 'DownloadsDirectory',
+  '16': 'InputMethodsDirectory',
+  '17': 'MoviesDirectory',
+  '18': 'MusicDirectory',
+  '19': 'PicturesDirectory',
+  '20': 'PrinterDescriptionDirectory',
+  '21': 'SharedPublicDirectory',
+  '22': 'PreferencePanesDirectory',
+  '23': 'ApplicationScriptsDirectory',
+  '99': 'ItemReplacementDirectory',
+  '100': 'AllApplicationsDirectory',
+  '101': 'AllLibrariesDirectory',
+  '102': 'TrashDirectory'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
@@ -44804,7 +48100,12 @@ let global = globalThis as any;
   LocalDomainMask: 2,
   NetworkDomainMask: 4,
   SystemDomainMask: 8,
-  AllDomainsMask: 65535
+  AllDomainsMask: 65535,
+  '1': 'UserDomainMask',
+  '2': 'LocalDomainMask',
+  '4': 'NetworkDomainMask',
+  '8': 'SystemDomainMask',
+  '65535': 'AllDomainsMask'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
@@ -44812,21 +48113,28 @@ let global = globalThis as any;
 (globalThis as any)['NSPathUtilities']['FileManager']['URLRelationship'] = {
   Contains: 0,
   Same: 1,
-  Other: 2
+  Other: 2,
+  '0': 'Contains',
+  '1': 'Same',
+  '2': 'Other'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['UnmountOptions'] = (globalThis as any)['NSPathUtilities']['FileManager']['UnmountOptions'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['UnmountOptions'] = {
   AllPartitionsAndEjectDisk: 1,
-  WithoutUI: 2
+  WithoutUI: 2,
+  '1': 'AllPartitionsAndEjectDisk',
+  '2': 'WithoutUI'
 };
 
 (globalThis as any)['NSPathUtilities']['FileManager'] = (globalThis as any)['NSPathUtilities']['FileManager'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['VolumeEnumerationOptions'] = (globalThis as any)['NSPathUtilities']['FileManager']['VolumeEnumerationOptions'] || {};
 (globalThis as any)['NSPathUtilities']['FileManager']['VolumeEnumerationOptions'] = {
   SkipHiddenVolumes: 2,
-  ProduceFileReferenceURLs: 4
+  ProduceFileReferenceURLs: 4,
+  '2': 'SkipHiddenVolumes',
+  '4': 'ProduceFileReferenceURLs'
 };
 
 
@@ -44835,7 +48143,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPersistentCloudKitContainer']['NSPersistentCloudKitContainerSchemaInitializationOptions'] = {
   None: 0,
   DryRun: 2,
-  PrintSchema: 4
+  PrintSchema: 4,
+  '0': 'None',
+  '2': 'DryRun',
+  '4': 'PrintSchema'
 };
 
 
@@ -44850,7 +48161,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPersistentHistoryChange']['NSPersistentHistoryChangeType'] = {
   Insert: 0,
   Update: 1,
-  Delete: 2
+  Delete: 2,
+  '0': 'Insert',
+  '1': 'Update',
+  '2': 'Delete'
 };
 
 
@@ -44871,7 +48185,12 @@ let global = globalThis as any;
   SaveRequestType: 2,
   BatchInsertRequestType: 5,
   BatchUpdateRequestType: 6,
-  BatchDeleteRequestType: 7
+  BatchDeleteRequestType: 7,
+  '1': 'FetchRequestType',
+  '2': 'SaveRequestType',
+  '5': 'BatchInsertRequestType',
+  '6': 'BatchUpdateRequestType',
+  '7': 'BatchDeleteRequestType'
 };
 
 
@@ -44880,21 +48199,30 @@ let global = globalThis as any;
 (globalThis as any)['NSPersistentStoreResult']['NSBatchDeleteRequestResultType'] = {
   StatusOnly: 0,
   ObjectIDs: 1,
-  Count: 2
+  Count: 2,
+  '0': 'StatusOnly',
+  '1': 'ObjectIDs',
+  '2': 'Count'
 };
 
 (globalThis as any)['NSPersistentStoreResult']['NSBatchInsertRequestResultType'] = (globalThis as any)['NSPersistentStoreResult']['NSBatchInsertRequestResultType'] || {};
 (globalThis as any)['NSPersistentStoreResult']['NSBatchInsertRequestResultType'] = {
   StatusOnly: 0,
   ObjectIDs: 1,
-  Count: 2
+  Count: 2,
+  '0': 'StatusOnly',
+  '1': 'ObjectIDs',
+  '2': 'Count'
 };
 
 (globalThis as any)['NSPersistentStoreResult']['NSBatchUpdateRequestResultType'] = (globalThis as any)['NSPersistentStoreResult']['NSBatchUpdateRequestResultType'] || {};
 (globalThis as any)['NSPersistentStoreResult']['NSBatchUpdateRequestResultType'] = {
   StatusOnlyResultType: 0,
   UpdatedObjectIDsResultType: 1,
-  UpdatedObjectsCountResultType: 2
+  UpdatedObjectsCountResultType: 2,
+  '0': 'StatusOnlyResultType',
+  '1': 'UpdatedObjectIDsResultType',
+  '2': 'UpdatedObjectsCountResultType'
 };
 
 (globalThis as any)['NSPersistentStoreResult']['NSPersistentHistoryResultType'] = (globalThis as any)['NSPersistentStoreResult']['NSPersistentHistoryResultType'] || {};
@@ -44904,7 +48232,13 @@ let global = globalThis as any;
   Count: 2,
   TransactionsOnly: 3,
   ChangesOnly: 4,
-  TransactionsAndChanges: 5
+  TransactionsAndChanges: 5,
+  '0': 'StatusOnly',
+  '1': 'ObjectIDs',
+  '2': 'Count',
+  '3': 'TransactionsOnly',
+  '4': 'ChangesOnly',
+  '5': 'TransactionsAndChanges'
 };
 
 
@@ -44913,7 +48247,8 @@ let global = globalThis as any;
 (globalThis as any)['PersonNameComponentsFormatter'] = (globalThis as any)['PersonNameComponentsFormatter'] || {};
 (globalThis as any)['PersonNameComponentsFormatter']['Options'] = (globalThis as any)['PersonNameComponentsFormatter']['Options'] || {};
 (globalThis as any)['PersonNameComponentsFormatter']['Options'] = {
-  NSPersonNameComponentsFormatterPhonetic: 2
+  NSPersonNameComponentsFormatterPhonetic: 2,
+  '2': 'NSPersonNameComponentsFormatterPhonetic'
 };
 
 (globalThis as any)['PersonNameComponentsFormatter']['Style'] = (globalThis as any)['PersonNameComponentsFormatter']['Style'] || {};
@@ -44922,7 +48257,12 @@ let global = globalThis as any;
   Short: 1,
   Medium: 2,
   Long: 3,
-  Abbreviated: 4
+  Abbreviated: 4,
+  '0': 'Default',
+  '1': 'Short',
+  '2': 'Medium',
+  '3': 'Long',
+  '4': 'Abbreviated'
 };
 
 
@@ -44931,14 +48271,20 @@ let global = globalThis as any;
 (globalThis as any)['NSPickerTouchBarItem']['ControlRepresentation'] = {
   Automatic: 0,
   Expanded: 1,
-  Collapsed: 2
+  Collapsed: 2,
+  '0': 'Automatic',
+  '1': 'Expanded',
+  '2': 'Collapsed'
 };
 
 (globalThis as any)['NSPickerTouchBarItem']['SelectionMode'] = (globalThis as any)['NSPickerTouchBarItem']['SelectionMode'] || {};
 (globalThis as any)['NSPickerTouchBarItem']['SelectionMode'] = {
   SelectOne: 0,
   SelectAny: 1,
-  Momentary: 2
+  Momentary: 2,
+  '0': 'SelectOne',
+  '1': 'SelectAny',
+  '2': 'Momentary'
 };
 
 
@@ -44959,7 +48305,19 @@ let global = globalThis as any;
   CStringPersonality: 768,
   StructPersonality: 1024,
   IntegerPersonality: 1280,
-  CopyIn: 65536
+  CopyIn: 65536,
+  '0': 'StrongMemory',
+  '1': 'ZeroingWeakMemory',
+  '2': 'OpaqueMemory',
+  '3': 'MallocMemory',
+  '4': 'MachVirtualMemory',
+  '5': 'WeakMemory',
+  '256': 'OpaquePersonality',
+  '512': 'ObjectPointerPersonality',
+  '768': 'CStringPersonality',
+  '1024': 'StructPersonality',
+  '1280': 'IntegerPersonality',
+  '65536': 'CopyIn'
 };
 
 
@@ -44968,7 +48326,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPopUpButton']['ArrowPosition'] = {
   NoArrow: 0,
   ArrowAtCenter: 1,
-  ArrowAtBottom: 2
+  ArrowAtBottom: 2,
+  '0': 'NoArrow',
+  '1': 'ArrowAtCenter',
+  '2': 'ArrowAtBottom'
 };
 
 
@@ -44978,7 +48339,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPopUpButtonCell']['NSPopUpButton']['ArrowPosition'] = {
   NoArrow: 0,
   ArrowAtCenter: 1,
-  ArrowAtBottom: 2
+  ArrowAtBottom: 2,
+  '0': 'NoArrow',
+  '1': 'ArrowAtCenter',
+  '2': 'ArrowAtBottom'
 };
 
 
@@ -44987,7 +48351,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPopover']['Behavior'] = {
   ApplicationDefined: 0,
   Transient: 1,
-  Semitransient: 2
+  Semitransient: 2,
+  '0': 'ApplicationDefined',
+  '1': 'Transient',
+  '2': 'Semitransient'
 };
 
 
@@ -44999,7 +48366,10 @@ let global = globalThis as any;
 (globalThis as any)['Port']['NSMachPort']['Options'] = {
   None: 0,
   SendRight: 1,
-  ReceiveRight: 2
+  ReceiveRight: 2,
+  '0': 'None',
+  '1': 'SendRight',
+  '2': 'ReceiveRight'
 };
 
 
@@ -45024,13 +48394,18 @@ let global = globalThis as any;
 (globalThis as any)['NSPrintInfo']['PaginationMode'] = {
   Automatic: 0,
   Fit: 1,
-  Clip: 2
+  Clip: 2,
+  '0': 'Automatic',
+  '1': 'Fit',
+  '2': 'Clip'
 };
 
 (globalThis as any)['NSPrintInfo']['PaperOrientation'] = (globalThis as any)['NSPrintInfo']['PaperOrientation'] || {};
 (globalThis as any)['NSPrintInfo']['PaperOrientation'] = {
   Portrait: 0,
-  Landscape: 1
+  Landscape: 1,
+  '0': 'Portrait',
+  '1': 'Landscape'
 };
 
 
@@ -45040,13 +48415,19 @@ let global = globalThis as any;
   DescendingPageOrder: -1,
   SpecialPageOrder: 0,
   AscendingPageOrder: 1,
-  UnknownPageOrder: 2
+  UnknownPageOrder: 2,
+  '-1': 'DescendingPageOrder',
+  '0': 'SpecialPageOrder',
+  '1': 'AscendingPageOrder',
+  '2': 'UnknownPageOrder'
 };
 
 (globalThis as any)['NSPrintOperation']['RenderingQuality'] = (globalThis as any)['NSPrintOperation']['RenderingQuality'] || {};
 (globalThis as any)['NSPrintOperation']['RenderingQuality'] = {
   Best: 0,
-  Responsive: 1
+  Responsive: 1,
+  '0': 'Best',
+  '1': 'Responsive'
 };
 
 
@@ -45060,7 +48441,15 @@ let global = globalThis as any;
   Scaling: 16,
   PrintSelection: 32,
   PageSetupAccessory: 256,
-  Preview: 131072
+  Preview: 131072,
+  '1': 'Copies',
+  '2': 'PageRange',
+  '4': 'PaperSize',
+  '8': 'Orientation',
+  '16': 'Scaling',
+  '32': 'PrintSelection',
+  '256': 'PageSetupAccessory',
+  '131072': 'Preview'
 };
 
 
@@ -45069,7 +48458,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPrinter']['TableStatus'] = {
   OK: 0,
   NotFound: 1,
-  Error: 2
+  Error: 2,
+  '0': 'OK',
+  '1': 'NotFound',
+  '2': 'Error'
 };
 
 
@@ -45083,7 +48475,15 @@ let global = globalThis as any;
   UserInitiated: 16777215,
   UserInitiatedAllowingIdleSystemSleep: 15728639,
   Background: 255,
-  LatencyCritical: 1095216660480
+  LatencyCritical: 1095216660480,
+  '1099511627776': 'IdleDisplaySleepDisabled',
+  '1048576': 'IdleSystemSleepDisabled',
+  '16384': 'SuddenTerminationDisabled',
+  '32768': 'AutomaticTerminationDisabled',
+  '16777215': 'UserInitiated',
+  '15728639': 'UserInitiatedAllowingIdleSystemSleep',
+  '255': 'Background',
+  '1095216660480': 'LatencyCritical'
 };
 
 (globalThis as any)['ProcessInfo']['ThermalState'] = (globalThis as any)['ProcessInfo']['ThermalState'] || {};
@@ -45091,7 +48491,11 @@ let global = globalThis as any;
   Nominal: 0,
   Fair: 1,
   Serious: 2,
-  Critical: 3
+  Critical: 3,
+  '0': 'Nominal',
+  '1': 'Fair',
+  '2': 'Serious',
+  '3': 'Critical'
 };
 
 
@@ -45101,7 +48505,9 @@ let global = globalThis as any;
 (globalThis as any)['NSProgressIndicator']['Style'] = (globalThis as any)['NSProgressIndicator']['Style'] || {};
 (globalThis as any)['NSProgressIndicator']['Style'] = {
   Bar: 0,
-  Spinning: 1
+  Spinning: 1,
+  '0': 'Bar',
+  '1': 'Spinning'
 };
 
 
@@ -45113,7 +48519,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPropertyList']['PropertyListSerialization']['MutabilityOptions'] = {
   Immutable: 0,
   MutableContainers: 1,
-  MutableContainersAndLeaves: 2
+  MutableContainersAndLeaves: 2,
+  '0': 'Immutable',
+  '1': 'MutableContainers',
+  '2': 'MutableContainersAndLeaves'
 };
 
 (globalThis as any)['NSPropertyList']['PropertyListSerialization'] = (globalThis as any)['NSPropertyList']['PropertyListSerialization'] || {};
@@ -45121,7 +48530,10 @@ let global = globalThis as any;
 (globalThis as any)['NSPropertyList']['PropertyListSerialization']['PropertyListFormat'] = {
   OpenStepFormat: 1,
   XMLFormat_v1_0: 100,
-  BinaryFormat_v1_0: 200
+  BinaryFormat_v1_0: 200,
+  '1': 'OpenStepFormat',
+  '100': 'XMLFormat_v1_0',
+  '200': 'BinaryFormat_v1_0'
 };
 
 
@@ -45140,7 +48552,12 @@ let global = globalThis as any;
   Completed: 2,
   HitEnd: 4,
   RequiredEnd: 8,
-  InternalError: 16
+  InternalError: 16,
+  '1': 'Progress',
+  '2': 'Completed',
+  '4': 'HitEnd',
+  '8': 'RequiredEnd',
+  '16': 'InternalError'
 };
 
 (globalThis as any)['NSRegularExpression']['MatchingOptions'] = (globalThis as any)['NSRegularExpression']['MatchingOptions'] || {};
@@ -45149,7 +48566,12 @@ let global = globalThis as any;
   ReportCompletion: 2,
   Anchored: 4,
   WithTransparentBounds: 8,
-  WithoutAnchoringBounds: 16
+  WithoutAnchoringBounds: 16,
+  '1': 'ReportProgress',
+  '2': 'ReportCompletion',
+  '4': 'Anchored',
+  '8': 'WithTransparentBounds',
+  '16': 'WithoutAnchoringBounds'
 };
 
 (globalThis as any)['NSRegularExpression']['Options'] = (globalThis as any)['NSRegularExpression']['Options'] || {};
@@ -45160,7 +48582,14 @@ let global = globalThis as any;
   DotMatchesLineSeparators: 8,
   AnchorsMatchLines: 16,
   UseUnixLineSeparators: 32,
-  UseUnicodeWordBoundaries: 64
+  UseUnicodeWordBoundaries: 64,
+  '1': 'CaseInsensitive',
+  '2': 'AllowCommentsAndWhitespace',
+  '4': 'IgnoreMetacharacters',
+  '8': 'DotMatchesLineSeparators',
+  '16': 'AnchorsMatchLines',
+  '32': 'UseUnixLineSeparators',
+  '64': 'UseUnicodeWordBoundaries'
 };
 
 
@@ -45170,7 +48599,11 @@ let global = globalThis as any;
   NoActionDeleteRule: 0,
   NullifyDeleteRule: 1,
   CascadeDeleteRule: 2,
-  DenyDeleteRule: 3
+  DenyDeleteRule: 3,
+  '0': 'NoActionDeleteRule',
+  '1': 'NullifyDeleteRule',
+  '2': 'CascadeDeleteRule',
+  '3': 'DenyDeleteRule'
 };
 
 
@@ -45178,7 +48611,9 @@ let global = globalThis as any;
 (globalThis as any)['RelativeDateTimeFormatter']['DateTimeStyle'] = (globalThis as any)['RelativeDateTimeFormatter']['DateTimeStyle'] || {};
 (globalThis as any)['RelativeDateTimeFormatter']['DateTimeStyle'] = {
   umeric: 0,
-  amed: 1
+  amed: 1,
+  '0': 'umeric',
+  '1': 'amed'
 };
 
 (globalThis as any)['RelativeDateTimeFormatter']['UnitsStyle'] = (globalThis as any)['RelativeDateTimeFormatter']['UnitsStyle'] || {};
@@ -45186,7 +48621,11 @@ let global = globalThis as any;
   Full: 0,
   SpellOut: 1,
   Short: 2,
-  Abbreviated: 3
+  Abbreviated: 3,
+  '0': 'Full',
+  '1': 'SpellOut',
+  '2': 'Short',
+  '3': 'Abbreviated'
 };
 
 
@@ -45200,13 +48639,19 @@ let global = globalThis as any;
   Single: 0,
   List: 1,
   Compound: 2,
-  Simple: 3
+  Simple: 3,
+  '0': 'Single',
+  '1': 'List',
+  '2': 'Compound',
+  '3': 'Simple'
 };
 
 (globalThis as any)['NSRuleEditor']['RowType'] = (globalThis as any)['NSRuleEditor']['RowType'] || {};
 (globalThis as any)['NSRuleEditor']['RowType'] = {
   Simple: 0,
-  Compound: 1
+  Compound: 1,
+  '0': 'Simple',
+  '1': 'Compound'
 };
 
 
@@ -45216,7 +48661,9 @@ let global = globalThis as any;
 (globalThis as any)['NSRulerView']['Orientation'] = (globalThis as any)['NSRulerView']['Orientation'] || {};
 (globalThis as any)['NSRulerView']['Orientation'] = {
   HorizontalRuler: 0,
-  VerticalRuler: 1
+  VerticalRuler: 1,
+  '0': 'HorizontalRuler',
+  '1': 'VerticalRuler'
 };
 
 
@@ -45227,7 +48674,9 @@ let global = globalThis as any;
 (globalThis as any)['NSRunningApplication']['NSApplication']['ActivationOptions'] = (globalThis as any)['NSRunningApplication']['NSApplication']['ActivationOptions'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['ActivationOptions'] = {
   AllWindows: 1,
-  IgnoringOtherApps: 2
+  IgnoringOtherApps: 2,
+  '1': 'AllWindows',
+  '2': 'IgnoringOtherApps'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45235,7 +48684,10 @@ let global = globalThis as any;
 (globalThis as any)['NSRunningApplication']['NSApplication']['ActivationPolicy'] = {
   Regular: 0,
   Accessory: 1,
-  Prohibited: 2
+  Prohibited: 2,
+  '0': 'Regular',
+  '1': 'Accessory',
+  '2': 'Prohibited'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45243,13 +48695,17 @@ let global = globalThis as any;
 (globalThis as any)['NSRunningApplication']['NSApplication']['DelegateReply'] = {
   Success: 0,
   Cancel: 1,
-  Failure: 2
+  Failure: 2,
+  '0': 'Success',
+  '1': 'Cancel',
+  '2': 'Failure'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['OcclusionState'] = (globalThis as any)['NSRunningApplication']['NSApplication']['OcclusionState'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['OcclusionState'] = {
-  NSApplicationOcclusionStateVisible: 2
+  NSApplicationOcclusionStateVisible: 2,
+  '2': 'NSApplicationOcclusionStateVisible'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45268,7 +48724,21 @@ let global = globalThis as any;
   DisableMenuBarTransparency: 512,
   FullScreen: 1024,
   AutoHideToolbar: 2048,
-  DisableCursorLocationAssistance: 4096
+  DisableCursorLocationAssistance: 4096,
+  '0': 'Default',
+  '1': 'AutoHideDock',
+  '2': 'HideDock',
+  '4': 'AutoHideMenuBar',
+  '8': 'HideMenuBar',
+  '16': 'DisableAppleMenu',
+  '32': 'DisableProcessSwitching',
+  '64': 'DisableForceQuit',
+  '128': 'DisableSessionTermination',
+  '256': 'DisableHideApplication',
+  '512': 'DisableMenuBarTransparency',
+  '1024': 'FullScreen',
+  '2048': 'AutoHideToolbar',
+  '4096': 'DisableCursorLocationAssistance'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45277,7 +48747,11 @@ let global = globalThis as any;
   Cancelled: 0,
   Success: 1,
   Failure: 3,
-  ReplyLater: 2
+  ReplyLater: 2,
+  '0': 'Cancelled',
+  '1': 'Success',
+  '3': 'Failure',
+  '2': 'ReplyLater'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45286,14 +48760,20 @@ let global = globalThis as any;
   None: 0,
   Badge: 1,
   Sound: 2,
-  Alert: 4
+  Alert: 4,
+  '0': 'None',
+  '1': 'Badge',
+  '2': 'Sound',
+  '4': 'Alert'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['RequestUserAttentionType'] = (globalThis as any)['NSRunningApplication']['NSApplication']['RequestUserAttentionType'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['RequestUserAttentionType'] = {
   CriticalRequest: 0,
-  InformationalRequest: 10
+  InformationalRequest: 10,
+  '0': 'CriticalRequest',
+  '10': 'InformationalRequest'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
@@ -45301,13 +48781,17 @@ let global = globalThis as any;
 (globalThis as any)['NSRunningApplication']['NSApplication']['TerminateReply'] = {
   Cancel: 0,
   Now: 1,
-  Later: 2
+  Later: 2,
+  '0': 'Cancel',
+  '1': 'Now',
+  '2': 'Later'
 };
 
 (globalThis as any)['NSRunningApplication']['NSApplication'] = (globalThis as any)['NSRunningApplication']['NSApplication'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['WindowListOptions'] = (globalThis as any)['NSRunningApplication']['NSApplication']['WindowListOptions'] || {};
 (globalThis as any)['NSRunningApplication']['NSApplication']['WindowListOptions'] = {
-  NSWindowListOrderedFrontToBack: 1
+  NSWindowListOrderedFrontToBack: 1,
+  '1': 'NSWindowListOrderedFrontToBack'
 };
 
 
@@ -45337,14 +48821,21 @@ let global = globalThis as any;
   Before: 1,
   Beginning: 2,
   End: 3,
-  Replace: 4
+  Replace: 4,
+  '0': 'After',
+  '1': 'Before',
+  '2': 'Beginning',
+  '3': 'End',
+  '4': 'Replace'
 };
 
 (globalThis as any)['NSScriptObjectSpecifiers']['NSRelativeSpecifier'] = (globalThis as any)['NSScriptObjectSpecifiers']['NSRelativeSpecifier'] || {};
 (globalThis as any)['NSScriptObjectSpecifiers']['NSRelativeSpecifier']['RelativePosition'] = (globalThis as any)['NSScriptObjectSpecifiers']['NSRelativeSpecifier']['RelativePosition'] || {};
 (globalThis as any)['NSScriptObjectSpecifiers']['NSRelativeSpecifier']['RelativePosition'] = {
   After: 0,
-  Before: 1
+  Before: 1,
+  '0': 'After',
+  '1': 'Before'
 };
 
 (globalThis as any)['NSScriptObjectSpecifiers']['NSWhoseSpecifier'] = (globalThis as any)['NSScriptObjectSpecifiers']['NSWhoseSpecifier'] || {};
@@ -45354,7 +48845,12 @@ let global = globalThis as any;
   EverySubelement: 1,
   MiddleSubelement: 2,
   RandomSubelement: 3,
-  NoSubelement: 4
+  NoSubelement: 4,
+  '0': 'IndexSubelement',
+  '1': 'EverySubelement',
+  '2': 'MiddleSubelement',
+  '3': 'RandomSubelement',
+  '4': 'NoSubelement'
 };
 
 
@@ -45363,7 +48859,10 @@ let global = globalThis as any;
 (globalThis as any)['NSScriptStandardSuiteCommands']['NSSaveOptions'] = {
   Yes: 0,
   No: 1,
-  Ask: 2
+  Ask: 2,
+  '0': 'Yes',
+  '1': 'No',
+  '2': 'Ask'
 };
 
 
@@ -45380,7 +48879,15 @@ let global = globalThis as any;
   GreaterThanComparison: 4,
   BeginsWithComparison: 5,
   EndsWithComparison: 6,
-  ContainsComparison: 7
+  ContainsComparison: 7,
+  '0': 'EqualToComparison',
+  '1': 'LessThanOrEqualToComparison',
+  '2': 'LessThanComparison',
+  '3': 'GreaterThanOrEqualToComparison',
+  '4': 'GreaterThanComparison',
+  '5': 'BeginsWithComparison',
+  '6': 'EndsWithComparison',
+  '7': 'ContainsComparison'
 };
 
 
@@ -45389,14 +48896,20 @@ let global = globalThis as any;
 (globalThis as any)['NSScrollView']['Elasticity'] = {
   Automatic: 0,
   None: 1,
-  Allowed: 2
+  Allowed: 2,
+  '0': 'Automatic',
+  '1': 'None',
+  '2': 'Allowed'
 };
 
 (globalThis as any)['NSScrollView']['FindBarPosition'] = (globalThis as any)['NSScrollView']['FindBarPosition'] || {};
 (globalThis as any)['NSScrollView']['FindBarPosition'] = {
   AboveHorizontalRuler: 0,
   AboveContent: 1,
-  BelowContent: 2
+  BelowContent: 2,
+  '0': 'AboveHorizontalRuler',
+  '1': 'AboveContent',
+  '2': 'BelowContent'
 };
 
 
@@ -45405,7 +48918,10 @@ let global = globalThis as any;
 (globalThis as any)['NSScroller']['KnobStyle'] = {
   Default: 0,
   Dark: 1,
-  Light: 2
+  Light: 2,
+  '0': 'Default',
+  '1': 'Dark',
+  '2': 'Light'
 };
 
 (globalThis as any)['NSScroller']['Part'] = (globalThis as any)['NSScroller']['Part'] || {};
@@ -45416,20 +48932,32 @@ let global = globalThis as any;
   IncrementPage: 3,
   DecrementLine: 4,
   IncrementLine: 5,
-  KnobSlot: 6
+  KnobSlot: 6,
+  '0': 'NoPart',
+  '1': 'DecrementPage',
+  '2': 'Knob',
+  '3': 'IncrementPage',
+  '4': 'DecrementLine',
+  '5': 'IncrementLine',
+  '6': 'KnobSlot'
 };
 
 (globalThis as any)['NSScroller']['Style'] = (globalThis as any)['NSScroller']['Style'] || {};
 (globalThis as any)['NSScroller']['Style'] = {
   Legacy: 0,
-  Overlay: 1
+  Overlay: 1,
+  '0': 'Legacy',
+  '1': 'Overlay'
 };
 
 (globalThis as any)['NSScroller']['UsableParts'] = (globalThis as any)['NSScroller']['UsableParts'] || {};
 (globalThis as any)['NSScroller']['UsableParts'] = {
   NoScrollerParts: 0,
   OnlyScrollerArrows: 1,
-  AllScrollerParts: 2
+  AllScrollerParts: 2,
+  '0': 'NoScrollerParts',
+  '1': 'OnlyScrollerArrows',
+  '2': 'AllScrollerParts'
 };
 
 
@@ -45439,13 +48967,19 @@ let global = globalThis as any;
   None: 0,
   Leading: 1,
   Trailing: 2,
-  Center: 3
+  Center: 3,
+  '0': 'None',
+  '1': 'Leading',
+  '2': 'Trailing',
+  '3': 'Center'
 };
 
 (globalThis as any)['NSScrubber']['Mode'] = (globalThis as any)['NSScrubber']['Mode'] || {};
 (globalThis as any)['NSScrubber']['Mode'] = {
   ixed: 0,
-  ree: 1
+  ree: 1,
+  '0': 'ixed',
+  '1': 'ree'
 };
 
 
@@ -45463,7 +48997,11 @@ let global = globalThis as any;
   t: 0,
   ll: 1,
   llEqually: 2,
-  llProportionally: 3
+  llProportionally: 3,
+  '0': 't',
+  '1': 'll',
+  '2': 'llEqually',
+  '3': 'llProportionally'
 };
 
 (globalThis as any)['NSSegmentedControl']['Style'] = (globalThis as any)['NSSegmentedControl']['Style'] || {};
@@ -45475,7 +49013,15 @@ let global = globalThis as any;
   SmallSquare: 6,
   Separated: 8,
   TexturedRounded: 2,
-  Capsule: 5
+  Capsule: 5,
+  '0': 'Automatic',
+  '1': 'Rounded',
+  '3': 'RoundRect',
+  '4': 'TexturedSquare',
+  '6': 'SmallSquare',
+  '8': 'Separated',
+  '2': 'TexturedRounded',
+  '5': 'Capsule'
 };
 
 (globalThis as any)['NSSegmentedControl']['SwitchTracking'] = (globalThis as any)['NSSegmentedControl']['SwitchTracking'] || {};
@@ -45483,7 +49029,11 @@ let global = globalThis as any;
   SelectOne: 0,
   SelectAny: 1,
   Momentary: 2,
-  MomentaryAccelerator: 3
+  MomentaryAccelerator: 3,
+  '0': 'SelectOne',
+  '1': 'SelectAny',
+  '2': 'Momentary',
+  '3': 'MomentaryAccelerator'
 };
 
 
@@ -45496,14 +49046,22 @@ let global = globalThis as any;
   AllowPublic: 1,
   AllowPrivate: 2,
   AllowReadOnly: 16,
-  AllowReadWrite: 32
+  AllowReadWrite: 32,
+  '0': 'Standard',
+  '1': 'AllowPublic',
+  '2': 'AllowPrivate',
+  '16': 'AllowReadOnly',
+  '32': 'AllowReadWrite'
 };
 
 (globalThis as any)['NSSharingService']['SharingContentScope'] = (globalThis as any)['NSSharingService']['SharingContentScope'] || {};
 (globalThis as any)['NSSharingService']['SharingContentScope'] = {
   Item: 0,
   Partial: 1,
-  Full: 2
+  Full: 2,
+  '0': 'Item',
+  '1': 'Partial',
+  '2': 'Full'
 };
 
 
@@ -45515,7 +49073,9 @@ let global = globalThis as any;
 (globalThis as any)['NSSlider']['SliderType'] = (globalThis as any)['NSSlider']['SliderType'] || {};
 (globalThis as any)['NSSlider']['SliderType'] = {
   Linear: 0,
-  Circular: 1
+  Circular: 1,
+  '0': 'Linear',
+  '1': 'Circular'
 };
 
 (globalThis as any)['NSSlider']['TickMarkPosition'] = (globalThis as any)['NSSlider']['TickMarkPosition'] || {};
@@ -45523,7 +49083,9 @@ let global = globalThis as any;
   Below: 0,
   Above: 1,
   Leading: 1,
-  Trailing: 0
+  Trailing: 0,
+  '0': 'Below',
+  '1': 'Above',
 };
 
 
@@ -45534,7 +49096,9 @@ let global = globalThis as any;
 (globalThis as any)['NSSliderCell']['NSSlider']['SliderType'] = (globalThis as any)['NSSliderCell']['NSSlider']['SliderType'] || {};
 (globalThis as any)['NSSliderCell']['NSSlider']['SliderType'] = {
   Linear: 0,
-  Circular: 1
+  Circular: 1,
+  '0': 'Linear',
+  '1': 'Circular'
 };
 
 (globalThis as any)['NSSliderCell']['NSSlider'] = (globalThis as any)['NSSliderCell']['NSSlider'] || {};
@@ -45543,7 +49107,9 @@ let global = globalThis as any;
   Below: 0,
   Above: 1,
   Leading: 1,
-  Trailing: 0
+  Trailing: 0,
+  '0': 'Below',
+  '1': 'Above',
 };
 
 
@@ -45560,7 +49126,10 @@ let global = globalThis as any;
 (globalThis as any)['NSSpeechSynthesizer']['Boundary'] = {
   ImmediateBoundary: 0,
   WordBoundary: 1,
-  SentenceBoundary: 2
+  SentenceBoundary: 2,
+  '0': 'ImmediateBoundary',
+  '1': 'WordBoundary',
+  '2': 'SentenceBoundary'
 };
 
 
@@ -45569,7 +49138,10 @@ let global = globalThis as any;
 (globalThis as any)['NSSpellChecker']['CorrectionIndicatorType'] = {
   Default: 0,
   Reversion: 1,
-  Guesses: 2
+  Guesses: 2,
+  '0': 'Default',
+  '1': 'Reversion',
+  '2': 'Guesses'
 };
 
 (globalThis as any)['NSSpellChecker']['CorrectionResponse'] = (globalThis as any)['NSSpellChecker']['CorrectionResponse'] || {};
@@ -45579,7 +49151,13 @@ let global = globalThis as any;
   Rejected: 2,
   Ignored: 3,
   Edited: 4,
-  Reverted: 5
+  Reverted: 5,
+  '0': 'None',
+  '1': 'Accepted',
+  '2': 'Rejected',
+  '3': 'Ignored',
+  '4': 'Edited',
+  '5': 'Reverted'
 };
 
 
@@ -45590,7 +49168,10 @@ let global = globalThis as any;
 (globalThis as any)['NSSplitView']['DividerStyle'] = {
   Thick: 1,
   Thin: 2,
-  PaneSplitter: 3
+  PaneSplitter: 3,
+  '1': 'Thick',
+  '2': 'Thin',
+  '3': 'PaneSplitter'
 };
 
 
@@ -45601,7 +49182,10 @@ let global = globalThis as any;
 (globalThis as any)['NSSplitViewItem']['Behavior'] = {
   Default: 0,
   Sidebar: 1,
-  ContentList: 2
+  ContentList: 2,
+  '0': 'Default',
+  '1': 'Sidebar',
+  '2': 'ContentList'
 };
 
 (globalThis as any)['NSSplitViewItem']['CollapseBehavior'] = (globalThis as any)['NSSplitViewItem']['CollapseBehavior'] || {};
@@ -45609,7 +49193,11 @@ let global = globalThis as any;
   Default: 0,
   PreferResizingSplitViewWithFixedSiblings: 1,
   PreferResizingSiblingsWithFixedSplitView: 2,
-  UseConstraints: 3
+  UseConstraints: 3,
+  '0': 'Default',
+  '1': 'PreferResizingSplitViewWithFixedSiblings',
+  '2': 'PreferResizingSiblingsWithFixedSplitView',
+  '3': 'UseConstraints'
 };
 
 
@@ -45621,7 +49209,13 @@ let global = globalThis as any;
   FillEqually: 1,
   FillProportionally: 2,
   EqualSpacing: 3,
-  EqualCentering: 4
+  EqualCentering: 4,
+  '-1': 'GravityAreas',
+  '0': 'Fill',
+  '1': 'FillEqually',
+  '2': 'FillProportionally',
+  '3': 'EqualSpacing',
+  '4': 'EqualCentering'
 };
 
 (globalThis as any)['NSStackView']['Gravity'] = (globalThis as any)['NSStackView']['Gravity'] || {};
@@ -45630,7 +49224,10 @@ let global = globalThis as any;
   Leading: 1,
   Center: 2,
   Bottom: 3,
-  Trailing: 3
+  Trailing: 3,
+  '1': 'Top',
+  '2': 'Center',
+  '3': 'Bottom',
 };
 
 
@@ -45642,7 +49239,9 @@ let global = globalThis as any;
 (globalThis as any)['NSStatusItem']['Behavior'] = (globalThis as any)['NSStatusItem']['Behavior'] || {};
 (globalThis as any)['NSStatusItem']['Behavior'] = {
   RemovalAllowed: 2,
-  TerminationOnRemoval: 4
+  TerminationOnRemoval: 4,
+  '2': 'RemovalAllowed',
+  '4': 'TerminationOnRemoval'
 };
 
 
@@ -45664,7 +49263,13 @@ let global = globalThis as any;
   HasBytesAvailable: 2,
   HasSpaceAvailable: 4,
   ErrorOccurred: 8,
-  EndEncountered: 16
+  EndEncountered: 16,
+  '0': 'None',
+  '1': 'OpenCompleted',
+  '2': 'HasBytesAvailable',
+  '4': 'HasSpaceAvailable',
+  '8': 'ErrorOccurred',
+  '16': 'EndEncountered'
 };
 
 (globalThis as any)['Stream']['Status'] = (globalThis as any)['Stream']['Status'] || {};
@@ -45676,7 +49281,15 @@ let global = globalThis as any;
   Writing: 4,
   AtEnd: 5,
   Closed: 6,
-  Error: 7
+  Error: 7,
+  '0': 'NotOpen',
+  '1': 'Opening',
+  '2': 'Open',
+  '3': 'Reading',
+  '4': 'Writing',
+  '5': 'AtEnd',
+  '6': 'Closed',
+  '7': 'Error'
 };
 
 
@@ -45691,7 +49304,16 @@ let global = globalThis as any;
   DiacriticInsensitiveSearch: 128,
   WidthInsensitiveSearch: 256,
   ForcedOrderingSearch: 512,
-  RegularExpressionSearch: 1024
+  RegularExpressionSearch: 1024,
+  '1': 'CaseInsensitiveSearch',
+  '2': 'LiteralSearch',
+  '4': 'BackwardsSearch',
+  '8': 'AnchoredSearch',
+  '64': 'NumericSearch',
+  '128': 'DiacriticInsensitiveSearch',
+  '256': 'WidthInsensitiveSearch',
+  '512': 'ForcedOrderingSearch',
+  '1024': 'RegularExpressionSearch'
 };
 
 (globalThis as any)['String']['DrawingOptions'] = (globalThis as any)['String']['DrawingOptions'] || {};
@@ -45701,13 +49323,21 @@ let global = globalThis as any;
   UsesDeviceMetrics: 8,
   TruncatesLastVisibleLine: 32,
   DisableScreenFontSubstitution: 4,
-  OneShot: 16
+  OneShot: 16,
+  '1': 'UsesLineFragmentOrigin',
+  '2': 'UsesFontLeading',
+  '8': 'UsesDeviceMetrics',
+  '32': 'TruncatesLastVisibleLine',
+  '4': 'DisableScreenFontSubstitution',
+  '16': 'OneShot'
 };
 
 (globalThis as any)['String']['EncodingConversionOptions'] = (globalThis as any)['String']['EncodingConversionOptions'] || {};
 (globalThis as any)['String']['EncodingConversionOptions'] = {
   AllowLossy: 1,
-  ExternalRepresentation: 2
+  ExternalRepresentation: 2,
+  '1': 'AllowLossy',
+  '2': 'ExternalRepresentation'
 };
 
 (globalThis as any)['String']['EnumerationOptions'] = (globalThis as any)['String']['EnumerationOptions'] || {};
@@ -45719,7 +49349,15 @@ let global = globalThis as any;
   BySentences: 4,
   Reverse: 256,
   SubstringNotRequired: 512,
-  Localized: 1024
+  Localized: 1024,
+  '0': 'ByLines',
+  '1': 'ByParagraphs',
+  '2': 'ByComposedCharacterSequences',
+  '3': 'ByWords',
+  '4': 'BySentences',
+  '256': 'Reverse',
+  '512': 'SubstringNotRequired',
+  '1024': 'Localized'
 };
 
 
@@ -45732,7 +49370,13 @@ let global = globalThis as any;
   UsesDeviceMetrics: 8,
   TruncatesLastVisibleLine: 32,
   DisableScreenFontSubstitution: 4,
-  OneShot: 16
+  OneShot: 16,
+  '1': 'UsesLineFragmentOrigin',
+  '2': 'UsesFontLeading',
+  '8': 'UsesDeviceMetrics',
+  '32': 'TruncatesLastVisibleLine',
+  '4': 'DisableScreenFontSubstitution',
+  '16': 'OneShot'
 };
 
 
@@ -45745,7 +49389,12 @@ let global = globalThis as any;
   Top: 1,
   Left: 2,
   Bottom: 3,
-  Right: 4
+  Right: 4,
+  '0': 'None',
+  '1': 'Top',
+  '2': 'Left',
+  '3': 'Bottom',
+  '4': 'Right'
 };
 
 (globalThis as any)['NSTabView']['TabType'] = (globalThis as any)['NSTabView']['TabType'] || {};
@@ -45756,14 +49405,24 @@ let global = globalThis as any;
   RightTabsBezelBorder: 3,
   NoTabsBezelBorder: 4,
   NoTabsLineBorder: 5,
-  NoTabsNoBorder: 6
+  NoTabsNoBorder: 6,
+  '0': 'TopTabsBezelBorder',
+  '1': 'LeftTabsBezelBorder',
+  '2': 'BottomTabsBezelBorder',
+  '3': 'RightTabsBezelBorder',
+  '4': 'NoTabsBezelBorder',
+  '5': 'NoTabsLineBorder',
+  '6': 'NoTabsNoBorder'
 };
 
 (globalThis as any)['NSTabView']['TabViewBorderType'] = (globalThis as any)['NSTabView']['TabViewBorderType'] || {};
 (globalThis as any)['NSTabView']['TabViewBorderType'] = {
   None: 0,
   Line: 1,
-  Bezel: 2
+  Bezel: 2,
+  '0': 'None',
+  '1': 'Line',
+  '2': 'Bezel'
 };
 
 
@@ -45773,7 +49432,11 @@ let global = globalThis as any;
   SegmentedControlOnTop: 0,
   SegmentedControlOnBottom: 1,
   Toolbar: 2,
-  Unspecified: -1
+  Unspecified: -1,
+  '0': 'SegmentedControlOnTop',
+  '1': 'SegmentedControlOnBottom',
+  '2': 'Toolbar',
+  '-1': 'Unspecified'
 };
 
 
@@ -45782,7 +49445,10 @@ let global = globalThis as any;
 (globalThis as any)['NSTabViewItem']['State'] = {
   SelectedTab: 0,
   BackgroundTab: 1,
-  PressedTab: 2
+  PressedTab: 2,
+  '0': 'SelectedTab',
+  '1': 'BackgroundTab',
+  '2': 'PressedTab'
 };
 
 
@@ -45793,7 +49459,10 @@ let global = globalThis as any;
 (globalThis as any)['NSTableColumn']['ResizingOptions'] = {
   NoResizing: 0,
   AutoresizingMask: 1,
-  UserResizingMask: 2
+  UserResizingMask: 2,
+  '0': 'NoResizing',
+  '1': 'AutoresizingMask',
+  '2': 'UserResizingMask'
 };
 
 
@@ -45812,7 +49481,14 @@ let global = globalThis as any;
   SlideUp: 16,
   SlideDown: 32,
   SlideLeft: 48,
-  SlideRight: 64
+  SlideRight: 64,
+  '0': 'EffectNone',
+  '1': 'EffectFade',
+  '2': 'EffectGap',
+  '16': 'SlideUp',
+  '32': 'SlideDown',
+  '48': 'SlideLeft',
+  '64': 'SlideRight'
 };
 
 (globalThis as any)['NSTableView']['ColumnAutoresizingStyle'] = (globalThis as any)['NSTableView']['ColumnAutoresizingStyle'] || {};
@@ -45822,7 +49498,13 @@ let global = globalThis as any;
   SequentialColumnAutoresizingStyle: 2,
   ReverseSequentialColumnAutoresizingStyle: 3,
   LastColumnOnlyAutoresizingStyle: 4,
-  FirstColumnOnlyAutoresizingStyle: 5
+  FirstColumnOnlyAutoresizingStyle: 5,
+  '0': 'NoColumnAutoresizing',
+  '1': 'UniformColumnAutoresizingStyle',
+  '2': 'SequentialColumnAutoresizingStyle',
+  '3': 'ReverseSequentialColumnAutoresizingStyle',
+  '4': 'LastColumnOnlyAutoresizingStyle',
+  '5': 'FirstColumnOnlyAutoresizingStyle'
 };
 
 (globalThis as any)['NSTableView']['DraggingDestinationFeedbackStyle'] = (globalThis as any)['NSTableView']['DraggingDestinationFeedbackStyle'] || {};
@@ -45830,13 +49512,19 @@ let global = globalThis as any;
   None: -1,
   Regular: 0,
   SourceList: 1,
-  Gap: 2
+  Gap: 2,
+  '-1': 'None',
+  '0': 'Regular',
+  '1': 'SourceList',
+  '2': 'Gap'
 };
 
 (globalThis as any)['NSTableView']['DropOperation'] = (globalThis as any)['NSTableView']['DropOperation'] || {};
 (globalThis as any)['NSTableView']['DropOperation'] = {
   On: 0,
-  Above: 1
+  Above: 1,
+  '0': 'On',
+  '1': 'Above'
 };
 
 (globalThis as any)['NSTableView']['GridLineStyle'] = (globalThis as any)['NSTableView']['GridLineStyle'] || {};
@@ -45844,13 +49532,19 @@ let global = globalThis as any;
   GridNone: 0,
   SolidVerticalGridLineMask: 1,
   SolidHorizontalGridLineMask: 2,
-  DashedHorizontalGridLineMask: 8
+  DashedHorizontalGridLineMask: 8,
+  '0': 'GridNone',
+  '1': 'SolidVerticalGridLineMask',
+  '2': 'SolidHorizontalGridLineMask',
+  '8': 'DashedHorizontalGridLineMask'
 };
 
 (globalThis as any)['NSTableView']['RowActionEdge'] = (globalThis as any)['NSTableView']['RowActionEdge'] || {};
 (globalThis as any)['NSTableView']['RowActionEdge'] = {
   Leading: 0,
-  Trailing: 1
+  Trailing: 1,
+  '0': 'Leading',
+  '1': 'Trailing'
 };
 
 (globalThis as any)['NSTableView']['RowSizeStyle'] = (globalThis as any)['NSTableView']['RowSizeStyle'] || {};
@@ -45859,14 +49553,22 @@ let global = globalThis as any;
   Custom: 0,
   Small: 1,
   Medium: 2,
-  Large: 3
+  Large: 3,
+  '-1': 'Default',
+  '0': 'Custom',
+  '1': 'Small',
+  '2': 'Medium',
+  '3': 'Large'
 };
 
 (globalThis as any)['NSTableView']['SelectionHighlightStyle'] = (globalThis as any)['NSTableView']['SelectionHighlightStyle'] || {};
 (globalThis as any)['NSTableView']['SelectionHighlightStyle'] = {
   None: -1,
   Regular: 0,
-  SourceList: 1
+  SourceList: 1,
+  '-1': 'None',
+  '0': 'Regular',
+  '1': 'SourceList'
 };
 
 
@@ -45874,7 +49576,9 @@ let global = globalThis as any;
 (globalThis as any)['NSTableViewRowAction']['Style'] = (globalThis as any)['NSTableViewRowAction']['Style'] || {};
 (globalThis as any)['NSTableViewRowAction']['Style'] = {
   Regular: 0,
-  Destructive: 1
+  Destructive: 1,
+  '0': 'Regular',
+  '1': 'Destructive'
 };
 
 
@@ -45882,7 +49586,9 @@ let global = globalThis as any;
 (globalThis as any)['Process']['TerminationReason'] = (globalThis as any)['Process']['TerminationReason'] || {};
 (globalThis as any)['Process']['TerminationReason'] = {
   Exit: 1,
-  UncaughtSignal: 2
+  UncaughtSignal: 2,
+  '1': 'Exit',
+  '2': 'UncaughtSignal'
 };
 
 
@@ -45893,7 +49599,12 @@ let global = globalThis as any;
   Right: 1,
   Center: 2,
   Justified: 3,
-  Natural: 4
+  Natural: 4,
+  '0': 'Left',
+  '1': 'Right',
+  '2': 'Center',
+  '3': 'Justified',
+  '4': 'Natural'
 };
 
 (globalThis as any)['NSText']['NSTextMovement'] = (globalThis as any)['NSText']['NSTextMovement'] || {};
@@ -45906,14 +49617,26 @@ let global = globalThis as any;
   Up: 21,
   Down: 22,
   Cancel: 23,
-  Other: 0
+  Other: 0,
+  '16': 'Return',
+  '17': 'Tab',
+  '18': 'Backtab',
+  '19': 'Left',
+  '20': 'Right',
+  '21': 'Up',
+  '22': 'Down',
+  '23': 'Cancel',
+  '0': 'Other'
 };
 
 (globalThis as any)['NSText']['NSWritingDirection'] = (globalThis as any)['NSText']['NSWritingDirection'] || {};
 (globalThis as any)['NSText']['NSWritingDirection'] = {
   Natural: -1,
   LeftToRight: 0,
-  RightToLeft: 1
+  RightToLeft: 1,
+  '-1': 'Natural',
+  '0': 'LeftToRight',
+  '1': 'RightToLeft'
 };
 
 
@@ -45926,7 +49649,10 @@ let global = globalThis as any;
 (globalThis as any)['NSTextCheckingClient']['NSTextInputTraitType'] = {
   Default: 0,
   No: 1,
-  Yes: 2
+  Yes: 2,
+  '0': 'Default',
+  '1': 'No',
+  '2': 'Yes'
 };
 
 
@@ -45947,7 +49673,20 @@ let global = globalThis as any;
   Correction: 512,
   RegularExpression: 1024,
   PhoneNumber: 2048,
-  TransitInformation: 4096
+  TransitInformation: 4096,
+  '1': 'Orthography',
+  '2': 'Spelling',
+  '4': 'Grammar',
+  '8': 'Date',
+  '16': 'Address',
+  '32': 'Link',
+  '64': 'Quote',
+  '128': 'Dash',
+  '256': 'Replacement',
+  '512': 'Correction',
+  '1024': 'RegularExpression',
+  '2048': 'PhoneNumber',
+  '4096': 'TransitInformation'
 };
 
 
@@ -45958,7 +49697,12 @@ let global = globalThis as any;
   MovesLeft: 1,
   MovesRight: 2,
   MovesDown: 3,
-  MovesUp: 4
+  MovesUp: 4,
+  '0': 'DoesntMove',
+  '1': 'MovesLeft',
+  '2': 'MovesRight',
+  '3': 'MovesDown',
+  '4': 'MovesUp'
 };
 
 (globalThis as any)['NSTextContainer']['NSLineSweepDirection'] = (globalThis as any)['NSTextContainer']['NSLineSweepDirection'] || {};
@@ -45966,7 +49710,11 @@ let global = globalThis as any;
   Left: 0,
   Right: 1,
   Down: 2,
-  Up: 3
+  Up: 3,
+  '0': 'Left',
+  '1': 'Right',
+  '2': 'Down',
+  '3': 'Up'
 };
 
 
@@ -45974,7 +49722,9 @@ let global = globalThis as any;
 (globalThis as any)['NSTextField']['BezelStyle'] = (globalThis as any)['NSTextField']['BezelStyle'] || {};
 (globalThis as any)['NSTextField']['BezelStyle'] = {
   SquareBezel: 0,
-  RoundedBezel: 1
+  RoundedBezel: 1,
+  '0': 'SquareBezel',
+  '1': 'RoundedBezel'
 };
 
 
@@ -45983,7 +49733,9 @@ let global = globalThis as any;
 (globalThis as any)['NSTextFieldCell']['NSTextField']['BezelStyle'] = (globalThis as any)['NSTextFieldCell']['NSTextField']['BezelStyle'] || {};
 (globalThis as any)['NSTextFieldCell']['NSTextField']['BezelStyle'] = {
   SquareBezel: 0,
-  RoundedBezel: 1
+  RoundedBezel: 1,
+  '0': 'SquareBezel',
+  '1': 'RoundedBezel'
 };
 
 
@@ -46002,7 +49754,20 @@ let global = globalThis as any;
   SelectAllInSelection: 10,
   HideFindInterface: 11,
   ShowReplaceInterface: 12,
-  HideReplaceInterface: 13
+  HideReplaceInterface: 13,
+  '1': 'ShowFindInterface',
+  '2': 'NextMatch',
+  '3': 'PreviousMatch',
+  '4': 'ReplaceAll',
+  '5': 'Replace',
+  '6': 'ReplaceAndFind',
+  '7': 'SetSearchString',
+  '8': 'ReplaceAllInSelection',
+  '9': 'SelectAll',
+  '10': 'SelectAllInSelection',
+  '11': 'HideFindInterface',
+  '12': 'ShowReplaceInterface',
+  '13': 'HideReplaceInterface'
 };
 
 (globalThis as any)['NSTextFinder']['MatchingType'] = (globalThis as any)['NSTextFinder']['MatchingType'] || {};
@@ -46010,7 +49775,11 @@ let global = globalThis as any;
   Contains: 0,
   StartsWith: 1,
   FullWord: 2,
-  EndsWith: 3
+  EndsWith: 3,
+  '0': 'Contains',
+  '1': 'StartsWith',
+  '2': 'FullWord',
+  '3': 'EndsWith'
 };
 
 
@@ -46019,7 +49788,8 @@ let global = globalThis as any;
 (globalThis as any)['NSTextList'] = (globalThis as any)['NSTextList'] || {};
 (globalThis as any)['NSTextList']['Options'] = (globalThis as any)['NSTextList']['Options'] || {};
 (globalThis as any)['NSTextList']['Options'] = {
-  NSTextListPrependEnclosingMarker: 1
+  NSTextListPrependEnclosingMarker: 1,
+  '1': 'NSTextListPrependEnclosingMarker'
 };
 
 
@@ -46027,7 +49797,9 @@ let global = globalThis as any;
 (globalThis as any)['NSTextStorage']['NSTextStorageEditActions'] = (globalThis as any)['NSTextStorage']['NSTextStorageEditActions'] || {};
 (globalThis as any)['NSTextStorage']['NSTextStorageEditActions'] = {
   Attributes: 1,
-  Characters: 2
+  Characters: 2,
+  '1': 'Attributes',
+  '2': 'Characters'
 };
 
 
@@ -46040,7 +49812,13 @@ let global = globalThis as any;
   MaximumWidth: 2,
   Height: 4,
   MinimumHeight: 5,
-  MaximumHeight: 6
+  MaximumHeight: 6,
+  '0': 'Width',
+  '1': 'MinimumWidth',
+  '2': 'MaximumWidth',
+  '4': 'Height',
+  '5': 'MinimumHeight',
+  '6': 'MaximumHeight'
 };
 
 (globalThis as any)['NSTextTable']['NSTextBlock'] = (globalThis as any)['NSTextTable']['NSTextBlock'] || {};
@@ -46048,14 +49826,19 @@ let global = globalThis as any;
 (globalThis as any)['NSTextTable']['NSTextBlock']['Layer'] = {
   Padding: -1,
   Border: 0,
-  Margin: 1
+  Margin: 1,
+  '-1': 'Padding',
+  '0': 'Border',
+  '1': 'Margin'
 };
 
 (globalThis as any)['NSTextTable']['NSTextBlock'] = (globalThis as any)['NSTextTable']['NSTextBlock'] || {};
 (globalThis as any)['NSTextTable']['NSTextBlock']['ValueType'] = (globalThis as any)['NSTextTable']['NSTextBlock']['ValueType'] || {};
 (globalThis as any)['NSTextTable']['NSTextBlock']['ValueType'] = {
   AbsoluteValueType: 0,
-  PercentageValueType: 1
+  PercentageValueType: 1,
+  '0': 'AbsoluteValueType',
+  '1': 'PercentageValueType'
 };
 
 (globalThis as any)['NSTextTable']['NSTextBlock'] = (globalThis as any)['NSTextTable']['NSTextBlock'] || {};
@@ -46064,13 +49847,19 @@ let global = globalThis as any;
   TopAlignment: 0,
   MiddleAlignment: 1,
   BottomAlignment: 2,
-  BaselineAlignment: 3
+  BaselineAlignment: 3,
+  '0': 'TopAlignment',
+  '1': 'MiddleAlignment',
+  '2': 'BottomAlignment',
+  '3': 'BaselineAlignment'
 };
 
 (globalThis as any)['NSTextTable']['LayoutAlgorithm'] = (globalThis as any)['NSTextTable']['LayoutAlgorithm'] || {};
 (globalThis as any)['NSTextTable']['LayoutAlgorithm'] = {
   AutomaticLayoutAlgorithm: 0,
-  FixedLayoutAlgorithm: 1
+  FixedLayoutAlgorithm: 1,
+  '0': 'AutomaticLayoutAlgorithm',
+  '1': 'FixedLayoutAlgorithm'
 };
 
 
@@ -46086,7 +49875,17 @@ let global = globalThis as any;
   SetFindString: 7,
   ReplaceAllInSelection: 8,
   SelectAll: 9,
-  SelectAllInSelection: 10
+  SelectAllInSelection: 10,
+  '1': 'ShowFindPanel',
+  '2': 'Next',
+  '3': 'Previous',
+  '4': 'ReplaceAll',
+  '5': 'Replace',
+  '6': 'ReplaceAndFind',
+  '7': 'SetFindString',
+  '8': 'ReplaceAllInSelection',
+  '9': 'SelectAll',
+  '10': 'SelectAllInSelection'
 };
 
 (globalThis as any)['NSTextView']['NSFindPanelSubstringMatchType'] = (globalThis as any)['NSTextView']['NSFindPanelSubstringMatchType'] || {};
@@ -46094,20 +49893,29 @@ let global = globalThis as any;
   Contains: 0,
   StartsWith: 1,
   FullWord: 2,
-  EndsWith: 3
+  EndsWith: 3,
+  '0': 'Contains',
+  '1': 'StartsWith',
+  '2': 'FullWord',
+  '3': 'EndsWith'
 };
 
 (globalThis as any)['NSTextView']['NSSelectionAffinity'] = (globalThis as any)['NSTextView']['NSSelectionAffinity'] || {};
 (globalThis as any)['NSTextView']['NSSelectionAffinity'] = {
   Upstream: 0,
-  Downstream: 1
+  Downstream: 1,
+  '0': 'Upstream',
+  '1': 'Downstream'
 };
 
 (globalThis as any)['NSTextView']['NSSelectionGranularity'] = (globalThis as any)['NSTextView']['NSSelectionGranularity'] || {};
 (globalThis as any)['NSTextView']['NSSelectionGranularity'] = {
   Character: 0,
   Word: 1,
-  Paragraph: 2
+  Paragraph: 2,
+  '0': 'Character',
+  '1': 'Word',
+  '2': 'Paragraph'
 };
 
 
@@ -46121,7 +49929,13 @@ let global = globalThis as any;
   DaylightSaving: 2,
   ShortDaylightSaving: 3,
   Generic: 4,
-  ShortGeneric: 5
+  ShortGeneric: 5,
+  '0': 'Standard',
+  '1': 'ShortStandard',
+  '2': 'DaylightSaving',
+  '3': 'ShortDaylightSaving',
+  '4': 'Generic',
+  '5': 'ShortGeneric'
 };
 
 
@@ -46136,7 +49950,12 @@ let global = globalThis as any;
   None: 1,
   Rounded: 2,
   Squared: 3,
-  PlainSquared: 4
+  PlainSquared: 4,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Rounded',
+  '3': 'Squared',
+  '4': 'PlainSquared'
 };
 
 
@@ -46148,7 +49967,12 @@ let global = globalThis as any;
   None: 1,
   Rounded: 2,
   Squared: 3,
-  PlainSquared: 4
+  PlainSquared: 4,
+  '0': 'Default',
+  '1': 'None',
+  '2': 'Rounded',
+  '3': 'Squared',
+  '4': 'PlainSquared'
 };
 
 
@@ -46158,14 +49982,21 @@ let global = globalThis as any;
   Default: 0,
   IconAndLabel: 1,
   IconOnly: 2,
-  LabelOnly: 3
+  LabelOnly: 3,
+  '0': 'Default',
+  '1': 'IconAndLabel',
+  '2': 'IconOnly',
+  '3': 'LabelOnly'
 };
 
 (globalThis as any)['NSToolbar']['SizeMode'] = (globalThis as any)['NSToolbar']['SizeMode'] || {};
 (globalThis as any)['NSToolbar']['SizeMode'] = {
   Default: 0,
   Regular: 1,
-  Small: 2
+  Small: 2,
+  '0': 'Default',
+  '1': 'Regular',
+  '2': 'Small'
 };
 
 
@@ -46176,14 +50007,20 @@ let global = globalThis as any;
 (globalThis as any)['NSToolbarItemGroup']['ControlRepresentation'] = {
   Automatic: 0,
   Expanded: 1,
-  Collapsed: 2
+  Collapsed: 2,
+  '0': 'Automatic',
+  '1': 'Expanded',
+  '2': 'Collapsed'
 };
 
 (globalThis as any)['NSToolbarItemGroup']['SelectionMode'] = (globalThis as any)['NSToolbarItemGroup']['SelectionMode'] || {};
 (globalThis as any)['NSToolbarItemGroup']['SelectionMode'] = {
   SelectOne: 0,
   SelectAny: 1,
-  Momentary: 2
+  Momentary: 2,
+  '0': 'SelectOne',
+  '1': 'SelectAny',
+  '2': 'Momentary'
 };
 
 
@@ -46196,19 +50033,30 @@ let global = globalThis as any;
   Ended: 8,
   Cancelled: 16,
   Touching: 7,
-  Any: -1
+  Any: -1,
+  '1': 'Began',
+  '2': 'Moved',
+  '4': 'Stationary',
+  '8': 'Ended',
+  '16': 'Cancelled',
+  '7': 'Touching',
+  '-1': 'Any'
 };
 
 (globalThis as any)['NSTouch']['TouchType'] = (globalThis as any)['NSTouch']['TouchType'] || {};
 (globalThis as any)['NSTouch']['TouchType'] = {
   Direct: 0,
-  Indirect: 1
+  Indirect: 1,
+  '0': 'Direct',
+  '1': 'Indirect'
 };
 
 (globalThis as any)['NSTouch']['TouchTypeMask'] = (globalThis as any)['NSTouch']['TouchTypeMask'] || {};
 (globalThis as any)['NSTouch']['TouchTypeMask'] = {
   Direct: 1,
-  Indirect: 2
+  Indirect: 2,
+  '1': 'Direct',
+  '2': 'Indirect'
 };
 
 
@@ -46228,7 +50076,17 @@ let global = globalThis as any;
   ActiveAlways: 128,
   AssumeInside: 256,
   InVisibleRect: 512,
-  EnabledDuringMouseDrag: 1024
+  EnabledDuringMouseDrag: 1024,
+  '1': 'MouseEnteredAndExited',
+  '2': 'MouseMoved',
+  '4': 'CursorUpdate',
+  '16': 'ActiveWhenFirstResponder',
+  '32': 'ActiveInKeyWindow',
+  '64': 'ActiveInActiveApp',
+  '128': 'ActiveAlways',
+  '256': 'AssumeInside',
+  '512': 'InVisibleRect',
+  '1024': 'EnabledDuringMouseDrag'
 };
 
 
@@ -46244,7 +50102,13 @@ let global = globalThis as any;
   HorizontalTabAction: 4,
   LineBreakAction: 8,
   ParagraphBreakAction: 16,
-  ContainerBreakAction: 32
+  ContainerBreakAction: 32,
+  '1': 'ZeroAdvancementAction',
+  '2': 'WhitespaceAction',
+  '4': 'HorizontalTabAction',
+  '8': 'LineBreakAction',
+  '16': 'ParagraphBreakAction',
+  '32': 'ContainerBreakAction'
 };
 
 
@@ -46255,14 +50119,22 @@ let global = globalThis as any;
   MinimalBookmark: 512,
   SuitableForBookmarkFile: 1024,
   WithSecurityScope: 2048,
-  SecurityScopeAllowOnlyReadAccess: 4096
+  SecurityScopeAllowOnlyReadAccess: 4096,
+  '256': 'PreferFileIDResolution',
+  '512': 'MinimalBookmark',
+  '1024': 'SuitableForBookmarkFile',
+  '2048': 'WithSecurityScope',
+  '4096': 'SecurityScopeAllowOnlyReadAccess'
 };
 
 (globalThis as any)['URL']['BookmarkResolutionOptions'] = (globalThis as any)['URL']['BookmarkResolutionOptions'] || {};
 (globalThis as any)['URL']['BookmarkResolutionOptions'] = {
   outUI: 256,
   outMounting: 512,
-  SecurityScope: 1024
+  SecurityScope: 1024,
+  '256': 'outUI',
+  '512': 'outMounting',
+  '1024': 'SecurityScope'
 };
 
 
@@ -46273,7 +50145,10 @@ let global = globalThis as any;
 (globalThis as any)['URLCache']['StoragePolicy'] = {
   Allowed: 0,
   AllowedInMemoryOnly: 1,
-  NotAllowed: 2
+  NotAllowed: 2,
+  '0': 'Allowed',
+  '1': 'AllowedInMemoryOnly',
+  '2': 'NotAllowed'
 };
 
 
@@ -46285,7 +50160,11 @@ let global = globalThis as any;
   None: 0,
   ForSession: 1,
   Permanent: 2,
-  Synchronizable: 3
+  Synchronizable: 3,
+  '0': 'None',
+  '1': 'ForSession',
+  '2': 'Permanent',
+  '3': 'Synchronizable'
 };
 
 
@@ -46298,7 +50177,10 @@ let global = globalThis as any;
 (globalThis as any)['NSURLError']['NSURLErrorNetworkUnavailableReason'] = {
   Cellular: 0,
   Expensive: 1,
-  Constrained: 2
+  Constrained: 2,
+  '0': 'Cellular',
+  '1': 'Expensive',
+  '2': 'Constrained'
 };
 
 
@@ -46308,7 +50190,11 @@ let global = globalThis as any;
   NotLoaded: 0,
   LoadSucceeded: 1,
   LoadInProgress: 2,
-  LoadFailed: 3
+  LoadFailed: 3,
+  '0': 'NotLoaded',
+  '1': 'LoadSucceeded',
+  '2': 'LoadInProgress',
+  '3': 'LoadFailed'
 };
 
 
@@ -46325,7 +50211,13 @@ let global = globalThis as any;
   ReloadIgnoringCacheData: 1,
   ReturnCacheDataElseLoad: 2,
   ReturnCacheDataDontLoad: 3,
-  ReloadRevalidatingCacheData: 5
+  ReloadRevalidatingCacheData: 5,
+  '0': 'UseProtocolCachePolicy',
+  '1': 'ReloadIgnoringLocalCacheData',
+  '4': 'ReloadIgnoringLocalAndRemoteCacheData',
+  '2': 'ReturnCacheDataElseLoad',
+  '3': 'ReturnCacheDataDontLoad',
+  '5': 'ReloadRevalidatingCacheData'
 };
 
 (globalThis as any)['URLRequest']['NetworkServiceType'] = (globalThis as any)['URLRequest']['NetworkServiceType'] || {};
@@ -46338,7 +50230,16 @@ let global = globalThis as any;
   ResponsiveData: 6,
   AVStreaming: 8,
   ResponsiveAV: 9,
-  CallSignaling: 11
+  CallSignaling: 11,
+  '0': 'Default',
+  '1': 'VoIP',
+  '2': 'Video',
+  '3': 'Background',
+  '4': 'Voice',
+  '6': 'ResponsiveData',
+  '8': 'AVStreaming',
+  '9': 'ResponsiveAV',
+  '11': 'CallSignaling'
 };
 
 
@@ -46351,7 +50252,11 @@ let global = globalThis as any;
   Running: 0,
   Suspended: 1,
   Canceling: 2,
-  Completed: 3
+  Completed: 3,
+  '0': 'Running',
+  '1': 'Suspended',
+  '2': 'Canceling',
+  '3': 'Completed'
 };
 
 (globalThis as any)['URLSession']['URLSessionTaskMetrics'] = (globalThis as any)['URLSession']['URLSessionTaskMetrics'] || {};
@@ -46360,7 +50265,11 @@ let global = globalThis as any;
   Unknown: 0,
   NetworkLoad: 1,
   ServerPush: 2,
-  LocalCache: 3
+  LocalCache: 3,
+  '0': 'Unknown',
+  '1': 'NetworkLoad',
+  '2': 'ServerPush',
+  '3': 'LocalCache'
 };
 
 (globalThis as any)['URLSession']['URLSessionWebSocketTask'] = (globalThis as any)['URLSession']['URLSessionWebSocketTask'] || {};
@@ -46378,7 +50287,20 @@ let global = globalThis as any;
   MessageTooBig: 1009,
   MandatoryExtensionMissing: 1010,
   InternalServerError: 1011,
-  TLSHandshakeFailure: 1015
+  TLSHandshakeFailure: 1015,
+  '0': 'Invalid',
+  '1000': 'NormalClosure',
+  '1001': 'GoingAway',
+  '1002': 'ProtocolError',
+  '1003': 'UnsupportedData',
+  '1005': 'NoStatusReceived',
+  '1006': 'AbnormalClosure',
+  '1007': 'InvalidFramePayloadData',
+  '1008': 'PolicyViolation',
+  '1009': 'MessageTooBig',
+  '1010': 'MandatoryExtensionMissing',
+  '1011': 'InternalServerError',
+  '1015': 'TLSHandshakeFailure'
 };
 
 (globalThis as any)['URLSession']['AuthChallengeDisposition'] = (globalThis as any)['URLSession']['AuthChallengeDisposition'] || {};
@@ -46386,14 +50308,21 @@ let global = globalThis as any;
   UseCredential: 0,
   PerformDefaultHandling: 1,
   CancelAuthenticationChallenge: 2,
-  RejectProtectionSpace: 3
+  RejectProtectionSpace: 3,
+  '0': 'UseCredential',
+  '1': 'PerformDefaultHandling',
+  '2': 'CancelAuthenticationChallenge',
+  '3': 'RejectProtectionSpace'
 };
 
 (globalThis as any)['URLSession']['NSURLSessionDelayedRequestDisposition'] = (globalThis as any)['URLSession']['NSURLSessionDelayedRequestDisposition'] || {};
 (globalThis as any)['URLSession']['NSURLSessionDelayedRequestDisposition'] = {
   ContinueLoading: 0,
   UseNewRequest: 1,
-  Cancel: 2
+  Cancel: 2,
+  '0': 'ContinueLoading',
+  '1': 'UseNewRequest',
+  '2': 'Cancel'
 };
 
 (globalThis as any)['URLSession']['NSURLSessionMultipathServiceType'] = (globalThis as any)['URLSession']['NSURLSessionMultipathServiceType'] || {};
@@ -46401,13 +50330,19 @@ let global = globalThis as any;
   None: 0,
   Handover: 1,
   Interactive: 2,
-  Aggregate: 3
+  Aggregate: 3,
+  '0': 'None',
+  '1': 'Handover',
+  '2': 'Interactive',
+  '3': 'Aggregate'
 };
 
 (globalThis as any)['URLSession']['NSURLSessionWebSocketMessageType'] = (globalThis as any)['URLSession']['NSURLSessionWebSocketMessageType'] || {};
 (globalThis as any)['URLSession']['NSURLSessionWebSocketMessageType'] = {
   Data: 0,
-  String: 1
+  String: 1,
+  '0': 'Data',
+  '1': 'String'
 };
 
 (globalThis as any)['URLSession']['ResponseDisposition'] = (globalThis as any)['URLSession']['ResponseDisposition'] || {};
@@ -46415,7 +50350,11 @@ let global = globalThis as any;
   Cancel: 0,
   Allow: 1,
   BecomeDownload: 2,
-  BecomeStream: 3
+  BecomeStream: 3,
+  '0': 'Cancel',
+  '1': 'Allow',
+  '2': 'BecomeDownload',
+  '3': 'BecomeStream'
 };
 
 
@@ -46439,13 +50378,17 @@ let global = globalThis as any;
 (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutDirection'] = (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutDirection'] || {};
 (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutDirection'] = {
   LeftToRight: 0,
-  RightToLeft: 1
+  RightToLeft: 1,
+  '0': 'LeftToRight',
+  '1': 'RightToLeft'
 };
 
 (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutOrientation'] = (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutOrientation'] || {};
 (globalThis as any)['NSUserInterfaceLayout']['NSUserInterfaceLayoutOrientation'] = {
   Horizontal: 0,
-  Vertical: 1
+  Vertical: 1,
+  '0': 'Horizontal',
+  '1': 'Vertical'
 };
 
 
@@ -46456,7 +50399,12 @@ let global = globalThis as any;
   ContentsClicked: 1,
   ActionButtonClicked: 2,
   Replied: 3,
-  AdditionalActionClicked: 4
+  AdditionalActionClicked: 4,
+  '0': 'None',
+  '1': 'ContentsClicked',
+  '2': 'ActionButtonClicked',
+  '3': 'Replied',
+  '4': 'AdditionalActionClicked'
 };
 
 
@@ -46475,7 +50423,14 @@ let global = globalThis as any;
   MaxXMargin: 4,
   MinYMargin: 8,
   HeightSizable: 16,
-  MaxYMargin: 32
+  MaxYMargin: 32,
+  '0': 'NotSizable',
+  '1': 'MinXMargin',
+  '2': 'WidthSizable',
+  '4': 'MaxXMargin',
+  '8': 'MinYMargin',
+  '16': 'HeightSizable',
+  '32': 'MaxYMargin'
 };
 
 (globalThis as any)['NSView']['BackgroundStyle'] = (globalThis as any)['NSView']['BackgroundStyle'] || {};
@@ -46483,7 +50438,11 @@ let global = globalThis as any;
   Normal: 0,
   Emphasized: 1,
   Raised: 2,
-  Lowered: 3
+  Lowered: 3,
+  '0': 'Normal',
+  '1': 'Emphasized',
+  '2': 'Raised',
+  '3': 'Lowered'
 };
 
 (globalThis as any)['NSView']['LayerContentsPlacement'] = (globalThis as any)['NSView']['LayerContentsPlacement'] || {};
@@ -46499,7 +50458,19 @@ let global = globalThis as any;
   Bottom: 8,
   BottomLeft: 9,
   Left: 10,
-  TopLeft: 11
+  TopLeft: 11,
+  '0': 'ScaleAxesIndependently',
+  '1': 'ScaleProportionallyToFit',
+  '2': 'ScaleProportionallyToFill',
+  '3': 'Center',
+  '4': 'Top',
+  '5': 'TopRight',
+  '6': 'Right',
+  '7': 'BottomRight',
+  '8': 'Bottom',
+  '9': 'BottomLeft',
+  '10': 'Left',
+  '11': 'TopLeft'
 };
 
 (globalThis as any)['NSView']['LayerContentsRedrawPolicy'] = (globalThis as any)['NSView']['LayerContentsRedrawPolicy'] || {};
@@ -46508,7 +50479,12 @@ let global = globalThis as any;
   OnSetNeedsDisplay: 1,
   DuringViewResize: 2,
   BeforeViewResize: 3,
-  Crossfade: 4
+  Crossfade: 4,
+  '0': 'Never',
+  '1': 'OnSetNeedsDisplay',
+  '2': 'DuringViewResize',
+  '3': 'BeforeViewResize',
+  '4': 'Crossfade'
 };
 
 (globalThis as any)['NSView']['NSBorderType'] = (globalThis as any)['NSView']['NSBorderType'] || {};
@@ -46516,7 +50492,11 @@ let global = globalThis as any;
   NoBorder: 0,
   LineBorder: 1,
   BezelBorder: 2,
-  GrooveBorder: 3
+  GrooveBorder: 3,
+  '0': 'NoBorder',
+  '1': 'LineBorder',
+  '2': 'BezelBorder',
+  '3': 'GrooveBorder'
 };
 
 
@@ -46531,7 +50511,16 @@ let global = globalThis as any;
   SlideRight: 128,
   SlideForward: 320,
   SlideBackward: 384,
-  AllowUserInteraction: 4096
+  AllowUserInteraction: 4096,
+  '0': 'None',
+  '1': 'Crossfade',
+  '16': 'SlideUp',
+  '32': 'SlideDown',
+  '64': 'SlideLeft',
+  '128': 'SlideRight',
+  '320': 'SlideForward',
+  '384': 'SlideBackward',
+  '4096': 'AllowUserInteraction'
 };
 
 
@@ -46539,7 +50528,9 @@ let global = globalThis as any;
 (globalThis as any)['NSVisualEffectView']['BlendingMode'] = (globalThis as any)['NSVisualEffectView']['BlendingMode'] || {};
 (globalThis as any)['NSVisualEffectView']['BlendingMode'] = {
   BehindWindow: 0,
-  WithinWindow: 1
+  WithinWindow: 1,
+  '0': 'BehindWindow',
+  '1': 'WithinWindow'
 };
 
 (globalThis as any)['NSVisualEffectView']['Material'] = (globalThis as any)['NSVisualEffectView']['Material'] || {};
@@ -46562,14 +50553,36 @@ let global = globalThis as any;
   Light: 1,
   Dark: 2,
   MediumLight: 8,
-  UltraDark: 9
+  UltraDark: 9,
+  '3': 'Titlebar',
+  '4': 'Selection',
+  '5': 'Menu',
+  '6': 'Popover',
+  '7': 'Sidebar',
+  '10': 'HeaderView',
+  '11': 'Sheet',
+  '12': 'WindowBackground',
+  '13': 'HUDWindow',
+  '15': 'FullScreenUI',
+  '17': 'ToolTip',
+  '18': 'ContentBackground',
+  '21': 'UnderWindowBackground',
+  '22': 'UnderPageBackground',
+  '0': 'AppearanceBased',
+  '1': 'Light',
+  '2': 'Dark',
+  '8': 'MediumLight',
+  '9': 'UltraDark'
 };
 
 (globalThis as any)['NSVisualEffectView']['State'] = (globalThis as any)['NSVisualEffectView']['State'] || {};
 (globalThis as any)['NSVisualEffectView']['State'] = {
   FollowsWindowActiveState: 0,
   Active: 1,
-  Inactive: 2
+  Inactive: 2,
+  '0': 'FollowsWindowActiveState',
+  '1': 'Active',
+  '2': 'Inactive'
 };
 
 
@@ -46580,14 +50593,22 @@ let global = globalThis as any;
   None: 2,
   DocumentWindow: 3,
   UtilityWindow: 4,
-  AlertPanel: 5
+  AlertPanel: 5,
+  '0': 'Default',
+  '2': 'None',
+  '3': 'DocumentWindow',
+  '4': 'UtilityWindow',
+  '5': 'AlertPanel'
 };
 
 (globalThis as any)['NSWindow']['BackingStoreType'] = (globalThis as any)['NSWindow']['BackingStoreType'] || {};
 (globalThis as any)['NSWindow']['BackingStoreType'] = {
   Retained: 0,
   Nonretained: 1,
-  Buffered: 2
+  Buffered: 2,
+  '0': 'Retained',
+  '1': 'Nonretained',
+  '2': 'Buffered'
 };
 
 (globalThis as any)['NSWindow']['ButtonType'] = (globalThis as any)['NSWindow']['ButtonType'] || {};
@@ -46597,7 +50618,13 @@ let global = globalThis as any;
   ZoomButton: 2,
   ToolbarButton: 3,
   DocumentIconButton: 4,
-  DocumentVersionsButton: 6
+  DocumentVersionsButton: 6,
+  '0': 'CloseButton',
+  '1': 'MiniaturizeButton',
+  '2': 'ZoomButton',
+  '3': 'ToolbarButton',
+  '4': 'DocumentIconButton',
+  '6': 'DocumentVersionsButton'
 };
 
 (globalThis as any)['NSWindow']['CollectionBehavior'] = (globalThis as any)['NSWindow']['CollectionBehavior'] || {};
@@ -46614,46 +50641,74 @@ let global = globalThis as any;
   FullScreenAuxiliary: 256,
   FullScreenNone: 512,
   FullScreenAllowsTiling: 2048,
-  FullScreenDisallowsTiling: 4096
+  FullScreenDisallowsTiling: 4096,
+  '0': 'Default',
+  '1': 'CanJoinAllSpaces',
+  '2': 'MoveToActiveSpace',
+  '4': 'Managed',
+  '8': 'Transient',
+  '16': 'Stationary',
+  '32': 'ParticipatesInCycle',
+  '64': 'IgnoresCycle',
+  '128': 'FullScreenPrimary',
+  '256': 'FullScreenAuxiliary',
+  '512': 'FullScreenNone',
+  '2048': 'FullScreenAllowsTiling',
+  '4096': 'FullScreenDisallowsTiling'
 };
 
 (globalThis as any)['NSWindow']['Depth'] = (globalThis as any)['NSWindow']['Depth'] || {};
 (globalThis as any)['NSWindow']['Depth'] = {
   TwentyfourBitRGB: 520,
   SixtyfourBitRGB: 528,
-  OnehundredtwentyeightBitRGB: 544
+  OnehundredtwentyeightBitRGB: 544,
+  '520': 'TwentyfourBitRGB',
+  '528': 'SixtyfourBitRGB',
+  '544': 'OnehundredtwentyeightBitRGB'
 };
 
 (globalThis as any)['NSWindow']['NumberListOptions'] = (globalThis as any)['NSWindow']['NumberListOptions'] || {};
 (globalThis as any)['NSWindow']['NumberListOptions'] = {
   Applications: 1,
-  Spaces: 16
+  Spaces: 16,
+  '1': 'Applications',
+  '16': 'Spaces'
 };
 
 (globalThis as any)['NSWindow']['OcclusionState'] = (globalThis as any)['NSWindow']['OcclusionState'] || {};
 (globalThis as any)['NSWindow']['OcclusionState'] = {
-  NSWindowOcclusionStateVisible: 2
+  NSWindowOcclusionStateVisible: 2,
+  '2': 'NSWindowOcclusionStateVisible'
 };
 
 (globalThis as any)['NSWindow']['OrderingMode'] = (globalThis as any)['NSWindow']['OrderingMode'] || {};
 (globalThis as any)['NSWindow']['OrderingMode'] = {
   Above: 1,
   Below: -1,
-  Out: 0
+  Out: 0,
+  '1': 'Above',
+  '-1': 'Below',
+  '0': 'Out'
 };
 
 (globalThis as any)['NSWindow']['SelectionDirection'] = (globalThis as any)['NSWindow']['SelectionDirection'] || {};
 (globalThis as any)['NSWindow']['SelectionDirection'] = {
   DirectSelection: 0,
   SelectingNext: 1,
-  SelectingPrevious: 2
+  SelectingPrevious: 2,
+  '0': 'DirectSelection',
+  '1': 'SelectingNext',
+  '2': 'SelectingPrevious'
 };
 
 (globalThis as any)['NSWindow']['SharingType'] = (globalThis as any)['NSWindow']['SharingType'] || {};
 (globalThis as any)['NSWindow']['SharingType'] = {
   None: 0,
   ReadOnly: 1,
-  ReadWrite: 2
+  ReadWrite: 2,
+  '0': 'None',
+  '1': 'ReadOnly',
+  '2': 'ReadWrite'
 };
 
 (globalThis as any)['NSWindow']['StyleMask'] = (globalThis as any)['NSWindow']['StyleMask'] || {};
@@ -46670,27 +50725,48 @@ let global = globalThis as any;
   UtilityWindow: 16,
   DocModalWindow: 64,
   NonactivatingPanel: 128,
-  HUDWindow: 8192
+  HUDWindow: 8192,
+  '0': 'Borderless',
+  '1': 'Titled',
+  '2': 'Closable',
+  '4': 'Miniaturizable',
+  '8': 'Resizable',
+  '256': 'TexturedBackground',
+  '4096': 'UnifiedTitleAndToolbar',
+  '16384': 'FullScreen',
+  '32768': 'FullSizeContentView',
+  '16': 'UtilityWindow',
+  '64': 'DocModalWindow',
+  '128': 'NonactivatingPanel',
+  '8192': 'HUDWindow'
 };
 
 (globalThis as any)['NSWindow']['TabbingMode'] = (globalThis as any)['NSWindow']['TabbingMode'] || {};
 (globalThis as any)['NSWindow']['TabbingMode'] = {
   Automatic: 0,
   Preferred: 1,
-  Disallowed: 2
+  Disallowed: 2,
+  '0': 'Automatic',
+  '1': 'Preferred',
+  '2': 'Disallowed'
 };
 
 (globalThis as any)['NSWindow']['TitleVisibility'] = (globalThis as any)['NSWindow']['TitleVisibility'] || {};
 (globalThis as any)['NSWindow']['TitleVisibility'] = {
   Visible: 0,
-  Hidden: 1
+  Hidden: 1,
+  '0': 'Visible',
+  '1': 'Hidden'
 };
 
 (globalThis as any)['NSWindow']['UserTabbingPreference'] = (globalThis as any)['NSWindow']['UserTabbingPreference'] || {};
 (globalThis as any)['NSWindow']['UserTabbingPreference'] = {
   Manual: 0,
   Always: 1,
-  InFullScreen: 2
+  InFullScreen: 2,
+  '0': 'Manual',
+  '1': 'Always',
+  '2': 'InFullScreen'
 };
 
 
@@ -46705,13 +50781,18 @@ let global = globalThis as any;
 (globalThis as any)['NSWorkspace']['AuthorizationType'] = {
   CreateSymbolicLink: 0,
   SetAttributes: 1,
-  ReplaceFile: 2
+  ReplaceFile: 2,
+  '0': 'CreateSymbolicLink',
+  '1': 'SetAttributes',
+  '2': 'ReplaceFile'
 };
 
 (globalThis as any)['NSWorkspace']['IconCreationOptions'] = (globalThis as any)['NSWorkspace']['IconCreationOptions'] || {};
 (globalThis as any)['NSWorkspace']['IconCreationOptions'] = {
   eQuickDrawElementsIconCreationOption: 2,
-  e10_4ElementsIconCreationOption: 4
+  e10_4ElementsIconCreationOption: 4,
+  '2': 'eQuickDrawElementsIconCreationOption',
+  '4': 'e10_4ElementsIconCreationOption'
 };
 
 (globalThis as any)['NSWorkspace']['LaunchOptions'] = (globalThis as any)['NSWorkspace']['LaunchOptions'] || {};
@@ -46727,7 +50808,18 @@ let global = globalThis as any;
   AndHideOthers: 2097152,
   Default: 65536,
   AllowingClassicStartup: 131072,
-  PreferringClassic: 262144
+  PreferringClassic: 262144,
+  '2': 'AndPrint',
+  '64': 'WithErrorPresentation',
+  '128': 'InhibitingBackgroundOnly',
+  '256': 'WithoutAddingToRecents',
+  '512': 'WithoutActivation',
+  '65536': 'Async',
+  '524288': 'NewInstance',
+  '1048576': 'AndHide',
+  '2097152': 'AndHideOthers',
+  '131072': 'AllowingClassicStartup',
+  '262144': 'PreferringClassic'
 };
 
 
@@ -46755,7 +50847,27 @@ let global = globalThis as any;
   ElementDeclarationEmptyKind: 17,
   ElementDeclarationAnyKind: 18,
   ElementDeclarationMixedKind: 19,
-  ElementDeclarationElementKind: 20
+  ElementDeclarationElementKind: 20,
+  '1': 'EntityGeneralKind',
+  '2': 'EntityParsedKind',
+  '3': 'EntityUnparsedKind',
+  '4': 'EntityParameterKind',
+  '5': 'EntityPredefined',
+  '6': 'AttributeCDATAKind',
+  '7': 'AttributeIDKind',
+  '8': 'AttributeIDRefKind',
+  '9': 'AttributeIDRefsKind',
+  '10': 'AttributeEntityKind',
+  '11': 'AttributeEntitiesKind',
+  '12': 'AttributeNMTokenKind',
+  '13': 'AttributeNMTokensKind',
+  '14': 'AttributeEnumerationKind',
+  '15': 'AttributeNotationKind',
+  '16': 'ElementDeclarationUndefinedKind',
+  '17': 'ElementDeclarationEmptyKind',
+  '18': 'ElementDeclarationAnyKind',
+  '19': 'ElementDeclarationMixedKind',
+  '20': 'ElementDeclarationElementKind'
 };
 
 
@@ -46765,7 +50877,11 @@ let global = globalThis as any;
   XMLKind: 0,
   XHTMLKind: 1,
   HTMLKind: 2,
-  TextKind: 3
+  TextKind: 3,
+  '0': 'XMLKind',
+  '1': 'XHTMLKind',
+  '2': 'HTMLKind',
+  '3': 'TextKind'
 };
 
 
@@ -46786,7 +50902,20 @@ let global = globalThis as any;
   EntityDeclarationKind: 9,
   AttributeDeclarationKind: 10,
   ElementDeclarationKind: 11,
-  NotationDeclarationKind: 12
+  NotationDeclarationKind: 12,
+  '0': 'InvalidKind',
+  '1': 'DocumentKind',
+  '2': 'ElementKind',
+  '3': 'AttributeKind',
+  '4': 'NamespaceKind',
+  '5': 'ProcessingInstructionKind',
+  '6': 'CommentKind',
+  '7': 'TextKind',
+  '8': 'DTDKind',
+  '9': 'EntityDeclarationKind',
+  '10': 'AttributeDeclarationKind',
+  '11': 'ElementDeclarationKind',
+  '12': 'NotationDeclarationKind'
 };
 
 (globalThis as any)['XMLNode']['Options'] = (globalThis as any)['XMLNode']['Options'] || {};
@@ -46818,7 +50947,35 @@ let global = globalThis as any;
   NodePromoteSignificantWhitespace: 268435456,
   NodePreserveEmptyElements: 6,
   NodePreserveQuotes: 24,
-  NodePreserveAll: 4293918750
+  NodePreserveAll: 4293918750,
+  '0': 'NodeOptionsNone',
+  '1': 'NodeIsCDATA',
+  '2': 'NodeExpandEmptyElement',
+  '4': 'NodeCompactEmptyElement',
+  '8': 'NodeUseSingleQuotes',
+  '16': 'NodeUseDoubleQuotes',
+  '32': 'NodeNeverEscapeContents',
+  '512': 'DocumentTidyHTML',
+  '1024': 'DocumentTidyXML',
+  '8192': 'DocumentValidate',
+  '16384': 'NodeLoadExternalEntitiesAlways',
+  '32768': 'NodeLoadExternalEntitiesSameOriginOnly',
+  '524288': 'NodeLoadExternalEntitiesNever',
+  '65536': 'DocumentXInclude',
+  '131072': 'NodePrettyPrint',
+  '262144': 'DocumentIncludeContentTypeDeclaration',
+  '1048576': 'NodePreserveNamespaceOrder',
+  '2097152': 'NodePreserveAttributeOrder',
+  '4194304': 'NodePreserveEntities',
+  '8388608': 'NodePreservePrefixes',
+  '16777216': 'NodePreserveCDATA',
+  '33554432': 'NodePreserveWhitespace',
+  '67108864': 'NodePreserveDTD',
+  '134217728': 'NodePreserveCharacterReferences',
+  '268435456': 'NodePromoteSignificantWhitespace',
+  '6': 'NodePreserveEmptyElements',
+  '24': 'NodePreserveQuotes',
+  '4293918750': 'NodePreserveAll'
 };
 
 
@@ -46917,7 +51074,100 @@ let global = globalThis as any;
   InvalidURIError: 91,
   URIFragmentError: 92,
   NoDTDError: 94,
-  DelegateAbortedParseError: 512
+  DelegateAbortedParseError: 512,
+  '1': 'InternalError',
+  '2': 'OutOfMemoryError',
+  '3': 'DocumentStartError',
+  '4': 'EmptyDocumentError',
+  '5': 'PrematureDocumentEndError',
+  '6': 'InvalidHexCharacterRefError',
+  '7': 'InvalidDecimalCharacterRefError',
+  '8': 'InvalidCharacterRefError',
+  '9': 'InvalidCharacterError',
+  '10': 'CharacterRefAtEOFError',
+  '11': 'CharacterRefInPrologError',
+  '12': 'CharacterRefInEpilogError',
+  '13': 'CharacterRefInDTDError',
+  '14': 'EntityRefAtEOFError',
+  '15': 'EntityRefInPrologError',
+  '16': 'EntityRefInEpilogError',
+  '17': 'EntityRefInDTDError',
+  '18': 'ParsedEntityRefAtEOFError',
+  '19': 'ParsedEntityRefInPrologError',
+  '20': 'ParsedEntityRefInEpilogError',
+  '21': 'ParsedEntityRefInInternalSubsetError',
+  '22': 'EntityReferenceWithoutNameError',
+  '23': 'EntityReferenceMissingSemiError',
+  '24': 'ParsedEntityRefNoNameError',
+  '25': 'ParsedEntityRefMissingSemiError',
+  '26': 'UndeclaredEntityError',
+  '28': 'UnparsedEntityError',
+  '29': 'EntityIsExternalError',
+  '30': 'EntityIsParameterError',
+  '31': 'UnknownEncodingError',
+  '32': 'EncodingNotSupportedError',
+  '33': 'StringNotStartedError',
+  '34': 'StringNotClosedError',
+  '35': 'NamespaceDeclarationError',
+  '36': 'EntityNotStartedError',
+  '37': 'EntityNotFinishedError',
+  '38': 'LessThanSymbolInAttributeError',
+  '39': 'AttributeNotStartedError',
+  '40': 'AttributeNotFinishedError',
+  '41': 'AttributeHasNoValueError',
+  '42': 'AttributeRedefinedError',
+  '43': 'LiteralNotStartedError',
+  '44': 'LiteralNotFinishedError',
+  '45': 'CommentNotFinishedError',
+  '46': 'ProcessingInstructionNotStartedError',
+  '47': 'ProcessingInstructionNotFinishedError',
+  '48': 'NotationNotStartedError',
+  '49': 'NotationNotFinishedError',
+  '50': 'AttributeListNotStartedError',
+  '51': 'AttributeListNotFinishedError',
+  '52': 'MixedContentDeclNotStartedError',
+  '53': 'MixedContentDeclNotFinishedError',
+  '54': 'ElementContentDeclNotStartedError',
+  '55': 'ElementContentDeclNotFinishedError',
+  '56': 'XMLDeclNotStartedError',
+  '57': 'XMLDeclNotFinishedError',
+  '58': 'ConditionalSectionNotStartedError',
+  '59': 'ConditionalSectionNotFinishedError',
+  '60': 'ExternalSubsetNotFinishedError',
+  '61': 'DOCTYPEDeclNotFinishedError',
+  '62': 'MisplacedCDATAEndStringError',
+  '63': 'CDATANotFinishedError',
+  '64': 'MisplacedXMLDeclarationError',
+  '65': 'SpaceRequiredError',
+  '66': 'SeparatorRequiredError',
+  '67': 'NMTOKENRequiredError',
+  '68': 'NAMERequiredError',
+  '69': 'PCDATARequiredError',
+  '70': 'URIRequiredError',
+  '71': 'PublicIdentifierRequiredError',
+  '72': 'LTRequiredError',
+  '73': 'GTRequiredError',
+  '74': 'LTSlashRequiredError',
+  '75': 'EqualExpectedError',
+  '76': 'TagNameMismatchError',
+  '77': 'UnfinishedTagError',
+  '78': 'StandaloneValueError',
+  '79': 'InvalidEncodingNameError',
+  '80': 'CommentContainsDoubleHyphenError',
+  '81': 'InvalidEncodingError',
+  '82': 'ExternalStandaloneEntityError',
+  '83': 'InvalidConditionalSectionError',
+  '84': 'EntityValueRequiredError',
+  '85': 'NotWellBalancedError',
+  '86': 'ExtraContentError',
+  '87': 'InvalidCharacterInEntityError',
+  '88': 'ParsedEntityRefInInternalError',
+  '89': 'EntityRefLoopError',
+  '90': 'EntityBoundaryError',
+  '91': 'InvalidURIError',
+  '92': 'URIFragmentError',
+  '94': 'NoDTDError',
+  '512': 'DelegateAbortedParseError'
 };
 
 (globalThis as any)['XMLParser']['ExternalEntityResolvingPolicy'] = (globalThis as any)['XMLParser']['ExternalEntityResolvingPolicy'] || {};
@@ -46925,14 +51175,19 @@ let global = globalThis as any;
   Never: 0,
   NoNetwork: 1,
   SameOriginOnly: 2,
-  Always: 3
+  Always: 3,
+  '0': 'Never',
+  '1': 'NoNetwork',
+  '2': 'SameOriginOnly',
+  '3': 'Always'
 };
 
 
 (globalThis as any)['NSXPCConnection'] = (globalThis as any)['NSXPCConnection'] || {};
 (globalThis as any)['NSXPCConnection']['Options'] = (globalThis as any)['NSXPCConnection']['Options'] || {};
 (globalThis as any)['NSXPCConnection']['Options'] = {
-  NSXPCConnectionPrivileged: 4096
+  NSXPCConnectionPrivileged: 4096,
+  '4096': 'NSXPCConnectionPrivileged'
 };
 
 
@@ -46941,14 +51196,20 @@ let global = globalThis as any;
 (globalThis as any)['QCPlugIn']['QCPlugInExecutionMode'] = {
   Provider: 1,
   Processor: 2,
-  Consumer: 3
+  Consumer: 3,
+  '1': 'Provider',
+  '2': 'Processor',
+  '3': 'Consumer'
 };
 
 (globalThis as any)['QCPlugIn']['QCPlugInTimeMode'] = (globalThis as any)['QCPlugIn']['QCPlugInTimeMode'] || {};
 (globalThis as any)['QCPlugIn']['QCPlugInTimeMode'] = {
   None: 0,
   Idle: 1,
-  TimeBase: 2
+  TimeBase: 2,
+  '0': 'None',
+  '1': 'Idle',
+  '2': 'TimeBase'
 };
 
 
@@ -46958,7 +51219,9 @@ let global = globalThis as any;
 (globalThis as any)['QLPreviewView']['QLPreviewViewStyle'] = (globalThis as any)['QLPreviewView']['QLPreviewViewStyle'] || {};
 (globalThis as any)['QLPreviewView']['QLPreviewViewStyle'] = {
   Normal: 0,
-  Compact: 1
+  Compact: 1,
+  '0': 'Normal',
+  '1': 'Compact'
 };
 
 
@@ -46972,7 +51235,11 @@ let global = globalThis as any;
   NotIndexed: 0,
   Indexed: 1,
   AddPending: 2,
-  DeletePending: 3
+  DeletePending: 3,
+  '0': 'NotIndexed',
+  '1': 'Indexed',
+  '2': 'AddPending',
+  '3': 'DeletePending'
 };
 
 (globalThis as any)['SKIndex']['SKIndexType'] = (globalThis as any)['SKIndex']['SKIndexType'] || {};
@@ -46980,7 +51247,11 @@ let global = globalThis as any;
   Unknown: 0,
   Inverted: 1,
   Vector: 2,
-  InvertedVector: 3
+  InvertedVector: 3,
+  '0': 'Unknown',
+  '1': 'Inverted',
+  '2': 'Vector',
+  '3': 'InvertedVector'
 };
 
 
@@ -46990,7 +51261,11 @@ let global = globalThis as any;
   Ranked: 0,
   BooleanRanked: 1,
   RequiredRanked: 2,
-  PrefixRanked: 3
+  PrefixRanked: 3,
+  '0': 'Ranked',
+  '1': 'BooleanRanked',
+  '2': 'RequiredRanked',
+  '3': 'PrefixRanked'
 };
 
 
@@ -47006,7 +51281,17 @@ let global = globalThis as any;
   DateType: 6,
   DataType: 7,
   ArrayType: 8,
-  DictionaryType: 9
+  DictionaryType: 9,
+  '0': 'UnknownType',
+  '1': 'NullType',
+  '2': 'BooleanType',
+  '3': 'IntegerType',
+  '4': 'DoubleType',
+  '5': 'StringType',
+  '6': 'DateType',
+  '7': 'DataType',
+  '8': 'ArrayType',
+  '9': 'DictionaryType'
 };
 
 
@@ -47017,7 +51302,12 @@ let global = globalThis as any;
   N_RETAIN_NONATOMIC: 1,
   N_COPY_NONATOMIC: 3,
   N_RETAIN: 769,
-  N_COPY: 771
+  N_COPY: 771,
+  '0': 'N_ASSIGN',
+  '1': 'N_RETAIN_NONATOMIC',
+  '3': 'N_COPY_NONATOMIC',
+  '769': 'N_RETAIN',
+  '771': 'N_COPY'
 };
 
 
@@ -47563,7 +51853,6 @@ export {
   NSCustomImageRep,
   NSCustomTouchBarItem,
   NSDataAsset,
-  NSDate as Date,
   DateInterval,
   NSDatePicker,
   NSDatePickerCell,
@@ -47586,7 +51875,6 @@ export {
   NSEntityMapping,
   NSEntityMigrationPolicy,
   NSEnumerator,
-  NSError as Error,
   NSEvent,
   NSException,
   NSExpression,

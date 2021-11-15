@@ -1,35 +1,38 @@
 import { emitAction, emitEvent } from './bridge';
-import { createInstance } from './createInstance';
-import { getViewConstructor, getPropValues } from './node';
-import { setInstanceValue } from './setInstanceValue';
+import { getPropValues } from './node';
 import { valueTypeForJSType } from './type';
 import { classNameFromTag } from './classNameFromTag';
 
 export function createNode(tag: string, props: VueKitNodeProps = {}): VueKitNode {
+  let className = classNameFromTag(tag);
   let builtProps: VueKitNodeProps = buildPropDefaults(tag, props);
 
   // Each VueKitNode has one instance of an NSObject, this is
   // often an NSView subclass, but not always (e.g. TableColumn)
-  let instance: NSObject = createInstance(tag, builtProps);
+  let instance: NSObject = globalThis[className](builtProps);
 
   // This is a bridged call that creates the node on the Swift side
   let node: VueKitNode = VueKitNode.create(instance, builtProps, emitEvent, emitAction);
-
-  // Set any props that weren't used in the constructor
-
-  let className = classNameFromTag(tag);
-  let { args } = getViewConstructor(className, builtProps);
-
-  for (let [key, value] of Object.entries(builtProps)) {
-    if (args.includes(key)) continue; // constructor already set this
-    setInstanceValue(node, key, value);
-  }
 
   // Post-create actions
 
   if (instance instanceof NSWindow) {
     instance.makeKeyAndOrderFront(null);
     instance.center();
+  }
+
+  if (instance instanceof NSView) {
+    // https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG
+    //
+    // Autoresizing masks are kind of a hack on top of OG coordinate/frame-based layouts,
+    // to make them more responsive to external changes in size.
+    //
+    // Auto Layout (constraints) replaces autoresizing masks.
+    //
+    // Since VueKit uses Auto Layout via the constraint plugin and views like
+    // NSStackView (which uses Auto Layout internally), we never want autoresizing masks.
+    //
+    instance.translatesAutoresizingMaskIntoConstraints = false;
   }
 
   return node;

@@ -82,6 +82,8 @@ declare global {
   export class K { }
   export class NSAffineTransformStruct { }
   export class NSDirectionalEdgeInsets { }
+  export class NSMutableString { }
+  export class NSSimpleCString { }
   export class NSObject {
     static create(): NSObject
   }

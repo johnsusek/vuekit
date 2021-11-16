@@ -28,23 +28,16 @@ export class AVAsset extends NSObject {
   isReadable: boolean;
   referenceRestrictions: AVAsset.AVAssetReferenceRestrictions;
   trackGroups: AVAssetTrackGroup[];
-  // compoundInstanceMethods
   cancelLoading(): void;
-  // compoundInstanceMethods
   chapterMetadataGroups(bestMatchingPreferredLanguages: string[]): AVTimedMetadataGroup[];
-  // compoundInstanceMethods
   chapterMetadataGroups(withTitleLocale: Locale, containingItemsWithCommonKeys?: string[]): AVTimedMetadataGroup[];
-  // compoundInstanceMethods
   mediaSelectionGroup(forMediaCharacteristic: string): AVMediaSelectionGroup;
-  // compoundInstanceMethods
   track(withTrackID: number): AVAssetTrack;
-  // compoundInstanceMethods
   unusedTrackID(): number;
 }
 
 export class AVAssetCache extends NSObject {
   isPlayableOffline: boolean;
-  // compoundInstanceMethods
   mediaSelectionOptions(in_: AVMediaSelectionGroup): AVMediaSelectionOption[];
 }
 
@@ -85,17 +78,11 @@ export class AVAssetExportSession extends NSObject {
   setTimeRange(_: CMTimeRange);
   videoComposition: AVVideoComposition;
   setVideoComposition(_: AVVideoComposition);
-  // compoundInstanceMethods
   cancelExport(): void;
-  // compoundInstanceMethods
   determineCompatibleFileTypes(completionHandler: (p1: string[]) => void): void;
-  // compoundInstanceMethods
   estimateMaximumDuration(completionHandler?: (p1: CMTime, p2: Error) => void): void;
-  // compoundInstanceMethods
   estimateOutputFileLength(completionHandler?: (p1: number, p2: Error) => void): void;
-  // compoundInstanceMethods
   exportAsynchronously(completionHandler: () => void): void;
-  // compoundInstanceMethods
   static createWithAssetWithPresetName(_: AVAsset, presetName: string): AVAssetExportSession;
 }
 
@@ -114,13 +101,9 @@ export class AVAssetImageGenerator extends NSObject {
   setRequestedTimeToleranceBefore(_: CMTime);
   videoComposition: AVVideoComposition;
   setVideoComposition(_: AVVideoComposition);
-  // compoundInstanceMethods
   cancelAllCGImageGeneration(): void;
-  // compoundInstanceMethods
   copyCGImageAtTime(actualTime: CMTime, error?: CMTime): any;
-  // compoundInstanceMethods
   generateCGImagesAsynchronously(forTimes: NSValue[], completionHandler: (p1: CMTime, p2: any, p3: CMTime, p4: AVAssetImageGenerator.Result, p5: Error) => void): void;
-  // compoundInstanceMethods
   static createWithAsset(_: AVAsset): AVAssetImageGenerator;
 }
 
@@ -132,15 +115,10 @@ export class AVAssetReader extends NSObject {
   status: AVAssetReader.Status;
   timeRange: CMTimeRange;
   setTimeRange(_: CMTimeRange);
-  // compoundInstanceMethods
   add(_: AVAssetReaderOutput): void;
-  // compoundInstanceMethods
   canAdd(_: AVAssetReaderOutput): boolean;
-  // compoundInstanceMethods
   cancelReading(): void;
-  // compoundInstanceMethods
   static createWith(error: AVAsset): AVAssetReader;
-  // compoundInstanceMethods
   startReading(): boolean;
 }
 
@@ -151,7 +129,6 @@ export class AVAssetReaderAudioMixOutput extends AVAssetReaderOutput {
   audioTimePitchAlgorithm: string;
   setAudioTimePitchAlgorithm(_: string);
   audioTracks: AVAssetTrack[];
-  // compoundInstanceMethods
   static createWithAudioTracksWithAudioSettings(_: AVAssetTrack[], audioSettings?: Map<string, any>): AVAssetReaderAudioMixOutput;
 }
 
@@ -161,25 +138,19 @@ export class AVAssetReaderOutput extends NSObject {
   mediaType: string;
   supportsRandomAccess: boolean;
   setSupportsRandomAccess(_: boolean);
-  // compoundInstanceMethods
   copyNextSampleBuffer(): any;
-  // compoundInstanceMethods
   markConfigurationAsFinal(): void;
-  // compoundInstanceMethods
   reset(forReadingTimeRanges: NSValue[]): void;
 }
 
 export class AVAssetReaderOutputMetadataAdaptor extends NSObject {
   assetReaderTrackOutput: AVAssetReaderTrackOutput;
-  // compoundInstanceMethods
   static createWithAssetReaderTrackOutput(_: AVAssetReaderTrackOutput): AVAssetReaderOutputMetadataAdaptor;
-  // compoundInstanceMethods
   nextTimedMetadataGroup(): AVTimedMetadataGroup;
 }
 
 export class AVAssetReaderSampleReferenceOutput extends AVAssetReaderOutput {
   track: AVAssetTrack;
-  // compoundInstanceMethods
   static createWithTrack(_: AVAssetTrack): AVAssetReaderSampleReferenceOutput;
 }
 
@@ -188,7 +159,6 @@ export class AVAssetReaderTrackOutput extends AVAssetReaderOutput {
   setAudioTimePitchAlgorithm(_: string);
   outputSettings: Map<string, any>;
   track: AVAssetTrack;
-  // compoundInstanceMethods
   static createWithTrackWithOutputSettings(_: AVAssetTrack, outputSettings?: Map<string, any>): AVAssetReaderTrackOutput;
 }
 
@@ -198,7 +168,6 @@ export class AVAssetReaderVideoCompositionOutput extends AVAssetReaderOutput {
   setVideoComposition(_: AVVideoComposition);
   videoSettings: Map<string, any>;
   videoTracks: AVAssetTrack[];
-  // compoundInstanceMethods
   static createWithVideoTracksWithVideoSettings(_: AVAssetTrack[], videoSettings?: Map<string, any>): AVAssetReaderVideoCompositionOutput;
 }
 
@@ -207,7 +176,6 @@ export class AVAssetResourceLoader extends NSObject {
   delegateQueue: NSObject;
   preloadsEligibleContentKeys: boolean;
   setPreloadsEligibleContentKeys(_: boolean);
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -236,7 +204,6 @@ export class AVAssetResourceLoadingDataRequest extends NSObject {
   requestedLength: number;
   requestedOffset: number;
   requestsAllDataToEndOfResource: boolean;
-  // compoundInstanceMethods
   respond(with_: Data): void;
 }
 
@@ -251,13 +218,9 @@ export class AVAssetResourceLoadingRequest extends NSObject {
   requestor: AVAssetResourceLoadingRequestor;
   response: URLResponse;
   setResponse(_: URLResponse);
-  // compoundInstanceMethods
   finishLoading(): void;
-  // compoundInstanceMethods
   finishLoading(with_?: Error): void;
-  // compoundInstanceMethods
   persistentContentKeyFromKeyVendorResponse(options: Data, error?: Map<string, any>): Data;
-  // compoundInstanceMethods
   streamingContentKeyRequestDataForApp(contentIdentifier: Data, options: Data, error?: Map<string, any>): Data;
 }
 
@@ -296,19 +259,12 @@ export class AVAssetTrack extends NSObject {
   timeRange: CMTimeRange;
   totalSampleDataLength: number;
   trackID: number;
-  // compoundInstanceMethods
   associatedTracks(ofType: string): AVAssetTrack[];
-  // compoundInstanceMethods
   hasMediaCharacteristic(_: string): boolean;
-  // compoundInstanceMethods
   makeSampleCursorAtFirstSampleInDecodeOrder(): AVSampleCursor;
-  // compoundInstanceMethods
   makeSampleCursorAtLastSampleInDecodeOrder(): AVSampleCursor;
-  // compoundInstanceMethods
   makeSampleCursor(presentationTimeStamp: CMTime): AVSampleCursor;
-  // compoundInstanceMethods
   samplePresentationTime(forTrackTime: CMTime): CMTime;
-  // compoundInstanceMethods
   segment(forTrackTime: CMTime): AVAssetTrackSegment;
 }
 
@@ -342,25 +298,15 @@ export class AVAssetWriter extends NSObject {
   shouldOptimizeForNetworkUse: boolean;
   setShouldOptimizeForNetworkUse(_: boolean);
   status: AVAssetWriter.Status;
-  // compoundInstanceMethods
   add(_: AVAssetWriterInput): void;
-  // compoundInstanceMethods
   add(_: AVAssetWriterInputGroup): void;
-  // compoundInstanceMethods
   canAdd(_: AVAssetWriterInput): boolean;
-  // compoundInstanceMethods
   canAdd(_: AVAssetWriterInputGroup): boolean;
-  // compoundInstanceMethods
   canApply(outputSettings?: Map<string, any>, forMediaType?: string): boolean;
-  // compoundInstanceMethods
   cancelWriting(): void;
-  // compoundInstanceMethods
   endSession(atSourceTime: CMTime): void;
-  // compoundInstanceMethods
   finishWriting(completionHandler: () => void): void;
-  // compoundInstanceMethods
   startSession(atSourceTime: CMTime): void;
-  // compoundInstanceMethods
   startWriting(): boolean;
 }
 
@@ -399,38 +345,26 @@ export class AVAssetWriterInput extends NSObject {
   sourceFormatHint: any;
   transform: CGAffineTransform;
   setTransform(_: CGAffineTransform);
-  // compoundInstanceMethods
   addTrackAssociation(withTrackOf: AVAssetWriterInput, type: string): void;
-  // compoundInstanceMethods
   append(_: any): boolean;
-  // compoundInstanceMethods
   canAddTrackAssociation(withTrackOf: AVAssetWriterInput, type: string): boolean;
-  // compoundInstanceMethods
   static createWithMediaTypeWithOutputSettings(_: string, outputSettings?: Map<string, any>): AVAssetWriterInput;
-  // compoundInstanceMethods
   static createWithMediaTypeWithOutputSettingsWithSourceFormatHint(_: string, outputSettings?: Map<string, any>, sourceFormatHint?: any): AVAssetWriterInput;
-  // compoundInstanceMethods
   markAsFinished(): void;
-  // compoundInstanceMethods
   markCurrentPassAsFinished(): void;
-  // compoundInstanceMethods
   requestMediaDataWhenReady(on: NSObject, using: () => void): void;
-  // compoundInstanceMethods
   respondToEachPassDescription(on: NSObject, using: () => void): void;
 }
 
 export class AVAssetWriterInputGroup extends AVMediaSelectionGroup {
   defaultInput: AVAssetWriterInput;
   inputs: AVAssetWriterInput[];
-  // compoundInstanceMethods
   static createWithInputsWithDefaultInput(_: AVAssetWriterInput[], defaultInput?: AVAssetWriterInput): AVAssetWriterInputGroup;
 }
 
 export class AVAssetWriterInputMetadataAdaptor extends NSObject {
   assetWriterInput: AVAssetWriterInput;
-  // compoundInstanceMethods
   append(_: AVTimedMetadataGroup): boolean;
-  // compoundInstanceMethods
   static createWithAssetWriterInput(_: AVAssetWriterInput): AVAssetWriterInputMetadataAdaptor;
 }
 
@@ -442,9 +376,7 @@ export class AVAssetWriterInputPixelBufferAdaptor extends NSObject {
   assetWriterInput: AVAssetWriterInput;
   pixelBufferPool: any;
   sourcePixelBufferAttributes: Map<string, any>;
-  // compoundInstanceMethods
   append(_: any, withPresentationTime: CMTime): boolean;
-  // compoundInstanceMethods
   static createWithAssetWriterInputWithSourcePixelBufferAttributes(_: AVAssetWriterInput, sourcePixelBufferAttributes?: Map<string, any>): AVAssetWriterInputPixelBufferAdaptor;
 }
 
@@ -452,9 +384,7 @@ export class AVAsynchronousCIImageFilteringRequest extends NSObject {
   compositionTime: CMTime;
   renderSize: CGSize;
   sourceImage: CIImage;
-  // compoundInstanceMethods
   finish(with_: Error): void;
-  // compoundInstanceMethods
   finish(with_: CIImage, context?: CIContext): void;
 }
 
@@ -468,13 +398,9 @@ export class AVAsynchronousVideoCompositionRequest extends NSObject {
   renderContext: AVVideoCompositionRenderContext;
   sourceTrackIDs: number[];
   videoCompositionInstruction: any;
-  // compoundInstanceMethods
   finishCancelledRequest(): void;
-  // compoundInstanceMethods
   finish(withComposedVideoFrame: any): void;
-  // compoundInstanceMethods
   finish(with_: Error): void;
-  // compoundInstanceMethods
   sourceFrame(byTrackID: number): any;
 }
 
@@ -507,9 +433,7 @@ export class AVAudioChannelLayout extends NSObject {
   channelCount: number;
   layout: AudioChannelLayout;
   layoutTag: number;
-  // compoundInstanceMethods
   static createWithLayout(_: AudioChannelLayout): AVAudioChannelLayout;
-  // compoundInstanceMethods
   static createWithLayoutTag(_: number): AVAudioChannelLayout;
 }
 
@@ -523,16 +447,13 @@ export class AVAudioCompressedBuffer extends AVAudioBuffer {
   packetCount: number;
   setPacketCount(_: number);
   packetDescriptions: AudioStreamPacketDescription;
-  // compoundInstanceMethods
   static createWithFormatWithPacketCapacity(_: AVAudioFormat, packetCapacity: number): AVAudioCompressedBuffer;
-  // compoundInstanceMethods
   static createWithFormatWithPacketCapacityWithMaximumPacketSize(_: AVAudioFormat, packetCapacity: number, maximumPacketSize: number): AVAudioCompressedBuffer;
 }
 
 export class AVAudioConnectionPoint extends NSObject {
   bus: number;
   node: AVAudioNode;
-  // compoundInstanceMethods
   static createWithNodeWithBus(_: AVAudioNode, bus: number): AVAudioConnectionPoint;
 }
 
@@ -565,13 +486,9 @@ export class AVAudioConverter extends NSObject {
   setSampleRateConverterAlgorithm(_: string);
   sampleRateConverterQuality: number;
   setSampleRateConverterQuality(_: number);
-  // compoundInstanceMethods
   convert(to: AVAudioBuffer, error?: Error, withInputFrom?: (p1: number, p2: AVAudioConverter.AVAudioConverterInputStatus) => AVAudioBuffer): AVAudioConverter.AVAudioConverterOutputStatus;
-  // compoundInstanceMethods
   convertToBuffer(fromBuffer: AVAudioPCMBuffer, error: AVAudioPCMBuffer): boolean;
-  // compoundInstanceMethods
   static createWithFromFormatWithToFormat(_: AVAudioFormat, toFormat: AVAudioFormat): AVAudioConverter;
-  // compoundInstanceMethods
   reset(): void;
 }
 
@@ -591,55 +508,30 @@ export class AVAudioEngine extends NSObject {
   setMusicSequence(_: any);
   outputNode: AVAudioOutputNode;
   isRunning: boolean;
-  // compoundInstanceMethods
   attach(_: AVAudioNode): void;
-  // compoundInstanceMethods
   connect(_: AVAudioNode, to: AVAudioNode, format?: AVAudioFormat): void;
-  // compoundInstanceMethods
   connect(_: AVAudioNode, to: AVAudioNode, fromBus: number, toBus: number, format?: AVAudioFormat): void;
-  // compoundInstanceMethods
   connect(_: AVAudioNode, to: AVAudioConnectionPoint[], fromBus: number, format?: AVAudioFormat): void;
-  // compoundInstanceMethods
   connectMIDI(_: AVAudioNode, to: AVAudioNode, format?: AVAudioFormat, block?: (p1: number, p2: number, p3: number, p4: string) => number): void;
-  // compoundInstanceMethods
   connectMIDI(_: AVAudioNode, to: AVAudioNode[], format?: AVAudioFormat, block?: (p1: number, p2: number, p3: number, p4: string) => number): void;
-  // compoundInstanceMethods
   detach(_: AVAudioNode): void;
-  // compoundInstanceMethods
   disableManualRenderingMode(): void;
-  // compoundInstanceMethods
   disconnectMIDI(_: AVAudioNode, from: AVAudioNode): void;
-  // compoundInstanceMethods
   disconnectMIDI(_: AVAudioNode, from: AVAudioNode[]): void;
-  // compoundInstanceMethods
   disconnectMIDIInput(_: AVAudioNode): void;
-  // compoundInstanceMethods
   disconnectMIDIOutput(_: AVAudioNode): void;
-  // compoundInstanceMethods
   disconnectNodeInput(_: AVAudioNode): void;
-  // compoundInstanceMethods
   disconnectNodeInput(_: AVAudioNode, bus: number): void;
-  // compoundInstanceMethods
   disconnectNodeOutput(_: AVAudioNode): void;
-  // compoundInstanceMethods
   disconnectNodeOutput(_: AVAudioNode, bus: number): void;
-  // compoundInstanceMethods
   enableManualRenderingMode(format: AVAudioEngine.AVAudioEngineManualRenderingMode, maximumFrameCount: AVAudioFormat, error: number): boolean;
-  // compoundInstanceMethods
   inputConnectionPoint(for_: AVAudioNode, inputBus: number): AVAudioConnectionPoint;
-  // compoundInstanceMethods
   outputConnectionPoints(for_: AVAudioNode, outputBus: number): AVAudioConnectionPoint[];
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   prepare(): void;
-  // compoundInstanceMethods
   renderOffline(toBuffer: number, error: AVAudioPCMBuffer): AVAudioEngine.AVAudioEngineManualRenderingStatus;
-  // compoundInstanceMethods
   reset(): void;
-  // compoundInstanceMethods
   startAndReturnError(): boolean;
-  // compoundInstanceMethods
   stop(): void;
 }
 
@@ -677,7 +569,6 @@ export class AVAudioEnvironmentReverbParameters extends NSObject {
   filterParameters: AVAudioUnitEQFilterParameters;
   level: number;
   setLevel(_: number);
-  // compoundInstanceMethods
   loadFactoryReverbPreset(_: AVAudioUnitReverb.AVAudioUnitReverbPreset): void;
 }
 
@@ -688,19 +579,12 @@ export class AVAudioFile extends NSObject {
   length: number;
   processingFormat: AVAudioFormat;
   url: URL;
-  // compoundInstanceMethods
   static createWithForReadingWithCommonFormat(commonFormat: URL, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
-  // compoundInstanceMethods
   static createWith(error: URL): AVAudioFile;
-  // compoundInstanceMethods
   static createWithForWritingWithSettingsWithCommonFormat(settings: URL, commonFormat: Map<string, any>, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
-  // compoundInstanceMethods
   static createWithForWriting(settings: URL, error: Map<string, any>): AVAudioFile;
-  // compoundInstanceMethods
   readIntoBuffer(error: AVAudioPCMBuffer): boolean;
-  // compoundInstanceMethods
   readIntoBuffer(frameCount: AVAudioPCMBuffer, error: number): boolean;
-  // compoundInstanceMethods
   writeFromBuffer(error: AVAudioPCMBuffer): boolean;
 }
 
@@ -716,21 +600,13 @@ export class AVAudioFormat extends NSObject {
   settings: Map<string, any>;
   isStandard: boolean;
   streamDescription: AudioStreamBasicDescription;
-  // compoundInstanceMethods
   static createWithStandardFormatWithSampleRateWithChannelLayout(_: number, channelLayout: AVAudioChannelLayout): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithStandardFormatWithSampleRateWithChannels(_: number, channels: number): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithCmAudioFormatDescription(_: any): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithCommonFormatWithSampleRateWithChannelsWithInterleaved(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, channels: number, interleaved: boolean): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithCommonFormatWithSampleRateWithInterleavedWithChannelLayout(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, interleaved: boolean, channelLayout: AVAudioChannelLayout): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithSettings(_: Map<string, any>): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithStreamDescription(_: AudioStreamBasicDescription): AVAudioFormat;
-  // compoundInstanceMethods
   static createWithStreamDescriptionWithChannelLayout(_: AudioStreamBasicDescription, channelLayout?: AVAudioChannelLayout): AVAudioFormat;
 }
 
@@ -738,7 +614,6 @@ export class AVAudioIONode extends AVAudioNode {
   audioUnit: ComponentInstanceRecord;
   presentationLatency: number;
   isVoiceProcessingEnabled: boolean;
-  // compoundInstanceMethods
   setVoiceProcessingEnabled(error: boolean): boolean;
 }
 
@@ -749,7 +624,6 @@ export class AVAudioInputNode extends AVAudioIONode {
   setVoiceProcessingBypassed(_: boolean);
   isVoiceProcessingInputMuted: boolean;
   setVoiceProcessingInputMuted(_: boolean);
-  // compoundInstanceMethods
   setManualRenderingInputPCMFormat(_: AVAudioFormat, inputBlock: (p1: number) => AudioBufferList): boolean;
 }
 
@@ -761,7 +635,6 @@ export class AVAudioMixInputParameters extends NSObject {
   audioTapProcessor: any;
   audioTimePitchAlgorithm: string;
   trackID: number;
-  // compoundInstanceMethods
   getVolumeRamp(for_: CMTime, startVolume?: number, endVolume?: number, timeRange?: CMTimeRange): boolean;
 }
 
@@ -789,19 +662,12 @@ export class AVAudioNode extends NSObject {
   numberOfInputs: number;
   numberOfOutputs: number;
   outputPresentationLatency: number;
-  // compoundInstanceMethods
   inputFormat(forBus: number): AVAudioFormat;
-  // compoundInstanceMethods
   installTap(onBus: number, bufferSize: number, format?: AVAudioFormat, block?: (p1: AVAudioPCMBuffer, p2: AVAudioTime) => void): void;
-  // compoundInstanceMethods
   name(forInputBus: number): string;
-  // compoundInstanceMethods
   name(forOutputBus: number): string;
-  // compoundInstanceMethods
   outputFormat(forBus: number): AVAudioFormat;
-  // compoundInstanceMethods
   removeTap(onBus: number): void;
-  // compoundInstanceMethods
   reset(): void;
 }
 
@@ -816,7 +682,6 @@ export class AVAudioPCMBuffer extends AVAudioBuffer {
   int16ChannelData: number;
   int32ChannelData: number;
   stride: number;
-  // compoundInstanceMethods
   static createWithPcmFormatWithFrameCapacity(_: AVAudioFormat, frameCapacity: number): AVAudioPCMBuffer;
 }
 
@@ -847,31 +712,18 @@ export class AVAudioPlayer extends NSObject {
   url: URL;
   volume: number;
   setVolume(_: number);
-  // compoundInstanceMethods
   averagePower(forChannel: number): number;
-  // compoundInstanceMethods
   static createWith(error: URL): AVAudioPlayer;
-  // compoundInstanceMethods
   static createWithContentsOf(fileTypeHint: URL, error?: string): AVAudioPlayer;
-  // compoundInstanceMethods
   static createWith(error: Data): AVAudioPlayer;
-  // compoundInstanceMethods
   static createWithData(fileTypeHint: Data, error?: string): AVAudioPlayer;
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   peakPower(forChannel: number): number;
-  // compoundInstanceMethods
   play(): boolean;
-  // compoundInstanceMethods
   play(atTime: number): boolean;
-  // compoundInstanceMethods
   prepareToPlay(): boolean;
-  // compoundInstanceMethods
   setVolume(_: number, fadeDuration: number): void;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   updateMeters(): void;
 }
 
@@ -882,35 +734,20 @@ interface AVAudioPlayerDelegate {
 
 export class AVAudioPlayerNode extends AVAudioNode {
   isPlaying: boolean;
-  // compoundInstanceMethods
   nodeTime(forPlayerTime: AVAudioTime): AVAudioTime;
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   play(): void;
-  // compoundInstanceMethods
   play(at?: AVAudioTime): void;
-  // compoundInstanceMethods
   playerTime(forNodeTime: AVAudioTime): AVAudioTime;
-  // compoundInstanceMethods
   prepare(withFrameCount: number): void;
-  // compoundInstanceMethods
   scheduleBuffer(_: AVAudioPCMBuffer, at?: AVAudioTime, options?: AVAudioPlayerNode.AVAudioPlayerNodeBufferOptions, completionCallbackType?: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType) => void): void;
-  // compoundInstanceMethods
   scheduleBuffer(_: AVAudioPCMBuffer, at?: AVAudioTime, options?: AVAudioPlayerNode.AVAudioPlayerNodeBufferOptions, completionHandler?: () => void): void;
-  // compoundInstanceMethods
   scheduleBuffer(_: AVAudioPCMBuffer, completionCallbackType: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType) => void): void;
-  // compoundInstanceMethods
   scheduleBuffer(_: AVAudioPCMBuffer, completionHandler?: () => void): void;
-  // compoundInstanceMethods
   scheduleFile(_: AVAudioFile, at?: AVAudioTime, completionCallbackType?: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType) => void): void;
-  // compoundInstanceMethods
   scheduleFile(_: AVAudioFile, at?: AVAudioTime, completionHandler?: () => void): void;
-  // compoundInstanceMethods
   scheduleSegment(_: AVAudioFile, startingFrame: number, frameCount: number, at?: AVAudioTime, completionCallbackType?: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType, completionHandler?: (p1: AVAudioPlayerNode.AVAudioPlayerNodeCompletionCallbackType) => void): void;
-  // compoundInstanceMethods
   scheduleSegment(_: AVAudioFile, startingFrame: number, frameCount: number, at?: AVAudioTime, completionHandler?: () => void): void;
-  // compoundInstanceMethods
   stop(): void;
 }
 
@@ -925,31 +762,18 @@ export class AVAudioRecorder extends NSObject {
   isRecording: boolean;
   settings: Map<string, any>;
   url: URL;
-  // compoundInstanceMethods
   averagePower(forChannel: number): number;
-  // compoundInstanceMethods
   deleteRecording(): boolean;
-  // compoundInstanceMethods
   static createWithUrl(format: URL, error: AVAudioFormat): AVAudioRecorder;
-  // compoundInstanceMethods
   static createWithUrl(settings: URL, error: Map<string, any>): AVAudioRecorder;
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   peakPower(forChannel: number): number;
-  // compoundInstanceMethods
   prepareToRecord(): boolean;
-  // compoundInstanceMethods
   record(): boolean;
-  // compoundInstanceMethods
   record(atTime: number): boolean;
-  // compoundInstanceMethods
   record(atTime: number, forDuration: number): boolean;
-  // compoundInstanceMethods
   record(forDuration: number): boolean;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   updateMeters(): void;
 }
 
@@ -969,29 +793,17 @@ export class AVAudioSequencer extends NSObject {
   tempoTrack: AVMusicTrack;
   tracks: AVMusicTrack[];
   userInfo: Map<string, any>;
-  // compoundInstanceMethods
   beats(forHostTime: number): number;
-  // compoundInstanceMethods
   beats(forSeconds: number): number;
-  // compoundInstanceMethods
   data(withSMPTEResolution: number): Data;
-  // compoundInstanceMethods
   hostTime(forBeats: number): number;
-  // compoundInstanceMethods
   static createWithAudioEngine(_: AVAudioEngine): AVAudioSequencer;
-  // compoundInstanceMethods
   loadFromData(options: Data, error: AVAudioSequencer.AVMusicSequenceLoadOptions): boolean;
-  // compoundInstanceMethods
   loadFromURL(options: URL, error: AVAudioSequencer.AVMusicSequenceLoadOptions): boolean;
-  // compoundInstanceMethods
   prepareToPlay(): void;
-  // compoundInstanceMethods
   seconds(forBeats: number): number;
-  // compoundInstanceMethods
   startAndReturnError(): boolean;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   writeToURL(SMPTEResolution: URL, replaceExisting: number, error: boolean): boolean;
 }
 
@@ -1014,14 +826,11 @@ export class AVAudioSessionRouteDescription extends NSObject {
 }
 
 export class AVAudioSinkNode extends AVAudioNode {
-  // compoundInstanceMethods
   static createWithReceiverBlock(_: (p1: AudioTimeStamp, p2: number, p3: AudioBufferList) => number): AVAudioSinkNode;
 }
 
 export class AVAudioSourceNode extends AVAudioNode {
-  // compoundInstanceMethods
   static createWithFormatWithRenderBlock(_: AVAudioFormat, renderBlock: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
-  // compoundInstanceMethods
   static createWithRenderBlock(_: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
 }
 
@@ -1039,15 +848,10 @@ export class AVAudioTime extends NSObject {
   sampleRate: number;
   sampleTime: number;
   isSampleTimeValid: boolean;
-  // compoundInstanceMethods
   extrapolateTime(fromAnchor: AVAudioTime): AVAudioTime;
-  // compoundInstanceMethods
   static createWithAudioTimeStampWithSampleRate(_: AudioTimeStamp, sampleRate: number): AVAudioTime;
-  // compoundInstanceMethods
   static createWithHostTime(_: number): AVAudioTime;
-  // compoundInstanceMethods
   static createWithHostTimeWithSampleTimeWithAtRate(_: number, sampleTime: number, atRate: number): AVAudioTime;
-  // compoundInstanceMethods
   static createWithSampleTimeWithAtRate(_: number, atRate: number): AVAudioTime;
 }
 
@@ -1056,7 +860,6 @@ export class AVAudioUnit extends AVAudioNode {
   audioComponentDescription: AudioComponentDescription;
   audioUnit: ComponentInstanceRecord;
   manufacturerName: string;
-  // compoundInstanceMethods
   loadAudioUnitPresetAtURL(error: URL): boolean;
 }
 
@@ -1080,7 +883,6 @@ export class AVAudioUnitComponent extends NSObject {
   userTagNames: string[];
   setUserTagNames(_: string[]);
   versionString: string;
-  // compoundInstanceMethods
   supportsNumberInputChannels(_: number, outputChannels: number): boolean;
 }
 
@@ -1088,11 +890,8 @@ export class AVAudioUnitComponentManager extends NSObject {
   static createWithSharedAudioUnitComponentManager(): AVAudioUnitComponentManager;
   standardLocalizedTagNames: string[];
   tagNames: string[];
-  // compoundInstanceMethods
   components(matching: AudioComponentDescription): AVAudioUnitComponent[];
-  // compoundInstanceMethods
   components(matching: NSPredicate): AVAudioUnitComponent[];
-  // compoundInstanceMethods
   components(passingTest: (p1: AVAudioUnitComponent, p2: boolean) => boolean): AVAudioUnitComponent[];
 }
 
@@ -1112,7 +911,6 @@ export class AVAudioUnitDistortion extends AVAudioUnitEffect {
   setPreGain(_: number);
   wetDryMix: number;
   setWetDryMix(_: number);
-  // compoundInstanceMethods
   loadFactoryPreset(_: AVAudioUnitDistortion.AVAudioUnitDistortionPreset): void;
 }
 
@@ -1120,7 +918,6 @@ export class AVAudioUnitEQ extends AVAudioUnitEffect {
   bands: AVAudioUnitEQFilterParameters[];
   globalGain: number;
   setGlobalGain(_: number);
-  // compoundInstanceMethods
   static createWithNumberOfBands(_: number): AVAudioUnitEQ;
 }
 
@@ -1140,48 +937,33 @@ export class AVAudioUnitEQFilterParameters extends NSObject {
 export class AVAudioUnitEffect extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
-  // compoundInstanceMethods
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitEffect;
 }
 
 export class AVAudioUnitGenerator extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
-  // compoundInstanceMethods
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitGenerator;
 }
 
 export class AVAudioUnitMIDIInstrument extends AVAudioUnit {
-  // compoundInstanceMethods
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitMIDIInstrument;
-  // compoundInstanceMethods
   sendController(_: number, withValue: number, onChannel: number): void;
-  // compoundInstanceMethods
   sendMIDIEvent(_: number, data1: number): void;
-  // compoundInstanceMethods
   sendMIDIEvent(_: number, data1: number, data2: number): void;
-  // compoundInstanceMethods
   sendMIDISysExEvent(_: Data): void;
-  // compoundInstanceMethods
   sendPitchBend(_: number, onChannel: number): void;
-  // compoundInstanceMethods
   sendPressure(_: number, onChannel: number): void;
-  // compoundInstanceMethods
   sendPressure(forKey: number, withValue: number, onChannel: number): void;
-  // compoundInstanceMethods
   sendProgramChange(_: number, bankMSB: number, bankLSB: number, onChannel: number): void;
-  // compoundInstanceMethods
   sendProgramChange(_: number, onChannel: number): void;
-  // compoundInstanceMethods
   startNote(_: number, withVelocity: number, onChannel: number): void;
-  // compoundInstanceMethods
   stopNote(_: number, onChannel: number): void;
 }
 
 export class AVAudioUnitReverb extends AVAudioUnitEffect {
   wetDryMix: number;
   setWetDryMix(_: number);
-  // compoundInstanceMethods
   loadFactoryPreset(_: AVAudioUnitReverb.AVAudioUnitReverbPreset): void;
 }
 
@@ -1192,18 +974,14 @@ export class AVAudioUnitSampler extends AVAudioUnitMIDIInstrument {
   setMasterGain(_: number);
   stereoPan: number;
   setStereoPan(_: number);
-  // compoundInstanceMethods
   loadAudioFilesAtURLs(error: URL[]): boolean;
-  // compoundInstanceMethods
   loadInstrumentAtURL(error: URL): boolean;
-  // compoundInstanceMethods
   loadSoundBankInstrumentAtURL(program: URL, bankMSB: number, bankLSB: number, error: number): boolean;
 }
 
 export class AVAudioUnitTimeEffect extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
-  // compoundInstanceMethods
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitTimeEffect;
 }
 
@@ -1246,9 +1024,7 @@ export class AVCaptureAudioDataOutput extends AVCaptureOutput {
   setAudioSettings(_: Map<string, any>);
   sampleBufferCallbackQueue: NSObject;
   sampleBufferDelegate: any;
-  // compoundInstanceMethods
   recommendedAudioSettingsForAssetWriter(writingTo: string): Map<any, any>;
-  // compoundInstanceMethods
   setSampleBufferDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -1262,7 +1038,6 @@ export class AVCaptureAudioFileOutput extends AVCaptureFileOutput {
   setAudioSettings(_: Map<string, any>);
   metadata: AVMetadataItem[];
   setMetadata(_: AVMetadataItem[]);
-  // compoundInstanceMethods
   // @ts-ignore 
   startRecording(to: URL, outputFileType: string, recordingDelegate: any): void;
 }
@@ -1308,9 +1083,7 @@ export class AVCaptureConnection extends NSObject {
   videoOrientation: AVCaptureSession.AVCaptureVideoOrientation;
   setVideoOrientation(_: AVCaptureSession.AVCaptureVideoOrientation);
   videoPreviewLayer: AVCaptureVideoPreviewLayer;
-  // compoundInstanceMethods
   static createWithInputPortWithVideoPreviewLayer(_: AVCaptureInput.Port, videoPreviewLayer: AVCaptureVideoPreviewLayer): AVCaptureConnection;
-  // compoundInstanceMethods
   static createWithInputPortsWithOutput(_: AVCaptureInput.Port[], output: AVCaptureOutput): AVCaptureConnection;
 }
 
@@ -1318,9 +1091,7 @@ export class AVCaptureDataOutputSynchronizer extends NSObject {
   dataOutputs: AVCaptureOutput[];
   delegate: any;
   delegateCallbackQueue: NSObject;
-  // compoundInstanceMethods
   static createWithDataOutputs(_: AVCaptureOutput[]): AVCaptureDataOutputSynchronizer;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -1335,7 +1106,6 @@ export class AVCaptureDepthDataOutput extends AVCaptureOutput {
   delegateCallbackQueue: NSObject;
   isFilteringEnabled: boolean;
   setFilteringEnabled(_: boolean);
-  // compoundInstanceMethods
   setDelegate(_?: any, callbackQueue?: NSObject): void;
 }
 
@@ -1400,34 +1170,22 @@ export class AVCaptureDevice extends NSObject {
   uniqueID: string;
   whiteBalanceMode: AVCaptureDevice.WhiteBalanceMode;
   setWhiteBalanceMode(_: AVCaptureDevice.WhiteBalanceMode);
-  // compoundInstanceMethods
   hasMediaType(_: string): boolean;
-  // compoundInstanceMethods
   isExposureModeSupported(_: AVCaptureDevice.ExposureMode): boolean;
-  // compoundInstanceMethods
   isFlashModeSupported(_: AVCaptureDevice.FlashMode): boolean;
-  // compoundInstanceMethods
   isFocusModeSupported(_: AVCaptureDevice.FocusMode): boolean;
-  // compoundInstanceMethods
   isTorchModeSupported(_: AVCaptureDevice.TorchMode): boolean;
-  // compoundInstanceMethods
   isWhiteBalanceModeSupported(_: AVCaptureDevice.WhiteBalanceMode): boolean;
-  // compoundInstanceMethods
   lockForConfiguration(): boolean;
-  // compoundInstanceMethods
   setTorchModeOn(level: number): boolean;
-  // compoundInstanceMethods
   setTransportControlsPlaybackMode(_: AVCaptureDevice.TransportControlsPlaybackMode, speed: number): void;
-  // compoundInstanceMethods
   supportsSessionPreset(_: string): boolean;
-  // compoundInstanceMethods
   unlockForConfiguration(): void;
 }
 
 export class AVCaptureDeviceInput extends AVCaptureInput {
   static createWithDeviceInputWithDevice(error: AVCaptureDevice): AVCaptureDeviceInput;
   device: AVCaptureDevice;
-  // compoundInstanceMethods
   static createWith(error: AVCaptureDevice): AVCaptureDeviceInput;
 }
 
@@ -1445,13 +1203,9 @@ export class AVCaptureFileOutput extends AVCaptureOutput {
   recordedFileSize: number;
   isRecording: boolean;
   isRecordingPaused: boolean;
-  // compoundInstanceMethods
   pauseRecording(): void;
-  // compoundInstanceMethods
   resumeRecording(): void;
-  // compoundInstanceMethods
   startRecording(to: URL, recordingDelegate: any): void;
-  // compoundInstanceMethods
   stopRecording(): void;
 }
 
@@ -1479,9 +1233,7 @@ export class AVCaptureManualExposureBracketedStillImageSettings extends AVCaptur
 }
 
 export class AVCaptureMetadataInput extends AVCaptureInput {
-  // compoundInstanceMethods
   appendTimedMetadataGroup(error: AVTimedMetadataGroup): boolean;
-  // compoundInstanceMethods
   static createWithFormatDescriptionWithClock(_: any, clock: any): AVCaptureMetadataInput;
 }
 
@@ -1493,7 +1245,6 @@ export class AVCaptureMetadataOutput extends AVCaptureOutput {
   metadataObjectsDelegate: any;
   rectOfInterest: CGRect;
   setRectOfInterest(_: CGRect);
-  // compoundInstanceMethods
   setMetadataObjectsDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -1506,9 +1257,7 @@ export class AVCaptureMovieFileOutput extends AVCaptureFileOutput {
   setMetadata(_: AVMetadataItem[]);
   movieFragmentInterval: CMTime;
   setMovieFragmentInterval(_: CMTime);
-  // compoundInstanceMethods
   outputSettings(for_: AVCaptureConnection): Map<string, any>;
-  // compoundInstanceMethods
   setOutputSettings(_?: Map<string, any>, for_?: AVCaptureConnection): void;
 }
 
@@ -1520,13 +1269,9 @@ export class AVCaptureMultiCamSession extends AVCaptureSession {
 
 export class AVCaptureOutput extends NSObject {
   connections: AVCaptureConnection[];
-  // compoundInstanceMethods
   connection(with_: string): AVCaptureConnection;
-  // compoundInstanceMethods
   metadataOutputRectConverted(fromOutputRect: CGRect): CGRect;
-  // compoundInstanceMethods
   outputRectConverted(fromMetadataOutputRect: CGRect): CGRect;
-  // compoundInstanceMethods
   transformedMetadataObject(for_: AVMetadataObject, connection: AVCaptureConnection): AVMetadataObject;
 }
 
@@ -1535,9 +1280,7 @@ export class AVCapturePhoto extends NSObject {
   pixelBuffer: any;
   resolvedSettings: AVCaptureResolvedPhotoSettings;
   timestamp: CMTime;
-  // compoundInstanceMethods
   cgImageRepresentation(): any;
-  // compoundInstanceMethods
   fileDataRepresentation(): Data;
 }
 
@@ -1567,11 +1310,8 @@ export class AVCapturePhotoOutput extends AVCaptureOutput {
   availablePhotoCodecTypes: string[];
   availablePhotoFileTypes: string[];
   availablePhotoPixelFormatTypes: number[];
-  // compoundInstanceMethods
   capturePhoto(with_: AVCapturePhotoSettings, delegate: any): void;
-  // compoundInstanceMethods
   supportedPhotoCodecTypes(for_: string): string[];
-  // compoundInstanceMethods
   supportedPhotoPixelFormatTypes(for_: string): number[];
 }
 
@@ -1598,7 +1338,6 @@ export class AVCaptureScreenInput extends AVCaptureInput {
   setMinFrameDuration(_: CMTime);
   scaleFactor: number;
   setScaleFactor(_: number);
-  // compoundInstanceMethods
   static createWithDisplayID(_: number): AVCaptureScreenInput;
 }
 
@@ -1610,37 +1349,21 @@ export class AVCaptureSession extends NSObject {
   isRunning: boolean;
   sessionPreset: string;
   setSessionPreset(_: string);
-  // compoundInstanceMethods
   addConnection(_: AVCaptureConnection): void;
-  // compoundInstanceMethods
   addInput(_: AVCaptureInput): void;
-  // compoundInstanceMethods
   addInputWithNoConnections(_: AVCaptureInput): void;
-  // compoundInstanceMethods
   addOutput(_: AVCaptureOutput): void;
-  // compoundInstanceMethods
   addOutputWithNoConnections(_: AVCaptureOutput): void;
-  // compoundInstanceMethods
   beginConfiguration(): void;
-  // compoundInstanceMethods
   canAddConnection(_: AVCaptureConnection): boolean;
-  // compoundInstanceMethods
   canAddInput(_: AVCaptureInput): boolean;
-  // compoundInstanceMethods
   canAddOutput(_: AVCaptureOutput): boolean;
-  // compoundInstanceMethods
   canSetSessionPreset(_: string): boolean;
-  // compoundInstanceMethods
   commitConfiguration(): void;
-  // compoundInstanceMethods
   removeConnection(_: AVCaptureConnection): void;
-  // compoundInstanceMethods
   removeInput(_: AVCaptureInput): void;
-  // compoundInstanceMethods
   removeOutput(_: AVCaptureOutput): void;
-  // compoundInstanceMethods
   startRunning(): void;
-  // compoundInstanceMethods
   stopRunning(): void;
 }
 
@@ -1650,7 +1373,6 @@ export class AVCaptureSynchronizedData extends NSObject {
 
 export class AVCaptureSynchronizedDataCollection extends NSObject {
   count: number;
-  // compoundInstanceMethods
   synchronizedData(for_: AVCaptureOutput): AVCaptureSynchronizedData;
 }
 
@@ -1679,13 +1401,9 @@ export class AVCaptureVideoDataOutput extends AVCaptureOutput {
   sampleBufferDelegate: any;
   videoSettings: Map<string, any>;
   setVideoSettings(_: Map<string, any>);
-  // compoundInstanceMethods
   availableVideoCodecTypesForAssetWriter(writingTo: string): string[];
-  // compoundInstanceMethods
   recommendedVideoSettingsForAssetWriter(writingTo: string): Map<string, any>;
-  // compoundInstanceMethods
   recommendedVideoSettings(forVideoCodecType: string, assetWriterOutputFileType: string): Map<any, any>;
-  // compoundInstanceMethods
   setSampleBufferDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -1700,35 +1418,25 @@ export class AVCaptureVideoPreviewLayer extends CALayer {
   setSession(_: AVCaptureSession);
   videoGravity: string;
   setVideoGravity(_: string);
-  // compoundInstanceMethods
   captureDevicePointConverted(fromLayerPoint: CGPoint): CGPoint;
-  // compoundInstanceMethods
   static createWithSession(_: AVCaptureSession): AVCaptureVideoPreviewLayer;
-  // compoundInstanceMethods
   static createWithSessionWithNoConnection(_: AVCaptureSession): AVCaptureVideoPreviewLayer;
-  // compoundInstanceMethods
   metadataOutputRectConverted(fromLayerRect: CGRect): CGRect;
-  // compoundInstanceMethods
   layerPointConverted(fromCaptureDevicePoint: CGPoint): CGPoint;
-  // compoundInstanceMethods
   layerRectConverted(fromMetadataOutputRect: CGRect): CGRect;
-  // compoundInstanceMethods
   setSessionWithNoConnection(_: AVCaptureSession): void;
-  // compoundInstanceMethods
   transformedMetadataObject(for_: AVMetadataObject): AVMetadataObject;
 }
 
 export class AVComposition extends AVAsset {
   urlAssetInitializationOptions: Map<string, any>;
   naturalSize: CGSize;
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVCompositionTrack;
 }
 
 export class AVCompositionTrack extends AVAssetTrack {
   formatDescriptionReplacements: AVCompositionTrackFormatDescriptionReplacement[];
-  // compoundInstanceMethods
   // @ts-ignore 
   segment(forTrackTime: CMTime): AVCompositionTrackSegment;
 }
@@ -1741,9 +1449,7 @@ export class AVCompositionTrackFormatDescriptionReplacement extends NSObject {
 export class AVCompositionTrackSegment extends AVAssetTrackSegment {
   sourceTrackID: number;
   sourceURL: URL;
-  // compoundInstanceMethods
   static createWithTimeRange(_: CMTimeRange): AVCompositionTrackSegment;
-  // compoundInstanceMethods
   static createWithUrlWithTrackIDWithSourceTimeRangeWithTargetTimeRange(_: URL, trackID: number, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange): AVCompositionTrackSegment;
 }
 
@@ -1759,13 +1465,9 @@ export class AVContentKeyRequest extends NSObject {
   options: Map<string, any>;
   renewsExpiringResponseData: boolean;
   status: AVContentKeySession.AVContentKeyRequest.Status;
-  // compoundInstanceMethods
   makeStreamingContentKeyRequestData(forApp: Data, contentIdentifier?: Data, options?: Map<string, any>, completionHandler?: (p1: Data, p2: Error) => void): void;
-  // compoundInstanceMethods
   processContentKeyResponse(_: AVContentKeyResponse): void;
-  // compoundInstanceMethods
   processContentKeyResponseError(_: Error): void;
-  // compoundInstanceMethods
   respondByRequestingPersistableContentKeyRequestAndReturnError(): boolean;
 }
 
@@ -1781,23 +1483,14 @@ export class AVContentKeySession extends NSObject {
   delegateQueue: NSObject;
   keySystem: string;
   storageURL: URL;
-  // compoundInstanceMethods
   addContentKeyRecipient(_: any): void;
-  // compoundInstanceMethods
   expire(): void;
-  // compoundInstanceMethods
   invalidateAllPersistableContentKeys(forApp: Data, options?: Map<string, any>, completionHandler?: (p1: Data, p2: Error) => void): void;
-  // compoundInstanceMethods
   invalidatePersistableContentKey(_: Data, options?: Map<string, any>, completionHandler?: (p1: Data, p2: Error) => void): void;
-  // compoundInstanceMethods
   makeSecureTokenForExpirationDate(ofPersistableContentKey: Data, completionHandler?: (p1: Data, p2: Error) => void): void;
-  // compoundInstanceMethods
   processContentKeyRequest(withIdentifier?: any, initializationData?: Data, options?: Map<string, any>): void;
-  // compoundInstanceMethods
   removeContentKeyRecipient(_: any): void;
-  // compoundInstanceMethods
   renewExpiringResponseData(for_: AVContentKeyRequest): void;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -1816,7 +1509,6 @@ interface AVContentKeySessionDelegate {
 export class AVDateRangeMetadataGroup extends AVMetadataGroup {
   endDate: Date;
   startDate: Date;
-  // compoundInstanceMethods
   static createWithItemsWithStartDateWithEndDate(_: AVMetadataItem[], startDate: Date, endDate?: Date): AVDateRangeMetadataGroup;
 }
 
@@ -1829,13 +1521,9 @@ export class AVDepthData extends NSObject {
   depthDataMap: any;
   depthDataQuality: AVDepthData.Quality;
   depthDataType: number;
-  // compoundInstanceMethods
   createWithDepthDataByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVDepthData;
-  // compoundInstanceMethods
   createWithDepthDataByConvertingToDepthDataType(toDepthDataType: number): AVDepthData;
-  // compoundInstanceMethods
   createWithDepthDataByReplacingDepthDataMapWithPixelBuffer(error: any): AVDepthData;
-  // compoundInstanceMethods
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
 }
 
@@ -1844,7 +1532,6 @@ interface AVFragmentMinding {
 }
 
 export class AVFragmentedAsset extends AVURLAsset {
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVFragmentedAssetTrack;
 }
@@ -1853,11 +1540,8 @@ export class AVFragmentedAssetMinder extends NSObject {
   assets: AVAsset[];
   mindingInterval: number;
   setMindingInterval(_: number);
-  // compoundInstanceMethods
   addFragmentedAsset(_: AVAsset): void;
-  // compoundInstanceMethods
   static createWithAssetWithMindingInterval(_: AVAsset, mindingInterval: number): AVFragmentedAssetMinder;
-  // compoundInstanceMethods
   removeFragmentedAsset(_: AVAsset): void;
 }
 
@@ -1865,18 +1549,14 @@ export class AVFragmentedAssetTrack extends AVAssetTrack {
 }
 
 export class AVFragmentedMovie extends AVMovie {
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVFragmentedMovieTrack;
 }
 
 export class AVFragmentedMovieMinder extends AVFragmentedAssetMinder {
   movies: AVFragmentedMovie[];
-  // compoundInstanceMethods
   add(_: AVFragmentedMovie): void;
-  // compoundInstanceMethods
   static createWithMovieWithMindingInterval(_: AVFragmentedMovie, mindingInterval: number): AVFragmentedMovieMinder;
-  // compoundInstanceMethods
   remove(_: AVFragmentedMovie): void;
 }
 
@@ -1897,32 +1577,23 @@ export class AVMIDIPlayer extends NSObject {
   isPlaying: boolean;
   rate: number;
   setRate(_: number);
-  // compoundInstanceMethods
   static createWithContentsOf(soundBankURL: URL, error?: URL): AVMIDIPlayer;
-  // compoundInstanceMethods
   static createWithData(soundBankURL: Data, error?: URL): AVMIDIPlayer;
-  // compoundInstanceMethods
   play(_?: () => void): void;
-  // compoundInstanceMethods
   prepareToPlay(): void;
-  // compoundInstanceMethods
   stop(): void;
 }
 
 // export function AVMakeRectWithAspectRatioInsideRect(aspectRatio: CGSize, boundingRect: CGRect): CGRect;
 
 export class AVMediaDataStorage extends NSObject {
-  // compoundInstanceMethods
   url(): URL;
-  // compoundInstanceMethods
   static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVMediaDataStorage;
 }
 
 export class AVMediaSelection extends NSObject {
   asset: AVAsset;
-  // compoundInstanceMethods
   mediaSelectionCriteriaCanBeAppliedAutomatically(to: AVMediaSelectionGroup): boolean;
-  // compoundInstanceMethods
   selectedMediaOption(in_: AVMediaSelectionGroup): AVMediaSelectionOption;
 }
 
@@ -1935,7 +1606,6 @@ export class AVMediaSelectionGroup extends NSObject {
   allowsEmptySelection: boolean;
   defaultOption: AVMediaSelectionOption;
   options: AVMediaSelectionOption[];
-  // compoundInstanceMethods
   mediaSelectionOption(withPropertyList: any): AVMediaSelectionOption;
 }
 
@@ -1947,13 +1617,9 @@ export class AVMediaSelectionOption extends NSObject {
   mediaSubTypes: number[];
   mediaType: string;
   isPlayable: boolean;
-  // compoundInstanceMethods
   associatedMediaSelectionOption(in_: AVMediaSelectionGroup): AVMediaSelectionOption;
-  // compoundInstanceMethods
   hasMediaCharacteristic(_: string): boolean;
-  // compoundInstanceMethods
   metadata(forFormat: string): AVMetadataItem[];
-  // compoundInstanceMethods
   propertyList(): any;
 }
 
@@ -2016,9 +1682,7 @@ export class AVMetadataItemFilter extends NSObject {
 
 export class AVMetadataItemValueRequest extends NSObject {
   metadataItem: AVMetadataItem;
-  // compoundInstanceMethods
   respond(error: Error): void;
-  // compoundInstanceMethods
   respond(value: any): void;
 }
 
@@ -2046,18 +1710,12 @@ export class AVMovie extends AVAsset {
   containsMovieFragments: boolean;
   data: Data;
   defaultMediaDataStorage: AVMediaDataStorage;
-  // compoundInstanceMethods
   static createWithDataWithOptions(_: Data, options?: Map<string, any>): AVMovie;
-  // compoundInstanceMethods
   static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVMovie;
-  // compoundInstanceMethods
   is(compatibleWithFileType: string): boolean;
-  // compoundInstanceMethods
   makeMovieHeader(fileType: string): Data;
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVMovieTrack;
-  // compoundInstanceMethods
   writeMovieHeaderToURL(fileType: URL, options: string, error: AVMovie.AVMovieWritingOptions): boolean;
 }
 
@@ -2104,30 +1762,20 @@ export class AVMutableAudioMixInputParameters extends AVAudioMixInputParameters 
   setAudioTimePitchAlgorithm(_: string);
   trackID: number;
   setTrackID(_: number);
-  // compoundInstanceMethods
   setVolume(_: number, at: CMTime): void;
-  // compoundInstanceMethods
   setVolumeRamp(fromStartVolume: number, toEndVolume: number, timeRange: CMTimeRange): void;
 }
 
 export class AVMutableComposition extends AVComposition {
   naturalSize: CGSize;
   setNaturalSize(_: CGSize);
-  // compoundInstanceMethods
   addMutableTrack(withMediaType: string, preferredTrackID: number): AVMutableCompositionTrack;
-  // compoundInstanceMethods
   insertEmptyTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   insertTimeRange(_: CMTimeRange, of: AVAsset, at: CMTime): boolean;
-  // compoundInstanceMethods
   mutableTrack(compatibleWith: AVAssetTrack): AVMutableCompositionTrack;
-  // compoundInstanceMethods
   removeTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   removeTrack(_: AVCompositionTrack): void;
-  // compoundInstanceMethods
   scaleTimeRange(_: CMTimeRange, toDuration: CMTime): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVMutableCompositionTrack;
 }
@@ -2148,23 +1796,14 @@ export class AVMutableCompositionTrack extends AVCompositionTrack {
   setPreferredVolume(_: number);
   segments: AVCompositionTrackSegment[];
   setSegments(_: AVCompositionTrackSegment[]);
-  // compoundInstanceMethods
   addTrackAssociation(to: AVCompositionTrack, type: string): void;
-  // compoundInstanceMethods
   insertEmptyTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   insertTimeRange(ofTrack: CMTimeRange, atTime: AVAssetTrack, error: CMTime): boolean;
-  // compoundInstanceMethods
   insertTimeRanges(ofTracks: NSValue[], atTime: AVAssetTrack[], error: CMTime): boolean;
-  // compoundInstanceMethods
   removeTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   removeTrackAssociation(to: AVCompositionTrack, type: string): void;
-  // compoundInstanceMethods
   replaceFormatDescription(_: any, with_?: any): void;
-  // compoundInstanceMethods
   scaleTimeRange(_: CMTimeRange, toDuration: CMTime): void;
-  // compoundInstanceMethods
   validateTrackSegments(error: AVCompositionTrackSegment[]): boolean;
 }
 
@@ -2178,7 +1817,6 @@ export class AVMutableDateRangeMetadataGroup extends AVDateRangeMetadataGroup {
 }
 
 export class AVMutableMediaSelection extends AVMediaSelection {
-  // compoundInstanceMethods
   select(_?: AVMediaSelectionOption, in_?: AVMediaSelectionGroup): void;
 }
 
@@ -2215,31 +1853,19 @@ export class AVMutableMovie extends AVMovie {
   setPreferredVolume(_: number);
   timescale: number;
   setTimescale(_: number);
-  // compoundInstanceMethods
   addMutableTrack(withMediaType: string, copySettingsFrom?: AVAssetTrack, options?: Map<string, any>): AVMutableMovieTrack;
-  // compoundInstanceMethods
   addMutableTracksCopyingSettings(from: AVAssetTrack[], options?: Map<string, any>): AVMutableMovieTrack[];
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithData(options: Data, error?: Map<string, any>): AVMutableMovie;
-  // compoundInstanceMethods
   static createWithSettingsFromMovie(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithUrl(options: URL, error?: Map<string, any>): AVMutableMovie;
-  // compoundInstanceMethods
   insertEmptyTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   insertTimeRange(_: CMTimeRange, of: AVAsset, at: CMTime, copySampleData: boolean): boolean;
-  // compoundInstanceMethods
   mutableTrack(compatibleWith: AVAssetTrack): AVMutableMovieTrack;
-  // compoundInstanceMethods
   removeTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   removeTrack(_: AVMovieTrack): void;
-  // compoundInstanceMethods
   scale(_: CMTimeRange, toDuration: CMTime): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   track(withTrackID: number): AVMutableMovieTrack;
 }
@@ -2281,23 +1907,14 @@ export class AVMutableMovieTrack extends AVMovieTrack {
   setSampleReferenceBaseURL(_: URL);
   timescale: number;
   setTimescale(_: number);
-  // compoundInstanceMethods
   addTrackAssociation(to: AVMovieTrack, type: string): void;
-  // compoundInstanceMethods
   append(_: any, decodeTime?: CMTime, presentationTime?: CMTime): boolean;
-  // compoundInstanceMethods
   insertEmptyTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   insertMediaTimeRange(_: CMTimeRange, into: CMTimeRange): boolean;
-  // compoundInstanceMethods
   insertTimeRange(ofTrack: CMTimeRange, atTime: AVAssetTrack, copySampleData: CMTime, error: boolean): boolean;
-  // compoundInstanceMethods
   removeTimeRange(_: CMTimeRange): void;
-  // compoundInstanceMethods
   removeTrackAssociation(to: AVMovieTrack, type: string): void;
-  // compoundInstanceMethods
   replaceFormatDescription(_: any, with_: any): void;
-  // compoundInstanceMethods
   scaleTimeRange(_: CMTimeRange, toDuration: CMTime): void;
 }
 
@@ -2345,17 +1962,11 @@ export class AVMutableVideoCompositionInstruction extends AVVideoCompositionInst
 export class AVMutableVideoCompositionLayerInstruction extends AVVideoCompositionLayerInstruction {
   trackID: number;
   setTrackID(_: number);
-  // compoundInstanceMethods
   setCropRectangle(_: CGRect, at: CMTime): void;
-  // compoundInstanceMethods
   setCropRectangleRamp(fromStartCropRectangle: CGRect, toEndCropRectangle: CGRect, timeRange: CMTimeRange): void;
-  // compoundInstanceMethods
   setOpacity(_: number, at: CMTime): void;
-  // compoundInstanceMethods
   setOpacityRamp(fromStartOpacity: number, toEndOpacity: number, timeRange: CMTimeRange): void;
-  // compoundInstanceMethods
   setTransform(_: CGAffineTransform, at: CMTime): void;
-  // compoundInstanceMethods
   setTransformRamp(fromStart: CGAffineTransform, toEnd: CGAffineTransform, timeRange: CMTimeRange): void;
 }
 
@@ -2375,7 +1986,6 @@ export class AVOutputSettingsAssistant extends NSObject {
 }
 
 export class AVPersistableContentKeyRequest extends AVContentKeyRequest {
-  // compoundInstanceMethods
   persistableContentKeyFromKeyVendorResponse(options: Data, error?: Map<string, any>): Data;
 }
 
@@ -2410,47 +2020,26 @@ export class AVPlayer extends NSObject {
   volume: number;
   setVolume(_: number);
   static eligibleForHDRPlayback: boolean;
-  // compoundInstanceMethods
   addBoundaryTimeObserver(forTimes: NSValue[], queue?: NSObject, using?: () => void): any;
-  // compoundInstanceMethods
   addPeriodicTimeObserver(forInterval: CMTime, queue?: NSObject, using?: (p1: CMTime) => void): any;
-  // compoundInstanceMethods
   cancelPendingPrerolls(): void;
-  // compoundInstanceMethods
   currentTime(): CMTime;
-  // compoundInstanceMethods
   static createWithPlayerItem(_?: AVPlayerItem): AVPlayer;
-  // compoundInstanceMethods
   static createWithUrl(_: URL): AVPlayer;
-  // compoundInstanceMethods
   mediaSelectionCriteria(forMediaCharacteristic: string): AVPlayerMediaSelectionCriteria;
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   play(): void;
-  // compoundInstanceMethods
   playImmediately(atRate: number): void;
-  // compoundInstanceMethods
   preroll(atRate: number, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   removeTimeObserver(_: any): void;
-  // compoundInstanceMethods
   replaceCurrentItem(with_?: AVPlayerItem): void;
-  // compoundInstanceMethods
   seek(to: Date): void;
-  // compoundInstanceMethods
   seek(to: Date, completionHandler: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   seek(to: CMTime): void;
-  // compoundInstanceMethods
   seek(to: CMTime, completionHandler: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   seek(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime): void;
-  // compoundInstanceMethods
   seek(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   setMediaSelectionCriteria(_?: AVPlayerMediaSelectionCriteria, forMediaCharacteristic?: string): void;
-  // compoundInstanceMethods
   setRate(_: number, time: CMTime, atHostTime: CMTime): void;
 }
 
@@ -2514,52 +2103,31 @@ export class AVPlayerItem extends NSObject {
   setVideoApertureMode(_: string);
   videoComposition: AVVideoComposition;
   setVideoComposition(_: AVVideoComposition);
-  // compoundInstanceMethods
   accessLog(): AVPlayerItemAccessLog;
-  // compoundInstanceMethods
   add(_: AVPlayerItemMediaDataCollector): void;
-  // compoundInstanceMethods
   add(_: AVPlayerItemOutput): void;
-  // compoundInstanceMethods
   cancelContentAuthorizationRequest(): void;
-  // compoundInstanceMethods
   cancelPendingSeeks(): void;
-  // compoundInstanceMethods
   currentDate(): Date;
-  // compoundInstanceMethods
   currentTime(): CMTime;
-  // compoundInstanceMethods
   errorLog(): AVPlayerItemErrorLog;
-  // compoundInstanceMethods
   static createWithAsset(_: AVAsset): AVPlayerItem;
-  // compoundInstanceMethods
   static createWithAssetWithAutomaticallyLoadedAssetKeys(_: AVAsset, automaticallyLoadedAssetKeys?: string[]): AVPlayerItem;
-  // compoundInstanceMethods
   static createWithUrl(_: URL): AVPlayerItem;
-  // compoundInstanceMethods
   remove(_: AVPlayerItemMediaDataCollector): void;
-  // compoundInstanceMethods
   remove(_: AVPlayerItemOutput): void;
-  // compoundInstanceMethods
   requestContentAuthorizationAsynchronously(withTimeoutInterval: number, completionHandler: () => void): void;
-  // compoundInstanceMethods
   seek(to: Date, completionHandler?: (p1: boolean) => void): boolean;
-  // compoundInstanceMethods
   seek(to: CMTime, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   seek(to: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   select(_?: AVMediaSelectionOption, in_?: AVMediaSelectionGroup): void;
-  // compoundInstanceMethods
   selectMediaOptionAutomatically(in_: AVMediaSelectionGroup): void;
-  // compoundInstanceMethods
   step(byCount: number): void;
 }
 
 export class AVPlayerItemAccessLog extends NSObject {
   events: AVPlayerItemAccessLogEvent[];
   extendedLogDataStringEncoding: number;
-  // compoundInstanceMethods
   extendedLogData(): Data;
 }
 
@@ -2595,7 +2163,6 @@ export class AVPlayerItemAccessLogEvent extends NSObject {
 export class AVPlayerItemErrorLog extends NSObject {
   events: AVPlayerItemErrorLogEvent[];
   extendedLogDataStringEncoding: number;
-  // compoundInstanceMethods
   extendedLogData(): Data;
 }
 
@@ -2616,9 +2183,7 @@ export class AVPlayerItemLegibleOutput extends AVPlayerItemOutput {
   delegateQueue: NSObject;
   textStylingResolution: string;
   setTextStylingResolution(_: string);
-  // compoundInstanceMethods
   static createWithMediaSubtypesForNativeRepresentation(_: number[]): AVPlayerItemLegibleOutput;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -2632,9 +2197,7 @@ export class AVPlayerItemMediaDataCollector extends NSObject {
 export class AVPlayerItemMetadataCollector extends AVPlayerItemMediaDataCollector {
   delegate: any;
   delegateQueue: NSObject;
-  // compoundInstanceMethods
   static createWithIdentifiersWithClassifyingLabels(_?: string[], classifyingLabels?: string[]): AVPlayerItemMetadataCollector;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -2647,9 +2210,7 @@ export class AVPlayerItemMetadataOutput extends AVPlayerItemOutput {
   setAdvanceIntervalForDelegateInvocation(_: number);
   delegate: any;
   delegateQueue: NSObject;
-  // compoundInstanceMethods
   static createWithIdentifiers(_?: string[]): AVPlayerItemMetadataOutput;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -2660,11 +2221,8 @@ interface AVPlayerItemMetadataOutputPushDelegate {
 export class AVPlayerItemOutput extends NSObject {
   suppressesPlayerRendering: boolean;
   setSuppressesPlayerRendering(_: boolean);
-  // compoundInstanceMethods
   itemTime(for_: CVTimeStamp): CMTime;
-  // compoundInstanceMethods
   itemTime(forHostTime: number): CMTime;
-  // compoundInstanceMethods
   itemTime(forMachAbsoluteTime: number): CMTime;
 }
 
@@ -2690,17 +2248,11 @@ export class AVPlayerItemTrack extends NSObject {
 export class AVPlayerItemVideoOutput extends AVPlayerItemOutput {
   delegate: any;
   delegateQueue: NSObject;
-  // compoundInstanceMethods
   copyPixelBuffer(forItemTime: CMTime, itemTimeForDisplay?: CMTime): any;
-  // compoundInstanceMethods
   hasNewPixelBuffer(forItemTime: CMTime): boolean;
-  // compoundInstanceMethods
   static createWithOutputSettings(_?: Map<string, any>): AVPlayerItemVideoOutput;
-  // compoundInstanceMethods
   static createWithPixelBufferAttributes(_?: Map<string, any>): AVPlayerItemVideoOutput;
-  // compoundInstanceMethods
   requestNotificationOfMediaDataChange(withAdvanceInterval: number): void;
-  // compoundInstanceMethods
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
@@ -2720,9 +2272,7 @@ export class AVPlayerLooper extends NSObject {
   loopCount: number;
   loopingPlayerItems: AVPlayerItem[];
   status: AVPlayerLooper.Status;
-  // compoundInstanceMethods
   disableLooping(): void;
-  // compoundInstanceMethods
   static createWithPlayerWithTemplateItemWithTimeRange(_: AVQueuePlayer, templateItem: AVPlayerItem, timeRange: CMTimeRange): AVPlayerLooper;
 }
 
@@ -2730,9 +2280,7 @@ export class AVPlayerMediaSelectionCriteria extends NSObject {
   preferredLanguages: string[];
   preferredMediaCharacteristics: string[];
   principalMediaCharacteristics: string[];
-  // compoundInstanceMethods
   static createWithPreferredLanguagesWithPreferredMediaCharacteristics(_?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
-  // compoundInstanceMethods
   static createWithPrincipalMediaCharacteristicsWithPreferredLanguagesWithPreferredMediaCharacteristics(_?: string[], preferredLanguages?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
 }
 
@@ -2740,28 +2288,18 @@ export class AVPortraitEffectsMatte extends NSObject {
   static createWithPortraitEffectsMatteFromDictionaryRepresentation(error: Map<any, any>): AVPortraitEffectsMatte;
   mattingImage: any;
   pixelFormatType: number;
-  // compoundInstanceMethods
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
-  // compoundInstanceMethods
   createWithPortraitEffectsMatteByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVPortraitEffectsMatte;
-  // compoundInstanceMethods
   createWithPortraitEffectsMatteByReplacingPortraitEffectsMatteWithPixelBuffer(error: any): AVPortraitEffectsMatte;
 }
 
 export class AVQueuePlayer extends AVPlayer {
-  // compoundInstanceMethods
   advanceToNextItem(): void;
-  // compoundInstanceMethods
   canInsert(_: AVPlayerItem, after?: AVPlayerItem): boolean;
-  // compoundInstanceMethods
   static createWithItems(_: AVPlayerItem[]): AVQueuePlayer;
-  // compoundInstanceMethods
   insert(_: AVPlayerItem, after?: AVPlayerItem): void;
-  // compoundInstanceMethods
   items(): AVPlayerItem[];
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   remove(_: AVPlayerItem): void;
 }
 
@@ -2791,7 +2329,6 @@ export class AVSampleBufferAudioRenderer extends NSObject {
   status: AVQueuedSampleBufferRendering.AVQueuedSampleBufferRenderingStatus;
   volume: number;
   setVolume(_: number);
-  // compoundInstanceMethods
   flush(fromSourceTime: CMTime, completionHandler: (p1: boolean) => void): void;
 }
 
@@ -2806,15 +2343,12 @@ export class AVSampleBufferDisplayLayer extends CALayer {
   status: AVQueuedSampleBufferRendering.AVQueuedSampleBufferRenderingStatus;
   videoGravity: string;
   setVideoGravity(_: string);
-  // compoundInstanceMethods
   flushAndRemoveImage(): void;
 }
 
 export class AVSampleBufferGenerator extends NSObject {
   static notifyOfDataReady(for_: any, completionHandler: (p1: boolean, p2: Error) => void): void;
-  // compoundInstanceMethods
   createSampleBuffer(for_: AVSampleBufferRequest): any;
-  // compoundInstanceMethods
   static createWithAssetWithTimebase(_: AVAsset, timebase?: any): AVSampleBufferGenerator;
 }
 
@@ -2823,19 +2357,12 @@ export class AVSampleBufferRenderSynchronizer extends NSObject {
   setRate(_: number);
   renderers: any[];
   timebase: any;
-  // compoundInstanceMethods
   addBoundaryTimeObserver(forTimes: NSValue[], queue?: NSObject, using?: () => void): any;
-  // compoundInstanceMethods
   addPeriodicTimeObserver(forInterval: CMTime, queue?: NSObject, using?: (p1: CMTime) => void): any;
-  // compoundInstanceMethods
   addRenderer(_: any): void;
-  // compoundInstanceMethods
   currentTime(): CMTime;
-  // compoundInstanceMethods
   removeRenderer(_: any, at: CMTime, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   removeTimeObserver(_: any): void;
-  // compoundInstanceMethods
   setRate(_: number, time: CMTime): void;
 }
 
@@ -2853,7 +2380,6 @@ export class AVSampleBufferRequest extends NSObject {
   preferredMinSampleCount: number;
   setPreferredMinSampleCount(_: number);
   startCursor: AVSampleCursor;
-  // compoundInstanceMethods
   static createWithStartCursor(_: AVSampleCursor): AVSampleBufferRequest;
 }
 
@@ -2870,21 +2396,13 @@ export class AVSampleCursor extends NSObject {
   decodeTimeStamp: CMTime;
   presentationTimeStamp: CMTime;
   samplesRequiredForDecoderRefresh: number;
-  // compoundInstanceMethods
   comparePositionInDecodeOrder(withPositionOf: AVSampleCursor): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   copyCurrentSampleFormatDescription(): any;
-  // compoundInstanceMethods
   maySamplesWithEarlierDecodeTimeStampsHavePresentationTimeStamps(laterThan: AVSampleCursor): boolean;
-  // compoundInstanceMethods
   maySamplesWithLaterDecodeTimeStampsHavePresentationTimeStamps(earlierThan: AVSampleCursor): boolean;
-  // compoundInstanceMethods
   step(byDecodeTime: CMTime, wasPinned?: boolean): CMTime;
-  // compoundInstanceMethods
   step(byPresentationTime: CMTime, wasPinned?: boolean): CMTime;
-  // compoundInstanceMethods
   stepInDecodeOrder(byCount: number): number;
-  // compoundInstanceMethods
   stepInPresentationOrder(byCount: number): number;
 }
 
@@ -2893,11 +2411,8 @@ export class AVSemanticSegmentationMatte extends NSObject {
   matteType: string;
   mattingImage: any;
   pixelFormatType: number;
-  // compoundInstanceMethods
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
-  // compoundInstanceMethods
   createWithSemanticSegmentationMatteByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVSemanticSegmentationMatte;
-  // compoundInstanceMethods
   createWithSemanticSegmentationMatteByReplacingSemanticSegmentationMatteWithPixelBuffer(error: any): AVSemanticSegmentationMatte;
 }
 
@@ -2917,15 +2432,10 @@ export class AVSpeechSynthesizer extends NSObject {
   setDelegate(_: any);
   isPaused: boolean;
   isSpeaking: boolean;
-  // compoundInstanceMethods
   continueSpeaking(): boolean;
-  // compoundInstanceMethods
   pauseSpeaking(at: AVSpeechSynthesis.AVSpeechBoundary): boolean;
-  // compoundInstanceMethods
   speak(_: AVSpeechUtterance): void;
-  // compoundInstanceMethods
   stopSpeaking(at: AVSpeechSynthesis.AVSpeechBoundary): boolean;
-  // compoundInstanceMethods
   write(_: AVSpeechUtterance, toBufferCallback: (p1: AVAudioBuffer) => void): void;
 }
 
@@ -2953,9 +2463,7 @@ export class AVSpeechUtterance extends NSObject {
   setVoice(_: AVSpeechSynthesisVoice);
   volume: number;
   setVolume(_: number);
-  // compoundInstanceMethods
   static createWithAttributedString(_: NSAttributedString): AVSpeechUtterance;
-  // compoundInstanceMethods
   static createWithString(_: string): AVSpeechUtterance;
 }
 
@@ -2969,19 +2477,14 @@ export class AVTextStyleRule extends NSObject {
   static textStyleRules(fromPropertyList: any): AVTextStyleRule[];
   textMarkupAttributes: Map<string, any>;
   textSelector: string;
-  // compoundInstanceMethods
   static createWithTextMarkupAttributes(_: Map<string, any>): AVTextStyleRule;
-  // compoundInstanceMethods
   static createWithTextMarkupAttributesWithTextSelector(_: Map<string, any>, textSelector?: string): AVTextStyleRule;
 }
 
 export class AVTimedMetadataGroup extends AVMetadataGroup {
   timeRange: CMTimeRange;
-  // compoundInstanceMethods
   copyFormatDescription(): any;
-  // compoundInstanceMethods
   static createWithItemsWithTimeRange(_: AVMetadataItem[], timeRange: CMTimeRange): AVTimedMetadataGroup;
-  // compoundInstanceMethods
   static createWithSampleBuffer(_: any): AVTimedMetadataGroup;
 }
 
@@ -2992,9 +2495,7 @@ export class AVURLAsset extends AVAsset {
   URL: URL;
   assetCache: AVAssetCache;
   resourceLoader: AVAssetResourceLoader;
-  // compoundInstanceMethods
   compatibleTrack(for_: AVCompositionTrack): AVAssetTrack;
-  // compoundInstanceMethods
   static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVURLAsset;
 }
 
@@ -3020,7 +2521,6 @@ export class AVVideoComposition extends NSObject {
   renderScale: number;
   renderSize: CGSize;
   sourceTrackIDForFrameTiming: number;
-  // compoundInstanceMethods
   isValid(for_?: AVAsset, timeRange?: CMTimeRange, validationDelegate?: any): boolean;
 }
 
@@ -3042,11 +2542,8 @@ interface AVVideoCompositionInstructionProtocol {
 
 export class AVVideoCompositionLayerInstruction extends NSObject {
   trackID: number;
-  // compoundInstanceMethods
   getCropRectangleRamp(for_: CMTime, startCropRectangle?: CGRect, endCropRectangle?: CGRect, timeRange?: CMTimeRange): boolean;
-  // compoundInstanceMethods
   getOpacityRamp(for_: CMTime, startOpacity?: number, endOpacity?: number, timeRange?: CMTimeRange): boolean;
-  // compoundInstanceMethods
   getTransformRamp(for_: CMTime, start?: CGAffineTransform, end?: CGAffineTransform, timeRange?: CMTimeRange): boolean;
 }
 
@@ -3058,7 +2555,6 @@ export class AVVideoCompositionRenderContext extends NSObject {
   renderTransform: CGAffineTransform;
   size: CGSize;
   videoComposition: AVVideoComposition;
-  // compoundInstanceMethods
   newPixelBuffer(): any;
 }
 
@@ -3083,7 +2579,6 @@ export class AVCaptureView extends NSView {
   session: AVCaptureSession;
   videoGravity: string;
   setVideoGravity(_: string);
-  // compoundInstanceMethods
   setSession(_?: AVCaptureSession, showVideoPreview?: boolean, showAudioPreview?: boolean): void;
 }
 
@@ -3101,11 +2596,8 @@ export class AVPictureInPictureController extends NSObject {
   playerLayer: AVPlayerLayer;
   static pictureInPictureButtonStartImage: NSImage;
   static pictureInPictureButtonStopImage: NSImage;
-  // compoundInstanceMethods
   static createWithPlayerLayer(_: AVPlayerLayer): AVPictureInPictureController;
-  // compoundInstanceMethods
   startPictureInPicture(): void;
-  // compoundInstanceMethods
   stopPictureInPicture(): void;
 }
 
@@ -3145,9 +2637,7 @@ export class AVPlayerView extends NSView {
   videoBounds: CGRect;
   videoGravity: string;
   setVideoGravity(_: string);
-  // compoundInstanceMethods
   beginTrimming(completionHandler?: (p1: AVPlayerView.AVPlayerViewTrimResult) => void): void;
-  // compoundInstanceMethods
   flashChapterNumber(_: number, chapterTitle?: string): void;
 }
 
@@ -3168,9 +2658,7 @@ export class AVRoutePickerView extends NSView {
   setPlayer(_: AVPlayer);
   isRoutePickerButtonBordered: boolean;
   setRoutePickerButtonBordered(_: boolean);
-  // compoundInstanceMethods
   routePickerButtonColor(for_: AVRoutePickerView.AVRoutePickerViewButtonState): NSColor;
-  // compoundInstanceMethods
   setRoutePickerButtonColor(_?: NSColor, for_?: AVRoutePickerView.AVRoutePickerViewButtonState): void;
 }
 
@@ -3482,9 +2970,7 @@ export class NSAccessibilityCustomAction extends NSObject {
   setSelector(_: string);
   target: any;
   setTarget(_: any);
-  // compoundInstanceMethods
   static createWithNameWithHandler(_: string, handler?: () => boolean): NSAccessibilityCustomAction;
-  // compoundInstanceMethods
   static createWithNameWithTargetWithSelector(_: string, target: any, selector: string): NSAccessibilityCustomAction;
 }
 
@@ -3497,9 +2983,7 @@ export class NSAccessibilityCustomRotor extends NSObject {
   setLabel(_: string);
   type: NSAccessibilityCustomRotor.RotorType;
   setType(_: NSAccessibilityCustomRotor.RotorType);
-  // compoundInstanceMethods
   static createWithLabelWithItemSearchDelegate(_: string, itemSearchDelegate: any): NSAccessibilityCustomRotor;
-  // compoundInstanceMethods
   static createWithRotorTypeWithItemSearchDelegate(_: NSAccessibilityCustomRotor.RotorType, itemSearchDelegate: any): NSAccessibilityCustomRotor;
 }
 
@@ -3511,7 +2995,6 @@ export class NSAccessibilityElement extends NSObject {
   static element(withRole: string, frame: CGRect, label?: string, parent?: any): any;
   accessibilityFrameInParentSpace: CGRect;
   setAccessibilityFrameInParentSpace(_: CGRect);
-  // compoundInstanceMethods
   accessibilityAddChildElement(_: NSAccessibilityElement): void;
 }
 
@@ -3659,13 +3142,9 @@ export class NSAlert extends NSObject {
   setShowsSuppressionButton(_: boolean);
   suppressionButton: NSButton;
   window: NSWindow;
-  // compoundInstanceMethods
   addButton(withTitle: string): NSButton;
-  // compoundInstanceMethods
   beginSheetModal(for_: NSWindow, completionHandler?: (p1: number) => void): void;
-  // compoundInstanceMethods
   layout(): void;
-  // compoundInstanceMethods
   runModal(): number;
 }
 
@@ -3675,17 +3154,11 @@ interface NSAlertDelegate {
 
 export class NSAlignmentFeedbackFilter extends NSObject {
   static inputEventMask: NSEvent.EventTypeMask;
-  // compoundInstanceMethods
   alignmentFeedbackTokenForHorizontalMovement(in_?: NSView, previousX?: number, alignedX?: number, defaultX?: number): any;
-  // compoundInstanceMethods
   alignmentFeedbackTokenForMovement(in_?: NSView, previousPoint?: CGPoint, alignedPoint?: CGPoint, defaultPoint?: CGPoint): any;
-  // compoundInstanceMethods
   alignmentFeedbackTokenForVerticalMovement(in_?: NSView, previousY?: number, alignedY?: number, defaultY?: number): any;
-  // compoundInstanceMethods
   performFeedback(_: any[], performanceTime: NSHapticFeedback.NSHapticFeedbackManager.PerformanceTime): void;
-  // compoundInstanceMethods
   update(with_: NSEvent): void;
-  // compoundInstanceMethods
   update(withPanRecognizer: NSPanGestureRecognizer): void;
 }
 
@@ -3717,23 +3190,14 @@ export class NSAnimation extends NSObject {
   progressMarks: number[];
   setProgressMarks(_: number[]);
   runLoopModesForAnimating: string[];
-  // compoundInstanceMethods
   addProgressMark(_: number): void;
-  // compoundInstanceMethods
   clearStart(): void;
-  // compoundInstanceMethods
   clearStop(): void;
-  // compoundInstanceMethods
   static createWithDurationWithAnimationCurve(_: number, animationCurve: NSAnimation.Curve): NSAnimation;
-  // compoundInstanceMethods
   removeProgressMark(_: number): void;
-  // compoundInstanceMethods
   start(): void;
-  // compoundInstanceMethods
   start(when: NSAnimation, reachesProgress: number): void;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   stop(when: NSAnimation, reachesProgress: number): void;
 }
 
@@ -3766,9 +3230,7 @@ export class NSAppearance extends NSObject {
   name: string;
   static current: NSAppearance;
   setCurrentAppearance(_: NSAppearance);
-  // compoundInstanceMethods
   bestMatch(from: string[]): string;
-  // compoundInstanceMethods
   static createWithAppearanceNamedWithBundle(_: string, bundle?: Bundle): NSAppearance;
 }
 
@@ -3816,131 +3278,68 @@ export class NSApplication extends NSResponder {
   windowsMenu: NSMenu;
   setWindowsMenu(_: NSMenu);
   static shared: NSApplication;
-  // compoundInstanceMethods
   abortModal(): void;
-  // compoundInstanceMethods
   activateContextHelpMode(_?: any): void;
-  // compoundInstanceMethods
   activate(ignoringOtherApps: boolean): void;
-  // compoundInstanceMethods
   activationPolicy(): NSRunningApplication.NSApplication.ActivationPolicy;
-  // compoundInstanceMethods
   addWindowsItem(_: NSWindow, title: string, filename: boolean): void;
-  // compoundInstanceMethods
   arrangeInFront(_?: any): void;
-  // compoundInstanceMethods
   beginModalSession(for_: NSWindow): any;
-  // compoundInstanceMethods
   cancelUserAttentionRequest(_: number): void;
-  // compoundInstanceMethods
   changeWindowsItem(_: NSWindow, title: string, filename: boolean): void;
-  // compoundInstanceMethods
   completeStateRestoration(): void;
-  // compoundInstanceMethods
   deactivate(): void;
-  // compoundInstanceMethods
   disableRelaunchOnLogin(): void;
-  // compoundInstanceMethods
   discardEvents(matching: NSEvent.EventTypeMask, before?: NSEvent): void;
-  // compoundInstanceMethods
   enableRelaunchOnLogin(): void;
-  // compoundInstanceMethods
   endModalSession(_: any): void;
-  // compoundInstanceMethods
   enumerateWindows(options: NSApplication.WindowListOptions, using: (p1: NSWindow, p2: boolean) => void): void;
-  // compoundInstanceMethods
   extendStateRestoration(): void;
-  // compoundInstanceMethods
   finishLaunching(): void;
-  // compoundInstanceMethods
   hide(_?: any): void;
-  // compoundInstanceMethods
   hideOtherApplications(_?: any): void;
-  // compoundInstanceMethods
   miniaturizeAll(_?: any): void;
-  // compoundInstanceMethods
   nextEvent(matching: NSEvent.EventTypeMask, until?: Date, inMode?: string, dequeue?: boolean): NSEvent;
-  // compoundInstanceMethods
   orderFrontCharacterPalette(_?: any): void;
-  // compoundInstanceMethods
   orderFrontColorPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontStandardAboutPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontStandardAboutPanel(options: Map<string, any>): void;
-  // compoundInstanceMethods
   postEvent(_: NSEvent, atStart: boolean): void;
-  // compoundInstanceMethods
   preventWindowOrdering(): void;
-  // compoundInstanceMethods
   registerForRemoteNotifications(matching: NSApplication.RemoteNotificationType): void;
-  // compoundInstanceMethods
   registerForRemoteNotifications(): void;
-  // compoundInstanceMethods
   registerServicesMenuSendTypes(_: string[], returnTypes: string[]): void;
-  // compoundInstanceMethods
   registerUserInterfaceItemSearchHandler(_: any): void;
-  // compoundInstanceMethods
   removeWindowsItem(_: NSWindow): void;
-  // compoundInstanceMethods
   reply(toApplicationShouldTerminate: boolean): void;
-  // compoundInstanceMethods
   reply(toOpenOrPrint: NSApplication.DelegateReply): void;
-  // compoundInstanceMethods
   reportException(_: NSException): void;
-  // compoundInstanceMethods
   requestUserAttention(_: NSApplication.RequestUserAttentionType): number;
-  // compoundInstanceMethods
   restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: Error) => void): boolean;
-  // compoundInstanceMethods
   run(): void;
-  // compoundInstanceMethods
   runModal(for_: NSWindow): number;
-  // compoundInstanceMethods
   runModalSession(_: any): number;
-  // compoundInstanceMethods
   runPageLayout(_?: any): void;
-  // compoundInstanceMethods
   searchString(_: string, inUserInterfaceItemString: string, range: NSRange, found?: NSRange): boolean;
-  // compoundInstanceMethods
   sendAction(_: string, to?: any, from?: any): boolean;
-  // compoundInstanceMethods
   sendEvent(_: NSEvent): void;
-  // compoundInstanceMethods
   setActivationPolicy(_: NSRunningApplication.NSApplication.ActivationPolicy): boolean;
-  // compoundInstanceMethods
   setWindowsNeedUpdate(_: boolean): void;
-  // compoundInstanceMethods
   showHelp(_?: any): void;
-  // compoundInstanceMethods
   stop(_?: any): void;
-  // compoundInstanceMethods
   stopModal(): void;
-  // compoundInstanceMethods
   stopModal(withCode: number): void;
-  // compoundInstanceMethods
   target(forAction: string): any;
-  // compoundInstanceMethods
   target(forAction: string, to?: any, from?: any): any;
-  // compoundInstanceMethods
   terminate(_?: any): void;
-  // compoundInstanceMethods
   toggleTouchBarCustomizationPalette(_?: any): void;
-  // compoundInstanceMethods
   unhide(_?: any): void;
-  // compoundInstanceMethods
   unhideAllApplications(_?: any): void;
-  // compoundInstanceMethods
   unhideWithoutActivation(): void;
-  // compoundInstanceMethods
   unregisterForRemoteNotifications(): void;
-  // compoundInstanceMethods
   unregisterUserInterfaceItemSearchHandler(_: any): void;
-  // compoundInstanceMethods
   updateWindows(): void;
-  // compoundInstanceMethods
   updateWindowsItem(_: NSWindow): void;
-  // compoundInstanceMethods
   window(withWindowNumber: number): NSWindow;
 }
 
@@ -4015,47 +3414,28 @@ export class NSArrayController extends NSObjectController {
   setSelectsInsertedObjects(_: boolean);
   sortDescriptors: NSSortDescriptor[];
   setSortDescriptors(_: NSSortDescriptor[]);
-  // compoundInstanceMethods
   // @ts-ignore 
   add(contentsOf: any[]): void;
-  // compoundInstanceMethods
   addSelectedObjects(_: any[]): boolean;
-  // compoundInstanceMethods
   addSelectionIndexes(_: IndexSet): boolean;
-  // compoundInstanceMethods
   arrange(_: any[]): any[];
-  // compoundInstanceMethods
   didChangeArrangementCriteria(): void;
-  // compoundInstanceMethods
   insert(_?: any): void;
-  // compoundInstanceMethods
   insert(_: any, atArrangedObjectIndex: number): void;
-  // compoundInstanceMethods
   insert(contentsOf: any[], atArrangedObjectIndexes: IndexSet): void;
-  // compoundInstanceMethods
   rearrangeObjects(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   remove(atArrangedObjectIndex: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   remove(contentsOf: any[]): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   remove(atArrangedObjectIndexes: IndexSet): void;
-  // compoundInstanceMethods
   removeSelectedObjects(_: any[]): boolean;
-  // compoundInstanceMethods
   removeSelectionIndexes(_: IndexSet): boolean;
-  // compoundInstanceMethods
   selectNext(_?: any): void;
-  // compoundInstanceMethods
   selectPrevious(_?: any): void;
-  // compoundInstanceMethods
   setSelectedObjects(_: any[]): boolean;
-  // compoundInstanceMethods
   setSelectionIndex(_: number): boolean;
-  // compoundInstanceMethods
   setSelectionIndexes(_: IndexSet): boolean;
 }
 
@@ -4102,63 +3482,34 @@ export class NSBezierPath extends NSObject {
   setDefaultMiterLimit(_: number);
   static defaultWindingRule: NSBezierPath.WindingRule;
   setDefaultWindingRule(_: NSBezierPath.WindingRule);
-  // compoundInstanceMethods
   addClip(): void;
-  // compoundInstanceMethods
   append(_: NSBezierPath): void;
-  // compoundInstanceMethods
   appendArc(from: CGPoint, to: CGPoint, radius: number): void;
-  // compoundInstanceMethods
   appendArc(withCenter: CGPoint, radius: number, startAngle: number, endAngle: number): void;
-  // compoundInstanceMethods
   appendArc(withCenter: CGPoint, radius: number, startAngle: number, endAngle: number, clockwise: boolean): void;
-  // compoundInstanceMethods
   append(withCGGlyph: number, in_: NSFont): void;
-  // compoundInstanceMethods
   append(withCGGlyphs: number, count: number, in_: NSFont): void;
-  // compoundInstanceMethods
   appendOval(in_: CGRect): void;
-  // compoundInstanceMethods
   appendPoints(_: CGPoint, count: number): void;
-  // compoundInstanceMethods
   appendRect(_: CGRect): void;
-  // compoundInstanceMethods
   appendRoundedRect(_: CGRect, xRadius: number, yRadius: number): void;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   contains(_: CGPoint): boolean;
-  // compoundInstanceMethods
   curve(to: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint): void;
-  // compoundInstanceMethods
   element(at: number): NSBezierPath.ElementType;
-  // compoundInstanceMethods
   element(at: number, associatedPoints?: CGPoint): NSBezierPath.ElementType;
-  // compoundInstanceMethods
   fill(): void;
-  // compoundInstanceMethods
   getLineDash(_?: number, count?: number, phase?: number): void;
-  // compoundInstanceMethods
   line(to: CGPoint): void;
-  // compoundInstanceMethods
   move(to: CGPoint): void;
-  // compoundInstanceMethods
   relativeCurve(to: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint): void;
-  // compoundInstanceMethods
   relativeLine(to: CGPoint): void;
-  // compoundInstanceMethods
   relativeMove(to: CGPoint): void;
-  // compoundInstanceMethods
   removeAllPoints(): void;
-  // compoundInstanceMethods
   setAssociatedPoints(_?: CGPoint, at?: number): void;
-  // compoundInstanceMethods
   setClip(): void;
-  // compoundInstanceMethods
   setLineDash(_?: number, count?: number, phase?: number): void;
-  // compoundInstanceMethods
   stroke(): void;
-  // compoundInstanceMethods
   transform(using: AffineTransform): void;
 }
 
@@ -4189,47 +3540,26 @@ export class NSBitmapImageRep extends NSImageRep {
   numberOfPlanes: number;
   isPlanar: boolean;
   samplesPerPixel: number;
-  // compoundInstanceMethods
   converting(to: NSColorSpace, renderingIntent: NSGraphics.NSColorRenderingIntent): NSBitmapImageRep;
-  // compoundInstanceMethods
   retagging(with_: NSColorSpace): NSBitmapImageRep;
-  // compoundInstanceMethods
   canBeCompressed(using: NSBitmapImageRep.TIFFCompression): boolean;
-  // compoundInstanceMethods
   colorAt(x: number, y: number): NSColor;
-  // compoundInstanceMethods
   colorize(byMappingGray: number, to?: NSColor, blackMapping?: NSColor, whiteMapping?: NSColor): void;
-  // compoundInstanceMethods
   getBitmapDataPlanes(_?: string): void;
-  // compoundInstanceMethods
   getCompression(_?: NSBitmapImageRep.TIFFCompression, factor?: number): void;
-  // compoundInstanceMethods
   getPixel(_: number, atX: number, y: number): void;
-  // compoundInstanceMethods
   incrementalLoad(from: Data, complete: boolean): number;
-  // compoundInstanceMethods
   static createWithForIncrementalLoad(): NSBitmapImageRep;
-  // compoundInstanceMethods
   static createWithBitmapDataPlanesWithPixelsWideWithPixelsHighWithBitsPerSampleWithSamplesPerPixelWithHasAlphaWithIsPlanarWithColorSpaceNameWithBitmapFormatWithBytesPerRowWithBitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bitmapFormat?: NSBitmapImageRep.Format, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
-  // compoundInstanceMethods
   static createWithBitmapDataPlanesWithPixelsWideWithPixelsHighWithBitsPerSampleWithSamplesPerPixelWithHasAlphaWithIsPlanarWithColorSpaceNameWithBytesPerRowWithBitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
-  // compoundInstanceMethods
   static createWithCgImage(_: any): NSBitmapImageRep;
-  // compoundInstanceMethods
   static createWithCiImage(_: CIImage): NSBitmapImageRep;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSBitmapImageRep;
-  // compoundInstanceMethods
   representation(using: NSBitmapImageRep.FileType, properties: Map<string, any>): Data;
-  // compoundInstanceMethods
   setColor(_: NSColor, atX: number, y: number): void;
-  // compoundInstanceMethods
   setCompression(_: NSBitmapImageRep.TIFFCompression, factor: number): void;
-  // compoundInstanceMethods
   setPixel(_: number, atX: number, y: number): void;
-  // compoundInstanceMethods
   setProperty(_: string, withValue?: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forProperty: string): any;
 }
@@ -4264,9 +3594,7 @@ export class NSBox extends NSView {
   titleRect: CGRect;
   isTransparent: boolean;
   setTransparent(_: boolean);
-  // compoundInstanceMethods
   setFrameFromContentFrame(_: CGRect): void;
-  // compoundInstanceMethods
   sizeToFit(): void;
 }
 
@@ -4332,101 +3660,55 @@ export class NSBrowser extends NSControl {
   isTitled: boolean;
   setTitled(_: boolean);
   static cellClass: typeof NSObject;
-  // compoundInstanceMethods
   addColumn(): void;
-  // compoundInstanceMethods
   canDragRows(with_: IndexSet, inColumn: number, with_2: NSEvent): boolean;
-  // compoundInstanceMethods
   columnContentWidth(forColumnWidth: number): number;
-  // compoundInstanceMethods
   columnWidth(forColumnContentWidth: number): number;
-  // compoundInstanceMethods
   defaultColumnWidth(): number;
-  // compoundInstanceMethods
   doClick(_?: any): void;
-  // compoundInstanceMethods
   doDoubleClick(_?: any): void;
-  // compoundInstanceMethods
   draggingImageForRows(with_: IndexSet, inColumn: number, with_2: NSEvent, offset?: CGPoint): NSImage;
-  // compoundInstanceMethods
   drawTitle(ofColumn: number, in_: CGRect): void;
-  // compoundInstanceMethods
   editItem(at: IndexPath, with_?: NSEvent, select?: boolean): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   frame(ofColumn: number): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   frame(ofInsideOfColumn: number): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   frame(ofRow: number, inColumn: number): CGRect;
-  // compoundInstanceMethods
   getRow(_?: number, column?: number, for_?: CGPoint): boolean;
-  // compoundInstanceMethods
   indexPath(forColumn: number): IndexPath;
-  // compoundInstanceMethods
   isLeafItem(_?: any): boolean;
-  // compoundInstanceMethods
   item(at: IndexPath): any;
-  // compoundInstanceMethods
   item(atRow: number, inColumn: number): any;
-  // compoundInstanceMethods
   loadColumnZero(): void;
-  // compoundInstanceMethods
   loadedCell(atRow: number, column: number): any;
-  // compoundInstanceMethods
   noteHeightOfRowsWithIndexesChanged(_: IndexSet, inColumn: number): void;
-  // compoundInstanceMethods
   parentForItems(inColumn: number): any;
-  // compoundInstanceMethods
   path(): string;
-  // compoundInstanceMethods
   path(toColumn: number): string;
-  // compoundInstanceMethods
   reloadColumn(_: number): void;
-  // compoundInstanceMethods
   reloadData(forRowIndexes: IndexSet, inColumn: number): void;
-  // compoundInstanceMethods
   scrollColumnToVisible(_: number): void;
-  // compoundInstanceMethods
   scrollColumnsLeft(by: number): void;
-  // compoundInstanceMethods
   scrollColumnsRight(by: number): void;
-  // compoundInstanceMethods
   scrollRowToVisible(_: number, inColumn: number): void;
-  // compoundInstanceMethods
   selectRow(_: number, inColumn: number): void;
-  // compoundInstanceMethods
   selectRowIndexes(_: IndexSet, inColumn: number): void;
-  // compoundInstanceMethods
   selectedRow(inColumn: number): number;
-  // compoundInstanceMethods
   selectedRowIndexes(inColumn: number): IndexSet;
-  // compoundInstanceMethods
   // @ts-ignore 
   sendAction(): boolean;
-  // compoundInstanceMethods
   setCellClass(_: typeof NSObject): void;
-  // compoundInstanceMethods
   setDefaultColumnWidth(_: number): void;
-  // compoundInstanceMethods
   setDraggingSourceOperationMask(_: NSDragging.NSDragOperation, forLocal: boolean): void;
-  // compoundInstanceMethods
   setPath(_: string): boolean;
-  // compoundInstanceMethods
   setTitle(_: string, ofColumn: number): void;
-  // compoundInstanceMethods
   setWidth(_: number, ofColumn: number): void;
-  // compoundInstanceMethods
   tile(): void;
-  // compoundInstanceMethods
   titleFrame(ofColumn: number): CGRect;
-  // compoundInstanceMethods
   title(ofColumn: number): string;
-  // compoundInstanceMethods
   validateVisibleColumns(): void;
-  // compoundInstanceMethods
   width(ofColumn: number): number;
 }
 
@@ -4439,12 +3721,9 @@ export class NSBrowserCell extends NSCell {
   setLoaded(_: boolean);
   static branchImage: NSImage;
   static highlightedBranchImage: NSImage;
-  // compoundInstanceMethods
   // @ts-ignore 
   highlightColor(in_: NSView): NSColor;
-  // compoundInstanceMethods
   reset(): void;
-  // compoundInstanceMethods
   set(): void;
 }
 
@@ -4529,15 +3808,10 @@ export class NSButton extends NSControl {
   setTitle(_: string);
   isTransparent: boolean;
   setTransparent(_: boolean);
-  // compoundInstanceMethods
   getPeriodicDelay(_: number, interval: number): void;
-  // compoundInstanceMethods
   highlight(_: boolean): void;
-  // compoundInstanceMethods
   setButtonType(_: NSButtonCell.NSButton.ButtonType): void;
-  // compoundInstanceMethods
   setNextState(): void;
-  // compoundInstanceMethods
   setPeriodicDelay(_: number, interval: number): void;
 }
 
@@ -4574,19 +3848,12 @@ export class NSButtonCell extends NSActionCell {
   setSound(_: NSSound);
   isTransparent: boolean;
   setTransparent(_: boolean);
-  // compoundInstanceMethods
   drawBezel(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawImage(_: NSImage, withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawTitle(_: NSAttributedString, withFrame: CGRect, in_: NSView): CGRect;
-  // compoundInstanceMethods
   mouseEntered(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseExited(with_: NSEvent): void;
-  // compoundInstanceMethods
   setButtonType(_: NSButtonCell.NSButton.ButtonType): void;
-  // compoundInstanceMethods
   setPeriodicDelay(_: number, interval: number): void;
 }
 
@@ -4610,7 +3877,6 @@ export class NSButtonTouchBarItem extends NSTouchBarItem {
 
 export class NSCIImageRep extends NSImageRep {
   ciImage: CIImage;
-  // compoundInstanceMethods
   static createWithCiImage(_: CIImage): NSCIImageRep;
 }
 
@@ -4631,9 +3897,7 @@ export class NSCandidateListTouchBarItem<CandidateType> extends NSTouchBarItem {
   setCustomizationLabel(_: string);
   delegate: any;
   setDelegate(_: any);
-  // compoundInstanceMethods
   setCandidates(_: CandidateType[], forSelectedRange: NSRange, in_?: string): void;
-  // compoundInstanceMethods
   update(withInsertionPointVisibility: boolean): void;
 }
 
@@ -4745,83 +4009,44 @@ export class NSCell extends NSObject implements NSUserInterfaceItemIdentificatio
   static prefersTrackingUntilMouseUp: boolean;
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   calcDrawInfo(_: CGRect): void;
-  // compoundInstanceMethods
   cellAttribute(_: NSCell.Attribute): number;
-  // compoundInstanceMethods
   compare(_: any): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   continueTracking(last: CGPoint, current: CGPoint, in_: NSView): boolean;
-  // compoundInstanceMethods
   draggingImageComponents(withFrame: CGRect, in_: NSView): NSDraggingImageComponent[];
-  // compoundInstanceMethods
   drawFocusRingMask(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawInterior(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   draw(withExpansionFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   draw(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawingRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   edit(withFrame: CGRect, in_: NSView, editor: NSText, delegate?: any, event?: NSEvent): void;
-  // compoundInstanceMethods
   endEditing(_: NSText): void;
-  // compoundInstanceMethods
   expansionFrame(withFrame: CGRect, in_: NSView): CGRect;
-  // compoundInstanceMethods
   fieldEditor(for_: NSView): NSTextView;
-  // compoundInstanceMethods
   focusRingMaskBounds(forFrame: CGRect, in_: NSView): CGRect;
-  // compoundInstanceMethods
   getPeriodicDelay(_: number, interval: number): void;
-  // compoundInstanceMethods
   highlight(_: boolean, withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   highlightColor(withFrame: CGRect, in_: NSView): NSColor;
-  // compoundInstanceMethods
   hitTest(for_: NSEvent, in_: CGRect, of: NSView): NSCell.HitResult;
-  // compoundInstanceMethods
   imageRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   static createWithImageCell(_?: NSImage): NSCell;
-  // compoundInstanceMethods
   static createWithTextCell(_: string): NSCell;
-  // compoundInstanceMethods
   performClick(_?: any): void;
-  // compoundInstanceMethods
   resetCursorRect(_: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   select(withFrame: CGRect, in_: NSView, editor: NSText, delegate?: any, start?: number, length?: number): void;
-  // compoundInstanceMethods
   sendAction(on: NSEvent.EventTypeMask): number;
-  // compoundInstanceMethods
   setCellAttribute(_: NSCell.Attribute, to: number): void;
-  // compoundInstanceMethods
   setNextState(): void;
-  // compoundInstanceMethods
   setUpFieldEditorAttributes(_: NSText): NSText;
-  // compoundInstanceMethods
   startTracking(at: CGPoint, in_: NSView): boolean;
-  // compoundInstanceMethods
   stopTracking(last: CGPoint, current: CGPoint, in_: NSView, mouseIsUp: boolean): void;
-  // compoundInstanceMethods
   takeDoubleValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeFloatValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeIntValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeIntegerValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeObjectValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeStringValueFrom(_?: any): void;
-  // compoundInstanceMethods
   titleRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   trackMouse(with_: NSEvent, in_: CGRect, of: NSView, untilMouseUp: boolean): boolean;
 }
 
@@ -4853,14 +4078,10 @@ export class NSClipView extends NSView {
   documentVisibleRect: CGRect;
   drawsBackground: boolean;
   setDrawsBackground(_: boolean);
-  // compoundInstanceMethods
   constrainBoundsRect(_: CGRect): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   scroll(to: CGPoint): void;
-  // compoundInstanceMethods
   viewBoundsChanged(_: Notification): void;
-  // compoundInstanceMethods
   viewFrameChanged(_: Notification): void;
 }
 
@@ -4939,7 +4160,6 @@ export class NSCollectionLayoutGroup extends NSCollectionLayoutItem {
   subitems: NSCollectionLayoutItem[];
   supplementaryItems: NSCollectionLayoutSupplementaryItem[];
   setSupplementaryItems(_: NSCollectionLayoutSupplementaryItem[]);
-  // compoundInstanceMethods
   visualDescription(): string;
 }
 
@@ -5041,94 +4261,52 @@ export class NSCollectionView extends NSView {
   setSelectionIndexPaths(_: Set<any>);
   selectionIndexes: IndexSet;
   setSelectionIndexes(_: IndexSet);
-  // compoundInstanceMethods
   deleteItems(at: Set<any>): void;
-  // compoundInstanceMethods
   deleteSections(_: IndexSet): void;
-  // compoundInstanceMethods
   deselectAll(_?: any): void;
-  // compoundInstanceMethods
   deselectItems(at: Set<any>): void;
-  // compoundInstanceMethods
   draggingImageForItems(at: Set<any>, with_: NSEvent, offset: CGPoint): NSImage;
-  // compoundInstanceMethods
   draggingImageForItems(at: IndexSet, with_: NSEvent, offset: CGPoint): NSImage;
-  // compoundInstanceMethods
   frameForItem(at: number): CGRect;
-  // compoundInstanceMethods
   frameForItem(at: number, withNumberOfItems: number): CGRect;
-  // compoundInstanceMethods
   indexPath(for_: NSCollectionViewItem): IndexPath;
-  // compoundInstanceMethods
   indexPathForItem(at: CGPoint): IndexPath;
-  // compoundInstanceMethods
   indexPathsForVisibleItems(): Set<any>;
-  // compoundInstanceMethods
   indexPathsForVisibleSupplementaryElements(ofKind: string): Set<any>;
-  // compoundInstanceMethods
   insertItems(at: Set<any>): void;
-  // compoundInstanceMethods
   insertSections(_: IndexSet): void;
-  // compoundInstanceMethods
   item(at: number): NSCollectionViewItem;
-  // compoundInstanceMethods
   item(at: IndexPath): NSCollectionViewItem;
-  // compoundInstanceMethods
   layoutAttributesForItem(at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForSupplementaryElement(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   makeItem(withIdentifier: string, for_: IndexPath): NSCollectionViewItem;
-  // compoundInstanceMethods
   makeSupplementaryView(ofKind: string, withIdentifier: string, for_: IndexPath): NSView;
-  // compoundInstanceMethods
   moveItem(at: IndexPath, to: IndexPath): void;
-  // compoundInstanceMethods
   moveSection(_: number, toSection: number): void;
-  // compoundInstanceMethods
   numberOfItems(inSection: number): number;
-  // compoundInstanceMethods
   performBatchUpdates(_?: () => void, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   register(_?: typeof NSObject, forItemWithIdentifier?: string): void;
-  // compoundInstanceMethods
   register(_?: typeof NSObject, forSupplementaryViewOfKind?: string, withIdentifier?: string): void;
-  // compoundInstanceMethods
   register(_?: NSNib, forItemWithIdentifier?: string): void;
-  // compoundInstanceMethods
   register(_?: NSNib, forSupplementaryViewOfKind?: string, withIdentifier?: string): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   reloadItems(at: Set<any>): void;
-  // compoundInstanceMethods
   reloadSections(_: IndexSet): void;
-  // compoundInstanceMethods
   scrollToItems(at: Set<any>, scrollPosition: NSCollectionView.ScrollPosition): void;
-  // compoundInstanceMethods
   selectItems(at: Set<any>, scrollPosition: NSCollectionView.ScrollPosition): void;
-  // compoundInstanceMethods
   setDraggingSourceOperationMask(_: NSDragging.NSDragOperation, forLocal: boolean): void;
-  // compoundInstanceMethods
   supplementaryView(forElementKind: string, at: IndexPath): NSView;
-  // compoundInstanceMethods
   toggleSectionCollapse(_: any): void;
-  // compoundInstanceMethods
   visibleItems(): NSCollectionViewItem[];
-  // compoundInstanceMethods
   visibleSupplementaryViews(ofKind: string): NSView[];
 }
 
 export class NSCollectionViewCompositionalLayout extends NSCollectionViewLayout {
   configuration: NSCollectionViewCompositionalLayoutConfiguration;
   setConfiguration(_: NSCollectionViewCompositionalLayoutConfiguration);
-  // compoundInstanceMethods
   static createWithSection(_: NSCollectionLayoutSection): NSCollectionViewCompositionalLayout;
-  // compoundInstanceMethods
   static createWithSectionWithConfiguration(_: NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
-  // compoundInstanceMethods
   static createWithSectionProvider(_: (p1: number, p2: any) => NSCollectionLayoutSection): NSCollectionViewCompositionalLayout;
-  // compoundInstanceMethods
   static createWithSectionProviderWithConfiguration(_: (p1: number, p2: any) => NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
 }
 
@@ -5190,15 +4368,10 @@ interface NSCollectionViewDelegateFlowLayout {
 export class NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType> extends NSObject {
   supplementaryViewProvider: (p1: NSCollectionView, p2: string, p3: IndexPath) => NSView;
   setSupplementaryViewProvider(_: (p1: NSCollectionView, p2: string, p3: IndexPath) => NSView);
-  // compoundInstanceMethods
   applySnapshot(_: NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>, animatingDifferences: boolean): void;
-  // compoundInstanceMethods
   indexPath(forItemIdentifier: ItemIdentifierType): IndexPath;
-  // compoundInstanceMethods
   // static createWithCollectionViewWithItemProvider(_: NSCollectionView, itemProvider: (p1: NSCollectionView, p2: IndexPath, p3: ItemIdentifierType) => NSCollectionViewItem): NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType>;
-  // compoundInstanceMethods
   itemIdentifier(for_: IndexPath): ItemIdentifierType;
-  // compoundInstanceMethods
   snapshot(): NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>;
 }
 
@@ -5231,11 +4404,8 @@ export class NSCollectionViewFlowLayout extends NSCollectionViewLayout {
   setSectionHeadersPinToVisibleBounds(_: boolean);
   sectionInset: NSEdgeInsets;
   setSectionInset(_: NSEdgeInsets);
-  // compoundInstanceMethods
   collapseSection(at: number): void;
-  // compoundInstanceMethods
   expandSection(at: number): void;
-  // compoundInstanceMethods
   section(atIndexIsCollapsed: number): boolean;
 }
 
@@ -5283,73 +4453,39 @@ export class NSCollectionViewLayout extends NSObject {
   collectionViewContentSize: CGSize;
   static invalidationContextClass: typeof NSObject;
   static layoutAttributesClass: typeof NSObject;
-  // compoundInstanceMethods
   finalLayoutAttributesForDisappearingDecorationElement(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   finalLayoutAttributesForDisappearingItem(at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   finalLayoutAttributesForDisappearingSupplementaryElement(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   finalizeAnimatedBoundsChange(): void;
-  // compoundInstanceMethods
   finalizeCollectionViewUpdates(): void;
-  // compoundInstanceMethods
   finalizeLayoutTransition(): void;
-  // compoundInstanceMethods
   indexPathsToDeleteForDecorationView(ofKind: string): Set<any>;
-  // compoundInstanceMethods
   indexPathsToDeleteForSupplementaryView(ofKind: string): Set<any>;
-  // compoundInstanceMethods
   indexPathsToInsertForDecorationView(ofKind: string): Set<any>;
-  // compoundInstanceMethods
   indexPathsToInsertForSupplementaryView(ofKind: string): Set<any>;
-  // compoundInstanceMethods
   initialLayoutAttributesForAppearingDecorationElement(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   initialLayoutAttributesForAppearingItem(at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   initialLayoutAttributesForAppearingSupplementaryElement(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   invalidateLayout(): void;
-  // compoundInstanceMethods
   invalidateLayout(with_: NSCollectionViewLayoutInvalidationContext): void;
-  // compoundInstanceMethods
   invalidationContext(forBoundsChange: CGRect): NSCollectionViewLayoutInvalidationContext;
-  // compoundInstanceMethods
   invalidationContext(forPreferredLayoutAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes: NSCollectionViewLayoutAttributes): NSCollectionViewLayoutInvalidationContext;
-  // compoundInstanceMethods
   layoutAttributesForDecorationView(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForDropTarget(at: CGPoint): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForElements(in_: CGRect): NSCollectionViewLayoutAttributes[];
-  // compoundInstanceMethods
   layoutAttributesForInterItemGap(before: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForItem(at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForSupplementaryView(ofKind: string, at: IndexPath): NSCollectionViewLayoutAttributes;
-  // compoundInstanceMethods
   prepare(forAnimatedBoundsChange: CGRect): void;
-  // compoundInstanceMethods
   prepare(forCollectionViewUpdates: NSCollectionViewUpdateItem[]): void;
-  // compoundInstanceMethods
   prepareForTransition(from: NSCollectionViewLayout): void;
-  // compoundInstanceMethods
   prepareForTransition(to: NSCollectionViewLayout): void;
-  // compoundInstanceMethods
   prepare(): void;
-  // compoundInstanceMethods
   register(_?: typeof NSObject, forDecorationViewOfKind?: string): void;
-  // compoundInstanceMethods
   register(_?: NSNib, forDecorationViewOfKind?: string): void;
-  // compoundInstanceMethods
   shouldInvalidateLayout(forBoundsChange: CGRect): boolean;
-  // compoundInstanceMethods
   shouldInvalidateLayout(forPreferredLayoutAttributes: NSCollectionViewLayoutAttributes, withOriginalAttributes: NSCollectionViewLayoutAttributes): boolean;
-  // compoundInstanceMethods
   targetContentOffset(forProposedContentOffset: CGPoint): CGPoint;
-  // compoundInstanceMethods
   targetContentOffset(forProposedContentOffset: CGPoint, withScrollingVelocity: CGPoint): CGPoint;
 }
 
@@ -5380,11 +4516,8 @@ export class NSCollectionViewLayoutInvalidationContext extends NSObject {
   invalidatedDecorationIndexPaths: Map<string, Set<any>>;
   invalidatedItemIndexPaths: Set<any>;
   invalidatedSupplementaryIndexPaths: Map<string, Set<any>>;
-  // compoundInstanceMethods
   invalidateDecorationElements(ofKind: string, at: Set<any>): void;
-  // compoundInstanceMethods
   invalidateItems(at: Set<any>): void;
-  // compoundInstanceMethods
   invalidateSupplementaryElements(ofKind: string, at: Set<any>): void;
 }
 
@@ -5403,11 +4536,8 @@ export class NSCollectionViewTransitionLayout extends NSCollectionViewLayout {
   nextLayout: NSCollectionViewLayout;
   transitionProgress: number;
   setTransitionProgress(_: number);
-  // compoundInstanceMethods
   static createWithCurrentLayoutWithNextLayout(_: NSCollectionViewLayout, nextLayout: NSCollectionViewLayout): NSCollectionViewTransitionLayout;
-  // compoundInstanceMethods
   updateValue(_: number, forAnimatedKey: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forAnimatedKey: string): number;
 }
@@ -5504,39 +4634,22 @@ export class NSColor extends NSObject {
   static windowBackgroundColor: NSColor;
   static windowFrameTextColor: NSColor;
   static yellow: NSColor;
-  // compoundInstanceMethods
   blended(withFraction: number, of: NSColor): NSColor;
-  // compoundInstanceMethods
   usingColorSpace(_: NSColorSpace): NSColor;
-  // compoundInstanceMethods
   usingType(_: NSColor.ColorType): NSColor;
-  // compoundInstanceMethods
   withAlphaComponent(_: number): NSColor;
-  // compoundInstanceMethods
   withSystemEffect(_: NSColor.SystemEffect): NSColor;
-  // compoundInstanceMethods
   drawSwatch(in_: CGRect): void;
-  // compoundInstanceMethods
   getComponents(_: number): void;
-  // compoundInstanceMethods
   getCyan(_?: number, magenta?: number, yellow?: number, black?: number, alpha?: number): void;
-  // compoundInstanceMethods
   getHue(_?: number, saturation?: number, brightness?: number, alpha?: number): void;
-  // compoundInstanceMethods
   getRed(_?: number, green?: number, blue?: number, alpha?: number): void;
-  // compoundInstanceMethods
   getWhite(_?: number, alpha?: number): void;
-  // compoundInstanceMethods
   highlight(withLevel: number): NSColor;
-  // compoundInstanceMethods
   set(): void;
-  // compoundInstanceMethods
   setFill(): void;
-  // compoundInstanceMethods
   setStroke(): void;
-  // compoundInstanceMethods
   shadow(withLevel: number): NSColor;
-  // compoundInstanceMethods
   write(to: NSPasteboard): void;
 }
 
@@ -5549,21 +4662,13 @@ export class NSColorList extends NSObject {
   isEditable: boolean;
   name: string;
   static availableColorLists: NSColorList[];
-  // compoundInstanceMethods
   color(withKey: string): NSColor;
-  // compoundInstanceMethods
   static createWithName(_: string): NSColorList;
-  // compoundInstanceMethods
   static createWithNameWithFromFile(_: string, fromFile?: string): NSColorList;
-  // compoundInstanceMethods
   insertColor(_: NSColor, key: string, at: number): void;
-  // compoundInstanceMethods
   removeColor(withKey: string): void;
-  // compoundInstanceMethods
   removeFile(): void;
-  // compoundInstanceMethods
   setColor(_: NSColor, forKey: string): void;
-  // compoundInstanceMethods
   writeToURL(error?: URL): boolean;
 }
 
@@ -5584,13 +4689,9 @@ export class NSColorPanel extends NSPanel {
   setShowsAlpha(_: boolean);
   static shared: NSColorPanel;
   static sharedColorPanelExists: boolean;
-  // compoundInstanceMethods
   attachColorList(_: NSColorList): void;
-  // compoundInstanceMethods
   detachColorList(_: NSColorList): void;
-  // compoundInstanceMethods
   setAction(_?: string): void;
-  // compoundInstanceMethods
   setTarget(_?: any): void;
 }
 
@@ -5645,7 +4746,6 @@ interface NSColorPickingDefault {
 }
 
 export class NSColorSampler extends NSObject {
-  // compoundInstanceMethods
   show(selectionHandler?: (p1: NSColor) => void): void;
 }
 
@@ -5669,11 +4769,8 @@ export class NSColorSpace extends NSObject {
   static genericGray: NSColorSpace;
   static genericRGB: NSColorSpace;
   static sRGB: NSColorSpace;
-  // compoundInstanceMethods
   static createWithCgColorSpace(_: any): NSColorSpace;
-  // compoundInstanceMethods
   static createWithColorSyncProfile(_: any): NSColorSpace;
-  // compoundInstanceMethods
   static createWithIccProfileData(_: Data): NSColorSpace;
 }
 
@@ -5685,13 +4782,9 @@ export class NSColorWell extends NSControl {
   setBordered(_: boolean);
   color: NSColor;
   setColor(_: NSColor);
-  // compoundInstanceMethods
   activate(_: boolean): void;
-  // compoundInstanceMethods
   deactivate(): void;
-  // compoundInstanceMethods
   drawWell(inside: CGRect): void;
-  // compoundInstanceMethods
   takeColorFrom(_?: any): void;
 }
 
@@ -5718,35 +4811,20 @@ export class NSComboBox extends NSTextField {
   objectValues: any[];
   usesDataSource: boolean;
   setUsesDataSource(_: boolean);
-  // compoundInstanceMethods
   addItem(withObjectValue: any): void;
-  // compoundInstanceMethods
   addItems(withObjectValues: any[]): void;
-  // compoundInstanceMethods
   deselectItem(at: number): void;
-  // compoundInstanceMethods
   indexOfItem(withObjectValue: any): number;
-  // compoundInstanceMethods
   insertItem(withObjectValue: any, at: number): void;
-  // compoundInstanceMethods
   itemObjectValue(at: number): any;
-  // compoundInstanceMethods
   noteNumberOfItemsChanged(): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   removeItem(withObjectValue: any): void;
-  // compoundInstanceMethods
   scrollItemAtIndexToTop(_: number): void;
-  // compoundInstanceMethods
   scrollItemAtIndexToVisible(_: number): void;
-  // compoundInstanceMethods
   selectItem(at: number): void;
-  // compoundInstanceMethods
   selectItem(withObjectValue?: any): void;
 }
 
@@ -5771,37 +4849,21 @@ export class NSComboBoxCell extends NSTextFieldCell {
   objectValues: any[];
   usesDataSource: boolean;
   setUsesDataSource(_: boolean);
-  // compoundInstanceMethods
   addItem(withObjectValue: any): void;
-  // compoundInstanceMethods
   addItems(withObjectValues: any[]): void;
-  // compoundInstanceMethods
   completedString(_: string): string;
-  // compoundInstanceMethods
   deselectItem(at: number): void;
-  // compoundInstanceMethods
   indexOfItem(withObjectValue: any): number;
-  // compoundInstanceMethods
   insertItem(withObjectValue: any, at: number): void;
-  // compoundInstanceMethods
   itemObjectValue(at: number): any;
-  // compoundInstanceMethods
   noteNumberOfItemsChanged(): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   removeItem(withObjectValue: any): void;
-  // compoundInstanceMethods
   scrollItemAtIndexToTop(_: number): void;
-  // compoundInstanceMethods
   scrollItemAtIndexToVisible(_: number): void;
-  // compoundInstanceMethods
   selectItem(at: number): void;
-  // compoundInstanceMethods
   selectItem(withObjectValue?: any): void;
 }
 
@@ -5878,61 +4940,34 @@ export class NSControl extends NSView {
   setUsesSingleLineMode(_: boolean);
   static cellClass: typeof NSObject;
   setCellClass(_: typeof NSObject);
-  // compoundInstanceMethods
   abortEditing(): boolean;
-  // compoundInstanceMethods
   currentEditor(): NSText;
-  // compoundInstanceMethods
   drawCell(_: NSCell): void;
-  // compoundInstanceMethods
   drawCellInside(_: NSCell): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   draw(withExpansionFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   edit(withFrame: CGRect, editor: NSText, delegate?: any, event?: NSEvent): void;
-  // compoundInstanceMethods
   endEditing(_: NSText): void;
-  // compoundInstanceMethods
   expansionFrame(withFrame: CGRect): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   invalidateIntrinsicContentSize(for_: NSCell): void;
-  // compoundInstanceMethods
   performClick(_?: any): void;
-  // compoundInstanceMethods
   selectCell(_: NSCell): void;
-  // compoundInstanceMethods
   select(withFrame: CGRect, editor: NSText, delegate?: any, start?: number, length?: number): void;
-  // compoundInstanceMethods
   selectedCell(): NSCell;
-  // compoundInstanceMethods
   selectedTag(): number;
-  // compoundInstanceMethods
   sendAction(_?: string, to?: any): boolean;
-  // compoundInstanceMethods
   sendAction(on: NSEvent.EventTypeMask): number;
-  // compoundInstanceMethods
   sizeThatFits(_: CGSize): CGSize;
-  // compoundInstanceMethods
   sizeToFit(): void;
-  // compoundInstanceMethods
   takeDoubleValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeFloatValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeIntValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeIntegerValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeObjectValueFrom(_?: any): void;
-  // compoundInstanceMethods
   takeStringValueFrom(_?: any): void;
-  // compoundInstanceMethods
   updateCell(_: NSCell): void;
-  // compoundInstanceMethods
   updateCellInside(_: NSCell): void;
-  // compoundInstanceMethods
   validateEditing(): void;
 }
 
@@ -5984,13 +5019,9 @@ export class NSCursor extends NSObject {
   static resizeRight: NSCursor;
   static resizeUp: NSCursor;
   static resizeUpDown: NSCursor;
-  // compoundInstanceMethods
   static createWithImageWithHotSpot(_: NSImage, hotSpot: CGPoint): NSCursor;
-  // compoundInstanceMethods
   pop(): void;
-  // compoundInstanceMethods
   push(): void;
-  // compoundInstanceMethods
   set(): void;
 }
 
@@ -5998,9 +5029,7 @@ export class NSCustomImageRep extends NSImageRep {
   delegate: any;
   drawSelector: string;
   drawingHandler: (p1: CGRect) => boolean;
-  // compoundInstanceMethods
   static createWithDrawSelectorWithDelegate(_: string, delegate: any): NSCustomImageRep;
-  // compoundInstanceMethods
   static createWithSizeWithFlippedWithDrawingHandler(_: CGSize, flipped: boolean, drawingHandler: (p1: CGRect) => boolean): NSCustomImageRep;
 }
 
@@ -6015,9 +5044,7 @@ export class NSDataAsset extends NSObject {
   data: Data;
   name: string;
   typeIdentifier: string;
-  // compoundInstanceMethods
   static createWithName(_: string): NSDataAsset;
-  // compoundInstanceMethods
   static createWithNameWithBundle(_: string, bundle: Bundle): NSDataAsset;
 }
 
@@ -6106,7 +5133,6 @@ export class NSDictionaryController extends NSArrayController {
   setLocalizedKeyDictionary(_: Map<string, string>);
   localizedKeyTable: string;
   setLocalizedKeyTable(_: string);
-  // compoundInstanceMethods
   // @ts-ignore 
   newObject(): NSDictionaryControllerKeyValuePair;
 }
@@ -6123,45 +5149,25 @@ export class NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemId
   itemIdentifiers: ItemIdentifierType[];
   numberOfSections: number;
   sectionIdentifiers: SectionIdentifierType[];
-  // compoundInstanceMethods
   appendItems(withIdentifiers: ItemIdentifierType[]): void;
-  // compoundInstanceMethods
   appendItems(withIdentifiers: ItemIdentifierType[], intoSectionWithIdentifier: SectionIdentifierType): void;
-  // compoundInstanceMethods
   appendSections(withIdentifiers: any[]): void;
-  // compoundInstanceMethods
   deleteAllItems(): void;
-  // compoundInstanceMethods
   deleteItems(withIdentifiers: ItemIdentifierType[]): void;
-  // compoundInstanceMethods
   deleteSections(withIdentifiers: SectionIdentifierType[]): void;
-  // compoundInstanceMethods
   index(ofItemIdentifier: ItemIdentifierType): number;
-  // compoundInstanceMethods
   index(ofSectionIdentifier: SectionIdentifierType): number;
-  // compoundInstanceMethods
   insertItems(withIdentifiers: ItemIdentifierType[], afterItemWithIdentifier: ItemIdentifierType): void;
-  // compoundInstanceMethods
   insertItems(withIdentifiers: ItemIdentifierType[], beforeItemWithIdentifier: ItemIdentifierType): void;
-  // compoundInstanceMethods
   insertSections(withIdentifiers: SectionIdentifierType[], afterSectionWithIdentifier: SectionIdentifierType): void;
-  // compoundInstanceMethods
   insertSections(withIdentifiers: SectionIdentifierType[], beforeSectionWithIdentifier: SectionIdentifierType): void;
-  // compoundInstanceMethods
   itemIdentifiersInSection(withIdentifier: SectionIdentifierType): ItemIdentifierType[];
-  // compoundInstanceMethods
   moveItem(withIdentifier: ItemIdentifierType, afterItemWithIdentifier: ItemIdentifierType): void;
-  // compoundInstanceMethods
   moveItem(withIdentifier: ItemIdentifierType, beforeItemWithIdentifier: ItemIdentifierType): void;
-  // compoundInstanceMethods
   moveSection(withIdentifier: SectionIdentifierType, afterSectionWithIdentifier: SectionIdentifierType): void;
-  // compoundInstanceMethods
   moveSection(withIdentifier: SectionIdentifierType, beforeSectionWithIdentifier: SectionIdentifierType): void;
-  // compoundInstanceMethods
   reloadItems(withIdentifiers: ItemIdentifierType[]): void;
-  // compoundInstanceMethods
   reloadSections(withIdentifiers: SectionIdentifierType[]): void;
-  // compoundInstanceMethods
   sectionIdentifier(forSectionContainingItemIdentifier: ItemIdentifierType): SectionIdentifierType;
 }
 
@@ -6174,7 +5180,6 @@ export class NSDockTile extends NSObject {
   showsApplicationBadge: boolean;
   setShowsApplicationBadge(_: boolean);
   size: CGSize;
-  // compoundInstanceMethods
   display(): void;
 }
 
@@ -6233,185 +5238,95 @@ export class NSDocument extends NSObject {
   static restorableStateKeyPaths: string[];
   static usesUbiquitousStorage: boolean;
   static writableTypes: string[];
-  // compoundInstanceMethods
   addWindowController(_: NSWindowController): void;
-  // compoundInstanceMethods
   autosave(withDelegate?: any, didAutosave?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   autosave(withImplicitCancellability: boolean, completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   browseVersions(_?: any): void;
-  // compoundInstanceMethods
   canAsynchronouslyWrite(to: URL, ofType: string, for_: NSDocument.SaveOperationType): boolean;
-  // compoundInstanceMethods
   canClose(withDelegate: any, shouldClose?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   changeCountToken(for_: NSDocument.SaveOperationType): any;
-  // compoundInstanceMethods
   checkAutosavingSafetyAndReturnError(): boolean;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   continueActivity(_: () => void): void;
-  // compoundInstanceMethods
   continueAsynchronousWorkOnMainThread(_: () => void): void;
-  // compoundInstanceMethods
   dataOfType(error: string): Data;
-  // compoundInstanceMethods
   defaultDraftName(): string;
-  // compoundInstanceMethods
   duplicateAndReturnError(): NSDocument;
-  // compoundInstanceMethods
   duplicate(_?: any): void;
-  // compoundInstanceMethods
   duplicate(withDelegate?: any, didDuplicate?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   encodeRestorableState(with_: NSCoder): void;
-  // compoundInstanceMethods
   encodeRestorableState(with_: NSCoder, backgroundQueue: OperationQueue): void;
-  // compoundInstanceMethods
   fileAttributesToWriteToURL(ofType: URL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: URL): Map<string, any>;
-  // compoundInstanceMethods
   fileNameExtension(forType: string, saveOperation: NSDocument.SaveOperationType): string;
-  // compoundInstanceMethods
   fileWrapperOfType(error: string): FileWrapper;
-  // compoundInstanceMethods
   handleClose(_: NSCloseCommand): any;
-  // compoundInstanceMethods
   handlePrint(_: NSScriptCommand): any;
-  // compoundInstanceMethods
   handleSave(_: NSScriptCommand): any;
-  // compoundInstanceMethods
   static createWithForURLWithContentsOfURL(withContentsOfURL?: URL, ofType?: URL, error?: string): NSDocument;
-  // compoundInstanceMethods
   static createWithContentsOf(ofType: URL, error: string): NSDocument;
-  // compoundInstanceMethods
   static createWith(error: string): NSDocument;
-  // compoundInstanceMethods
   invalidateRestorableState(): void;
-  // compoundInstanceMethods
   lock(_?: any): void;
-  // compoundInstanceMethods
   lock(completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   lock(completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   makeWindowControllers(): void;
-  // compoundInstanceMethods
   move(_?: any): void;
-  // compoundInstanceMethods
   moveToUbiquityContainer(_?: any): void;
-  // compoundInstanceMethods
   move(completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   move(to: URL, completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   performActivity(withSynchronousWaiting: boolean, using: (p1: () => void) => void): void;
-  // compoundInstanceMethods
   performAsynchronousFileAccess(_: (p1: () => void) => void): void;
-  // compoundInstanceMethods
   performSynchronousFileAccess(_: () => void): void;
-  // compoundInstanceMethods
   preparePageLayout(_: NSPageLayout): boolean;
-  // compoundInstanceMethods
   prepareSavePanel(_: NSSavePanel): boolean;
-  // compoundInstanceMethods
   prepare(_: NSSharingServicePicker): void;
-  // compoundInstanceMethods
   presentError(_: Error): boolean;
-  // compoundInstanceMethods
   presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   printDocument(_?: any): void;
-  // compoundInstanceMethods
   print(withSettings: Map<string, any>, showPrintPanel: boolean, delegate?: any, didPrint?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   printOperationWithSettings(error: Map<string, any>): NSPrintOperation;
-  // compoundInstanceMethods
   readFromData(ofType: Data, error: string): boolean;
-  // compoundInstanceMethods
   readFromFileWrapper(ofType: FileWrapper, error: string): boolean;
-  // compoundInstanceMethods
   readFromURL(ofType: URL, error: string): boolean;
-  // compoundInstanceMethods
   removeWindowController(_: NSWindowController): void;
-  // compoundInstanceMethods
   rename(_?: any): void;
-  // compoundInstanceMethods
   restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: Error) => void): void;
-  // compoundInstanceMethods
   restoreState(with_: NSCoder): void;
-  // compoundInstanceMethods
   revertToSaved(_?: any): void;
-  // compoundInstanceMethods
   revertToContentsOfURL(ofType: URL, error: string): boolean;
-  // compoundInstanceMethods
   runModalPageLayout(with_: NSPrintInfo, delegate?: any, didRun?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   runModalPrintOperation(_: NSPrintOperation, delegate?: any, didRun?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   runModalSavePanel(for_: NSDocument.SaveOperationType, delegate?: any, didSave?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   runPageLayout(_?: any): void;
-  // compoundInstanceMethods
   save(_?: any): void;
-  // compoundInstanceMethods
   saveAs(_?: any): void;
-  // compoundInstanceMethods
   saveTo(_?: any): void;
-  // compoundInstanceMethods
   saveToPDF(_?: any): void;
-  // compoundInstanceMethods
   save(withDelegate?: any, didSave?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   save(to: URL, ofType: string, for_: NSDocument.SaveOperationType, completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   save(to: URL, ofType: string, for_: NSDocument.SaveOperationType, delegate?: any, didSave?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   scheduleAutosaving(): void;
-  // compoundInstanceMethods
   setDisplayName(_?: string): void;
-  // compoundInstanceMethods
   setWindow(_?: NSWindow): void;
-  // compoundInstanceMethods
   share(with_: NSSharingService, completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   shouldChangePrintInfo(_: NSPrintInfo): boolean;
-  // compoundInstanceMethods
   shouldCloseWindowController(_: NSWindowController, delegate?: any, shouldClose?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   showWindows(): void;
-  // compoundInstanceMethods
   stopBrowsingVersions(completionHandler?: () => void): void;
-  // compoundInstanceMethods
   unblockUserInteraction(): void;
-  // compoundInstanceMethods
   unlock(_?: any): void;
-  // compoundInstanceMethods
   unlock(completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   unlock(completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   updateChangeCount(_: NSDocument.ChangeType): void;
-  // compoundInstanceMethods
   updateChangeCount(withToken: any, for_: NSDocument.SaveOperationType): void;
-  // compoundInstanceMethods
   updateUserActivityState(_: NSUserActivity): void;
-  // compoundInstanceMethods
   willNotPresentError(_: Error): void;
-  // compoundInstanceMethods
   willPresentError(_: Error): Error;
-  // compoundInstanceMethods
   windowControllerDidLoadNib(_: NSWindowController): void;
-  // compoundInstanceMethods
   windowControllerWillLoadNib(_: NSWindowController): void;
-  // compoundInstanceMethods
   // dupe name w static property   writableTypes(for_: NSDocument.SaveOperationType): string[];
-  // compoundInstanceMethods
   writeSafelyToURL(ofType: URL, forSaveOperation: string, error: NSDocument.SaveOperationType): boolean;
-  // compoundInstanceMethods
   writeToURL(ofType: URL, error: string): boolean;
-  // compoundInstanceMethods
   writeToURL(ofType: URL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: URL): boolean;
 }
 
@@ -6428,65 +5343,35 @@ export class NSDocumentController extends NSObject {
   maximumRecentDocumentCount: number;
   recentDocumentURLs: URL[];
   static shared: NSDocumentController;
-  // compoundInstanceMethods
   urlsFromRunningOpenPanel(): URL[];
-  // compoundInstanceMethods
   addDocument(_: NSDocument): void;
-  // compoundInstanceMethods
   beginOpenPanel(_: NSOpenPanel, forTypes?: string[], completionHandler?: (p1: number) => void): void;
-  // compoundInstanceMethods
   beginOpenPanel(completionHandler?: (p1: URL[]) => void): void;
-  // compoundInstanceMethods
   clearRecentDocuments(_?: any): void;
-  // compoundInstanceMethods
   closeAllDocuments(withDelegate?: any, didCloseAllSelector?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   displayName(forType: string): string;
-  // compoundInstanceMethods
   documentClass(forType: string): typeof NSObject;
-  // compoundInstanceMethods
   document(for_: URL): NSDocument;
-  // compoundInstanceMethods
   document(for_: NSWindow): NSDocument;
-  // compoundInstanceMethods
   duplicateDocumentWithContentsOfURL(copying: URL, displayName: boolean, error?: string): NSDocument;
-  // compoundInstanceMethods
   makeDocumentForURL(withContentsOfURL?: URL, ofType?: URL, error?: string): NSDocument;
-  // compoundInstanceMethods
   makeDocumentWithContentsOfURL(ofType: URL, error: string): NSDocument;
-  // compoundInstanceMethods
   makeUntitledDocumentOfType(error: string): NSDocument;
-  // compoundInstanceMethods
   newDocument(_?: any): void;
-  // compoundInstanceMethods
   noteNewRecentDocument(_: NSDocument): void;
-  // compoundInstanceMethods
   noteNewRecentDocumentURL(_: URL): void;
-  // compoundInstanceMethods
   openDocument(_?: any): void;
-  // compoundInstanceMethods
   openDocument(withContentsOf: URL, display: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: Error) => void): void;
-  // compoundInstanceMethods
   openUntitledDocumentAndDisplay(error: boolean): NSDocument;
-  // compoundInstanceMethods
   presentError(_: Error): boolean;
-  // compoundInstanceMethods
   presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   removeDocument(_: NSDocument): void;
-  // compoundInstanceMethods
   reopenDocument(for_?: URL, withContentsOf?: URL, display?: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: Error) => void): void;
-  // compoundInstanceMethods
   reviewUnsavedDocuments(withAlertTitle?: string, cancellable?: boolean, delegate?: any, didReviewAllSelector?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   runModalOpenPanel(_: NSOpenPanel, forTypes?: string[]): number;
-  // compoundInstanceMethods
   saveAllDocuments(_?: any): void;
-  // compoundInstanceMethods
   standardShareMenuItem(): NSMenuItem;
-  // compoundInstanceMethods
   typeForContentsOfURL(error: URL): string;
-  // compoundInstanceMethods
   willPresentError(_: Error): Error;
 }
 
@@ -6511,7 +5396,6 @@ export class NSDraggingImageComponent extends NSObject {
   setFrame(_: CGRect);
   key: string;
   setKey(_: string);
-  // compoundInstanceMethods
   static createWithKey(_: string): NSDraggingImageComponent;
 }
 
@@ -6543,9 +5427,7 @@ export class NSDraggingItem extends NSObject {
   imageComponentsProvider: () => NSDraggingImageComponent[];
   setImageComponentsProvider(_: () => NSDraggingImageComponent[]);
   item: any;
-  // compoundInstanceMethods
   static createWithPasteboardWriter(_: any): NSDraggingItem;
-  // compoundInstanceMethods
   setDraggingFrame(_: CGRect, contents?: any): void;
 }
 
@@ -6559,7 +5441,6 @@ export class NSDraggingSession extends NSObject {
   draggingLocation: CGPoint;
   draggingPasteboard: NSPasteboard;
   draggingSequenceNumber: number;
-  // compoundInstanceMethods
   enumerateDraggingItems(options: NSDragging.NSDraggingItemEnumerationOptions, for_?: NSView, classes?: typeof NSObject[], searchOptions?: Map<string, any>, using?: (p1: NSDraggingItem, p2: number, p3: boolean) => void): void;
 }
 
@@ -6601,7 +5482,6 @@ interface NSDrawerDelegate {
 export class NSEPSImageRep extends NSImageRep {
   epsRepresentation: Data;
   boundingBox: CGRect;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSEPSImageRep;
 }
 
@@ -6692,15 +5572,10 @@ export class NSEvent extends NSObject {
   static mouseLocation: CGPoint;
   static pressedMouseButtons: number;
   static isSwipeTrackingFromScrollEventsEnabled: boolean;
-  // compoundInstanceMethods
   allTouches(): Set<any>;
-  // compoundInstanceMethods
   coalescedTouches(for_: NSTouch): NSTouch[];
-  // compoundInstanceMethods
   touches(for_: NSView): Set<any>;
-  // compoundInstanceMethods
   touches(matching: NSTouch.Phase, in_?: NSView): Set<any>;
-  // compoundInstanceMethods
   trackSwipeEvent(options: NSEvent.SwipeTrackingOptions, dampenAmountThresholdMin: number, max: number, usingHandler: (p1: number, p2: NSEvent.Phase, p3: boolean, p4: boolean) => void): void;
 }
 
@@ -6711,7 +5586,6 @@ export class NSFilePromiseProvider extends NSObject {
   setFileType(_: string);
   userInfo: any;
   setUserInfo(_: any);
-  // compoundInstanceMethods
   static createWithFileTypeWithDelegate(_: string, delegate: any): NSFilePromiseProvider;
 }
 
@@ -6725,7 +5599,6 @@ export class NSFilePromiseReceiver extends NSObject {
   fileNames: string[];
   fileTypes: string[];
   static readableDraggedTypes: string[];
-  // compoundInstanceMethods
   receivePromisedFiles(atDestination: URL, options: Map<any, any>, operationQueue: OperationQueue, reader?: (p1: URL, p2: Error) => void): void;
 }
 
@@ -6777,39 +5650,24 @@ export class NSFont extends NSObject {
   static labelFontSize: number;
   static smallSystemFontSize: number;
   static systemFontSize: number;
-  // compoundInstanceMethods
   advancement(forCGGlyph: number): CGSize;
-  // compoundInstanceMethods
   advancement(forGlyph: number): CGSize;
-  // compoundInstanceMethods
   boundingRect(forCGGlyph: number): CGRect;
-  // compoundInstanceMethods
   boundingRect(forGlyph: number): CGRect;
-  // compoundInstanceMethods
   getAdvancements(_: CGSize, forCGGlyphs: number, count: number): void;
-  // compoundInstanceMethods
   getAdvancements(_: CGSize, forGlyphs: number, count: number): void;
-  // compoundInstanceMethods
   getAdvancements(_: CGSize, forPackedGlyphs: any, length: number): void;
-  // compoundInstanceMethods
   getBoundingRects(_: CGRect, forCGGlyphs: number, count: number): void;
-  // compoundInstanceMethods
   getBoundingRects(_: CGRect, forGlyphs: number, count: number): void;
-  // compoundInstanceMethods
   glyph(withName: string): number;
-  // compoundInstanceMethods
   // dupe name w instance property   screenFont(with_: NSFont.NSFontRenderingMode): NSFont;
-  // compoundInstanceMethods
   set(): void;
-  // compoundInstanceMethods
   set(in_: NSGraphicsContext): void;
 }
 
 export class NSFontAssetRequest extends NSObject {
   downloadedFontDescriptors: NSFontDescriptor[];
-  // compoundInstanceMethods
   download(withCompletionHandler?: (p1: Error) => boolean): void;
-  // compoundInstanceMethods
   static createWithFontDescriptorsWithOptions(_: NSFontDescriptor[], options: NSFontAssetRequest.Options): NSFontAssetRequest;
 }
 
@@ -6835,27 +5693,16 @@ export class NSFontDescriptor extends NSObject {
   postscriptName: string;
   requiresFontAssetRequest: boolean;
   symbolicTraits: NSFontDescriptor.SymbolicTraits;
-  // compoundInstanceMethods
   addingAttributes(_: Map<string, any>): NSFontDescriptor;
-  // compoundInstanceMethods
   createWithDesign(_: string): NSFontDescriptor;
-  // compoundInstanceMethods
   withFace(_: string): NSFontDescriptor;
-  // compoundInstanceMethods
   withFamily(_: string): NSFontDescriptor;
-  // compoundInstanceMethods
   withMatrix(_: AffineTransform): NSFontDescriptor;
-  // compoundInstanceMethods
   withSize(_: number): NSFontDescriptor;
-  // compoundInstanceMethods
   withSymbolicTraits(_: NSFontDescriptor.SymbolicTraits): NSFontDescriptor;
-  // compoundInstanceMethods
   static createWithFontAttributes(_?: Map<string, any>): NSFontDescriptor;
-  // compoundInstanceMethods
   matchingFontDescriptor(withMandatoryKeys?: Set<any>): NSFontDescriptor;
-  // compoundInstanceMethods
   matchingFontDescriptors(withMandatoryKeys?: Set<any>): NSFontDescriptor[];
-  // compoundInstanceMethods
   object(forKey: string): any;
 }
 
@@ -6875,61 +5722,33 @@ export class NSFontManager extends NSObject {
   target: any;
   setTarget(_: any);
   static shared: NSFontManager;
-  // compoundInstanceMethods
   addFontTrait(_?: any): void;
-  // compoundInstanceMethods
   availableFontNames(with_: NSFontManager.NSFontTraitMask): string[];
-  // compoundInstanceMethods
   availableMembers(ofFontFamily: string): any[][];
-  // compoundInstanceMethods
   convertAttributes(_: Map<string, any>): Map<string, any>;
-  // compoundInstanceMethods
   convert(_: NSFont): NSFont;
-  // compoundInstanceMethods
   convert(_: NSFont, toFace: string): NSFont;
-  // compoundInstanceMethods
   convert(_: NSFont, toFamily: string): NSFont;
-  // compoundInstanceMethods
   convert(_: NSFont, toHaveTrait: NSFontManager.NSFontTraitMask): NSFont;
-  // compoundInstanceMethods
   convert(_: NSFont, toNotHaveTrait: NSFontManager.NSFontTraitMask): NSFont;
-  // compoundInstanceMethods
   convert(_: NSFont, toSize: number): NSFont;
-  // compoundInstanceMethods
   convertFontTraits(_: NSFontManager.NSFontTraitMask): NSFontManager.NSFontTraitMask;
-  // compoundInstanceMethods
   convertWeight(_: boolean, of: NSFont): NSFont;
-  // compoundInstanceMethods
   fontMenu(_: boolean): NSMenu;
-  // compoundInstanceMethods
   fontNamed(_: string, hasTraits: NSFontManager.NSFontTraitMask): boolean;
-  // compoundInstanceMethods
   fontPanel(_: boolean): NSFontPanel;
-  // compoundInstanceMethods
   font(withFamily: string, traits: NSFontManager.NSFontTraitMask, weight: number, size: number): NSFont;
-  // compoundInstanceMethods
   localizedName(forFamily: string, face?: string): string;
-  // compoundInstanceMethods
   modifyFont(_?: any): void;
-  // compoundInstanceMethods
   modifyFontViaPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontFontPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontStylesPanel(_?: any): void;
-  // compoundInstanceMethods
   removeFontTrait(_?: any): void;
-  // compoundInstanceMethods
   sendAction(): boolean;
-  // compoundInstanceMethods
   setFontMenu(_: NSMenu): void;
-  // compoundInstanceMethods
   setSelectedAttributes(_: Map<string, any>, isMultiple: boolean): void;
-  // compoundInstanceMethods
   setSelectedFont(_: NSFont, isMultiple: boolean): void;
-  // compoundInstanceMethods
   traits(of: NSFont): NSFontManager.NSFontTraitMask;
-  // compoundInstanceMethods
   weight(of: NSFont): number;
 }
 
@@ -6941,11 +5760,8 @@ export class NSFontPanel extends NSPanel {
   setEnabled(_: boolean);
   static shared: NSFontPanel;
   static sharedFontPanelExists: boolean;
-  // compoundInstanceMethods
   convert(_: NSFont): NSFont;
-  // compoundInstanceMethods
   reloadDefaultFontFamilies(): void;
-  // compoundInstanceMethods
   setPanelFont(_: NSFont, isMultiple: boolean): void;
 }
 
@@ -7000,59 +5816,32 @@ export class NSGestureRecognizer extends NSObject {
   setState(_: NSGestureRecognizer.State);
   target: any;
   setTarget(_: any);
-  // compoundInstanceMethods
   canBePrevented(by: NSGestureRecognizer): boolean;
-  // compoundInstanceMethods
   canPrevent(_: NSGestureRecognizer): boolean;
-  // compoundInstanceMethods
   flagsChanged(with_: NSEvent): void;
-  // compoundInstanceMethods
   static createWithTargetWithAction(_?: any, action?: string): NSGestureRecognizer;
-  // compoundInstanceMethods
   keyDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   keyUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   location(in_?: NSView): CGPoint;
-  // compoundInstanceMethods
   magnify(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   otherMouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   otherMouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   otherMouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   pressureChange(with_: NSEvent): void;
-  // compoundInstanceMethods
   reset(): void;
-  // compoundInstanceMethods
   rightMouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   rightMouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   rightMouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   rotate(with_: NSEvent): void;
-  // compoundInstanceMethods
   shouldBeRequiredToFail(by: NSGestureRecognizer): boolean;
-  // compoundInstanceMethods
   shouldRequireFailure(of: NSGestureRecognizer): boolean;
-  // compoundInstanceMethods
   tabletPoint(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesBegan(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesCancelled(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesEnded(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesMoved(with_: NSEvent): void;
 }
 
@@ -7071,7 +5860,6 @@ interface NSGestureRecognizerDelegate {
 
 export class NSGlyphGenerator extends NSObject {
   static shared: NSGlyphGenerator;
-  // compoundInstanceMethods
   generateGlyphs(for_: any, desiredNumberOfCharacters: number, glyphIndex?: number, characterIndex?: number): void;
 }
 
@@ -7093,29 +5881,17 @@ interface NSGlyphStorage {
 export class NSGradient extends NSObject {
   colorSpace: NSColorSpace;
   numberOfColorStops: number;
-  // compoundInstanceMethods
   draw(fromCenter: CGPoint, radius: number, toCenter: CGPoint, radius2: number, options: NSGradient.DrawingOptions): void;
-  // compoundInstanceMethods
   draw(from: CGPoint, to: CGPoint, options: NSGradient.DrawingOptions): void;
-  // compoundInstanceMethods
   draw(in_: NSBezierPath, angle: number): void;
-  // compoundInstanceMethods
   draw(in_: NSBezierPath, relativeCenterPosition: CGPoint): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, angle: number): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, relativeCenterPosition: CGPoint): void;
-  // compoundInstanceMethods
   getColor(_?: NSColor, location?: number, at?: number): void;
-  // compoundInstanceMethods
   static createWithColors(_: NSColor[]): NSGradient;
-  // compoundInstanceMethods
   static createWithColorsWithAtLocationsWithColorSpace(_: NSColor[], atLocations?: number, colorSpace?: NSColorSpace): NSGradient;
-  // compoundInstanceMethods
   static createWithColorsAndLocations(_: NSColor): NSGradient;
-  // compoundInstanceMethods
   static createWithStartingColorWithEndingColor(_: NSColor, endingColor: NSColor): NSGradient;
-  // compoundInstanceMethods
   interpolatedColor(atLocation: number): NSColor;
 }
 
@@ -7140,11 +5916,8 @@ export class NSGraphicsContext extends NSObject {
   setShouldAntialias(_: boolean);
   static current: NSGraphicsContext;
   setCurrentContext(_: NSGraphicsContext);
-  // compoundInstanceMethods
   flushGraphics(): void;
-  // compoundInstanceMethods
   restoreGraphicsState(): void;
-  // compoundInstanceMethods
   saveGraphicsState(): void;
 }
 
@@ -7177,9 +5950,7 @@ export class NSGridColumn extends NSObject {
   setWidth(_: number);
   xPlacement: NSGridView.NSGridCell.Placement;
   setXPlacement(_: NSGridView.NSGridCell.Placement);
-  // compoundInstanceMethods
   cell(at: number): NSGridCell;
-  // compoundInstanceMethods
   mergeCells(in_: NSRange): void;
 }
 
@@ -7198,9 +5969,7 @@ export class NSGridRow extends NSObject {
   setTopPadding(_: number);
   yPlacement: NSGridView.NSGridCell.Placement;
   setYPlacement(_: NSGridView.NSGridCell.Placement);
-  // compoundInstanceMethods
   cell(at: number): NSGridCell;
-  // compoundInstanceMethods
   mergeCells(in_: NSRange): void;
 }
 
@@ -7217,35 +5986,20 @@ export class NSGridView extends NSView {
   setXPlacement(_: NSGridView.NSGridCell.Placement);
   yPlacement: NSGridView.NSGridCell.Placement;
   setYPlacement(_: NSGridView.NSGridCell.Placement);
-  // compoundInstanceMethods
   addColumn(with_: NSView[]): NSGridColumn;
-  // compoundInstanceMethods
   addRow(with_: NSView[]): NSGridRow;
-  // compoundInstanceMethods
   cell(atColumnIndex: number, rowIndex: number): NSGridCell;
-  // compoundInstanceMethods
   cell(for_: NSView): NSGridCell;
-  // compoundInstanceMethods
   column(at: number): NSGridColumn;
-  // compoundInstanceMethods
   index(of: NSGridColumn): number;
-  // compoundInstanceMethods
   index(of: NSGridRow): number;
-  // compoundInstanceMethods
   insertColumn(at: number, with_: NSView[]): NSGridColumn;
-  // compoundInstanceMethods
   insertRow(at: number, with_: NSView[]): NSGridRow;
-  // compoundInstanceMethods
   mergeCells(inHorizontalRange: NSRange, verticalRange: NSRange): void;
-  // compoundInstanceMethods
   moveColumn(at: number, to: number): void;
-  // compoundInstanceMethods
   moveRow(at: number, to: number): void;
-  // compoundInstanceMethods
   removeColumn(at: number): void;
-  // compoundInstanceMethods
   removeRow(at: number): void;
-  // compoundInstanceMethods
   row(at: number): NSGridRow;
 }
 
@@ -7277,19 +6031,12 @@ export class NSHelpManager extends NSObject {
   static isContextHelpModeActive: boolean;
   setContextHelpModeActive(_: boolean);
   static shared: NSHelpManager;
-  // compoundInstanceMethods
   contextHelp(for_: any): NSAttributedString;
-  // compoundInstanceMethods
   find(_: string, inBook?: string): void;
-  // compoundInstanceMethods
   openHelpAnchor(_: string, inBook?: string): void;
-  // compoundInstanceMethods
   registerBooks(in_: Bundle): boolean;
-  // compoundInstanceMethods
   removeContextHelp(for_: any): void;
-  // compoundInstanceMethods
   setContextHelp(_: NSAttributedString, for_: any): void;
-  // compoundInstanceMethods
   showContextHelp(for_: any, locationHint: CGPoint): boolean;
 }
 
@@ -7329,63 +6076,34 @@ export class NSImage extends NSObject {
   isValid: boolean;
   static imageTypes: string[];
   static imageUnfilteredTypes: string[];
-  // compoundInstanceMethods
   cgImage(forProposedRect?: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>): any;
-  // compoundInstanceMethods
   addRepresentation(_: NSImageRep): void;
-  // compoundInstanceMethods
   addRepresentations(_: NSImageRep[]): void;
-  // compoundInstanceMethods
   bestRepresentation(for_: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>): NSImageRep;
-  // compoundInstanceMethods
   cancelIncrementalLoad(): void;
-  // compoundInstanceMethods
   draw(at: CGPoint, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number): void;
-  // compoundInstanceMethods
   draw(in_: CGRect): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number, respectFlipped: boolean, hints?: Map<string, any>): void;
-  // compoundInstanceMethods
   drawRepresentation(_: NSImageRep, in_: CGRect): boolean;
-  // compoundInstanceMethods
   hitTest(_: CGRect, withDestinationRect: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>, flipped?: boolean): boolean;
-  // compoundInstanceMethods
   static createWithByReferencingFile(_: string): NSImage;
-  // compoundInstanceMethods
   static createWithCgImageWithSize(_: any, size: CGSize): NSImage;
-  // compoundInstanceMethods
   static createWithContentsOfFile(_: string): NSImage;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): NSImage;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSImage;
-  // compoundInstanceMethods
   static createWithDataIgnoringOrientation(_: Data): NSImage;
-  // compoundInstanceMethods
   static createWithIconRef(_: any): NSImage;
-  // compoundInstanceMethods
   static createWithPasteboard(_: NSPasteboard): NSImage;
-  // compoundInstanceMethods
   static createWithSize(_: CGSize): NSImage;
-  // compoundInstanceMethods
   layerContents(forContentsScale: number): any;
-  // compoundInstanceMethods
   lockFocus(): void;
-  // compoundInstanceMethods
   lockFocusFlipped(_: boolean): void;
-  // compoundInstanceMethods
   name(): string;
-  // compoundInstanceMethods
   recache(): void;
-  // compoundInstanceMethods
   recommendedLayerContentsScale(_: number): number;
-  // compoundInstanceMethods
   removeRepresentation(_: NSImageRep): void;
-  // compoundInstanceMethods
   setName(_?: string): boolean;
-  // compoundInstanceMethods
   unlockFocus(): void;
 }
 
@@ -7438,15 +6156,10 @@ export class NSImageRep extends NSObject {
   static imageTypes: string[];
   static imageUnfilteredTypes: string[];
   static registeredClasses: typeof NSObject[];
-  // compoundInstanceMethods
   cgImage(forProposedRect?: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>): any;
-  // compoundInstanceMethods
   draw(): boolean;
-  // compoundInstanceMethods
   draw(at: CGPoint): boolean;
-  // compoundInstanceMethods
   draw(in_: CGRect): boolean;
-  // compoundInstanceMethods
   draw(in_: CGRect, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number, respectFlipped: boolean, hints?: Map<string, any>): boolean;
 }
 
@@ -7482,17 +6195,11 @@ export class NSLayoutAnchor<AnchorType> extends NSObject {
   hasAmbiguousLayout: boolean;
   item: any;
   name: string;
-  // compoundInstanceMethods
   constraint(equalTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  // compoundInstanceMethods
   constraint(equalTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   constraint(greaterThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  // compoundInstanceMethods
   constraint(greaterThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   constraint(lessThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
-  // compoundInstanceMethods
   constraint(lessThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
 }
 
@@ -7521,31 +6228,22 @@ export class NSLayoutConstraint extends NSObject {
 }
 
 export class NSLayoutDimension extends NSLayoutAnchor<NSLayoutDimension> {
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(equalTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(equalTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(equalToConstant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(greaterThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(greaterThanOrEqualToConstant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(lessThanOrEqualTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(lessThanOrEqualTo: NSLayoutDimension, multiplier: number, constant: number): NSLayoutConstraint;
-  // compoundInstanceMethods
   // @ts-ignore 
   constraint(lessThanOrEqualToConstant: number): NSLayoutConstraint;
 }
@@ -7567,7 +6265,6 @@ export class NSLayoutGuide extends NSObject implements NSUserInterfaceItemIdenti
   widthAnchor: NSLayoutDimension;
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   constraintsAffectingLayout(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint[];
 }
 
@@ -7606,191 +6303,98 @@ export class NSLayoutManager extends NSObject {
   setUsesDefaultHyphenation(_: boolean);
   usesFontLeading: boolean;
   setUsesFontLeading(_: boolean);
-  // compoundInstanceMethods
   cgGlyph(at: number): number;
-  // compoundInstanceMethods
   cgGlyph(at: number, isValidIndex?: boolean): number;
-  // compoundInstanceMethods
   addTemporaryAttribute(_: string, value: any, forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   addTemporaryAttributes(_: Map<string, any>, forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   addTextContainer(_: NSTextContainer): void;
-  // compoundInstanceMethods
   attachmentSize(forGlyphAt: number): CGSize;
-  // compoundInstanceMethods
   boundingRect(forGlyphRange: NSRange, in_: NSTextContainer): CGRect;
-  // compoundInstanceMethods
   boundsRect(for_: NSTextBlock, at: number, effectiveRange?: NSRange): CGRect;
-  // compoundInstanceMethods
   boundsRect(for_: NSTextBlock, glyphRange: NSRange): CGRect;
-  // compoundInstanceMethods
   characterIndexForGlyph(at: number): number;
-  // compoundInstanceMethods
   characterIndex(for_: CGPoint, in_: NSTextContainer, fractionOfDistanceBetweenInsertionPoints?: number): number;
-  // compoundInstanceMethods
   characterRange(forGlyphRange: NSRange, actualGlyphRange?: NSRange): NSRange;
-  // compoundInstanceMethods
   defaultBaselineOffset(for_: NSFont): number;
-  // compoundInstanceMethods
   defaultLineHeight(for_: NSFont): number;
-  // compoundInstanceMethods
   drawBackground(forGlyphRange: NSRange, at: CGPoint): void;
-  // compoundInstanceMethods
   drawGlyphs(forGlyphRange: NSRange, at: CGPoint): void;
-  // compoundInstanceMethods
   drawStrikethrough(forGlyphRange: NSRange, strikethroughType: NSAttributedString.NSUnderlineStyle, baselineOffset: number, lineFragmentRect: CGRect, lineFragmentGlyphRange: NSRange, containerOrigin: CGPoint): void;
-  // compoundInstanceMethods
   drawUnderline(forGlyphRange: NSRange, underlineType: NSAttributedString.NSUnderlineStyle, baselineOffset: number, lineFragmentRect: CGRect, lineFragmentGlyphRange: NSRange, containerOrigin: CGPoint): void;
-  // compoundInstanceMethods
   drawsOutsideLineFragment(forGlyphAt: number): boolean;
-  // compoundInstanceMethods
   ensureGlyphs(forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   ensureGlyphs(forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   ensureLayout(forBoundingRect: CGRect, in_: NSTextContainer): void;
-  // compoundInstanceMethods
   ensureLayout(forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   ensureLayout(forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   ensureLayout(for_: NSTextContainer): void;
-  // compoundInstanceMethods
   enumerateEnclosingRects(forGlyphRange: NSRange, withinSelectedGlyphRange: NSRange, in_: NSTextContainer, using: (p1: CGRect, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateLineFragments(forGlyphRange: NSRange, using: (p1: CGRect, p2: CGRect, p3: NSTextContainer, p4: NSRange, p5: boolean) => void): void;
-  // compoundInstanceMethods
   fillBackgroundRectArray(_: CGRect, count: number, forCharacterRange: NSRange, color: NSColor): void;
-  // compoundInstanceMethods
   firstUnlaidCharacterIndex(): number;
-  // compoundInstanceMethods
   firstUnlaidGlyphIndex(): number;
-  // compoundInstanceMethods
   fractionOfDistanceThroughGlyph(for_: CGPoint, in_: NSTextContainer): number;
-  // compoundInstanceMethods
   getFirstUnlaidCharacterIndex(_?: number, glyphIndex?: number): void;
-  // compoundInstanceMethods
   getGlyphs(in_: NSRange, glyphs?: number, properties?: NSLayoutManager.GlyphProperty, characterIndexes?: number, bidiLevels?: string): number;
-  // compoundInstanceMethods
   getLineFragmentInsertionPoints(forCharacterAt: number, alternatePositions: boolean, inDisplayOrder: boolean, positions?: number, characterIndexes?: number): number;
-  // compoundInstanceMethods
   glyph(at: number): number;
-  // compoundInstanceMethods
   glyph(at: number, isValidIndex?: boolean): number;
-  // compoundInstanceMethods
   glyphIndexForCharacter(at: number): number;
-  // compoundInstanceMethods
   glyphIndex(for_: CGPoint, in_: NSTextContainer): number;
-  // compoundInstanceMethods
   glyphIndex(for_: CGPoint, in_: NSTextContainer, fractionOfDistanceThroughGlyph?: number): number;
-  // compoundInstanceMethods
   glyphRange(forBoundingRect: CGRect, in_: NSTextContainer): NSRange;
-  // compoundInstanceMethods
   glyphRange(forBoundingRectWithoutAdditionalLayout: CGRect, in_: NSTextContainer): NSRange;
-  // compoundInstanceMethods
   glyphRange(forCharacterRange: NSRange, actualCharacterRange?: NSRange): NSRange;
-  // compoundInstanceMethods
   glyphRange(for_: NSTextContainer): NSRange;
-  // compoundInstanceMethods
   insertTextContainer(_: NSTextContainer, at: number): void;
-  // compoundInstanceMethods
   invalidateDisplay(forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   invalidateDisplay(forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   invalidateGlyphs(forCharacterRange: NSRange, changeInLength: number, actualCharacterRange?: NSRange): void;
-  // compoundInstanceMethods
   invalidateLayout(forCharacterRange: NSRange, actualCharacterRange?: NSRange): void;
-  // compoundInstanceMethods
   isValidGlyphIndex(_: number): boolean;
-  // compoundInstanceMethods
   layoutManagerOwnsFirstResponder(in_: NSWindow): boolean;
-  // compoundInstanceMethods
   layoutRect(for_: NSTextBlock, at: number, effectiveRange?: NSRange): CGRect;
-  // compoundInstanceMethods
   layoutRect(for_: NSTextBlock, glyphRange: NSRange): CGRect;
-  // compoundInstanceMethods
   lineFragmentRect(forGlyphAt: number, effectiveRange?: NSRange): CGRect;
-  // compoundInstanceMethods
   lineFragmentRect(forGlyphAt: number, effectiveRange?: NSRange, withoutAdditionalLayout?: boolean): CGRect;
-  // compoundInstanceMethods
   lineFragmentUsedRect(forGlyphAt: number, effectiveRange?: NSRange): CGRect;
-  // compoundInstanceMethods
   lineFragmentUsedRect(forGlyphAt: number, effectiveRange?: NSRange, withoutAdditionalLayout?: boolean): CGRect;
-  // compoundInstanceMethods
   location(forGlyphAt: number): CGPoint;
-  // compoundInstanceMethods
   notShownAttribute(forGlyphAt: number): boolean;
-  // compoundInstanceMethods
   processEditing(for_: NSTextStorage, edited: NSTextStorage.NSTextStorageEditActions, range: NSRange, changeInLength: number, invalidatedRange: NSRange): void;
-  // compoundInstanceMethods
   propertyForGlyph(at: number): NSLayoutManager.GlyphProperty;
-  // compoundInstanceMethods
   range(ofNominallySpacedGlyphsContaining: number): NSRange;
-  // compoundInstanceMethods
   rectArray(forCharacterRange: NSRange, withinSelectedCharacterRange: NSRange, in_: NSTextContainer, rectCount: number): CGRect;
-  // compoundInstanceMethods
   rectArray(forGlyphRange: NSRange, withinSelectedGlyphRange: NSRange, in_: NSTextContainer, rectCount: number): CGRect;
-  // compoundInstanceMethods
   removeTemporaryAttribute(_: string, forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   removeTextContainer(at: number): void;
-  // compoundInstanceMethods
   replaceTextStorage(_: NSTextStorage): void;
-  // compoundInstanceMethods
   rulerAccessoryView(for_: NSTextView, paragraphStyle: NSParagraphStyle, ruler: NSRulerView, enabled: boolean): NSView;
-  // compoundInstanceMethods
   rulerMarkers(for_: NSTextView, paragraphStyle: NSParagraphStyle, ruler: NSRulerView): NSRulerMarker[];
-  // compoundInstanceMethods
   setAttachmentSize(_: CGSize, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setBoundsRect(_: CGRect, for_: NSTextBlock, glyphRange: NSRange): void;
-  // compoundInstanceMethods
   setDrawsOutsideLineFragment(_: boolean, forGlyphAt: number): void;
-  // compoundInstanceMethods
   setExtraLineFragmentRect(_: CGRect, usedRect: CGRect, textContainer: NSTextContainer): void;
-  // compoundInstanceMethods
   setGlyphs(_: number, properties: NSLayoutManager.GlyphProperty, characterIndexes: number, font: NSFont, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setLayoutRect(_: CGRect, for_: NSTextBlock, glyphRange: NSRange): void;
-  // compoundInstanceMethods
   setLineFragmentRect(_: CGRect, forGlyphRange: NSRange, usedRect: CGRect): void;
-  // compoundInstanceMethods
   setLocation(_: CGPoint, forStartOfGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setNotShownAttribute(_: boolean, forGlyphAt: number): void;
-  // compoundInstanceMethods
   setTemporaryAttributes(_: Map<string, any>, forCharacterRange: NSRange): void;
-  // compoundInstanceMethods
   setTextContainer(_: NSTextContainer, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   showAttachmentCell(_: NSCell, in_: CGRect, characterIndex: number): void;
-  // compoundInstanceMethods
   showCGGlyphs(_: number, positions: CGPoint, count: number, font: NSFont, textMatrix: CGAffineTransform, attributes: Map<string, any>, in_: any): void;
-  // compoundInstanceMethods
   strikethroughGlyphRange(_: NSRange, strikethroughType: NSAttributedString.NSUnderlineStyle, lineFragmentRect: CGRect, lineFragmentGlyphRange: NSRange, containerOrigin: CGPoint): void;
-  // compoundInstanceMethods
   temporaryAttribute(_: string, atCharacterIndex: number, effectiveRange?: NSRange): any;
-  // compoundInstanceMethods
   temporaryAttribute(_: string, atCharacterIndex: number, longestEffectiveRange?: NSRange, in_?: NSRange): any;
-  // compoundInstanceMethods
   temporaryAttributes(atCharacterIndex: number, effectiveRange?: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   temporaryAttributes(atCharacterIndex: number, longestEffectiveRange?: NSRange, in_?: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   textContainerChangedGeometry(_: NSTextContainer): void;
-  // compoundInstanceMethods
   textContainerChangedTextView(_: NSTextContainer): void;
-  // compoundInstanceMethods
   textContainer(forGlyphAt: number, effectiveRange?: NSRange): NSTextContainer;
-  // compoundInstanceMethods
   textContainer(forGlyphAt: number, effectiveRange?: NSRange, withoutAdditionalLayout?: boolean): NSTextContainer;
-  // compoundInstanceMethods
   truncatedGlyphRange(inLineFragmentForGlyphAt: number): NSRange;
-  // compoundInstanceMethods
   underlineGlyphRange(_: NSRange, underlineType: NSAttributedString.NSUnderlineStyle, lineFragmentRect: CGRect, lineFragmentGlyphRange: NSRange, containerOrigin: CGPoint): void;
-  // compoundInstanceMethods
   usedRect(for_: NSTextContainer): CGRect;
 }
 
@@ -7811,12 +6415,10 @@ interface NSLayoutManagerDelegate {
 }
 
 export class NSLayoutXAxisAnchor extends NSLayoutAnchor<NSLayoutXAxisAnchor> {
-  // compoundInstanceMethods
   anchorWithOffset(to: NSLayoutXAxisAnchor): NSLayoutDimension;
 }
 
 export class NSLayoutYAxisAnchor extends NSLayoutAnchor<NSLayoutYAxisAnchor> {
-  // compoundInstanceMethods
   anchorWithOffset(to: NSLayoutYAxisAnchor): NSLayoutDimension;
 }
 
@@ -7853,9 +6455,7 @@ export class NSLevelIndicator extends NSControl {
   setWarningFillColor(_: NSColor);
   warningValue: number;
   setWarningValue(_: number);
-  // compoundInstanceMethods
   rectOfTickMark(at: number): CGRect;
-  // compoundInstanceMethods
   tickMarkValue(at: number): number;
 }
 
@@ -7876,11 +6476,8 @@ export class NSLevelIndicatorCell extends NSActionCell {
   setTickMarkPosition(_: NSSliderCell.NSSlider.TickMarkPosition);
   warningValue: number;
   setWarningValue(_: number);
-  // compoundInstanceMethods
   static createWithLevelIndicatorStyle(_: NSLevelIndicatorCell.NSLevelIndicator.Style): NSLevelIndicatorCell;
-  // compoundInstanceMethods
   rectOfTickMark(at: number): CGRect;
-  // compoundInstanceMethods
   tickMarkValue(at: number): number;
 }
 
@@ -7931,108 +6528,61 @@ export class NSMatrix extends NSControl {
   setSelectionByRect(_: boolean);
   tabKeyTraversesCells: boolean;
   setTabKeyTraversesCells(_: boolean);
-  // compoundInstanceMethods
   addColumn(): void;
-  // compoundInstanceMethods
   addColumn(with_: NSCell[]): void;
-  // compoundInstanceMethods
   addRow(): void;
-  // compoundInstanceMethods
   addRow(with_: NSCell[]): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   cell(atRow: number, column: number): NSCell;
-  // compoundInstanceMethods
   cellFrame(atRow: number, column: number): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   cell(withTag: number): NSCell;
-  // compoundInstanceMethods
   deselectAllCells(): void;
-  // compoundInstanceMethods
   deselectSelectedCell(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   drawCell(atRow: number, column: number): void;
-  // compoundInstanceMethods
   getNumberOfRows(_?: number, columns?: number): void;
-  // compoundInstanceMethods
   getRow(_: number, column: number, for_: CGPoint): boolean;
-  // compoundInstanceMethods
   getRow(_: number, column: number, of: NSCell): boolean;
-  // compoundInstanceMethods
   highlightCell(_: boolean, atRow: number, column: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithModeWithCellClassWithNumberOfRowsWithNumberOfColumns(_: CGRect, mode: NSMatrix.Mode, cellClass?: typeof NSObject, numberOfRows?: number, numberOfColumns?: number): NSMatrix;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithModeWithPrototypeWithNumberOfRowsWithNumberOfColumns(_: CGRect, mode: NSMatrix.Mode, prototype: NSCell, numberOfRows: number, numberOfColumns: number): NSMatrix;
-  // compoundInstanceMethods
   insertColumn(_: number): void;
-  // compoundInstanceMethods
   insertColumn(_: number, with_?: NSCell[]): void;
-  // compoundInstanceMethods
   insertRow(_: number): void;
-  // compoundInstanceMethods
   insertRow(_: number, with_?: NSCell[]): void;
-  // compoundInstanceMethods
   makeCell(atRow: number, column: number): NSCell;
-  // compoundInstanceMethods
   putCell(_: NSCell, atRow: number, column: number): void;
-  // compoundInstanceMethods
   removeColumn(_: number): void;
-  // compoundInstanceMethods
   removeRow(_: number): void;
-  // compoundInstanceMethods
   renewRows(_: number, columns: number): void;
-  // compoundInstanceMethods
   scrollCellToVisible(atRow: number, column: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   selectCell(atRow: number, column: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   selectCell(withTag: number): boolean;
-  // compoundInstanceMethods
   selectText(_?: any): void;
-  // compoundInstanceMethods
   selectText(atRow: number, column: number): NSCell;
-  // compoundInstanceMethods
   // @ts-ignore 
   sendAction(): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   sendAction(_: string, to: any, forAllCells: boolean): void;
-  // compoundInstanceMethods
   sendDoubleAction(): void;
-  // compoundInstanceMethods
   setScrollable(_: boolean): void;
-  // compoundInstanceMethods
   setSelectionFrom(_: number, to: number, anchor: number, highlight: boolean): void;
-  // compoundInstanceMethods
   setState(_: number, atRow: number, column: number): void;
-  // compoundInstanceMethods
   setToolTip(_?: string, for_?: NSCell): void;
-  // compoundInstanceMethods
   setValidateSize(_: boolean): void;
-  // compoundInstanceMethods
   sizeToCells(): void;
-  // compoundInstanceMethods
   sort(using?: (p1: any, p2: any, p3: any) => number, context?: any): void;
-  // compoundInstanceMethods
   sort(using: string): void;
-  // compoundInstanceMethods
   textDidBeginEditing(_: Notification): void;
-  // compoundInstanceMethods
   textDidChange(_: Notification): void;
-  // compoundInstanceMethods
   textDidEndEditing(_: Notification): void;
-  // compoundInstanceMethods
   textShouldBeginEditing(_: NSText): boolean;
-  // compoundInstanceMethods
   textShouldEndEditing(_: NSText): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   toolTip(for_: NSCell): string;
 }
@@ -8048,7 +6598,6 @@ export class NSMediaLibraryBrowserController extends NSObject {
   isVisible: boolean;
   setVisible(_: boolean);
   static shared: NSMediaLibraryBrowserController;
-  // compoundInstanceMethods
   togglePanel(_?: any): void;
 }
 
@@ -8084,57 +6633,31 @@ export class NSMenu extends NSObject implements NSUserInterfaceItemIdentificatio
   setUserInterfaceLayoutDirection(_: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection);
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   addItem(_: NSMenuItem): void;
-  // compoundInstanceMethods
   addItem(withTitle: string, action?: string, keyEquivalent?: string): NSMenuItem;
-  // compoundInstanceMethods
   cancelTracking(): void;
-  // compoundInstanceMethods
   cancelTrackingWithoutAnimation(): void;
-  // compoundInstanceMethods
   index(of: NSMenuItem): number;
-  // compoundInstanceMethods
   indexOfItem(withRepresentedObject?: any): number;
-  // compoundInstanceMethods
   indexOfItem(withSubmenu?: NSMenu): number;
-  // compoundInstanceMethods
   indexOfItem(withTag: number): number;
-  // compoundInstanceMethods
   indexOfItem(withTarget?: any, andAction?: string): number;
-  // compoundInstanceMethods
   indexOfItem(withTitle: string): number;
-  // compoundInstanceMethods
   static createWithTitle(_: string): NSMenu;
-  // compoundInstanceMethods
   insertItem(_: NSMenuItem, at: number): void;
-  // compoundInstanceMethods
   insertItem(withTitle: string, action?: string, keyEquivalent?: string, at?: number): NSMenuItem;
-  // compoundInstanceMethods
   item(at: number): NSMenuItem;
-  // compoundInstanceMethods
   itemChanged(_: NSMenuItem): void;
-  // compoundInstanceMethods
   item(withTag: number): NSMenuItem;
-  // compoundInstanceMethods
   item(withTitle: string): NSMenuItem;
-  // compoundInstanceMethods
   performActionForItem(at: number): void;
-  // compoundInstanceMethods
   performKeyEquivalent(with_: NSEvent): boolean;
-  // compoundInstanceMethods
   popUp(positioning?: NSMenuItem, at?: CGPoint, in_?: NSView): boolean;
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   removeItem(_: NSMenuItem): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   setSubmenu(_?: NSMenu, for_?: NSMenuItem): void;
-  // compoundInstanceMethods
   submenuAction(_?: any): void;
-  // compoundInstanceMethods
   update(): void;
 }
 
@@ -8204,7 +6727,6 @@ export class NSMenuItem extends NSObject implements NSUserInterfaceItemIdentific
   setUsesUserKeyEquivalents(_: boolean);
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   static createWithTitleWithActionWithKeyEquivalent(_: string, action?: string, keyEquivalent?: string): NSMenuItem;
 }
 
@@ -8219,25 +6741,16 @@ export class NSMenuItemCell extends NSButtonCell {
   setNeedsSizing(_: boolean);
   stateImageWidth: number;
   titleWidth: number;
-  // compoundInstanceMethods
   calcSize(): void;
-  // compoundInstanceMethods
   drawBorderAndBackground(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   drawImage(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawKeyEquivalent(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawSeparatorItem(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   drawStateImage(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   drawTitle(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   keyEquivalentRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   stateImageRect(forBounds: CGRect): CGRect;
 }
 
@@ -8258,9 +6771,7 @@ export class NSMutableFontCollection extends NSFontCollection {
   queryDescriptors: NSFontDescriptor[];
   setQueryDescriptors(_: NSFontDescriptor[]);
   static withAllAvailableDescriptors: NSMutableFontCollection;
-  // compoundInstanceMethods
   addQuery(for_: NSFontDescriptor[]): void;
-  // compoundInstanceMethods
   removeQuery(for_: NSFontDescriptor[]): void;
 }
 
@@ -8305,20 +6816,14 @@ export class NSMutableParagraphStyle extends NSParagraphStyle {
   setTextLists(_: NSTextList[]);
   tighteningFactorForTruncation: number;
   setTighteningFactorForTruncation(_: number);
-  // compoundInstanceMethods
   addTabStop(_: NSTextTab): void;
-  // compoundInstanceMethods
   removeTabStop(_: NSTextTab): void;
-  // compoundInstanceMethods
   setParagraphStyle(_: NSParagraphStyle): void;
 }
 
 export class NSNib extends NSObject {
-  // compoundInstanceMethods
   static createWithNibDataWithBundle(_: Data, bundle?: Bundle): NSNib;
-  // compoundInstanceMethods
   static createWithNibNamedWithBundle(_: string, bundle?: Bundle): NSNib;
-  // compoundInstanceMethods
   instantiate(withOwner?: any, topLevelObjects?: any[]): boolean;
 }
 
@@ -8345,27 +6850,16 @@ export class NSObjectController extends NSController {
   selection: any;
   usesLazyFetching: boolean;
   setUsesLazyFetching(_: boolean);
-  // compoundInstanceMethods
   add(_?: any): void;
-  // compoundInstanceMethods
   addObject(_: any): void;
-  // compoundInstanceMethods
   defaultFetchRequest(): NSFetchRequest<any>;
-  // compoundInstanceMethods
   fetch(_?: any): void;
-  // compoundInstanceMethods
   fetchWithRequest(merge?: NSFetchRequest<any>, error?: boolean): boolean;
-  // compoundInstanceMethods
   static createWithContent(_?: any): NSObjectController;
-  // compoundInstanceMethods
   newObject(): any;
-  // compoundInstanceMethods
   prepareContent(): void;
-  // compoundInstanceMethods
   remove(_?: any): void;
-  // compoundInstanceMethods
   removeObject(_: any): void;
-  // compoundInstanceMethods
   validateUserInterfaceItem(_: any): boolean;
 }
 
@@ -8413,50 +6907,28 @@ export class NSOutlineView extends NSTableView {
   setOutlineTableColumn(_: NSTableColumn);
   stronglyReferencesItems: boolean;
   setStronglyReferencesItems(_: boolean);
-  // compoundInstanceMethods
   child(_: number, ofItem?: any): any;
-  // compoundInstanceMethods
   childIndex(forItem: any): number;
-  // compoundInstanceMethods
   collapseItem(_?: any): void;
-  // compoundInstanceMethods
   collapseItem(_?: any, collapseChildren?: boolean): void;
-  // compoundInstanceMethods
   expandItem(_?: any): void;
-  // compoundInstanceMethods
   expandItem(_?: any, expandChildren?: boolean): void;
-  // compoundInstanceMethods
   frameOfOutlineCell(atRow: number): CGRect;
-  // compoundInstanceMethods
   insertItems(at: IndexSet, inParent?: any, withAnimation?: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   isExpandable(_?: any): boolean;
-  // compoundInstanceMethods
   isItemExpanded(_?: any): boolean;
-  // compoundInstanceMethods
   item(atRow: number): any;
-  // compoundInstanceMethods
   level(forItem?: any): number;
-  // compoundInstanceMethods
   level(forRow: number): number;
-  // compoundInstanceMethods
   moveItem(at: number, inParent?: any, to?: number, inParent2?: any): void;
-  // compoundInstanceMethods
   numberOfChildren(ofItem?: any): number;
-  // compoundInstanceMethods
   parent(forItem?: any): any;
-  // compoundInstanceMethods
   reloadItem(_?: any): void;
-  // compoundInstanceMethods
   reloadItem(_?: any, reloadChildren?: boolean): void;
-  // compoundInstanceMethods
   removeItems(at: IndexSet, inParent?: any, withAnimation?: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   row(forItem?: any): number;
-  // compoundInstanceMethods
   setDropItem(_?: any, dropChildIndex?: number): void;
-  // compoundInstanceMethods
   shouldCollapseAutoExpandedItems(forDeposited: boolean): boolean;
 }
 
@@ -8523,7 +6995,6 @@ export class NSPDFImageRep extends NSImageRep {
   currentPage: number;
   setCurrentPage(_: number);
   pageCount: number;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSPDFImageRep;
 }
 
@@ -8548,14 +7019,12 @@ export class NSPDFPanel extends NSObject {
   setDefaultFileName(_: string);
   options: NSPDFPanel.Options;
   setOptions(_: NSPDFPanel.Options);
-  // compoundInstanceMethods
   beginSheet(with_: NSPDFInfo, modalFor?: NSWindow, completionHandler?: (p1: number) => void): void;
 }
 
 export class NSPICTImageRep extends NSImageRep {
   pictRepresentation: Data;
   boundingBox: CGRect;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSPICTImageRep;
 }
 
@@ -8569,15 +7038,10 @@ export class NSPageController extends NSViewController {
   selectedViewController: NSViewController;
   transitionStyle: NSPageController.TransitionStyle;
   setTransitionStyle(_: NSPageController.TransitionStyle);
-  // compoundInstanceMethods
   completeTransition(): void;
-  // compoundInstanceMethods
   navigateBack(_?: any): void;
-  // compoundInstanceMethods
   navigateForward(_?: any): void;
-  // compoundInstanceMethods
   navigateForward(to: any): void;
-  // compoundInstanceMethods
   takeSelectedIndexFrom(_?: any): void;
 }
 
@@ -8594,15 +7058,10 @@ interface NSPageControllerDelegate {
 export class NSPageLayout extends NSObject {
   accessoryControllers: NSViewController[];
   printInfo: NSPrintInfo;
-  // compoundInstanceMethods
   addAccessoryController(_: NSViewController): void;
-  // compoundInstanceMethods
   beginSheet(with_: NSPrintInfo, modalFor: NSWindow, delegate?: any, didEnd?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   removeAccessoryController(_: NSViewController): void;
-  // compoundInstanceMethods
   runModal(): number;
-  // compoundInstanceMethods
   runModal(with_: NSPrintInfo): number;
 }
 
@@ -8611,11 +7070,8 @@ export class NSPanGestureRecognizer extends NSGestureRecognizer {
   setButtonMask(_: number);
   numberOfTouchesRequired: number;
   setNumberOfTouchesRequired(_: number);
-  // compoundInstanceMethods
   setTranslation(_: CGPoint, in_?: NSView): void;
-  // compoundInstanceMethods
   translation(in_?: NSView): CGPoint;
-  // compoundInstanceMethods
   velocity(in_?: NSView): CGPoint;
 }
 
@@ -8661,63 +7117,36 @@ export class NSPasteboard extends NSObject {
   pasteboardItems: NSPasteboardItem[];
   types: string[];
   static general: NSPasteboard;
-  // compoundInstanceMethods
   addTypes(_: string[], owner?: any): number;
-  // compoundInstanceMethods
   availableType(from: string[]): string;
-  // compoundInstanceMethods
   canReadItem(withDataConformingToTypes: string[]): boolean;
-  // compoundInstanceMethods
   canReadObject(forClasses: typeof NSObject[], options?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   clearContents(): number;
-  // compoundInstanceMethods
   data(forType: string): Data;
-  // compoundInstanceMethods
   declareTypes(_: string[], owner?: any): number;
-  // compoundInstanceMethods
   index(of: NSPasteboardItem): number;
-  // compoundInstanceMethods
   prepareForNewContents(with_: NSPasteboard.ContentsOptions): number;
-  // compoundInstanceMethods
   propertyList(forType: string): any;
-  // compoundInstanceMethods
   readFileContentsType(_?: string, toFile?: string): string;
-  // compoundInstanceMethods
   readFileWrapper(): FileWrapper;
-  // compoundInstanceMethods
   readObjects(forClasses: typeof NSObject[], options?: Map<string, any>): any[];
-  // compoundInstanceMethods
   releaseGlobally(): void;
-  // compoundInstanceMethods
   setData(_?: Data, forType?: string): boolean;
-  // compoundInstanceMethods
   setPropertyList(_: any, forType: string): boolean;
-  // compoundInstanceMethods
   setString(_: string, forType: string): boolean;
-  // compoundInstanceMethods
   writeFileContents(_: string): boolean;
-  // compoundInstanceMethods
   write(_: FileWrapper): boolean;
-  // compoundInstanceMethods
   writeObjects(_: any[]): boolean;
 }
 
 export class NSPasteboardItem extends NSObject {
   types: string[];
-  // compoundInstanceMethods
   availableType(from: string[]): string;
-  // compoundInstanceMethods
   data(forType: string): Data;
-  // compoundInstanceMethods
   propertyList(forType: string): any;
-  // compoundInstanceMethods
   setData(_: Data, forType: string): boolean;
-  // compoundInstanceMethods
   setDataProvider(_: any, forTypes: string[]): boolean;
-  // compoundInstanceMethods
   setPropertyList(_: any, forType: string): boolean;
-  // compoundInstanceMethods
   setString(_: string, forType: string): boolean;
 }
 
@@ -8761,15 +7190,10 @@ export class NSPathCell extends NSActionCell {
   placeholderString: string;
   setPlaceholderString(_: string);
   static pathComponentCellClass: typeof NSObject;
-  // compoundInstanceMethods
   mouseEntered(with_: NSEvent, frame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   mouseExited(with_: NSEvent, frame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   pathComponentCell(at: CGPoint, withFrame: CGRect, in_: NSView): NSPathComponentCell;
-  // compoundInstanceMethods
   rect(of: NSPathComponentCell, withFrame: CGRect, in_: NSView): CGRect;
-  // compoundInstanceMethods
   setObjectValue(_?: any): void;
 }
 
@@ -8805,7 +7229,6 @@ export class NSPathControl extends NSControl {
   setPlaceholderAttributedString(_: NSAttributedString);
   placeholderString: string;
   setPlaceholderString(_: string);
-  // compoundInstanceMethods
   setDraggingSourceOperationMask(_: NSDragging.NSDragOperation, forLocal: boolean): void;
 }
 
@@ -8834,9 +7257,7 @@ export class NSPersistentDocument extends NSDocument {
   managedObjectContext: NSManagedObjectContext;
   setManagedObjectContext(_: NSManagedObjectContext);
   managedObjectModel: NSManagedObjectModel;
-  // compoundInstanceMethods
   configurePersistentStoreCoordinatorForURL(ofType: URL, modelConfiguration: string, storeOptions?: string, error?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   persistentStoreType(forFileType: string): string;
 }
 
@@ -8861,15 +7282,10 @@ export class NSPickerTouchBarItem extends NSTouchBarItem {
   setSelectionMode(_: NSPickerTouchBarItem.SelectionMode);
   target: any;
   setTarget(_: any);
-  // compoundInstanceMethods
   image(at: number): NSImage;
-  // compoundInstanceMethods
   label(at: number): string;
-  // compoundInstanceMethods
   setEnabled(_: boolean, at: number): void;
-  // compoundInstanceMethods
   setImage(_?: NSImage, at?: number): void;
-  // compoundInstanceMethods
   setLabel(_: string, at: number): void;
 }
 
@@ -8889,49 +7305,28 @@ export class NSPopUpButton extends NSButton {
   setPullsDown(_: boolean);
   selectedItem: NSMenuItem;
   titleOfSelectedItem: string;
-  // compoundInstanceMethods
   addItem(withTitle: string): void;
-  // compoundInstanceMethods
   addItems(withTitles: string[]): void;
-  // compoundInstanceMethods
   index(of: NSMenuItem): number;
-  // compoundInstanceMethods
   indexOfItem(withRepresentedObject?: any): number;
-  // compoundInstanceMethods
   indexOfItem(withTag: number): number;
-  // compoundInstanceMethods
   indexOfItem(withTarget?: any, andAction?: string): number;
-  // compoundInstanceMethods
   indexOfItem(withTitle: string): number;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithPullsDown(_: CGRect, pullsDown: boolean): NSPopUpButton;
-  // compoundInstanceMethods
   insertItem(withTitle: string, at: number): void;
-  // compoundInstanceMethods
   item(at: number): NSMenuItem;
-  // compoundInstanceMethods
   itemTitle(at: number): string;
-  // compoundInstanceMethods
   item(withTitle: string): NSMenuItem;
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   removeItem(withTitle: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   select(_?: NSMenuItem): void;
-  // compoundInstanceMethods
   selectItem(at: number): void;
-  // compoundInstanceMethods
   selectItem(withTag: number): boolean;
-  // compoundInstanceMethods
   selectItem(withTitle: string): void;
-  // compoundInstanceMethods
   setTitle(_: string): void;
-  // compoundInstanceMethods
   synchronizeTitleAndSelectedItem(): void;
 }
 
@@ -8955,56 +7350,32 @@ export class NSPopUpButtonCell extends NSMenuItemCell {
   titleOfSelectedItem: string;
   usesItemFromMenu: boolean;
   setUsesItemFromMenu(_: boolean);
-  // compoundInstanceMethods
   addItem(withTitle: string): void;
-  // compoundInstanceMethods
   addItems(withTitles: string[]): void;
-  // compoundInstanceMethods
   attachPopUp(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   dismissPopUp(): void;
-  // compoundInstanceMethods
   index(of: NSMenuItem): number;
-  // compoundInstanceMethods
   indexOfItem(withRepresentedObject?: any): number;
-  // compoundInstanceMethods
   indexOfItem(withTag: number): number;
-  // compoundInstanceMethods
   indexOfItem(withTarget?: any, andAction?: string): number;
-  // compoundInstanceMethods
   indexOfItem(withTitle: string): number;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithTextCellWithPullsDown(_: string, pullsDown: boolean): NSPopUpButtonCell;
-  // compoundInstanceMethods
   insertItem(withTitle: string, at: number): void;
-  // compoundInstanceMethods
   item(at: number): NSMenuItem;
-  // compoundInstanceMethods
   itemTitle(at: number): string;
-  // compoundInstanceMethods
   item(withTitle: string): NSMenuItem;
-  // compoundInstanceMethods
   // @ts-ignore 
   performClick(withFrame: CGRect, in_: NSView): void;
-  // compoundInstanceMethods
   removeAllItems(): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   removeItem(withTitle: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   select(_?: NSMenuItem): void;
-  // compoundInstanceMethods
   selectItem(at: number): void;
-  // compoundInstanceMethods
   selectItem(withTag: number): boolean;
-  // compoundInstanceMethods
   selectItem(withTitle: string): void;
-  // compoundInstanceMethods
   setTitle(_?: string): void;
-  // compoundInstanceMethods
   synchronizeTitleAndSelectedItem(): void;
 }
 
@@ -9023,11 +7394,8 @@ export class NSPopover extends NSResponder {
   positioningRect: CGRect;
   setPositioningRect(_: CGRect);
   isShown: boolean;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   performClose(_?: any): void;
-  // compoundInstanceMethods
   show(relativeTo: CGRect, of: NSView, preferredEdge: NSGeometry.NSRectEdge): void;
 }
 
@@ -9057,11 +7425,8 @@ export class NSPopoverTouchBarItem extends NSTouchBarItem {
   setPressAndHoldTouchBar(_: NSTouchBar);
   showsCloseButton: boolean;
   setShowsCloseButton(_: boolean);
-  // compoundInstanceMethods
   dismissPopover(_?: any): void;
-  // compoundInstanceMethods
   makeStandardActivatePopoverGestureRecognizer(): NSGestureRecognizer;
-  // compoundInstanceMethods
   showPopover(_?: any): void;
 }
 
@@ -9080,19 +7445,12 @@ export class NSPredicateEditorRowTemplate extends NSObject {
   rightExpressionAttributeType: NSAttributeDescription.NSAttributeType;
   rightExpressions: NSExpression[];
   templateViews: NSView[];
-  // compoundInstanceMethods
   displayableSubpredicates(of: NSPredicate): NSPredicate[];
-  // compoundInstanceMethods
   static createWithCompoundTypes(_: number[]): NSPredicateEditorRowTemplate;
-  // compoundInstanceMethods
   static createWithLeftExpressionsWithRightExpressionAttributeTypeWithModifierWithOperatorsWithOptions(_: NSExpression[], rightExpressionAttributeType: NSAttributeDescription.NSAttributeType, modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
-  // compoundInstanceMethods
   static createWithLeftExpressionsWithRightExpressionsWithModifierWithOperatorsWithOptions(_: NSExpression[], rightExpressions: NSExpression[], modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
-  // compoundInstanceMethods
   match(for_: NSPredicate): number;
-  // compoundInstanceMethods
   predicate(withSubpredicates?: NSPredicate[]): NSPredicate;
-  // compoundInstanceMethods
   setPredicate(_: NSPredicate): void;
 }
 
@@ -9109,9 +7467,7 @@ export class NSPressGestureRecognizer extends NSGestureRecognizer {
 
 export class NSPressureConfiguration extends NSObject {
   pressureBehavior: NSEvent.PressureBehavior;
-  // compoundInstanceMethods
   static createWithPressureBehavior(_: NSEvent.PressureBehavior): NSPressureConfiguration;
-  // compoundInstanceMethods
   set(): void;
 }
 
@@ -9152,23 +7508,14 @@ export class NSPrintInfo extends NSObject {
   static defaultPrinter: NSPrinter;
   static shared: NSPrintInfo;
   setSharedPrintInfo(_: NSPrintInfo);
-  // compoundInstanceMethods
   pmPageFormat(): any;
-  // compoundInstanceMethods
   pmPrintSession(): any;
-  // compoundInstanceMethods
   pmPrintSettings(): any;
-  // compoundInstanceMethods
   dictionary(): Map<string, any>;
-  // compoundInstanceMethods
   static createWithDictionary(_: Map<string, any>): NSPrintInfo;
-  // compoundInstanceMethods
   setUpPrintOperationDefaultValues(): void;
-  // compoundInstanceMethods
   takeSettings(from: NSPDFInfo): void;
-  // compoundInstanceMethods
   updateFromPMPageFormat(): void;
-  // compoundInstanceMethods
   updateFromPMPrintSettings(): void;
 }
 
@@ -9202,17 +7549,11 @@ export class NSPrintOperation extends NSObject {
   setShowsProgressPanel(_: boolean);
   static current: NSPrintOperation;
   setCurrentOperation(_: NSPrintOperation);
-  // compoundInstanceMethods
   cleanUp(): void;
-  // compoundInstanceMethods
   createContext(): NSGraphicsContext;
-  // compoundInstanceMethods
   deliverResult(): boolean;
-  // compoundInstanceMethods
   destroyContext(): void;
-  // compoundInstanceMethods
   run(): boolean;
-  // compoundInstanceMethods
   runModal(for_: NSWindow, delegate?: any, didRun?: string, contextInfo?: any): void;
 }
 
@@ -9225,19 +7566,12 @@ export class NSPrintPanel extends NSObject {
   options: NSPrintPanel.Options;
   setOptions(_: NSPrintPanel.Options);
   printInfo: NSPrintInfo;
-  // compoundInstanceMethods
   addAccessoryController(_: NSViewController): void;
-  // compoundInstanceMethods
   beginSheet(with_: NSPrintInfo, modalFor: NSWindow, delegate?: any, didEnd?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   defaultButtonTitle(): string;
-  // compoundInstanceMethods
   removeAccessoryController(_: NSViewController): void;
-  // compoundInstanceMethods
   runModal(): number;
-  // compoundInstanceMethods
   runModal(with_: NSPrintInfo): number;
-  // compoundInstanceMethods
   setDefaultButtonTitle(_?: string): void;
 }
 
@@ -9253,7 +7587,6 @@ export class NSPrinter extends NSObject {
   type: string;
   static printerNames: string[];
   static printerTypes: string[];
-  // compoundInstanceMethods
   pageSize(forPaper: string): CGSize;
 }
 
@@ -9278,13 +7611,9 @@ export class NSProgressIndicator extends NSView {
   setStyle(_: NSProgressIndicator.Style);
   usesThreadedAnimation: boolean;
   setUsesThreadedAnimation(_: boolean);
-  // compoundInstanceMethods
   increment(by: number): void;
-  // compoundInstanceMethods
   sizeToFit(): void;
-  // compoundInstanceMethods
   startAnimation(_?: any): void;
-  // compoundInstanceMethods
   stopAnimation(_?: any): void;
 }
 
@@ -9320,121 +7649,63 @@ export class NSResponder extends NSObject {
   userActivity: NSUserActivity;
   setUserActivity(_: NSUserActivity);
   static restorableStateKeyPaths: string[];
-  // compoundInstanceMethods
   becomeFirstResponder(): boolean;
-  // compoundInstanceMethods
   beginGesture(with_: NSEvent): void;
-  // compoundInstanceMethods
   changeMode(with_: NSEvent): void;
-  // compoundInstanceMethods
   cursorUpdate(with_: NSEvent): void;
-  // compoundInstanceMethods
   encodeRestorableState(with_: NSCoder): void;
-  // compoundInstanceMethods
   encodeRestorableState(with_: NSCoder, backgroundQueue: OperationQueue): void;
-  // compoundInstanceMethods
   endGesture(with_: NSEvent): void;
-  // compoundInstanceMethods
   flagsChanged(with_: NSEvent): void;
-  // compoundInstanceMethods
   flushBufferedKeyEvents(): void;
-  // compoundInstanceMethods
   helpRequested(_: NSEvent): void;
-  // compoundInstanceMethods
   interpretKeyEvents(_: NSEvent[]): void;
-  // compoundInstanceMethods
   invalidateRestorableState(): void;
-  // compoundInstanceMethods
   keyDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   keyUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   magnify(with_: NSEvent): void;
-  // compoundInstanceMethods
   makeTouchBar(): NSTouchBar;
-  // compoundInstanceMethods
   mouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseEntered(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseExited(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseMoved(with_: NSEvent): void;
-  // compoundInstanceMethods
   mouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   newWindowForTab(_?: any): void;
-  // compoundInstanceMethods
   noResponder(for_: string): void;
-  // compoundInstanceMethods
   otherMouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   otherMouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   otherMouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   performKeyEquivalent(with_: NSEvent): boolean;
-  // compoundInstanceMethods
   performTextFinderAction(_?: any): void;
-  // compoundInstanceMethods
   presentError(_: Error): boolean;
-  // compoundInstanceMethods
   presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
-  // compoundInstanceMethods
   pressureChange(with_: NSEvent): void;
-  // compoundInstanceMethods
   quickLook(with_: NSEvent): void;
-  // compoundInstanceMethods
   resignFirstResponder(): boolean;
-  // compoundInstanceMethods
   restoreState(with_: NSCoder): void;
-  // compoundInstanceMethods
   rightMouseDown(with_: NSEvent): void;
-  // compoundInstanceMethods
   rightMouseDragged(with_: NSEvent): void;
-  // compoundInstanceMethods
   rightMouseUp(with_: NSEvent): void;
-  // compoundInstanceMethods
   rotate(with_: NSEvent): void;
-  // compoundInstanceMethods
   scrollWheel(with_: NSEvent): void;
-  // compoundInstanceMethods
   shouldBeTreatedAsInkEvent(_: NSEvent): boolean;
-  // compoundInstanceMethods
   showContextHelp(_?: any): void;
-  // compoundInstanceMethods
   smartMagnify(with_: NSEvent): void;
-  // compoundInstanceMethods
   supplementalTarget(forAction: string, sender?: any): any;
-  // compoundInstanceMethods
   swipe(with_: NSEvent): void;
-  // compoundInstanceMethods
   tabletPoint(with_: NSEvent): void;
-  // compoundInstanceMethods
   tabletProximity(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesBegan(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesCancelled(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesEnded(with_: NSEvent): void;
-  // compoundInstanceMethods
   touchesMoved(with_: NSEvent): void;
-  // compoundInstanceMethods
   tryToPerform(_: string, with_?: any): boolean;
-  // compoundInstanceMethods
   updateUserActivityState(_: NSUserActivity): void;
-  // compoundInstanceMethods
   validRequestor(forSendType?: string, returnType?: string): any;
-  // compoundInstanceMethods
   validateProposedFirstResponder(_: NSResponder, for_?: NSEvent): boolean;
-  // compoundInstanceMethods
   wantsForwardedScrollEvents(for_: NSEvent.GestureAxis): boolean;
-  // compoundInstanceMethods
   wantsScrollEventsForSwipeTracking(on: NSEvent.GestureAxis): boolean;
-  // compoundInstanceMethods
   willPresentError(_: Error): Error;
 }
 
@@ -9472,33 +7743,19 @@ export class NSRuleEditor extends NSControl {
   selectedRowIndexes: IndexSet;
   subrowsKeyPath: string;
   setSubrowsKeyPath(_: string);
-  // compoundInstanceMethods
   addRow(_?: any): void;
-  // compoundInstanceMethods
   criteria(forRow: number): any[];
-  // compoundInstanceMethods
   displayValues(forRow: number): any[];
-  // compoundInstanceMethods
   insertRow(at: number, with_: NSRuleEditor.RowType, asSubrowOfRow: number, animate: boolean): void;
-  // compoundInstanceMethods
   parentRow(forRow: number): number;
-  // compoundInstanceMethods
   reloadCriteria(): void;
-  // compoundInstanceMethods
   reloadPredicate(): void;
-  // compoundInstanceMethods
   removeRow(at: number): void;
-  // compoundInstanceMethods
   removeRows(at: IndexSet, includeSubrows: boolean): void;
-  // compoundInstanceMethods
   row(forDisplayValue: any): number;
-  // compoundInstanceMethods
   rowType(forRow: number): NSRuleEditor.RowType;
-  // compoundInstanceMethods
   selectRowIndexes(_: IndexSet, byExtendingSelection: boolean): void;
-  // compoundInstanceMethods
   setCriteria(_: any[], andDisplayValues: any[], forRowAt: number): void;
-  // compoundInstanceMethods
   subrowIndexes(forRow: number): IndexSet;
 }
 
@@ -9527,11 +7784,8 @@ export class NSRulerMarker extends NSObject {
   setRepresentedObject(_: any);
   ruler: NSRulerView;
   thicknessRequiredInRuler: number;
-  // compoundInstanceMethods
   draw(_: CGRect): void;
-  // compoundInstanceMethods
   static createWithRulerViewWithMarkerLocationWithImageWithImageOrigin(_: NSRulerView, markerLocation: number, image: NSImage, imageOrigin: CGPoint): NSRulerMarker;
-  // compoundInstanceMethods
   trackMouse(with_: NSEvent, adding: boolean): boolean;
 }
 
@@ -9559,21 +7813,13 @@ export class NSRulerView extends NSView {
   setRuleThickness(_: number);
   scrollView: NSScrollView;
   setScrollView(_: NSScrollView);
-  // compoundInstanceMethods
   addMarker(_: NSRulerMarker): void;
-  // compoundInstanceMethods
   drawHashMarksAndLabels(in_: CGRect): void;
-  // compoundInstanceMethods
   drawMarkers(in_: CGRect): void;
-  // compoundInstanceMethods
   static createWithScrollViewWithOrientation(_?: NSScrollView, orientation?: NSRulerView.Orientation): NSRulerView;
-  // compoundInstanceMethods
   invalidateHashMarks(): void;
-  // compoundInstanceMethods
   moveRulerline(fromLocation: number, toLocation: number): void;
-  // compoundInstanceMethods
   removeMarker(_: NSRulerMarker): void;
-  // compoundInstanceMethods
   trackMarker(_: NSRulerMarker, withMouseEvent: NSEvent): boolean;
 }
 
@@ -9595,15 +7841,10 @@ export class NSRunningApplication extends NSObject {
   processIdentifier: number;
   isTerminated: boolean;
   static current: NSRunningApplication;
-  // compoundInstanceMethods
   activate(options: NSRunningApplication.NSApplication.ActivationOptions): boolean;
-  // compoundInstanceMethods
   forceTerminate(): boolean;
-  // compoundInstanceMethods
   hide(): boolean;
-  // compoundInstanceMethods
   terminate(): boolean;
-  // compoundInstanceMethods
   unhide(): boolean;
 }
 
@@ -9642,17 +7883,11 @@ export class NSSavePanel extends NSPanel {
   setTagNames(_: string[]);
   treatsFilePackagesAsDirectories: boolean;
   setTreatsFilePackagesAsDirectories(_: boolean);
-  // compoundInstanceMethods
   beginSheetModal(for_: NSWindow, completionHandler: (p1: number) => void): void;
-  // compoundInstanceMethods
   begin(completionHandler: (p1: number) => void): void;
-  // compoundInstanceMethods
   cancel(_?: any): void;
-  // compoundInstanceMethods
   ok(_?: any): void;
-  // compoundInstanceMethods
   runModal(): number;
-  // compoundInstanceMethods
   validateVisibleColumns(): void;
 }
 
@@ -9672,13 +7907,9 @@ export class NSScreen extends NSObject {
   static main: NSScreen;
   static screens: NSScreen[];
   static screensHaveSeparateSpaces: boolean;
-  // compoundInstanceMethods
   backingAlignedRect(_: CGRect, options: NSGeometry.AlignmentOptions): CGRect;
-  // compoundInstanceMethods
   canRepresent(_: NSGraphics.NSDisplayGamut): boolean;
-  // compoundInstanceMethods
   convertRectFromBacking(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertRectToBacking(_: CGRect): CGRect;
 }
 
@@ -9761,16 +7992,11 @@ export class NSScrollView extends NSView {
   setVerticalScroller(_: NSScroller);
   static rulerViewClass: typeof NSObject;
   setRulerViewClass(_: typeof NSObject);
-  // compoundInstanceMethods
   addFloatingSubview(_: NSView, for_: NSEvent.GestureAxis): void;
-  // compoundInstanceMethods
   flashScrollers(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   magnify(toFit: CGRect): void;
-  // compoundInstanceMethods
   setMagnification(_: number, centeredAt: CGPoint): void;
-  // compoundInstanceMethods
   tile(): void;
 }
 
@@ -9786,19 +8012,12 @@ export class NSScroller extends NSControl {
   usableParts: NSScroller.UsableParts;
   static isCompatibleWithOverlayScrollers: boolean;
   static preferredScrollerStyle: NSScroller.Style;
-  // compoundInstanceMethods
   checkSpaceForParts(): void;
-  // compoundInstanceMethods
   drawKnob(): void;
-  // compoundInstanceMethods
   drawKnobSlot(in_: CGRect, highlight: boolean): void;
-  // compoundInstanceMethods
   rect(for_: NSScroller.Part): CGRect;
-  // compoundInstanceMethods
   setKnobProportion(_: number): void;
-  // compoundInstanceMethods
   testPart(_: CGPoint): NSScroller.Part;
-  // compoundInstanceMethods
   trackKnob(with_: NSEvent): void;
 }
 
@@ -9833,27 +8052,16 @@ export class NSScrubber extends NSView {
   setShowsAdditionalContentIndicators(_: boolean);
   showsArrowButtons: boolean;
   setShowsArrowButtons(_: boolean);
-  // compoundInstanceMethods
   insertItems(at: IndexSet): void;
-  // compoundInstanceMethods
   itemViewForItem(at: number): NSScrubberItemView;
-  // compoundInstanceMethods
   makeItem(withIdentifier: string, owner?: any): NSScrubberItemView;
-  // compoundInstanceMethods
   moveItem(at: number, to: number): void;
-  // compoundInstanceMethods
   performSequentialBatchUpdates(_: () => void): void;
-  // compoundInstanceMethods
   register(_?: typeof NSObject, forItemIdentifier?: string): void;
-  // compoundInstanceMethods
   register(_?: NSNib, forItemIdentifier?: string): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   reloadItems(at: IndexSet): void;
-  // compoundInstanceMethods
   removeItems(at: IndexSet): void;
-  // compoundInstanceMethods
   scrollItem(at: number, to: NSScrubber.Alignment): void;
 }
 
@@ -9862,7 +8070,6 @@ export class NSScrubberArrangedView extends NSView {
   setHighlighted(_: boolean);
   isSelected: boolean;
   setSelected(_: boolean);
-  // compoundInstanceMethods
   apply(_: NSScrubberLayoutAttributes): void;
 }
 
@@ -9885,7 +8092,6 @@ export class NSScrubberFlowLayout extends NSScrubberLayout {
   setItemSize(_: CGSize);
   itemSpacing: number;
   setItemSpacing(_: number);
-  // compoundInstanceMethods
   invalidateLayoutForItems(at: IndexSet): void;
 }
 
@@ -9912,15 +8118,10 @@ export class NSScrubberLayout extends NSObject {
   shouldInvalidateLayoutForSelectionChange: boolean;
   visibleRect: CGRect;
   static layoutAttributesClass: typeof NSObject;
-  // compoundInstanceMethods
   invalidateLayout(): void;
-  // compoundInstanceMethods
   layoutAttributesForItem(at: number): NSScrubberLayoutAttributes;
-  // compoundInstanceMethods
   layoutAttributesForItems(in_: CGRect): Set<any>;
-  // compoundInstanceMethods
   prepare(): void;
-  // compoundInstanceMethods
   shouldInvalidateLayoutForChange(fromVisibleRect: CGRect, toVisibleRect: CGRect): boolean;
 }
 
@@ -9936,14 +8137,12 @@ export class NSScrubberLayoutAttributes extends NSObject {
 export class NSScrubberProportionalLayout extends NSScrubberLayout {
   numberOfVisibleItems: number;
   setNumberOfVisibleItems(_: number);
-  // compoundInstanceMethods
   static createWithNumberOfVisibleItems(_: number): NSScrubberProportionalLayout;
 }
 
 export class NSScrubberSelectionStyle extends NSObject {
   static outlineOverlayStyle: NSScrubberSelectionStyle;
   static roundedBackgroundStyle: NSScrubberSelectionStyle;
-  // compoundInstanceMethods
   makeSelectionView(): NSScrubberSelectionView;
 }
 
@@ -9973,11 +8172,8 @@ export class NSSearchField extends NSTextField {
   setSendsSearchStringImmediately(_: boolean);
   sendsWholeSearchString: boolean;
   setSendsWholeSearchString(_: boolean);
-  // compoundInstanceMethods
   rectForCancelButton(whenCentered: boolean): CGRect;
-  // compoundInstanceMethods
   rectForSearchButton(whenCentered: boolean): CGRect;
-  // compoundInstanceMethods
   rectForSearchText(whenCentered: boolean): CGRect;
 }
 
@@ -9998,15 +8194,10 @@ export class NSSearchFieldCell extends NSTextFieldCell {
   setSendsSearchStringImmediately(_: boolean);
   sendsWholeSearchString: boolean;
   setSendsWholeSearchString(_: boolean);
-  // compoundInstanceMethods
   cancelButtonRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   resetCancelButtonCell(): void;
-  // compoundInstanceMethods
   resetSearchButtonCell(): void;
-  // compoundInstanceMethods
   searchButtonRect(forBounds: CGRect): CGRect;
-  // compoundInstanceMethods
   searchTextRect(forBounds: CGRect): CGRect;
 }
 
@@ -10032,59 +8223,36 @@ export class NSSegmentedCell extends NSActionCell {
   setSelectedSegment(_: number);
   trackingMode: NSSegmentedControl.SwitchTracking;
   setTrackingMode(_: NSSegmentedControl.SwitchTracking);
-  // compoundInstanceMethods
   drawSegment(_: number, inFrame: CGRect, with_: NSView): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   image(forSegment: number): NSImage;
-  // compoundInstanceMethods
   imageScaling(forSegment: number): NSCell.NSImageScaling;
-  // compoundInstanceMethods
   // @ts-ignore 
   interiorBackgroundStyle(forSegment: number): NSCell.NSView.BackgroundStyle;
-  // compoundInstanceMethods
   // @ts-ignore 
   // @ts-ignore 
   isEnabled(forSegment: number): boolean;
-  // compoundInstanceMethods
   isSelected(forSegment: number): boolean;
-  // compoundInstanceMethods
   label(forSegment: number): string;
-  // compoundInstanceMethods
   makeNextSegmentKey(): void;
-  // compoundInstanceMethods
   makePreviousSegmentKey(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   menu(forSegment: number): NSMenu;
-  // compoundInstanceMethods
   selectSegment(withTag: number): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   setEnabled(_: boolean, forSegment: number): void;
-  // compoundInstanceMethods
   setImage(_?: NSImage, forSegment?: number): void;
-  // compoundInstanceMethods
   setImageScaling(_: NSCell.NSImageScaling, forSegment: number): void;
-  // compoundInstanceMethods
   setLabel(_: string, forSegment: number): void;
-  // compoundInstanceMethods
   setMenu(_?: NSMenu, forSegment?: number): void;
-  // compoundInstanceMethods
   setSelected(_: boolean, forSegment: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setTag(_: number, forSegment: number): void;
-  // compoundInstanceMethods
   setToolTip(_?: string, forSegment?: number): void;
-  // compoundInstanceMethods
   setWidth(_: number, forSegment: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   tag(forSegment: number): number;
-  // compoundInstanceMethods
   toolTip(forSegment: number): string;
-  // compoundInstanceMethods
   width(forSegment: number): number;
 }
 
@@ -10105,60 +8273,37 @@ export class NSSegmentedControl extends NSControl {
   setSpringLoaded(_: boolean);
   trackingMode: NSSegmentedControl.SwitchTracking;
   setTrackingMode(_: NSSegmentedControl.SwitchTracking);
-  // compoundInstanceMethods
   // @ts-ignore 
   alignment(forSegment: number): NSText.NSTextAlignment;
-  // compoundInstanceMethods
   image(forSegment: number): NSImage;
-  // compoundInstanceMethods
   imageScaling(forSegment: number): NSCell.NSImageScaling;
-  // compoundInstanceMethods
   // @ts-ignore 
   // @ts-ignore 
   isEnabled(forSegment: number): boolean;
-  // compoundInstanceMethods
   isSelected(forSegment: number): boolean;
-  // compoundInstanceMethods
   label(forSegment: number): string;
-  // compoundInstanceMethods
   // @ts-ignore 
   menu(forSegment: number): NSMenu;
-  // compoundInstanceMethods
   selectSegment(withTag: number): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   setAlignment(_: NSText.NSTextAlignment, forSegment: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setEnabled(_: boolean, forSegment: number): void;
-  // compoundInstanceMethods
   setImage(_?: NSImage, forSegment?: number): void;
-  // compoundInstanceMethods
   setImageScaling(_: NSCell.NSImageScaling, forSegment: number): void;
-  // compoundInstanceMethods
   setLabel(_: string, forSegment: number): void;
-  // compoundInstanceMethods
   setMenu(_?: NSMenu, forSegment?: number): void;
-  // compoundInstanceMethods
   setSelected(_: boolean, forSegment: number): void;
-  // compoundInstanceMethods
   setShowsMenuIndicator(_: boolean, forSegment: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setTag(_: number, forSegment: number): void;
-  // compoundInstanceMethods
   setToolTip(_?: string, forSegment?: number): void;
-  // compoundInstanceMethods
   setWidth(_: number, forSegment: number): void;
-  // compoundInstanceMethods
   showsMenuIndicator(forSegment: number): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   tag(forSegment: number): number;
-  // compoundInstanceMethods
   // @ts-ignore 
   toolTip(forSegment: number): string;
-  // compoundInstanceMethods
   width(forSegment: number): number;
 }
 
@@ -10184,7 +8329,6 @@ export class NSShadow extends NSObject {
   setShadowColor(_: NSColor);
   shadowOffset: CGSize;
   setShadowOffset(_: CGSize);
-  // compoundInstanceMethods
   set(): void;
 }
 
@@ -10205,11 +8349,8 @@ export class NSSharingService extends NSObject {
   subject: string;
   setSubject(_: string);
   title: string;
-  // compoundInstanceMethods
   canPerform(withItems?: any[]): boolean;
-  // compoundInstanceMethods
   static createWithTitleWithImageWithAlternateImageWithHandler(_: string, image: NSImage, alternateImage?: NSImage, handler?: () => void): NSSharingService;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(withItems: any[]): void;
 }
@@ -10227,9 +8368,7 @@ interface NSSharingServiceDelegate {
 export class NSSharingServicePicker extends NSObject {
   delegate: any;
   setDelegate(_: any);
-  // compoundInstanceMethods
   static createWithItems(_: any[]): NSSharingServicePicker;
-  // compoundInstanceMethods
   show(relativeTo: CGRect, of: NSView, preferredEdge: NSGeometry.NSRectEdge): void;
 }
 
@@ -10287,13 +8426,9 @@ export class NSSlider extends NSControl {
   trackFillColor: NSColor;
   setTrackFillColor(_: NSColor);
   isVertical: boolean;
-  // compoundInstanceMethods
   closestTickMarkValue(toValue: number): number;
-  // compoundInstanceMethods
   indexOfTickMark(at: CGPoint): number;
-  // compoundInstanceMethods
   rectOfTickMark(at: number): CGRect;
-  // compoundInstanceMethods
   tickMarkValue(at: number): number;
 }
 
@@ -10309,7 +8444,6 @@ export class NSSliderAccessoryBehavior extends NSObject {
   static automaticBehavior: NSSliderAccessoryBehavior;
   static valueResetBehavior: NSSliderAccessoryBehavior;
   static valueStepBehavior: NSSliderAccessoryBehavior;
-  // compoundInstanceMethods
   handleAction(_: NSSliderAccessory): void;
 }
 
@@ -10331,25 +8465,15 @@ export class NSSliderCell extends NSActionCell {
   setTickMarkPosition(_: NSSliderCell.NSSlider.TickMarkPosition);
   trackRect: CGRect;
   isVertical: boolean;
-  // compoundInstanceMethods
   barRect(flipped: boolean): CGRect;
-  // compoundInstanceMethods
   closestTickMarkValue(toValue: number): number;
-  // compoundInstanceMethods
   drawBar(inside: CGRect, flipped: boolean): void;
-  // compoundInstanceMethods
   drawKnob(): void;
-  // compoundInstanceMethods
   drawKnob(_: CGRect): void;
-  // compoundInstanceMethods
   drawTickMarks(): void;
-  // compoundInstanceMethods
   indexOfTickMark(at: CGPoint): number;
-  // compoundInstanceMethods
   knobRect(flipped: boolean): CGRect;
-  // compoundInstanceMethods
   rectOfTickMark(at: number): CGRect;
-  // compoundInstanceMethods
   tickMarkValue(at: number): number;
 }
 
@@ -10394,25 +8518,15 @@ export class NSSound extends NSObject {
   volume: number;
   setVolume(_: number);
   static soundUnfilteredTypes: string[];
-  // compoundInstanceMethods
   static createWithContentsOfFileWithByReference(_: string, byReference: boolean): NSSound;
-  // compoundInstanceMethods
   static createWithContentsOfWithByReference(_: URL, byReference: boolean): NSSound;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSSound;
-  // compoundInstanceMethods
   static createWithPasteboard(_: NSPasteboard): NSSound;
-  // compoundInstanceMethods
   pause(): boolean;
-  // compoundInstanceMethods
   play(): boolean;
-  // compoundInstanceMethods
   resume(): boolean;
-  // compoundInstanceMethods
   setName(_?: string): boolean;
-  // compoundInstanceMethods
   stop(): boolean;
-  // compoundInstanceMethods
   write(to: NSPasteboard): void;
 }
 
@@ -10431,9 +8545,7 @@ export class NSSpeechRecognizer extends NSObject {
   setDisplayedCommandsTitle(_: string);
   listensInForegroundOnly: boolean;
   setListensInForegroundOnly(_: boolean);
-  // compoundInstanceMethods
   startListening(): void;
-  // compoundInstanceMethods
   stopListening(): void;
 }
 
@@ -10455,31 +8567,18 @@ export class NSSpeechSynthesizer extends NSObject {
   static isAnyApplicationSpeaking: boolean;
   static availableVoices: string[];
   static defaultVoice: string;
-  // compoundInstanceMethods
   addSpeechDictionary(_: Map<string, any>): void;
-  // compoundInstanceMethods
   continueSpeaking(): void;
-  // compoundInstanceMethods
   static createWithVoice(_?: string): NSSpeechSynthesizer;
-  // compoundInstanceMethods
   objectForProperty(error: string): any;
-  // compoundInstanceMethods
   pauseSpeaking(at: NSSpeechSynthesizer.Boundary): void;
-  // compoundInstanceMethods
   phonemes(from: string): string;
-  // compoundInstanceMethods
   setObject(forProperty?: any, error?: string): boolean;
-  // compoundInstanceMethods
   setVoice(_?: string): boolean;
-  // compoundInstanceMethods
   startSpeaking(_: string): boolean;
-  // compoundInstanceMethods
   startSpeaking(_: string, to: URL): boolean;
-  // compoundInstanceMethods
   stopSpeaking(): void;
-  // compoundInstanceMethods
   stopSpeaking(at: NSSpeechSynthesizer.Boundary): void;
-  // compoundInstanceMethods
   voice(): string;
 }
 
@@ -10513,67 +8612,36 @@ export class NSSpellChecker extends NSObject {
   static isAutomaticTextReplacementEnabled: boolean;
   static shared: NSSpellChecker;
   static sharedSpellCheckerExists: boolean;
-  // compoundInstanceMethods
   checkGrammar(of: string, startingAt: number, language?: string, wrap?: boolean, inSpellDocumentWithTag?: number, details?: Map<string, any>[]): NSRange;
-  // compoundInstanceMethods
   checkSpelling(of: string, startingAt: number): NSRange;
-  // compoundInstanceMethods
   checkSpelling(of: string, startingAt: number, language?: string, wrap?: boolean, inSpellDocumentWithTag?: number, wordCount?: number): NSRange;
-  // compoundInstanceMethods
   check(_: string, range: NSRange, types: number, options?: Map<string, any>, inSpellDocumentWithTag?: number, orthography?: NSOrthography, wordCount?: number): NSTextCheckingResult[];
-  // compoundInstanceMethods
   closeSpellDocument(withTag: number): void;
-  // compoundInstanceMethods
   completions(forPartialWordRange: NSRange, in_: string, language?: string, inSpellDocumentWithTag?: number): string[];
-  // compoundInstanceMethods
   correction(forWordRange: NSRange, in_: string, language: string, inSpellDocumentWithTag: number): string;
-  // compoundInstanceMethods
   countWords(in_: string, language?: string): number;
-  // compoundInstanceMethods
   deletesAutospaceBetweenString(_: string, andString: string, language?: string): boolean;
-  // compoundInstanceMethods
   dismissCorrectionIndicator(for_: NSView): void;
-  // compoundInstanceMethods
   guesses(forWordRange: NSRange, in_: string, language?: string, inSpellDocumentWithTag?: number): string[];
-  // compoundInstanceMethods
   hasLearnedWord(_: string): boolean;
-  // compoundInstanceMethods
   ignoreWord(_: string, inSpellDocumentWithTag: number): void;
-  // compoundInstanceMethods
   ignoredWords(inSpellDocumentWithTag: number): string[];
-  // compoundInstanceMethods
   language(): string;
-  // compoundInstanceMethods
   language(forWordRange: NSRange, in_: string, orthography?: NSOrthography): string;
-  // compoundInstanceMethods
   learnWord(_: string): void;
-  // compoundInstanceMethods
   menu(for_: NSTextCheckingResult, string: string, options?: Map<string, any>, atLocation?: CGPoint, in_?: NSView): NSMenu;
-  // compoundInstanceMethods
   preventsAutocorrection(before: string, language?: string): boolean;
-  // compoundInstanceMethods
   record(_: NSSpellChecker.CorrectionResponse, toCorrection: string, forWord: string, language?: string, inSpellDocumentWithTag?: number): void;
-  // compoundInstanceMethods
   requestCandidates(forSelectedRange: NSRange, in_: string, types: number, options?: Map<string, any>, inSpellDocumentWithTag?: number, completionHandler?: (p1: number, p2: NSTextCheckingResult[]) => void): number;
-  // compoundInstanceMethods
   requestChecking(of: string, range: NSRange, types: number, options?: Map<string, any>, inSpellDocumentWithTag?: number, completionHandler?: (p1: number, p2: NSTextCheckingResult[], p3: NSOrthography, p4: number) => void): number;
-  // compoundInstanceMethods
   setIgnoredWords(_: string[], inSpellDocumentWithTag: number): void;
-  // compoundInstanceMethods
   setLanguage(_: string): boolean;
-  // compoundInstanceMethods
   setWordFieldStringValue(_: string): void;
-  // compoundInstanceMethods
   showCorrectionIndicator(of: NSSpellChecker.CorrectionIndicatorType, primaryString: string, alternativeStrings: string[], forStringIn: CGRect, view: NSView, completionHandler?: (p1: string) => void): void;
-  // compoundInstanceMethods
   unlearnWord(_: string): void;
-  // compoundInstanceMethods
   updatePanels(): void;
-  // compoundInstanceMethods
   updateSpellingPanel(withGrammarString: string, detail: Map<string, any>): void;
-  // compoundInstanceMethods
   updateSpellingPanel(withMisspelledWord: string): void;
-  // compoundInstanceMethods
   userQuotesArray(forLanguage: string): string[];
 }
 
@@ -10591,27 +8659,16 @@ export class NSSplitView extends NSView {
   dividerThickness: number;
   isVertical: boolean;
   setVertical(_: boolean);
-  // compoundInstanceMethods
   addArrangedSubview(_: NSView): void;
-  // compoundInstanceMethods
   adjustSubviews(): void;
-  // compoundInstanceMethods
   drawDivider(in_: CGRect): void;
-  // compoundInstanceMethods
   holdingPriorityForSubview(at: number): number;
-  // compoundInstanceMethods
   insertArrangedSubview(_: NSView, at: number): void;
-  // compoundInstanceMethods
   isSubviewCollapsed(_: NSView): boolean;
-  // compoundInstanceMethods
   maxPossiblePositionOfDivider(at: number): number;
-  // compoundInstanceMethods
   minPossiblePositionOfDivider(at: number): number;
-  // compoundInstanceMethods
   removeArrangedSubview(_: NSView): void;
-  // compoundInstanceMethods
   setHoldingPriority(_: number, forSubviewAt: number): void;
-  // compoundInstanceMethods
   setPosition(_: number, ofDividerAt: number): void;
 }
 
@@ -10622,15 +8679,10 @@ export class NSSplitViewController extends NSViewController {
   setSplitView(_: NSSplitView);
   splitViewItems: NSSplitViewItem[];
   setSplitViewItems(_: NSSplitViewItem[]);
-  // compoundInstanceMethods
   addSplitViewItem(_: NSSplitViewItem): void;
-  // compoundInstanceMethods
   insertSplitViewItem(_: NSSplitViewItem, at: number): void;
-  // compoundInstanceMethods
   removeSplitViewItem(_: NSSplitViewItem): void;
-  // compoundInstanceMethods
   splitViewItem(for_: NSViewController): NSSplitViewItem;
-  // compoundInstanceMethods
   toggleSidebar(_?: any): void;
 }
 
@@ -10698,35 +8750,20 @@ export class NSStackView extends NSView {
   setOrientation(_: NSUserInterfaceLayout.NSUserInterfaceLayoutOrientation);
   spacing: number;
   setSpacing(_: number);
-  // compoundInstanceMethods
   addArrangedSubview(_: NSView): void;
-  // compoundInstanceMethods
   addView(_: NSView, in_: NSStackView.Gravity): void;
-  // compoundInstanceMethods
   clippingResistancePriority(for_: NSLayoutConstraint.Orientation): number;
-  // compoundInstanceMethods
   customSpacing(after: NSView): number;
-  // compoundInstanceMethods
   huggingPriority(for_: NSLayoutConstraint.Orientation): number;
-  // compoundInstanceMethods
   insertArrangedSubview(_: NSView, at: number): void;
-  // compoundInstanceMethods
   insertView(_: NSView, at: number, in_: NSStackView.Gravity): void;
-  // compoundInstanceMethods
   removeArrangedSubview(_: NSView): void;
-  // compoundInstanceMethods
   removeView(_: NSView): void;
-  // compoundInstanceMethods
   setClippingResistancePriority(_: number, for_: NSLayoutConstraint.Orientation): void;
-  // compoundInstanceMethods
   setCustomSpacing(_: number, after: NSView): void;
-  // compoundInstanceMethods
   setHuggingPriority(_: number, for_: NSLayoutConstraint.Orientation): void;
-  // compoundInstanceMethods
   setViews(_: NSView[], in_: NSStackView.Gravity): void;
-  // compoundInstanceMethods
   setVisibilityPriority(_: number, for_: NSView): void;
-  // compoundInstanceMethods
   visibilityPriority(for_: NSView): number;
 }
 
@@ -10837,9 +8874,7 @@ export class NSStatusBar extends NSObject {
   thickness: number;
   isVertical: boolean;
   static system: NSStatusBar;
-  // compoundInstanceMethods
   removeStatusItem(_: NSStatusItem): void;
-  // compoundInstanceMethods
   statusItem(withLength: number): NSStatusItem;
 }
 
@@ -10906,13 +8941,9 @@ export class NSStepperTouchBarItem extends NSTouchBarItem {
 
 export class NSStoryboard extends NSObject {
   static main: NSStoryboard;
-  // compoundInstanceMethods
   instantiateController(withIdentifier: string): any;
-  // compoundInstanceMethods
   instantiateControllerWithIdentifier(_: string, creator?: (p1: NSCoder) => any): any;
-  // compoundInstanceMethods
   instantiateInitialController(): any;
-  // compoundInstanceMethods
   instantiateInitialControllerWithCreator(_?: (p1: NSCoder) => any): any;
 }
 
@@ -10920,9 +8951,7 @@ export class NSStoryboardSegue extends NSObject {
   destinationController: any;
   identifier: string;
   sourceController: any;
-  // compoundInstanceMethods
   static createWithIdentifierWithSourceWithDestination(_: string, source: any, destination: any): NSStoryboardSegue;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(): void;
 }
@@ -10962,35 +8991,20 @@ export class NSTabView extends NSView {
   setTabViewItems(_: NSTabViewItem[]);
   tabViewType: NSTabView.TabType;
   setTabViewType(_: NSTabView.TabType);
-  // compoundInstanceMethods
   addTabViewItem(_: NSTabViewItem): void;
-  // compoundInstanceMethods
   indexOfTabViewItem(_: NSTabViewItem): number;
-  // compoundInstanceMethods
   indexOfTabViewItem(withIdentifier: any): number;
-  // compoundInstanceMethods
   insertTabViewItem(_: NSTabViewItem, at: number): void;
-  // compoundInstanceMethods
   removeTabViewItem(_: NSTabViewItem): void;
-  // compoundInstanceMethods
   selectFirstTabViewItem(_?: any): void;
-  // compoundInstanceMethods
   selectLastTabViewItem(_?: any): void;
-  // compoundInstanceMethods
   selectNextTabViewItem(_?: any): void;
-  // compoundInstanceMethods
   selectPreviousTabViewItem(_?: any): void;
-  // compoundInstanceMethods
   selectTabViewItem(_?: NSTabViewItem): void;
-  // compoundInstanceMethods
   selectTabViewItem(at: number): void;
-  // compoundInstanceMethods
   selectTabViewItem(withIdentifier: any): void;
-  // compoundInstanceMethods
   tabViewItem(at: number): NSTabViewItem;
-  // compoundInstanceMethods
   tabViewItem(at: CGPoint): NSTabViewItem;
-  // compoundInstanceMethods
   takeSelectedTabViewItemFromSender(_?: any): void;
 }
 
@@ -11007,13 +9021,9 @@ export class NSTabViewController extends NSViewController {
   setTabViewItems(_: NSTabViewItem[]);
   transitionOptions: NSViewController.TransitionOptions;
   setTransitionOptions(_: NSViewController.TransitionOptions);
-  // compoundInstanceMethods
   addTabViewItem(_: NSTabViewItem): void;
-  // compoundInstanceMethods
   insertTabViewItem(_: NSTabViewItem, at: number): void;
-  // compoundInstanceMethods
   removeTabViewItem(_: NSTabViewItem): void;
-  // compoundInstanceMethods
   tabViewItem(for_: NSViewController): NSTabViewItem;
 }
 
@@ -11041,11 +9051,8 @@ export class NSTabViewItem extends NSObject {
   setToolTip(_: string);
   viewController: NSViewController;
   setViewController(_: NSViewController);
-  // compoundInstanceMethods
   drawLabel(_: boolean, in_: CGRect): void;
-  // compoundInstanceMethods
   static createWithIdentifier(_?: any): NSTabViewItem;
-  // compoundInstanceMethods
   sizeOfLabel(_: boolean): CGSize;
 }
 
@@ -11088,16 +9095,12 @@ export class NSTableColumn extends NSObject implements NSUserInterfaceItemIdenti
   setWidth(_: number);
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   static createWithIdentifier(_: string): NSTableColumn;
-  // compoundInstanceMethods
   sizeToFit(): void;
 }
 
 export class NSTableHeaderCell extends NSTextFieldCell {
-  // compoundInstanceMethods
   drawSortIndicator(withFrame: CGRect, in_: NSView, ascending: boolean, priority: number): void;
-  // compoundInstanceMethods
   sortIndicatorRect(forBounds: CGRect): CGRect;
 }
 
@@ -11107,9 +9110,7 @@ export class NSTableHeaderView extends NSView {
   resizedColumn: number;
   tableView: NSTableView;
   setTableView(_: NSTableView);
-  // compoundInstanceMethods
   column(at: CGPoint): number;
-  // compoundInstanceMethods
   headerRect(ofColumn: number): CGRect;
 }
 
@@ -11138,15 +9139,10 @@ export class NSTableRowView extends NSView {
   setSelectionHighlightStyle(_: NSTableView.SelectionHighlightStyle);
   isTargetForDropOperation: boolean;
   setTargetForDropOperation(_: boolean);
-  // compoundInstanceMethods
   drawBackground(in_: CGRect): void;
-  // compoundInstanceMethods
   drawDraggingDestinationFeedback(in_: CGRect): void;
-  // compoundInstanceMethods
   drawSelection(in_: CGRect): void;
-  // compoundInstanceMethods
   drawSeparator(in_: CGRect): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   view(atColumn: number): any;
 }
@@ -11228,113 +9224,59 @@ export class NSTableView extends NSControl {
   setUsesStaticContents(_: boolean);
   verticalMotionCanBeginDrag: boolean;
   setVerticalMotionCanBeginDrag(_: boolean);
-  // compoundInstanceMethods
   addTableColumn(_: NSTableColumn): void;
-  // compoundInstanceMethods
   beginUpdates(): void;
-  // compoundInstanceMethods
   canDragRows(with_: IndexSet, at: CGPoint): boolean;
-  // compoundInstanceMethods
   column(at: CGPoint): number;
-  // compoundInstanceMethods
   column(for_: NSView): number;
-  // compoundInstanceMethods
   columnIndexes(in_: CGRect): IndexSet;
-  // compoundInstanceMethods
   column(withIdentifier: string): number;
-  // compoundInstanceMethods
   deselectAll(_?: any): void;
-  // compoundInstanceMethods
   deselectColumn(_: number): void;
-  // compoundInstanceMethods
   deselectRow(_: number): void;
-  // compoundInstanceMethods
   didAdd(_: NSTableRowView, forRow: number): void;
-  // compoundInstanceMethods
   didRemove(_: NSTableRowView, forRow: number): void;
-  // compoundInstanceMethods
   dragImageForRows(with_: IndexSet, tableColumns: NSTableColumn[], event: NSEvent, offset: CGPoint): NSImage;
-  // compoundInstanceMethods
   drawBackground(inClipRect: CGRect): void;
-  // compoundInstanceMethods
   drawGrid(inClipRect: CGRect): void;
-  // compoundInstanceMethods
   drawRow(_: number, clipRect: CGRect): void;
-  // compoundInstanceMethods
   editColumn(_: number, row: number, with_?: NSEvent, select?: boolean): void;
-  // compoundInstanceMethods
   endUpdates(): void;
-  // compoundInstanceMethods
   enumerateAvailableRowViews(_: (p1: NSTableRowView, p2: number) => void): void;
-  // compoundInstanceMethods
   frameOfCell(atColumn: number, row: number): CGRect;
-  // compoundInstanceMethods
   hideRows(at: IndexSet, withAnimation: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   highlightSelection(inClipRect: CGRect): void;
-  // compoundInstanceMethods
   indicatorImage(in_: NSTableColumn): NSImage;
-  // compoundInstanceMethods
   insertRows(at: IndexSet, withAnimation: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   isColumnSelected(_: number): boolean;
-  // compoundInstanceMethods
   isRowSelected(_: number): boolean;
-  // compoundInstanceMethods
   makeView(withIdentifier: string, owner?: any): NSView;
-  // compoundInstanceMethods
   moveColumn(_: number, toColumn: number): void;
-  // compoundInstanceMethods
   moveRow(at: number, to: number): void;
-  // compoundInstanceMethods
   noteHeightOfRows(withIndexesChanged: IndexSet): void;
-  // compoundInstanceMethods
   noteNumberOfRowsChanged(): void;
-  // compoundInstanceMethods
   rect(ofColumn: number): CGRect;
-  // compoundInstanceMethods
   rect(ofRow: number): CGRect;
-  // compoundInstanceMethods
   register(_?: NSNib, forIdentifier?: string): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   reloadData(forRowIndexes: IndexSet, columnIndexes: IndexSet): void;
-  // compoundInstanceMethods
   removeRows(at: IndexSet, withAnimation: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   removeTableColumn(_: NSTableColumn): void;
-  // compoundInstanceMethods
   row(at: CGPoint): number;
-  // compoundInstanceMethods
   row(for_: NSView): number;
-  // compoundInstanceMethods
   rowView(atRow: number, makeIfNecessary: boolean): NSTableRowView;
-  // compoundInstanceMethods
   rows(in_: CGRect): NSRange;
-  // compoundInstanceMethods
   scrollColumnToVisible(_: number): void;
-  // compoundInstanceMethods
   scrollRowToVisible(_: number): void;
-  // compoundInstanceMethods
   selectColumnIndexes(_: IndexSet, byExtendingSelection: boolean): void;
-  // compoundInstanceMethods
   selectRowIndexes(_: IndexSet, byExtendingSelection: boolean): void;
-  // compoundInstanceMethods
   setDraggingSourceOperationMask(_: NSDragging.NSDragOperation, forLocal: boolean): void;
-  // compoundInstanceMethods
   setDropRow(_: number, dropOperation: NSTableView.DropOperation): void;
-  // compoundInstanceMethods
   setIndicatorImage(_?: NSImage, in_?: NSTableColumn): void;
-  // compoundInstanceMethods
   sizeLastColumnToFit(): void;
-  // compoundInstanceMethods
   tableColumn(withIdentifier: string): NSTableColumn;
-  // compoundInstanceMethods
   tile(): void;
-  // compoundInstanceMethods
   unhideRows(at: IndexSet, withAnimation: NSTableView.AnimationOptions): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   view(atColumn: number, row: number, makeIfNecessary: boolean): NSView;
 }
@@ -11433,73 +9375,42 @@ export class NSText extends NSView {
   setUsesFontPanel(_: boolean);
   isVerticallyResizable: boolean;
   setVerticallyResizable(_: boolean);
-  // compoundInstanceMethods
   rtfd(from: NSRange): Data;
-  // compoundInstanceMethods
   rtf(from: NSRange): Data;
-  // compoundInstanceMethods
   alignCenter(_?: any): void;
-  // compoundInstanceMethods
   alignLeft(_?: any): void;
-  // compoundInstanceMethods
   alignRight(_?: any): void;
-  // compoundInstanceMethods
   checkSpelling(_?: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   copy(_?: any): void;
-  // compoundInstanceMethods
   copyFont(_?: any): void;
-  // compoundInstanceMethods
   copyRuler(_?: any): void;
-  // compoundInstanceMethods
   cut(_?: any): void;
-  // compoundInstanceMethods
   delete(_?: any): void;
-  // compoundInstanceMethods
   paste(_?: any): void;
-  // compoundInstanceMethods
   pasteFont(_?: any): void;
-  // compoundInstanceMethods
   pasteRuler(_?: any): void;
-  // compoundInstanceMethods
   readRTFD(fromFile: string): boolean;
-  // compoundInstanceMethods
   replaceCharacters(in_: NSRange, withRTF: Data): void;
-  // compoundInstanceMethods
   replaceCharacters(in_: NSRange, withRTFD: Data): void;
-  // compoundInstanceMethods
   replaceCharacters(in_: NSRange, with_: string): void;
-  // compoundInstanceMethods
   scrollRangeToVisible(_: NSRange): void;
-  // compoundInstanceMethods
   setFont(_: NSFont, range: NSRange): void;
-  // compoundInstanceMethods
   setTextColor(_?: NSColor, range?: NSRange): void;
-  // compoundInstanceMethods
   showGuessPanel(_?: any): void;
-  // compoundInstanceMethods
   sizeToFit(): void;
-  // compoundInstanceMethods
   subscript(_?: any): void;
-  // compoundInstanceMethods
   superscript(_?: any): void;
-  // compoundInstanceMethods
   toggleRuler(_?: any): void;
-  // compoundInstanceMethods
   underline(_?: any): void;
-  // compoundInstanceMethods
   unscript(_?: any): void;
-  // compoundInstanceMethods
   writeRTFD(toFile: string, atomically: boolean): boolean;
 }
 
 export class NSTextAlternatives extends NSObject {
   alternativeStrings: string[];
   primaryString: string;
-  // compoundInstanceMethods
   static createWithPrimaryStringWithAlternativeStrings(_: string, alternativeStrings: string[]): NSTextAlternatives;
-  // compoundInstanceMethods
   noteSelectedAlternativeString(_: string): void;
 }
 
@@ -11516,9 +9427,7 @@ export class NSTextAttachment extends NSObject {
   setFileWrapper(_: FileWrapper);
   image: NSImage;
   setImage(_: NSImage);
-  // compoundInstanceMethods
   static createWithDataWithOfType(_?: Data, ofType?: string): NSTextAttachment;
-  // compoundInstanceMethods
   static createWithFileWrapper(_?: FileWrapper): NSTextAttachment;
 }
 
@@ -11553,35 +9462,21 @@ export class NSTextBlock extends NSObject {
   contentWidthValueType: NSTextTable.NSTextBlock.ValueType;
   verticalAlignment: NSTextTable.NSTextBlock.VerticalAlignment;
   setVerticalAlignment(_: NSTextTable.NSTextBlock.VerticalAlignment);
-  // compoundInstanceMethods
   borderColor(for_: NSGeometry.NSRectEdge): NSColor;
-  // compoundInstanceMethods
   boundsRect(forContentRect: CGRect, in_: CGRect, textContainer: NSTextContainer, characterRange: NSRange): CGRect;
-  // compoundInstanceMethods
   drawBackground(withFrame: CGRect, in_: NSView, characterRange: NSRange, layoutManager: NSLayoutManager): void;
-  // compoundInstanceMethods
   rectForLayout(at: CGPoint, in_: CGRect, textContainer: NSTextContainer, characterRange: NSRange): CGRect;
-  // compoundInstanceMethods
   setBorderColor(_?: NSColor): void;
-  // compoundInstanceMethods
   setBorderColor(_?: NSColor, for_?: NSGeometry.NSRectEdge): void;
-  // compoundInstanceMethods
   setContentWidth(_: number, type: NSTextTable.NSTextBlock.ValueType): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_: number, type: NSTextTable.NSTextBlock.ValueType, for_: NSTextTable.NSTextBlock.Dimension): void;
-  // compoundInstanceMethods
   setWidth(_: number, type: NSTextTable.NSTextBlock.ValueType, for_: NSTextTable.NSTextBlock.Layer): void;
-  // compoundInstanceMethods
   setWidth(_: number, type: NSTextTable.NSTextBlock.ValueType, for_: NSTextTable.NSTextBlock.Layer, edge: NSGeometry.NSRectEdge): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(for_: NSTextTable.NSTextBlock.Dimension): number;
-  // compoundInstanceMethods
   valueType(for_: NSTextTable.NSTextBlock.Dimension): NSTextTable.NSTextBlock.ValueType;
-  // compoundInstanceMethods
   width(for_: NSTextTable.NSTextBlock.Layer, edge: NSGeometry.NSRectEdge): number;
-  // compoundInstanceMethods
   widthValueType(for_: NSTextTable.NSTextBlock.Layer, edge: NSGeometry.NSRectEdge): NSTextTable.NSTextBlock.ValueType;
 }
 
@@ -11600,39 +9495,22 @@ export class NSTextCheckingController extends NSObject {
   client: any;
   spellCheckerDocumentTag: number;
   setSpellCheckerDocumentTag(_: number);
-  // compoundInstanceMethods
   changeSpelling(_?: any): void;
-  // compoundInstanceMethods
   checkSpelling(_?: any): void;
-  // compoundInstanceMethods
   checkTextInDocument(_?: any): void;
-  // compoundInstanceMethods
   checkText(in_: NSRange, types: number, options: Map<string, any>): void;
-  // compoundInstanceMethods
   checkTextInSelection(_?: any): void;
-  // compoundInstanceMethods
   considerTextChecking(for_: NSRange): void;
-  // compoundInstanceMethods
   didChangeSelectedRange(): void;
-  // compoundInstanceMethods
   didChangeText(in_: NSRange): void;
-  // compoundInstanceMethods
   ignoreSpelling(_?: any): void;
-  // compoundInstanceMethods
   static createWithClient(_: any): NSTextCheckingController;
-  // compoundInstanceMethods
   insertedText(in_: NSRange): void;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   menu(at: number, clickedOnSelection: boolean, effectiveRange: NSRange): NSMenu;
-  // compoundInstanceMethods
   orderFrontSubstitutionsPanel(_?: any): void;
-  // compoundInstanceMethods
   showGuessPanel(_?: any): void;
-  // compoundInstanceMethods
   updateCandidates(): void;
-  // compoundInstanceMethods
   validAnnotations(): string[];
 }
 
@@ -11658,15 +9536,10 @@ export class NSTextContainer extends NSObject {
   setTextView(_: NSTextView);
   widthTracksTextView: boolean;
   setWidthTracksTextView(_: boolean);
-  // compoundInstanceMethods
   static createWithContainerSize(_: CGSize): NSTextContainer;
-  // compoundInstanceMethods
   static createWithSize(_: CGSize): NSTextContainer;
-  // compoundInstanceMethods
   lineFragmentRect(forProposedRect: CGRect, at: number, writingDirection: NSText.NSWritingDirection, remaining?: CGRect): CGRect;
-  // compoundInstanceMethods
   lineFragmentRect(forProposedRect: CGRect, sweepDirection: NSTextContainer.NSLineSweepDirection, movementDirection: NSTextContainer.NSLineMovementDirection, remaining?: CGRect): CGRect;
-  // compoundInstanceMethods
   replaceLayoutManager(_: NSLayoutManager): void;
 }
 
@@ -11715,17 +9588,11 @@ export class NSTextField extends NSControl {
   setSelectable(_: boolean);
   textColor: NSColor;
   setTextColor(_: NSColor);
-  // compoundInstanceMethods
   selectText(_?: any): void;
-  // compoundInstanceMethods
   textDidBeginEditing(_: Notification): void;
-  // compoundInstanceMethods
   textDidChange(_: Notification): void;
-  // compoundInstanceMethods
   textDidEndEditing(_: Notification): void;
-  // compoundInstanceMethods
   textShouldBeginEditing(_: NSText): boolean;
-  // compoundInstanceMethods
   textShouldEndEditing(_: NSText): boolean;
 }
 
@@ -11744,7 +9611,6 @@ export class NSTextFieldCell extends NSActionCell {
   setPlaceholderString(_: string);
   textColor: NSColor;
   setTextColor(_: NSColor);
-  // compoundInstanceMethods
   setWantsNotificationForMarkedText(_: boolean): void;
 }
 
@@ -11767,13 +9633,9 @@ export class NSTextFinder extends NSObject {
   setIncrementalSearchingEnabled(_: boolean);
   incrementalSearchingShouldDimContentView: boolean;
   setIncrementalSearchingShouldDimContentView(_: boolean);
-  // compoundInstanceMethods
   cancelFindIndicator(): void;
-  // compoundInstanceMethods
   noteClientStringWillChange(): void;
-  // compoundInstanceMethods
   performAction(_: NSTextFinder.Action): void;
-  // compoundInstanceMethods
   validateAction(_: NSTextFinder.Action): boolean;
 }
 
@@ -11838,17 +9700,11 @@ export class NSTextInputContext extends NSObject {
   selectedKeyboardInputSource: string;
   setSelectedKeyboardInputSource(_: string);
   static current: NSTextInputContext;
-  // compoundInstanceMethods
   activate(): void;
-  // compoundInstanceMethods
   deactivate(): void;
-  // compoundInstanceMethods
   discardMarkedText(): void;
-  // compoundInstanceMethods
   handleEvent(_: NSEvent): boolean;
-  // compoundInstanceMethods
   static createWithClient(_: any): NSTextInputContext;
-  // compoundInstanceMethods
   invalidateCharacterCoordinates(): void;
 }
 
@@ -11884,9 +9740,7 @@ export class NSTextList extends NSObject {
   markerFormat: string;
   startingItemNumber: number;
   setStartingItemNumber(_: number);
-  // compoundInstanceMethods
   static createWithMarkerFormatWithOptions(_: string, options: number): NSTextList;
-  // compoundInstanceMethods
   marker(forItemNumber: number): string;
 }
 
@@ -11910,17 +9764,11 @@ export class NSTextStorage extends NSMutableAttributedString {
   setParagraphs(_: NSTextStorage[]);
   words: NSTextStorage[];
   setWords(_: NSTextStorage[]);
-  // compoundInstanceMethods
   addLayoutManager(_: NSLayoutManager): void;
-  // compoundInstanceMethods
   edited(_: NSTextStorage.NSTextStorageEditActions, range: NSRange, changeInLength: number): void;
-  // compoundInstanceMethods
   ensureAttributesAreFixed(in_: NSRange): void;
-  // compoundInstanceMethods
   invalidateAttributes(in_: NSRange): void;
-  // compoundInstanceMethods
   processEditing(): void;
-  // compoundInstanceMethods
   removeLayoutManager(_: NSLayoutManager): void;
 }
 
@@ -11935,9 +9783,7 @@ export class NSTextTab extends NSObject {
   location: number;
   options: Map<string, any>;
   tabStopType: NSParagraphStyle.TextTabType;
-  // compoundInstanceMethods
   static createWithTextAlignmentWithLocationWithOptions(_: NSText.NSTextAlignment, location: number, options: Map<string, any>): NSTextTab;
-  // compoundInstanceMethods
   static createWithTypeWithLocation(_: NSParagraphStyle.TextTabType, location: number): NSTextTab;
 }
 
@@ -11950,13 +9796,10 @@ export class NSTextTable extends NSTextBlock {
   setLayoutAlgorithm(_: NSTextTable.LayoutAlgorithm);
   numberOfColumns: number;
   setNumberOfColumns(_: number);
-  // compoundInstanceMethods
   // @ts-ignore 
   boundsRect(for_: NSTextTableBlock, contentRect: CGRect, in_: CGRect, textContainer: NSTextContainer, characterRange: NSRange): CGRect;
-  // compoundInstanceMethods
   // @ts-ignore 
   drawBackground(for_: NSTextTableBlock, withFrame: CGRect, in_: NSView, characterRange: NSRange, layoutManager: NSLayoutManager): void;
-  // compoundInstanceMethods
   rect(for_: NSTextTableBlock, layoutAt: CGPoint, in_: CGRect, textContainer: NSTextContainer, characterRange: NSRange): CGRect;
 }
 
@@ -11966,7 +9809,6 @@ export class NSTextTableBlock extends NSTextBlock {
   startingColumn: number;
   startingRow: number;
   table: NSTextTable;
-  // compoundInstanceMethods
   static createWithTableWithStartingRowWithRowSpanWithStartingColumnWithColumnSpan(_: NSTextTable, startingRow: number, rowSpan: number, startingColumn: number, columnSpan: number): NSTextTableBlock;
 }
 
@@ -12068,181 +9910,95 @@ export class NSTextView extends NSText {
   setUsesRuler(_: boolean);
   writablePasteboardTypes: string[];
   static stronglyReferencesTextStorage: boolean;
-  // compoundInstanceMethods
   alignJustified(_?: any): void;
-  // compoundInstanceMethods
   breakUndoCoalescing(): void;
-  // compoundInstanceMethods
   changeAttributes(_?: any): void;
-  // compoundInstanceMethods
   changeDocumentBackgroundColor(_?: any): void;
-  // compoundInstanceMethods
   changeLayoutOrientation(_?: any): void;
-  // compoundInstanceMethods
   characterIndexForInsertion(at: CGPoint): number;
-  // compoundInstanceMethods
   checkTextInDocument(_?: any): void;
-  // compoundInstanceMethods
   checkText(in_: NSRange, types: number, options: Map<string, any>): void;
-  // compoundInstanceMethods
   checkTextInSelection(_?: any): void;
-  // compoundInstanceMethods
   cleanUpAfterDragOperation(): void;
-  // compoundInstanceMethods
   clicked(onLink: any, at: number): void;
-  // compoundInstanceMethods
   completions(forPartialWordRange: NSRange, indexOfSelectedItem: number): string[];
-  // compoundInstanceMethods
   didChangeText(): void;
-  // compoundInstanceMethods
   dragImageForSelection(with_: NSEvent, origin?: CGPoint): NSImage;
-  // compoundInstanceMethods
   dragOperation(for_: any, type: string): NSDragging.NSDragOperation;
-  // compoundInstanceMethods
   dragSelection(with_: NSEvent, offset: CGSize, slideBack: boolean): boolean;
-  // compoundInstanceMethods
   drawInsertionPoint(in_: CGRect, color: NSColor, turnedOn: boolean): void;
-  // compoundInstanceMethods
   drawBackground(in_: CGRect): void;
-  // compoundInstanceMethods
   handleTextCheckingResults(_: NSTextCheckingResult[], forRange: NSRange, types: number, options: Map<string, any>, orthography: NSOrthography, wordCount: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithTextContainer(_: CGRect, textContainer?: NSTextContainer): NSTextView;
-  // compoundInstanceMethods
   insertCompletion(_: string, forPartialWordRange: NSRange, movement: number, isFinal: boolean): void;
-  // compoundInstanceMethods
   invalidateTextContainerOrigin(): void;
-  // compoundInstanceMethods
   loosenKerning(_?: any): void;
-  // compoundInstanceMethods
   lowerBaseline(_?: any): void;
-  // compoundInstanceMethods
   orderFrontLinkPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontListPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontSharingServicePicker(_?: any): void;
-  // compoundInstanceMethods
   orderFrontSpacingPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontSubstitutionsPanel(_?: any): void;
-  // compoundInstanceMethods
   orderFrontTablePanel(_?: any): void;
-  // compoundInstanceMethods
   outline(_?: any): void;
-  // compoundInstanceMethods
   pasteAsPlainText(_?: any): void;
-  // compoundInstanceMethods
   pasteAsRichText(_?: any): void;
-  // compoundInstanceMethods
   performFindPanelAction(_?: any): void;
-  // compoundInstanceMethods
   performValidatedReplacement(in_: NSRange, with_: NSAttributedString): boolean;
-  // compoundInstanceMethods
   preferredPasteboardType(from: string[], restrictedToTypesFrom?: string[]): string;
-  // compoundInstanceMethods
   raiseBaseline(_?: any): void;
-  // compoundInstanceMethods
   readSelection(from: NSPasteboard): boolean;
-  // compoundInstanceMethods
   readSelection(from: NSPasteboard, type: string): boolean;
-  // compoundInstanceMethods
   replaceTextContainer(_: NSTextContainer): void;
-  // compoundInstanceMethods
   selectionRange(forProposedRange: NSRange, granularity: NSTextView.NSSelectionGranularity): NSRange;
-  // compoundInstanceMethods
   // @ts-ignore 
   setAlignment(_: NSText.NSTextAlignment, range: NSRange): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setBaseWritingDirection(_: NSText.NSWritingDirection, range: NSRange): void;
-  // compoundInstanceMethods
   setConstrainedFrameSize(_: CGSize): void;
-  // compoundInstanceMethods
   setLayoutOrientation(_: NSLayoutManager.TextLayoutOrientation): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setNeedsDisplay(_: CGRect, avoidAdditionalLayout: boolean): void;
-  // compoundInstanceMethods
   setSelectedRange(_: NSRange): void;
-  // compoundInstanceMethods
   setSelectedRange(_: NSRange, affinity: NSTextView.NSSelectionAffinity, stillSelecting: boolean): void;
-  // compoundInstanceMethods
   setSelectedRanges(_: NSValue[], affinity: NSTextView.NSSelectionAffinity, stillSelecting: boolean): void;
-  // compoundInstanceMethods
   setSpellingState(_: number, range: NSRange): void;
-  // compoundInstanceMethods
   shouldChangeText(in_: NSRange, replacementString?: string): boolean;
-  // compoundInstanceMethods
   shouldChangeText(inRanges: NSValue[], replacementStrings?: string[]): boolean;
-  // compoundInstanceMethods
   showFindIndicator(for_: NSRange): void;
-  // compoundInstanceMethods
   smartDeleteRange(forProposedRange: NSRange): NSRange;
-  // compoundInstanceMethods
   smartInsert(afterStringFor: string, replacing: NSRange): string;
-  // compoundInstanceMethods
   smartInsert(beforeStringFor: string, replacing: NSRange): string;
-  // compoundInstanceMethods
   smartInsert(for_: string, replacing: NSRange, before?: string, after?: string): void;
-  // compoundInstanceMethods
   startSpeaking(_?: any): void;
-  // compoundInstanceMethods
   stopSpeaking(_?: any): void;
-  // compoundInstanceMethods
   tightenKerning(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticDashSubstitution(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticDataDetection(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticLinkDetection(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticQuoteSubstitution(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticSpellingCorrection(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticTextCompletion(_?: any): void;
-  // compoundInstanceMethods
   toggleAutomaticTextReplacement(_?: any): void;
-  // compoundInstanceMethods
   toggleContinuousSpellChecking(_?: any): void;
-  // compoundInstanceMethods
   toggleGrammarChecking(_?: any): void;
-  // compoundInstanceMethods
   toggleQuickLookPreviewPanel(_?: any): void;
-  // compoundInstanceMethods
   toggleSmartInsertDelete(_?: any): void;
-  // compoundInstanceMethods
   turnOffKerning(_?: any): void;
-  // compoundInstanceMethods
   turnOffLigatures(_?: any): void;
-  // compoundInstanceMethods
   updateCandidates(): void;
-  // compoundInstanceMethods
   updateDragTypeRegistration(): void;
-  // compoundInstanceMethods
   updateFontPanel(): void;
-  // compoundInstanceMethods
   updateInsertionPointStateAndRestartTimer(_: boolean): void;
-  // compoundInstanceMethods
   updateQuickLookPreviewPanel(): void;
-  // compoundInstanceMethods
   updateRuler(): void;
-  // compoundInstanceMethods
   updateTextTouchBarItems(): void;
-  // compoundInstanceMethods
   updateTouchBarItemIdentifiers(): void;
-  // compoundInstanceMethods
   useAllLigatures(_?: any): void;
-  // compoundInstanceMethods
   useStandardKerning(_?: any): void;
-  // compoundInstanceMethods
   useStandardLigatures(_?: any): void;
-  // compoundInstanceMethods
   writeSelection(to: NSPasteboard, type: string): boolean;
-  // compoundInstanceMethods
   writeSelection(to: NSPasteboard, types: string[]): boolean;
 }
 
@@ -12363,17 +10119,11 @@ export class NSToolbar extends NSObject {
   isVisible: boolean;
   setVisible(_: boolean);
   visibleItems: NSToolbarItem[];
-  // compoundInstanceMethods
   static createWithIdentifier(_: string): NSToolbar;
-  // compoundInstanceMethods
   insertItem(withItemIdentifier: string, at: number): void;
-  // compoundInstanceMethods
   removeItem(at: number): void;
-  // compoundInstanceMethods
   runCustomizationPalette(_?: any): void;
-  // compoundInstanceMethods
   setConfiguration(_: Map<string, any>): void;
-  // compoundInstanceMethods
   validateVisibleItems(): void;
 }
 
@@ -12421,9 +10171,7 @@ export class NSToolbarItem extends NSObject {
   toolbar: NSToolbar;
   visibilityPriority: number;
   setVisibilityPriority(_: number);
-  // compoundInstanceMethods
   static createWithItemIdentifier(_: string): NSToolbarItem;
-  // compoundInstanceMethods
   validate(): void;
 }
 
@@ -12436,9 +10184,7 @@ export class NSToolbarItemGroup extends NSToolbarItem {
   setSelectionMode(_: NSToolbarItemGroup.SelectionMode);
   subitems: NSToolbarItem[];
   setSubitems(_: NSToolbarItem[]);
-  // compoundInstanceMethods
   isSelected(at: number): boolean;
-  // compoundInstanceMethods
   setSelected(_: boolean, at: number): void;
 }
 
@@ -12454,9 +10200,7 @@ export class NSTouch extends NSObject {
   phase: NSTouch.Phase;
   isResting: boolean;
   type: NSTouch.TouchType;
-  // compoundInstanceMethods
   location(in_?: NSView): CGPoint;
-  // compoundInstanceMethods
   previousLocation(in_?: NSView): CGPoint;
 }
 
@@ -12481,7 +10225,6 @@ export class NSTouchBar extends NSObject {
   isVisible: boolean;
   static isAutomaticCustomizeTouchBarMenuItemEnabled: boolean;
   setAutomaticCustomizeTouchBarMenuItemEnabled(_: boolean);
-  // compoundInstanceMethods
   item(forIdentifier: string): NSTouchBarItem;
 }
 
@@ -12496,7 +10239,6 @@ export class NSTouchBarItem extends NSObject {
   visibilityPriority: number;
   setVisibilityPriority(_: number);
   isVisible: boolean;
-  // compoundInstanceMethods
   static createWithIdentifier(_: string): NSTouchBarItem;
 }
 
@@ -12509,7 +10251,6 @@ export class NSTrackingArea extends NSObject {
   owner: any;
   rect: CGRect;
   userInfo: Map<any, any>;
-  // compoundInstanceMethods
   static createWithRectWithOptionsWithOwnerWithUserInfo(_: CGRect, options: NSTrackingArea.Options, owner?: any, userInfo?: Map<any, any>): NSTrackingArea;
 }
 
@@ -12531,34 +10272,20 @@ export class NSTreeController extends NSObjectController {
   setSelectsInsertedObjects(_: boolean);
   sortDescriptors: NSSortDescriptor[];
   setSortDescriptors(_: NSSortDescriptor[]);
-  // compoundInstanceMethods
   addChild(_?: any): void;
-  // compoundInstanceMethods
   addSelectionIndexPaths(_: IndexPath[]): boolean;
-  // compoundInstanceMethods
   insert(_?: any): void;
-  // compoundInstanceMethods
   insertChild(_?: any): void;
-  // compoundInstanceMethods
   insert(_?: any, atArrangedObjectIndexPath?: IndexPath): void;
-  // compoundInstanceMethods
   insert(_: any[], atArrangedObjectIndexPaths: IndexPath[]): void;
-  // compoundInstanceMethods
   move(_: NSTreeNode, to: IndexPath): void;
-  // compoundInstanceMethods
   move(_: NSTreeNode[], to: IndexPath): void;
-  // compoundInstanceMethods
   rearrangeObjects(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObject(atArrangedObjectIndexPath: IndexPath): void;
-  // compoundInstanceMethods
   removeObjects(atArrangedObjectIndexPaths: IndexPath[]): void;
-  // compoundInstanceMethods
   removeSelectionIndexPaths(_: IndexPath[]): boolean;
-  // compoundInstanceMethods
   setSelectionIndexPath(_?: IndexPath): boolean;
-  // compoundInstanceMethods
   setSelectionIndexPaths(_: IndexPath[]): boolean;
 }
 
@@ -12569,11 +10296,8 @@ export class NSTreeNode extends NSObject {
   mutableChildren: NSTreeNode[];
   parent: NSTreeNode;
   representedObject: any;
-  // compoundInstanceMethods
   descendant(at: IndexPath): NSTreeNode;
-  // compoundInstanceMethods
   static createWithRepresentedObject(_?: any): NSTreeNode;
-  // compoundInstanceMethods
   sort(with_: NSSortDescriptor[], recursively: boolean): void;
 }
 
@@ -12601,67 +10325,36 @@ export class NSTypesetter extends NSObject {
   setUsesFontLeading(_: boolean);
   static defaultTypesetterBehavior: NSLayoutManager.TypesetterBehavior;
   static sharedSystemTypesetter: NSTypesetter;
-  // compoundInstanceMethods
   actionForControlCharacter(at: number): NSTypesetter.NSTypesetterControlCharacterAction;
-  // compoundInstanceMethods
   baselineOffset(in_: NSLayoutManager, glyphIndex: number): number;
-  // compoundInstanceMethods
   beginLine(withGlyphAt: number): void;
-  // compoundInstanceMethods
   beginParagraph(): void;
-  // compoundInstanceMethods
   boundingBox(forControlGlyphAt: number, for_: NSTextContainer, proposedLineFragment: CGRect, glyphPosition: CGPoint, characterIndex: number): CGRect;
-  // compoundInstanceMethods
   characterRange(forGlyphRange: NSRange, actualGlyphRange?: NSRange): NSRange;
-  // compoundInstanceMethods
   endLine(withGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   endParagraph(): void;
-  // compoundInstanceMethods
   getLineFragmentRect(_: CGRect, usedRect: CGRect, forParagraphSeparatorGlyphRange: NSRange, atProposedOrigin: CGPoint): void;
-  // compoundInstanceMethods
   getLineFragmentRect(_: CGRect, usedRect: CGRect, remaining: CGRect, forStartingGlyphAt: number, proposedRect: CGRect, lineSpacing: number, paragraphSpacingBefore: number, paragraphSpacingAfter: number): void;
-  // compoundInstanceMethods
   glyphRange(forCharacterRange: NSRange, actualCharacterRange?: NSRange): NSRange;
-  // compoundInstanceMethods
   hyphenCharacter(forGlyphAt: number): number;
-  // compoundInstanceMethods
   layoutCharacters(in_: NSRange, for_: NSLayoutManager, maximumNumberOfLineFragments: number): NSRange;
-  // compoundInstanceMethods
   layoutGlyphs(in_: NSLayoutManager, startingAtGlyphIndex: number, maxNumberOfLineFragments: number, nextGlyphIndex: number): void;
-  // compoundInstanceMethods
   layoutParagraph(at: CGPoint): number;
-  // compoundInstanceMethods
   lineSpacing(afterGlyphAt: number, withProposedLineFragmentRect: CGRect): number;
-  // compoundInstanceMethods
   paragraphSpacing(afterGlyphAt: number, withProposedLineFragmentRect: CGRect): number;
-  // compoundInstanceMethods
   paragraphSpacing(beforeGlyphAt: number, withProposedLineFragmentRect: CGRect): number;
-  // compoundInstanceMethods
   setAttachmentSize(_: CGSize, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setBidiLevels(_: string, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setDrawsOutsideLineFragment(_: boolean, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setHardInvalidation(_: boolean, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setLineFragmentRect(_: CGRect, forGlyphRange: NSRange, usedRect: CGRect, baselineOffset: number): void;
-  // compoundInstanceMethods
   setLocation(_: CGPoint, withAdvancements: number, forStartOfGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setNotShownAttribute(_: boolean, forGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   setParagraphGlyphRange(_: NSRange, separatorGlyphRange: NSRange): void;
-  // compoundInstanceMethods
   shouldBreakLine(byHyphenatingBeforeCharacterAt: number): boolean;
-  // compoundInstanceMethods
   shouldBreakLine(byWordBeforeCharacterAt: number): boolean;
-  // compoundInstanceMethods
   substituteFont(for_: NSFont): NSFont;
-  // compoundInstanceMethods
   textTab(forGlyphLocation: number, writingDirection: NSText.NSWritingDirection, maxLocation: number): NSTextTab;
-  // compoundInstanceMethods
   willSetLineFragmentRect(_: CGRect, forGlyphRange: NSRange, usedRect: CGRect, baselineOffset: number): void;
 }
 
@@ -12682,13 +10375,9 @@ export class NSUserDefaultsController extends NSController {
   setInitialValues(_: Map<string, any>);
   values: any;
   static shared: NSUserDefaultsController;
-  // compoundInstanceMethods
   static createWithDefaultsWithInitialValues(_?: UserDefaults, initialValues?: Map<string, any>): NSUserDefaultsController;
-  // compoundInstanceMethods
   revert(_?: any): void;
-  // compoundInstanceMethods
   revertToInitialValues(_?: any): void;
-  // compoundInstanceMethods
   save(_?: any): void;
 }
 
@@ -12705,15 +10394,10 @@ export class NSUserInterfaceCompressionOptions extends NSObject {
   static hideTextOption: NSUserInterfaceCompressionOptions;
   static reduceMetricsOption: NSUserInterfaceCompressionOptions;
   static standardOptions: NSUserInterfaceCompressionOptions;
-  // compoundInstanceMethods
   contains(_: NSUserInterfaceCompressionOptions): boolean;
-  // compoundInstanceMethods
   static createWithIdentifier(_: string): NSUserInterfaceCompressionOptions;
-  // compoundInstanceMethods
   intersects(_: NSUserInterfaceCompressionOptions): boolean;
-  // compoundInstanceMethods
   union(_: NSUserInterfaceCompressionOptions): NSUserInterfaceCompressionOptions;
-  // compoundInstanceMethods
   subtracting(_: NSUserInterfaceCompressionOptions): NSUserInterfaceCompressionOptions;
 }
 
@@ -12875,324 +10559,168 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   static requiresConstraintBasedLayout: boolean;
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   acceptsFirstMouse(for_?: NSEvent): boolean;
-  // compoundInstanceMethods
   addConstraint(_: NSLayoutConstraint): void;
-  // compoundInstanceMethods
   addConstraints(_: NSLayoutConstraint[]): void;
-  // compoundInstanceMethods
   addCursorRectCursor(_: CGRect, cursor: NSCursor): void;
-  // compoundInstanceMethods
   addGestureRecognizer(_: NSGestureRecognizer): void;
-  // compoundInstanceMethods
   addLayoutGuide(_: NSLayoutGuide): void;
-  // compoundInstanceMethods
   addSubview(_: NSView): void;
-  // compoundInstanceMethods
   addSubviewPositionedWithRelativeTo(_: NSView, positioned: NSGraphics.NSWindow.OrderingMode, relativeTo?: NSView): void;
-  // compoundInstanceMethods
   addToolTipRectWithOwnerWithUserData(_: CGRect, owner: any, userData?: any): number;
-  // compoundInstanceMethods
   addTrackingArea(_: NSTrackingArea): void;
-  // compoundInstanceMethods
   addTrackingRectOwnerWithUserDataWithAssumeInside(_: CGRect, owner: any, userData?: any, assumeInside?: boolean): number;
-  // compoundInstanceMethods
   adjustPageHeightNewTopWithBottomWithLimit(_: number, top: number, bottom: number, limit: number): void;
-  // compoundInstanceMethods
   adjustPageWidthNewLeftWithRightWithLimit(_: number, left: number, right: number, limit: number): void;
-  // compoundInstanceMethods
   adjustScroll(_: CGRect): CGRect;
-  // compoundInstanceMethods
   alignmentRectForFrame(forFrame: CGRect): CGRect;
-  // compoundInstanceMethods
   ancestorSharedWithView(with_: NSView): NSView;
-  // compoundInstanceMethods
   autoscroll(with_: NSEvent): boolean;
-  // compoundInstanceMethods
   backingAlignedRectOptions(_: CGRect, options: NSGeometry.AlignmentOptions): CGRect;
-  // compoundInstanceMethods
   beginDocument(): void;
-  // compoundInstanceMethods
   beginDraggingSessionWithItemsWithEventWithSource(with_: NSDraggingItem[], event: NSEvent, source: any): NSDraggingSession;
-  // compoundInstanceMethods
   beginPageInRectWithAtPlacement(in_: CGRect, atPlacement: CGPoint): void;
-  // compoundInstanceMethods
   bitmapImageRepForCachingDisplayInRect(in_: CGRect): NSBitmapImageRep;
-  // compoundInstanceMethods
   cacheDisplayInRectWithToBitmapImageRep(in_: CGRect, to: NSBitmapImageRep): void;
-  // compoundInstanceMethods
   centerScanRect(_: CGRect): CGRect;
-  // compoundInstanceMethods
   constraintsAffectingLayoutForOrientation(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint[];
-  // compoundInstanceMethods
   contentCompressionResistancePriorityForOrientation(for_: NSLayoutConstraint.Orientation): number;
-  // compoundInstanceMethods
   contentHuggingPriorityForOrientation(for_: NSLayoutConstraint.Orientation): number;
-  // compoundInstanceMethods
   convertPointWithFromView(_: CGPoint, from?: NSView): CGPoint;
-  // compoundInstanceMethods
   convertPointWithToView(_: CGPoint, to?: NSView): CGPoint;
-  // compoundInstanceMethods
   convertPointFromBacking(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPointFromLayer(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPointToBacking(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPointToLayer(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertRectWithFromView(_: CGRect, from?: NSView): CGRect;
-  // compoundInstanceMethods
   convertRectWithToView(_: CGRect, to?: NSView): CGRect;
-  // compoundInstanceMethods
   convertRectFromBacking(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertRectFromLayer(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertRectToBacking(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertRectToLayer(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertSizeWithFromView(_: CGSize, from?: NSView): CGSize;
-  // compoundInstanceMethods
   convertSizeWithToView(_: CGSize, to?: NSView): CGSize;
-  // compoundInstanceMethods
   convertSizeFromBacking(_: CGSize): CGSize;
-  // compoundInstanceMethods
   convertSizeFromLayer(_: CGSize): CGSize;
-  // compoundInstanceMethods
   convertSizeToBacking(_: CGSize): CGSize;
-  // compoundInstanceMethods
   convertSizeToLayer(_: CGSize): CGSize;
-  // compoundInstanceMethods
   dataWithEPSInsideRect(inside: CGRect): Data;
-  // compoundInstanceMethods
   dataWithPDFInsideRect(inside: CGRect): Data;
-  // compoundInstanceMethods
   didAddSubview(_: NSView): void;
-  // compoundInstanceMethods
   didCloseMenuWithEvent(_: NSMenu, with_?: NSEvent): void;
-  // compoundInstanceMethods
   discardCursorRects(): void;
-  // compoundInstanceMethods
   display(): void;
-  // compoundInstanceMethods
   displayIfNeeded(): void;
-  // compoundInstanceMethods
   displayIfNeededIgnoringOpacity(): void;
-  // compoundInstanceMethods
   displayIfNeededInRect(_: CGRect): void;
-  // compoundInstanceMethods
   displayIfNeededInRectIgnoringOpacity(_: CGRect): void;
-  // compoundInstanceMethods
   displayRect(_: CGRect): void;
-  // compoundInstanceMethods
   displayRectIgnoringOpacity(_: CGRect): void;
-  // compoundInstanceMethods
   displayRectIgnoringOpacityWithInContext(_: CGRect, in_: NSGraphicsContext): void;
-  // compoundInstanceMethods
   drawFocusRingMask(): void;
-  // compoundInstanceMethods
   drawPageBorderWithSize(with_: CGSize): void;
-  // compoundInstanceMethods
   drawRect(_: CGRect): void;
-  // compoundInstanceMethods
   endDocument(): void;
-  // compoundInstanceMethods
   endPage(): void;
-  // compoundInstanceMethods
   enterFullScreenModeWithOptions(_: NSScreen, withOptions?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   exerciseAmbiguityInLayout(): void;
-  // compoundInstanceMethods
   exitFullScreenModeWithOptions(options?: Map<string, any>): void;
-  // compoundInstanceMethods
   getRectsBeingDrawnCount(_?: CGRect, count?: number): void;
-  // compoundInstanceMethods
   getRectsExposedDuringLiveResizeCount(_: CGRect, count: number): void;
-  // compoundInstanceMethods
   hitTest(_: CGPoint): NSView;
-  // compoundInstanceMethods
   static createWithFrame(_: CGRect): NSView;
-  // compoundInstanceMethods
   invalidateIntrinsicContentSize(): void;
-  // compoundInstanceMethods
   isDescendantOf(of: NSView): boolean;
-  // compoundInstanceMethods
   knowsPageRange(_: NSRange): boolean;
-  // compoundInstanceMethods
   layout(): void;
-  // compoundInstanceMethods
   layoutSubtreeIfNeeded(): void;
-  // compoundInstanceMethods
   locationOfPrintRect(_: CGRect): CGPoint;
-  // compoundInstanceMethods
   makeBackingLayer(): CALayer;
-  // compoundInstanceMethods
   // @ts-ignore 
   menuForEvent(for_: NSEvent): NSMenu;
-  // compoundInstanceMethods
   mouseWithInRect(_: CGPoint, in_: CGRect): boolean;
-  // compoundInstanceMethods
   needsToDrawRect(_: CGRect): boolean;
-  // compoundInstanceMethods
   noteFocusRingMaskChanged(): void;
-  // compoundInstanceMethods
   prepareContentInRect(in_: CGRect): void;
-  // compoundInstanceMethods
   prepareForReuse(): void;
-  // compoundInstanceMethods
   print(_?: any): void;
-  // compoundInstanceMethods
   rectForPage(_: number): CGRect;
-  // compoundInstanceMethods
   rectForSmartMagnificationAtPointWithInRect(at: CGPoint, in_: CGRect): CGRect;
-  // compoundInstanceMethods
   reflectScrolledClipView(_: NSClipView): void;
-  // compoundInstanceMethods
   registerForDraggedTypes(_: string[]): void;
-  // compoundInstanceMethods
   removeAllToolTips(): void;
-  // compoundInstanceMethods
   removeConstraint(_: NSLayoutConstraint): void;
-  // compoundInstanceMethods
   removeConstraints(_: NSLayoutConstraint[]): void;
-  // compoundInstanceMethods
   removeCursorRectCursor(_: CGRect, cursor: NSCursor): void;
-  // compoundInstanceMethods
   removeFromSuperview(): void;
-  // compoundInstanceMethods
   removeFromSuperviewWithoutNeedingDisplay(): void;
-  // compoundInstanceMethods
   removeGestureRecognizer(_: NSGestureRecognizer): void;
-  // compoundInstanceMethods
   removeLayoutGuide(_: NSLayoutGuide): void;
-  // compoundInstanceMethods
   removeToolTip(_: number): void;
-  // compoundInstanceMethods
   removeTrackingArea(_: NSTrackingArea): void;
-  // compoundInstanceMethods
   removeTrackingRect(_: number): void;
-  // compoundInstanceMethods
   replaceSubviewWith(_: NSView, with_: NSView): void;
-  // compoundInstanceMethods
   resetCursorRects(): void;
-  // compoundInstanceMethods
   resizeSubviewsWithOldSize(withOldSize: CGSize): void;
-  // compoundInstanceMethods
   resizeWithOldSuperviewSize(withOldSuperviewSize: CGSize): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   rotateByAngle(byDegrees: number): void;
-  // compoundInstanceMethods
   rulerViewDidAddMarker(_: NSRulerView, didAdd: NSRulerMarker): void;
-  // compoundInstanceMethods
   rulerViewDidMoveMarker(_: NSRulerView, didMove: NSRulerMarker): void;
-  // compoundInstanceMethods
   rulerViewDidRemoveMarker(_: NSRulerView, didRemove: NSRulerMarker): void;
-  // compoundInstanceMethods
   rulerViewHandleMouseDown(_: NSRulerView, handleMouseDownWith: NSEvent): void;
-  // compoundInstanceMethods
   rulerViewLocationForPoint(_: NSRulerView, locationFor: CGPoint): number;
-  // compoundInstanceMethods
   rulerViewPointForLocation(_: NSRulerView, pointForLocation: number): CGPoint;
-  // compoundInstanceMethods
   rulerViewShouldAddMarker(_: NSRulerView, shouldAdd: NSRulerMarker): boolean;
-  // compoundInstanceMethods
   rulerViewShouldMoveMarker(_: NSRulerView, shouldMove: NSRulerMarker): boolean;
-  // compoundInstanceMethods
   rulerViewShouldRemoveMarker(_: NSRulerView, shouldRemove: NSRulerMarker): boolean;
-  // compoundInstanceMethods
   rulerViewWillAddMarkerWithAtLocation(_: NSRulerView, willAdd: NSRulerMarker, atLocation: number): number;
-  // compoundInstanceMethods
   rulerViewWillMoveMarkerWithToLocation(_: NSRulerView, willMove: NSRulerMarker, toLocation: number): number;
-  // compoundInstanceMethods
   rulerViewWillSetClientView(_: NSRulerView, willSetClientView: NSView): void;
-  // compoundInstanceMethods
   scaleUnitSquareToSize(to: CGSize): void;
-  // compoundInstanceMethods
   scrollClipViewWithToPoint(_: NSClipView, to: CGPoint): void;
-  // compoundInstanceMethods
   scrollPoint(_: CGPoint): void;
-  // compoundInstanceMethods
   scrollRectToVisible(_: CGRect): boolean;
-  // compoundInstanceMethods
   setBoundsOrigin(_: CGPoint): void;
-  // compoundInstanceMethods
   setBoundsSize(_: CGSize): void;
-  // compoundInstanceMethods
   setContentCompressionResistancePriorityForOrientation(_: number, for_: NSLayoutConstraint.Orientation): void;
-  // compoundInstanceMethods
   setContentHuggingPriorityForOrientation(_: number, for_: NSLayoutConstraint.Orientation): void;
-  // compoundInstanceMethods
   setFrameOrigin(_: CGPoint): void;
-  // compoundInstanceMethods
   setFrameSize(_: CGSize): void;
-  // compoundInstanceMethods
   setKeyboardFocusRingNeedsDisplayInRect(_: CGRect): void;
-  // compoundInstanceMethods
   setNeedsDisplayInRect(_: CGRect): void;
-  // compoundInstanceMethods
   shouldDelayWindowOrderingForEvent(for_: NSEvent): boolean;
-  // compoundInstanceMethods
   showDefinitionForAttributedStringWithAtPoint(for_?: NSAttributedString, at?: CGPoint): void;
-  // compoundInstanceMethods
   showDefinitionForAttributedStringWithRangeWithOptionsWithBaselineOriginProvider(for_?: NSAttributedString, range?: NSRange, options?: Map<string, any>, baselineOriginProvider?: (p1: NSRange) => CGPoint): void;
-  // compoundInstanceMethods
   sortSubviewsUsingFunctionWithContext(_?: (p1: NSView, p2: NSView, p3: any) => NSObjCRuntime.ComparisonResult, context?: any): void;
-  // compoundInstanceMethods
   translateOriginToPoint(to: CGPoint): void;
-  // compoundInstanceMethods
   translateRectsNeedingDisplayInRectWithBy(in_: CGRect, by: CGSize): void;
-  // compoundInstanceMethods
   unregisterDraggedTypes(): void;
-  // compoundInstanceMethods
   updateConstraints(): void;
-  // compoundInstanceMethods
   updateConstraintsForSubtreeIfNeeded(): void;
-  // compoundInstanceMethods
   updateLayer(): void;
-  // compoundInstanceMethods
   updateTrackingAreas(): void;
-  // compoundInstanceMethods
   viewDidChangeBackingProperties(): void;
-  // compoundInstanceMethods
   viewDidChangeEffectiveAppearance(): void;
-  // compoundInstanceMethods
   viewDidEndLiveResize(): void;
-  // compoundInstanceMethods
   viewDidHide(): void;
-  // compoundInstanceMethods
   viewDidMoveToSuperview(): void;
-  // compoundInstanceMethods
   viewDidMoveToWindow(): void;
-  // compoundInstanceMethods
   viewDidUnhide(): void;
-  // compoundInstanceMethods
   viewWillDraw(): void;
-  // compoundInstanceMethods
   viewWillMoveToSuperview(toSuperview?: NSView): void;
-  // compoundInstanceMethods
   viewWillMoveToWindow(toWindow?: NSWindow): void;
-  // compoundInstanceMethods
   viewWillStartLiveResize(): void;
-  // compoundInstanceMethods
   //   tag(_: number): NSView;
-  // compoundInstanceMethods
   willOpenMenuWithEvent(_: NSMenu, with_: NSEvent): void;
-  // compoundInstanceMethods
   willRemoveSubview(_: NSView): void;
-  // compoundInstanceMethods
   writeEPSInsideRectWithToPasteboard(inside: CGRect, to: NSPasteboard): void;
-  // compoundInstanceMethods
   writePDFInsideRectWithToPasteboard(inside: CGRect, to: NSPasteboard): void;
 }
 
 export class NSViewAnimation extends NSAnimation {
   viewAnimations: Map<string, any>[];
   setViewAnimations(_: Map<string, any>[]);
-  // compoundInstanceMethods
   static createWithViewAnimations(_: Map<string, any>[]): NSViewAnimation;
 }
 
@@ -13221,51 +10749,28 @@ export class NSViewController extends NSResponder implements NSUserInterfaceItem
   isViewLoaded: boolean;
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   addChild(_: NSViewController): void;
-  // compoundInstanceMethods
   dismiss(_?: any): void;
-  // compoundInstanceMethods
   dismiss(_: NSViewController): void;
-  // compoundInstanceMethods
   static createWithNibNameWithBundle(_?: string, bundle?: Bundle): NSViewController;
-  // compoundInstanceMethods
   insertChild(_: NSViewController, at: number): void;
-  // compoundInstanceMethods
   loadView(): void;
-  // compoundInstanceMethods
   preferredContentSizeDidChange(for_: NSViewController): void;
-  // compoundInstanceMethods
   present(_: NSViewController, animator: any): void;
-  // compoundInstanceMethods
   present(_: NSViewController, asPopoverRelativeTo: CGRect, of: NSView, preferredEdge: NSGeometry.NSRectEdge, behavior: NSPopover.Behavior): void;
-  // compoundInstanceMethods
   presentAsModalWindow(_: NSViewController): void;
-  // compoundInstanceMethods
   presentAsSheet(_: NSViewController): void;
-  // compoundInstanceMethods
   removeChild(at: number): void;
-  // compoundInstanceMethods
   removeFromParent(): void;
-  // compoundInstanceMethods
   transition(from: NSViewController, to: NSViewController, options: NSViewController.TransitionOptions, completionHandler?: () => void): void;
-  // compoundInstanceMethods
   updateViewConstraints(): void;
-  // compoundInstanceMethods
   viewDidAppear(): void;
-  // compoundInstanceMethods
   viewDidDisappear(): void;
-  // compoundInstanceMethods
   viewDidLayout(): void;
-  // compoundInstanceMethods
   viewDidLoad(): void;
-  // compoundInstanceMethods
   viewWillAppear(): void;
-  // compoundInstanceMethods
   viewWillDisappear(): void;
-  // compoundInstanceMethods
   viewWillLayout(): void;
-  // compoundInstanceMethods
   viewWillTransition(to: CGSize): void;
 }
 
@@ -13482,245 +10987,125 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   static userTabbingPreference: NSWindow.UserTabbingPreference;
   identifier: string;
   setIdentifier(_: string);
-  // compoundInstanceMethods
   addChildWindow(_: NSWindow, ordered: NSGraphics.NSWindow.OrderingMode): void;
-  // compoundInstanceMethods
   addTabbedWindow(_: NSWindow, ordered: NSGraphics.NSWindow.OrderingMode): void;
-  // compoundInstanceMethods
   addTitlebarAccessoryViewController(_: NSTitlebarAccessoryViewController): void;
-  // compoundInstanceMethods
   anchorAttribute(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint.Attribute;
-  // compoundInstanceMethods
   animationResizeTime(_: CGRect): number;
-  // compoundInstanceMethods
   autorecalculatesContentBorderThickness(for_: NSGeometry.NSRectEdge): boolean;
-  // compoundInstanceMethods
   backingAlignedRect(_: CGRect, options: NSGeometry.AlignmentOptions): CGRect;
-  // compoundInstanceMethods
   becomeKey(): void;
-  // compoundInstanceMethods
   becomeMain(): void;
-  // compoundInstanceMethods
   beginCriticalSheet(_: NSWindow, completionHandler?: (p1: number) => void): void;
-  // compoundInstanceMethods
   beginSheet(_: NSWindow, completionHandler?: (p1: number) => void): void;
-  // compoundInstanceMethods
   canRepresent(_: NSGraphics.NSDisplayGamut): boolean;
-  // compoundInstanceMethods
   cascadeTopLeft(from: CGPoint): CGPoint;
-  // compoundInstanceMethods
   center(): void;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   constrainFrameRect(_: CGRect, to?: NSScreen): CGRect;
-  // compoundInstanceMethods
   contentBorderThickness(for_: NSGeometry.NSRectEdge): number;
-  // compoundInstanceMethods
   contentRect(forFrameRect: CGRect): CGRect;
-  // compoundInstanceMethods
   convertPointFromBacking(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPoint(fromScreen: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPointToBacking(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertPoint(toScreen: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertFromBacking(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertFromScreen(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertToBacking(_: CGRect): CGRect;
-  // compoundInstanceMethods
   convertToScreen(_: CGRect): CGRect;
-  // compoundInstanceMethods
   dataWithEPS(inside: CGRect): Data;
-  // compoundInstanceMethods
   dataWithPDF(inside: CGRect): Data;
-  // compoundInstanceMethods
   deminiaturize(_?: any): void;
-  // compoundInstanceMethods
   disableCursorRects(): void;
-  // compoundInstanceMethods
   disableKeyEquivalentForDefaultButtonCell(): void;
-  // compoundInstanceMethods
   disableScreenUpdatesUntilFlush(): void;
-  // compoundInstanceMethods
   disableSnapshotRestoration(): void;
-  // compoundInstanceMethods
   discardCursorRects(): void;
-  // compoundInstanceMethods
   discardEvents(matching: NSEvent.EventTypeMask, before?: NSEvent): void;
-  // compoundInstanceMethods
   display(): void;
-  // compoundInstanceMethods
   displayIfNeeded(): void;
-  // compoundInstanceMethods
   drag(_: NSImage, at: CGPoint, offset: CGSize, event: NSEvent, pasteboard: NSPasteboard, source: any, slideBack: boolean): void;
-  // compoundInstanceMethods
   enableCursorRects(): void;
-  // compoundInstanceMethods
   enableKeyEquivalentForDefaultButtonCell(): void;
-  // compoundInstanceMethods
   enableSnapshotRestoration(): void;
-  // compoundInstanceMethods
   endEditing(for_?: any): void;
-  // compoundInstanceMethods
   endSheet(_: NSWindow): void;
-  // compoundInstanceMethods
   endSheet(_: NSWindow, returnCode: number): void;
-  // compoundInstanceMethods
   fieldEditor(_: boolean, for_?: any): NSText;
-  // compoundInstanceMethods
   frameRect(forContentRect: CGRect): CGRect;
-  // compoundInstanceMethods
   handleClose(_: NSCloseCommand): any;
-  // compoundInstanceMethods
   handlePrint(_: NSScriptCommand): any;
-  // compoundInstanceMethods
   handleSave(_: NSScriptCommand): any;
-  // compoundInstanceMethods
   static createWithContentRectWithStyleMaskWithBackingWithDefer(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean): NSWindow;
-  // compoundInstanceMethods
   static createWithContentRectWithStyleMaskWithBackingWithDeferWithScreen(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean, screen?: NSScreen): NSWindow;
-  // compoundInstanceMethods
   static createWithWindowRef(_: any): NSWindow;
-  // compoundInstanceMethods
   insertTitlebarAccessoryViewController(_: NSTitlebarAccessoryViewController, at: number): void;
-  // compoundInstanceMethods
   invalidateCursorRects(for_: NSView): void;
-  // compoundInstanceMethods
   invalidateShadow(): void;
-  // compoundInstanceMethods
   layoutIfNeeded(): void;
-  // compoundInstanceMethods
   makeFirstResponder(_?: NSResponder): boolean;
-  // compoundInstanceMethods
   makeKeyAndOrderFront(_?: any): void;
-  // compoundInstanceMethods
   makeKey(): void;
-  // compoundInstanceMethods
   makeMain(): void;
-  // compoundInstanceMethods
   mergeAllWindows(_?: any): void;
-  // compoundInstanceMethods
   miniaturize(_?: any): void;
-  // compoundInstanceMethods
   moveTabToNewWindow(_?: any): void;
-  // compoundInstanceMethods
   nextEvent(matching: NSEvent.EventTypeMask): NSEvent;
-  // compoundInstanceMethods
   nextEvent(matching: NSEvent.EventTypeMask, until?: Date, inMode?: string, dequeue?: boolean): NSEvent;
-  // compoundInstanceMethods
   orderBack(_?: any): void;
-  // compoundInstanceMethods
   orderFront(_?: any): void;
-  // compoundInstanceMethods
   orderFrontRegardless(): void;
-  // compoundInstanceMethods
   orderOut(_?: any): void;
-  // compoundInstanceMethods
   order(_: NSGraphics.NSWindow.OrderingMode, relativeTo: number): void;
-  // compoundInstanceMethods
   performClose(_?: any): void;
-  // compoundInstanceMethods
   performMiniaturize(_?: any): void;
-  // compoundInstanceMethods
   performDrag(with_: NSEvent): void;
-  // compoundInstanceMethods
   performZoom(_?: any): void;
-  // compoundInstanceMethods
   postEvent(_: NSEvent, atStart: boolean): void;
-  // compoundInstanceMethods
   printWindow(_?: any): void;
-  // compoundInstanceMethods
   recalculateKeyViewLoop(): void;
-  // compoundInstanceMethods
   registerForDraggedTypes(_: string[]): void;
-  // compoundInstanceMethods
   removeChildWindow(_: NSWindow): void;
-  // compoundInstanceMethods
   removeTitlebarAccessoryViewController(at: number): void;
-  // compoundInstanceMethods
   resetCursorRects(): void;
-  // compoundInstanceMethods
   resignKey(): void;
-  // compoundInstanceMethods
   resignMain(): void;
-  // compoundInstanceMethods
   runToolbarCustomizationPalette(_?: any): void;
-  // compoundInstanceMethods
   saveFrame(usingName: string): void;
-  // compoundInstanceMethods
   selectKeyView(following: NSView): void;
-  // compoundInstanceMethods
   selectKeyView(preceding: NSView): void;
-  // compoundInstanceMethods
   selectNextKeyView(_?: any): void;
-  // compoundInstanceMethods
   selectNextTab(_?: any): void;
-  // compoundInstanceMethods
   selectPreviousKeyView(_?: any): void;
-  // compoundInstanceMethods
   selectPreviousTab(_?: any): void;
-  // compoundInstanceMethods
   sendEvent(_: NSEvent): void;
-  // compoundInstanceMethods
   setAnchorAttribute(_: NSLayoutConstraint.Attribute, for_: NSLayoutConstraint.Orientation): void;
-  // compoundInstanceMethods
   setAutorecalculatesContentBorderThickness(_: boolean, for_: NSGeometry.NSRectEdge): void;
-  // compoundInstanceMethods
   setContentBorderThickness(_: number, for_: NSGeometry.NSRectEdge): void;
-  // compoundInstanceMethods
   setContentSize(_: CGSize): void;
-  // compoundInstanceMethods
   setDynamicDepthLimit(_: boolean): void;
-  // compoundInstanceMethods
   setFrame(_: CGRect, display: boolean): void;
-  // compoundInstanceMethods
   setFrame(_: CGRect, display: boolean, animate: boolean): void;
-  // compoundInstanceMethods
   setFrameAutosaveName(_: string): boolean;
-  // compoundInstanceMethods
   setFrame(from: string): void;
-  // compoundInstanceMethods
   setFrameOrigin(_: CGPoint): void;
-  // compoundInstanceMethods
   setFrameTopLeftPoint(_: CGPoint): void;
-  // compoundInstanceMethods
   setFrameUsingName(_: string): boolean;
-  // compoundInstanceMethods
   setFrameUsingName(_: string, force: boolean): boolean;
-  // compoundInstanceMethods
   setIsMiniaturized(_: boolean): void;
-  // compoundInstanceMethods
   setIsVisible(_: boolean): void;
-  // compoundInstanceMethods
   setIsZoomed(_: boolean): void;
-  // compoundInstanceMethods
   setTitleWithRepresentedFilename(_: string): void;
-  // compoundInstanceMethods
   standardWindowButton(_: NSWindow.ButtonType): NSButton;
-  // compoundInstanceMethods
   toggleFullScreen(_?: any): void;
-  // compoundInstanceMethods
   toggleTabBar(_?: any): void;
-  // compoundInstanceMethods
   toggleTabOverview(_?: any): void;
-  // compoundInstanceMethods
   toggleToolbarShown(_?: any): void;
-  // compoundInstanceMethods
   trackEvents(matching: NSEvent.EventTypeMask, timeout: number, mode: string, handler?: (p1: NSEvent, p2: boolean) => void): void;
-  // compoundInstanceMethods
   unregisterDraggedTypes(): void;
-  // compoundInstanceMethods
   update(): void;
-  // compoundInstanceMethods
   updateConstraintsIfNeeded(): void;
-  // compoundInstanceMethods
   visualizeConstraints(_?: NSLayoutConstraint[]): void;
-  // compoundInstanceMethods
   zoom(_?: any): void;
 }
 
@@ -13742,31 +11127,18 @@ export class NSWindowController extends NSResponder {
   isWindowLoaded: boolean;
   windowNibName: string;
   windowNibPath: string;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   dismissController(_?: any): void;
-  // compoundInstanceMethods
   static createWithWindow(_?: NSWindow): NSWindowController;
-  // compoundInstanceMethods
   static createWithWindowNibName(_: string): NSWindowController;
-  // compoundInstanceMethods
   static createWithWindowNibNameWithOwner(_: string, owner: any): NSWindowController;
-  // compoundInstanceMethods
   static createWithWindowNibPathWithOwner(_: string, owner: any): NSWindowController;
-  // compoundInstanceMethods
   loadWindow(): void;
-  // compoundInstanceMethods
   setDocumentEdited(_: boolean): void;
-  // compoundInstanceMethods
   showWindow(_?: any): void;
-  // compoundInstanceMethods
   synchronizeWindowTitleWithDocumentName(): void;
-  // compoundInstanceMethods
   windowDidLoad(): void;
-  // compoundInstanceMethods
   windowTitle(forDocumentDisplayName: string): string;
-  // compoundInstanceMethods
   windowWillLoad(): void;
 }
 
@@ -13846,11 +11218,8 @@ export class NSWindowTabGroup extends NSObject {
   setSelectedWindow(_: NSWindow);
   isTabBarVisible: boolean;
   windows: NSWindow[];
-  // compoundInstanceMethods
   addWindow(_: NSWindow): void;
-  // compoundInstanceMethods
   insertWindow(_: NSWindow, at: number): void;
-  // compoundInstanceMethods
   removeWindow(_: NSWindow): void;
 }
 
@@ -13869,75 +11238,40 @@ export class NSWorkspace extends NSObject {
   isSwitchControlEnabled: boolean;
   isVoiceOverEnabled: boolean;
   static shared: NSWorkspace;
-  // compoundInstanceMethods
   urlForApplication(toOpen: URL): URL;
-  // compoundInstanceMethods
   urlForApplication(withBundleIdentifier: string): URL;
-  // compoundInstanceMethods
   activateFileViewerSelecting(_: URL[]): void;
-  // compoundInstanceMethods
   desktopImageOptions(for_: NSScreen): Map<string, any>;
-  // compoundInstanceMethods
   desktopImageURL(for_: NSScreen): URL;
-  // compoundInstanceMethods
   duplicate(_: URL[], completionHandler?: (p1: Map<URL, URL>, p2: Error) => void): void;
-  // compoundInstanceMethods
   extendPowerOff(by: number): number;
-  // compoundInstanceMethods
   filenameExtension(_: string, isValidForType: string): boolean;
-  // compoundInstanceMethods
   getFileSystemInfo(forPath: string, isRemovable?: boolean, isWritable?: boolean, isUnmountable?: boolean, description?: string, type?: string): boolean;
-  // compoundInstanceMethods
   getInfoForFile(_: string, application?: string, type?: string): boolean;
-  // compoundInstanceMethods
   hideOtherApplications(): void;
-  // compoundInstanceMethods
   icon(forFile: string): NSImage;
-  // compoundInstanceMethods
   icon(forFileType: string): NSImage;
-  // compoundInstanceMethods
   icon(forFiles: string[]): NSImage;
-  // compoundInstanceMethods
   isFilePackage(atPath: string): boolean;
-  // compoundInstanceMethods
   launchApplicationAtURL(options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  // compoundInstanceMethods
   localizedDescription(forType: string): string;
-  // compoundInstanceMethods
   noteFileSystemChanged(_: string): void;
-  // compoundInstanceMethods
   openApplication(at: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  // compoundInstanceMethods
   open(_: URL): boolean;
-  // compoundInstanceMethods
   open(_: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  // compoundInstanceMethods
   openURL(options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  // compoundInstanceMethods
   open(_: URL[], withApplicationAt: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  // compoundInstanceMethods
   openURLs(withApplicationAtURL: URL[], options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  // compoundInstanceMethods
   preferredFilenameExtension(forType: string): string;
-  // compoundInstanceMethods
   recycle(_: URL[], completionHandler?: (p1: Map<URL, URL>, p2: Error) => void): void;
-  // compoundInstanceMethods
   requestAuthorization(to: NSWorkspace.AuthorizationType, completionHandler?: (p1: NSWorkspace.Authorization, p2: Error) => void): void;
-  // compoundInstanceMethods
   selectFile(_?: string, inFileViewerRootedAtPath?: string): boolean;
-  // compoundInstanceMethods
   setDesktopImageURL(forScreen: URL, options: NSScreen, error: Map<string, any>): boolean;
-  // compoundInstanceMethods
   setIcon(_?: NSImage, forFile?: string, options?: NSWorkspace.IconCreationOptions): boolean;
-  // compoundInstanceMethods
   showSearchResults(forQueryString: string): boolean;
-  // compoundInstanceMethods
   type(_: string, conformsToType: string): boolean;
-  // compoundInstanceMethods
   typeOfFile(error: string): string;
-  // compoundInstanceMethods
   unmountAndEjectDevice(atPath: string): boolean;
-  // compoundInstanceMethods
   unmountAndEjectDeviceAtURL(error: URL): boolean;
 }
 
@@ -13948,13 +11282,11 @@ export class CKAcceptSharesOperation extends CKOperation {
   setPerShareCompletionBlock(_: (p1: CKShare.Metadata, p2: CKShare, p3: Error) => void);
   shareMetadatas: CKShare.Metadata[];
   setShareMetadatas(_: CKShare.Metadata[]);
-  // compoundInstanceMethods
   static createWithShareMetadatas(_: CKShare.Metadata[]): CKAcceptSharesOperation;
 }
 
 export class CKAsset extends NSObject {
   fileURL: URL;
-  // compoundInstanceMethods
   static createWithFileURL(_: URL): CKAsset;
 }
 
@@ -13964,70 +11296,40 @@ export class CKContainer extends NSObject {
   privateCloudDatabase: CKDatabase;
   publicCloudDatabase: CKDatabase;
   sharedCloudDatabase: CKDatabase;
-  // compoundInstanceMethods
   accept(_: CKShare.Metadata, completionHandler?: (p1: CKShare, p2: Error) => void): void;
-  // compoundInstanceMethods
   accountStatus(completionHandler?: (p1: CKContainer.CKAccountStatus, p2: Error) => void): void;
-  // compoundInstanceMethods
   add(_: CKOperation): void;
-  // compoundInstanceMethods
   database(with_: CKDatabase.Scope): CKDatabase;
-  // compoundInstanceMethods
   discoverAllIdentities(completionHandler?: (p1: CKUserIdentity[], p2: Error) => void): void;
-  // compoundInstanceMethods
   discoverUserIdentity(withEmailAddress: string, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  // compoundInstanceMethods
   discoverUserIdentity(withPhoneNumber: string, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  // compoundInstanceMethods
   discoverUserIdentity(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchAllLongLivedOperationIDsWithCompletionHandler(_?: (p1: string[], p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchLongLivedOperationWithID(_: string, completionHandler?: (p1: CKOperation, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchShareMetadata(with_: URL, completionHandler?: (p1: CKShare.Metadata, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchShareParticipant(withEmailAddress: string, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchShareParticipant(withPhoneNumber: string, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchShareParticipant(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchUserRecordID(completionHandler?: (p1: CKRecord.ID, p2: Error) => void): void;
-  // compoundInstanceMethods
   requestApplicationPermission(_: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: Error) => void): void;
-  // compoundInstanceMethods
   status(forApplicationPermission: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: Error) => void): void;
 }
 
 export class CKDatabase extends NSObject {
   databaseScope: CKDatabase.Scope;
-  // compoundInstanceMethods
   add(_: CKDatabaseOperation): void;
-  // compoundInstanceMethods
   delete(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord.ID, p2: Error) => void): void;
-  // compoundInstanceMethods
   delete(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone.ID, p2: Error) => void): void;
-  // compoundInstanceMethods
   __delete(withSubscriptionID: string, completionHandler?: (p1: string, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchAllRecordZones(completionHandler?: (p1: CKRecordZone[], p2: Error) => void): void;
-  // compoundInstanceMethods
   fetchAllSubscriptions(completionHandler?: (p1: CKSubscription[], p2: Error) => void): void;
-  // compoundInstanceMethods
   fetch(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord, p2: Error) => void): void;
-  // compoundInstanceMethods
   fetch(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone, p2: Error) => void): void;
-  // compoundInstanceMethods
   __fetch(withSubscriptionID: string, completionHandler?: (p1: CKSubscription, p2: Error) => void): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(_: CKQuery, inZoneWith?: CKRecordZone.ID, completionHandler?: (p1: CKRecord[], p2: Error) => void): void;
-  // compoundInstanceMethods
   save(_: CKRecord, completionHandler?: (p1: CKRecord, p2: Error) => void): void;
-  // compoundInstanceMethods
   save(_: CKRecordZone, completionHandler?: (p1: CKRecordZone, p2: Error) => void): void;
-  // compoundInstanceMethods
   save(_: CKSubscription, completionHandler?: (p1: CKSubscription, p2: Error) => void): void;
 }
 
@@ -14043,7 +11345,6 @@ export class CKDatabaseOperation extends CKOperation {
 export class CKDatabaseSubscription extends CKSubscription {
   recordType: string;
   setRecordType(_: string);
-  // compoundInstanceMethods
   static createWithSubscriptionID(_: string): CKDatabaseSubscription;
 }
 
@@ -14061,7 +11362,6 @@ export class CKDiscoverUserIdentitiesOperation extends CKOperation {
   setUserIdentityDiscoveredBlock(_: (p1: CKUserIdentity, p2: CKUserIdentity.LookupInfo) => void);
   userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
   setUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]);
-  // compoundInstanceMethods
   static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKDiscoverUserIdentitiesOperation;
 }
 
@@ -14082,7 +11382,6 @@ export class CKFetchDatabaseChangesOperation extends CKDatabaseOperation {
   setRecordZoneWithIDWasPurgedBlock(_: (p1: CKRecordZone.ID) => void);
   resultsLimit: number;
   setResultsLimit(_: number);
-  // compoundInstanceMethods
   static createWithPreviousServerChangeToken(_?: CKServerChangeToken): CKFetchDatabaseChangesOperation;
 }
 
@@ -14103,7 +11402,6 @@ export class CKFetchRecordZoneChangesOperation extends CKDatabaseOperation {
   setRecordZoneFetchCompletionBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: Data, p4: boolean, p5: Error) => void);
   recordZoneIDs: CKRecordZone.ID[];
   setRecordZoneIDs(_: CKRecordZone.ID[]);
-  // compoundInstanceMethods
   static createWithRecordZoneiDsWithConfigurationsByRecordZoneID(_: CKRecordZone.ID[], configurationsByRecordZoneID?: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>): CKFetchRecordZoneChangesOperation;
 }
 
@@ -14113,7 +11411,6 @@ export class CKFetchRecordZonesOperation extends CKDatabaseOperation {
   setFetchRecordZonesCompletionBlock(_: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: Error) => void);
   recordZoneIDs: CKRecordZone.ID[];
   setRecordZoneIDs(_: CKRecordZone.ID[]);
-  // compoundInstanceMethods
   static createWithRecordZoneiDs(_: CKRecordZone.ID[]): CKFetchRecordZonesOperation;
 }
 
@@ -14129,7 +11426,6 @@ export class CKFetchRecordsOperation extends CKDatabaseOperation {
   setPerRecordProgressBlock(_: (p1: CKRecord.ID, p2: number) => void);
   recordIDs: CKRecord.ID[];
   setRecordIDs(_: CKRecord.ID[]);
-  // compoundInstanceMethods
   static createWithRecordiDs(_: CKRecord.ID[]): CKFetchRecordsOperation;
 }
 
@@ -14153,7 +11449,6 @@ export class CKFetchShareParticipantsOperation extends CKOperation {
   setShareParticipantFetchedBlock(_: (p1: CKShare.Participant) => void);
   userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
   setUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]);
-  // compoundInstanceMethods
   static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKFetchShareParticipantsOperation;
 }
 
@@ -14163,7 +11458,6 @@ export class CKFetchSubscriptionsOperation extends CKDatabaseOperation {
   setFetchSubscriptionCompletionBlock(_: (p1: Map<string, CKSubscription>, p2: Error) => void);
   subscriptionIDs: string[];
   setSubscriptionIDs(_: string[]);
-  // compoundInstanceMethods
   static createWithSubscriptioniDs(_: string[]): CKFetchSubscriptionsOperation;
 }
 
@@ -14172,13 +11466,11 @@ export class CKFetchWebAuthTokenOperation extends CKDatabaseOperation {
   setAPIToken(_: string);
   fetchWebAuthTokenCompletionBlock: (p1: string, p2: Error) => void;
   setFetchWebAuthTokenCompletionBlock(_: (p1: string, p2: Error) => void);
-  // compoundInstanceMethods
   static createWithApiToken(_: string): CKFetchWebAuthTokenOperation;
 }
 
 export class CKLocationSortDescriptor extends NSSortDescriptor {
   relativeLocation: CLLocation;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithKeyWithRelativeLocation(_: string, relativeLocation: CLLocation): CKLocationSortDescriptor;
 }
@@ -14190,7 +11482,6 @@ export class CKModifyRecordZonesOperation extends CKDatabaseOperation {
   setRecordZoneIDsToDelete(_: CKRecordZone.ID[]);
   recordZonesToSave: CKRecordZone[];
   setRecordZonesToSave(_: CKRecordZone[]);
-  // compoundInstanceMethods
   static createWithRecordZonesToSaveWithRecordZoneiDsToDelete(_?: CKRecordZone[], recordZoneIDsToDelete?: CKRecordZone.ID[]): CKModifyRecordZonesOperation;
 }
 
@@ -14211,7 +11502,6 @@ export class CKModifyRecordsOperation extends CKDatabaseOperation {
   setRecordsToSave(_: CKRecord[]);
   savePolicy: CKModifyRecordsOperation.RecordSavePolicy;
   setSavePolicy(_: CKModifyRecordsOperation.RecordSavePolicy);
-  // compoundInstanceMethods
   static createWithRecordsToSaveWithRecordiDsToDelete(_?: CKRecord[], recordIDsToDelete?: CKRecord.ID[]): CKModifyRecordsOperation;
 }
 
@@ -14222,7 +11512,6 @@ export class CKModifySubscriptionsOperation extends CKDatabaseOperation {
   setSubscriptionIDsToDelete(_: string[]);
   subscriptionsToSave: CKSubscription[];
   setSubscriptionsToSave(_: CKSubscription[]);
-  // compoundInstanceMethods
   static createWithSubscriptionsToSaveWithSubscriptioniDsToDelete(_?: CKSubscription[], subscriptionIDsToDelete?: string[]): CKModifySubscriptionsOperation;
 }
 
@@ -14277,7 +11566,6 @@ export class CKQuery extends NSObject {
   recordType: string;
   sortDescriptors: NSSortDescriptor[];
   setSortDescriptors(_: NSSortDescriptor[]);
-  // compoundInstanceMethods
   static createWithRecordTypeWithPredicate(_: string, predicate: NSPredicate): CKQuery;
 }
 
@@ -14303,9 +11591,7 @@ export class CKQueryOperation extends CKDatabaseOperation {
   setResultsLimit(_: number);
   zoneID: CKRecordZone.ID;
   setZoneID(_: CKRecordZone.ID);
-  // compoundInstanceMethods
   static createWithCursor(_: CKQueryOperation.Cursor): CKQueryOperation;
-  // compoundInstanceMethods
   static createWithQuery(_: CKQuery): CKQueryOperation;
 }
 
@@ -14315,9 +11601,7 @@ export class CKQuerySubscription extends CKSubscription {
   recordType: string;
   zoneID: CKRecordZone.ID;
   setZoneID(_: CKRecordZone.ID);
-  // compoundInstanceMethods
   static createWithRecordTypeWithPredicateWithOptions(_: string, predicate: NSPredicate, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
-  // compoundInstanceMethods
   static createWithRecordTypeWithPredicateWithSubscriptionIDWithOptions(_: string, predicate: NSPredicate, subscriptionID: string, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
 }
 
@@ -14332,19 +11616,12 @@ export class CKRecord extends NSObject {
   recordID: CKRecord.ID;
   recordType: string;
   share: CKRecord.Reference;
-  // compoundInstanceMethods
   allTokens(): string[];
-  // compoundInstanceMethods
   encodeSystemFields(with_: NSCoder): void;
-  // compoundInstanceMethods
   static createWithRecordType(_: string): CKRecord;
-  // compoundInstanceMethods
   static createWithRecordTypeWithRecordID(_: string, recordID: CKRecord.ID): CKRecord;
-  // compoundInstanceMethods
   static createWithRecordTypeWithZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord;
-  // compoundInstanceMethods
   setParent(_?: CKRecord): void;
-  // compoundInstanceMethods
   setParent(_?: CKRecord.ID): void;
 }
 
@@ -14361,9 +11638,7 @@ export class CKRecordZone extends NSObject {
   static default(): CKRecordZone;
   capabilities: CKRecordZone.Capabilities;
   zoneID: CKRecordZone.ID;
-  // compoundInstanceMethods
   static createWithZoneID(_: CKRecordZone.ID): CKRecordZone;
-  // compoundInstanceMethods
   static createWithZoneName(_: string): CKRecordZone;
 }
 
@@ -14376,9 +11651,7 @@ export class CKRecordZoneSubscription extends CKSubscription {
   recordType: string;
   setRecordType(_: string);
   zoneID: CKRecordZone.ID;
-  // compoundInstanceMethods
   static createWithZoneID(_: CKRecordZone.ID): CKRecordZoneSubscription;
-  // compoundInstanceMethods
   static createWithZoneIDWithSubscriptionID(_: CKRecordZone.ID, subscriptionID: string): CKRecordZoneSubscription;
 }
 
@@ -14392,11 +11665,8 @@ export class CKShare extends CKRecord {
   participants: CKShare.Participant[];
   publicPermission: CKShare.Participant.CKShare_Participant_Permission;
   setPublicPermission(_: CKShare.Participant.CKShare_Participant_Permission);
-  // compoundInstanceMethods
   addParticipant(_: CKShare.Participant): void;
-  // compoundInstanceMethods
   static createWithRootRecord(_: CKRecord): CKShare;
-  // compoundInstanceMethods
   removeParticipant(_: CKShare.Participant): void;
 }
 
@@ -14476,7 +11746,6 @@ export class AUAudioUnitViewConfiguration extends NSObject {
   height: number;
   hostHasController: boolean;
   width: number;
-  // compoundInstanceMethods
   static createWithWidthWithHeightWithHostHasController(_: number, height: number, hostHasController: boolean): AUAudioUnitViewConfiguration;
 }
 
@@ -14489,9 +11758,7 @@ export class AUGenericView extends NSView {
   audioUnit: ComponentInstanceRecord;
   showsExpertParameters: boolean;
   setShowsExpertParameters(_: boolean);
-  // compoundInstanceMethods
   static createWithAudioUnit(_: ComponentInstanceRecord): AUGenericView;
-  // compoundInstanceMethods
   static createWithAudioUnitWithDisplayFlags(_: ComponentInstanceRecord, displayFlags: AUGenericView.AUGenericViewDisplayFlags): AUGenericView;
 }
 
@@ -14531,21 +11798,13 @@ export class CBCentralManager extends CBManager {
   delegate: any;
   setDelegate(_: any);
   isScanning: boolean;
-  // compoundInstanceMethods
   cancelPeripheralConnection(_: CBPeripheral): void;
-  // compoundInstanceMethods
   connectPeripheral(_: CBPeripheral, options?: Map<string, any>): void;
-  // compoundInstanceMethods
   static createWithDelegateWithQueue(_?: any, queue?: NSObject): CBCentralManager;
-  // compoundInstanceMethods
   static createWithDelegateWithQueueWithOptions(_?: any, queue?: NSObject, options?: Map<string, any>): CBCentralManager;
-  // compoundInstanceMethods
   retrieveConnectedPeripheralsWithServices(_: CBUUID[]): CBPeripheral[];
-  // compoundInstanceMethods
   retrievePeripheralsWithIdentifiers(_: UUID[]): CBPeripheral[];
-  // compoundInstanceMethods
   scanForPeripheralsWithServices(_?: CBUUID[], options?: Map<string, any>): void;
-  // compoundInstanceMethods
   stopScan(): void;
 }
 
@@ -14590,12 +11849,10 @@ export class CBMutableCharacteristic extends CBCharacteristic {
   properties: CBCharacteristic.CBCharacteristicProperties;
   setProperties(_: CBCharacteristic.CBCharacteristicProperties);
   subscribedCentrals: CBCentral[];
-  // compoundInstanceMethods
   static createWithTypeWithPropertiesWithValueWithPermissions(_: CBUUID, properties: CBCharacteristic.CBCharacteristicProperties, value?: Data, permissions?: CBCharacteristic.CBAttributePermissions): CBMutableCharacteristic;
 }
 
 export class CBMutableDescriptor extends CBDescriptor {
-  // compoundInstanceMethods
   static createWithTypeWithValue(_: CBUUID, value?: any): CBMutableDescriptor;
 }
 
@@ -14604,7 +11861,6 @@ export class CBMutableService extends CBService {
   setCharacteristics(_: CBCharacteristic[]);
   includedServices: CBService[];
   setIncludedServices(_: CBService[]);
-  // compoundInstanceMethods
   static createWithTypeWithPrimary(_: CBUUID, primary: boolean): CBMutableService;
 }
 
@@ -14619,29 +11875,17 @@ export class CBPeripheral extends CBPeer {
   name: string;
   services: CBService[];
   state: CBPeripheral.CBPeripheralState;
-  // compoundInstanceMethods
   discoverCharacteristics(_?: CBUUID[], forService?: CBService): void;
-  // compoundInstanceMethods
   discoverDescriptorsForCharacteristic(_: CBCharacteristic): void;
-  // compoundInstanceMethods
   discoverIncludedServices(_?: CBUUID[], forService?: CBService): void;
-  // compoundInstanceMethods
   discoverServices(_?: CBUUID[]): void;
-  // compoundInstanceMethods
   maximumWriteValueLengthForType(_: CBPeripheral.CBCharacteristicWriteType): number;
-  // compoundInstanceMethods
   openL2CAPChannel(_: number): void;
-  // compoundInstanceMethods
   readRSSI(): void;
-  // compoundInstanceMethods
   readValueForCharacteristic(_: CBCharacteristic): void;
-  // compoundInstanceMethods
   readValueForDescriptor(_: CBDescriptor): void;
-  // compoundInstanceMethods
   setNotifyValue(_: boolean, forCharacteristic: CBCharacteristic): void;
-  // compoundInstanceMethods
   writeValue(_: Data, forCharacteristic: CBCharacteristic, type: CBPeripheral.CBCharacteristicWriteType): void;
-  // compoundInstanceMethods
   writeValue(_: Data, forDescriptor: CBDescriptor): void;
 }
 
@@ -14666,29 +11910,17 @@ export class CBPeripheralManager extends CBManager {
   delegate: any;
   setDelegate(_: any);
   isAdvertising: boolean;
-  // compoundInstanceMethods
   addService(_: CBMutableService): void;
-  // compoundInstanceMethods
   static createWithDelegateWithQueue(_?: any, queue?: NSObject): CBPeripheralManager;
-  // compoundInstanceMethods
   static createWithDelegateWithQueueWithOptions(_?: any, queue?: NSObject, options?: Map<string, any>): CBPeripheralManager;
-  // compoundInstanceMethods
   publishL2CAPChannelWithEncryption(_: boolean): void;
-  // compoundInstanceMethods
   removeAllServices(): void;
-  // compoundInstanceMethods
   removeService(_: CBMutableService): void;
-  // compoundInstanceMethods
   respondToRequest(_: CBATTRequest, withResult: CBError.CBATTError): void;
-  // compoundInstanceMethods
   setDesiredConnectionLatency(_: CBPeripheralManager.CBPeripheralManagerConnectionLatency, forCentral: CBCentral): void;
-  // compoundInstanceMethods
   startAdvertising(_?: Map<string, any>): void;
-  // compoundInstanceMethods
   stopAdvertising(): void;
-  // compoundInstanceMethods
   unpublishL2CAPChannel(_: number): void;
-  // compoundInstanceMethods
   updateValue(_: Data, forCharacteristic: CBMutableCharacteristic, onSubscribedCentrals?: CBCentral[]): boolean;
 }
 
@@ -14727,7 +11959,6 @@ export class NSAsynchronousFetchRequest<ResultType> extends NSPersistentStoreReq
   estimatedResultCount: number;
   setEstimatedResultCount(_: number);
   fetchRequest: NSFetchRequest<any>;
-  // compoundInstanceMethods
   // static createWithFetchRequestWithCompletionBlock(_: NSFetchRequest<any>, completionBlock?: (p1: NSAsynchronousFetchResult<any>) => void): NSAsynchronousFetchRequest<ResultType>;
 }
 
@@ -14737,28 +11968,17 @@ export class NSAsynchronousFetchResult<ResultType> extends NSPersistentStoreAsyn
 }
 
 export class NSAtomicStore extends NSPersistentStore {
-  // compoundInstanceMethods
   addCacheNodes(_: Set<any>): void;
-  // compoundInstanceMethods
   cacheNode(for_: NSManagedObjectID): NSAtomicStoreCacheNode;
-  // compoundInstanceMethods
   cacheNodes(): Set<any>;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  load(): boolean;
-  // compoundInstanceMethods
   newCacheNode(for_: NSManagedObject): NSAtomicStoreCacheNode;
-  // compoundInstanceMethods
   newReferenceObject(for_: NSManagedObject): any;
-  // compoundInstanceMethods
   objectID(for_: NSEntityDescription, withReferenceObject: any): NSManagedObjectID;
-  // compoundInstanceMethods
   referenceObject(for_: NSManagedObjectID): any;
-  // compoundInstanceMethods
   save(): boolean;
-  // compoundInstanceMethods
   updateCacheNode(_: NSAtomicStoreCacheNode, from: NSManagedObject): void;
-  // compoundInstanceMethods
   willRemoveCacheNodes(_: Set<any>): void;
 }
 
@@ -14766,7 +11986,6 @@ export class NSAtomicStoreCacheNode extends NSObject {
   objectID: NSManagedObjectID;
   propertyCache: Map<string, any>;
   setPropertyCache(_: Map<string, any>);
-  // compoundInstanceMethods
   static createWithObjectID(_: NSManagedObjectID): NSAtomicStoreCacheNode;
 }
 
@@ -14789,9 +12008,7 @@ export class NSBatchDeleteRequest extends NSPersistentStoreRequest {
   fetchRequest: NSFetchRequest<any>;
   resultType: NSPersistentStoreResult.NSBatchDeleteRequestResultType;
   setResultType(_: NSPersistentStoreResult.NSBatchDeleteRequestResultType);
-  // compoundInstanceMethods
   static createWithFetchRequest(_: NSFetchRequest<any>): NSBatchDeleteRequest;
-  // compoundInstanceMethods
   static createWithObjectiDs(_: NSManagedObjectID[]): NSBatchDeleteRequest;
 }
 
@@ -14807,9 +12024,7 @@ export class NSBatchInsertRequest extends NSPersistentStoreRequest {
   setObjectsToInsert(_: Map<string, any>[]);
   resultType: NSPersistentStoreResult.NSBatchInsertRequestResultType;
   setResultType(_: NSPersistentStoreResult.NSBatchInsertRequestResultType);
-  // compoundInstanceMethods
   static createWithEntityWithObjects(_: NSEntityDescription, objects: Map<string, any>[]): NSBatchInsertRequest;
-  // compoundInstanceMethods
   static createWithEntityNameWithObjects(_: string, objects: Map<string, any>[]): NSBatchInsertRequest;
 }
 
@@ -14829,9 +12044,7 @@ export class NSBatchUpdateRequest extends NSPersistentStoreRequest {
   setPropertiesToUpdate(_: Map<any, any>);
   resultType: NSPersistentStoreResult.NSBatchUpdateRequestResultType;
   setResultType(_: NSPersistentStoreResult.NSBatchUpdateRequestResultType);
-  // compoundInstanceMethods
   static createWithEntity(_: NSEntityDescription): NSBatchUpdateRequest;
-  // compoundInstanceMethods
   static createWithEntityName(_: string): NSBatchUpdateRequest;
 }
 
@@ -14850,17 +12063,11 @@ export class NSConstraintConflict extends NSObject {
 }
 
 export class NSCoreDataCoreSpotlightDelegate extends NSObject {
-  // compoundInstanceMethods
   attributeSetForObject(_: NSManagedObject): CSSearchableItemAttributeSet;
-  // compoundInstanceMethods
   domainIdentifier(): string;
-  // compoundInstanceMethods
   indexName(): string;
-  // compoundInstanceMethods
   static createWithForStoreWithDescriptionWithModel(_: NSPersistentStoreDescription, model: NSManagedObjectModel): NSCoreDataCoreSpotlightDelegate;
-  // compoundInstanceMethods
   searchableIndex(_: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler: () => void): void;
-  // compoundInstanceMethods
   searchableIndex(_: CSSearchableIndex, reindexSearchableItemsWithIdentifiers: string[], acknowledgementHandler: () => void): void;
 }
 
@@ -14901,9 +12108,7 @@ export class NSEntityDescription extends NSObject {
   versionHash: Data;
   versionHashModifier: string;
   setVersionHashModifier(_: string);
-  // compoundInstanceMethods
   isKindOf(entity: NSEntityDescription): boolean;
-  // compoundInstanceMethods
   relationships(forDestination: NSEntityDescription): NSRelationshipDescription[];
 }
 
@@ -14933,19 +12138,12 @@ export class NSEntityMapping extends NSObject {
 }
 
 export class NSEntityMigrationPolicy extends NSObject {
-  // compoundInstanceMethods
   begin(_: NSEntityMapping, with_: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   createDestinationInstances(forSource: NSManagedObject, in_: NSEntityMapping, manager: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   createRelationships(forDestination: NSManagedObject, in_: NSEntityMapping, manager: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   endEntityMapping(manager: NSEntityMapping, error: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   endInstanceCreation(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   endRelationshipCreation(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
-  // compoundInstanceMethods
   performCustomValidation(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
 }
 
@@ -14964,7 +12162,6 @@ export class NSFetchIndexDescription extends NSObject {
   setName(_: string);
   partialIndexPredicate: NSPredicate;
   setPartialIndexPredicate(_: NSPredicate);
-  // compoundInstanceMethods
   static createWithNameWithElements(_: string, elements?: NSFetchIndexElementDescription[]): NSFetchIndexDescription;
 }
 
@@ -14976,7 +12173,6 @@ export class NSFetchIndexElementDescription extends NSObject {
   indexDescription: NSFetchIndexDescription;
   property: NSPropertyDescription;
   propertyName: string;
-  // compoundInstanceMethods
   static createWithPropertyWithCollationType(_: NSPropertyDescription, collationType: NSFetchIndexElementDescription.NSFetchIndexElementType): NSFetchIndexElementDescription;
 }
 
@@ -15016,9 +12212,7 @@ export class NSFetchRequest<ResultType> extends NSPersistentStoreRequest {
   setShouldRefreshRefetchedObjects(_: boolean);
   sortDescriptors: NSSortDescriptor[];
   setSortDescriptors(_: NSSortDescriptor[]);
-  // compoundInstanceMethods
   execute(): ResultType[];
-  // compoundInstanceMethods
   // static createWithEntityName(_: string): NSFetchRequest<ResultType>;
 }
 
@@ -15048,17 +12242,11 @@ export class NSFetchedResultsController<ResultType> extends NSObject {
   sectionIndexTitles: string[];
   sectionNameKeyPath: string;
   sections: any[];
-  // compoundInstanceMethods
   indexPath(forObject: ResultType): IndexPath;
-  // compoundInstanceMethods
   // static createWithFetchRequestWithManagedObjectContextWithSectionNameKeyPathWithCacheName(_: NSFetchRequest<any>, managedObjectContext: NSManagedObjectContext, sectionNameKeyPath?: string, cacheName?: string): NSFetchedResultsController<ResultType>;
-  // compoundInstanceMethods
   object(at: IndexPath): ResultType;
-  // compoundInstanceMethods
   performFetch(): boolean;
-  // compoundInstanceMethods
   section(forSectionIndexTitle: string, at: number): number;
-  // compoundInstanceMethods
   sectionIndexTitle(forSectionName: string): string;
 }
 
@@ -15081,31 +12269,20 @@ interface NSFetchedResultsSectionInfo {
 
 export class NSIncrementalStore extends NSPersistentStore {
   static identifierForNewStore(at: URL): any;
-  // compoundInstanceMethods
   executeRequest(withContext: NSPersistentStoreRequest, error?: NSManagedObjectContext): any;
-  // compoundInstanceMethods
   managedObjectContextDidRegisterObjects(with_: NSManagedObjectID[]): void;
-  // compoundInstanceMethods
   managedObjectContextDidUnregisterObjects(with_: NSManagedObjectID[]): void;
-  // compoundInstanceMethods
   newObjectID(for_: NSEntityDescription, referenceObject: any): NSManagedObjectID;
-  // compoundInstanceMethods
   newValueForRelationship(forObjectWithID: NSRelationshipDescription, withContext: NSManagedObjectID, error?: NSManagedObjectContext): any;
-  // compoundInstanceMethods
   newValuesForObjectWithID(withContext: NSManagedObjectID, error: NSManagedObjectContext): NSIncrementalStoreNode;
-  // compoundInstanceMethods
   obtainPermanentIDsForObjects(error: NSManagedObject[]): NSManagedObjectID[];
-  // compoundInstanceMethods
   referenceObject(for_: NSManagedObjectID): any;
 }
 
 export class NSIncrementalStoreNode extends NSObject {
   objectID: NSManagedObjectID;
-  // compoundInstanceMethods
   static createWithObjectIDWithValuesWithVersion(_: NSManagedObjectID, withValues: Map<string, any>, version: number): NSIncrementalStoreNode;
-  // compoundInstanceMethods
   update(withValues: Map<string, any>, version: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(for_: NSPropertyDescription): any;
 }
@@ -15124,54 +12301,30 @@ export class NSManagedObject extends NSObject {
   objectID: NSManagedObjectID;
   isUpdated: boolean;
   static contextShouldIgnoreUnmodeledPropertyChanges: boolean;
-  // compoundInstanceMethods
   awakeFromFetch(): void;
-  // compoundInstanceMethods
   awakeFromInsert(): void;
-  // compoundInstanceMethods
   awake(fromSnapshotEvents: NSManagedObject.NSSnapshotEventType): void;
-  // compoundInstanceMethods
   changedValues(): Map<string, any>;
-  // compoundInstanceMethods
   changedValuesForCurrentEvent(): Map<string, any>;
-  // compoundInstanceMethods
   committedValues(forKeys?: string[]): Map<string, any>;
-  // compoundInstanceMethods
   didAccessValue(forKey?: string): void;
-  // compoundInstanceMethods
   didSave(): void;
-  // compoundInstanceMethods
   didTurnIntoFault(): void;
-  // compoundInstanceMethods
   hasFault(forRelationshipNamed: string): boolean;
-  // compoundInstanceMethods
   static createWithContext(_: NSManagedObjectContext): NSManagedObject;
-  // compoundInstanceMethods
   static createWithEntityWithInsertIntoManagedObjectContext(_: NSEntityDescription, insertIntoManagedObjectContext?: NSManagedObjectContext): NSManagedObject;
-  // compoundInstanceMethods
   objectIDs(forRelationshipNamed: string): NSManagedObjectID[];
-  // compoundInstanceMethods
   // @ts-ignore 
   observationInfo(): any;
-  // compoundInstanceMethods
   prepareForDeletion(): void;
-  // compoundInstanceMethods
   primitiveValue(forKey: string): any;
-  // compoundInstanceMethods
   setObservationInfo(_?: any): void;
-  // compoundInstanceMethods
   setPrimitiveValue(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   validateForDelete(): boolean;
-  // compoundInstanceMethods
   validateForInsert(): boolean;
-  // compoundInstanceMethods
   validateForUpdate(): boolean;
-  // compoundInstanceMethods
   willAccessValue(forKey?: string): void;
-  // compoundInstanceMethods
   willSave(): void;
-  // compoundInstanceMethods
   willTurnIntoFault(): void;
 }
 
@@ -15207,56 +12360,31 @@ export class NSManagedObjectContext extends NSObject {
   setUndoManager(_: UndoManager);
   updatedObjects: Set<any>;
   userInfo: Map<any, any>;
-  // compoundInstanceMethods
   assign(_: any, to: NSPersistentStore): void;
-  // compoundInstanceMethods
   countForFetchRequest(error: NSFetchRequest<any>): number;
-  // compoundInstanceMethods
   delete(_: NSManagedObject): void;
-  // compoundInstanceMethods
   detectConflicts(for_: NSManagedObject): void;
-  // compoundInstanceMethods
   fetch(_: NSFetchRequest<any>): any[];
-  // compoundInstanceMethods
   executeRequest(error: NSPersistentStoreRequest): NSPersistentStoreResult;
-  // compoundInstanceMethods
   existingObjectWithID(error: NSManagedObjectID): NSManagedObject;
-  // compoundInstanceMethods
   static createWithConcurrencyType(_: NSManagedObjectContext.NSManagedObjectContextConcurrencyType): NSManagedObjectContext;
-  // compoundInstanceMethods
   insert(_: NSManagedObject): void;
-  // compoundInstanceMethods
   mergeChanges(fromContextDidSave: Notification): void;
-  // compoundInstanceMethods
   registeredObject(for_: NSManagedObjectID): NSManagedObject;
-  // compoundInstanceMethods
   object(with_: NSManagedObjectID): NSManagedObject;
-  // compoundInstanceMethods
   obtainPermanentIDsForObjects(error: NSManagedObject[]): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(_: () => void): void;
-  // compoundInstanceMethods
   performAndWait(_: () => void): void;
-  // compoundInstanceMethods
   processPendingChanges(): void;
-  // compoundInstanceMethods
   redo(): void;
-  // compoundInstanceMethods
   refreshAllObjects(): void;
-  // compoundInstanceMethods
   refresh(_: NSManagedObject, mergeChanges: boolean): void;
-  // compoundInstanceMethods
   reset(): void;
-  // compoundInstanceMethods
   rollback(): void;
-  // compoundInstanceMethods
   save(): boolean;
-  // compoundInstanceMethods
   setQueryGenerationFromToken(error?: NSQueryGenerationToken): boolean;
-  // compoundInstanceMethods
   shouldHandleInaccessibleFault(_: NSManagedObject, for_: NSManagedObjectID, triggeredByProperty?: NSPropertyDescription): boolean;
-  // compoundInstanceMethods
   undo(): void;
 }
 
@@ -15264,7 +12392,6 @@ export class NSManagedObjectID extends NSObject {
   entity: NSEntityDescription;
   persistentStore: NSPersistentStore;
   isTemporaryID: boolean;
-  // compoundInstanceMethods
   uriRepresentation(): URL;
 }
 
@@ -15279,17 +12406,11 @@ export class NSManagedObjectModel extends NSObject {
   setLocalizationDictionary(_: Map<string, string>);
   versionIdentifiers: Set<any>;
   setVersionIdentifiers(_: Set<any>);
-  // compoundInstanceMethods
   fetchRequestFromTemplate(withName: string, substitutionVariables: Map<string, any>): NSFetchRequest<any>;
-  // compoundInstanceMethods
   fetchRequestTemplate(forName: string): NSFetchRequest<any>;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): NSManagedObjectModel;
-  // compoundInstanceMethods
   isConfiguration(withName?: string, compatibleWithStoreMetadata?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   setEntities(_: NSEntityDescription[], forConfigurationName: string): void;
-  // compoundInstanceMethods
   setFetchRequestTemplate(_?: NSFetchRequest<any>, forName?: string): void;
 }
 
@@ -15298,7 +12419,6 @@ export class NSMappingModel extends NSObject {
   entityMappings: NSEntityMapping[];
   setEntityMappings(_: NSEntityMapping[]);
   entityMappingsByName: Map<string, NSEntityMapping>;
-  // compoundInstanceMethods
   static createWithContentsOf(_?: URL): NSMappingModel;
 }
 
@@ -15309,7 +12429,6 @@ export class NSMergeConflict extends NSObject {
   oldVersionNumber: number;
   persistedSnapshot: Map<string, any>;
   sourceObject: NSManagedObject;
-  // compoundInstanceMethods
   static createWithSourceWithNewVersionWithOldVersionWithCachedSnapshotWithPersistedSnapshot(_: NSManagedObject, newVersion: number, oldVersion: number, cachedSnapshot?: Map<string, any>, persistedSnapshot?: Map<string, any>): NSMergeConflict;
 }
 
@@ -15320,13 +12439,9 @@ export class NSMergePolicy extends NSObject {
   static mergeByPropertyStoreTrump: NSMergePolicy;
   static overwrite: NSMergePolicy;
   static rollback: NSMergePolicy;
-  // compoundInstanceMethods
   static createWithMergeType(_: NSMergePolicy.NSMergePolicyType): NSMergePolicy;
-  // compoundInstanceMethods
   resolve(mergeConflicts: any[]): boolean;
-  // compoundInstanceMethods
   resolve(constraintConflicts: NSConstraintConflict[]): boolean;
-  // compoundInstanceMethods
   resolve(optimisticLockingConflicts: NSMergeConflict[]): boolean;
 }
 
@@ -15342,42 +12457,27 @@ export class NSMigrationManager extends NSObject {
   setUserInfo(_: Map<any, any>);
   usesStoreSpecificMigrationManager: boolean;
   setUsesStoreSpecificMigrationManager(_: boolean);
-  // compoundInstanceMethods
   associate(sourceInstance: NSManagedObject, withDestinationInstance: NSManagedObject, for_: NSEntityMapping): void;
-  // compoundInstanceMethods
   cancelMigrationWithError(_: Error): void;
-  // compoundInstanceMethods
   destinationEntity(for_: NSEntityMapping): NSEntityDescription;
-  // compoundInstanceMethods
   destinationInstances(forEntityMappingName: string, sourceInstances?: NSManagedObject[]): NSManagedObject[];
-  // compoundInstanceMethods
   static createWithSourceModelWithDestinationModel(_: NSManagedObjectModel, destinationModel: NSManagedObjectModel): NSMigrationManager;
-  // compoundInstanceMethods
   migrateStore(from: URL, sourceType: string, options?: Map<any, any>, with_?: NSMappingModel, toDestinationURL?: URL, destinationType?: string, destinationOptions?: Map<any, any>): boolean;
-  // compoundInstanceMethods
   reset(): void;
-  // compoundInstanceMethods
   sourceEntity(for_: NSEntityMapping): NSEntityDescription;
-  // compoundInstanceMethods
   sourceInstances(forEntityMappingName: string, destinationInstances?: NSManagedObject[]): NSManagedObject[];
 }
 
 export class NSPersistentCloudKitContainer extends NSPersistentContainer {
-  // compoundInstanceMethods
   initializeCloudKitSchemaWithOptions(error: NSPersistentCloudKitContainer.NSPersistentCloudKitContainerSchemaInitializationOptions): boolean;
-  // compoundInstanceMethods
   record(for_: NSManagedObjectID): CKRecord;
-  // compoundInstanceMethods
   recordID(for_: NSManagedObjectID): CKRecord.ID;
-  // compoundInstanceMethods
   recordIDs(for_: NSManagedObjectID[]): Map<NSManagedObjectID, CKRecord.ID>;
-  // compoundInstanceMethods
   records(for_: NSManagedObjectID[]): Map<NSManagedObjectID, CKRecord>;
 }
 
 export class NSPersistentCloudKitContainerOptions extends NSObject {
   containerIdentifier: string;
-  // compoundInstanceMethods
   static createWithContainerIdentifier(_: string): NSPersistentCloudKitContainerOptions;
 }
 
@@ -15389,15 +12489,10 @@ export class NSPersistentContainer extends NSObject {
   persistentStoreDescriptions: NSPersistentStoreDescription[];
   setPersistentStoreDescriptions(_: NSPersistentStoreDescription[]);
   viewContext: NSManagedObjectContext;
-  // compoundInstanceMethods
   static createWithName(_: string): NSPersistentContainer;
-  // compoundInstanceMethods
   static createWithNameWithManagedObjectModel(_: string, managedObjectModel: NSManagedObjectModel): NSPersistentContainer;
-  // compoundInstanceMethods
   loadPersistentStores(completionHandler?: (p1: NSPersistentStoreDescription, p2: Error) => void): void;
-  // compoundInstanceMethods
   newBackgroundContext(): NSManagedObjectContext;
-  // compoundInstanceMethods
   performBackgroundTask(_: (p1: NSManagedObjectContext) => void): void;
 }
 
@@ -15449,7 +12544,6 @@ export class NSPersistentHistoryTransaction extends NSObject {
   transactionNumber: number;
   static entityDescription: NSEntityDescription;
   static fetchRequest: NSFetchRequest<any>;
-  // compoundInstanceMethods
   objectIDNotification(): Notification;
 }
 
@@ -15470,11 +12564,8 @@ export class NSPersistentStore extends NSObject {
   isReadOnly: boolean;
   setReadOnly(_: boolean);
   type: string;
-  // compoundInstanceMethods
   didAdd(to: NSPersistentStoreCoordinator): void;
-  // compoundInstanceMethods
   loadMetadata(): boolean;
-  // compoundInstanceMethods
   willRemove(from?: NSPersistentStoreCoordinator): void;
 }
 
@@ -15482,7 +12573,6 @@ export class NSPersistentStoreAsynchronousResult extends NSPersistentStoreResult
   managedObjectContext: NSManagedObjectContext;
   operationError: Error;
   progress: Progress;
-  // compoundInstanceMethods
   cancel(): void;
 }
 
@@ -15496,42 +12586,24 @@ export class NSPersistentStoreCoordinator extends NSObject {
   setName(_: string);
   persistentStores: NSPersistentStore[];
   static registeredStoreTypes: Map<string, NSValue>;
-  // compoundInstanceMethods
   url(for_: NSPersistentStore): URL;
-  // compoundInstanceMethods
   addPersistentStore(with_: NSPersistentStoreDescription, completionHandler?: (p1: NSPersistentStoreDescription, p2: Error) => void): void;
-  // compoundInstanceMethods
   addPersistentStore(ofType: string, configurationName?: string, at?: URL, options?: Map<any, any>): NSPersistentStore;
-  // compoundInstanceMethods
   currentPersistentHistoryToken(fromStores?: any[]): NSPersistentHistoryToken;
-  // compoundInstanceMethods
   destroyPersistentStore(at: URL, ofType: string, options?: Map<any, any>): boolean;
-  // compoundInstanceMethods
   executeRequest(withContext: NSPersistentStoreRequest, error: NSManagedObjectContext): any;
-  // compoundInstanceMethods
   importStore(withIdentifier?: string, fromExternalRecordsDirectoryAt?: URL, to?: URL, options?: Map<any, any>, ofType?: string): NSPersistentStore;
-  // compoundInstanceMethods
   static createWithManagedObjectModel(_: NSManagedObjectModel): NSPersistentStoreCoordinator;
-  // compoundInstanceMethods
   managedObjectID(forURIRepresentation: URL): NSManagedObjectID;
-  // compoundInstanceMethods
   metadata(for_: NSPersistentStore): Map<string, any>;
-  // compoundInstanceMethods
   migratePersistentStore(toURL: NSPersistentStore, options: URL, withType?: Map<any, any>, error?: string): NSPersistentStore;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(_: () => void): void;
-  // compoundInstanceMethods
   performAndWait(_: () => void): void;
-  // compoundInstanceMethods
   persistentStore(for_: URL): NSPersistentStore;
-  // compoundInstanceMethods
   remove(_: NSPersistentStore): boolean;
-  // compoundInstanceMethods
   replacePersistentStore(at: URL, destinationOptions?: Map<any, any>, withPersistentStoreFrom?: URL, sourceOptions?: Map<any, any>, ofType?: string): boolean;
-  // compoundInstanceMethods
   setMetadata(_?: Map<string, any>, for_?: NSPersistentStore): void;
-  // compoundInstanceMethods
   setURL(_: URL, for_: NSPersistentStore): boolean;
 }
 
@@ -15556,11 +12628,8 @@ export class NSPersistentStoreDescription extends NSObject {
   setTimeout(_: number);
   type: string;
   setType(_: string);
-  // compoundInstanceMethods
   static createWithUrl(_: URL): NSPersistentStoreDescription;
-  // compoundInstanceMethods
   setOption(_?: NSObject, forKey?: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_?: NSObject, forPragmaNamed?: string): void;
 }
@@ -15593,7 +12662,6 @@ export class NSPropertyDescription extends NSObject {
   versionHash: Data;
   versionHashModifier: string;
   setVersionHashModifier(_: string);
-  // compoundInstanceMethods
   setValidationPredicates(_?: NSPredicate[], withValidationWarnings?: string[]): void;
 }
 
@@ -18396,7 +15464,6 @@ export class CHHapticDynamicParameter extends NSObject {
   parameterID: string;
   relativeTime: number;
   setRelativeTime(_: number);
-  // compoundInstanceMethods
   static createWithParameterIDWithValueWithRelativeTime(_: string, value: number, relativeTime: number): CHHapticDynamicParameter;
 }
 
@@ -18415,27 +15482,16 @@ export class CHHapticEngine extends NSObject {
   setResetHandler(_: () => void);
   stoppedHandler: (p1: CHHapticEngine.StoppedReason) => void;
   setStoppedHandler(_: (p1: CHHapticEngine.StoppedReason) => void);
-  // compoundInstanceMethods
   makeAdvancedPlayer(with_: CHHapticPattern): any;
-  // compoundInstanceMethods
   makePlayer(with_: CHHapticPattern): any;
-  // compoundInstanceMethods
   static createWith(error?: AVAudioSession): CHHapticEngine;
-  // compoundInstanceMethods
   notifyWhenPlayersFinished(finishedHandler: (p1: Error) => CHHapticEngine.FinishedAction): void;
-  // compoundInstanceMethods
   playPatternFromData(error: Data): boolean;
-  // compoundInstanceMethods
   playPatternFromURL(error: URL): boolean;
-  // compoundInstanceMethods
   registerAudioResource(options: URL, error: Map<any, any>): number;
-  // compoundInstanceMethods
   startAndReturnError(): boolean;
-  // compoundInstanceMethods
   startWithCompletionHandler(_?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   stopWithCompletionHandler(_?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   unregisterAudioResource(error: number): boolean;
 }
 
@@ -18446,19 +15502,14 @@ export class CHHapticEvent extends NSObject {
   relativeTime: number;
   setRelativeTime(_: number);
   type: string;
-  // compoundInstanceMethods
   static createWithAudioResourceIDWithParametersWithRelativeTime(_: number, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
-  // compoundInstanceMethods
   static createWithAudioResourceIDWithParametersWithRelativeTimeWithDuration(_: number, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
-  // compoundInstanceMethods
   static createWithEventTypeWithParametersWithRelativeTime(_: string, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
-  // compoundInstanceMethods
   static createWithEventTypeWithParametersWithRelativeTimeWithDuration(_: string, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
 }
 
 export class CHHapticEventParameter extends NSObject {
   parameterID: string;
-  // compoundInstanceMethods
   static createWithParameterIDWithValue(_: string, value: number): CHHapticEventParameter;
 }
 
@@ -18473,19 +15524,14 @@ export class CHHapticParameterCurve extends NSObject {
   parameterID: string;
   relativeTime: number;
   setRelativeTime(_: number);
-  // compoundInstanceMethods
   static createWithParameterIDWithControlPointsWithRelativeTime(_: string, controlPoints: CHHapticParameterCurve.ControlPoint[], relativeTime: number): CHHapticParameterCurve;
 }
 
 export class CHHapticPattern extends NSObject {
   duration: number;
-  // compoundInstanceMethods
   exportDictionaryAndReturnError(): Map<string, any>;
-  // compoundInstanceMethods
   static createWith(error: Map<string, any>): CHHapticPattern;
-  // compoundInstanceMethods
   static createWithEvents(parameterCurves: CHHapticEvent[], error: CHHapticParameterCurve[]): CHHapticPattern;
-  // compoundInstanceMethods
   static createWithEvents(parameters: CHHapticEvent[], error: CHHapticDynamicParameter[]): CHHapticPattern;
 }
 
@@ -18534,7 +15580,6 @@ export class CIAztecCodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectedPayload: Data;
   isCompact: boolean;
   layerCount: number;
-  // compoundInstanceMethods
   static createWithPayloadWithIsCompactWithLayerCountWithDataCodewordCount(_: Data, isCompact: boolean, layerCount: number, dataCodewordCount: number): CIAztecCodeDescriptor;
 }
 
@@ -18623,10 +15668,8 @@ export class CIBlendKernel extends CIColorKernel {
   static sourceOver: CIBlendKernel;
   static subtract: CIBlendKernel;
   static vividLight: CIBlendKernel;
-  // compoundInstanceMethods
   // @ts-ignore 
   apply(foreground: CIImage, background: CIImage): CIImage;
-  // compoundInstanceMethods
   // @ts-ignore 
   apply(foreground: CIImage, background: CIImage, colorSpace: any): CIImage;
 }
@@ -18738,17 +15781,11 @@ export class CIColor extends NSObject {
   static red: CIColor;
   static white: CIColor;
   static yellow: CIColor;
-  // compoundInstanceMethods
   static createWithCgColor(_: any): CIColor;
-  // compoundInstanceMethods
   static createWithColor(_: NSColor): CIColor;
-  // compoundInstanceMethods
   static createWithRedWithGreenWithBlue(_: number, green: number, blue: number): CIColor;
-  // compoundInstanceMethods
   static createWithRedWithGreenWithBlueWithAlpha(_: number, green: number, blue: number, alpha: number): CIColor;
-  // compoundInstanceMethods
   static createWithRedWithGreenWithBlueWithAlphaWithColorSpace(_: number, green: number, blue: number, alpha: number, colorSpace: any): CIColor;
-  // compoundInstanceMethods
   static createWithRedWithGreenWithBlueWithColorSpace(_: number, green: number, blue: number, colorSpace: any): CIColor;
 }
 
@@ -18837,7 +15874,6 @@ interface CIColorInvert {
 export class CIColorKernel extends CIKernel {
   //  static createWithKernelWithFunctionNameFromMetalLibraryData(fromMetalLibraryData: string, error: Data): CIColorKernel;
   //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormat(fromMetalLibraryData: string, outputPixelFormat: Data, error: number): CIColorKernel;
-  // compoundInstanceMethods
   // @ts-ignore 
   apply(extent: CGRect, arguments_?: any[]): CIImage;
 }
@@ -18909,61 +15945,33 @@ export class CIContext extends NSObject {
   static offlineGPUCount(): number;
   workingColorSpace: any;
   workingFormat: number;
-  // compoundInstanceMethods
   heifRepresentation(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): Data;
-  // compoundInstanceMethods
   jpegRepresentation(of: CIImage, colorSpace: any, options: Map<string, any>): Data;
-  // compoundInstanceMethods
   pngRepresentation(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): Data;
-  // compoundInstanceMethods
   tiffRepresentation(of: CIImage, format: number, colorSpace: any, options: Map<string, any>): Data;
-  // compoundInstanceMethods
   clearCaches(): void;
-  // compoundInstanceMethods
   createCGImage(_: CIImage, from: CGRect): any;
-  // compoundInstanceMethods
   createCGImage(_: CIImage, from: CGRect, format: number, colorSpace?: any): any;
-  // compoundInstanceMethods
   createCGImage(_: CIImage, from: CGRect, format: number, colorSpace?: any, deferred?: boolean): any;
-  // compoundInstanceMethods
   depthBlurEffectFilter(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, hairSemanticSegmentation?: CIImage, orientation?: CGImageProperties.CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
-  // compoundInstanceMethods
   depthBlurEffectFilter(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, orientation?: CGImageProperties.CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
-  // compoundInstanceMethods
   depthBlurEffectFilter(forImageData: Data, options?: Map<any, any>): CIFilter;
-  // compoundInstanceMethods
   depthBlurEffectFilter(forImageURL: URL, options?: Map<any, any>): CIFilter;
-  // compoundInstanceMethods
   draw(_: CIImage, in_: CGRect, from: CGRect): void;
-  // compoundInstanceMethods
   static createWithOptions(_?: Map<string, any>): CIContext;
-  // compoundInstanceMethods
   prepareRender(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): boolean;
-  // compoundInstanceMethods
   reclaimResources(): void;
-  // compoundInstanceMethods
   render(_: CIImage, toBitmap: any, rowBytes: number, bounds: CGRect, format: number, colorSpace?: any): void;
-  // compoundInstanceMethods
   render(_: CIImage, to: any): void;
-  // compoundInstanceMethods
   render(_: CIImage, to: any, bounds: CGRect, colorSpace?: any): void;
-  // compoundInstanceMethods
   render(_: CIImage, to: any, bounds: CGRect, colorSpace?: any): void;
-  // compoundInstanceMethods
   render(_: CIImage, to: any, commandBuffer?: any, bounds?: CGRect, colorSpace?: any): void;
-  // compoundInstanceMethods
   startTaskToClear(error: CIRenderDestination): CIRenderTask;
-  // compoundInstanceMethods
   startTaskToRender(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): CIRenderTask;
-  // compoundInstanceMethods
   startTaskToRender(toDestination: CIImage, error: CIRenderDestination): CIRenderTask;
-  // compoundInstanceMethods
   writeHEIFRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
-  // compoundInstanceMethods
   writeJPEGRepresentationOfImage(toURL: CIImage, colorSpace: URL, options: any, error: Map<string, any>): boolean;
-  // compoundInstanceMethods
   writePNGRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
-  // compoundInstanceMethods
   writeTIFFRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
 }
 
@@ -19014,7 +16022,6 @@ export class CIDataMatrixCodeDescriptor extends CIBarcodeDescriptor {
   eccVersion: CIBarcodeDescriptor.CIDataMatrixCodeECCVersion;
   errorCorrectedPayload: Data;
   rowCount: number;
-  // compoundInstanceMethods
   static createWithPayloadWithRowCountWithColumnCountWithEccVersion(_: Data, rowCount: number, columnCount: number, eccVersion: CIBarcodeDescriptor.CIDataMatrixCodeECCVersion): CIDataMatrixCodeDescriptor;
 }
 
@@ -19041,9 +16048,7 @@ interface CIDepthToDisparity {
 }
 
 export class CIDetector extends NSObject {
-  // compoundInstanceMethods
   features(in_: CIImage): CIFeature[];
-  // compoundInstanceMethods
   features(in_: CIImage, options?: Map<string, any>): CIFeature[];
 }
 
@@ -19375,13 +16380,9 @@ export class CIFilter extends NSObject {
   inputKeys: string[];
   outputImage: CIImage;
   outputKeys: string[];
-  // compoundInstanceMethods
   apply(_: CIKernel, arguments_?: any[], options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   setDefaults(): void;
-  // compoundInstanceMethods
   setName(_: string): void;
-  // compoundInstanceMethods
   viewForUIConfiguration(_: Map<any, any>, excludedKeys: any[]): IKFilterUIView;
 }
 
@@ -19393,23 +16394,14 @@ export class CIFilterGenerator extends NSObject {
   classAttributes: Map<any, any>;
   setClassAttributes(_: Map<any, any>);
   exportedKeys: Map<any, any>;
-  // compoundInstanceMethods
   connect(_: any, withKey?: string, to?: any, withKey2?: string): void;
-  // compoundInstanceMethods
   disconnectObject(_: any, withKey: string, to: any, withKey2: string): void;
-  // compoundInstanceMethods
   exportKey(_: string, from: any, withName?: string): void;
-  // compoundInstanceMethods
   filter(): CIFilter;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): CIFilterGenerator;
-  // compoundInstanceMethods
   registerFilterName(_: string): void;
-  // compoundInstanceMethods
   removeExportedKey(_: string): void;
-  // compoundInstanceMethods
   setAttributes(_: Map<any, any>, forExportedKey: string): void;
-  // compoundInstanceMethods
   write(to: URL, atomically: boolean): boolean;
 }
 
@@ -19419,19 +16411,12 @@ interface CIFilterProtocol {
 
 export class CIFilterShape extends NSObject {
   extent: CGRect;
-  // compoundInstanceMethods
   static createWithRect(_: CGRect): CIFilterShape;
-  // compoundInstanceMethods
   insetBy(x: number, y: number): CIFilterShape;
-  // compoundInstanceMethods
   intersect(with_: CIFilterShape): CIFilterShape;
-  // compoundInstanceMethods
   intersect(with_: CGRect): CIFilterShape;
-  // compoundInstanceMethods
   transform(by: CGAffineTransform, interior: boolean): CIFilterShape;
-  // compoundInstanceMethods
   union(with_: CIFilterShape): CIFilterShape;
-  // compoundInstanceMethods
   union(with_: CGRect): CIFilterShape;
 }
 
@@ -19639,126 +16624,68 @@ export class CIImage extends NSObject {
   static red: CIImage;
   static white: CIImage;
   static yellow: CIImage;
-  // compoundInstanceMethods
   autoAdjustmentFilters(): CIFilter[];
-  // compoundInstanceMethods
   autoAdjustmentFilters(options?: Map<string, any>): CIFilter[];
-  // compoundInstanceMethods
   draw(at: CGPoint, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number): void;
-  // compoundInstanceMethods
   oriented(_: CGImageProperties.CGImagePropertyOrientation): CIImage;
-  // compoundInstanceMethods
   applyingFilter(_: string): CIImage;
-  // compoundInstanceMethods
   applyingFilter(_: string, parameters?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   applyingGaussianBlur(sigma: number): CIImage;
-  // compoundInstanceMethods
   oriented(forExifOrientation: number): CIImage;
-  // compoundInstanceMethods
   transformed(by: CGAffineTransform): CIImage;
-  // compoundInstanceMethods
   transformed(by: CGAffineTransform, highQualityDownsample: boolean): CIImage;
-  // compoundInstanceMethods
   clampedToExtent(): CIImage;
-  // compoundInstanceMethods
   clamped(to: CGRect): CIImage;
-  // compoundInstanceMethods
   matchedToWorkingSpace(from: any): CIImage;
-  // compoundInstanceMethods
   matchedFromWorkingSpace(to: any): CIImage;
-  // compoundInstanceMethods
   composited(over: CIImage): CIImage;
-  // compoundInstanceMethods
   cropped(to: CGRect): CIImage;
-  // compoundInstanceMethods
   insertingIntermediate(): CIImage;
-  // compoundInstanceMethods
   insertingIntermediate(cache: boolean): CIImage;
-  // compoundInstanceMethods
   premultiplyingAlpha(): CIImage;
-  // compoundInstanceMethods
   samplingLinear(): CIImage;
-  // compoundInstanceMethods
   samplingNearest(): CIImage;
-  // compoundInstanceMethods
   settingAlphaOne(in_: CGRect): CIImage;
-  // compoundInstanceMethods
   settingProperties(_: Map<any, any>): CIImage;
-  // compoundInstanceMethods
   unpremultiplyingAlpha(): CIImage;
-  // compoundInstanceMethods
   orientationTransform(for_: CGImageProperties.CGImagePropertyOrientation): CGAffineTransform;
-  // compoundInstanceMethods
   orientationTransform(forExifOrientation: number): CGAffineTransform;
-  // compoundInstanceMethods
   static createWithBitmapDataWithBytesPerRowWithSizeWithFormatWithColorSpace(_: Data, bytesPerRow: number, size: CGSize, format: number, colorSpace?: any): CIImage;
-  // compoundInstanceMethods
   static createWithBitmapImageRep(_: NSBitmapImageRep): CIImage;
-  // compoundInstanceMethods
   static createWithCgImage(_: any): CIImage;
-  // compoundInstanceMethods
   static createWithCgImageWithOptions(_: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithCgImageSourceWithIndexWithOptions(_: any, index: number, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithCvImageBuffer(_: any): CIImage;
-  // compoundInstanceMethods
   static createWithCvImageBufferWithOptions(_: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithCvPixelBuffer(_: any): CIImage;
-  // compoundInstanceMethods
   static createWithCvPixelBufferWithOptions(_: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithColor(_: CIColor): CIImage;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): CIImage;
-  // compoundInstanceMethods
   static createWithContentsOfWithOptions(_: URL, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithData(_: Data): CIImage;
-  // compoundInstanceMethods
   static createWithDataWithOptions(_: Data, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithDepthData(_: AVDepthData): CIImage;
-  // compoundInstanceMethods
   static createWithDepthDataWithOptions(_: AVDepthData, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithIoSurface(_: any): CIImage;
-  // compoundInstanceMethods
   static createWithIoSurfaceWithOptions(_: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithImageProviderWithSizeWithFormatWithColorSpaceWithOptions(_: any, _2: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithMtlTextureWithOptions(_: any, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithPortaitEffectsMatte(_: AVPortraitEffectsMatte): CIImage;
-  // compoundInstanceMethods
   static createWithPortaitEffectsMatteWithOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   static createWithSemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
-  // compoundInstanceMethods
   static createWithSemanticSegmentationMatteWithOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
-  // compoundInstanceMethods
   regionOfInterest(for_: CIImage, in_: CGRect): CGRect;
 }
 
 export class CIImageAccumulator extends NSObject {
   extent: CGRect;
   format: number;
-  // compoundInstanceMethods
   clear(): void;
-  // compoundInstanceMethods
   image(): CIImage;
-  // compoundInstanceMethods
   static createWithExtentWithFormat(_: CGRect, format: number): CIImageAccumulator;
-  // compoundInstanceMethods
   static createWithExtentWithFormatWithColorSpace(_: CGRect, format: number, colorSpace: any): CIImageAccumulator;
-  // compoundInstanceMethods
   setImage(_: CIImage): void;
-  // compoundInstanceMethods
   setImage(_: CIImage, dirtyRect: CGRect): void;
 }
 
@@ -19808,9 +16735,7 @@ export class CIKernel extends NSObject {
   static createWithKernelWithFunctionNameFromMetalLibraryData(fromMetalLibraryData: string, error: Data): CIKernel;
   static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormat(fromMetalLibraryData: string, outputPixelFormat: Data, error: number): CIKernel;
   name: string;
-  // compoundInstanceMethods
   apply(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, arguments_?: any[]): CIImage;
-  // compoundInstanceMethods
   setROISelector(_: string): void;
 }
 
@@ -20068,7 +16993,6 @@ export class CIPDF417CodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectedPayload: Data;
   isCompact: boolean;
   rowCount: number;
-  // compoundInstanceMethods
   static createWithPayloadWithIsCompactWithRowCountWithColumnCount(_: Data, isCompact: boolean, rowCount: number, columnCount: number): CIPDF417CodeDescriptor;
 }
 
@@ -20209,7 +17133,6 @@ export class CIQRCodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectionLevel: CIBarcodeDescriptor.CIQRCodeErrorCorrectionLevel;
   maskPattern: number;
   symbolVersion: number;
-  // compoundInstanceMethods
   static createWithPayloadWithSymbolVersionWithMaskPatternWithErrorCorrectionLevel(_: Data, symbolVersion: number, maskPattern: number, errorCorrectionLevel: CIBarcodeDescriptor.CIQRCodeErrorCorrectionLevel): CIQRCodeDescriptor;
 }
 
@@ -20269,17 +17192,11 @@ export class CIRenderDestination extends NSObject {
   setFlipped(_: boolean);
   height: number;
   width: number;
-  // compoundInstanceMethods
   static createWithBitmapDataWithWidthWithHeightWithBytesPerRowWithFormat(_: any, width: number, height: number, bytesPerRow: number, format: number): CIRenderDestination;
-  // compoundInstanceMethods
   static createWithGlTextureWithTargetWithWidthWithHeight(_: number, target: number, width: number, height: number): CIRenderDestination;
-  // compoundInstanceMethods
   static createWithIoSurface(_: IOSurface): CIRenderDestination;
-  // compoundInstanceMethods
   static createWithMtlTextureWithCommandBuffer(_: any, commandBuffer?: any): CIRenderDestination;
-  // compoundInstanceMethods
   static createWithPixelBuffer(_: any): CIRenderDestination;
-  // compoundInstanceMethods
   static createWithWidthWithHeightWithPixelFormatWithCommandBufferWithMtlTextureProvider(_: number, height: number, pixelFormat: MTLPixelFormat.MTLPixelFormat, commandBuffer?: any, mtlTextureProvider?: () => any): CIRenderDestination;
 }
 
@@ -20290,7 +17207,6 @@ export class CIRenderInfo extends NSObject {
 }
 
 export class CIRenderTask extends NSObject {
-  // compoundInstanceMethods
   waitUntilCompletedAndReturnError(): CIRenderInfo;
 }
 
@@ -20330,9 +17246,7 @@ export class CISampler extends NSObject {
   static createWithSamplerWithImageKeysAndValues(_: CIImage, keysAndValues: any): CISampler;
   definition: CIFilterShape;
   extent: CGRect;
-  // compoundInstanceMethods
   static createWithImage(_: CIImage): CISampler;
-  // compoundInstanceMethods
   static createWithImageWithOptions(_: CIImage, options?: Map<any, any>): CISampler;
 }
 
@@ -20618,25 +17532,15 @@ export class CIVector extends NSObject {
   z: number;
   count: number;
   stringRepresentation: string;
-  // compoundInstanceMethods
   static createWithCgAffineTransform(_: CGAffineTransform): CIVector;
-  // compoundInstanceMethods
   static createWithCgPoint(_: CGPoint): CIVector;
-  // compoundInstanceMethods
   static createWithCgRect(_: CGRect): CIVector;
-  // compoundInstanceMethods
   static createWithString(_: string): CIVector;
-  // compoundInstanceMethods
   static createWithValuesWithCount(_: number, count: number): CIVector;
-  // compoundInstanceMethods
   static createWithX(_: number): CIVector;
-  // compoundInstanceMethods
   static createWithXWithY(_: number, Y: number): CIVector;
-  // compoundInstanceMethods
   static createWithXWithYWithZ(_: number, Y: number, Z: number): CIVector;
-  // compoundInstanceMethods
   static createWithXWithYWithZWithW(_: number, Y: number, Z: number, W: number): CIVector;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(at: number): number;
 }
@@ -20673,7 +17577,6 @@ interface CIVignetteEffect {
 export class CIWarpKernel extends CIKernel {
   //  static createWithKernelWithFunctionNameFromMetalLibraryData(fromMetalLibraryData: string, error: Data): CIWarpKernel;
   //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormat(fromMetalLibraryData: string, outputPixelFormat: Data, error: number): CIWarpKernel;
-  // compoundInstanceMethods
   // @ts-ignore 
   apply(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, image: CIImage, arguments_?: any[]): CIImage;
 }
@@ -20712,11 +17615,8 @@ export class CLBeaconIdentityConstraint extends NSObject {
   UUID: UUID;
   major: number;
   minor: number;
-  // compoundInstanceMethods
   static createWithUuID(_: UUID): CLBeaconIdentityConstraint;
-  // compoundInstanceMethods
   static createWithUuIDWithMajor(_: UUID, major: number): CLBeaconIdentityConstraint;
-  // compoundInstanceMethods
   static createWithUuIDWithMajorWithMinor(_: UUID, major: number, minor: number): CLBeaconIdentityConstraint;
 }
 
@@ -20726,22 +17626,16 @@ export class CLBeaconRegion extends CLRegion {
   notifyEntryStateOnDisplay: boolean;
   setNotifyEntryStateOnDisplay(_: boolean);
   proximityUUID: UUID;
-  // compoundInstanceMethods
   static createWithProximityuuIDWithIdentifier(_: UUID, identifier: string): CLBeaconRegion;
-  // compoundInstanceMethods
   static createWithProximityuuIDWithMajorWithIdentifier(_: UUID, major: number, identifier: string): CLBeaconRegion;
-  // compoundInstanceMethods
   static createWithProximityuuIDWithMajorWithMinorWithIdentifier(_: UUID, major: number, minor: number, identifier: string): CLBeaconRegion;
-  // compoundInstanceMethods
   peripheralDataWithMeasuredPower(_?: number): Map<string, any>;
 }
 
 export class CLCircularRegion extends CLRegion {
   center: CLLocationCoordinate2D;
   radius: number;
-  // compoundInstanceMethods
   containsCoordinate(_: CLLocationCoordinate2D): boolean;
-  // compoundInstanceMethods
   static createWithCenterWithRadiusWithIdentifier(_: CLLocationCoordinate2D, radius: number, identifier: string): CLCircularRegion;
 }
 
@@ -20751,21 +17645,13 @@ export class CLFloor extends NSObject {
 
 export class CLGeocoder extends NSObject {
   isGeocoding: boolean;
-  // compoundInstanceMethods
   cancelGeocode(): void;
-  // compoundInstanceMethods
   geocodeAddressString(_: string, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   geocodeAddressString(_: string, inRegion?: CLRegion, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   geocodeAddressString(_: string, inRegion?: CLRegion, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   geocodePostalAddress(_: CNPostalAddress, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   geocodePostalAddress(_: CNPostalAddress, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   reverseGeocodeLocation(_: CLLocation, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  // compoundInstanceMethods
   reverseGeocodeLocation(_: CLLocation, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
 }
 
@@ -20790,15 +17676,10 @@ export class CLLocation extends NSObject {
   speedAccuracy: number;
   timestamp: Date;
   verticalAccuracy: number;
-  // compoundInstanceMethods
   distanceFromLocation(_: CLLocation): number;
-  // compoundInstanceMethods
   static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithCourseWithCourseAccuracyWithSpeedWithSpeedAccuracyWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, courseAccuracy: number, speed: number, speedAccuracy: number, timestamp: Date): CLLocation;
-  // compoundInstanceMethods
   static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithCourseWithSpeedWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, speed: number, timestamp: Date): CLLocation;
-  // compoundInstanceMethods
   static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, timestamp: Date): CLLocation;
-  // compoundInstanceMethods
   static createWithLatitudeWithLongitude(_: number, longitude: number): CLLocation;
 }
 
@@ -20823,23 +17704,14 @@ export class CLLocationManager extends NSObject {
   monitoredRegions: Set<any>;
   purpose: string;
   setPurpose(_: string);
-  // compoundInstanceMethods
   requestAlwaysAuthorization(): void;
-  // compoundInstanceMethods
   requestLocation(): void;
-  // compoundInstanceMethods
   requestStateForRegion(_: CLRegion): void;
-  // compoundInstanceMethods
   startMonitoringForRegion(_: CLRegion): void;
-  // compoundInstanceMethods
   startMonitoringSignificantLocationChanges(): void;
-  // compoundInstanceMethods
   startUpdatingLocation(): void;
-  // compoundInstanceMethods
   stopMonitoringForRegion(_: CLRegion): void;
-  // compoundInstanceMethods
   stopMonitoringSignificantLocationChanges(): void;
-  // compoundInstanceMethods
   stopUpdatingLocation(): void;
 }
 
@@ -20874,7 +17746,6 @@ export class CLPlacemark extends NSObject {
   subThoroughfare: string;
   thoroughfare: string;
   timeZone: TimeZone;
-  // compoundInstanceMethods
   static createWithPlacemark(_: CLPlacemark): CLPlacemark;
 }
 
@@ -21039,7 +17910,6 @@ export class CLVisit extends NSObject {
 
 export class MLArrayBatchProvider extends NSObject {
   array: any[];
-  // compoundInstanceMethods
   static createWith(error: Map<string, any[]>): MLArrayBatchProvider;
 }
 
@@ -21066,9 +17936,7 @@ export class MLDictionaryConstraint extends NSObject {
 
 export class MLDictionaryFeatureProvider extends NSObject {
   dictionary: Map<string, MLFeatureValue>;
-  // compoundInstanceMethods
   static createWith(error: Map<string, any>): MLDictionaryFeatureProvider;
-  // compoundInstanceMethods
   objectForKeyedSubscript(_: string): MLFeatureValue;
 }
 
@@ -21080,7 +17948,6 @@ export class MLFeatureDescription extends NSObject {
   isOptional: boolean;
   sequenceConstraint: MLSequenceConstraint;
   type: MLFeatureType.MLFeatureType;
-  // compoundInstanceMethods
   isAllowedValue(_: MLFeatureValue): boolean;
 }
 
@@ -21114,7 +17981,6 @@ export class MLFeatureValue extends NSObject {
   stringValue: string;
   type: MLFeatureType.MLFeatureType;
   isUndefined: boolean;
-  // compoundInstanceMethods
   isEqualToFeatureValue(_: MLFeatureValue): boolean;
 }
 
@@ -21154,15 +18020,10 @@ export class MLModel extends NSObject {
   static createWithModelWithContentsOfURL(error: URL): MLModel;
   configuration: MLModelConfiguration;
   modelDescription: MLModelDescription;
-  // compoundInstanceMethods
   parameterValueForKey(error: MLParameterKey): any;
-  // compoundInstanceMethods
   prediction(from: any): any;
-  // compoundInstanceMethods
   prediction(from: any, options: MLPredictionOptions): any;
-  // compoundInstanceMethods
   predictionsFromBatch(error: any): any;
-  // compoundInstanceMethods
   predictions(from: any, options: MLPredictionOptions): any;
 }
 
@@ -21192,17 +18053,11 @@ export class MLMultiArray extends NSObject {
   dataType: MLMultiArray.MLMultiArrayDataType;
   shape: number[];
   strides: number[];
-  // compoundInstanceMethods
   static createWithDataPointerWithShapeWithDataTypeWithStrides(shape: any, dataType: number[], strides: MLMultiArray.MLMultiArrayDataType, deallocator: number[], error?: (p1: any) => void): MLMultiArray;
-  // compoundInstanceMethods
   static createWithShape(dataType: number[], error: MLMultiArray.MLMultiArrayDataType): MLMultiArray;
-  // compoundInstanceMethods
   objectAtIndexedSubscript(_: number): number;
-  // compoundInstanceMethods
   objectForKeyedSubscript(_: number[]): number;
-  // compoundInstanceMethods
   setObject(_: number, atIndexedSubscript: number): void;
-  // compoundInstanceMethods
   setObject(_: number, forKeyedSubscript: number[]): void;
 }
 
@@ -21245,7 +18100,6 @@ export class MLParameterKey extends MLKey {
   static seed: MLParameterKey;
   static shuffle: MLParameterKey;
   static weights: MLParameterKey;
-  // compoundInstanceMethods
   scopedTo(_: string): MLParameterKey;
 }
 
@@ -21269,9 +18123,7 @@ export class MLTask extends NSObject {
   error: Error;
   state: MLTask.MLTaskState;
   taskIdentifier: string;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   resume(): void;
 }
 
@@ -21283,14 +18135,12 @@ export class MLUpdateContext extends NSObject {
 }
 
 export class MLUpdateProgressHandlers extends NSObject {
-  // compoundInstanceMethods
   static createWithForEventsWithProgressHandlerWithCompletionHandler(_: MLUpdateProgressEvent.MLUpdateProgressEvent, progressHandler?: (p1: MLUpdateContext) => void, completionHandler?: (p1: MLUpdateContext) => void): MLUpdateProgressHandlers;
 }
 
 export class MLUpdateTask extends MLTask {
   static createWithUpdateTaskForModelAtURLTrainingDataWithConfigurationWithCompletionHandler(trainingData: URL, configuration: any, completionHandler?: MLModelConfiguration, error?: (p1: MLUpdateContext) => void): MLUpdateTask;
   static createWithUpdateTaskForModelAtURLTrainingDataWithConfigurationWithProgressHandlers(trainingData: URL, configuration: any, progressHandlers?: MLModelConfiguration, error?: MLUpdateProgressHandlers): MLUpdateTask;
-  // compoundInstanceMethods
   resumeWithParameters(_: Map<MLParameterKey, any>): void;
 }
 
@@ -21956,9 +18806,7 @@ export class CMAccelerometerData extends CMLogItem {
 
 export class CMAltimeter extends NSObject {
   static isRelativeAltitudeAvailable(): boolean;
-  // compoundInstanceMethods
   startRelativeAltitudeUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMAltitudeData, p2: Error) => void): void;
-  // compoundInstanceMethods
   stopRelativeAltitudeUpdates(): void;
 }
 
@@ -21973,7 +18821,6 @@ export class CMAttitude extends NSObject {
   roll: number;
   rotationMatrix: CMRotationMatrix;
   yaw: number;
-  // compoundInstanceMethods
   multiplyByInverseOfAttitude(_: CMAttitude): void;
 }
 
@@ -22017,11 +18864,8 @@ export class CMMotionActivity extends CMLogItem {
 
 export class CMMotionActivityManager extends NSObject {
   static isActivityAvailable(): boolean;
-  // compoundInstanceMethods
   queryActivityStartingFromDate(_: Date, toDate: Date, toQueue: OperationQueue, withHandler: (p1: CMMotionActivity[], p2: Error) => void): void;
-  // compoundInstanceMethods
   startActivityUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMMotionActivity) => void): void;
-  // compoundInstanceMethods
   stopActivityUpdates(): void;
 }
 
@@ -22041,38 +18885,24 @@ export class CMMotionManager extends NSObject {
   gyroData: CMGyroData;
   gyroUpdateInterval: number;
   setGyroUpdateInterval(_: number);
-  // compoundInstanceMethods
   startAccelerometerUpdates(): void;
-  // compoundInstanceMethods
   startAccelerometerUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMAccelerometerData, p2: Error) => void): void;
-  // compoundInstanceMethods
   startDeviceMotionUpdates(): void;
-  // compoundInstanceMethods
   startDeviceMotionUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMDeviceMotion, p2: Error) => void): void;
-  // compoundInstanceMethods
   startGyroUpdates(): void;
-  // compoundInstanceMethods
   startGyroUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMGyroData, p2: Error) => void): void;
-  // compoundInstanceMethods
   stopAccelerometerUpdates(): void;
-  // compoundInstanceMethods
   stopDeviceMotionUpdates(): void;
-  // compoundInstanceMethods
   stopGyroUpdates(): void;
 }
 
 export class CMMovementDisorderManager extends NSObject {
   static authorizationStatus(): CMAuthorization.CMAuthorizationStatus;
   static isAvailable(): boolean;
-  // compoundInstanceMethods
   lastProcessedDate(): Date;
-  // compoundInstanceMethods
   monitorKinesiasExpirationDate(): Date;
-  // compoundInstanceMethods
   monitorKinesiasForDuration(_: number): void;
-  // compoundInstanceMethods
   queryDyskineticSymptomFromDate(_: Date, toDate: Date, withHandler: (p1: CMDyskineticSymptomResult[], p2: Error) => void): void;
-  // compoundInstanceMethods
   queryTremorFromDate(_: Date, toDate: Date, withHandler: (p1: CMTremorResult[], p2: Error) => void): void;
 }
 
@@ -22081,11 +18911,8 @@ export class CMPedometer extends NSObject {
   static isFloorCountingAvailable(): boolean;
   static isPaceAvailable(): boolean;
   static isStepCountingAvailable(): boolean;
-  // compoundInstanceMethods
   queryPedometerDataFromDate(_: Date, toDate: Date, withHandler: (p1: CMPedometerData, p2: Error) => void): void;
-  // compoundInstanceMethods
   startPedometerUpdatesFromDate(_: Date, withHandler: (p1: CMPedometerData, p2: Error) => void): void;
-  // compoundInstanceMethods
   stopPedometerUpdates(): void;
 }
 
@@ -22117,19 +18944,14 @@ export class CMSensorDataList extends NSObject {
 export class CMSensorRecorder extends NSObject {
   static isAccelerometerRecordingAvailable(): boolean;
   static isAuthorizedForRecording(): boolean;
-  // compoundInstanceMethods
   accelerometerDataFromDate(_: Date, toDate: Date): CMSensorDataList;
-  // compoundInstanceMethods
   recordAccelerometerForDuration(_: number): void;
 }
 
 export class CMStepCounter extends NSObject {
   static isStepCountingAvailable(): boolean;
-  // compoundInstanceMethods
   queryStepCountStartingFrom(_: Date, to: Date, toQueue: OperationQueue, withHandler: (p1: number, p2: Error) => void): void;
-  // compoundInstanceMethods
   startStepCountingUpdatesToQueue(_: OperationQueue, updateOn: number, withHandler: (p1: number, p2: Date, p3: Error) => void): void;
-  // compoundInstanceMethods
   stopStepCountingUpdates(): void;
 }
 
@@ -23166,9 +19988,7 @@ export class CSCustomAttributeKey extends NSObject {
   isSearchable: boolean;
   isSearchableByDefault: boolean;
   isUnique: boolean;
-  // compoundInstanceMethods
   static createWithKeyName(_: string): CSCustomAttributeKey;
-  // compoundInstanceMethods
   static createWithKeyNameWithSearchableWithSearchableByDefaultWithUniqueWithMultiValued(_: string, searchable: boolean, searchableByDefault: boolean, unique: boolean, multiValued: boolean): CSCustomAttributeKey;
 }
 
@@ -23181,9 +20001,7 @@ export class CSLocalizedString extends NSString {
   //  static createWithContentsOfFileUsedEncoding(usedEncoding: string, error?: number): CSLocalizedString;
   //  static createWithContentsOfURLEncoding(encoding: URL, error: number): CSLocalizedString;
   //  static createWithContentsOfURLUsedEncoding(usedEncoding: URL, error?: number): CSLocalizedString;
-  // compoundInstanceMethods
   static createWithLocalizedStrings(_: Map<any, any>): CSLocalizedString;
-  // compoundInstanceMethods
   localizedString(): string;
 }
 
@@ -23193,7 +20011,6 @@ export class CSPerson extends NSObject {
   displayName: string;
   handleIdentifier: string;
   handles: string[];
-  // compoundInstanceMethods
   static createWithDisplayNameWithHandlesWithHandleIdentifier(_?: string, handles?: string[], handleIdentifier?: string): CSPerson;
 }
 
@@ -23206,11 +20023,8 @@ export class CSSearchQuery extends NSObject {
   setFoundItemsHandler(_: (p1: CSSearchableItem[]) => void);
   protectionClasses: string[];
   setProtectionClasses(_: string[]);
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   static createWithQueryStringWithAttributes(_: string, attributes?: string[]): CSSearchQuery;
-  // compoundInstanceMethods
   start(): void;
 }
 
@@ -23219,23 +20033,14 @@ export class CSSearchableIndex extends NSObject {
   static isIndexingAvailable(): boolean;
   indexDelegate: any;
   setIndexDelegate(_: any);
-  // compoundInstanceMethods
   beginIndexBatch(): void;
-  // compoundInstanceMethods
   deleteAllSearchableItemsWithCompletionHandler(_?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   deleteSearchableItemsWithDomainIdentifiers(_: string[], completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   deleteSearchableItemsWithIdentifiers(_: string[], completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   endIndexBatchWithClientState(_: Data, completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   fetchLastClientStateWithCompletionHandler(_?: (p1: Data, p2: Error) => void): void;
-  // compoundInstanceMethods
   indexSearchableItems(_: CSSearchableItem[], completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   static createWithName(_: string): CSSearchableIndex;
-  // compoundInstanceMethods
   static createWithNameWithProtectionClass(_: string, protectionClass?: string): CSSearchableIndex;
 }
 
@@ -23257,7 +20062,6 @@ export class CSSearchableItem extends NSObject {
   setExpirationDate(_: Date);
   uniqueIdentifier: string;
   setUniqueIdentifier(_: string);
-  // compoundInstanceMethods
   static createWithUniqueIdentifierWithDomainIdentifierWithAttributeSet(_?: string, domainIdentifier?: string, attributeSet?: CSSearchableItemAttributeSet): CSSearchableItem;
 }
 
@@ -23628,12 +20432,9 @@ export class CSSearchableItemAttributeSet extends NSObject {
   setWeakRelatedUniqueIdentifier(_: string);
   whiteBalance: number;
   setWhiteBalance(_: number);
-  // compoundInstanceMethods
   static createWithItemContentType(_: string): CSSearchableItemAttributeSet;
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_?: any, forCustomKey?: CSCustomAttributeKey): void;
-  // compoundInstanceMethods
   valueForCustomKey(_: CSCustomAttributeKey): any;
 }
 
@@ -24211,7 +21012,6 @@ export class CWChannel extends NSObject {
   channelBand: CoreWLANTypes.CWChannelBand;
   channelNumber: number;
   channelWidth: CoreWLANTypes.CWChannelWidth;
-  // compoundInstanceMethods
   isEqualToChannel(_: CWChannel): boolean;
 }
 
@@ -24223,9 +21023,7 @@ export class CWConfiguration extends NSObject {
   requireAdministratorForAssociation: boolean;
   requireAdministratorForIBSSMode: boolean;
   requireAdministratorForPower: boolean;
-  // compoundInstanceMethods
   static createWithConfiguration(_: CWConfiguration): CWConfiguration;
-  // compoundInstanceMethods
   isEqualToConfiguration(_: CWConfiguration): boolean;
 }
 
@@ -24244,67 +21042,36 @@ interface CWEventDelegate {
 
 export class CWInterface extends NSObject {
   interfaceName: string;
-  // compoundInstanceMethods
   activePHYMode(): CoreWLANTypes.CWPHYMode;
-  // compoundInstanceMethods
   associateToEnterpriseNetwork(identity: CWNetwork, username?: any, password?: string, error?: string): boolean;
-  // compoundInstanceMethods
   associateToNetwork(password: CWNetwork, error?: string): boolean;
-  // compoundInstanceMethods
   bssid(): string;
-  // compoundInstanceMethods
   cachedScanResults(): Set<any>;
-  // compoundInstanceMethods
   commitConfiguration(authorization: CWConfiguration, error?: SFAuthorization): boolean;
-  // compoundInstanceMethods
   configuration(): CWConfiguration;
-  // compoundInstanceMethods
   countryCode(): string;
-  // compoundInstanceMethods
   disassociate(): void;
-  // compoundInstanceMethods
   hardwareAddress(): string;
-  // compoundInstanceMethods
   interfaceMode(): CoreWLANTypes.CWInterfaceMode;
-  // compoundInstanceMethods
   noiseMeasurement(): number;
-  // compoundInstanceMethods
   powerOn(): boolean;
-  // compoundInstanceMethods
   rssiValue(): number;
-  // compoundInstanceMethods
   scanForNetworksWithName(error?: string): Set<any>;
-  // compoundInstanceMethods
   scanForNetworksWithName(includeHidden?: string, error?: boolean): Set<any>;
-  // compoundInstanceMethods
   scanForNetworksWithSSID(error?: Data): Set<any>;
-  // compoundInstanceMethods
   scanForNetworksWithSSID(includeHidden?: Data, error?: boolean): Set<any>;
-  // compoundInstanceMethods
   security(): CoreWLANTypes.CWSecurity;
-  // compoundInstanceMethods
   serviceActive(): boolean;
-  // compoundInstanceMethods
   setPairwiseMasterKey(error?: Data): boolean;
-  // compoundInstanceMethods
   setPower(error: boolean): boolean;
-  // compoundInstanceMethods
   setWEPKey(flags?: Data, index?: CoreWLANTypes.CWCipherKeyFlags, error?: number): boolean;
-  // compoundInstanceMethods
   setWLANChannel(error: CWChannel): boolean;
-  // compoundInstanceMethods
   ssid(): string;
-  // compoundInstanceMethods
   ssidData(): Data;
-  // compoundInstanceMethods
   startIBSSModeWithSSID(security: Data, channel: CoreWLANTypes.CWIBSSModeSecurity, password: number, error?: string): boolean;
-  // compoundInstanceMethods
   supportedWLANChannels(): Set<any>;
-  // compoundInstanceMethods
   transmitPower(): number;
-  // compoundInstanceMethods
   transmitRate(): number;
-  // compoundInstanceMethods
   wlanChannel(): CWChannel;
 }
 
@@ -24363,11 +21130,8 @@ export class CWNetwork extends NSObject {
   ssid: string;
   ssidData: Data;
   wlanChannel: CWChannel;
-  // compoundInstanceMethods
   isEqualToNetwork(_: CWNetwork): boolean;
-  // compoundInstanceMethods
   supportsPHYMode(_: CoreWLANTypes.CWPHYMode): boolean;
-  // compoundInstanceMethods
   supportsSecurity(_: CoreWLANTypes.CWSecurity): boolean;
 }
 
@@ -24377,9 +21141,7 @@ export class CWNetworkProfile extends NSObject {
   security: CoreWLANTypes.CWSecurity;
   ssid: string;
   ssidData: Data;
-  // compoundInstanceMethods
   static createWithNetworkProfile(_: CWNetworkProfile): CWNetworkProfile;
-  // compoundInstanceMethods
   isEqualToNetworkProfile(_: CWNetworkProfile): boolean;
 }
 
@@ -24388,56 +21150,35 @@ export class CWWiFiClient extends NSObject {
   static sharedWiFiClient(): CWWiFiClient;
   delegate: any;
   setDelegate(_: any);
-  // compoundInstanceMethods
   interface(): CWInterface;
-  // compoundInstanceMethods
   interfaceWithName(_?: string): CWInterface;
-  // compoundInstanceMethods
   interfaces(): CWInterface[];
-  // compoundInstanceMethods
   startMonitoringEventWithType(error: CoreWLANTypes.CWEventType): boolean;
-  // compoundInstanceMethods
   stopMonitoringAllEventsAndReturnError(): boolean;
-  // compoundInstanceMethods
   stopMonitoringEventWithType(error: CoreWLANTypes.CWEventType): boolean;
 }
 
 export class AffineTransform extends NSObject {
   transformStruct: NSAffineTransformStruct;
   setTransformStruct(_: NSAffineTransformStruct);
-  // compoundInstanceMethods
   append(_: AffineTransform): void;
-  // compoundInstanceMethods
   concat(): void;
-  // compoundInstanceMethods
   static createWithTransform(_: AffineTransform): AffineTransform;
-  // compoundInstanceMethods
   invert(): void;
-  // compoundInstanceMethods
   prepend(_: AffineTransform): void;
-  // compoundInstanceMethods
   rotate(byDegrees: number): void;
-  // compoundInstanceMethods
   rotate(byRadians: number): void;
-  // compoundInstanceMethods
   scale(by: number): void;
-  // compoundInstanceMethods
   scaleX(by: number, yBy: number): void;
-  // compoundInstanceMethods
   set(): void;
-  // compoundInstanceMethods
   transform(_: NSBezierPath): NSBezierPath;
-  // compoundInstanceMethods
   transform(_: CGPoint): CGPoint;
-  // compoundInstanceMethods
   transform(_: CGSize): CGSize;
-  // compoundInstanceMethods
   translateX(by: number, yBy: number): void;
 }
 
 export class BlockOperation extends Operation {
   executionBlocks: () => void[];
-  // compoundInstanceMethods
   addExecutionBlock(_: () => void): void;
 }
 
@@ -24475,60 +21216,33 @@ export class Bundle extends NSObject {
   static allBundles: Bundle[];
   static allFrameworks: Bundle[];
   static main: Bundle;
-  // compoundInstanceMethods
   url(forAuxiliaryExecutable: string): URL;
-  // compoundInstanceMethods
   urlForImageResource(_: string): URL;
-  // compoundInstanceMethods
   url(forResource?: string, withExtension?: string): URL;
-  // compoundInstanceMethods
   url(forResource?: string, withExtension?: string, subdirectory?: string): URL;
-  // compoundInstanceMethods
   url(forResource?: string, withExtension?: string, subdirectory?: string, localization?: string): URL;
-  // compoundInstanceMethods
   urls(forResourcesWithExtension?: string, subdirectory?: string): URL[];
-  // compoundInstanceMethods
   urls(forResourcesWithExtension?: string, subdirectory?: string, localization?: string): URL[];
-  // compoundInstanceMethods
   classNamed(_: string): typeof NSObject;
-  // compoundInstanceMethods
   contextHelp(forKey: string): NSAttributedString;
-  // compoundInstanceMethods
   image(forResource: string): NSImage;
-  // compoundInstanceMethods
   static createWithPath(_: string): Bundle;
-  // compoundInstanceMethods
   static createWithUrl(_: URL): Bundle;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  load(): boolean;
-  // compoundInstanceMethods
   loadAndReturnError(): boolean;
-  // compoundInstanceMethods
   loadNibNamed(_: string, owner?: any, topLevelObjects?: any[]): boolean;
-  // compoundInstanceMethods
   localizedString(forKey: string, value?: string, table?: string): string;
-  // compoundInstanceMethods
   object(forInfoDictionaryKey: string): any;
-  // compoundInstanceMethods
   path(forAuxiliaryExecutable: string): string;
-  // compoundInstanceMethods
   pathForImageResource(_: string): string;
-  // compoundInstanceMethods
   path(forResource?: string, ofType?: string): string;
-  // compoundInstanceMethods
   path(forResource?: string, ofType?: string, inDirectory?: string): string;
-  // compoundInstanceMethods
   path(forResource?: string, ofType?: string, inDirectory?: string, forLocalization?: string): string;
-  // compoundInstanceMethods
   path(forSoundResource: string): string;
-  // compoundInstanceMethods
   paths(forResourcesOfType?: string, inDirectory?: string): string[];
-  // compoundInstanceMethods
   paths(forResourcesOfType?: string, inDirectory?: string, forLocalization?: string): string[];
-  // compoundInstanceMethods
   preflightAndReturnError(): boolean;
-  // compoundInstanceMethods
   unload(): boolean;
 }
 
@@ -24558,9 +21272,7 @@ export class CachedURLResponse extends NSObject {
   response: URLResponse;
   storagePolicy: URLCache.StoragePolicy;
   userInfo: Map<any, any>;
-  // compoundInstanceMethods
   static createWithResponseWithData(_: URLResponse, data: Data): CachedURLResponse;
-  // compoundInstanceMethods
   static createWithResponseWithDataWithUserInfoWithStoragePolicy(_: URLResponse, data: Data, userInfo?: Map<any, any>, storagePolicy?: URLCache.StoragePolicy): CachedURLResponse;
 }
 
@@ -24596,77 +21308,41 @@ export class Calendar extends NSObject {
   weekdaySymbols: string[];
   static autoupdatingCurrent: Calendar;
   static current: Calendar;
-  // compoundInstanceMethods
   compare(_: Date, to: Date, toUnitGranularity: Calendar.Unit): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   component(_: Calendar.Unit, from: Date): number;
-  // compoundInstanceMethods
   components(_: Calendar.Unit, from: Date): DateComponents;
-  // compoundInstanceMethods
   components(_: Calendar.Unit, from: Date, to: Date, options: Calendar.Options): DateComponents;
-  // compoundInstanceMethods
   components(_: Calendar.Unit, from: DateComponents, to: DateComponents, options: Calendar.Options): DateComponents;
-  // compoundInstanceMethods
   components(in_: TimeZone, from: Date): DateComponents;
-  // compoundInstanceMethods
   date(_: Date, matchesComponents: DateComponents): boolean;
-  // compoundInstanceMethods
   date(byAdding: DateComponents, to: Date, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   date(byAdding: Calendar.Unit, value: number, to: Date, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   date(bySettingHour: number, minute: number, second: number, of: Date, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   date(bySettingUnit: Calendar.Unit, value: number, of: Date, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   date(from: DateComponents): Date;
-  // compoundInstanceMethods
   date(era: number, year: number, month: number, day: number, hour: number, minute: number, second: number, nanosecond: number): Date;
-  // compoundInstanceMethods
   date(era: number, yearForWeekOfYear: number, weekOfYear: number, weekday: number, hour: number, minute: number, second: number, nanosecond: number): Date;
-  // compoundInstanceMethods
   enumerateDates(startingAfter: Date, matching: DateComponents, options: Calendar.Options, using?: (p1: Date, p2: boolean, p3: boolean) => void): void;
-  // compoundInstanceMethods
   getEra(_?: number, year?: number, month?: number, day?: number, from?: Date): void;
-  // compoundInstanceMethods
   getEra(_?: number, yearForWeekOfYear?: number, weekOfYear?: number, weekday?: number, from?: Date): void;
-  // compoundInstanceMethods
   getHour(_?: number, minute?: number, second?: number, nanosecond?: number, from?: Date): void;
-  // compoundInstanceMethods
   static createWithCalendarIdentifier(_: string): Calendar;
-  // compoundInstanceMethods
   isDate(_: Date, equalTo: Date, toUnitGranularity: Calendar.Unit): boolean;
-  // compoundInstanceMethods
   isDate(_: Date, inSameDayAs: Date): boolean;
-  // compoundInstanceMethods
   isDateInToday(_: Date): boolean;
-  // compoundInstanceMethods
   isDateInTomorrow(_: Date): boolean;
-  // compoundInstanceMethods
   isDateInWeekend(_: Date): boolean;
-  // compoundInstanceMethods
   isDateInYesterday(_: Date): boolean;
-  // compoundInstanceMethods
   maximumRange(of: Calendar.Unit): NSRange;
-  // compoundInstanceMethods
   minimumRange(of: Calendar.Unit): NSRange;
-  // compoundInstanceMethods
   nextDate(after: Date, matching: DateComponents, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   nextDate(after: Date, matchingHour: number, minute: number, second: number, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   nextDate(after: Date, matching: Calendar.Unit, value: number, options: Calendar.Options): Date;
-  // compoundInstanceMethods
   nextWeekendStart(_?: Date, interval?: number, options?: Calendar.Options, after?: Date): boolean;
-  // compoundInstanceMethods
   ordinality(of: Calendar.Unit, in_: Calendar.Unit, for_: Date): number;
-  // compoundInstanceMethods
   range(of: Calendar.Unit, in_: Calendar.Unit, for_: Date): NSRange;
-  // compoundInstanceMethods
   range(of: Calendar.Unit, start?: Date, interval?: number, for_?: Date): boolean;
-  // compoundInstanceMethods
   range(ofWeekendStart?: Date, interval?: number, containing?: Date): boolean;
-  // compoundInstanceMethods
   startOfDay(for_: Date): Date;
 }
 
@@ -24694,13 +21370,9 @@ export class CharacterSet extends NSObject {
   static uppercaseLetters: CharacterSet;
   static whitespacesAndNewlines: CharacterSet;
   static whitespaces: CharacterSet;
-  // compoundInstanceMethods
   characterIsMember(_: string): boolean;
-  // compoundInstanceMethods
   hasMemberInPlane(_: number): boolean;
-  // compoundInstanceMethods
   isSuperset(of: CharacterSet): boolean;
-  // compoundInstanceMethods
   longCharacterIsMember(_: number): boolean;
 }
 
@@ -24708,15 +21380,10 @@ export class CollectionDifference<ObjectType> extends NSObject {
   hasChanges: boolean;
   insertions: NSOrderedCollectionChange<any>[];
   removals: NSOrderedCollectionChange<any>[];
-  // compoundInstanceMethods
   transformingChanges(_: (p1: NSOrderedCollectionChange<any>) => NSOrderedCollectionChange<any>): CollectionDifference<any>;
-  // compoundInstanceMethods
   // static createWithChanges(_: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
-  // compoundInstanceMethods
   // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjects(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[]): CollectionDifference<ObjectType>;
-  // compoundInstanceMethods
   // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjectsWithAdditionalChanges(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[], additionalChanges?: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
-  // compoundInstanceMethods
   // @ts-ignore 
   createWithInverseDifference(): CollectionDifference<ObjectType>;
 }
@@ -24726,48 +21393,27 @@ export class Data extends NSObject {
   static createWithContentsOfURLOptions(options: URL, error: Data.ReadingOptions): Data;
   bytes: any;
   length: number;
-  // compoundInstanceMethods
   base64EncodedData(options: Data.Base64EncodingOptions): Data;
-  // compoundInstanceMethods
   base64EncodedString(options: Data.Base64EncodingOptions): string;
-  // compoundInstanceMethods
   createWithCompressedDataUsingAlgorithm(using: Data.CompressionAlgorithm): Data;
-  // compoundInstanceMethods
   createWithDecompressedDataUsingAlgorithm(using: Data.CompressionAlgorithm): Data;
-  // compoundInstanceMethods
   enumerateBytes(_: (p1: any, p2: NSRange, p3: boolean) => void): void;
-  // compoundInstanceMethods
   static createWithBytesWithLength(_?: any, length?: number): Data;
-  // compoundInstanceMethods
   static createWithBytesNoCopyWithLength(_: any, length: number): Data;
-  // compoundInstanceMethods
   static createWithBytesNoCopyWithLengthWithDeallocator(_: any, length: number, deallocator?: (p1: any, p2: number) => void): Data;
-  // compoundInstanceMethods
   static createWithBytesNoCopyWithLengthWithFreeWhenDone(_: any, length: number, freeWhenDone: boolean): Data;
-  // compoundInstanceMethods
   static createWithContentsOfFile(_: string): Data;
-  // compoundInstanceMethods
   static createWithContentsOfFile(options: string, error: Data.ReadingOptions): Data;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): Data;
-  // compoundInstanceMethods
   static createWithContentsOf(options: URL, error: Data.ReadingOptions): Data;
-  // compoundInstanceMethods
   static createWithData(_: Data): Data;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: Data): boolean;
-  // compoundInstanceMethods
   range(of: Data, options: Data.SearchOptions, in_: NSRange): NSRange;
-  // compoundInstanceMethods
   subdata(with_: NSRange): Data;
-  // compoundInstanceMethods
   write(toFile: string, atomically: boolean): boolean;
-  // compoundInstanceMethods
   writeToFile(options: string, error: Data.WritingOptions): boolean;
-  // compoundInstanceMethods
   write(to: URL, atomically: boolean): boolean;
-  // compoundInstanceMethods
   writeToURL(options: URL, error: Data.WritingOptions): boolean;
 }
 
@@ -24807,10 +21453,8 @@ export class DateComponents extends NSObject {
   setYear(_: number);
   yearForWeekOfYear: number;
   setYearForWeekOfYear(_: number);
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_: number, forComponent: Calendar.Unit): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forComponent: Calendar.Unit): number;
 }
@@ -24914,12 +21558,9 @@ export class DateFormatter extends Formatter {
   setWeekdaySymbols(_: string[]);
   static defaultFormatterBehavior: DateFormatter.Behavior;
   setDefaultFormatterBehavior(_: DateFormatter.Behavior);
-  // compoundInstanceMethods
   date(from: string): Date;
-  // compoundInstanceMethods
   // @ts-ignore 
   getObjectValue(forString?: any, range?: string, error?: NSRange): boolean;
-  // compoundInstanceMethods
   setLocalizedDateFormatFromTemplate(_: string): void;
 }
 
@@ -24927,19 +21568,12 @@ export class DateInterval extends NSObject {
   duration: number;
   endDate: Date;
   startDate: Date;
-  // compoundInstanceMethods
   compare(_: DateInterval): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   contains(_: Date): boolean;
-  // compoundInstanceMethods
   static createWithStartDateWithDuration(_: Date, duration: number): DateInterval;
-  // compoundInstanceMethods
   static createWithStartDateWithEndDate(_: Date, endDate: Date): DateInterval;
-  // compoundInstanceMethods
   intersection(with_: DateInterval): DateInterval;
-  // compoundInstanceMethods
   intersects(_: DateInterval): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: DateInterval): boolean;
 }
@@ -24964,104 +21598,59 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   allValues: ObjectType[];
   count: number;
   descriptionInStringsFileFormat: string;
-  // compoundInstanceMethods
   countByEnumerating(with_: NSFastEnumerationState, objects?: K, count?: number): number;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any): string;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any, indent?: number): string;
-  // compoundInstanceMethods
   enumerateKeysAndObjects(_: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateKeysAndObjects(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: KeyType, p2: ObjectType, p3: boolean) => void): void;
-  // compoundInstanceMethods
   fileCreationDate(): Date;
-  // compoundInstanceMethods
   fileExtensionHidden(): boolean;
-  // compoundInstanceMethods
   fileGroupOwnerAccountID(): number;
-  // compoundInstanceMethods
   fileGroupOwnerAccountName(): string;
-  // compoundInstanceMethods
   fileHFSCreatorCode(): number;
-  // compoundInstanceMethods
   fileHFSTypeCode(): number;
-  // compoundInstanceMethods
   fileIsAppendOnly(): boolean;
-  // compoundInstanceMethods
   fileIsImmutable(): boolean;
-  // compoundInstanceMethods
   fileModificationDate(): Date;
-  // compoundInstanceMethods
   fileOwnerAccountID(): number;
-  // compoundInstanceMethods
   fileOwnerAccountName(): string;
-  // compoundInstanceMethods
   filePosixPermissions(): number;
-  // compoundInstanceMethods
   fileSize(): number;
-  // compoundInstanceMethods
   fileSystemFileNumber(): number;
-  // compoundInstanceMethods
   fileSystemNumber(): number;
-  // compoundInstanceMethods
   fileType(): string;
-  // compoundInstanceMethods
   // static createWithContentsOfFile(_: string): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithContentsOf(_: URL): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWith(error: URL): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithDictionary(_: Map<KeyType, ObjectType>): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithDictionaryWithCopyItems(_: Map<KeyType, ObjectType>, copyItems: boolean): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectsWithForKeys(_: ObjectType[], forKeys: KeyType[]): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectsWithForKeysWithCount(_?: ObjectType, forKeys?: KeyType, count?: number): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectsAndKeys(_: any): Dictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: Map<KeyType, ObjectType>): boolean;
-  // compoundInstanceMethods
   keyEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   keysOfEntries(passingTest: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
-  // compoundInstanceMethods
   keysOfEntries(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: KeyType, p2: ObjectType, p3: boolean) => boolean): Set<any>;
-  // compoundInstanceMethods
   keysSortedByValue(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
-  // compoundInstanceMethods
   keysSortedByValue(using: string): KeyType[];
-  // compoundInstanceMethods
   keysSortedByValue(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): KeyType[];
-  // compoundInstanceMethods
   objectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   object(forKey: KeyType): ObjectType;
-  // compoundInstanceMethods
   objectForKeyedSubscript(_: KeyType): ObjectType;
-  // compoundInstanceMethods
   objects(forKeys: KeyType[], notFoundMarker: ObjectType): ObjectType[];
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forKey: string): ObjectType;
-  // compoundInstanceMethods
   write(toFile: string, atomically: boolean): boolean;
-  // compoundInstanceMethods
   write(to: URL, atomically: boolean): boolean;
-  // compoundInstanceMethods
   writeToURL(error: URL): boolean;
 }
 
 export class Dimension extends Unit {
   static createWithBaseUnit(): Dimension;
   converter: UnitConverter;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithSymbolWithConverter(_: string, converter: UnitConverter): Dimension;
 }
@@ -25069,23 +21658,16 @@ export class Dimension extends Unit {
 export class DistributedNotificationCenter extends NotificationCenter {
   suspended: boolean;
   setSuspended(_: boolean);
-  // compoundInstanceMethods
   // @ts-ignore 
   addObserver(_: any, selector: string, name?: string, object_?: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   addObserver(_: any, selector: string, name?: string, object_?: string, suspensionBehavior?: DistributedNotificationCenter.SuspensionBehavior): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   post(name: string, object_?: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   post(name: string, object_?: string, userInfo?: Map<any, any>): void;
-  // compoundInstanceMethods
   postNotificationName(_: string, object_?: string, userInfo?: Map<any, any>, deliverImmediately?: boolean): void;
-  // compoundInstanceMethods
   postNotificationName(_: string, object_?: string, userInfo?: Map<any, any>, options?: DistributedNotificationCenter.Options): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObserver(_: any, name?: string, object_?: string): void;
 }
@@ -25097,9 +21679,7 @@ export class EnergyFormatter extends Formatter {
   setNumberFormatter(_: NumberFormatter);
   unitStyle: Formatter.UnitStyle;
   setUnitStyle(_: Formatter.UnitStyle);
-  // compoundInstanceMethods
   unitString(fromJoules: number, usedUnit?: EnergyFormatter.Unit): string;
-  // compoundInstanceMethods
   unitString(fromValue: number, unit: EnergyFormatter.Unit): string;
 }
 
@@ -25118,59 +21698,32 @@ export class FileHandle extends NSObject {
   static standardError: FileHandle;
   static standardInput: FileHandle;
   static standardOutput: FileHandle;
-  // compoundInstanceMethods
   acceptConnectionInBackgroundAndNotify(): void;
-  // compoundInstanceMethods
   acceptConnectionInBackgroundAndNotify(forModes?: string[]): void;
-  // compoundInstanceMethods
   closeAndReturnError(): boolean;
-  // compoundInstanceMethods
   closeFile(): void;
-  // compoundInstanceMethods
   getOffset(error: number): boolean;
-  // compoundInstanceMethods
   static createWithFileDescriptor(_: number): FileHandle;
-  // compoundInstanceMethods
   static createWithFileDescriptorWithCloseOnDealloc(_: number, closeOnDealloc: boolean): FileHandle;
-  // compoundInstanceMethods
   readData(ofLength: number): Data;
-  // compoundInstanceMethods
   readDataToEndOfFile(): Data;
-  // compoundInstanceMethods
   readDataToEndOfFileAndReturnError(): Data;
-  // compoundInstanceMethods
   readDataUpToLength(error: number): Data;
-  // compoundInstanceMethods
   readInBackgroundAndNotify(): void;
-  // compoundInstanceMethods
   readInBackgroundAndNotify(forModes?: string[]): void;
-  // compoundInstanceMethods
   readToEndOfFileInBackgroundAndNotify(): void;
-  // compoundInstanceMethods
   readToEndOfFileInBackgroundAndNotify(forModes?: string[]): void;
-  // compoundInstanceMethods
   seekToEndOfFile(): number;
-  // compoundInstanceMethods
   seekToEndReturningOffset(error?: number): boolean;
-  // compoundInstanceMethods
   seek(toFileOffset: number): void;
-  // compoundInstanceMethods
   seekToOffset(error: number): boolean;
-  // compoundInstanceMethods
   synchronizeAndReturnError(): boolean;
-  // compoundInstanceMethods
   synchronizeFile(): void;
-  // compoundInstanceMethods
   truncateAtOffset(error: number): boolean;
-  // compoundInstanceMethods
   truncateFile(atOffset: number): void;
-  // compoundInstanceMethods
   waitForDataInBackgroundAndNotify(): void;
-  // compoundInstanceMethods
   waitForDataInBackgroundAndNotify(forModes?: string[]): void;
-  // compoundInstanceMethods
   write(_: Data): void;
-  // compoundInstanceMethods
   writeData(error: Data): boolean;
 }
 
@@ -25182,109 +21735,57 @@ export class FileManager extends NSObject {
   temporaryDirectory: URL;
   ubiquityIdentityToken: any;
   static default: FileManager;
-  // compoundInstanceMethods
   url(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask, appropriateFor?: URL, create?: boolean): URL;
-  // compoundInstanceMethods
   url(forPublishingUbiquitousItemAt: URL, expiration?: Date): URL;
-  // compoundInstanceMethods
   url(forUbiquityContainerIdentifier?: string): URL;
-  // compoundInstanceMethods
   urls(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask): URL[];
-  // compoundInstanceMethods
   attributesOfFileSystemForPath(error: string): Map<string, any>;
-  // compoundInstanceMethods
   attributesOfItemAtPath(error: string): Map<string, any>;
-  // compoundInstanceMethods
   changeCurrentDirectoryPath(_: string): boolean;
-  // compoundInstanceMethods
   componentsToDisplay(forPath: string): string[];
-  // compoundInstanceMethods
   containerURL(forSecurityApplicationGroupIdentifier: string): URL;
-  // compoundInstanceMethods
   contents(atPath: string): Data;
-  // compoundInstanceMethods
   contentsEqual(atPath: string, andPath: string): boolean;
-  // compoundInstanceMethods
   contentsOfDirectoryAtPath(error: string): string[];
-  // compoundInstanceMethods
   contentsOfDirectoryAtURL(includingPropertiesForKeys: URL, options?: string[], error?: FileManager.DirectoryEnumerationOptions): URL[];
-  // compoundInstanceMethods
   copyItemAtPath(toPath: string, error: string): boolean;
-  // compoundInstanceMethods
   copyItemAtURL(toURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   createDirectoryAtPath(withIntermediateDirectories: string, attributes: boolean, error?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   createDirectoryAtURL(withIntermediateDirectories: URL, attributes: boolean, error?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   createFile(atPath: string, contents?: Data, attributes?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   createSymbolicLinkAtPath(withDestinationPath: string, error: string): boolean;
-  // compoundInstanceMethods
   createSymbolicLinkAtURL(withDestinationURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   destinationOfSymbolicLinkAtPath(error: string): string;
-  // compoundInstanceMethods
   displayName(atPath: string): string;
-  // compoundInstanceMethods
   enumerator(atPath: string): FileManager.DirectoryEnumerator<any>;
-  // compoundInstanceMethods
   enumeratorAtURL(_: URL, includingPropertiesForKeys?: string[], options?: FileManager.DirectoryEnumerationOptions, errorHandler?: (p1: URL, p2: Error) => boolean): FileManager.DirectoryEnumerator<any>;
-  // compoundInstanceMethods
   evictUbiquitousItemAtURL(error: URL): boolean;
-  // compoundInstanceMethods
   fileExists(atPath: string): boolean;
-  // compoundInstanceMethods
   fileExists(atPath: string, isDirectory?: boolean): boolean;
-  // compoundInstanceMethods
   fileSystemRepresentation(withPath: string): string;
-  // compoundInstanceMethods
   getFileProviderServicesForItem(at: URL, completionHandler?: (p1: Map<string, NSFileProviderService>, p2: Error) => void): void;
-  // compoundInstanceMethods
   getRelationship(ofDirectory: FileManager.URLRelationship, inDomain: NSPathUtilities.FileManager.SearchPathDirectory, toItemAtURL: NSPathUtilities.FileManager.SearchPathDomainMask, error: URL): boolean;
-  // compoundInstanceMethods
   getRelationship(ofDirectoryAtURL: FileManager.URLRelationship, toItemAtURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   homeDirectory(forUser: string): URL;
-  // compoundInstanceMethods
   isDeletableFile(atPath: string): boolean;
-  // compoundInstanceMethods
   isExecutableFile(atPath: string): boolean;
-  // compoundInstanceMethods
   isReadableFile(atPath: string): boolean;
-  // compoundInstanceMethods
   isUbiquitousItem(at: URL): boolean;
-  // compoundInstanceMethods
   isWritableFile(atPath: string): boolean;
-  // compoundInstanceMethods
   linkItemAtPath(toPath: string, error: string): boolean;
-  // compoundInstanceMethods
   linkItemAtURL(toURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   mountedVolumeURLs(includingResourceValuesForKeys?: string[], options?: FileManager.VolumeEnumerationOptions): URL[];
-  // compoundInstanceMethods
   moveItemAtPath(toPath: string, error: string): boolean;
-  // compoundInstanceMethods
   moveItemAtURL(toURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   removeItemAtPath(error: string): boolean;
-  // compoundInstanceMethods
   removeItemAtURL(error: URL): boolean;
-  // compoundInstanceMethods
   replaceItemAtURL(withItemAtURL: URL, backupItemName: URL, options?: string, resultingItemURL?: FileManager.ItemReplacementOptions, error?: URL): boolean;
-  // compoundInstanceMethods
   setAttributes(ofItemAtPath: Map<string, any>, error: string): boolean;
-  // compoundInstanceMethods
   setUbiquitous(itemAtURL: boolean, destinationURL: URL, error: URL): boolean;
-  // compoundInstanceMethods
   startDownloadingUbiquitousItemAtURL(error: URL): boolean;
-  // compoundInstanceMethods
   subpaths(atPath: string): string[];
-  // compoundInstanceMethods
   subpathsOfDirectoryAtPath(error: string): string[];
-  // compoundInstanceMethods
   trashItemAtURL(resultingItemURL: URL, error?: URL): boolean;
-  // compoundInstanceMethods
   unmountVolume(at: URL, options: FileManager.UnmountOptions, completionHandler?: (p1: Error) => void): void;
 }
 
@@ -25323,42 +21824,25 @@ export class FileWrapper extends NSObject {
   serializedRepresentation: Data;
   isSymbolicLink: boolean;
   symbolicLinkDestinationURL: URL;
-  // compoundInstanceMethods
   addFileWrapper(_: FileWrapper): string;
-  // compoundInstanceMethods
   addRegularFile(withContents: Data, preferredFilename: string): string;
-  // compoundInstanceMethods
   static createWithDirectoryWithFileWrappers(_: Map<string, FileWrapper>): FileWrapper;
-  // compoundInstanceMethods
   static createWithRegularFileWithContents(_: Data): FileWrapper;
-  // compoundInstanceMethods
   static createWithSymbolicLinkWithDestinationURL(_: URL): FileWrapper;
-  // compoundInstanceMethods
   static createWithSerializedRepresentation(_: Data): FileWrapper;
-  // compoundInstanceMethods
   static createWithUrl(options: URL, error: FileWrapper.ReadingOptions): FileWrapper;
-  // compoundInstanceMethods
   keyForChildFileWrapper(_: FileWrapper): string;
-  // compoundInstanceMethods
   matchesContents(of: URL): boolean;
-  // compoundInstanceMethods
   readFromURL(options: URL, error: FileWrapper.ReadingOptions): boolean;
-  // compoundInstanceMethods
   removeFileWrapper(_: FileWrapper): void;
-  // compoundInstanceMethods
   writeToURL(options: URL, originalContentsURL: FileWrapper.WritingOptions, error?: URL): boolean;
 }
 
 export class Formatter extends NSObject {
-  // compoundInstanceMethods
   attributedString(for_: any, withDefaultAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   editingString(for_: any): string;
-  // compoundInstanceMethods
   getObjectValue(_?: any, for_?: string, errorDescription?: string): boolean;
-  // compoundInstanceMethods
   isPartialStringValid(_: string, newEditingString?: string, errorDescription?: string): boolean;
-  // compoundInstanceMethods
   isPartialStringValid(_: string, proposedSelectedRange?: NSRange, originalString?: string, originalSelectedRange?: NSRange, errorDescription?: string): boolean;
 }
 
@@ -25377,7 +21861,6 @@ export class HTTPCookie extends NSObject {
   sameSitePolicy: string;
   isSecure: boolean;
   isSessionOnly: boolean;
-  // compoundInstanceMethods
   static createWithProperties(_: Map<string, any>): HTTPCookie;
 }
 
@@ -25386,19 +21869,12 @@ export class HTTPCookieStorage extends NSObject {
   cookieAcceptPolicy: HTTPCookieStorage.HTTPCookie.AcceptPolicy;
   setCookieAcceptPolicy(_: HTTPCookieStorage.HTTPCookie.AcceptPolicy);
   static shared: HTTPCookieStorage;
-  // compoundInstanceMethods
   deleteCookie(_: HTTPCookie): void;
-  // compoundInstanceMethods
   getCookiesFor(_: URLSessionTask, completionHandler?: (p1: HTTPCookie[]) => void): void;
-  // compoundInstanceMethods
   removeCookies(since: Date): void;
-  // compoundInstanceMethods
   setCookie(_: HTTPCookie): void;
-  // compoundInstanceMethods
   setCookies(_: HTTPCookie[], for_?: URL, mainDocumentURL?: URL): void;
-  // compoundInstanceMethods
   sortedCookies(using: NSSortDescriptor[]): HTTPCookie[];
-  // compoundInstanceMethods
   storeCookies(_: HTTPCookie[], for_: URLSessionTask): void;
 }
 
@@ -25406,10 +21882,8 @@ export class HTTPURLResponse extends URLResponse {
   static localizedString(forStatusCode: number): string;
   allHeaderFields: Map<any, any>;
   statusCode: number;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithUrlWithStatusCodeWithHttpVersionWithHeaderFields(_: URL, statusCode: number, HTTPVersion?: string, headerFields?: Map<string, string>): HTTPURLResponse;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forHTTPHeaderField: string): string;
 }
@@ -25421,7 +21895,6 @@ export class Host extends NSObject {
   localizedName: string;
   name: string;
   names: string[];
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: Host): boolean;
 }
@@ -25431,7 +21904,6 @@ export class ISO8601DateFormatter extends Formatter {
   setFormatOptions(_: ISO8601DateFormatter.Options);
   timeZone: TimeZone;
   setTimeZone(_: TimeZone);
-  // compoundInstanceMethods
   date(from: string): Date;
 }
 
@@ -25439,21 +21911,13 @@ export class IndexPath extends NSObject {
   item: number;
   length: number;
   section: number;
-  // compoundInstanceMethods
   compare(_: IndexPath): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   getIndexes(_: number): void;
-  // compoundInstanceMethods
   getIndexes(_: number, range: NSRange): void;
-  // compoundInstanceMethods
   index(atPosition: number): number;
-  // compoundInstanceMethods
   adding(_: number): IndexPath;
-  // compoundInstanceMethods
   removingLastIndex(): IndexPath;
-  // compoundInstanceMethods
   static createWithIndex(_: number): IndexPath;
-  // compoundInstanceMethods
   static createWithIndexesWithLength(_?: number, length?: number): IndexPath;
 }
 
@@ -25461,72 +21925,41 @@ export class IndexSet extends NSObject {
   count: number;
   firstIndex: number;
   lastIndex: number;
-  // compoundInstanceMethods
   contains(_: number): boolean;
-  // compoundInstanceMethods
   contains(_: IndexSet): boolean;
-  // compoundInstanceMethods
   contains(in_: NSRange): boolean;
-  // compoundInstanceMethods
   countOfIndexes(in_: NSRange): number;
-  // compoundInstanceMethods
   enumerate(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: number, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerate(_: (p1: number, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerate(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: number, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateRanges(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: NSRange, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateRanges(_: (p1: NSRange, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateRanges(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: NSRange, p2: boolean) => void): void;
-  // compoundInstanceMethods
   getIndexes(_: number, maxCount: number, inIndexRange?: NSRange): number;
-  // compoundInstanceMethods
   indexGreaterThanIndex(_: number): number;
-  // compoundInstanceMethods
   indexGreaterThanOrEqual(to: number): number;
-  // compoundInstanceMethods
   index(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexLessThanIndex(_: number): number;
-  // compoundInstanceMethods
   indexLessThanOrEqual(to: number): number;
-  // compoundInstanceMethods
   index(passingTest: (p1: number, p2: boolean) => boolean): number;
-  // compoundInstanceMethods
   index(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexes(in_: NSRange, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexes(passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexes(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: number, p2: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   static createWithIndex(_: number): IndexSet;
-  // compoundInstanceMethods
   static createWithIndexSet(_: IndexSet): IndexSet;
-  // compoundInstanceMethods
   static createWithIndexesInRange(_: NSRange): IndexSet;
-  // compoundInstanceMethods
   intersects(in_: NSRange): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: IndexSet): boolean;
 }
 
 export class InputStream extends Stream {
   hasBytesAvailable: boolean;
-  // compoundInstanceMethods
   getBuffer(_?: string, length?: number): boolean;
-  // compoundInstanceMethods
   static createWithData(_: Data): InputStream;
-  // compoundInstanceMethods
   static createWithFileAtPath(_: string): InputStream;
-  // compoundInstanceMethods
   static createWithUrl(_: URL): InputStream;
-  // compoundInstanceMethods
   read(_: string, maxLength: number): number;
 }
 
@@ -25545,9 +21978,7 @@ export class LengthFormatter extends Formatter {
   setNumberFormatter(_: NumberFormatter);
   unitStyle: Formatter.UnitStyle;
   setUnitStyle(_: Formatter.UnitStyle);
-  // compoundInstanceMethods
   unitString(fromMeters: number, usedUnit?: LengthFormatter.Unit): string;
-  // compoundInstanceMethods
   unitString(fromValue: number, unit: LengthFormatter.Unit): string;
 }
 
@@ -25595,29 +22026,17 @@ export class Locale extends NSObject {
   static current: Locale;
   static preferredLanguages: string[];
   static system: Locale;
-  // compoundInstanceMethods
   displayName(forKey: string, value: any): string;
-  // compoundInstanceMethods
   static createWithLocaleIdentifier(_: string): Locale;
-  // compoundInstanceMethods
   localizedString(forCalendarIdentifier: string): string;
-  // compoundInstanceMethods
   localizedString(forCollationIdentifier: string): string;
-  // compoundInstanceMethods
   localizedString(forCollatorIdentifier: string): string;
-  // compoundInstanceMethods
   localizedString(forCountryCode: string): string;
-  // compoundInstanceMethods
   localizedString(forCurrencyCode: string): string;
-  // compoundInstanceMethods
   localizedString(forLanguageCode: string): string;
-  // compoundInstanceMethods
   localizedString(forLocaleIdentifier: string): string;
-  // compoundInstanceMethods
   localizedString(forScriptCode: string): string;
-  // compoundInstanceMethods
   localizedString(forVariantCode: string): string;
-  // compoundInstanceMethods
   object(forKey: string): any;
 }
 
@@ -25628,24 +22047,17 @@ export class MassFormatter extends Formatter {
   setNumberFormatter(_: NumberFormatter);
   unitStyle: Formatter.UnitStyle;
   setUnitStyle(_: Formatter.UnitStyle);
-  // compoundInstanceMethods
   unitString(fromKilograms: number, usedUnit?: MassFormatter.Unit): string;
-  // compoundInstanceMethods
   unitString(fromValue: number, unit: MassFormatter.Unit): string;
 }
 
 export class Measurement<UnitType> extends NSObject {
   doubleValue: number;
   unit: UnitType;
-  // compoundInstanceMethods
   canBeConverted(to: Unit): boolean;
-  // compoundInstanceMethods
   // static createWithDoubleValueWithUnit(_: number, unit: UnitType): Measurement<UnitType>;
-  // compoundInstanceMethods
   adding(_: Measurement<any>): Measurement<any>;
-  // compoundInstanceMethods
   converting(to: Unit): Measurement<any>;
-  // compoundInstanceMethods
   subtracting(_: Measurement<any>): Measurement<any>;
 }
 
@@ -25698,45 +22110,25 @@ export class NSAppleEventDescriptor extends NSObject {
   stringValue: string;
   transactionID: number;
   typeCodeValue: number;
-  // compoundInstanceMethods
   attributeDescriptor(forKeyword: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   coerce(toDescriptorType: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   atIndex(_: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   forKeyword(_: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithListDescriptor(): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithRecordDescriptor(): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithAeDescNoCopy(_: AEDesc): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithDescriptorTypeWithBytesWithLength(_: number, bytes?: any, length?: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithDescriptorTypeWithData(_: number, data?: Data): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithEventClassWithEventIDWithTargetDescriptorWithReturnIDWithTransactionID(_: number, eventID: number, targetDescriptor?: NSAppleEventDescriptor, returnID?: number, transactionID?: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   insert(_: NSAppleEventDescriptor, at: number): void;
-  // compoundInstanceMethods
   keywordForDescriptor(at: number): number;
-  // compoundInstanceMethods
   paramDescriptor(forKeyword: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   remove(at: number): void;
-  // compoundInstanceMethods
   remove(withKeyword: number): void;
-  // compoundInstanceMethods
   removeParamDescriptor(withKeyword: number): void;
-  // compoundInstanceMethods
   sendEventWithOptions(timeout: NSAppleEventDescriptor.SendOptions, error: number): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   setAttribute(_: NSAppleEventDescriptor, forKeyword: number): void;
-  // compoundInstanceMethods
   setDescriptor(_: NSAppleEventDescriptor, forKeyword: number): void;
-  // compoundInstanceMethods
   setParam(_: NSAppleEventDescriptor, forKeyword: number): void;
 }
 
@@ -25744,21 +22136,13 @@ export class NSAppleEventManager extends NSObject {
   static shared(): NSAppleEventManager;
   currentAppleEvent: NSAppleEventDescriptor;
   currentReplyAppleEvent: NSAppleEventDescriptor;
-  // compoundInstanceMethods
   appleEvent(forSuspensionID: any): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   dispatchRawAppleEvent(_: AEDesc, withRawReply: AEDesc, handlerRefCon: any): number;
-  // compoundInstanceMethods
   removeEventHandler(forEventClass: number, andEventID: number): void;
-  // compoundInstanceMethods
   replyAppleEvent(forSuspensionID: any): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   resume(withSuspensionID: any): void;
-  // compoundInstanceMethods
   setCurrentAppleEventAndReplyEventWithSuspensionID(_: any): void;
-  // compoundInstanceMethods
   setEventHandler(_: any, andSelector: string, forEventClass: number, andEventID: number): void;
-  // compoundInstanceMethods
   suspendCurrentAppleEvent(): any;
 }
 
@@ -25766,15 +22150,10 @@ export class NSAppleScript extends NSObject {
   isCompiled: boolean;
   richTextSource: NSAttributedString;
   source: string;
-  // compoundInstanceMethods
   compileAndReturnError(_?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   executeAndReturnError(_?: Map<string, any>): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   executeAppleEvent(_: NSAppleEventDescriptor, error?: Map<string, any>): NSAppleEventDescriptor;
-  // compoundInstanceMethods
   static createWithContentsOfWithError(_: URL, error?: Map<string, any>): NSAppleScript;
-  // compoundInstanceMethods
   static createWithSource(_: string): NSAppleScript;
 }
 
@@ -25784,115 +22163,63 @@ export class NSArray<ObjectType> extends NSObject {
   firstObject: ObjectType;
   lastObject: ObjectType;
   sortedArrayHint: Data;
-  // compoundInstanceMethods
   // @ts-ignore 
   addObserver(_: NSObject, toObjectsAt: IndexSet, forKeyPath: string, options: NSKeyValueObserving.NSKeyValueObservingOptions, context?: any): void;
-  // compoundInstanceMethods
   adding(_: ObjectType): ObjectType[];
-  // compoundInstanceMethods
   addingObjects(from: ObjectType[]): ObjectType[];
-  // compoundInstanceMethods
   applying(_: CollectionDifference<any>): ObjectType[];
-  // compoundInstanceMethods
   componentsJoined(by: string): string;
-  // compoundInstanceMethods
   contains(_: ObjectType): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any): string;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any, indent?: number): string;
-  // compoundInstanceMethods
   difference(from: ObjectType[]): CollectionDifference<any>;
-  // compoundInstanceMethods
   difference(from: ObjectType[], with_: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions): CollectionDifference<any>;
-  // compoundInstanceMethods
   difference(from: ObjectType[], with_: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions, usingEquivalenceTest: (p1: ObjectType, p2: ObjectType) => boolean): CollectionDifference<any>;
-  // compoundInstanceMethods
   enumerateObjects(at: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateObjects(_: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateObjects(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   filtered(using: NSPredicate): ObjectType[];
-  // compoundInstanceMethods
   firstObjectCommon(with_: ObjectType[]): ObjectType;
-  // compoundInstanceMethods
   index(of: ObjectType): number;
-  // compoundInstanceMethods
   index(of: ObjectType, in_: NSRange): number;
-  // compoundInstanceMethods
   index(of: ObjectType, inSortedRange: NSRange, options: NSArray.NSBinarySearchingOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): number;
-  // compoundInstanceMethods
   indexOfObject(at: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexOfObjectIdentical(to: ObjectType): number;
-  // compoundInstanceMethods
   indexOfObjectIdentical(to: ObjectType, in_: NSRange): number;
-  // compoundInstanceMethods
   indexOfObject(passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexOfObject(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexesOfObjects(at: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexesOfObjects(passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexesOfObjects(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   // static createWithArray(_: ObjectType[]): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWithArrayWithCopyItems(_: ObjectType[], copyItems: boolean): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWithContentsOfFile(_: string): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWithContentsOf(_: URL): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWith(error: URL): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjects(_: ObjectType): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectsWithCount(_?: ObjectType, count?: number): NSArray<ObjectType>;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: ObjectType[]): boolean;
-  // compoundInstanceMethods
   object(at: number): ObjectType;
-  // compoundInstanceMethods
   objectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   objects(at: IndexSet): ObjectType[];
-  // compoundInstanceMethods
   pathsMatchingExtensions(_: string[]): string[];
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObserver(_: NSObject, fromObjectsAt: IndexSet, forKeyPath: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObserver(_: NSObject, fromObjectsAt: IndexSet, forKeyPath: string, context?: any): void;
-  // compoundInstanceMethods
   reverseObjectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   sortedArray(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(using: NSSortDescriptor[]): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(_?: (p1: ObjectType, p2: ObjectType, p3: any) => number, context?: any): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(_?: (p1: ObjectType, p2: ObjectType, p3: any) => number, context?: any, hint?: Data): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(using: string): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
-  // compoundInstanceMethods
   subarray(with_: NSRange): ObjectType[];
-  // compoundInstanceMethods
   write(toFile: string, atomically: boolean): boolean;
-  // compoundInstanceMethods
   write(to: URL, atomically: boolean): boolean;
-  // compoundInstanceMethods
   writeToURL(error: URL): boolean;
 }
 
@@ -25904,101 +22231,56 @@ export class NSAttributedString extends NSObject {
   length: number;
   static textTypes: string[];
   static textUnfilteredTypes: string[];
-  // compoundInstanceMethods
   rtfdFileWrapper(from: NSRange, documentAttributes: Map<string, any>): FileWrapper;
-  // compoundInstanceMethods
   rtfd(from: NSRange, documentAttributes: Map<string, any>): Data;
-  // compoundInstanceMethods
   rtf(from: NSRange, documentAttributes: Map<string, any>): Data;
-  // compoundInstanceMethods
   attribute(_: string, at: number, effectiveRange?: NSRange): any;
-  // compoundInstanceMethods
   attribute(_: string, at: number, longestEffectiveRange?: NSRange, in_?: NSRange): any;
-  // compoundInstanceMethods
   attributedSubstring(from: NSRange): NSAttributedString;
-  // compoundInstanceMethods
   attributes(at: number, effectiveRange?: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   attributes(at: number, longestEffectiveRange?: NSRange, in_?: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   boundingRect(with_: CGSize, options: NSStringDrawing.NSString.DrawingOptions): CGRect;
-  // compoundInstanceMethods
   boundingRect(with_: CGSize, options: NSStringDrawing.NSString.DrawingOptions, context?: NSStringDrawingContext): CGRect;
-  // compoundInstanceMethods
   dataFromRange(documentAttributes: NSRange, error: Map<string, any>): Data;
-  // compoundInstanceMethods
   docFormat(from: NSRange, documentAttributes: Map<string, any>): Data;
-  // compoundInstanceMethods
   doubleClick(at: number): NSRange;
-  // compoundInstanceMethods
   draw(at: CGPoint): void;
-  // compoundInstanceMethods
   draw(in_: CGRect): void;
-  // compoundInstanceMethods
   draw(with_: CGRect, options: NSStringDrawing.NSString.DrawingOptions): void;
-  // compoundInstanceMethods
   draw(with_: CGRect, options: NSStringDrawing.NSString.DrawingOptions, context?: NSStringDrawingContext): void;
-  // compoundInstanceMethods
   enumerateAttribute(_: string, in_: NSRange, options: NSAttributedString.EnumerationOptions, using?: (p1: any, p2: NSRange, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateAttributes(in_: NSRange, options: NSAttributedString.EnumerationOptions, using: (p1: Map<string, any>, p2: NSRange, p3: boolean) => void): void;
-  // compoundInstanceMethods
   fileWrapperFromRange(documentAttributes: NSRange, error: Map<string, any>): FileWrapper;
-  // compoundInstanceMethods
   fontAttributes(in_: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   static createWithAttributedString(_: NSAttributedString): NSAttributedString;
-  // compoundInstanceMethods
   static createWithDataWithOptions(options: Data, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithDocFormatWithDocumentAttributes(_: Data, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithHtmlWithBaseURLWithDocumentAttributes(_: Data, baseURL: URL, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithHtmlWithDocumentAttributes(_: Data, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithHtmlWithOptionsWithDocumentAttributes(_: Data, options: Map<string, any>, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithRtfWithDocumentAttributes(_: Data, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithRtfdWithDocumentAttributes(_: Data, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithRtfdFileWrapperWithDocumentAttributes(_: FileWrapper, documentAttributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithString(_: string): NSAttributedString;
-  // compoundInstanceMethods
   static createWithStringWithAttributes(_: string, attributes?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   static createWithUrlWithOptions(options: URL, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: NSAttributedString): boolean;
-  // compoundInstanceMethods
   itemNumber(in_: NSTextList, at: number): number;
-  // compoundInstanceMethods
   lineBreak(before: number, within: NSRange): number;
-  // compoundInstanceMethods
   lineBreakByHyphenating(before: number, within: NSRange): number;
-  // compoundInstanceMethods
   nextWord(from: number, forward: boolean): number;
-  // compoundInstanceMethods
   range(of: NSTextBlock, at: number): NSRange;
-  // compoundInstanceMethods
   range(of: NSTextList, at: number): NSRange;
-  // compoundInstanceMethods
   range(of: NSTextTable, at: number): NSRange;
-  // compoundInstanceMethods
   rulerAttributes(in_: NSRange): Map<string, any>;
-  // compoundInstanceMethods
   size(): CGSize;
 }
 
 export class NSAutoreleasePool extends NSObject {
   //  static add(_: any): void;
   static showPools(): void;
-  // compoundInstanceMethods
   add(_: any): void;
-  // compoundInstanceMethods
   drain(): void;
 }
 
@@ -26013,11 +22295,8 @@ export class NSBackgroundActivityScheduler extends NSObject {
   shouldDefer: boolean;
   tolerance: number;
   setTolerance(_: number);
-  // compoundInstanceMethods
   static createWithIdentifier(_: string): NSBackgroundActivityScheduler;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   schedule(_: (p1: (p1: NSBackgroundActivityScheduler.Result) => void) => void): void;
 }
 
@@ -26026,15 +22305,10 @@ export class NSBundleResourceRequest extends NSObject {
   loadingPriority: number;
   setLoadingPriority(_: number);
   tags: Set<any>;
-  // compoundInstanceMethods
   beginAccessingResources(completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   conditionallyBeginAccessingResources(completionHandler: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   endAccessingResources(): void;
-  // compoundInstanceMethods
   static createWithTags(_: Set<any>): NSBundleResourceRequest;
-  // compoundInstanceMethods
   static createWithTagsWithBundle(_: Set<any>, bundle: Bundle): NSBundleResourceRequest;
 }
 
@@ -26049,15 +22323,10 @@ export class NSCache<KeyType, ObjectType> extends NSObject {
   setName(_: string);
   totalCostLimit: number;
   setTotalCostLimit(_: number);
-  // compoundInstanceMethods
   object(forKey: KeyType): ObjectType;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   removeObject(forKey: KeyType): void;
-  // compoundInstanceMethods
   setObject(_: ObjectType, forKey: KeyType): void;
-  // compoundInstanceMethods
   setObject(_: ObjectType, forKey: KeyType, cost: number): void;
 }
 
@@ -26077,7 +22346,6 @@ export class NSClassDescription extends NSObject {
 
 export class NSCloneCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
@@ -26091,121 +22359,63 @@ export class NSCoder extends NSObject {
   error: Error;
   requiresSecureCoding: boolean;
   systemVersion: number;
-  // compoundInstanceMethods
   containsValue(forKey: string): boolean;
-  // compoundInstanceMethods
   decodeArray(ofObjCType: string, count: number, at: any): void;
-  // compoundInstanceMethods
   decodeBool(forKey: string): boolean;
-  // compoundInstanceMethods
   decodeBytes(forKey: string, returnedLength?: number): string;
-  // compoundInstanceMethods
   decodeBytes(withReturnedLength: number): any;
-  // compoundInstanceMethods
   decodeTime(forKey: string): CMTime;
-  // compoundInstanceMethods
   decodeTimeMapping(forKey: string): CMTimeMapping;
-  // compoundInstanceMethods
   decodeTimeRange(forKey: string): CMTimeRange;
-  // compoundInstanceMethods
   decodeData(): Data;
-  // compoundInstanceMethods
   decodeDouble(forKey: string): number;
-  // compoundInstanceMethods
   decodeFloat(forKey: string): number;
-  // compoundInstanceMethods
   decodeInt32(forKey: string): number;
-  // compoundInstanceMethods
   decodeInt64(forKey: string): number;
-  // compoundInstanceMethods
   decodeCInt(forKey: string): number;
-  // compoundInstanceMethods
   decodeInteger(forKey: string): number;
-  // compoundInstanceMethods
   decodeObject(): any;
-  // compoundInstanceMethods
   decodeObject(forKey: string): any;
-  // compoundInstanceMethods
   decodePoint(): CGPoint;
-  // compoundInstanceMethods
   decodePoint(forKey: string): CGPoint;
-  // compoundInstanceMethods
   decodePropertyList(): any;
-  // compoundInstanceMethods
   decodePropertyList(forKey: string): any;
-  // compoundInstanceMethods
   decodeRect(): CGRect;
-  // compoundInstanceMethods
   decodeRect(forKey: string): CGRect;
-  // compoundInstanceMethods
   decodeSize(): CGSize;
-  // compoundInstanceMethods
   decodeSize(forKey: string): CGSize;
-  // compoundInstanceMethods
   decodeValue(ofObjCType: string, at: any): void;
-  // compoundInstanceMethods
   decodeValue(ofObjCType: string, at: any, size: number): void;
-  // compoundInstanceMethods
   encodeArray(ofObjCType: string, count: number, at: any): void;
-  // compoundInstanceMethods
   encode(_: boolean, forKey: string): void;
-  // compoundInstanceMethods
   encodeBycopyObject(_?: any): void;
-  // compoundInstanceMethods
   encodeByrefObject(_?: any): void;
-  // compoundInstanceMethods
   encodeBytes(_?: any, length?: number): void;
-  // compoundInstanceMethods
   encodeBytes(_?: string, length?: number, forKey?: string): void;
-  // compoundInstanceMethods
   encodeCMTime(_: CMTime, forKey: string): void;
-  // compoundInstanceMethods
   encodeCMTimeMapping(_: CMTimeMapping, forKey: string): void;
-  // compoundInstanceMethods
   encodeCMTimeRange(_: CMTimeRange, forKey: string): void;
-  // compoundInstanceMethods
   encodeConditionalObject(_?: any): void;
-  // compoundInstanceMethods
   encodeConditionalObject(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   encode(_: Data): void;
-  // compoundInstanceMethods
   encode(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encode(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encode(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encode(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encodeCInt(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encode(_: number, forKey: string): void;
-  // compoundInstanceMethods
   encode(_?: any): void;
-  // compoundInstanceMethods
   encode(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   encode(_: CGPoint): void;
-  // compoundInstanceMethods
   encode(_: CGPoint, forKey: string): void;
-  // compoundInstanceMethods
   encodePropertyList(_: any): void;
-  // compoundInstanceMethods
   encode(_: CGRect): void;
-  // compoundInstanceMethods
   encode(_: CGRect, forKey: string): void;
-  // compoundInstanceMethods
   encodeRootObject(_: any): void;
-  // compoundInstanceMethods
   encode(_: CGSize): void;
-  // compoundInstanceMethods
   encode(_: CGSize, forKey: string): void;
-  // compoundInstanceMethods
   encodeValue(ofObjCType: string, at: any): void;
-  // compoundInstanceMethods
   failWithError(_: Error): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  version(forClassName: string): number;
 }
@@ -26225,29 +22435,22 @@ export class NSComparisonPredicate extends NSPredicate {
   options: NSComparisonPredicate.Options;
   predicateOperatorType: NSComparisonPredicate.Operator;
   rightExpression: NSExpression;
-  // compoundInstanceMethods
   static createWithLeftExpressionWithRightExpressionWithCustomSelector(_: NSExpression, rightExpression: NSExpression, customSelector: string): NSComparisonPredicate;
-  // compoundInstanceMethods
   static createWithLeftExpressionWithRightExpressionWithModifierWithTypeWithOptions(_: NSExpression, rightExpression: NSExpression, modifier: NSComparisonPredicate.Modifier, type: NSComparisonPredicate.Operator, options: NSComparisonPredicate.Options): NSComparisonPredicate;
 }
 
 export class NSCompoundPredicate extends NSPredicate {
   compoundPredicateType: NSCompoundPredicate.LogicalType;
   subpredicates: any[];
-  // compoundInstanceMethods
   static createWithTypeWithSubpredicates(_: NSCompoundPredicate.LogicalType, subpredicates: NSPredicate[]): NSCompoundPredicate;
 }
 
 export class NSCondition extends NSObject {
   name: string;
   setName(_: string);
-  // compoundInstanceMethods
   broadcast(): void;
-  // compoundInstanceMethods
   signal(): void;
-  // compoundInstanceMethods
   wait(): void;
-  // compoundInstanceMethods
   wait(until: Date): boolean;
 }
 
@@ -26255,19 +22458,12 @@ export class NSConditionLock extends NSObject {
   condition: number;
   name: string;
   setName(_: string);
-  // compoundInstanceMethods
   static createWithCondition(_: number): NSConditionLock;
-  // compoundInstanceMethods
   lock(before: Date): boolean;
-  // compoundInstanceMethods
   lock(whenCondition: number): void;
-  // compoundInstanceMethods
   lock(whenCondition: number, before: Date): boolean;
-  // compoundInstanceMethods
   try(): boolean;
-  // compoundInstanceMethods
   tryLock(whenCondition: number): boolean;
-  // compoundInstanceMethods
   unlock(withCondition: number): void;
 }
 
@@ -26297,27 +22493,16 @@ export class NSConnection extends NSObject {
   sendPort: Port;
   statistics: Map<string, number>;
   isValid: boolean;
-  // compoundInstanceMethods
   addRequestMode(_: string): void;
-  // compoundInstanceMethods
   add(_: RunLoop): void;
-  // compoundInstanceMethods
   dispatch(withComponents: any[]): void;
-  // compoundInstanceMethods
   enableMultipleThreads(): void;
-  // compoundInstanceMethods
   static createWithReceivePortWithSendPort(_?: Port, sendPort?: Port): NSConnection;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   registerName(_?: string): boolean;
-  // compoundInstanceMethods
   registerName(_?: string, with_?: NSPortNameServer): boolean;
-  // compoundInstanceMethods
   removeRequestMode(_: string): void;
-  // compoundInstanceMethods
   remove(_: RunLoop): void;
-  // compoundInstanceMethods
   runInNewThread(): void;
 }
 
@@ -26361,7 +22546,6 @@ export class NSCountCommand extends NSScriptCommand {
 
 export class NSCountedSet<ObjectType> extends NSMutableSet<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSCountedSet<ObjectType>;
-  // compoundInstanceMethods
   // @ts-ignore 
   count(for_: ObjectType): number;
 }
@@ -26384,7 +22568,6 @@ export class NSCreateCommand extends NSScriptCommand {
 export class NSDataDetector extends NSRegularExpression {
   static dataDetectorWithTypes(error: number): NSDataDetector;
   checkingTypes: number;
-  // compoundInstanceMethods
   static createWith(error: number): NSDataDetector;
 }
 
@@ -26416,39 +22599,22 @@ export class NSDecimalNumber extends NSNumber {
   static notANumber: NSDecimalNumber;
   static one: NSDecimalNumber;
   static zero: NSDecimalNumber;
-  // compoundInstanceMethods
   adding(_: NSDecimalNumber): NSDecimalNumber;
-  // compoundInstanceMethods
   adding(_: NSDecimalNumber, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   dividing(by: NSDecimalNumber): NSDecimalNumber;
-  // compoundInstanceMethods
   dividing(by: NSDecimalNumber, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   multiplying(by: NSDecimalNumber): NSDecimalNumber;
-  // compoundInstanceMethods
   multiplying(by: NSDecimalNumber, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   multiplying(byPowerOf10: number): NSDecimalNumber;
-  // compoundInstanceMethods
   multiplying(byPowerOf10: number, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   raising(toPower: number): NSDecimalNumber;
-  // compoundInstanceMethods
   raising(toPower: number, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   rounding(accordingToBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   subtracting(_: NSDecimalNumber): NSDecimalNumber;
-  // compoundInstanceMethods
   subtracting(_: NSDecimalNumber, withBehavior?: any): NSDecimalNumber;
-  // compoundInstanceMethods
   static createWithDecimal(_: NSDecimal): NSDecimalNumber;
-  // compoundInstanceMethods
   static createWithMantissaWithExponentWithIsNegative(_: number, exponent: number, isNegative: boolean): NSDecimalNumber;
-  // compoundInstanceMethods
   static createWithString(_?: string): NSDecimalNumber;
-  // compoundInstanceMethods
   static createWithStringWithLocale(_?: string, locale?: any): NSDecimalNumber;
 }
 
@@ -26460,7 +22626,6 @@ interface NSDecimalNumberBehaviors {
 
 export class NSDecimalNumberHandler extends NSObject {
   static defaultDecimalNumberHandler: NSDecimalNumberHandler;
-  // compoundInstanceMethods
   static createWithRoundingModeWithScaleWithRaiseOnExactnessWithRaiseOnOverflowWithRaiseOnUnderflowWithRaiseOnDivideByZero(_: NSDecimal.NSDecimalNumber.RoundingMode, scale: number, raiseOnExactness: boolean, raiseOnOverflow: boolean, raiseOnUnderflow: boolean, raiseOnDivideByZero: boolean): NSDecimalNumberHandler;
 }
 
@@ -26478,7 +22643,6 @@ export class NSDecimalNumberHandler extends NSObject {
 
 export class NSDeleteCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
@@ -26495,11 +22659,8 @@ export class NSDistantObject extends NSProxy {
   static proxy(withLocal: any, connection: NSConnection): any;
   static proxy(withTarget: any, connection: NSConnection): any;
   connectionForProxy: NSConnection;
-  // compoundInstanceMethods
   static createWithLocalWithConnection(_: any, connection: NSConnection): NSDistantObject;
-  // compoundInstanceMethods
   static createWithTargetWithConnection(_: any, connection: NSConnection): NSDistantObject;
-  // compoundInstanceMethods
   setProtocolForProxy(_?: any /* Protocol */): void;
 }
 
@@ -26507,19 +22668,14 @@ export class NSDistantObjectRequest extends NSObject {
   connection: NSConnection;
   conversation: any;
   invocation: NSInvocation;
-  // compoundInstanceMethods
   reply(with_?: NSException): void;
 }
 
 export class NSDistributedLock extends NSObject {
   lockDate: Date;
-  // compoundInstanceMethods
   break(): void;
-  // compoundInstanceMethods
   static createWithPath(_: string): NSDistributedLock;
-  // compoundInstanceMethods
   try(): boolean;
-  // compoundInstanceMethods
   unlock(): void;
 }
 
@@ -26537,7 +22693,6 @@ export class NSDistributedLock extends NSObject {
 
 export class NSEnumerator<ObjectType> extends NSObject {
   allObjects: ObjectType[];
-  // compoundInstanceMethods
   nextObject(): ObjectType;
 }
 
@@ -26553,9 +22708,7 @@ export class NSException extends NSObject {
   name: string;
   reason: string;
   userInfo: Map<any, any>;
-  // compoundInstanceMethods
   static createWithNameWithReasonWithUserInfo(_: string, reason?: string, userInfo?: Map<any, any>): NSException;
-  // compoundInstanceMethods
   raise(): void;
 }
 
@@ -26579,21 +22732,15 @@ export class NSExpression extends NSObject {
   right: NSExpression;
   true: NSExpression;
   variable: string;
-  // compoundInstanceMethods
   allowEvaluation(): void;
-  // compoundInstanceMethods
   expressionValue(with_?: any, context?: Map<any, any>): any;
-  // compoundInstanceMethods
   static createWithExpressionType(_: NSExpression.ExpressionType): NSExpression;
 }
 
 export class NSExtensionContext extends NSObject {
   inputItems: any[];
-  // compoundInstanceMethods
   cancelRequest(withError: Error): void;
-  // compoundInstanceMethods
   completeRequest(returningItems?: any[], completionHandler?: (p1: boolean) => void): void;
-  // compoundInstanceMethods
   open(_: URL, completionHandler?: (p1: boolean) => void): void;
 }
 
@@ -26630,27 +22777,16 @@ export class NSFileCoordinator extends NSObject {
   purposeIdentifier: string;
   setPurposeIdentifier(_: string);
   static filePresenters: any[];
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   coordinate(with_: NSFileAccessIntent[], queue: OperationQueue, byAccessor?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   coordinate(readingItemAt: URL, options: NSFileCoordinator.ReadingOptions, error?: Error, byAccessor?: (p1: URL) => void): void;
-  // compoundInstanceMethods
   coordinate(readingItemAt: URL, options: NSFileCoordinator.ReadingOptions, writingItemAt: URL, options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL, p2: URL) => void): void;
-  // compoundInstanceMethods
   coordinate(writingItemAt: URL, options: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL) => void): void;
-  // compoundInstanceMethods
   coordinate(writingItemAt: URL, options: NSFileCoordinator.WritingOptions, writingItemAt2: URL, options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL, p2: URL) => void): void;
-  // compoundInstanceMethods
   static createWithFilePresenter(_?: any): NSFileCoordinator;
-  // compoundInstanceMethods
   item(at: URL, didChangeUbiquityAttributes: Set<any>): void;
-  // compoundInstanceMethods
   item(at: URL, didMoveTo: URL): void;
-  // compoundInstanceMethods
   item(at: URL, willMoveTo: URL): void;
-  // compoundInstanceMethods
   prepare(forReadingItemsAt: URL[], options: NSFileCoordinator.ReadingOptions, writingItemsAt: URL[], options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: () => void) => void): void;
 }
 
@@ -26680,7 +22816,6 @@ interface NSFilePresenter {
 
 export class NSFileProviderService extends NSObject {
   name: string;
-  // compoundInstanceMethods
   getFileProviderConnection(completionHandler?: (p1: NSXPCConnection, p2: Error) => void): void;
 }
 
@@ -26710,9 +22845,7 @@ export class NSFileVersion extends NSObject {
   persistentIdentifier: any;
   isResolved: boolean;
   setResolved(_: boolean);
-  // compoundInstanceMethods
   removeAndReturnError(): boolean;
-  // compoundInstanceMethods
   replaceItemAtURL(options: URL, error: NSFileVersion.ReplacingOptions): URL;
 }
 
@@ -26726,19 +22859,12 @@ export class NSFileVersion extends NSObject {
 
 export class NSGarbageCollector extends NSObject {
   static defaultCollector(): any;
-  // compoundInstanceMethods
   collectExhaustively(): void;
-  // compoundInstanceMethods
   collectIfNeeded(): void;
-  // compoundInstanceMethods
   disable(): void;
-  // compoundInstanceMethods
   disableCollector(forPointer: any): void;
-  // compoundInstanceMethods
   enable(): void;
-  // compoundInstanceMethods
   enable(forPointer: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEnabled(): boolean;
 }
@@ -26771,34 +22897,20 @@ export class NSHashTable<ObjectType> extends NSObject {
   count: number;
   pointerFunctions: NSPointerFunctions;
   setRepresentation: Set<any>;
-  // compoundInstanceMethods
   add(_?: ObjectType): void;
-  // compoundInstanceMethods
   contains(_?: ObjectType): boolean;
-  // compoundInstanceMethods
   // static createWithOptionsWithCapacity(_: NSPointerFunctions.Options, capacity: number): NSHashTable<ObjectType>;
-  // compoundInstanceMethods
   // static createWithPointerFunctionsWithCapacity(_: NSPointerFunctions, capacity: number): NSHashTable<ObjectType>;
-  // compoundInstanceMethods
   intersect(_: NSHashTable<any>): void;
-  // compoundInstanceMethods
   intersects(_: NSHashTable<any>): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: NSHashTable<any>): boolean;
-  // compoundInstanceMethods
   isSubset(of: NSHashTable<any>): boolean;
-  // compoundInstanceMethods
   member(_?: ObjectType): ObjectType;
-  // compoundInstanceMethods
   minus(_: NSHashTable<any>): void;
-  // compoundInstanceMethods
   objectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   remove(_?: ObjectType): void;
-  // compoundInstanceMethods
   union(_: NSHashTable<any>): void;
 }
 
@@ -26811,7 +22923,6 @@ export class NSHashTable<ObjectType> extends NSObject {
 export class NSIndexSpecifier extends NSScriptObjectSpecifier {
   index: number;
   setIndex(_: number);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithIndex(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, index?: number): NSIndexSpecifier;
 }
@@ -26835,28 +22946,19 @@ export class NSInvocation extends NSObject {
   setSelector(_: string);
   target: any;
   setTarget(_: any);
-  // compoundInstanceMethods
   getArgument(_: any, at: number): void;
-  // compoundInstanceMethods
   getReturnValue(_: any): void;
-  // compoundInstanceMethods
   invoke(): void;
-  // compoundInstanceMethods
   invoke(withTarget: any): void;
-  // compoundInstanceMethods
   retainArguments(): void;
-  // compoundInstanceMethods
   setArgument(_: any, at: number): void;
-  // compoundInstanceMethods
   setReturnValue(_: any): void;
 }
 
 export class NSInvocationOperation extends Operation {
   invocation: NSInvocation;
   result: any;
-  // compoundInstanceMethods
   static createWithInvocation(_: NSInvocation): NSInvocationOperation;
-  // compoundInstanceMethods
   static createWithTargetWithSelectorWithObject(_: any, selector: string, object_?: any): NSInvocationOperation;
 }
 
@@ -26872,43 +22974,24 @@ export class NSItemProvider extends NSObject {
   sourceFrame: CGRect;
   suggestedName: string;
   setSuggestedName(_: string);
-  // compoundInstanceMethods
   canLoadObject(ofClass: typeof NSObject): boolean;
-  // compoundInstanceMethods
   hasItemConformingToTypeIdentifier(_: string): boolean;
-  // compoundInstanceMethods
   hasRepresentationConforming(toTypeIdentifier: string, fileOptions: NSItemProvider.NSItemProviderFileOptions): boolean;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): NSItemProvider;
-  // compoundInstanceMethods
   static createWithItemWithTypeIdentifier(_?: any, typeIdentifier?: string): NSItemProvider;
-  // compoundInstanceMethods
   static createWithObject(_: any): NSItemProvider;
-  // compoundInstanceMethods
   loadDataRepresentation(forTypeIdentifier: string, completionHandler?: (p1: Data, p2: Error) => void): Progress;
-  // compoundInstanceMethods
   loadFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: URL, p2: Error) => void): Progress;
-  // compoundInstanceMethods
   loadInPlaceFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: URL, p2: boolean, p3: Error) => void): Progress;
-  // compoundInstanceMethods
   loadItem(forTypeIdentifier: string, options?: Map<any, any>, completionHandler?: (p1: any, p2: Error) => void): void;
-  // compoundInstanceMethods
   loadObject(ofClass: typeof NSObject, completionHandler?: (p1: any, p2: Error) => void): Progress;
-  // compoundInstanceMethods
   loadPreviewImage(options: Map<any, any>, completionHandler: (p1: any, p2: Error) => void): void;
-  // compoundInstanceMethods
   registerCloudKitShare(_: CKShare, container: CKContainer): void;
-  // compoundInstanceMethods
   registerCloudKitShare(preparationHandler?: (p1: (p1: CKShare, p2: CKContainer, p3: Error) => void) => void): void;
-  // compoundInstanceMethods
   registerDataRepresentation(forTypeIdentifier: string, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: Data, p2: Error) => void) => Progress): void;
-  // compoundInstanceMethods
   registerFileRepresentation(forTypeIdentifier: string, fileOptions: NSItemProvider.NSItemProviderFileOptions, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: URL, p2: boolean, p3: Error) => void) => Progress): void;
-  // compoundInstanceMethods
   registerItem(forTypeIdentifier: string, loadHandler: (p1: (p1: any, p2: Error) => void, p2: typeof NSObject, p3: Map<any, any>) => void): void;
-  // compoundInstanceMethods
   registerObject(_: any, visibility: NSItemProvider.NSItemProviderRepresentationVisibility): void;
-  // compoundInstanceMethods
   registerObject(ofClass: typeof NSObject, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: any, p2: Error) => void) => Progress): void;
 }
 
@@ -26932,14 +23015,10 @@ export class NSKeyedArchiver extends NSCoder {
   setOutputFormat(_: NSPropertyList.PropertyListSerialization.PropertyListFormat);
   requiresSecureCoding: boolean;
   setRequiresSecureCoding(_: boolean);
-  // compoundInstanceMethods
   // @ts-ignore 
   className(for_: typeof NSObject): string;
-  // compoundInstanceMethods
   finishEncoding(): void;
-  // compoundInstanceMethods
   static createWithRequiringSecureCoding(_: boolean): NSKeyedArchiver;
-  // compoundInstanceMethods
   setClassName(_?: string, for_?: typeof NSObject): void;
 }
 
@@ -26962,13 +23041,9 @@ export class NSKeyedUnarchiver extends NSCoder {
   setDelegate(_: any);
   requiresSecureCoding: boolean;
   setRequiresSecureCoding(_: boolean);
-  // compoundInstanceMethods
   class(forClassName: string): typeof NSObject;
-  // compoundInstanceMethods
   finishDecoding(): void;
-  // compoundInstanceMethods
   static createWith(error: Data): NSKeyedUnarchiver;
-  // compoundInstanceMethods
   setClass(_?: typeof NSObject, forClassName?: string): void;
 }
 
@@ -26989,40 +23064,25 @@ export class NSLinguisticTagger extends NSObject {
   static tags(for_: string, range: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, tokenRanges?: NSValue[]): string[];
   dominantLanguage: string;
   tagSchemes: string[];
-  // compoundInstanceMethods
   enumerateTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateTags(in_: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: boolean) => void): void;
-  // compoundInstanceMethods
   static createWithTagSchemesWithOptions(_: string[], options: number): NSLinguisticTagger;
-  // compoundInstanceMethods
   orthography(at: number, effectiveRange?: NSRange): NSOrthography;
-  // compoundInstanceMethods
   possibleTags(at: number, scheme: string, tokenRange?: NSRange, sentenceRange?: NSRange, scores?: NSValue[]): string[];
-  // compoundInstanceMethods
   sentenceRange(for_: NSRange): NSRange;
-  // compoundInstanceMethods
   setOrthography(_?: NSOrthography, range?: NSRange): void;
-  // compoundInstanceMethods
   stringEdited(in_: NSRange, changeInLength: number): void;
-  // compoundInstanceMethods
   tag(at: number, scheme: string, tokenRange?: NSRange, sentenceRange?: NSRange): string;
-  // compoundInstanceMethods
   tag(at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, tokenRange?: NSRange): string;
-  // compoundInstanceMethods
   tags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, tokenRanges?: NSValue[]): string[];
-  // compoundInstanceMethods
   tags(in_: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, tokenRanges?: NSValue[]): string[];
-  // compoundInstanceMethods
   tokenRange(at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit): NSRange;
 }
 
 export class NSLock extends NSObject {
   name: string;
   setName(_: string);
-  // compoundInstanceMethods
   lock(before: Date): boolean;
-  // compoundInstanceMethods
   try(): boolean;
 }
 
@@ -27034,17 +23094,13 @@ interface NSLocking {
 // export function NSLogPageSize(): number;
 
 export class NSLogicalTest extends NSScriptWhoseTest {
-  // compoundInstanceMethods
   static createWithAndTestWith(_: NSSpecifierTest[]): NSLogicalTest;
-  // compoundInstanceMethods
   static createWithNotTestWith(_: NSScriptWhoseTest): NSLogicalTest;
-  // compoundInstanceMethods
   static createWithOrTestWith(_: NSSpecifierTest[]): NSLogicalTest;
 }
 
 export class NSMachBootstrapServer extends NSPortNameServer {
   static sharedInstance(): any;
-  // compoundInstanceMethods
   servicePort(withName: string): Port;
 }
 
@@ -27052,14 +23108,10 @@ export class NSMachPort extends Port {
   static port(withMachPort: number): Port;
   static port(withMachPort: number, options: Port.NSMachPort.Options): Port;
   machPort: number;
-  // compoundInstanceMethods
   // @ts-ignore 
   delegate(): any;
-  // compoundInstanceMethods
   static createWithMachPort(_: number): NSMachPort;
-  // compoundInstanceMethods
   static createWithMachPortWithOptions(_: number, options: Port.NSMachPort.Options): NSMachPort;
-  // compoundInstanceMethods
   // @ts-ignore 
   setDelegate(_?: any): void;
 }
@@ -27090,23 +23142,14 @@ export class NSMapTable<KeyType, ObjectType> extends NSObject {
   count: number;
   keyPointerFunctions: NSPointerFunctions;
   valuePointerFunctions: NSPointerFunctions;
-  // compoundInstanceMethods
   dictionaryRepresentation(): Map<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithKeyOptionsWithValueOptionsWithCapacity(_: NSPointerFunctions.Options, valueOptions: NSPointerFunctions.Options, capacity: number): NSMapTable<KeyType, ObjectType>;
-  // compoundInstanceMethods
   // static createWithKeyPointerFunctionsWithValuePointerFunctionsWithCapacity(_: NSPointerFunctions, valuePointerFunctions: NSPointerFunctions, capacity: number): NSMapTable<KeyType, ObjectType>;
-  // compoundInstanceMethods
   keyEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   objectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   object(forKey?: KeyType): ObjectType;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   removeObject(forKey?: KeyType): void;
-  // compoundInstanceMethods
   setObject(_?: ObjectType, forKey?: KeyType): void;
 }
 
@@ -27116,12 +23159,9 @@ export class NSMessagePortNameServer extends NSPortNameServer {
 
 export class NSMetadataItem extends NSObject {
   attributes: string[];
-  // compoundInstanceMethods
   static createWithUrl(_: URL): NSMetadataItem;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forAttribute: string): any;
-  // compoundInstanceMethods
   values(forAttributes: string[]): Map<string, any>;
 }
 
@@ -27151,23 +23191,14 @@ export class NSMetadataQuery extends NSObject {
   valueListAttributes: string[];
   setValueListAttributes(_: string[]);
   valueLists: Map<string, NSMetadataQueryAttributeValueTuple[]>;
-  // compoundInstanceMethods
   disableUpdates(): void;
-  // compoundInstanceMethods
   enableUpdates(): void;
-  // compoundInstanceMethods
   enumerateResults(_: (p1: any, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateResults(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: any, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   index(ofResult: any): number;
-  // compoundInstanceMethods
   result(at: number): any;
-  // compoundInstanceMethods
   start(): boolean;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(ofAttribute: string, forResultAt: number): any;
 }
@@ -27187,7 +23218,6 @@ export class NSMetadataQueryResultGroup extends NSObject {
   resultCount: number;
   results: any[];
   subgroups: NSMetadataQueryResultGroup[];
-  // compoundInstanceMethods
   result(at: number): any;
 }
 
@@ -27196,9 +23226,7 @@ export class NSMethodSignature extends NSObject {
   methodReturnLength: number;
   methodReturnType: string;
   numberOfArguments: number;
-  // compoundInstanceMethods
   getArgumentType(at: number): string;
-  // compoundInstanceMethods
   isOneway(): boolean;
 }
 
@@ -27209,138 +23237,77 @@ export class NSMiddleSpecifier extends NSScriptObjectSpecifier {
 
 export class NSMoveCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
 export class NSMutableArray<ObjectType> extends NSArray<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableArray<ObjectType>;
-  // compoundInstanceMethods
   add(_: ObjectType): void;
-  // compoundInstanceMethods
   addObjects(from: ObjectType[]): void;
-  // compoundInstanceMethods
   apply(_: CollectionDifference<any>): void;
-  // compoundInstanceMethods
   exchangeObject(at: number, withObjectAt: number): void;
-  // compoundInstanceMethods
   filter(using: NSPredicate): void;
-  // compoundInstanceMethods
   // static createWithCapacity(_: number): NSMutableArray<ObjectType>;
-  // compoundInstanceMethods
   insert(_: ObjectType, at: number): void;
-  // compoundInstanceMethods
   insert(_: ObjectType[], at: IndexSet): void;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   removeLastObject(): void;
-  // compoundInstanceMethods
   remove(_: ObjectType): void;
-  // compoundInstanceMethods
   remove(_: ObjectType, in_: NSRange): void;
-  // compoundInstanceMethods
   removeObject(at: number): void;
-  // compoundInstanceMethods
   removeObject(identicalTo: ObjectType): void;
-  // compoundInstanceMethods
   removeObject(identicalTo: ObjectType, in_: NSRange): void;
-  // compoundInstanceMethods
   removeObjects(at: IndexSet): void;
-  // compoundInstanceMethods
   removeObjects(in_: ObjectType[]): void;
-  // compoundInstanceMethods
   removeObjects(in_: NSRange): void;
-  // compoundInstanceMethods
   replaceObject(at: number, with_: ObjectType): void;
-  // compoundInstanceMethods
   replaceObjects(at: IndexSet, with_: ObjectType[]): void;
-  // compoundInstanceMethods
   replaceObjects(in_: NSRange, withObjectsFrom: ObjectType[]): void;
-  // compoundInstanceMethods
   replaceObjects(in_: NSRange, withObjectsFrom: ObjectType[], range: NSRange): void;
-  // compoundInstanceMethods
   setArray(_: ObjectType[]): void;
-  // compoundInstanceMethods
   sort(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
-  // compoundInstanceMethods
   sort(using: NSSortDescriptor[]): void;
-  // compoundInstanceMethods
   sort(_?: (p1: ObjectType, p2: ObjectType, p3: any) => number, context?: any): void;
-  // compoundInstanceMethods
   sort(using: string): void;
-  // compoundInstanceMethods
   sort(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
 }
 
 export class NSMutableAttributedString extends NSAttributedString {
   mutableString: NSMutableString;
-  // compoundInstanceMethods
   addAttribute(_: string, value: any, range: NSRange): void;
-  // compoundInstanceMethods
   addAttributes(_: Map<string, any>, range: NSRange): void;
-  // compoundInstanceMethods
   append(_: NSAttributedString): void;
-  // compoundInstanceMethods
   applyFontTraits(_: NSFontManager.NSFontTraitMask, range: NSRange): void;
-  // compoundInstanceMethods
   beginEditing(): void;
-  // compoundInstanceMethods
   deleteCharacters(in_: NSRange): void;
-  // compoundInstanceMethods
   endEditing(): void;
-  // compoundInstanceMethods
   fixAttachmentAttribute(in_: NSRange): void;
-  // compoundInstanceMethods
   fixAttributes(in_: NSRange): void;
-  // compoundInstanceMethods
   fixFontAttribute(in_: NSRange): void;
-  // compoundInstanceMethods
   fixParagraphStyleAttribute(in_: NSRange): void;
-  // compoundInstanceMethods
   insert(_: NSAttributedString, at: number): void;
-  // compoundInstanceMethods
   read(from: Data, options: Map<string, any>, documentAttributes?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   read(from: URL, options: Map<string, any>, documentAttributes?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   removeAttribute(_: string, range: NSRange): void;
-  // compoundInstanceMethods
   replaceCharacters(in_: NSRange, with_: NSAttributedString): void;
-  // compoundInstanceMethods
   replaceCharacters(in_: NSRange, with_: string): void;
-  // compoundInstanceMethods
   setAlignment(_: NSText.NSTextAlignment, range: NSRange): void;
-  // compoundInstanceMethods
   setAttributedString(_: NSAttributedString): void;
-  // compoundInstanceMethods
   setAttributes(_?: Map<string, any>, range?: NSRange): void;
-  // compoundInstanceMethods
   setBaseWritingDirection(_: NSText.NSWritingDirection, range: NSRange): void;
-  // compoundInstanceMethods
   subscriptRange(_: NSRange): void;
-  // compoundInstanceMethods
   superscriptRange(_: NSRange): void;
-  // compoundInstanceMethods
   unscriptRange(_: NSRange): void;
-  // compoundInstanceMethods
   updateAttachments(fromPath: string): void;
 }
 
 export class NSMutableCharacterSet extends CharacterSet {
-  // compoundInstanceMethods
   addCharacters(in_: NSRange): void;
-  // compoundInstanceMethods
   addCharacters(in_: string): void;
-  // compoundInstanceMethods
   formIntersection(with_: CharacterSet): void;
-  // compoundInstanceMethods
   formUnion(with_: CharacterSet): void;
-  // compoundInstanceMethods
   invert(): void;
-  // compoundInstanceMethods
   removeCharacters(in_: NSRange): void;
-  // compoundInstanceMethods
   removeCharacters(in_: string): void;
 }
 
@@ -27354,155 +23321,88 @@ export class NSMutableData extends Data {
   length: number;
   setLength(_: number);
   mutableBytes: any;
-  // compoundInstanceMethods
   append(_: any, length: number): void;
-  // compoundInstanceMethods
   append(_: Data): void;
-  // compoundInstanceMethods
   compressUsingAlgorithm(error: Data.CompressionAlgorithm): boolean;
-  // compoundInstanceMethods
   decompressUsingAlgorithm(error: Data.CompressionAlgorithm): boolean;
-  // compoundInstanceMethods
   increaseLength(by: number): void;
-  // compoundInstanceMethods
   static createWithCapacity(_: number): NSMutableData;
-  // compoundInstanceMethods
   static createWithLength(_: number): NSMutableData;
-  // compoundInstanceMethods
   replaceBytes(in_: NSRange, withBytes: any): void;
-  // compoundInstanceMethods
   replaceBytes(in_: NSRange, withBytes?: any, length?: number): void;
-  // compoundInstanceMethods
   resetBytes(in_: NSRange): void;
-  // compoundInstanceMethods
   setData(_: Data): void;
 }
 
 export class NSMutableDictionary<KeyType, ObjectType> extends Dictionary<KeyType, ObjectType> {
-  // compoundInstanceMethods
   addEntries(from: Map<KeyType, ObjectType>): void;
-  // compoundInstanceMethods
   // static createWithCapacity(_: number): NSMutableDictionary<KeyType, ObjectType>;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   removeObject(forKey: KeyType): void;
-  // compoundInstanceMethods
   removeObjects(forKeys: KeyType[]): void;
-  // compoundInstanceMethods
   setDictionary(_: Map<KeyType, ObjectType>): void;
-  // compoundInstanceMethods
   setObject(_: ObjectType, forKey: KeyType): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_?: ObjectType, forKey?: string): void;
 }
 
 export class NSMutableIndexSet extends IndexSet {
-  // compoundInstanceMethods
   add(_: number): void;
-  // compoundInstanceMethods
   add(_: IndexSet): void;
-  // compoundInstanceMethods
   add(in_: NSRange): void;
-  // compoundInstanceMethods
   removeAllIndexes(): void;
-  // compoundInstanceMethods
   remove(_: number): void;
-  // compoundInstanceMethods
   remove(_: IndexSet): void;
-  // compoundInstanceMethods
   remove(in_: NSRange): void;
-  // compoundInstanceMethods
   shiftIndexesStarting(at: number, by: number): void;
 }
 
 export class NSMutableOrderedSet<ObjectType> extends NSOrderedSet<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   add(_: ObjectType): void;
-  // compoundInstanceMethods
   add(_?: ObjectType, count?: number): void;
-  // compoundInstanceMethods
   addObjects(from: ObjectType[]): void;
-  // compoundInstanceMethods
   apply(_: CollectionDifference<any>): void;
-  // compoundInstanceMethods
   exchangeObject(at: number, withObjectAt: number): void;
-  // compoundInstanceMethods
   filter(using: NSPredicate): void;
-  // compoundInstanceMethods
   // static createWithCapacity(_: number): NSMutableOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   insert(_: ObjectType, at: number): void;
-  // compoundInstanceMethods
   insert(_: ObjectType[], at: IndexSet): void;
-  // compoundInstanceMethods
   intersect(_: NSOrderedSet<any>): void;
-  // compoundInstanceMethods
   intersectSet(_: Set<any>): void;
-  // compoundInstanceMethods
   minus(_: NSOrderedSet<any>): void;
-  // compoundInstanceMethods
   minusSet(_: Set<any>): void;
-  // compoundInstanceMethods
   moveObjects(at: IndexSet, to: number): void;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   remove(_: ObjectType): void;
-  // compoundInstanceMethods
   removeObject(at: number): void;
-  // compoundInstanceMethods
   removeObjects(at: IndexSet): void;
-  // compoundInstanceMethods
   removeObjects(in_: ObjectType[]): void;
-  // compoundInstanceMethods
   removeObjects(in_: NSRange): void;
-  // compoundInstanceMethods
   replaceObject(at: number, with_: ObjectType): void;
-  // compoundInstanceMethods
   replaceObjects(at: IndexSet, with_: ObjectType[]): void;
-  // compoundInstanceMethods
   replaceObjects(in_: NSRange, with_?: ObjectType, count?: number): void;
-  // compoundInstanceMethods
   setObject(_: ObjectType, at: number): void;
-  // compoundInstanceMethods
   sortRange(_: NSRange, options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
-  // compoundInstanceMethods
   sort(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
-  // compoundInstanceMethods
   sort(using: NSSortDescriptor[]): void;
-  // compoundInstanceMethods
   sort(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
-  // compoundInstanceMethods
   union(_: NSOrderedSet<any>): void;
-  // compoundInstanceMethods
   unionSet(_: Set<any>): void;
 }
 
 export class NSMutableSet<ObjectType> extends Set<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableSet<ObjectType>;
-  // compoundInstanceMethods
   // @ts-ignore 
   add(_: ObjectType): void;
-  // compoundInstanceMethods
   addObjects(from: ObjectType[]): void;
-  // compoundInstanceMethods
   filter(using: NSPredicate): void;
-  // compoundInstanceMethods
   // static createWithCapacity(_: number): NSMutableSet<ObjectType>;
-  // compoundInstanceMethods
   intersect(_: Set<any>): void;
-  // compoundInstanceMethods
   minus(_: Set<any>): void;
-  // compoundInstanceMethods
   removeAllObjects(): void;
-  // compoundInstanceMethods
   remove(_: ObjectType): void;
-  // compoundInstanceMethods
   setSet(_: Set<any>): void;
-  // compoundInstanceMethods
   union(_: Set<any>): void;
 }
 
@@ -27535,9 +23435,7 @@ export class NSMutableURLRequest extends URLRequest {
   setNetworkServiceType(_: URLRequest.NetworkServiceType);
   timeoutInterval: number;
   setTimeoutInterval(_: number);
-  // compoundInstanceMethods
   addValue(_: string, forHTTPHeaderField: string): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   setValue(_?: string, forHTTPHeaderField?: string): void;
 }
@@ -27545,7 +23443,6 @@ export class NSMutableURLRequest extends URLRequest {
 export class NSNameSpecifier extends NSScriptObjectSpecifier {
   name: string;
   setName(_: string);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithName(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, name?: string): NSNameSpecifier;
 }
@@ -27573,16 +23470,11 @@ export class NSNumber extends NSValue {
   unsignedIntegerValue: number;
   unsignedLongLongValue: number;
   unsignedShortValue: number;
-  // compoundInstanceMethods
   compare(_: number): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any): string;
-  // compoundInstanceMethods
   static createWithLong(_: number): NSNumber;
-  // compoundInstanceMethods
   static createWithUnsignedLong(_: number): NSNumber;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: number): boolean;
 }
@@ -27596,9 +23488,7 @@ export class NSOrderedCollectionChange<ObjectType> extends NSObject {
   changeType: NSOrderedCollectionChange.NSCollectionChangeType;
   index: number;
   object: ObjectType;
-  // compoundInstanceMethods
   // static createWithObjectWithTypeWithIndex(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number): NSOrderedCollectionChange<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectWithTypeWithIndexWithAssociatedIndex(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number, associatedIndex?: number): NSOrderedCollectionChange<ObjectType>;
 }
 
@@ -27610,92 +23500,50 @@ export class NSOrderedSet<ObjectType> extends NSObject {
   lastObject: ObjectType;
   reversed: NSOrderedSet<any>;
   set: Set<any>;
-  // compoundInstanceMethods
   contains(_: ObjectType): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any): string;
-  // compoundInstanceMethods
   // @ts-ignore 
   // dupe name w inherited static method  description(withLocale?: any, indent?: number): string;
-  // compoundInstanceMethods
   difference(from: NSOrderedSet<any>): CollectionDifference<any>;
-  // compoundInstanceMethods
   difference(from: NSOrderedSet<any>, with_: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions): CollectionDifference<any>;
-  // compoundInstanceMethods
   difference(from: NSOrderedSet<any>, with_: CollectionDifference.NSOrderedCollectionDifferenceCalculationOptions, usingEquivalenceTest: (p1: ObjectType, p2: ObjectType) => boolean): CollectionDifference<any>;
-  // compoundInstanceMethods
   enumerateObjects(at: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, using: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateObjects(_: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateObjects(options: NSObjCRuntime.NSEnumerationOptions, using: (p1: ObjectType, p2: number, p3: boolean) => void): void;
-  // compoundInstanceMethods
   filtered(using: NSPredicate): NSOrderedSet<any>;
-  // compoundInstanceMethods
   index(of: ObjectType): number;
-  // compoundInstanceMethods
   index(of: ObjectType, inSortedRange: NSRange, options: NSArray.NSBinarySearchingOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): number;
-  // compoundInstanceMethods
   index(ofObjectAt: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   index(ofObjectPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   index(_: NSObjCRuntime.NSEnumerationOptions, ofObjectPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): number;
-  // compoundInstanceMethods
   indexes(ofObjectsAt: IndexSet, options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexes(ofObjectsPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   indexes(options: NSObjCRuntime.NSEnumerationOptions, ofObjectsPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
-  // compoundInstanceMethods
   // static createWithArray(_: ObjectType[]): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithArrayWithCopyItems(_: ObjectType[], copyItems: boolean): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithArrayWithRangeWithCopyItems(_: ObjectType[], range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObject(_: ObjectType): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjects(_: ObjectType): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithObjectsWithCount(_?: ObjectType, count?: number): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithOrderedSet(_: NSOrderedSet<any>): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithOrderedSetWithCopyItems(_: NSOrderedSet<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithOrderedSetWithRangeWithCopyItems(_: NSOrderedSet<any>, range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithSet(_: Set<any>): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   // static createWithSetWithCopyItems(_: Set<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
-  // compoundInstanceMethods
   intersects(_: NSOrderedSet<any>): boolean;
-  // compoundInstanceMethods
   intersectsSet(_: Set<any>): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: NSOrderedSet<any>): boolean;
-  // compoundInstanceMethods
   isSubset(of: NSOrderedSet<any>): boolean;
-  // compoundInstanceMethods
   isSubset(of: Set<any>): boolean;
-  // compoundInstanceMethods
   object(at: number): ObjectType;
-  // compoundInstanceMethods
   objectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   objects(at: IndexSet): ObjectType[];
-  // compoundInstanceMethods
   applying(_: CollectionDifference<any>): NSOrderedSet<any>;
-  // compoundInstanceMethods
   reverseObjectEnumerator(): NSEnumerator<any>;
-  // compoundInstanceMethods
   sortedArray(comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(using: NSSortDescriptor[]): ObjectType[];
-  // compoundInstanceMethods
   sortedArray(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
 }
 
@@ -27705,9 +23553,7 @@ export class NSOrthography extends NSObject {
   allScripts: string[];
   dominantScript: string;
   languageMap: Map<string, string[]>;
-  // compoundInstanceMethods
   static createWithDominantScriptWithLanguageMap(_: string, languageMap: Map<string, string[]>): NSOrthography;
-  // compoundInstanceMethods
   languages(forScript: string): string[];
 }
 
@@ -27724,21 +23570,13 @@ export class NSPointerArray extends NSObject {
   count: number;
   setCount(_: number);
   pointerFunctions: NSPointerFunctions;
-  // compoundInstanceMethods
   addPointer(_?: any): void;
-  // compoundInstanceMethods
   compact(): void;
-  // compoundInstanceMethods
   static createWithOptions(_: NSPointerFunctions.Options): NSPointerArray;
-  // compoundInstanceMethods
   static createWithPointerFunctions(_: NSPointerFunctions): NSPointerArray;
-  // compoundInstanceMethods
   insertPointer(_?: any, at?: number): void;
-  // compoundInstanceMethods
   pointer(at: number): any;
-  // compoundInstanceMethods
   removePointer(at: number): void;
-  // compoundInstanceMethods
   replacePointer(at: number, withPointer?: any): void;
 }
 
@@ -27755,30 +23593,21 @@ export class NSPointerFunctions extends NSObject {
   setRelinquishFunction(_: (p1: any, p2: (p1: any) => number) => void);
   sizeFunction: (p1: any) => number;
   setSizeFunction(_: (p1: any) => number);
-  // compoundInstanceMethods
   static createWithOptions(_: NSPointerFunctions.Options): NSPointerFunctions;
 }
 
 export class NSPortCoder extends NSCoder {
-  // compoundInstanceMethods
   decodePortObject(): Port;
-  // compoundInstanceMethods
   encodePortObject(_: Port): void;
-  // compoundInstanceMethods
   isBycopy(): boolean;
-  // compoundInstanceMethods
   isByref(): boolean;
 }
 
 export class NSPortNameServer extends NSObject {
   static systemDefault(): NSPortNameServer;
-  // compoundInstanceMethods
   port(forName: string): Port;
-  // compoundInstanceMethods
   port(forName: string, host?: string): Port;
-  // compoundInstanceMethods
   register(_: Port, name: string): boolean;
-  // compoundInstanceMethods
   removePort(forName: string): boolean;
 }
 
@@ -27788,23 +23617,16 @@ export class NSPositionalSpecifier extends NSObject {
   insertionKey: string;
   insertionReplaces: boolean;
   position: NSScriptObjectSpecifiers.NSPositionalSpecifier.InsertionPosition;
-  // compoundInstanceMethods
   evaluate(): void;
-  // compoundInstanceMethods
   static createWithPositionWithObjectSpecifier(_: NSScriptObjectSpecifiers.NSPositionalSpecifier.InsertionPosition, objectSpecifier: NSScriptObjectSpecifier): NSPositionalSpecifier;
-  // compoundInstanceMethods
   setInsertionClassDescription(_: NSScriptClassDescription): void;
 }
 
 export class NSPredicate extends NSObject {
   predicateFormat: string;
-  // compoundInstanceMethods
   allowEvaluation(): void;
-  // compoundInstanceMethods
   evaluate(with_?: any): boolean;
-  // compoundInstanceMethods
   evaluate(with_?: any, substitutionVariables?: Map<string, any>): boolean;
-  // compoundInstanceMethods
   createWithSubstitutionVariables(_: Map<string, any>): NSPredicate;
 }
 
@@ -27816,7 +23638,6 @@ export class NSProtocolChecker extends NSProxy {
   //  static createWithAllocWithZone(with_?: any): NSProtocolChecker;
   protocol: any /* Protocol */;
   target: NSObject;
-  // compoundInstanceMethods
   static createWithTargetWithProtocol(_: NSObject, protocol: any /* Protocol */): NSProtocolChecker;
 }
 
@@ -27826,11 +23647,8 @@ export class NSProxy {
   static createWithAlloc(): NSProxy;
   static class(): typeof NSObject;
   static responds(to: string): boolean;
-  // compoundInstanceMethods
   dealloc(): void;
-  // compoundInstanceMethods
   finalize(): void;
-  // compoundInstanceMethods
   forwardInvocation(_: NSInvocation): void;
 }
 
@@ -27852,7 +23670,6 @@ export class NSRangeSpecifier extends NSScriptObjectSpecifier {
   setEndSpecifier(_: NSScriptObjectSpecifier);
   startSpecifier: NSScriptObjectSpecifier;
   setStartSpecifier(_: NSScriptObjectSpecifier);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithStartSpecifierWithEndSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, startSpecifier?: NSScriptObjectSpecifier, endSpecifier?: NSScriptObjectSpecifier): NSRangeSpecifier;
 }
@@ -27866,9 +23683,7 @@ export class NSRangeSpecifier extends NSScriptObjectSpecifier {
 export class NSRecursiveLock extends NSObject {
   name: string;
   setName(_: string);
-  // compoundInstanceMethods
   lock(before: Date): boolean;
-  // compoundInstanceMethods
   try(): boolean;
 }
 
@@ -27881,23 +23696,14 @@ export class NSRegularExpression extends NSObject {
   numberOfCaptureGroups: number;
   options: NSRegularExpression.Options;
   pattern: string;
-  // compoundInstanceMethods
   enumerateMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange, using?: (p1: NSTextCheckingResult, p2: NSRegularExpression.MatchingFlags, p3: boolean) => void): void;
-  // compoundInstanceMethods
   firstMatch(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSTextCheckingResult;
-  // compoundInstanceMethods
   static createWithPattern(options: string, error: NSRegularExpression.Options): NSRegularExpression;
-  // compoundInstanceMethods
   matches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSTextCheckingResult[];
-  // compoundInstanceMethods
   numberOfMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): number;
-  // compoundInstanceMethods
   rangeOfFirstMatch(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSRange;
-  // compoundInstanceMethods
   replaceMatches(in_: NSMutableString, options: NSRegularExpression.MatchingOptions, range: NSRange, withTemplate: string): number;
-  // compoundInstanceMethods
   replacementString(for_: NSTextCheckingResult, in_: string, offset: number, template: string): string;
-  // compoundInstanceMethods
   stringByReplacingMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange, withTemplate: string): string;
 }
 
@@ -27906,7 +23712,6 @@ export class NSRelativeSpecifier extends NSScriptObjectSpecifier {
   setBaseSpecifier(_: NSScriptObjectSpecifier);
   relativePosition: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition;
   setRelativePosition(_: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithRelativePositionWithBaseSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, relativePosition?: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition, baseSpecifier?: NSScriptObjectSpecifier): NSRelativeSpecifier;
 }
@@ -27926,38 +23731,24 @@ export class NSScriptClassDescription extends NSClassDescription {
   implementationClassName: string;
   suiteName: string;
   superclass: NSScriptClassDescription;
-  // compoundInstanceMethods
   forKey(_: string): NSScriptClassDescription;
-  // compoundInstanceMethods
   hasOrderedToManyRelationship(forKey: string): boolean;
-  // compoundInstanceMethods
   hasProperty(forKey: string): boolean;
-  // compoundInstanceMethods
   hasReadableProperty(forKey: string): boolean;
-  // compoundInstanceMethods
   hasWritableProperty(forKey: string): boolean;
-  // compoundInstanceMethods
   static createWithSuiteNameWithClassNameWithDictionary(_: string, className: string, dictionary?: Map<any, any>): NSScriptClassDescription;
-  // compoundInstanceMethods
   isLocationRequiredToCreate(forKey: string): boolean;
-  // compoundInstanceMethods
   key(withAppleEventCode: number): string;
-  // compoundInstanceMethods
   matchesAppleEventCode(_: number): boolean;
-  // compoundInstanceMethods
   selector(forCommand: NSScriptCommandDescription): string;
-  // compoundInstanceMethods
   supportsCommand(_: NSScriptCommandDescription): boolean;
-  // compoundInstanceMethods
   type(forKey: string): string;
 }
 
 export class NSScriptCoercionHandler extends NSObject {
   static shared(): NSScriptCoercionHandler;
-  // compoundInstanceMethods
   // @ts-ignore 
   coerceValue(_: any, to: typeof NSObject): any;
-  // compoundInstanceMethods
   registerCoercer(_: any, selector: string, toConvertFrom: typeof NSObject, to: typeof NSObject): void;
 }
 
@@ -27982,15 +23773,10 @@ export class NSScriptCommand extends NSObject {
   scriptErrorString: string;
   setScriptErrorString(_: string);
   isWellFormed: boolean;
-  // compoundInstanceMethods
   execute(): any;
-  // compoundInstanceMethods
   static createWithCommandDescription(_: NSScriptCommandDescription): NSScriptCommand;
-  // compoundInstanceMethods
   performDefaultImplementation(): any;
-  // compoundInstanceMethods
   resumeExecution(withResult?: any): void;
-  // compoundInstanceMethods
   suspendExecution(): void;
 }
 
@@ -28003,17 +23789,11 @@ export class NSScriptCommandDescription extends NSObject {
   commandName: string;
   returnType: string;
   suiteName: string;
-  // compoundInstanceMethods
   appleEventCodeForArgument(withName: string): number;
-  // compoundInstanceMethods
   createCommandInstance(): NSScriptCommand;
-  // compoundInstanceMethods
   createCommandInstance(with_?: any): NSScriptCommand;
-  // compoundInstanceMethods
   static createWithSuiteNameWithCommandNameWithDictionary(_: string, commandName: string, dictionary?: Map<any, any>): NSScriptCommandDescription;
-  // compoundInstanceMethods
   isOptionalArgument(withName: string): boolean;
-  // compoundInstanceMethods
   typeForArgument(withName: string): string;
 }
 
@@ -28046,13 +23826,9 @@ export class NSScriptObjectSpecifier extends NSObject {
   setKey(_: string);
   keyClassDescription: NSScriptClassDescription;
   objectsByEvaluatingSpecifier: any;
-  // compoundInstanceMethods
   indicesOfObjectsByEvaluating(withContainer: any, count: number): number;
-  // compoundInstanceMethods
   static createWithContainerClassDescriptionWithContainerSpecifierWithKey(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string): NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   static createWithContainerSpecifierWithKey(_: NSScriptObjectSpecifier, key: string): NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   objectsByEvaluating(withContainers: any): any;
 }
 
@@ -28060,35 +23836,22 @@ export class NSScriptSuiteRegistry extends NSObject {
   static setShared(_: NSScriptSuiteRegistry): void;
   static shared(): NSScriptSuiteRegistry;
   suiteNames: string[];
-  // compoundInstanceMethods
   aeteResource(_: string): Data;
-  // compoundInstanceMethods
   appleEventCode(forSuite: string): number;
-  // compoundInstanceMethods
   bundle(forSuite: string): Bundle;
-  // compoundInstanceMethods
   // @ts-ignore 
   classDescription(withAppleEventCode: number): NSScriptClassDescription;
-  // compoundInstanceMethods
   classDescriptions(inSuite: string): Map<string, NSScriptClassDescription>;
-  // compoundInstanceMethods
   commandDescription(withAppleEventClass: number, andAppleEventCode: number): NSScriptCommandDescription;
-  // compoundInstanceMethods
   commandDescriptions(inSuite: string): Map<string, NSScriptCommandDescription>;
-  // compoundInstanceMethods
   loadSuite(with_: Map<any, any>, from: Bundle): void;
-  // compoundInstanceMethods
   loadSuites(from: Bundle): void;
-  // compoundInstanceMethods
   register(_: NSScriptClassDescription): void;
-  // compoundInstanceMethods
   register(_: NSScriptCommandDescription): void;
-  // compoundInstanceMethods
   suite(forAppleEventCode: number): string;
 }
 
 export class NSScriptWhoseTest extends NSObject {
-  // compoundInstanceMethods
   isTrue(): boolean;
 }
 
@@ -28105,7 +23868,6 @@ export class NSSecureUnarchiveFromDataTransformer extends ValueTransformer {
 
 export class NSSetCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
-  // compoundInstanceMethods
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
@@ -28121,10 +23883,8 @@ export class NSSocketPortNameServer extends NSPortNameServer {
   static sharedInstance(): any;
   defaultNameServerPortNumber: number;
   setDefaultNameServerPortNumber(_: number);
-  // compoundInstanceMethods
   // @ts-ignore 
   port(forName: string, host?: string, nameServerPortNumber?: number): Port;
-  // compoundInstanceMethods
   // @ts-ignore 
   register(_: Port, name: string, nameServerPortNumber: number): boolean;
 }
@@ -28135,31 +23895,22 @@ export class NSSortDescriptor extends NSObject {
   key: string;
   reversedSortDescriptor: any;
   selector: string;
-  // compoundInstanceMethods
   allowEvaluation(): void;
-  // compoundInstanceMethods
   compare(_: any, to: any): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   static createWithKeyWithAscending(_?: string, ascending?: boolean): NSSortDescriptor;
-  // compoundInstanceMethods
   static createWithKeyWithAscendingWithComparator(_?: string, ascending?: boolean, comparator?: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): NSSortDescriptor;
-  // compoundInstanceMethods
   static createWithKeyWithAscendingWithSelector(_?: string, ascending?: boolean, selector?: string): NSSortDescriptor;
 }
 
 export class NSSpecifierTest extends NSScriptWhoseTest {
-  // compoundInstanceMethods
   static createWithObjectSpecifierWithComparisonOperatorWithTestObject(_?: NSScriptObjectSpecifier, comparisonOperator?: NSScriptWhoseTests.NSSpecifierTest.TestComparisonOperation, testObject?: any): NSSpecifierTest;
 }
 
 export class NSSpellServer extends NSObject {
   delegate: any;
   setDelegate(_: any);
-  // compoundInstanceMethods
   isWord(inUserDictionaries: string, caseSensitive: boolean): boolean;
-  // compoundInstanceMethods
   registerLanguage(_?: string, byVendor?: string): boolean;
-  // compoundInstanceMethods
   run(): void;
 }
 
@@ -28213,180 +23964,93 @@ export class NSString extends NSObject {
   stringByStandardizingPath: string;
   static availableStringEncodings: number;
   static defaultCStringEncoding: number;
-  // compoundInstanceMethods
   boundingRect(with_: CGSize, options: NSStringDrawing.NSString.DrawingOptions, attributes?: Map<string, any>): CGRect;
-  // compoundInstanceMethods
   boundingRect(with_: CGSize, options: NSStringDrawing.NSString.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): CGRect;
-  // compoundInstanceMethods
   cString(using: number): string;
-  // compoundInstanceMethods
   canBeConverted(to: number): boolean;
-  // compoundInstanceMethods
   caseInsensitiveCompare(_: string): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   character(at: number): string;
-  // compoundInstanceMethods
   commonPrefix(with_: string, options: NSString.CompareOptions): string;
-  // compoundInstanceMethods
   compare(_: string): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   compare(_: string, options: NSString.CompareOptions): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   compare(_: string, options: NSString.CompareOptions, range: NSRange): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   compare(_: string, options: NSString.CompareOptions, range: NSRange, locale?: any): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   completePath(into?: string, caseSensitive?: boolean, matchesInto?: string[], filterTypes?: string[]): number;
-  // compoundInstanceMethods
   components(separatedBy: CharacterSet): string[];
-  // compoundInstanceMethods
   components(separatedBy: string): string[];
-  // compoundInstanceMethods
   contains(_: string): boolean;
-  // compoundInstanceMethods
   data(using: number): Data;
-  // compoundInstanceMethods
   data(using: number, allowLossyConversion: boolean): Data;
-  // compoundInstanceMethods
   draw(at: CGPoint, withAttributes?: Map<string, any>): void;
-  // compoundInstanceMethods
   draw(in_: CGRect, withAttributes?: Map<string, any>): void;
-  // compoundInstanceMethods
   draw(with_: CGRect, options: NSStringDrawing.NSString.DrawingOptions, attributes?: Map<string, any>): void;
-  // compoundInstanceMethods
   draw(with_: CGRect, options: NSStringDrawing.NSString.DrawingOptions, attributes?: Map<string, any>, context?: NSStringDrawingContext): void;
-  // compoundInstanceMethods
   enumerateLines(_: (p1: string, p2: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateLinguisticTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  // compoundInstanceMethods
   enumerateSubstrings(in_: NSRange, options: NSString.EnumerationOptions, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  // compoundInstanceMethods
   getBytes(_?: any, maxLength?: number, usedLength?: number, encoding?: number, options?: NSString.EncodingConversionOptions, range?: NSRange, remaining?: NSRange): boolean;
-  // compoundInstanceMethods
   getCString(_: string, maxLength: number, encoding: number): boolean;
-  // compoundInstanceMethods
   getCharacters(_: string): void;
-  // compoundInstanceMethods
   getCharacters(_: string, range: NSRange): void;
-  // compoundInstanceMethods
   getFileSystemRepresentation(_: string, maxLength: number): boolean;
-  // compoundInstanceMethods
   getLineStart(_?: number, end?: number, contentsEnd?: number, for_?: NSRange): void;
-  // compoundInstanceMethods
   getParagraphStart(_?: number, end?: number, contentsEnd?: number, for_?: NSRange): void;
-  // compoundInstanceMethods
   hasPrefix(_: string): boolean;
-  // compoundInstanceMethods
   hasSuffix(_: string): boolean;
-  // compoundInstanceMethods
   static createWithBytesWithLengthWithEncoding(_: any, length: number, encoding: number): NSString;
-  // compoundInstanceMethods
   static createWithBytesNoCopyWithLengthWithEncodingWithFreeWhenDone(_: any, length: number, encoding: number, freeWhenDone: boolean): NSString;
-  // compoundInstanceMethods
   static createWithCStringWithEncoding(_: string, encoding: number): NSString;
-  // compoundInstanceMethods
   static createWithCharactersWithLength(_: string, length: number): NSString;
-  // compoundInstanceMethods
   static createWithCharactersNoCopyWithLengthWithFreeWhenDone(_: string, length: number, freeWhenDone: boolean): NSString;
-  // compoundInstanceMethods
   static createWithContentsOfFile(encoding: string, error: number): NSString;
-  // compoundInstanceMethods
   static createWithContentsOfFile(usedEncoding: string, error?: number): NSString;
-  // compoundInstanceMethods
   static createWithContentsOf(encoding: URL, error: number): NSString;
-  // compoundInstanceMethods
   static createWithContentsOf(usedEncoding: URL, error?: number): NSString;
-  // compoundInstanceMethods
   static createWithDataWithEncoding(_: Data, encoding: number): NSString;
-  // compoundInstanceMethods
   static createWithString(_: string): NSString;
-  // compoundInstanceMethods
   static createWithUtF8String(_: string): NSString;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: string): boolean;
-  // compoundInstanceMethods
   lengthOfBytes(using: number): number;
-  // compoundInstanceMethods
   lineRange(for_: NSRange): NSRange;
-  // compoundInstanceMethods
   linguisticTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, tokenRanges?: NSValue[]): string[];
-  // compoundInstanceMethods
   localizedCaseInsensitiveCompare(_: string): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   localizedCaseInsensitiveContains(_: string): boolean;
-  // compoundInstanceMethods
   localizedCompare(_: string): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   localizedStandardCompare(_: string): NSObjCRuntime.ComparisonResult;
-  // compoundInstanceMethods
   localizedStandardContains(_: string): boolean;
-  // compoundInstanceMethods
   localizedStandardRange(of: string): NSRange;
-  // compoundInstanceMethods
   maximumLengthOfBytes(using: number): number;
-  // compoundInstanceMethods
   paragraphRange(for_: NSRange): NSRange;
-  // compoundInstanceMethods
   propertyList(): any;
-  // compoundInstanceMethods
   propertyListFromStringsFileFormat(): Map<any, any>;
-  // compoundInstanceMethods
   rangeOfCharacter(from: CharacterSet): NSRange;
-  // compoundInstanceMethods
   rangeOfCharacter(from: CharacterSet, options: NSString.CompareOptions): NSRange;
-  // compoundInstanceMethods
   rangeOfCharacter(from: CharacterSet, options: NSString.CompareOptions, range: NSRange): NSRange;
-  // compoundInstanceMethods
   rangeOfComposedCharacterSequence(at: number): NSRange;
-  // compoundInstanceMethods
   rangeOfComposedCharacterSequences(for_: NSRange): NSRange;
-  // compoundInstanceMethods
   range(of: string): NSRange;
-  // compoundInstanceMethods
   range(of: string, options: NSString.CompareOptions): NSRange;
-  // compoundInstanceMethods
   range(of: string, options: NSString.CompareOptions, range: NSRange): NSRange;
-  // compoundInstanceMethods
   range(of: string, options: NSString.CompareOptions, range: NSRange, locale?: Locale): NSRange;
-  // compoundInstanceMethods
   size(withAttributes?: Map<string, any>): CGSize;
-  // compoundInstanceMethods
   addingPercentEncoding(withAllowedCharacters: CharacterSet): string;
-  // compoundInstanceMethods
   appendingPathComponent(_: string): string;
-  // compoundInstanceMethods
   appendingPathExtension(_: string): string;
-  // compoundInstanceMethods
   appending(_: string): string;
-  // compoundInstanceMethods
   applyingTransform(_: string, reverse: boolean): string;
-  // compoundInstanceMethods
   folding(options: NSString.CompareOptions, locale?: Locale): string;
-  // compoundInstanceMethods
   padding(toLength: number, withPad: string, startingAt: number): string;
-  // compoundInstanceMethods
   replacingCharacters(in_: NSRange, with_: string): string;
-  // compoundInstanceMethods
   replacingOccurrences(of: string, with_: string): string;
-  // compoundInstanceMethods
   replacingOccurrences(of: string, with_: string, options: NSString.CompareOptions, range: NSRange): string;
-  // compoundInstanceMethods
   trimmingCharacters(in_: CharacterSet): string;
-  // compoundInstanceMethods
   strings(byAppendingPaths: string[]): string[];
-  // compoundInstanceMethods
   substring(from: number): string;
-  // compoundInstanceMethods
   substring(to: number): string;
-  // compoundInstanceMethods
   substring(with_: NSRange): string;
-  // compoundInstanceMethods
   variantFittingPresentationWidth(_: number): string;
-  // compoundInstanceMethods
   writeToFile(atomically: string, encoding: boolean, error: number): boolean;
-  // compoundInstanceMethods
   writeToURL(atomically: URL, encoding: boolean, error: number): boolean;
 }
 
@@ -28440,7 +24104,6 @@ export class NSTextCheckingResult extends NSObject {
   replacementString: string;
   resultType: NSTextCheckingResult.CheckingType;
   timeZone: TimeZone;
-  // compoundInstanceMethods
   adjustingRanges(offset: number): NSTextCheckingResult;
 }
 
@@ -28448,15 +24111,10 @@ export class NSURLConnection extends NSObject {
   static canHandle(_: URLRequest): boolean;
   currentRequest: URLRequest;
   originalRequest: URLRequest;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   schedule(in_: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   setDelegateQueue(_?: OperationQueue): void;
-  // compoundInstanceMethods
   start(): void;
-  // compoundInstanceMethods
   unschedule(from: RunLoop, forMode: string): void;
 }
 
@@ -28488,9 +24146,7 @@ export class NSURLDownload extends NSObject {
   setDeletesFileUponFailure(_: boolean);
   request: URLRequest;
   resumeData: Data;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   setDestination(_: string, allowOverwrite: boolean): void;
 }
 
@@ -28517,48 +24173,29 @@ export class NSURLHandle extends NSObject {
 export class NSURLSessionWebSocketMessage extends NSObject {
   data: Data;
   type: URLSession.NSURLSessionWebSocketMessageType;
-  // compoundInstanceMethods
   static createWithData(_: Data): NSURLSessionWebSocketMessage;
-  // compoundInstanceMethods
   static createWithString(_: string): NSURLSessionWebSocketMessage;
 }
 
 export class NSUbiquitousKeyValueStore extends NSObject {
   dictionaryRepresentation: Map<string, any>;
   static default: NSUbiquitousKeyValueStore;
-  // compoundInstanceMethods
   array(forKey: string): any[];
-  // compoundInstanceMethods
   bool(forKey: string): boolean;
-  // compoundInstanceMethods
   data(forKey: string): Data;
-  // compoundInstanceMethods
   dictionary(forKey: string): Map<string, any>;
-  // compoundInstanceMethods
   double(forKey: string): number;
-  // compoundInstanceMethods
   longLong(forKey: string): number;
-  // compoundInstanceMethods
   object(forKey: string): any;
-  // compoundInstanceMethods
   removeObject(forKey: string): void;
-  // compoundInstanceMethods
   set(_?: any[], forKey?: string): void;
-  // compoundInstanceMethods
   set(_: boolean, forKey: string): void;
-  // compoundInstanceMethods
   set(_?: Data, forKey?: string): void;
-  // compoundInstanceMethods
   set(_?: Map<string, any>, forKey?: string): void;
-  // compoundInstanceMethods
   set(_: number, forKey: string): void;
-  // compoundInstanceMethods
   set(_: number, forKey: string): void;
-  // compoundInstanceMethods
   set(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   set(_?: string, forKey?: string): void;
-  // compoundInstanceMethods
   synchronize(): boolean;
 }
 
@@ -28569,7 +24206,6 @@ export class NSUbiquitousKeyValueStore extends NSObject {
 export class NSUniqueIDSpecifier extends NSScriptObjectSpecifier {
   uniqueID: any;
   setUniqueID(_: any);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithUniqueID(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, uniqueID?: any): NSUniqueIDSpecifier;
 }
@@ -28646,17 +24282,11 @@ export class NSUserActivity extends NSObject {
   setUserInfo(_: Map<any, any>);
   webpageURL: URL;
   setWebpageURL(_: URL);
-  // compoundInstanceMethods
   addUserInfoEntries(from: Map<any, any>): void;
-  // compoundInstanceMethods
   becomeCurrent(): void;
-  // compoundInstanceMethods
   getContinuationStreams(completionHandler?: (p1: InputStream, p2: OutputStream, p3: Error) => void): void;
-  // compoundInstanceMethods
   static createWithActivityType(_: string): NSUserActivity;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   resignCurrent(): void;
 }
 
@@ -28667,7 +24297,6 @@ interface NSUserActivityDelegate {
 }
 
 export class NSUserAppleScriptTask extends NSUserScriptTask {
-  // compoundInstanceMethods
   // @ts-ignore 
   execute(withAppleEvent?: NSAppleEventDescriptor, completionHandler?: (p1: NSAppleEventDescriptor, p2: Error) => void): void;
 }
@@ -28675,7 +24304,6 @@ export class NSUserAppleScriptTask extends NSUserScriptTask {
 export class NSUserAutomatorTask extends NSUserScriptTask {
   variables: Map<string, any>;
   setVariables(_: Map<string, any>);
-  // compoundInstanceMethods
   // @ts-ignore 
   execute(withInput?: any, completionHandler?: (p1: any, p2: Error) => void): void;
 }
@@ -28735,15 +24363,10 @@ export class NSUserNotificationCenter extends NSObject {
   scheduledNotifications: NSUserNotification[];
   setScheduledNotifications(_: NSUserNotification[]);
   static defaultUserNotificationCenter: NSUserNotificationCenter;
-  // compoundInstanceMethods
   deliver(_: NSUserNotification): void;
-  // compoundInstanceMethods
   removeAllDeliveredNotifications(): void;
-  // compoundInstanceMethods
   removeDeliveredNotification(_: NSUserNotification): void;
-  // compoundInstanceMethods
   removeScheduledNotification(_: NSUserNotification): void;
-  // compoundInstanceMethods
   scheduleNotification(_: NSUserNotification): void;
 }
 
@@ -28755,9 +24378,7 @@ interface NSUserNotificationCenterDelegate {
 
 export class NSUserScriptTask extends NSObject {
   scriptURL: URL;
-  // compoundInstanceMethods
   execute(completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   static createWith(error: URL): NSUserScriptTask;
 }
 
@@ -28768,7 +24389,6 @@ export class NSUserUnixTask extends NSUserScriptTask {
   setStandardInput(_: FileHandle);
   standardOutput: FileHandle;
   setStandardOutput(_: FileHandle);
-  // compoundInstanceMethods
   // @ts-ignore 
   execute(withArguments?: string[], completionHandler?: (p1: Error) => void): void;
 }
@@ -28786,13 +24406,9 @@ export class NSValue extends NSObject {
   rangeValue: NSRange;
   rectValue: CGRect;
   sizeValue: CGSize;
-  // compoundInstanceMethods
   getValue(_: any): void;
-  // compoundInstanceMethods
   getValue(_: any, size: number): void;
-  // compoundInstanceMethods
   static createWithBytesWithObjCType(_: any, objCType: string): NSValue;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: NSValue): boolean;
 }
@@ -28808,7 +24424,6 @@ export class NSWhoseSpecifier extends NSScriptObjectSpecifier {
   setStartSubelementIndex(_: number);
   test: NSScriptWhoseTest;
   setTest(_: NSScriptWhoseTest);
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithTest(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, test?: NSScriptWhoseTest): NSWhoseSpecifier;
 }
@@ -28817,9 +24432,7 @@ export class NSXPCCoder extends NSCoder {
   connection: NSXPCConnection;
   userInfo: any;
   setUserInfo(_: any);
-  // compoundInstanceMethods
   decodeXPCObject(ofType: any, forKey: string): NSObject;
-  // compoundInstanceMethods
   encodeXPCObject(_: NSObject, forKey: string): void;
 }
 
@@ -28842,36 +24455,23 @@ export class NSXPCConnection extends NSObject {
   setRemoteObjectInterface(_: NSXPCInterface);
   remoteObjectProxy: any;
   serviceName: string;
-  // compoundInstanceMethods
   static createWithListenerEndpoint(_: NSXPCListenerEndpoint): NSXPCConnection;
-  // compoundInstanceMethods
   static createWithMachServiceNameWithOptions(_: string, options: NSXPCConnection.Options): NSXPCConnection;
-  // compoundInstanceMethods
   static createWithServiceName(_: string): NSXPCConnection;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   resume(): void;
-  // compoundInstanceMethods
   scheduleSendBarrierBlock(_: () => void): void;
-  // compoundInstanceMethods
   suspend(): void;
 }
 
 export class NSXPCInterface extends NSObject {
   protocol: any /* Protocol */;
   setProtocol(_: any /* Protocol */);
-  // compoundInstanceMethods
   xpcType(for_: string, argumentIndex: number, ofReply: boolean): any;
-  // compoundInstanceMethods
   classes(for_: string, argumentIndex: number, ofReply: boolean): Set<any>;
-  // compoundInstanceMethods
   forSelector(_: string, argumentIndex: number, ofReply: boolean): NSXPCInterface;
-  // compoundInstanceMethods
   setClasses(_: Set<any>, for_: string, argumentIndex: number, ofReply: boolean): void;
-  // compoundInstanceMethods
   setInterface(_: NSXPCInterface, for_: string, argumentIndex: number, ofReply: boolean): void;
-  // compoundInstanceMethods
   setXPCType(_: any, for_: string, argumentIndex: number, ofReply: boolean): void;
 }
 
@@ -28881,13 +24481,9 @@ export class NSXPCListener extends NSObject {
   delegate: any;
   setDelegate(_: any);
   endpoint: NSXPCListenerEndpoint;
-  // compoundInstanceMethods
   static createWithMachServiceName(_: string): NSXPCListener;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   resume(): void;
-  // compoundInstanceMethods
   suspend(): void;
 }
 
@@ -28929,31 +24525,18 @@ export class NetService extends NSObject {
   name: string;
   port: number;
   type: string;
-  // compoundInstanceMethods
   txtRecordData(): Data;
-  // compoundInstanceMethods
   getInputStream(_?: InputStream, outputStream?: OutputStream): boolean;
-  // compoundInstanceMethods
   static createWithDomainWithTypeWithName(_: string, type: string, name: string): NetService;
-  // compoundInstanceMethods
   static createWithDomainWithTypeWithNameWithPort(_: string, type: string, name: string, port: number): NetService;
-  // compoundInstanceMethods
   publish(): void;
-  // compoundInstanceMethods
   publish(options: NSNetServices.NetService.Options): void;
-  // compoundInstanceMethods
   remove(from: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   resolve(withTimeout: number): void;
-  // compoundInstanceMethods
   schedule(in_: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   setTXTRecord(_?: Data): boolean;
-  // compoundInstanceMethods
   startMonitoring(): void;
-  // compoundInstanceMethods
   stop(): void;
-  // compoundInstanceMethods
   stopMonitoring(): void;
 }
 
@@ -28962,17 +24545,11 @@ export class NetServiceBrowser extends NSObject {
   setDelegate(_: any);
   includesPeerToPeer: boolean;
   setIncludesPeerToPeer(_: boolean);
-  // compoundInstanceMethods
   remove(from: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   schedule(in_: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   searchForBrowsableDomains(): void;
-  // compoundInstanceMethods
   searchForRegistrationDomains(): void;
-  // compoundInstanceMethods
   searchForServices(ofType: string, inDomain: string): void;
-  // compoundInstanceMethods
   stop(): void;
 }
 
@@ -29002,41 +24579,29 @@ export class Notification extends NSObject {
   name: string;
   object: any;
   userInfo: Map<any, any>;
-  // compoundInstanceMethods
   static createWithNameWithObjectWithUserInfo(_: string, object_?: any, userInfo?: Map<any, any>): Notification;
 }
 
 export class NotificationCenter extends NSObject {
   static defaultCenter: NotificationCenter;
-  // compoundInstanceMethods
   // @ts-ignore 
   addObserver(_: any, selector: string, name?: string, object_?: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   addObserver(forName?: string, object_?: any, queue?: OperationQueue, using?: (p1: Notification) => void): any;
-  // compoundInstanceMethods
   post(_: Notification): void;
-  // compoundInstanceMethods
   post(name: string, object_?: any): void;
-  // compoundInstanceMethods
   post(name: string, object_?: any, userInfo?: Map<any, any>): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObserver(_: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   removeObserver(_: any, name?: string, object_?: any): void;
 }
 
 export class NotificationQueue extends NSObject {
   static default: NotificationQueue;
-  // compoundInstanceMethods
   dequeueNotifications(matching: Notification, coalesceMask: number): void;
-  // compoundInstanceMethods
   enqueue(_: Notification, postingStyle: NotificationQueue.PostingStyle): void;
-  // compoundInstanceMethods
   enqueue(_: Notification, postingStyle: NotificationQueue.PostingStyle, coalesceMask: NotificationQueue.NotificationCoalescing, forModes?: string[]): void;
-  // compoundInstanceMethods
   static createWithNotificationCenter(_: NotificationCenter): NotificationQueue;
 }
 
@@ -29174,10 +24739,8 @@ export class NumberFormatter extends Formatter {
   setUsesSignificantDigits(_: boolean);
   zeroSymbol: string;
   setZeroSymbol(_: string);
-  // compoundInstanceMethods
   // @ts-ignore 
   getObjectValue(forString?: any, range?: string, error?: NSRange): boolean;
-  // compoundInstanceMethods
   number(from: string): number;
 }
 
@@ -29197,17 +24760,11 @@ export class Operation extends NSObject {
   queuePriority: Operation.QueuePriority;
   setQueuePriority(_: Operation.QueuePriority);
   isReady: boolean;
-  // compoundInstanceMethods
   addDependency(_: Operation): void;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   main(): void;
-  // compoundInstanceMethods
   removeDependency(_: Operation): void;
-  // compoundInstanceMethods
   start(): void;
-  // compoundInstanceMethods
   waitUntilFinished(): void;
 }
 
@@ -29226,32 +24783,21 @@ export class OperationQueue extends NSObject {
   setUnderlyingQueue(_: NSObject);
   static currentQueue: OperationQueue;
   static mainQueue: OperationQueue;
-  // compoundInstanceMethods
   addBarrierBlock(_: () => void): void;
-  // compoundInstanceMethods
   addOperation(_: Operation): void;
-  // compoundInstanceMethods
   addOperation(_: () => void): void;
-  // compoundInstanceMethods
   addOperations(_: Operation[], waitUntilFinished: boolean): void;
-  // compoundInstanceMethods
   cancelAllOperations(): void;
-  // compoundInstanceMethods
   waitUntilAllOperationsAreFinished(): void;
 }
 
 export class OutputStream extends Stream {
   static createWithOutputStreamToMemory(): OutputStream;
   hasSpaceAvailable: boolean;
-  // compoundInstanceMethods
   static createWithToBufferWithCapacity(_: string, capacity: number): OutputStream;
-  // compoundInstanceMethods
   static createWithToFileAtPathWithAppend(_: string, append: boolean): OutputStream;
-  // compoundInstanceMethods
   static createWithToMemory(): OutputStream;
-  // compoundInstanceMethods
   static createWithUrlWithAppend(_: URL, append: boolean): OutputStream;
-  // compoundInstanceMethods
   write(_: string, maxLength: number): number;
 }
 
@@ -29278,9 +24824,7 @@ export class PersonNameComponentsFormatter extends Formatter {
   setPhonetic(_: boolean);
   style: PersonNameComponentsFormatter.Style;
   setStyle(_: PersonNameComponentsFormatter.Style);
-  // compoundInstanceMethods
   annotatedString(from: PersonNameComponents): NSAttributedString;
-  // compoundInstanceMethods
   personNameComponents(from: string): PersonNameComponents;
 }
 
@@ -29292,19 +24836,12 @@ export class Pipe extends NSObject {
 export class Port extends NSObject {
   reservedSpaceLength: number;
   isValid: boolean;
-  // compoundInstanceMethods
   delegate(): any;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   remove(from: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   schedule(in_: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   send(before: Date, components?: any[], from?: Port, reserved?: number): boolean;
-  // compoundInstanceMethods
   send(before: Date, msgid: number, components?: any[], from?: Port, reserved?: number): boolean;
-  // compoundInstanceMethods
   setDelegate(_?: any): void;
 }
 
@@ -29318,9 +24855,7 @@ export class PortMessage extends NSObject {
   setMsgid(_: number);
   receivePort: Port;
   sendPort: Port;
-  // compoundInstanceMethods
   static createWithSendPortWithReceivePortWithComponents(_?: Port, receivePort?: Port, components?: any[]): PortMessage;
-  // compoundInstanceMethods
   send(before: Date): boolean;
 }
 
@@ -29353,17 +24888,11 @@ export class Process extends NSObject {
   setTerminationHandler(_: (p1: Process) => void);
   terminationReason: Process.TerminationReason;
   terminationStatus: number;
-  // compoundInstanceMethods
   interrupt(): void;
-  // compoundInstanceMethods
   launch(): void;
-  // compoundInstanceMethods
   resume(): boolean;
-  // compoundInstanceMethods
   suspend(): boolean;
-  // compoundInstanceMethods
   terminate(): void;
-  // compoundInstanceMethods
   waitUntilExit(): void;
 }
 
@@ -29388,21 +24917,13 @@ export class ProcessInfo extends NSObject {
   thermalState: ProcessInfo.ThermalState;
   userName: string;
   static processInfo: ProcessInfo;
-  // compoundInstanceMethods
   beginActivity(options: ProcessInfo.ActivityOptions, reason: string): any;
-  // compoundInstanceMethods
   disableAutomaticTermination(_: string): void;
-  // compoundInstanceMethods
   disableSuddenTermination(): void;
-  // compoundInstanceMethods
   enableAutomaticTermination(_: string): void;
-  // compoundInstanceMethods
   enableSuddenTermination(): void;
-  // compoundInstanceMethods
   endActivity(_: any): void;
-  // compoundInstanceMethods
   isOperatingSystemAtLeast(_: OperatingSystemVersion): boolean;
-  // compoundInstanceMethods
   performActivity(options: ProcessInfo.ActivityOptions, reason: string, using: () => void): void;
 }
 
@@ -29450,27 +24971,16 @@ export class Progress extends NSObject {
   totalUnitCount: number;
   setTotalUnitCount(_: number);
   userInfo: Map<string, any>;
-  // compoundInstanceMethods
   addChild(_: Progress, withPendingUnitCount: number): void;
-  // compoundInstanceMethods
   becomeCurrent(withPendingUnitCount: number): void;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   static createWithParentWithUserInfo(_?: Progress, userInfo?: Map<string, any>): Progress;
-  // compoundInstanceMethods
   pause(): void;
-  // compoundInstanceMethods
   performAsCurrentWithPendingUnitCount(_: number, usingBlock: () => void): void;
-  // compoundInstanceMethods
   publish(): void;
-  // compoundInstanceMethods
   resignCurrent(): void;
-  // compoundInstanceMethods
   resume(): void;
-  // compoundInstanceMethods
   setUserInfoObject(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   unpublish(): void;
 }
 
@@ -29497,11 +25007,8 @@ export class RelativeDateTimeFormatter extends Formatter {
   setLocale(_: Locale);
   unitsStyle: RelativeDateTimeFormatter.UnitsStyle;
   setUnitsStyle(_: RelativeDateTimeFormatter.UnitsStyle);
-  // compoundInstanceMethods
   localizedString(for_: Date, relativeTo: Date): string;
-  // compoundInstanceMethods
   localizedString(from: DateComponents): string;
-  // compoundInstanceMethods
   localizedString(fromTimeInterval: number): string;
 }
 
@@ -29509,36 +25016,22 @@ export class RunLoop extends NSObject {
   currentMode: string;
   static current: RunLoop;
   static main: RunLoop;
-  // compoundInstanceMethods
   acceptInput(forMode: string, before: Date): void;
-  // compoundInstanceMethods
   add(_: Port, forMode: string): void;
-  // compoundInstanceMethods
   add(_: Timer, forMode: string): void;
-  // compoundInstanceMethods
   cancelPerform(_: string, target: any, argument?: any): void;
-  // compoundInstanceMethods
   cancelPerformSelectors(withTarget: any): void;
-  // compoundInstanceMethods
   getCFRunLoop(): any;
-  // compoundInstanceMethods
   limitDate(forMode: string): Date;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(_: () => void): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(inModes: string[], block: () => void): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   perform(_: string, target: any, argument?: any, order?: number, modes?: string[]): void;
-  // compoundInstanceMethods
   remove(_: Port, forMode: string): void;
-  // compoundInstanceMethods
   run(): void;
-  // compoundInstanceMethods
   run(mode: string, before: Date): boolean;
-  // compoundInstanceMethods
   run(until: Date): void;
 }
 
@@ -29551,21 +25044,13 @@ export class Scanner extends NSObject {
   setCharactersToBeSkipped(_: CharacterSet);
   locale: any;
   setLocale(_: any);
-  // compoundInstanceMethods
   static createWithString(_: string): Scanner;
-  // compoundInstanceMethods
   scanHexDouble(_?: number): boolean;
-  // compoundInstanceMethods
   scanHexFloat(_?: number): boolean;
-  // compoundInstanceMethods
   scanHexInt64(_?: number): boolean;
-  // compoundInstanceMethods
   scanInt32(_?: number): boolean;
-  // compoundInstanceMethods
   scanInt(_?: number): boolean;
-  // compoundInstanceMethods
   scanInt64(_?: number): boolean;
-  // compoundInstanceMethods
   scanUnsignedLongLong(_?: number): boolean;
 }
 
@@ -29575,15 +25060,10 @@ export class SocketPort extends Port {
   protocolFamily: number;
   socket: number;
   socketType: number;
-  // compoundInstanceMethods
   static createWithRemoteWithProtocolFamilyWithSocketTypeWithProtocolWithAddress(_: number, socketType: number, protocol: number, address: Data): SocketPort;
-  // compoundInstanceMethods
   static createWithRemoteWithtcpPortWithHost(_: number, host?: string): SocketPort;
-  // compoundInstanceMethods
   static createWithProtocolFamilyWithSocketTypeWithProtocolWithAddress(_: number, socketType: number, protocol: number, address: Data): SocketPort;
-  // compoundInstanceMethods
   static createWithProtocolFamilyWithSocketTypeWithProtocolWithSocket(_: number, socketType: number, protocol: number, socket: number): SocketPort;
-  // compoundInstanceMethods
   static createWithTcpPort(_: number): SocketPort;
 }
 
@@ -29594,17 +25074,11 @@ export class Stream extends NSObject {
   setDelegate(_: any);
   streamError: Error;
   streamStatus: Stream.Status;
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   open(): void;
-  // compoundInstanceMethods
   property(forKey: string): any;
-  // compoundInstanceMethods
   remove(from: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   schedule(in_: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   setProperty(_?: any, forKey?: string): boolean;
 }
 
@@ -29639,15 +25113,10 @@ export class Thread extends NSObject {
   static current: Thread;
   //   static isMainThread: boolean;
   static main: Thread;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   static createWithBlock(_: () => void): Thread;
-  // compoundInstanceMethods
   static createWithTargetWithSelectorWithObject(_: any, selector: string, object_?: any): Thread;
-  // compoundInstanceMethods
   main(): void;
-  // compoundInstanceMethods
   start(): void;
 }
 
@@ -29664,14 +25133,10 @@ export class TimeZone extends NSObject {
   static local: TimeZone;
   static system: TimeZone;
   static timeZoneDataVersion: string;
-  // compoundInstanceMethods
   static createWithName(_: string): TimeZone;
-  // compoundInstanceMethods
   static createWithNameWithData(_: string, data?: Data): TimeZone;
-  // compoundInstanceMethods
   // @ts-ignore 
   isEqual(to: TimeZone): boolean;
-  // compoundInstanceMethods
   localizedName(_: TimeZone.NameStyle, locale?: Locale): string;
 }
 
@@ -29686,11 +25151,8 @@ export class Timer extends NSObject {
   setTolerance(_: number);
   userInfo: any;
   isValid: boolean;
-  // compoundInstanceMethods
   fire(): void;
-  // compoundInstanceMethods
   static createWithFireDateWithIntervalWithRepeatsWithBlock(_: Date, interval: number, repeats: boolean, block: (p1: Timer) => void): Timer;
-  // compoundInstanceMethods
   invalidate(): void;
 }
 
@@ -29733,65 +25195,35 @@ export class URL extends NSObject {
   scheme: string;
   standardized: URL;
   user: string;
-  // compoundInstanceMethods
   appendingPathComponent(_: string): URL;
-  // compoundInstanceMethods
   appendingPathComponent(_: string, isDirectory: boolean): URL;
-  // compoundInstanceMethods
   appendingPathExtension(_: string): URL;
-  // compoundInstanceMethods
   bookmarkDataWithOptions(includingResourceValuesForKeys: URL.BookmarkCreationOptions, relativeToURL?: string[], error?: URL): Data;
-  // compoundInstanceMethods
   checkPromisedItemIsReachableAndReturnError(): boolean;
-  // compoundInstanceMethods
   checkResourceIsReachableAndReturnError(): boolean;
-  // compoundInstanceMethods
   fileReferenceURL(): URL;
-  // compoundInstanceMethods
   getFileSystemRepresentation(_: string, maxLength: number): boolean;
-  // compoundInstanceMethods
   getPromisedItemResourceValue(forKey?: any, error?: string): boolean;
-  // compoundInstanceMethods
   getResourceValue(forKey?: any, error?: string): boolean;
-  // compoundInstanceMethods
   static createWithAbsoluteurlWithDataRepresentationWithRelativeToURL(_: Data, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   static createWithFileurlWithFileSystemRepresentationWithIsDirectoryWithRelativeToURL(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   static createWithFileurlWithPath(_: string): URL;
-  // compoundInstanceMethods
   static createWithFileurlWithPathWithIsDirectory(_: string, isDirectory: boolean): URL;
-  // compoundInstanceMethods
   static createWithFileurlWithPathWithIsDirectoryWithRelativeToURL(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   static createWithFileurlWithPathWithRelativeToURL(_: string, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   static createWithDataRepresentationWithRelativeToURL(_: Data, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   static createWithString(_: string): URL;
-  // compoundInstanceMethods
   static createWithStringWithRelativeToURL(_: string, relativeToURL?: URL): URL;
-  // compoundInstanceMethods
   isFileReferenceURL(): boolean;
-  // compoundInstanceMethods
   promisedItemResourceValuesForKeys(error: string[]): Map<string, any>;
-  // compoundInstanceMethods
   removeAllCachedResourceValues(): void;
-  // compoundInstanceMethods
   removeCachedResourceValue(forKey: string): void;
-  // compoundInstanceMethods
   resourceValuesForKeys(error: string[]): Map<string, any>;
-  // compoundInstanceMethods
   setResourceValue(forKey?: any, error?: string): boolean;
-  // compoundInstanceMethods
   setResourceValues(error: Map<string, any>): boolean;
-  // compoundInstanceMethods
   setTemporaryResourceValue(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   startAccessingSecurityScopedResource(): boolean;
-  // compoundInstanceMethods
   stopAccessingSecurityScopedResource(): void;
-  // compoundInstanceMethods
   write(to: NSPasteboard): void;
 }
 
@@ -29802,9 +25234,7 @@ export class URLAuthenticationChallenge extends NSObject {
   proposedCredential: URLCredential;
   protectionSpace: URLProtectionSpace;
   sender: any;
-  // compoundInstanceMethods
   static createWithAuthenticationChallengeWithSender(_: URLAuthenticationChallenge, sender: any): URLAuthenticationChallenge;
-  // compoundInstanceMethods
   static createWithProtectionSpaceWithProposedCredentialWithPreviousFailureCountWithFailureResponseWithErrorWithSender(_: URLProtectionSpace, proposedCredential?: URLCredential, previousFailureCount?: number, failureResponse?: URLResponse, error?: Error, sender?: any): URLAuthenticationChallenge;
 }
 
@@ -29825,25 +25255,15 @@ export class URLCache extends NSObject {
   setMemoryCapacity(_: number);
   static shared: URLCache;
   setSharedURLCache(_: URLCache);
-  // compoundInstanceMethods
   cachedResponse(for_: URLRequest): CachedURLResponse;
-  // compoundInstanceMethods
   getCachedResponse(for_: URLSessionDataTask, completionHandler?: (p1: CachedURLResponse) => void): void;
-  // compoundInstanceMethods
   static createWithMemoryCapacityWithDiskCapacityWithDirectoryURL(_: number, diskCapacity: number, directoryURL?: URL): URLCache;
-  // compoundInstanceMethods
   static createWithMemoryCapacityWithDiskCapacityWithDiskPath(_: number, diskCapacity: number, diskPath?: string): URLCache;
-  // compoundInstanceMethods
   removeAllCachedResponses(): void;
-  // compoundInstanceMethods
   removeCachedResponse(for_: URLSessionDataTask): void;
-  // compoundInstanceMethods
   removeCachedResponse(for_: URLRequest): void;
-  // compoundInstanceMethods
   removeCachedResponses(since: Date): void;
-  // compoundInstanceMethods
   storeCachedResponse(_: CachedURLResponse, for_: URLSessionDataTask): void;
-  // compoundInstanceMethods
   storeCachedResponse(_: CachedURLResponse, for_: URLRequest): void;
 }
 
@@ -29888,9 +25308,7 @@ export class URLComponents extends NSObject {
   setScheme(_: string);
   user: string;
   setUser(_: string);
-  // compoundInstanceMethods
   static createWithString(_: string): URLComponents;
-  // compoundInstanceMethods
   static createWithUrlWithResolvingAgainstBaseURL(_: URL, resolvingAgainstBaseURL: boolean): URLComponents;
 }
 
@@ -29901,38 +25319,24 @@ export class URLCredential extends NSObject {
   password: string;
   persistence: URLCredential.Persistence;
   user: string;
-  // compoundInstanceMethods
   static createWithIdentityWithCertificatesWithPersistence(_: any, certificates?: any[], persistence?: URLCredential.Persistence): URLCredential;
-  // compoundInstanceMethods
   static createWithTrust(_: any): URLCredential;
-  // compoundInstanceMethods
   static createWithUserWithPasswordWithPersistence(_: string, password: string, persistence: URLCredential.Persistence): URLCredential;
 }
 
 export class URLCredentialStorage extends NSObject {
   allCredentials: Map<URLProtectionSpace, Map<string, URLCredential>>;
   static shared: URLCredentialStorage;
-  // compoundInstanceMethods
   credentials(for_: URLProtectionSpace): Map<string, URLCredential>;
-  // compoundInstanceMethods
   defaultCredential(for_: URLProtectionSpace): URLCredential;
-  // compoundInstanceMethods
   getCredentials(for_: URLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: Map<string, URLCredential>) => void): void;
-  // compoundInstanceMethods
   getDefaultCredential(for_: URLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: URLCredential) => void): void;
-  // compoundInstanceMethods
   remove(_: URLCredential, for_: URLProtectionSpace): void;
-  // compoundInstanceMethods
   remove(_: URLCredential, for_: URLProtectionSpace, options?: Map<string, any>): void;
-  // compoundInstanceMethods
   remove(_: URLCredential, for_: URLProtectionSpace, options?: Map<string, any>, task?: URLSessionTask): void;
-  // compoundInstanceMethods
   set(_: URLCredential, for_: URLProtectionSpace): void;
-  // compoundInstanceMethods
   set(_: URLCredential, for_: URLProtectionSpace, task: URLSessionTask): void;
-  // compoundInstanceMethods
   setDefaultCredential(_: URLCredential, for_: URLProtectionSpace): void;
-  // compoundInstanceMethods
   setDefaultCredential(_: URLCredential, for_: URLProtectionSpace, task: URLSessionTask): void;
 }
 
@@ -29947,9 +25351,7 @@ export class URLProtectionSpace extends NSObject {
   realm: string;
   receivesCredentialSecurely: boolean;
   serverTrust: any;
-  // compoundInstanceMethods
   static createWithHostWithPortWithProtocolWithRealmWithAuthenticationMethod(_: string, port: number, protocol?: string, realm?: string, authenticationMethod?: string): URLProtectionSpace;
-  // compoundInstanceMethods
   static createWithProxyHostWithPortWithTypeWithRealmWithAuthenticationMethod(_: string, port: number, type?: string, realm?: string, authenticationMethod?: string): URLProtectionSpace;
 }
 
@@ -29967,13 +25369,9 @@ export class URLProtocol extends NSObject {
   client: any;
   request: URLRequest;
   task: URLSessionTask;
-  // compoundInstanceMethods
   static createWithRequestWithCachedResponseWithClient(_: URLRequest, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
-  // compoundInstanceMethods
   static createWithTaskWithCachedResponseWithClient(_: URLSessionTask, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
-  // compoundInstanceMethods
   startLoading(): void;
-  // compoundInstanceMethods
   stopLoading(): void;
 }
 
@@ -29990,7 +25388,6 @@ interface URLProtocolClient {
 
 export class URLQueryItem extends NSObject {
   name: string;
-  // compoundInstanceMethods
   static createWithNameWithValue(_: string, value?: string): URLQueryItem;
 }
 
@@ -30009,11 +25406,8 @@ export class URLRequest extends NSObject {
   mainDocumentURL: URL;
   networkServiceType: URLRequest.NetworkServiceType;
   timeoutInterval: number;
-  // compoundInstanceMethods
   static createWithUrl(_: URL): URLRequest;
-  // compoundInstanceMethods
   static createWithUrlWithCachePolicyWithTimeoutInterval(_: URL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): URLRequest;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(forHTTPHeaderField: string): string;
 }
@@ -30024,7 +25418,6 @@ export class URLResponse extends NSObject {
   expectedContentLength: number;
   suggestedFilename: string;
   textEncodingName: string;
-  // compoundInstanceMethods
   static createWithUrlWithMimeTypeWithExpectedContentLengthWithTextEncodingName(_: URL, MIMEType?: string, expectedContentLength?: number, textEncodingName?: string): URLResponse;
 }
 
@@ -30035,57 +25428,31 @@ export class URLSession extends NSObject {
   sessionDescription: string;
   setSessionDescription(_: string);
   static shared: URLSession;
-  // compoundInstanceMethods
   dataTask(with_: URLRequest): URLSessionDataTask;
-  // compoundInstanceMethods
   dataTask(with_: URLRequest, completionHandler?: (p1: Data, p2: URLResponse, p3: Error) => void): URLSessionDataTask;
-  // compoundInstanceMethods
   dataTask(with_: URL): URLSessionDataTask;
-  // compoundInstanceMethods
   dataTask(with_: URL, completionHandler?: (p1: Data, p2: URLResponse, p3: Error) => void): URLSessionDataTask;
-  // compoundInstanceMethods
   downloadTask(with_: URLRequest): URLSessionDownloadTask;
-  // compoundInstanceMethods
   downloadTask(with_: URLRequest, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
-  // compoundInstanceMethods
   downloadTask(withResumeData: Data): URLSessionDownloadTask;
-  // compoundInstanceMethods
   downloadTask(withResumeData: Data, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
-  // compoundInstanceMethods
   downloadTask(with_: URL): URLSessionDownloadTask;
-  // compoundInstanceMethods
   downloadTask(with_: URL, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
-  // compoundInstanceMethods
   finishTasksAndInvalidate(): void;
-  // compoundInstanceMethods
   flush(completionHandler: () => void): void;
-  // compoundInstanceMethods
   getAllTasks(completionHandler: (p1: URLSessionTask[]) => void): void;
-  // compoundInstanceMethods
   getTasksWithCompletionHandler(_: (p1: URLSessionDataTask[], p2: URLSessionUploadTask[], p3: URLSessionDownloadTask[]) => void): void;
-  // compoundInstanceMethods
   invalidateAndCancel(): void;
-  // compoundInstanceMethods
   reset(completionHandler: () => void): void;
-  // compoundInstanceMethods
   streamTask(withHostName: string, port: number): URLSessionStreamTask;
-  // compoundInstanceMethods
   streamTask(with_: NetService): URLSessionStreamTask;
-  // compoundInstanceMethods
   uploadTask(with_: URLRequest, from: Data): URLSessionUploadTask;
-  // compoundInstanceMethods
   uploadTask(with_: URLRequest, from?: Data, completionHandler?: (p1: Data, p2: URLResponse, p3: Error) => void): URLSessionUploadTask;
-  // compoundInstanceMethods
   uploadTask(with_: URLRequest, fromFile: URL): URLSessionUploadTask;
-  // compoundInstanceMethods
   uploadTask(with_: URLRequest, fromFile: URL, completionHandler?: (p1: Data, p2: URLResponse, p3: Error) => void): URLSessionUploadTask;
-  // compoundInstanceMethods
   uploadTask(withStreamedRequest: URLRequest): URLSessionUploadTask;
-  // compoundInstanceMethods
   webSocketTask(with_: URLRequest): URLSessionWebSocketTask;
-  // compoundInstanceMethods
   webSocketTask(with_: URL): URLSessionWebSocketTask;
-  // compoundInstanceMethods
   webSocketTask(with_: URL, protocols: string[]): URLSessionWebSocketTask;
 }
 
@@ -30169,7 +25536,6 @@ interface URLSessionDownloadDelegate {
 }
 
 export class URLSessionDownloadTask extends URLSessionTask {
-  // compoundInstanceMethods
   // @ts-ignore 
   cancel(byProducingResumeData?: (p1: Data) => void): void;
 }
@@ -30182,17 +25548,11 @@ interface URLSessionStreamDelegate {
 }
 
 export class URLSessionStreamTask extends URLSessionTask {
-  // compoundInstanceMethods
   captureStreams(): void;
-  // compoundInstanceMethods
   closeRead(): void;
-  // compoundInstanceMethods
   closeWrite(): void;
-  // compoundInstanceMethods
   readData(ofMinLength: number, maxLength: number, timeout: number, completionHandler?: (p1: Data, p2: boolean, p3: Error) => void): void;
-  // compoundInstanceMethods
   startSecureConnection(): void;
-  // compoundInstanceMethods
   write(_: Data, timeout: number, completionHandler?: (p1: Error) => void): void;
 }
 
@@ -30217,11 +25577,8 @@ export class URLSessionTask extends NSObject {
   taskDescription: string;
   setTaskDescription(_: string);
   taskIdentifier: number;
-  // compoundInstanceMethods
   cancel(): void;
-  // compoundInstanceMethods
   resume(): void;
-  // compoundInstanceMethods
   suspend(): void;
 }
 
@@ -30291,24 +25648,17 @@ export class URLSessionWebSocketTask extends URLSessionTask {
   closeReason: Data;
   maximumMessageSize: number;
   setMaximumMessageSize(_: number);
-  // compoundInstanceMethods
   // @ts-ignore 
   cancel(with_: URLSession.URLSessionWebSocketTask.CloseCode, reason?: Data): void;
-  // compoundInstanceMethods
   receiveMessageWithCompletionHandler(_?: (p1: NSURLSessionWebSocketMessage, p2: Error) => void): void;
-  // compoundInstanceMethods
   sendMessage(_: NSURLSessionWebSocketMessage, completionHandler?: (p1: Error) => void): void;
-  // compoundInstanceMethods
   sendPing(pongReceiveHandler?: (p1: Error) => void): void;
 }
 
 export class UUID extends NSObject {
   uuidString: string;
-  // compoundInstanceMethods
   getBytes(_: number): void;
-  // compoundInstanceMethods
   static createWithUuidBytes(_?: number): UUID;
-  // compoundInstanceMethods
   static createWithUuidString(_: string): UUID;
 }
 
@@ -30331,41 +25681,25 @@ export class UndoManager extends NSObject {
   undoMenuItemTitle: string;
   isUndoRegistrationEnabled: boolean;
   isUndoing: boolean;
-  // compoundInstanceMethods
   beginUndoGrouping(): void;
-  // compoundInstanceMethods
   disableUndoRegistration(): void;
-  // compoundInstanceMethods
   enableUndoRegistration(): void;
-  // compoundInstanceMethods
   endUndoGrouping(): void;
-  // compoundInstanceMethods
   prepare(withInvocationTarget: any): any;
-  // compoundInstanceMethods
   redo(): void;
-  // compoundInstanceMethods
   redoMenuTitle(forUndoActionName: string): string;
-  // compoundInstanceMethods
   registerUndo(withTarget: any, selector: string, object_?: any): void;
-  // compoundInstanceMethods
   removeAllActions(): void;
-  // compoundInstanceMethods
   removeAllActions(withTarget: any): void;
-  // compoundInstanceMethods
   setActionIsDiscardable(_: boolean): void;
-  // compoundInstanceMethods
   setActionName(_: string): void;
-  // compoundInstanceMethods
   undo(): void;
-  // compoundInstanceMethods
   undoMenuTitle(forUndoActionName: string): string;
-  // compoundInstanceMethods
   undoNestedGroup(): void;
 }
 
 export class Unit extends NSObject {
   symbol: string;
-  // compoundInstanceMethods
   static createWithSymbol(_: string): Unit;
 }
 
@@ -30411,9 +25745,7 @@ export class UnitConcentrationMass extends Dimension {
 }
 
 export class UnitConverter extends NSObject {
-  // compoundInstanceMethods
   baseUnitValue(fromValue: number): number;
-  // compoundInstanceMethods
   // @ts-ignore 
   value(fromBaseUnitValue: number): number;
 }
@@ -30421,9 +25753,7 @@ export class UnitConverter extends NSObject {
 export class UnitConverterLinear extends UnitConverter {
   coefficient: number;
   constant: number;
-  // compoundInstanceMethods
   static createWithCoefficient(_: number): UnitConverterLinear;
-  // compoundInstanceMethods
   static createWithCoefficientWithConstant(_: number, constant: number): UnitConverterLinear;
 }
 
@@ -30643,67 +25973,36 @@ export class UserDefaults extends NSObject {
   static resetStandardUserDefaults(): void;
   volatileDomainNames: string[];
   static standard: UserDefaults;
-  // compoundInstanceMethods
   url(forKey: string): URL;
-  // compoundInstanceMethods
   addSuite(named: string): void;
-  // compoundInstanceMethods
   array(forKey: string): any[];
-  // compoundInstanceMethods
   bool(forKey: string): boolean;
-  // compoundInstanceMethods
   data(forKey: string): Data;
-  // compoundInstanceMethods
   dictionary(forKey: string): Map<string, any>;
-  // compoundInstanceMethods
   dictionaryRepresentation(): Map<string, any>;
-  // compoundInstanceMethods
   double(forKey: string): number;
-  // compoundInstanceMethods
   float(forKey: string): number;
-  // compoundInstanceMethods
   static createWithSuiteName(_?: string): UserDefaults;
-  // compoundInstanceMethods
   integer(forKey: string): number;
-  // compoundInstanceMethods
   object(forKey: string): any;
-  // compoundInstanceMethods
   objectIsForced(forKey: string): boolean;
-  // compoundInstanceMethods
   objectIsForced(forKey: string, inDomain: string): boolean;
-  // compoundInstanceMethods
   persistentDomain(forName: string): Map<string, any>;
-  // compoundInstanceMethods
   register(defaults: Map<string, any>): void;
-  // compoundInstanceMethods
   removeObject(forKey: string): void;
-  // compoundInstanceMethods
   removePersistentDomain(forName: string): void;
-  // compoundInstanceMethods
   removeSuite(named: string): void;
-  // compoundInstanceMethods
   removeVolatileDomain(forName: string): void;
-  // compoundInstanceMethods
   set(_: boolean, forKey: string): void;
-  // compoundInstanceMethods
   set(_: number, forKey: string): void;
-  // compoundInstanceMethods
   set(_: number, forKey: string): void;
-  // compoundInstanceMethods
   set(_: number, forKey: string): void;
-  // compoundInstanceMethods
   set(_?: any, forKey?: string): void;
-  // compoundInstanceMethods
   setPersistentDomain(_: Map<string, any>, forName: string): void;
-  // compoundInstanceMethods
   set(_?: URL, forKey?: string): void;
-  // compoundInstanceMethods
   setVolatileDomain(_: Map<string, any>, forName: string): void;
-  // compoundInstanceMethods
   stringArray(forKey: string): string[];
-  // compoundInstanceMethods
   synchronize(): boolean;
-  // compoundInstanceMethods
   volatileDomain(forName: string): Map<string, any>;
 }
 
@@ -30712,9 +26011,7 @@ export class ValueTransformer extends NSObject {
   static setValueTransformer(_?: ValueTransformer, forName?: string): void;
   static transformedValueClass(): typeof NSObject;
   static valueTransformerNames(): string[];
-  // compoundInstanceMethods
   reverseTransformedValue(_?: any): any;
-  // compoundInstanceMethods
   transformedValue(_?: any): any;
 }
 
@@ -30724,29 +26021,17 @@ export class XMLDTD extends XMLNode {
   setPublicID(_: string);
   systemID: string;
   setSystemID(_: string);
-  // compoundInstanceMethods
   addChild(_: XMLNode): void;
-  // compoundInstanceMethods
   attributeDeclaration(forName: string, elementName: string): XMLDTDNode;
-  // compoundInstanceMethods
   elementDeclaration(forName: string): XMLDTDNode;
-  // compoundInstanceMethods
   entityDeclaration(forName: string): XMLDTDNode;
-  // compoundInstanceMethods
   static createWithContentsOf(options: URL, error: XMLNode.Options): XMLDTD;
-  // compoundInstanceMethods
   static createWithData(options: Data, error: XMLNode.Options): XMLDTD;
-  // compoundInstanceMethods
   insertChild(_: XMLNode, at: number): void;
-  // compoundInstanceMethods
   insertChildren(_: XMLNode[], at: number): void;
-  // compoundInstanceMethods
   notationDeclaration(forName: string): XMLDTDNode;
-  // compoundInstanceMethods
   removeChild(at: number): void;
-  // compoundInstanceMethods
   replaceChild(at: number, with_: XMLNode): void;
-  // compoundInstanceMethods
   setChildren(_?: XMLNode[]): void;
 }
 
@@ -30760,7 +26045,6 @@ export class XMLDTDNode extends XMLNode {
   setPublicID(_: string);
   systemID: string;
   setSystemID(_: string);
-  // compoundInstanceMethods
   static createWithXmlString(_: string): XMLDTDNode;
 }
 
@@ -30776,37 +26060,21 @@ export class XMLDocument extends XMLNode {
   setDocumentContentKind(_: XMLDocument.ContentKind);
   isStandalone: boolean;
   setStandalone(_: boolean);
-  // compoundInstanceMethods
   addChild(_: XMLNode): void;
-  // compoundInstanceMethods
   static createWithContentsOf(options: URL, error: XMLNode.Options): XMLDocument;
-  // compoundInstanceMethods
   static createWithData(options: Data, error: XMLNode.Options): XMLDocument;
-  // compoundInstanceMethods
   static createWithRootElement(_?: XMLElement): XMLDocument;
-  // compoundInstanceMethods
   static createWithXmlString(options: string, error: XMLNode.Options): XMLDocument;
-  // compoundInstanceMethods
   insertChild(_: XMLNode, at: number): void;
-  // compoundInstanceMethods
   insertChildren(_: XMLNode[], at: number): void;
-  // compoundInstanceMethods
   objectByApplyingXSLT(arguments_: Data, error?: Map<string, string>): any;
-  // compoundInstanceMethods
   objectByApplyingXSLTAtURL(arguments_: URL, error?: Map<string, string>): any;
-  // compoundInstanceMethods
   objectByApplyingXSLTString(arguments_: string, error?: Map<string, string>): any;
-  // compoundInstanceMethods
   removeChild(at: number): void;
-  // compoundInstanceMethods
   replaceChild(at: number, with_: XMLNode): void;
-  // compoundInstanceMethods
   rootElement(): XMLElement;
-  // compoundInstanceMethods
   setChildren(_?: XMLNode[]): void;
-  // compoundInstanceMethods
   setRootElement(_: XMLElement): void;
-  // compoundInstanceMethods
   validateAndReturnError(): boolean;
 }
 
@@ -30815,56 +26083,32 @@ export class XMLElement extends XMLNode {
   setAttributes(_: XMLNode[]);
   namespaces: XMLNode[];
   setNamespaces(_: XMLNode[]);
-  // compoundInstanceMethods
   addAttribute(_: XMLNode): void;
-  // compoundInstanceMethods
   addChild(_: XMLNode): void;
-  // compoundInstanceMethods
   addNamespace(_: XMLNode): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   attribute(forLocalName: string, uri?: string): XMLNode;
-  // compoundInstanceMethods
   // @ts-ignore 
   attribute(forName: string): XMLNode;
-  // compoundInstanceMethods
   elements(forLocalName: string, uri?: string): XMLElement[];
-  // compoundInstanceMethods
   elements(forName: string): XMLElement[];
-  // compoundInstanceMethods
   static createWithName(_: string): XMLElement;
-  // compoundInstanceMethods
   static createWithNameWithUri(_: string, URI?: string): XMLElement;
-  // compoundInstanceMethods
   static createWithNameWithStringValue(_: string, stringValue?: string): XMLElement;
-  // compoundInstanceMethods
   static createWith(error: string): XMLElement;
-  // compoundInstanceMethods
   insertChild(_: XMLNode, at: number): void;
-  // compoundInstanceMethods
   insertChildren(_: XMLNode[], at: number): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   namespace(forPrefix: string): XMLNode;
-  // compoundInstanceMethods
   normalizeAdjacentTextNodesPreservingCDATA(_: boolean): void;
-  // compoundInstanceMethods
   removeAttribute(forName: string): void;
-  // compoundInstanceMethods
   removeChild(at: number): void;
-  // compoundInstanceMethods
   removeNamespace(forPrefix: string): void;
-  // compoundInstanceMethods
   replaceChild(at: number, with_: XMLNode): void;
-  // compoundInstanceMethods
   resolveNamespace(forName: string): XMLNode;
-  // compoundInstanceMethods
   resolvePrefix(forNamespaceURI: string): string;
-  // compoundInstanceMethods
   setAttributesAs(_: Map<any, any>): void;
-  // compoundInstanceMethods
   setAttributesWith(_: Map<string, string>): void;
-  // compoundInstanceMethods
   setChildren(_?: XMLNode[]): void;
 }
 
@@ -30907,23 +26151,14 @@ export class XMLNode extends NSObject {
   rootDocument: XMLDocument;
   stringValue: string;
   setStringValue(_: string);
-  // compoundInstanceMethods
   canonicalXMLStringPreservingComments(_: boolean): string;
-  // compoundInstanceMethods
   child(at: number): XMLNode;
-  // compoundInstanceMethods
   detach(): void;
-  // compoundInstanceMethods
   static createWithKind(_: XMLNode.Kind): XMLNode;
-  // compoundInstanceMethods
   static createWithKindWithOptions(_: XMLNode.Kind, options: XMLNode.Options): XMLNode;
-  // compoundInstanceMethods
   nodesForXPath(error: string): XMLNode[];
-  // compoundInstanceMethods
   objectsForXQuery(constants: string, error?: Map<string, any>): any[];
-  // compoundInstanceMethods
   objectsForXQuery(error: string): any[];
-  // compoundInstanceMethods
   setStringValue(_: string, resolvingEntities: boolean): void;
 }
 
@@ -30945,15 +26180,10 @@ export class XMLParser extends NSObject {
   shouldResolveExternalEntities: boolean;
   setShouldResolveExternalEntities(_: boolean);
   systemID: string;
-  // compoundInstanceMethods
   abortParsing(): void;
-  // compoundInstanceMethods
   static createWithContentsOf(_: URL): XMLParser;
-  // compoundInstanceMethods
   static createWithData(_: Data): XMLParser;
-  // compoundInstanceMethods
   static createWithStream(_: InputStream): XMLParser;
-  // compoundInstanceMethods
   parse(): boolean;
 }
 
@@ -31351,19 +26581,12 @@ export class IKCameraDeviceView extends NSView {
   setPostProcessApplication(_: URL);
   transferMode: IKCameraDeviceView.IKCameraDeviceViewTransferMode;
   setTransferMode(_: IKCameraDeviceView.IKCameraDeviceViewTransferMode);
-  // compoundInstanceMethods
   deleteSelectedItems(_: any): void;
-  // compoundInstanceMethods
   downloadAllItems(_: any): void;
-  // compoundInstanceMethods
   downloadSelectedItems(_: any): void;
-  // compoundInstanceMethods
   rotateLeft(_: any): void;
-  // compoundInstanceMethods
   rotateRight(_: any): void;
-  // compoundInstanceMethods
   select(_: IndexSet, byExtendingSelection: boolean): void;
-  // compoundInstanceMethods
   selectedIndexes(): IndexSet;
 }
 
@@ -31396,25 +26619,17 @@ interface IKDeviceBrowserViewDelegate {
 
 export class IKFilterBrowserPanel extends NSPanel {
   static filterBrowserPanel(withStyleMask: number): any;
-  // compoundInstanceMethods
   // @ts-ignore 
   beginSheet(options: Map<any, any>, modalFor: NSWindow, modalDelegate: any, didEnd: string, contextInfo: any): void;
-  // compoundInstanceMethods
   begin(options: Map<any, any>, modelessDelegate: any, didEnd: string, contextInfo: any): void;
-  // compoundInstanceMethods
   filterBrowserView(options: Map<any, any>): IKFilterBrowserView;
-  // compoundInstanceMethods
   filterName(): string;
-  // compoundInstanceMethods
   finish(_: any): void;
-  // compoundInstanceMethods
   runModal(options: Map<any, any>): number;
 }
 
 export class IKFilterBrowserView extends NSView {
-  // compoundInstanceMethods
   filterName(): string;
-  // compoundInstanceMethods
   setPreviewState(_: boolean): void;
 }
 
@@ -31424,42 +26639,26 @@ interface IKFilterCustomUIProvider {
 
 export class IKFilterUIView extends NSView {
   static view(withFrame: CGRect, filter: CIFilter): any;
-  // compoundInstanceMethods
   filter(): CIFilter;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithFilter(_: CGRect, filter: CIFilter): IKFilterUIView;
-  // compoundInstanceMethods
   objectController(): NSObjectController;
 }
 
 export class IKImageBrowserCell extends NSObject {
-  // compoundInstanceMethods
   cellState(): IKImageBrowserCell.IKImageBrowserCellState;
-  // compoundInstanceMethods
   frame(): CGRect;
-  // compoundInstanceMethods
   imageAlignment(): NSImageCell.NSImageAlignment;
-  // compoundInstanceMethods
   imageContainerFrame(): CGRect;
-  // compoundInstanceMethods
   imageFrame(): CGRect;
-  // compoundInstanceMethods
   indexOfRepresentedItem(): number;
-  // compoundInstanceMethods
   isSelected(): boolean;
-  // compoundInstanceMethods
   // @ts-ignore 
   layer(forType: string): CALayer;
-  // compoundInstanceMethods
   opacity(): number;
-  // compoundInstanceMethods
   representedItem(): any;
-  // compoundInstanceMethods
   selectionFrame(): CGRect;
-  // compoundInstanceMethods
   subtitleFrame(): CGRect;
-  // compoundInstanceMethods
   titleFrame(): CGRect;
 }
 
@@ -31468,7 +26667,6 @@ export class IKImageEditPanel extends NSPanel {
   dataSource: any;
   setDataSource(_: any);
   filterArray: any[];
-  // compoundInstanceMethods
   reloadData(): void;
 }
 
@@ -31509,80 +26707,46 @@ export class IKImageView extends NSView {
   setSupportsDragAndDrop(_: boolean);
   zoomFactor: number;
   setZoomFactor(_: number);
-  // compoundInstanceMethods
   convertImagePoint(toViewPoint: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertImageRect(toViewRect: CGRect): CGRect;
-  // compoundInstanceMethods
   convertPoint(toImagePoint: CGPoint): CGPoint;
-  // compoundInstanceMethods
   convertRect(toImageRect: CGRect): CGRect;
-  // compoundInstanceMethods
   crop(_: any): void;
-  // compoundInstanceMethods
   flipImageHorizontal(_: any): void;
-  // compoundInstanceMethods
   flipImageVertical(_: any): void;
-  // compoundInstanceMethods
   image(): any;
-  // compoundInstanceMethods
   imageProperties(): Map<any, any>;
-  // compoundInstanceMethods
   imageSize(): CGSize;
-  // compoundInstanceMethods
   overlay(forType: string): CALayer;
-  // compoundInstanceMethods
   rotateImageLeft(_: any): void;
-  // compoundInstanceMethods
   rotateImageRight(_: any): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   scroll(to: CGPoint): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   scroll(to: CGRect): void;
-  // compoundInstanceMethods
   setImage(_: any, imageProperties: Map<any, any>): void;
-  // compoundInstanceMethods
   setImageWith(_: URL): void;
-  // compoundInstanceMethods
   setImageZoomFactor(_: number, center: CGPoint): void;
-  // compoundInstanceMethods
   setOverlay(_: CALayer, forType: string): void;
-  // compoundInstanceMethods
   setRotationAngle(_: number, center: CGPoint): void;
-  // compoundInstanceMethods
   zoomImageToActualSize(_: any): void;
-  // compoundInstanceMethods
   zoomImageToFit(_: any): void;
-  // compoundInstanceMethods
   zoomImage(to: CGRect): void;
-  // compoundInstanceMethods
   zoomIn(_: any): void;
-  // compoundInstanceMethods
   zoomOut(_: any): void;
 }
 
 export class IKPictureTaker extends NSPanel {
   static pictureTaker(): IKPictureTaker;
-  // compoundInstanceMethods
   // @ts-ignore 
   beginSheet(for_: NSWindow, withDelegate: any, didEnd: string, contextInfo: any): void;
-  // compoundInstanceMethods
   begin(withDelegate: any, didEnd: string, contextInfo: any): void;
-  // compoundInstanceMethods
   inputImage(): NSImage;
-  // compoundInstanceMethods
   mirroring(): boolean;
-  // compoundInstanceMethods
   outputImage(): NSImage;
-  // compoundInstanceMethods
   popUpRecentsMenu(for_: NSView, withDelegate: any, didEnd: string, contextInfo: any): void;
-  // compoundInstanceMethods
   runModal(): number;
-  // compoundInstanceMethods
   setInputImage(_: NSImage): void;
-  // compoundInstanceMethods
   setMirroring(_: boolean): void;
 }
 
@@ -31592,11 +26756,8 @@ export class IKSaveOptions extends NSObject {
   imageProperties: Map<any, any>;
   imageUTType: string;
   userSelection: Map<any, any>;
-  // compoundInstanceMethods
   addAccessoryView(to: NSSavePanel): void;
-  // compoundInstanceMethods
   add(to: NSView): void;
-  // compoundInstanceMethods
   static createWithImagePropertiesWithImageutType(_: Map<any, any>, imageUTType: string): IKSaveOptions;
 }
 
@@ -31642,15 +26803,10 @@ export class IKSlideshow extends NSObject {
   static shared(): IKSlideshow;
   autoPlayDelay: number;
   setAutoPlayDelay(_: number);
-  // compoundInstanceMethods
   indexOfCurrentSlideshowItem(): number;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   reloadItem(at: number): void;
-  // compoundInstanceMethods
   run(with_: any, inMode: string, options: Map<any, any>): void;
-  // compoundInstanceMethods
   stop(_: any): void;
 }
 
@@ -31684,15 +26840,10 @@ export class QLPreviewPanel extends NSPanel {
   displayState: any;
   setDisplayState(_: any);
   isInFullScreenMode: boolean;
-  // compoundInstanceMethods
   enterFullScreenMode(_: NSScreen, withOptions: Map<any, any>): boolean;
-  // compoundInstanceMethods
   exitFullScreenMode(options: Map<any, any>): void;
-  // compoundInstanceMethods
   refreshCurrentPreviewItem(): void;
-  // compoundInstanceMethods
   reloadData(): void;
-  // compoundInstanceMethods
   updateController(): void;
 }
 
@@ -31716,12 +26867,9 @@ export class QLPreviewView extends NSView {
   setPreviewItem(_: any);
   shouldCloseWithWindow: boolean;
   setShouldCloseWithWindow(_: boolean);
-  // compoundInstanceMethods
   close(): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   static createWithFrameWithStyle(_: CGRect, style: QLPreviewView.QLPreviewViewStyle): QLPreviewView;
-  // compoundInstanceMethods
   refreshPreviewItem(): void;
 }
 
@@ -31731,38 +26879,25 @@ interface QLPreviewingController {
 }
 
 export class QuartzFilter extends NSObject {
-  // compoundInstanceMethods
   apply(to: any): boolean;
-  // compoundInstanceMethods
   localizedName(): string;
-  // compoundInstanceMethods
   properties(): Map<any, any>;
-  // compoundInstanceMethods
   remove(from: any): void;
-  // compoundInstanceMethods
   url(): URL;
 }
 
 export class QuartzFilterManager extends NSObject {
   static filters(inDomains: any[]): any[];
-  // compoundInstanceMethods
   delegate(): any;
-  // compoundInstanceMethods
   filterPanel(): NSPanel;
-  // compoundInstanceMethods
   filterView(): QuartzFilterView;
-  // compoundInstanceMethods
   importFilter(_: Map<any, any>): QuartzFilter;
-  // compoundInstanceMethods
   select(_: QuartzFilter): boolean;
-  // compoundInstanceMethods
   selectedFilter(): QuartzFilter;
-  // compoundInstanceMethods
   setDelegate(_: any): void;
 }
 
 export class QuartzFilterView extends NSView {
-  // compoundInstanceMethods
   sizeToFit(): void;
 }
 
@@ -31778,7 +26913,6 @@ export class CAAnimation extends NSObject {
   setRemovedOnCompletion(_: boolean);
   timingFunction: CAMediaTimingFunction;
   setTimingFunction(_: CAMediaTimingFunction);
-  // compoundInstanceMethods
   shouldArchiveValue(forKey: string): boolean;
 }
 
@@ -31807,7 +26941,6 @@ export class CAConstraint extends NSObject {
   scale: number;
   sourceAttribute: CAConstraintLayoutManager.CAConstraintAttribute;
   sourceName: string;
-  // compoundInstanceMethods
   static createWithAttributeWithRelativeToWithAttribute2WithScaleWithOffset(_: CAConstraintLayoutManager.CAConstraintAttribute, relativeTo: string, attribute: CAConstraintLayoutManager.CAConstraintAttribute, scale: number, offset: number): CAConstraint;
 }
 
@@ -31826,11 +26959,8 @@ export class CADisplayLink extends NSObject {
   setPreferredFramesPerSecond(_: number);
   targetTimestamp: number;
   timestamp: number;
-  // compoundInstanceMethods
   add(to: RunLoop, forMode: string): void;
-  // compoundInstanceMethods
   invalidate(): void;
-  // compoundInstanceMethods
   remove(from: RunLoop, forMode: string): void;
 }
 
@@ -31913,7 +27043,6 @@ export class CAEmitterCell extends NSObject {
   setYAcceleration(_: number);
   zAcceleration: number;
   setZAcceleration(_: number);
-  // compoundInstanceMethods
   shouldArchiveValue(forKey: string): boolean;
 }
 
@@ -32097,93 +27226,49 @@ export class CALayer extends NSObject {
   visibleRect: CGRect;
   zPosition: number;
   setZPosition(_: number);
-  // compoundInstanceMethods
   action(forKey: string): any;
-  // compoundInstanceMethods
   add(_: CAAnimation, forKey?: string): void;
-  // compoundInstanceMethods
   addConstraint(_: CAConstraint): void;
-  // compoundInstanceMethods
   addSublayer(_: CALayer): void;
-  // compoundInstanceMethods
   affineTransform(): CGAffineTransform;
-  // compoundInstanceMethods
   animation(forKey: string): CAAnimation;
-  // compoundInstanceMethods
   animationKeys(): string[];
-  // compoundInstanceMethods
   contains(_: CGPoint): boolean;
-  // compoundInstanceMethods
   contentsAreFlipped(): boolean;
-  // compoundInstanceMethods
   convert(_: CGPoint, from?: CALayer): CGPoint;
-  // compoundInstanceMethods
   convert(_: CGPoint, to?: CALayer): CGPoint;
-  // compoundInstanceMethods
   convert(_: CGRect, from?: CALayer): CGRect;
-  // compoundInstanceMethods
   convert(_: CGRect, to?: CALayer): CGRect;
-  // compoundInstanceMethods
   convertTime(_: number, from?: CALayer): number;
-  // compoundInstanceMethods
   convertTime(_: number, to?: CALayer): number;
-  // compoundInstanceMethods
   display(): void;
-  // compoundInstanceMethods
   displayIfNeeded(): void;
-  // compoundInstanceMethods
   draw(in_: any): void;
-  // compoundInstanceMethods
   hitTest(_: CGPoint): CALayer;
-  // compoundInstanceMethods
   static createWithLayer(_: any): CALayer;
-  // compoundInstanceMethods
   insertSublayer(_: CALayer, above?: CALayer): void;
-  // compoundInstanceMethods
   insertSublayer(_: CALayer, at: number): void;
-  // compoundInstanceMethods
   insertSublayer(_: CALayer, below?: CALayer): void;
-  // compoundInstanceMethods
   layoutIfNeeded(): void;
-  // compoundInstanceMethods
   layoutSublayers(): void;
-  // compoundInstanceMethods
   createWithModelLayer(): CALayer;
-  // compoundInstanceMethods
   needsDisplay(): boolean;
-  // compoundInstanceMethods
   needsLayout(): boolean;
-  // compoundInstanceMethods
   preferredFrameSize(): CGSize;
-  // compoundInstanceMethods
   createWithPresentationLayer(): CALayer;
-  // compoundInstanceMethods
   removeAllAnimations(): void;
-  // compoundInstanceMethods
   removeAnimation(forKey: string): void;
-  // compoundInstanceMethods
   removeFromSuperlayer(): void;
-  // compoundInstanceMethods
   render(in_: any): void;
-  // compoundInstanceMethods
   replaceSublayer(_: CALayer, with_: CALayer): void;
-  // compoundInstanceMethods
   resizeSublayers(withOldSize: CGSize): void;
-  // compoundInstanceMethods
   resize(withOldSuperlayerSize: CGSize): void;
-  // compoundInstanceMethods
   scroll(_: CGPoint): void;
-  // compoundInstanceMethods
   scrollRectToVisible(_: CGRect): void;
-  // compoundInstanceMethods
   setAffineTransform(_: CGAffineTransform): void;
-  // compoundInstanceMethods
   setNeedsDisplay(): void;
-  // compoundInstanceMethods
   setNeedsDisplay(_: CGRect): void;
-  // compoundInstanceMethods
   setNeedsLayout(): void;
-  // compoundInstanceMethods
   shouldArchiveValue(forKey: string): boolean;
 }
 
@@ -32222,9 +27307,7 @@ interface CAMediaTiming {
 
 export class CAMediaTimingFunction extends NSObject {
   static createWithFunctionWithControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
-  // compoundInstanceMethods
   getControlPoint(at: number, values: number): void;
-  // compoundInstanceMethods
   static createWithControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
 }
 
@@ -32257,7 +27340,6 @@ export class CAMetalLayer extends CALayer {
   setPresentsWithTransaction(_: boolean);
   wantsExtendedDynamicRangeContent: boolean;
   setWantsExtendedDynamicRangeContent(_: boolean);
-  // compoundInstanceMethods
   nextDrawable(): any;
 }
 
@@ -32274,9 +27356,7 @@ export class CAPropertyAnimation extends CAAnimation {
 
 export class CARemoteLayerClient extends NSObject {
   clientId: number;
-  // compoundInstanceMethods
   static createWithServerPort(_: number): CARemoteLayerClient;
-  // compoundInstanceMethods
   invalidate(): void;
 }
 
@@ -32288,19 +27368,12 @@ export class CARemoteLayerServer extends NSObject {
 export class CARenderer extends NSObject {
   bounds: CGRect;
   setBounds(_: CGRect);
-  // compoundInstanceMethods
   addUpdate(_: CGRect): void;
-  // compoundInstanceMethods
   beginFrame(atTime: number, timeStamp?: CVTimeStamp): void;
-  // compoundInstanceMethods
   endFrame(): void;
-  // compoundInstanceMethods
   nextFrameTime(): number;
-  // compoundInstanceMethods
   render(): void;
-  // compoundInstanceMethods
   setDestination(_: any): void;
-  // compoundInstanceMethods
   updateBounds(): CGRect;
 }
 
@@ -32328,10 +27401,8 @@ export class CAReplicatorLayer extends CALayer {
 export class CAScrollLayer extends CALayer {
   scrollMode: string;
   setScrollMode(_: string);
-  // compoundInstanceMethods
   // @ts-ignore 
   scroll(to: CGPoint): void;
-  // compoundInstanceMethods
   // @ts-ignore 
   scroll(to: CGRect): void;
 }
@@ -35447,18 +30518,14 @@ export namespace CKRecord {
   export class ID extends NSObject {
     recordName: string;
     zoneID: CKRecordZone.ID;
-    // compoundInstanceMethods
     static createWithRecordName(_: string): CKRecord.ID;
-    // compoundInstanceMethods
     static createWithRecordNameWithZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord.ID;
   }
   
   export class Reference extends NSObject {
     recordID: CKRecord.ID;
     action: CKRecord.Reference.CKRecord_Reference_Action;
-    // compoundInstanceMethods
     static createWithRecordWithAction(_: CKRecord, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
-    // compoundInstanceMethods
     static createWithRecordIDWithAction(_: CKRecord.ID, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
   }
   
@@ -35468,7 +30535,6 @@ export namespace CKRecordZone {
   export class ID extends NSObject {
     ownerName: string;
     zoneName: string;
-    // compoundInstanceMethods
     static createWithZoneNameWithOwnerName(_: string, ownerName: string): CKRecordZone.ID;
   }
   
@@ -35562,11 +30628,8 @@ export namespace CKUserIdentity {
     emailAddress: string;
     phoneNumber: string;
     userRecordID: CKRecord.ID;
-    // compoundInstanceMethods
     static createWithEmailAddress(_: string): CKUserIdentity.LookupInfo;
-    // compoundInstanceMethods
     static createWithPhoneNumber(_: string): CKUserIdentity.LookupInfo;
-    // compoundInstanceMethods
     static createWithUserRecordID(_: CKRecord.ID): CKUserIdentity.LookupInfo;
   }
   
@@ -36648,9 +31711,7 @@ export namespace FileManager {
     fileAttributes: Map<string, any>;
     isEnumeratingDirectoryPostOrder: boolean;
     level: number;
-    // compoundInstanceMethods
     skipDescendants(): void;
-    // compoundInstanceMethods
     skipDescendents(): void;
   }
   
@@ -37308,9 +32369,7 @@ export namespace NSAccessibilityCustomRotor {
     targetElement: any;
     targetRange: NSRange;
     setTargetRange(_: NSRange);
-    // compoundInstanceMethods
     static createWithItemLoadingTokenWithCustomLabel(_: any, customLabel: string): NSAccessibilityCustomRotor.ItemResult;
-    // compoundInstanceMethods
     static createWithTargetElement(_: any): NSAccessibilityCustomRotor.ItemResult;
   }
   

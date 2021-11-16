@@ -36,7 +36,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ColorWell', this.attrs, this.$slots);
+    return h('NSColorWell', this.attrs, this.$slots);
   }
 });
 </script>

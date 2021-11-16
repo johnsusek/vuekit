@@ -59,7 +59,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('SegmentedControl', this.attrs, this.$slots);
+    return h('NSSegmentedControl', this.attrs, this.$slots);
   }
 });
 </script>

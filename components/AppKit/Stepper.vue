@@ -48,7 +48,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Stepper', this.attrs, this.$slots);
+    return h('NSStepper', this.attrs, this.$slots);
   }
 });
 </script>

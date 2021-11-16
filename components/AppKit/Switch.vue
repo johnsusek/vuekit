@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Switch', this.attrs, this.$slots);
+    return h('NSSwitch', this.attrs, this.$slots);
   }
 });
 </script>

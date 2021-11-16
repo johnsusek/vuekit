@@ -74,7 +74,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TableRowView', this.attrs, this.$slots);
+    return h('NSTableRowView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -56,7 +56,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ClipView', this.attrs, this.$slots);
+    return h('NSClipView', this.attrs, this.$slots);
   }
 });
 </script>

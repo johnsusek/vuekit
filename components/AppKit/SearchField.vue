@@ -60,7 +60,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('SearchField', this.attrs, this.$slots);
+    return h('NSSearchField', this.attrs, this.$slots);
   }
 });
 </script>

@@ -69,7 +69,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('RulerView', this.attrs, this.$slots);
+    return h('NSRulerView', this.attrs, this.$slots);
   }
 });
 </script>

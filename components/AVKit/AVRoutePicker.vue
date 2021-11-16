@@ -40,7 +40,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('RoutePickerView', this.attrs, this.$slots);
+    return h('AVRoutePickerView', this.attrs, this.$slots);
   }
 });
 </script>

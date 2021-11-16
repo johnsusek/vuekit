@@ -101,7 +101,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TextField', this.attrs, this.$slots);
+    return h('NSTextField', this.attrs, this.$slots);
   }
 });
 </script>

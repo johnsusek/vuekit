@@ -42,7 +42,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Scroller', this.attrs, this.$slots);
+    return h('NSScroller', this.attrs, this.$slots);
   }
 });
 </script>

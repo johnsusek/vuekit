@@ -49,7 +49,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('SplitView', this.attrs, this.$slots);
+    return h('NSSplitView', this.attrs, this.$slots);
   }
 });
 </script>

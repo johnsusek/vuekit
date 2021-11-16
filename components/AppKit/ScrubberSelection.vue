@@ -28,7 +28,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrubberSelectionView', this.attrs, this.$slots);
+    return h('NSScrubberSelectionView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -109,7 +109,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Matrix', this.attrs, this.$slots);
+    return h('NSMatrix', this.attrs, this.$slots);
   }
 });
 </script>

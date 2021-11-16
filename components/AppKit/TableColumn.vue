@@ -74,7 +74,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TableColumn', this.attrs, this.$slots);
+    return h('NSTableColumn', this.attrs, this.$slots);
   }
 });
 </script>

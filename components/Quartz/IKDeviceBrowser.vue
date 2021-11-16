@@ -53,7 +53,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('DeviceBrowserView', this.attrs, this.$slots);
+    return h('IKDeviceBrowserView', this.attrs, this.$slots);
   }
 });
 </script>

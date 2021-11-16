@@ -45,7 +45,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TokenField', this.attrs, this.$slots);
+    return h('NSTokenField', this.attrs, this.$slots);
   }
 });
 </script>

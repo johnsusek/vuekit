@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TableHeaderView', this.attrs, this.$slots);
+    return h('NSTableHeaderView', this.attrs, this.$slots);
   }
 });
 </script>

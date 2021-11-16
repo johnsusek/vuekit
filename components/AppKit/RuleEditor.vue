@@ -77,7 +77,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('RuleEditor', this.attrs, this.$slots);
+    return h('NSRuleEditor', this.attrs, this.$slots);
   }
 });
 </script>

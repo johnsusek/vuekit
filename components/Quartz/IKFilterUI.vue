@@ -28,7 +28,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('FilterUIView', this.attrs, this.$slots);
+    return h('IKFilterUIView', this.attrs, this.$slots);
   }
 });
 </script>

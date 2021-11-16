@@ -41,7 +41,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('PopUpButton', this.attrs, this.$slots);
+    return h('NSPopUpButton', this.attrs, this.$slots);
   }
 });
 </script>

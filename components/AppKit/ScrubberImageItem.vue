@@ -37,7 +37,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrubberImageItemView', this.attrs, this.$slots);
+    return h('NSScrubberImageItemView', this.attrs, this.$slots);
   }
 });
 </script>

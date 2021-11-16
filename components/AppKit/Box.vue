@@ -83,7 +83,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Box', this.attrs, this.$slots);
+    return h('NSBox', this.attrs, this.$slots);
   }
 });
 </script>

@@ -128,7 +128,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Control', this.attrs, this.$slots);
+    return h('NSControl', this.attrs, this.$slots);
   }
 });
 </script>

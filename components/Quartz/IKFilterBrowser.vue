@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('FilterBrowserView', this.attrs, this.$slots);
+    return h('IKFilterBrowserView', this.attrs, this.$slots);
   }
 });
 </script>

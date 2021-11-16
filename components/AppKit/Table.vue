@@ -153,7 +153,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TableView', this.attrs, this.$slots);
+    return h('NSTableView', this.attrs, this.$slots);
   }
 });
 </script>

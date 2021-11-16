@@ -86,7 +86,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Scrubber', this.attrs, this.$slots);
+    return h('NSScrubber', this.attrs, this.$slots);
   }
 });
 </script>

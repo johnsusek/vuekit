@@ -141,7 +141,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Browser', this.attrs, this.$slots);
+    return h('NSBrowser', this.attrs, this.$slots);
   }
 });
 </script>

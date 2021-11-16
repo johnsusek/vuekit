@@ -99,7 +99,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('DatePicker', this.attrs, this.$slots);
+    return h('NSDatePicker', this.attrs, this.$slots);
   }
 });
 </script>

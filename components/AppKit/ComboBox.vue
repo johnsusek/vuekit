@@ -64,7 +64,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ComboBox', this.attrs, this.$slots);
+    return h('NSComboBox', this.attrs, this.$slots);
   }
 });
 </script>

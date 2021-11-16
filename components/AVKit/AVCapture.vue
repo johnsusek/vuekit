@@ -41,7 +41,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('CaptureView', this.attrs, this.$slots);
+    return h('AVCaptureView', this.attrs, this.$slots);
   }
 });
 </script>

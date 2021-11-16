@@ -186,7 +186,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TextView', this.attrs, this.$slots);
+    return h('NSTextView', this.attrs, this.$slots);
   }
 });
 </script>

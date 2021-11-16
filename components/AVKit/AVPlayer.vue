@@ -73,7 +73,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('PlayerView', this.attrs, this.$slots);
+    return h('AVPlayerView', this.attrs, this.$slots);
   }
 });
 </script>

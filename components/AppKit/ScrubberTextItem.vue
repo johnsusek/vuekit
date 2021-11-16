@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrubberTextItemView', this.attrs, this.$slots);
+    return h('NSScrubberTextItemView', this.attrs, this.$slots);
   }
 });
 </script>

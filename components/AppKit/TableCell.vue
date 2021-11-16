@@ -50,7 +50,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TableCellView', this.attrs, this.$slots);
+    return h('NSTableCellView', this.attrs, this.$slots);
   }
 });
 </script>

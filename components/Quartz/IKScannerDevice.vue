@@ -82,7 +82,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScannerDeviceView', this.attrs, this.$slots);
+    return h('IKScannerDeviceView', this.attrs, this.$slots);
   }
 });
 </script>

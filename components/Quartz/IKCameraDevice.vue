@@ -82,7 +82,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('CameraDeviceView', this.attrs, this.$slots);
+    return h('IKCameraDeviceView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -203,7 +203,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('View', this.attrs, this.$slots);
+    return h('NSView', this.attrs, this.$slots);
   }
 });
 </script>

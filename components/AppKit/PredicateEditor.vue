@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('PredicateEditor', this.attrs, this.$slots);
+    return h('NSPredicateEditor', this.attrs, this.$slots);
   }
 });
 </script>

@@ -84,7 +84,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ImageView', this.attrs, this.$slots);
+    return h('IKImageView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -62,7 +62,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('Slider', this.attrs, this.$slots);
+    return h('NSSlider', this.attrs, this.$slots);
   }
 });
 </script>

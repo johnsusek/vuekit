@@ -95,7 +95,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('LevelIndicator', this.attrs, this.$slots);
+    return h('NSLevelIndicator', this.attrs, this.$slots);
   }
 });
 </script>

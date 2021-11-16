@@ -60,7 +60,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('OutlineView', this.attrs, this.$slots);
+    return h('NSOutlineView', this.attrs, this.$slots);
   }
 });
 </script>

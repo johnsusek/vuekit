@@ -59,7 +59,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('StackView', this.attrs, this.$slots);
+    return h('NSStackView', this.attrs, this.$slots);
   }
 });
 </script>

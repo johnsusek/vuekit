@@ -63,7 +63,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ImageView', this.attrs, this.$slots);
+    return h('NSImageView', this.attrs, this.$slots);
   }
 });
 </script>

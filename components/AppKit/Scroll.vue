@@ -178,7 +178,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrollView', this.attrs, this.$slots);
+    return h('NSScrollView', this.attrs, this.$slots);
   }
 });
 </script>

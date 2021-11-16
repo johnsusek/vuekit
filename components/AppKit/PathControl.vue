@@ -69,7 +69,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('PathControl', this.attrs, this.$slots);
+    return h('NSPathControl', this.attrs, this.$slots);
   }
 });
 </script>

@@ -28,7 +28,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('SecureTextField', this.attrs, this.$slots);
+    return h('NSSecureTextField', this.attrs, this.$slots);
   }
 });
 </script>

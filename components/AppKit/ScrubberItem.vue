@@ -28,7 +28,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrubberItemView', this.attrs, this.$slots);
+    return h('NSScrubberItemView', this.attrs, this.$slots);
   }
 });
 </script>

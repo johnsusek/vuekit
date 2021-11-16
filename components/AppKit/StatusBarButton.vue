@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('StatusBarButton', this.attrs, this.$slots);
+    return h('NSStatusBarButton', this.attrs, this.$slots);
   }
 });
 </script>

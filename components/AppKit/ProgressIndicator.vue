@@ -71,7 +71,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ProgressIndicator', this.attrs, this.$slots);
+    return h('NSProgressIndicator', this.attrs, this.$slots);
   }
 });
 </script>

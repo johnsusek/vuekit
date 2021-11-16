@@ -36,7 +36,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('ScrubberArrangedView', this.attrs, this.$slots);
+    return h('NSScrubberArrangedView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -80,7 +80,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('CollectionView', this.attrs, this.$slots);
+    return h('NSCollectionView', this.attrs, this.$slots);
   }
 });
 </script>

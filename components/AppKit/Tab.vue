@@ -73,7 +73,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('TabView', this.attrs, this.$slots);
+    return h('NSTabView', this.attrs, this.$slots);
   }
 });
 </script>

@@ -51,7 +51,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('VisualEffectView', this.attrs, this.$slots);
+    return h('NSVisualEffectView', this.attrs, this.$slots);
   }
 });
 </script>

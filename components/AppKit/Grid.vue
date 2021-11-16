@@ -51,7 +51,7 @@ export default defineComponent({
   },
 
   render() {
-    return h('GridView', this.attrs, this.$slots);
+    return h('NSGridView', this.attrs, this.$slots);
   }
 });
 </script>

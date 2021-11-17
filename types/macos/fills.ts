@@ -81,9 +81,11 @@ declare global {
   export class ICScannerDevice { }
   export class K { }
   export class NSAffineTransformStruct { }
+  export class NSData { }
   export class NSDirectionalEdgeInsets { }
   export class NSMutableString { }
   export class NSSimpleCString { }
+  export class NSString { }
   export class NSObject {
     static create(): NSObject
   }

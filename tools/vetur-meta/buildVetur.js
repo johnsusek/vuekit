@@ -7,26 +7,25 @@ function buildVetur(frameworks, enums) {
 
   for (let framework of Object.values(frameworks)) {
     for (let item of framework.Items) {
-      if (!item.isView && item.SwiftName !== "NSWindow" && item.SwiftName !== "NSTableColumn") continue;
+      if (!item.isView && item.JsName !== "NSWindow" && item.JsName !== "NSTableColumn") continue;
 
-      let itemSwiftName = item.SwiftName.replace(/^NS/, '');
+      let itemSwiftName = item.JsName.replace(/^NS/, '');
 
       if (itemSwiftName !== "TextView") {
         itemSwiftName = itemSwiftName.replace(/View$/, '');
       }
 
       tags[itemSwiftName] = tags[itemSwiftName] || {};
-      console.log("  item: " + itemSwiftName);
 
       let tag = {};
       if (item.IntroducedIn)
         tag.description = "Introduced in " + item.IntroducedIn;
-      tag.attributes = item.InstanceProperties?.filter(p => p).map(p => headerCase(p.SwiftName).toLowerCase());
+      tag.attributes = item.InstanceProperties?.filter(p => p).map(p => headerCase(p.JsName).toLowerCase());
       tags[itemSwiftName] = tag;
 
       if (item.StaticProperties) {
         for (let prop of [...item.StaticProperties, ...item.InstanceProperties]) {
-          let propSwiftName = headerCase(prop.SwiftName).toLowerCase();
+          let propSwiftName = headerCase(prop.JsName).toLowerCase();
           let type = getSigType(prop);
           let options;
 

@@ -1,14 +1,14 @@
 function enumsFromFrameworkData(framework) {
   let values = {};
-  let enums = framework.Items.filter(item => item.Type === "Enum" && item.SwiftName)
+  let enums = framework.Items.filter(item => item.Type === "Enum" && item.JsName)
 
   for (let enu of enums) {
-    values[enu.SwiftName] = {};
+    values[enu.JsName] = {};
 
     for (let nameField of enu.SwiftNameFields) {
       let [key, value] = Object.entries(nameField)[0];
 
-      values[enu.SwiftName][key] = parseInt(value, 10);
+      values[enu.JsName][key] = parseInt(value, 10);
     }
   }
 

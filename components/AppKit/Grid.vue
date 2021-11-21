@@ -5,11 +5,13 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Grid',
 
+  tag: 'NSGridView',
+
   extends: { View },
 
   props: {
     'column-spacing': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'row-alignment': {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'row-spacing': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'x-placement': {

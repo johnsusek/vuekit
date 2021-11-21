@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKFilterUI',
 
+  tag: 'IKFilterUIView',
+
   extends: { View },
 
   props: {

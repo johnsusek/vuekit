@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKScannerDevice',
 
+  tag: 'IKScannerDeviceView',
+
   extends: { View },
 
   props: {
@@ -13,11 +15,11 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'document-name': {
@@ -29,11 +31,11 @@ export default defineComponent({
       default: () => undefined
     },
     'has-display-mode-advanced': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-display-mode-simple': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'mode': {

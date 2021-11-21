@@ -4,17 +4,19 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 export default defineComponent({
   name: 'View',
 
+  tag: 'NSView',
+
   props: {
     'allowed-touch-types': {
       type: String as PropType<keyof typeof NSTouch.TouchTypeMask>,
       default: () => undefined
     },
     'alpha-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'autoresizes-subviews': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autoresizing-mask': {
@@ -30,15 +32,15 @@ export default defineComponent({
       default: () => undefined
     },
     'bounds-rotation': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'can-draw-concurrently': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'can-draw-subviews-into-layer': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'compositing-filter': {
@@ -58,11 +60,11 @@ export default defineComponent({
       default: () => undefined
     },
     'frame-center-rotation': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'frame-rotation': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'gesture-recognizers': {
@@ -70,11 +72,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-hidden': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-horizontal-content-size-constraint-active': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'layer': {
@@ -90,19 +92,19 @@ export default defineComponent({
       default: () => undefined
     },
     'layer-uses-core-image-filters': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'needs-display': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'needs-layout': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'needs-update-constraints': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'next-key-view': {
@@ -110,11 +112,11 @@ export default defineComponent({
       default: () => undefined
     },
     'posts-bounds-changed-notifications': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'posts-frame-changed-notifications': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'prepared-content-rect': {
@@ -138,7 +140,7 @@ export default defineComponent({
       default: () => undefined
     },
     'translates-autoresizing-mask-into-constraints': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'user-interface-layout-direction': {
@@ -146,15 +148,15 @@ export default defineComponent({
       default: () => undefined
     },
     'is-vertical-content-size-constraint-active': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'wants-layer': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'wants-resting-touches': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'bounds-origin': {

@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Button',
 
+  tag: 'NSButton',
+
   extends: { Control },
 
   props: {
     'allows-mixed-state': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'alternate-image': {
@@ -37,7 +39,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'content-tint-color': {
@@ -49,7 +51,7 @@ export default defineComponent({
       default: () => undefined
     },
     'image-hugs-title': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'image-position': {
@@ -69,11 +71,11 @@ export default defineComponent({
       default: () => undefined
     },
     'max-accelerator-level': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'shows-border-only-while-mouse-inside': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'sound': {
@@ -81,11 +83,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-spring-loaded': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'state': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'title': {
@@ -93,7 +95,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-transparent': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'button-type': {

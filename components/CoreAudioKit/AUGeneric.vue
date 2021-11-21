@@ -5,11 +5,13 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AUGeneric',
 
+  tag: 'AUGenericView',
+
   extends: { View },
 
   props: {
     'shows-expert-parameters': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

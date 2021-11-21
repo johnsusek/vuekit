@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'QuartzFilter',
 
+  tag: 'QuartzFilterView',
+
   extends: { View },
 
   props: {

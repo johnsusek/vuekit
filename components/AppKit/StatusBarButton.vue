@@ -5,11 +5,13 @@ import Button from './Button.vue';
 export default defineComponent({
   name: 'StatusBarButton',
 
+  tag: 'NSStatusBarButton',
+
   extends: { Button },
 
   props: {
     'appears-disabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

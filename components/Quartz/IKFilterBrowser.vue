@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKFilterBrowser',
 
+  tag: 'IKFilterBrowserView',
+
   extends: { View },
 
   props: {

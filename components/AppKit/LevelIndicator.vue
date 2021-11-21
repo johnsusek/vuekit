@@ -5,6 +5,8 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'LevelIndicator',
 
+  tag: 'NSLevelIndicator',
+
   extends: { Control },
 
   props: {
@@ -13,15 +15,15 @@ export default defineComponent({
       default: () => undefined
     },
     'critical-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'draws-tiered-capacity-levels': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'fill-color': {
@@ -33,19 +35,19 @@ export default defineComponent({
       default: () => undefined
     },
     'max-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'number-of-major-tick-marks': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'number-of-tick-marks': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'placeholder-visibility': {
@@ -69,7 +71,7 @@ export default defineComponent({
       default: () => undefined
     },
     'warning-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
   },

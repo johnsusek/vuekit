@@ -5,6 +5,8 @@ import ScrubberArrangedView from './ScrubberArrangedView.vue';
 export default defineComponent({
   name: 'ScrubberItem',
 
+  tag: 'NSScrubberItemView',
+
   extends: { ScrubberArrangedView },
 
   props: {

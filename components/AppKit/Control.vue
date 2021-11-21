@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Control',
 
+  tag: 'NSControl',
+
   extends: { View },
 
   props: {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'allows-expansion-tool-tips': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'attributed-string-value': {
@@ -33,7 +35,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-continuous': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'control-size': {
@@ -41,15 +43,15 @@ export default defineComponent({
       default: () => undefined
     },
     'double-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'is-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'float-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'font': {
@@ -61,19 +63,19 @@ export default defineComponent({
       default: () => undefined
     },
     'is-highlighted': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'ignores-multi-click': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'int-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'integer-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'line-break-mode': {
@@ -85,7 +87,7 @@ export default defineComponent({
       default: () => undefined
     },
     'refuses-first-responder': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'string-value': {
@@ -93,7 +95,7 @@ export default defineComponent({
       default: () => undefined
     },
     'tag': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'target': {
@@ -101,7 +103,7 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-single-line-mode': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

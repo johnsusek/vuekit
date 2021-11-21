@@ -5,11 +5,13 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'SearchField',
 
+  tag: 'NSSearchField',
+
   extends: { TextField },
 
   props: {
     'centers-placeholder': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'delegate': {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'maximum-recents': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'recent-searches': {
@@ -33,11 +35,11 @@ export default defineComponent({
       default: () => undefined
     },
     'sends-search-string-immediately': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'sends-whole-search-string': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

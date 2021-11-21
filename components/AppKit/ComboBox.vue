@@ -5,15 +5,17 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'ComboBox',
 
+  tag: 'NSComboBox',
+
   extends: { TextField },
 
   props: {
     'is-button-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'completes': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'data-source': {
@@ -25,7 +27,7 @@ export default defineComponent({
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'intercell-spacing': {
@@ -33,15 +35,15 @@ export default defineComponent({
       default: () => undefined
     },
     'item-height': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'number-of-visible-items': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'uses-data-source': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

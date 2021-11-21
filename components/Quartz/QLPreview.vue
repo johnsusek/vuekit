@@ -5,11 +5,13 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'QLPreview',
 
+  tag: 'QLPreviewView',
+
   extends: { View },
 
   props: {
     'autostarts': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'display-state': {
@@ -21,7 +23,7 @@ export default defineComponent({
       default: () => undefined
     },
     'should-close-with-window': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

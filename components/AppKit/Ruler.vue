@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Ruler',
 
+  tag: 'NSRulerView',
+
   extends: { View },
 
   props: {
@@ -29,19 +31,19 @@ export default defineComponent({
       default: () => undefined
     },
     'origin-offset': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'reserved-thickness-for-accessory-view': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'reserved-thickness-for-markers': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'rule-thickness': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'scroll-view': {

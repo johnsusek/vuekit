@@ -5,23 +5,25 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Matrix',
 
+  tag: 'NSMatrix',
+
   extends: { Control },
 
   props: {
     'allows-empty-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autorecalculates-cell-size': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-autoscroll': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autosizes-cells': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -49,11 +51,11 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'draws-cell-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'intercell-spacing': {
@@ -73,11 +75,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-selection-by-rect': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'tab-key-traverses-cells': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'scrollable': {

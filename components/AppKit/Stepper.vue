@@ -5,27 +5,29 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Stepper',
 
+  tag: 'NSStepper',
+
   extends: { Control },
 
   props: {
     'autorepeat': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'increment': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'max-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'value-wraps': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

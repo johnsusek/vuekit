@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Box',
 
+  tag: 'NSBox',
+
   extends: { View },
 
   props: {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'border-width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'box-type': {
@@ -33,7 +35,7 @@ export default defineComponent({
       default: () => undefined
     },
     'corner-radius': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'fill-color': {
@@ -53,7 +55,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-transparent': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'frame-from-content-frame': {

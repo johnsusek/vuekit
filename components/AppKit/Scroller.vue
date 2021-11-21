@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Scroller',
 
+  tag: 'NSScroller',
+
   extends: { Control },
 
   props: {
     'knob-proportion': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'knob-style': {

@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'ColorWell',
 
+  tag: 'NSColorWell',
+
   extends: { Control },
 
   props: {
     'is-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'color': {

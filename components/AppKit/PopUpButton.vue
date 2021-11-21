@@ -5,11 +5,13 @@ import Button from './Button.vue';
 export default defineComponent({
   name: 'PopUpButton',
 
+  tag: 'NSPopUpButton',
+
   extends: { Button },
 
   props: {
     'autoenables-items': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'preferred-edge': {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'pulls-down': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

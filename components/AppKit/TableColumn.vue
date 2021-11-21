@@ -4,13 +4,15 @@ import { PropType, h, defineComponent } from '@vue/runtime-core';
 export default defineComponent({
   name: 'TableColumn',
 
+  tag: 'NSTableColumn',
+
   props: {
     'data-cell': {
       type: Object as PropType<Any>,
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'header-cell': {
@@ -22,15 +24,15 @@ export default defineComponent({
       default: () => undefined
     },
     'is-hidden': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'max-width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'resizing-mask': {
@@ -50,7 +52,7 @@ export default defineComponent({
       default: () => undefined
     },
     'width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
   },

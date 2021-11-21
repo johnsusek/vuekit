@@ -5,23 +5,25 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'TextField',
 
+  tag: 'NSTextField',
+
   extends: { Control },
 
   props: {
     'allows-character-picker-touch-bar-item': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-default-tightening-for-truncation': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-editing-text-attributes': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-text-completion-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -33,11 +35,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-bezeled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'delegate': {
@@ -45,19 +47,19 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'imports-graphics': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'maximum-number-of-lines': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'placeholder-attributed-string': {
@@ -69,11 +71,11 @@ export default defineComponent({
       default: () => undefined
     },
     'preferred-max-layout-width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'is-selectable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'text-color': {

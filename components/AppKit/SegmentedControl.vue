@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'SegmentedControl',
 
+  tag: 'NSSegmentedControl',
+
   extends: { Control },
 
   props: {
     'segment-count': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'segment-distribution': {
@@ -21,7 +23,7 @@ export default defineComponent({
       default: () => undefined
     },
     'selected-segment': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'selected-segment-bezel-color': {
@@ -29,7 +31,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-spring-loaded': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'tracking-mode': {

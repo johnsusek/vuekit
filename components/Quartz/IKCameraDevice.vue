@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKCameraDevice',
 
+  tag: 'IKCameraDeviceView',
+
   extends: { View },
 
   props: {
@@ -17,11 +19,11 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-downloads-directory-control': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'displays-post-process-application-control': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'download-all-control-label': {
@@ -37,15 +39,15 @@ export default defineComponent({
       default: () => undefined
     },
     'has-display-mode-icon': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-display-mode-table': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'icon-size': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'mode': {

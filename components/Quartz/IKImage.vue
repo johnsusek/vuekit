@@ -5,15 +5,17 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKImage',
 
+  tag: 'IKImageView',
+
   extends: { View },
 
   props: {
     'autohides-scrollers': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autoresizes': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -29,19 +31,19 @@ export default defineComponent({
       default: () => undefined
     },
     'double-click-opens-image-edit-panel': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'image-correction': {
@@ -49,15 +51,15 @@ export default defineComponent({
       default: () => undefined
     },
     'rotation-angle': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'supports-drag-and-drop': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'zoom-factor': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'image-with': {

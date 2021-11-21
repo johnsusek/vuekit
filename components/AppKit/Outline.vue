@@ -5,15 +5,17 @@ import TableView from './TableView.vue';
 export default defineComponent({
   name: 'Outline',
 
+  tag: 'NSOutlineView',
+
   extends: { TableView },
 
   props: {
     'autoresizes-outline-column': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autosave-expanded-items': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'data-source': {
@@ -25,11 +27,11 @@ export default defineComponent({
       default: () => undefined
     },
     'indentation-marker-follows-cell': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'indentation-per-level': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'outline-table-column': {
@@ -37,7 +39,7 @@ export default defineComponent({
       default: () => undefined
     },
     'strongly-references-items': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

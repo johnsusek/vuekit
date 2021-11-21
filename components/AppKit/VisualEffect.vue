@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'VisualEffect',
 
+  tag: 'NSVisualEffectView',
+
   extends: { View },
 
   props: {
@@ -13,7 +15,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-emphasized': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'mask-image': {

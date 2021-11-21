@@ -5,11 +5,13 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Clip',
 
+  tag: 'NSClipView',
+
   extends: { View },
 
   props: {
     'automatically-adjusts-content-insets': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -21,7 +23,7 @@ export default defineComponent({
       default: () => undefined
     },
     'copies-on-scroll': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'document-cursor': {
@@ -33,7 +35,7 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

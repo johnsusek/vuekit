@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Stack',
 
+  tag: 'NSStackView',
+
   extends: { View },
 
   props: {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'detaches-hidden-views': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'distribution': {
@@ -33,7 +35,7 @@ export default defineComponent({
       default: () => undefined
     },
     'spacing': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
   },

@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AVPlayer',
 
+  tag: 'AVPlayerView',
+
   extends: { View },
 
   props: {
@@ -13,7 +15,7 @@ export default defineComponent({
       default: () => undefined
     },
     'allows-picture-in-picture-playback': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'controls-style': {
@@ -29,23 +31,23 @@ export default defineComponent({
       default: () => undefined
     },
     'shows-frame-stepping-buttons': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'shows-full-screen-toggle-button': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'shows-sharing-service-button': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'shows-timecodes': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'updates-now-playing-info-center': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'video-gravity': {

@@ -5,11 +5,13 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Split',
 
+  tag: 'NSSplitView',
+
   extends: { View },
 
   props: {
     'arranges-all-subviews': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autosave-name': {
@@ -25,7 +27,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-vertical': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

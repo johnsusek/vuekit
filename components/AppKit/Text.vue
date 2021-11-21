@@ -5,11 +5,13 @@ import Text from './Text.vue';
 export default defineComponent({
   name: 'Text',
 
+  tag: 'NSTextView',
+
   extends: { Text },
 
   props: {
     'accepts-glyph-info': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allowed-input-source-locales': {
@@ -17,51 +19,51 @@ export default defineComponent({
       default: () => undefined
     },
     'allows-character-picker-touch-bar-item': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-document-background-color-change': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-image-editing': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-undo': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-dash-substitution-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-data-detection-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-link-detection-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-quote-substitution-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-spelling-correction-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-text-completion-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-automatic-text-replacement-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-continuous-spell-checking-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'default-paragraph-style': {
@@ -73,19 +75,19 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-link-tool-tips': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'enabled-text-checking-types': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'is-grammar-checking-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-incremental-searching-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'insertion-point-color': {
@@ -101,7 +103,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-ruler-visible': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'selected-ranges': {
@@ -117,7 +119,7 @@ export default defineComponent({
       default: () => undefined
     },
     'smart-insert-delete-enabled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'text-container': {
@@ -133,27 +135,27 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-adaptive-color-mapping-for-dark-appearance': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-find-bar': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-find-panel': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-inspector-bar': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-rollover-button-for-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-ruler': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'constrained-frame-size': {

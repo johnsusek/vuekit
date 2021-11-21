@@ -5,15 +5,17 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Collection',
 
+  tag: 'NSCollectionView',
+
   extends: { View },
 
   props: {
     'allows-empty-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-colors': {
@@ -25,7 +27,7 @@ export default defineComponent({
       default: () => undefined
     },
     'background-view-scrolls-with-content': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'collection-view-layout': {
@@ -49,7 +51,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-selectable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'selection-index-paths': {

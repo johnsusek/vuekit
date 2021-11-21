@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'RuleEditor',
 
+  tag: 'NSRuleEditor',
+
   extends: { Control },
 
   props: {
     'can-remove-all-rows': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'criteria-key-path': {
@@ -25,7 +27,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'formatting-dictionary': {
@@ -45,7 +47,7 @@ export default defineComponent({
       default: () => undefined
     },
     'row-height': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'row-type-key-path': {

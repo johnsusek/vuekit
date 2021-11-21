@@ -5,6 +5,8 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'DatePicker',
 
+  tag: 'NSDatePicker',
+
   extends: { Control },
 
   props: {
@@ -13,11 +15,11 @@ export default defineComponent({
       default: () => undefined
     },
     'is-bezeled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'calendar': {
@@ -45,7 +47,7 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'locale': {
@@ -61,7 +63,7 @@ export default defineComponent({
       default: () => undefined
     },
     'presents-calendar-overlay': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'text-color': {
@@ -69,7 +71,7 @@ export default defineComponent({
       default: () => undefined
     },
     'time-interval': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'time-zone': {

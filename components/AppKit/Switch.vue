@@ -5,11 +5,13 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Switch',
 
+  tag: 'NSSwitch',
+
   extends: { Control },
 
   props: {
     'state': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
   },

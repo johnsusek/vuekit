@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Scrubber',
 
+  tag: 'NSScrubber',
+
   extends: { View },
 
   props: {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-continuous': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'data-source': {
@@ -29,7 +31,7 @@ export default defineComponent({
       default: () => undefined
     },
     'floats-selection-views': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'item-alignment': {
@@ -45,7 +47,7 @@ export default defineComponent({
       default: () => undefined
     },
     'selected-index': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'selection-background-style': {
@@ -57,11 +59,11 @@ export default defineComponent({
       default: () => undefined
     },
     'shows-additional-content-indicators': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'shows-arrow-buttons': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

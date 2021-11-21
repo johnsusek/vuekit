@@ -5,11 +5,13 @@ import View from './View.vue';
 export default defineComponent({
   name: 'ProgressIndicator',
 
+  tag: 'NSProgressIndicator',
+
   extends: { View },
 
   props: {
     'is-bezeled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'control-size': {
@@ -21,23 +23,23 @@ export default defineComponent({
       default: () => undefined
     },
     'is-displayed-when-stopped': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'double-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'is-indeterminate': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'max-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'style': {
@@ -45,7 +47,7 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-threaded-animation': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

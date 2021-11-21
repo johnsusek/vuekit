@@ -5,11 +5,13 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'TokenField',
 
+  tag: 'NSTokenField',
+
   extends: { TextField },
 
   props: {
     'completion-delay': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'delegate': {

@@ -5,27 +5,29 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Browser',
 
+  tag: 'NSBrowser',
+
   extends: { Control },
 
   props: {
     'allows-branch-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-empty-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-type-select': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autohides-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -53,19 +55,19 @@ export default defineComponent({
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'last-column': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'max-visible-columns': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-column-width': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'path-separator': {
@@ -73,15 +75,15 @@ export default defineComponent({
       default: () => undefined
     },
     'prefers-all-column-user-resizing': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'reuses-columns': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'row-height': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'selection-index-path': {
@@ -93,19 +95,19 @@ export default defineComponent({
       default: () => undefined
     },
     'sends-action-on-arrow-keys': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'separates-columns': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'takes-title-from-previous-column': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-titled': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'cell-class': {

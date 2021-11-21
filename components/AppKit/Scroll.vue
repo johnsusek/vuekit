@@ -5,19 +5,21 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Scroll',
 
+  tag: 'NSScrollView',
+
   extends: { View },
 
   props: {
     'allows-magnification': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autohides-scrollers': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'automatically-adjusts-content-insets': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -45,7 +47,7 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'find-bar-position': {
@@ -53,27 +55,27 @@ export default defineComponent({
       default: () => undefined
     },
     'has-horizontal-ruler': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-horizontal-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-vertical-ruler': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'has-vertical-scroller': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'horizontal-line-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'horizontal-page-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'horizontal-ruler-view': {
@@ -89,27 +91,27 @@ export default defineComponent({
       default: () => undefined
     },
     'line-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'magnification': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'max-magnification': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-magnification': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'page-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'rulers-visible': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'scroller-insets': {
@@ -125,19 +127,19 @@ export default defineComponent({
       default: () => undefined
     },
     'scrolls-dynamically': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-predominant-axis-scrolling': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'vertical-line-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'vertical-page-scroll': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'vertical-ruler-view': {

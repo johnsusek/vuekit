@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AUPanner',
 
+  tag: 'AUPannerView',
+
   extends: { View },
 
   props: {

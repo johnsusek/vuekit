@@ -5,15 +5,17 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Image',
 
+  tag: 'NSImageView',
+
   extends: { Control },
 
   props: {
     'allows-cut-copy-paste': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'animates': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'content-tint-color': {
@@ -21,7 +23,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'image': {

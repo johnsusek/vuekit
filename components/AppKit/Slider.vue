@@ -5,27 +5,29 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Slider',
 
+  tag: 'NSSlider',
+
   extends: { Control },
 
   props: {
     'allows-tick-mark-values-only': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'alt-increment-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'max-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'min-value': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'number-of-tick-marks': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'slider-type': {

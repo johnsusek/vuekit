@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'TableRow',
 
+  tag: 'NSTableRowView',
+
   extends: { View },
 
   props: {
@@ -17,31 +19,31 @@ export default defineComponent({
       default: () => undefined
     },
     'is-emphasized': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-floating': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-group-row-style': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'indentation-for-drop-operation': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'is-next-row-selected': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-previous-row-selected': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-selected': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'selection-highlight-style': {
@@ -49,7 +51,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-target-for-drop-operation': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

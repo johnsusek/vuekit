@@ -5,6 +5,8 @@ import View from './View.vue';
 export default defineComponent({
   name: 'TableCell',
 
+  tag: 'NSTableCellView',
+
   extends: { View },
 
   props: {

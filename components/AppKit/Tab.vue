@@ -5,11 +5,13 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Tab',
 
+  tag: 'NSTabView',
+
   extends: { View },
 
   props: {
     'allows-truncated-labels': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'control-size': {
@@ -25,7 +27,7 @@ export default defineComponent({
       default: () => undefined
     },
     'draws-background': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'font': {

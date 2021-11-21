@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AVRoutePicker',
 
+  tag: 'AVRoutePickerView',
+
   extends: { View },
 
   props: {
@@ -17,7 +19,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-route-picker-button-bordered': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

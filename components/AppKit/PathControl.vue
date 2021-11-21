@@ -5,6 +5,8 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'PathControl',
 
+  tag: 'NSPathControl',
+
   extends: { Control },
 
   props: {
@@ -29,7 +31,7 @@ export default defineComponent({
       default: () => undefined
     },
     'is-editable': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'path-items': {

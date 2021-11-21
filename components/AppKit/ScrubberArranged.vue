@@ -5,15 +5,17 @@ import View from './View.vue';
 export default defineComponent({
   name: 'ScrubberArranged',
 
+  tag: 'NSScrubberArrangedView',
+
   extends: { View },
 
   props: {
     'is-highlighted': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'is-selected': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

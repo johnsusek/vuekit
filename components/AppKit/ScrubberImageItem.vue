@@ -5,6 +5,8 @@ import ScrubberItemView from './ScrubberItemView.vue';
 export default defineComponent({
   name: 'ScrubberImageItem',
 
+  tag: 'NSScrubberImageItemView',
+
   extends: { ScrubberItemView },
 
   props: {

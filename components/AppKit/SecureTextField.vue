@@ -5,6 +5,8 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'SecureTextField',
 
+  tag: 'NSSecureTextField',
+
   extends: { TextField },
 
   props: {

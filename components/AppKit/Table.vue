@@ -5,31 +5,33 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Table',
 
+  tag: 'NSTableView',
+
   extends: { Control },
 
   props: {
     'allows-column-reordering': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-column-resizing': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-column-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-empty-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-multiple-selection': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'allows-type-select': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'autosave-name': {
@@ -37,7 +39,7 @@ export default defineComponent({
       default: () => undefined
     },
     'autosave-table-columns': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'background-color': {
@@ -69,7 +71,7 @@ export default defineComponent({
       default: () => undefined
     },
     'floats-group-rows': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'grid-color': {
@@ -93,11 +95,11 @@ export default defineComponent({
       default: () => undefined
     },
     'row-actions-visible': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'row-height': {
-      type: Object as PropType<Number>,
+      type: Number,
       default: () => undefined
     },
     'row-size-style': {
@@ -113,19 +115,19 @@ export default defineComponent({
       default: () => undefined
     },
     'uses-alternating-row-background-colors': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-automatic-row-heights': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'uses-static-contents': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'vertical-motion-can-begin-drag': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
   },

@@ -5,6 +5,8 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKDeviceBrowser',
 
+  tag: 'IKDeviceBrowserView',
+
   extends: { View },
 
   props: {
@@ -13,19 +15,19 @@ export default defineComponent({
       default: () => undefined
     },
     'displays-local-cameras': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'displays-local-scanners': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'displays-network-cameras': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'displays-network-scanners': {
-      type: Object as PropType<Boolean>,
+      type: Boolean,
       default: () => undefined
     },
     'mode': {

@@ -5,6 +5,8 @@ import RuleEditor from './RuleEditor.vue';
 export default defineComponent({
   name: 'PredicateEditor',
 
+  tag: 'NSPredicateEditor',
+
   extends: { RuleEditor },
 
   props: {

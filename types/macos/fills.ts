@@ -91,6 +91,10 @@ declare global {
   }
   export class NSDecimal { }
 
+  export type NSError = Error;
+  export function NSError(args: any): NSError;
+  export function NSString(args: any): NSString;
+
   // These fix a lot of errors, why not bridged?
   export class NSRange { }
   export class NSEdgeInsets {
@@ -106,44 +110,16 @@ declare global {
   export class simd_float3x3 { }
   export class simd_float4x3 { }
 
+  export class DispatchQueue {
+    static mainAsync(completionHandler: () => void): void;
+    static main: DispatchQueue
+    async(completionHandler: () => void): void;
+  }
+
   export type CGPoint = NSPoint;
   export type CGRect = NSRect;
   export type CGSize = NSSize;
   export type IOSurface = any;
-
-  // export namespace AVFAudio {
-  //   export class AVAudioTypes { }
-  //   export class AVAudioConverter { }
-  //   export class AVAudioSequencer { }
-  // }
-
-  // export namespace AVCaptureDeviceFormat {
-  //   export class AutoFocusSystem { }
-  // }
-
-  // export namespace AVCaptureDevice {
-  //   export class WhiteBalanceGains { }
-  // }
-
-  // export namespace AVCaptureSystemPressureState {
-  //   export class Factors { }
-  // }
-
-  // export namespace CarbonCore {
-  //   export class Components { }
-  // }
-
-  // export class MTLTexture { }
-  // export class MTLCommandBuffer { }
-
-  // export type IndexingIterator = any;
-  // export type NSFastEnumerationIterator = any;
-  // export type NSIndexSetIterator = any;
-  // export type ObservableObjectPublisher = any;
-  // export type OpaquePointer = any;
-  // export type Slice = any;
-  // export type Range = NSRange;
-  // export type CMSampleTimingInfo = any;
 }
 
 export { };

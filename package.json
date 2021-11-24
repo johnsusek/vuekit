@@ -12,6 +12,7 @@
     "build": "esbuild types/index.ts --bundle --platform=node --target=node12 --format=esm --outfile=dist/index.js",
     "tsc": "tsc",
     "prepublish": "tsc",
+    "watch": "nodemon -w lib -e ts --exec \"npm run build && npm run tsc && cd ../vk-app-mine && npm run watch:vue\"",
     "update-xcodegen": "./scripts/update-xcodegen.sh 2.24.0",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"

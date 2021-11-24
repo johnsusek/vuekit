@@ -36,10 +36,14 @@ export class AVAsset extends NSObject {
   unusedTrackID(): number;
 }
 
+export function AVAsset(args?: any): AVAsset;
+
 export class AVAssetCache extends NSObject {
   isPlayableOffline: boolean;
   mediaSelectionOptions(in_: AVMediaSelectionGroup): AVMediaSelectionOption[];
 }
+
+export function AVAssetCache(args?: any): AVAssetCache;
 
 export class AVAssetExportSession extends NSObject {
   static allExportPresets(): string[];
@@ -53,9 +57,9 @@ export class AVAssetExportSession extends NSObject {
   canPerformMultiplePassesOverSourceMediaData: boolean;
   setCanPerformMultiplePassesOverSourceMediaData(_: boolean);
   customVideoCompositor: any;
-  directoryForTemporaryFiles: URL;
-  setDirectoryForTemporaryFiles(_: URL);
-  error: Error;
+  directoryForTemporaryFiles: NSURL;
+  setDirectoryForTemporaryFiles(_: NSURL);
+  error: NSError;
   estimatedOutputFileLength: number;
   fileLengthLimit: number;
   setFileLengthLimit(_: number);
@@ -66,8 +70,8 @@ export class AVAssetExportSession extends NSObject {
   setMetadataItemFilter(_: AVMetadataItemFilter);
   outputFileType: string;
   setOutputFileType(_: string);
-  outputURL: URL;
-  setOutputURL(_: URL);
+  outputURL: NSURL;
+  setOutputURL(_: NSURL);
   presetName: string;
   progress: number;
   shouldOptimizeForNetworkUse: boolean;
@@ -80,11 +84,13 @@ export class AVAssetExportSession extends NSObject {
   setVideoComposition(_: AVVideoComposition);
   cancelExport(): void;
   determineCompatibleFileTypes(completionHandler: (p1: string[]) => void): void;
-  estimateMaximumDuration(completionHandler?: (p1: CMTime, p2: Error) => void): void;
-  estimateOutputFileLength(completionHandler?: (p1: number, p2: Error) => void): void;
+  estimateMaximumDuration(completionHandler?: (p1: CMTime, p2: NSError) => void): void;
+  estimateOutputFileLength(completionHandler?: (p1: number, p2: NSError) => void): void;
   exportAsynchronously(completionHandler: () => void): void;
-  static createWithAssetWithPresetName(_: AVAsset, presetName: string): AVAssetExportSession;
+  static createWithAsset_PresetName(_: AVAsset, presetName: string): AVAssetExportSession;
 }
+
+export function AVAssetExportSession(args?: any): AVAssetExportSession;
 
 export class AVAssetImageGenerator extends NSObject {
   apertureMode: string;
@@ -103,14 +109,16 @@ export class AVAssetImageGenerator extends NSObject {
   setVideoComposition(_: AVVideoComposition);
   cancelAllCGImageGeneration(): void;
   copyCGImageAtTime(actualTime: CMTime, error?: CMTime): any;
-  generateCGImagesAsynchronously(forTimes: NSValue[], completionHandler: (p1: CMTime, p2: any, p3: CMTime, p4: AVAssetImageGenerator.Result, p5: Error) => void): void;
+  generateCGImagesAsynchronously(forTimes: NSValue[], completionHandler: (p1: CMTime, p2: any, p3: CMTime, p4: AVAssetImageGenerator.Result, p5: NSError) => void): void;
   static createWithAsset(_: AVAsset): AVAssetImageGenerator;
 }
 
+export function AVAssetImageGenerator(args?: any): AVAssetImageGenerator;
+
 export class AVAssetReader extends NSObject {
-  static createWithAssetError(error: AVAsset): AVAssetReader;
+  static createWithError(error: AVAsset): AVAssetReader;
   asset: AVAsset;
-  error: Error;
+  error: NSError;
   outputs: AVAssetReaderOutput[];
   status: AVAssetReader.Status;
   timeRange: CMTimeRange;
@@ -122,6 +130,8 @@ export class AVAssetReader extends NSObject {
   startReading(): boolean;
 }
 
+export function AVAssetReader(args?: any): AVAssetReader;
+
 export class AVAssetReaderAudioMixOutput extends AVAssetReaderOutput {
   audioMix: AVAudioMix;
   setAudioMix(_: AVAudioMix);
@@ -129,8 +139,10 @@ export class AVAssetReaderAudioMixOutput extends AVAssetReaderOutput {
   audioTimePitchAlgorithm: string;
   setAudioTimePitchAlgorithm(_: string);
   audioTracks: AVAssetTrack[];
-  static createWithAudioTracksWithAudioSettings(_: AVAssetTrack[], audioSettings?: Map<string, any>): AVAssetReaderAudioMixOutput;
+  static createWithAudioTracks_AudioSettings(_: AVAssetTrack[], audioSettings?: Map<string, any>): AVAssetReaderAudioMixOutput;
 }
+
+export function AVAssetReaderAudioMixOutput(args?: any): AVAssetReaderAudioMixOutput;
 
 export class AVAssetReaderOutput extends NSObject {
   alwaysCopiesSampleData: boolean;
@@ -143,24 +155,32 @@ export class AVAssetReaderOutput extends NSObject {
   reset(forReadingTimeRanges: NSValue[]): void;
 }
 
+export function AVAssetReaderOutput(args?: any): AVAssetReaderOutput;
+
 export class AVAssetReaderOutputMetadataAdaptor extends NSObject {
   assetReaderTrackOutput: AVAssetReaderTrackOutput;
   static createWithAssetReaderTrackOutput(_: AVAssetReaderTrackOutput): AVAssetReaderOutputMetadataAdaptor;
   nextTimedMetadataGroup(): AVTimedMetadataGroup;
 }
 
+export function AVAssetReaderOutputMetadataAdaptor(args?: any): AVAssetReaderOutputMetadataAdaptor;
+
 export class AVAssetReaderSampleReferenceOutput extends AVAssetReaderOutput {
   track: AVAssetTrack;
   static createWithTrack(_: AVAssetTrack): AVAssetReaderSampleReferenceOutput;
 }
+
+export function AVAssetReaderSampleReferenceOutput(args?: any): AVAssetReaderSampleReferenceOutput;
 
 export class AVAssetReaderTrackOutput extends AVAssetReaderOutput {
   audioTimePitchAlgorithm: string;
   setAudioTimePitchAlgorithm(_: string);
   outputSettings: Map<string, any>;
   track: AVAssetTrack;
-  static createWithTrackWithOutputSettings(_: AVAssetTrack, outputSettings?: Map<string, any>): AVAssetReaderTrackOutput;
+  static createWithTrack_OutputSettings(_: AVAssetTrack, outputSettings?: Map<string, any>): AVAssetReaderTrackOutput;
 }
+
+export function AVAssetReaderTrackOutput(args?: any): AVAssetReaderTrackOutput;
 
 export class AVAssetReaderVideoCompositionOutput extends AVAssetReaderOutput {
   customVideoCompositor: any;
@@ -168,8 +188,10 @@ export class AVAssetReaderVideoCompositionOutput extends AVAssetReaderOutput {
   setVideoComposition(_: AVVideoComposition);
   videoSettings: Map<string, any>;
   videoTracks: AVAssetTrack[];
-  static createWithVideoTracksWithVideoSettings(_: AVAssetTrack[], videoSettings?: Map<string, any>): AVAssetReaderVideoCompositionOutput;
+  static createWithVideoTracks_VideoSettings(_: AVAssetTrack[], videoSettings?: Map<string, any>): AVAssetReaderVideoCompositionOutput;
 }
+
+export function AVAssetReaderVideoCompositionOutput(args?: any): AVAssetReaderVideoCompositionOutput;
 
 export class AVAssetResourceLoader extends NSObject {
   delegate: any;
@@ -178,6 +200,8 @@ export class AVAssetResourceLoader extends NSObject {
   setPreloadsEligibleContentKeys(_: boolean);
   setDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVAssetResourceLoader(args?: any): AVAssetResourceLoader;
 
 interface AVAssetResourceLoaderDelegate {
   resourceLoader(_: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource: AVAssetResourceLoadingRequest): boolean;
@@ -199,6 +223,8 @@ export class AVAssetResourceLoadingContentInformationRequest extends NSObject {
   setRenewalDate(_: Date);
 }
 
+export function AVAssetResourceLoadingContentInformationRequest(args?: any): AVAssetResourceLoadingContentInformationRequest;
+
 export class AVAssetResourceLoadingDataRequest extends NSObject {
   currentOffset: number;
   requestedLength: number;
@@ -207,29 +233,37 @@ export class AVAssetResourceLoadingDataRequest extends NSObject {
   respond(with_: NSData): void;
 }
 
+export function AVAssetResourceLoadingDataRequest(args?: any): AVAssetResourceLoadingDataRequest;
+
 export class AVAssetResourceLoadingRequest extends NSObject {
   isCancelled: boolean;
   contentInformationRequest: AVAssetResourceLoadingContentInformationRequest;
   dataRequest: AVAssetResourceLoadingDataRequest;
   isFinished: boolean;
-  redirect: URLRequest;
-  setRedirect(_: URLRequest);
-  request: URLRequest;
+  redirect: NSURLRequest;
+  setRedirect(_: NSURLRequest);
+  request: NSURLRequest;
   requestor: AVAssetResourceLoadingRequestor;
   response: URLResponse;
   setResponse(_: URLResponse);
   finishLoading(): void;
-  finishLoading(with_?: Error): void;
+  finishLoading(with_?: NSError): void;
   persistentContentKeyFromKeyVendorResponse(options: NSData, error?: Map<string, any>): NSData;
   streamingContentKeyRequestDataForApp(contentIdentifier: NSData, options: NSData, error?: Map<string, any>): NSData;
 }
+
+export function AVAssetResourceLoadingRequest(args?: any): AVAssetResourceLoadingRequest;
 
 export class AVAssetResourceLoadingRequestor extends NSObject {
   providesExpiredSessionReports: boolean;
 }
 
+export function AVAssetResourceLoadingRequestor(args?: any): AVAssetResourceLoadingRequestor;
+
 export class AVAssetResourceRenewalRequest extends AVAssetResourceLoadingRequest {
 }
+
+export function AVAssetResourceRenewalRequest(args?: any): AVAssetResourceRenewalRequest;
 
 export class AVAssetTrack extends NSObject {
   asset: AVAsset;
@@ -268,21 +302,27 @@ export class AVAssetTrack extends NSObject {
   segment(forTrackTime: CMTime): AVAssetTrackSegment;
 }
 
+export function AVAssetTrack(args?: any): AVAssetTrack;
+
 export class AVAssetTrackGroup extends NSObject {
   trackIDs: number[];
 }
+
+export function AVAssetTrackGroup(args?: any): AVAssetTrackGroup;
 
 export class AVAssetTrackSegment extends NSObject {
   isEmpty: boolean;
   timeMapping: CMTimeMapping;
 }
 
+export function AVAssetTrackSegment(args?: any): AVAssetTrackSegment;
+
 export class AVAssetWriter extends NSObject {
-  static createWithURLFileTypeWithError(fileType: URL, error: string): AVAssetWriter;
+  static createWithFileType_Error(fileType: NSURL, error: string): AVAssetWriter;
   availableMediaTypes: string[];
-  directoryForTemporaryFiles: URL;
-  setDirectoryForTemporaryFiles(_: URL);
-  error: Error;
+  directoryForTemporaryFiles: NSURL;
+  setDirectoryForTemporaryFiles(_: NSURL);
+  error: NSError;
   inputGroups: AVAssetWriterInputGroup[];
   inputs: AVAssetWriterInput[];
   metadata: AVMetadataItem[];
@@ -292,7 +332,7 @@ export class AVAssetWriter extends NSObject {
   movieTimeScale: number;
   setMovieTimeScale(_: number);
   outputFileType: string;
-  outputURL: URL;
+  outputURL: NSURL;
   overallDurationHint: CMTime;
   setOverallDurationHint(_: CMTime);
   shouldOptimizeForNetworkUse: boolean;
@@ -309,6 +349,8 @@ export class AVAssetWriter extends NSObject {
   startSession(atSourceTime: CMTime): void;
   startWriting(): boolean;
 }
+
+export function AVAssetWriter(args?: any): AVAssetWriter;
 
 export class AVAssetWriterInput extends NSObject {
   canPerformMultiplePasses: boolean;
@@ -340,27 +382,31 @@ export class AVAssetWriterInput extends NSObject {
   preferredVolume: number;
   setPreferredVolume(_: number);
   isReadyForMoreMediaData: boolean;
-  sampleReferenceBaseURL: URL;
-  setSampleReferenceBaseURL(_: URL);
+  sampleReferenceBaseURL: NSURL;
+  setSampleReferenceBaseURL(_: NSURL);
   sourceFormatHint: any;
   transform: CGAffineTransform;
   setTransform(_: CGAffineTransform);
   addTrackAssociation(withTrackOf: AVAssetWriterInput, type: string): void;
   append(_: any): boolean;
   canAddTrackAssociation(withTrackOf: AVAssetWriterInput, type: string): boolean;
-  static createWithMediaTypeWithOutputSettings(_: string, outputSettings?: Map<string, any>): AVAssetWriterInput;
-  static createWithMediaTypeWithOutputSettingsWithSourceFormatHint(_: string, outputSettings?: Map<string, any>, sourceFormatHint?: any): AVAssetWriterInput;
+  static createWithMediaType_OutputSettings(_: string, outputSettings?: Map<string, any>): AVAssetWriterInput;
+  static createWithMediaType_OutputSettings_SourceFormatHint(_: string, outputSettings?: Map<string, any>, sourceFormatHint?: any): AVAssetWriterInput;
   markAsFinished(): void;
   markCurrentPassAsFinished(): void;
   requestMediaDataWhenReady(on: NSObject, using: () => void): void;
   respondToEachPassDescription(on: NSObject, using: () => void): void;
 }
 
+export function AVAssetWriterInput(args?: any): AVAssetWriterInput;
+
 export class AVAssetWriterInputGroup extends AVMediaSelectionGroup {
   defaultInput: AVAssetWriterInput;
   inputs: AVAssetWriterInput[];
-  static createWithInputsWithDefaultInput(_: AVAssetWriterInput[], defaultInput?: AVAssetWriterInput): AVAssetWriterInputGroup;
+  static createWithInputs_DefaultInput(_: AVAssetWriterInput[], defaultInput?: AVAssetWriterInput): AVAssetWriterInputGroup;
 }
+
+export function AVAssetWriterInputGroup(args?: any): AVAssetWriterInputGroup;
 
 export class AVAssetWriterInputMetadataAdaptor extends NSObject {
   assetWriterInput: AVAssetWriterInput;
@@ -368,25 +414,33 @@ export class AVAssetWriterInputMetadataAdaptor extends NSObject {
   static createWithAssetWriterInput(_: AVAssetWriterInput): AVAssetWriterInputMetadataAdaptor;
 }
 
+export function AVAssetWriterInputMetadataAdaptor(args?: any): AVAssetWriterInputMetadataAdaptor;
+
 export class AVAssetWriterInputPassDescription extends NSObject {
   sourceTimeRanges: NSValue[];
 }
+
+export function AVAssetWriterInputPassDescription(args?: any): AVAssetWriterInputPassDescription;
 
 export class AVAssetWriterInputPixelBufferAdaptor extends NSObject {
   assetWriterInput: AVAssetWriterInput;
   pixelBufferPool: any;
   sourcePixelBufferAttributes: Map<string, any>;
   append(_: any, withPresentationTime: CMTime): boolean;
-  static createWithAssetWriterInputWithSourcePixelBufferAttributes(_: AVAssetWriterInput, sourcePixelBufferAttributes?: Map<string, any>): AVAssetWriterInputPixelBufferAdaptor;
+  static createWithAssetWriterInput_SourcePixelBufferAttributes(_: AVAssetWriterInput, sourcePixelBufferAttributes?: Map<string, any>): AVAssetWriterInputPixelBufferAdaptor;
 }
+
+export function AVAssetWriterInputPixelBufferAdaptor(args?: any): AVAssetWriterInputPixelBufferAdaptor;
 
 export class AVAsynchronousCIImageFilteringRequest extends NSObject {
   compositionTime: CMTime;
   renderSize: CGSize;
   sourceImage: CIImage;
-  finish(with_: Error): void;
+  finish(with_: NSError): void;
   finish(with_: CIImage, context?: CIContext): void;
 }
+
+export function AVAsynchronousCIImageFilteringRequest(args?: any): AVAsynchronousCIImageFilteringRequest;
 
 interface AVAsynchronousKeyValueLoading {
   loadValuesAsynchronously(forKeys: string[], completionHandler?: () => void): void;
@@ -400,9 +454,11 @@ export class AVAsynchronousVideoCompositionRequest extends NSObject {
   videoCompositionInstruction: any;
   finishCancelledRequest(): void;
   finish(withComposedVideoFrame: any): void;
-  finish(with_: Error): void;
+  finish(with_: NSError): void;
   sourceFrame(byTrackID: number): any;
 }
+
+export function AVAsynchronousVideoCompositionRequest(args?: any): AVAsynchronousVideoCompositionRequest;
 
 interface AVAudio3DMixing {
   obstruction: number;
@@ -429,6 +485,8 @@ export class AVAudioBuffer extends NSObject {
   mutableAudioBufferList: AudioBufferList;
 }
 
+export function AVAudioBuffer(args?: any): AVAudioBuffer;
+
 export class AVAudioChannelLayout extends NSObject {
   channelCount: number;
   layout: AudioChannelLayout;
@@ -436,6 +494,8 @@ export class AVAudioChannelLayout extends NSObject {
   static createWithLayout(_: AudioChannelLayout): AVAudioChannelLayout;
   static createWithLayoutTag(_: number): AVAudioChannelLayout;
 }
+
+export function AVAudioChannelLayout(args?: any): AVAudioChannelLayout;
 
 export class AVAudioCompressedBuffer extends AVAudioBuffer {
   byteCapacity: number;
@@ -447,15 +507,19 @@ export class AVAudioCompressedBuffer extends AVAudioBuffer {
   packetCount: number;
   setPacketCount(_: number);
   packetDescriptions: AudioStreamPacketDescription;
-  static createWithFormatWithPacketCapacity(_: AVAudioFormat, packetCapacity: number): AVAudioCompressedBuffer;
-  static createWithFormatWithPacketCapacityWithMaximumPacketSize(_: AVAudioFormat, packetCapacity: number, maximumPacketSize: number): AVAudioCompressedBuffer;
+  static createWithFormat_PacketCapacity(_: AVAudioFormat, packetCapacity: number): AVAudioCompressedBuffer;
+  static createWithFormat_PacketCapacity_MaximumPacketSize(_: AVAudioFormat, packetCapacity: number, maximumPacketSize: number): AVAudioCompressedBuffer;
 }
+
+export function AVAudioCompressedBuffer(args?: any): AVAudioCompressedBuffer;
 
 export class AVAudioConnectionPoint extends NSObject {
   bus: number;
   node: AVAudioNode;
-  static createWithNodeWithBus(_: AVAudioNode, bus: number): AVAudioConnectionPoint;
+  static createWithNode_Bus(_: AVAudioNode, bus: number): AVAudioConnectionPoint;
 }
+
+export function AVAudioConnectionPoint(args?: any): AVAudioConnectionPoint;
 
 export class AVAudioConverter extends NSObject {
   applicableEncodeBitRates: number[];
@@ -486,11 +550,13 @@ export class AVAudioConverter extends NSObject {
   setSampleRateConverterAlgorithm(_: string);
   sampleRateConverterQuality: number;
   setSampleRateConverterQuality(_: number);
-  convert(to: AVAudioBuffer, error?: Error, withInputFrom?: (p1: number, p2: AVAudioConverter.AVAudioConverterInputStatus) => AVAudioBuffer): AVAudioConverter.AVAudioConverterOutputStatus;
+  convert(to: AVAudioBuffer, error?: NSError, withInputFrom?: (p1: number, p2: AVAudioConverter.AVAudioConverterInputStatus) => AVAudioBuffer): AVAudioConverter.AVAudioConverterOutputStatus;
   convertToBuffer(fromBuffer: AVAudioPCMBuffer, error: AVAudioPCMBuffer): boolean;
-  static createWithFromFormatWithToFormat(_: AVAudioFormat, toFormat: AVAudioFormat): AVAudioConverter;
+  static createWithFromFormat_ToFormat(_: AVAudioFormat, toFormat: AVAudioFormat): AVAudioConverter;
   reset(): void;
 }
+
+export function AVAudioConverter(args?: any): AVAudioConverter;
 
 export class AVAudioEngine extends NSObject {
   attachedNodes: Set<any>;
@@ -535,6 +601,8 @@ export class AVAudioEngine extends NSObject {
   stop(): void;
 }
 
+export function AVAudioEngine(args?: any): AVAudioEngine;
+
 export class AVAudioEnvironmentDistanceAttenuationParameters extends NSObject {
   distanceAttenuationModel: AVAudioEnvironmentNode.AVAudioEnvironmentDistanceAttenuationModel;
   setDistanceAttenuationModel(_: AVAudioEnvironmentNode.AVAudioEnvironmentDistanceAttenuationModel);
@@ -545,6 +613,8 @@ export class AVAudioEnvironmentDistanceAttenuationParameters extends NSObject {
   rolloffFactor: number;
   setRolloffFactor(_: number);
 }
+
+export function AVAudioEnvironmentDistanceAttenuationParameters(args?: any): AVAudioEnvironmentDistanceAttenuationParameters;
 
 export class AVAudioEnvironmentNode extends AVAudioNode {
   applicableRenderingAlgorithms: number[];
@@ -563,6 +633,8 @@ export class AVAudioEnvironmentNode extends AVAudioNode {
   reverbParameters: AVAudioEnvironmentReverbParameters;
 }
 
+export function AVAudioEnvironmentNode(args?: any): AVAudioEnvironmentNode;
+
 export class AVAudioEnvironmentReverbParameters extends NSObject {
   enable: boolean;
   setEnable(_: boolean);
@@ -572,21 +644,25 @@ export class AVAudioEnvironmentReverbParameters extends NSObject {
   loadFactoryReverbPreset(_: AVAudioUnitReverb.AVAudioUnitReverbPreset): void;
 }
 
+export function AVAudioEnvironmentReverbParameters(args?: any): AVAudioEnvironmentReverbParameters;
+
 export class AVAudioFile extends NSObject {
   fileFormat: AVAudioFormat;
   framePosition: number;
   setFramePosition(_: number);
   length: number;
   processingFormat: AVAudioFormat;
-  url: URL;
-  static createWithForReadingWithCommonFormatWithInterleaved(commonFormat: URL, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
-  static createWithForReading(error: URL): AVAudioFile;
-  static createWithForWritingWithSettingsWithCommonFormatWithInterleaved(settings: URL, commonFormat: Map<string, any>, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
-  static createWithForWritingWithSettings(settings: URL, error: Map<string, any>): AVAudioFile;
+  url: NSURL;
+  static createWithForReading_CommonFormat_Interleaved(commonFormat: NSURL, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
+  static createWithForReading(error: NSURL): AVAudioFile;
+  static createWithForWriting_Settings_CommonFormat_Interleaved(settings: NSURL, commonFormat: Map<string, any>, interleaved: AVAudioFormat.AVAudioCommonFormat, error: boolean): AVAudioFile;
+  static createWithForWriting_Settings(settings: NSURL, error: Map<string, any>): AVAudioFile;
   readIntoBuffer(error: AVAudioPCMBuffer): boolean;
   readIntoBuffer(frameCount: AVAudioPCMBuffer, error: number): boolean;
   writeFromBuffer(error: AVAudioPCMBuffer): boolean;
 }
+
+export function AVAudioFile(args?: any): AVAudioFile;
 
 export class AVAudioFormat extends NSObject {
   channelCount: number;
@@ -600,15 +676,17 @@ export class AVAudioFormat extends NSObject {
   settings: Map<string, any>;
   isStandard: boolean;
   streamDescription: AudioStreamBasicDescription;
-  static createWithStandardFormatWithSampleRateWithChannelLayout(_: number, channelLayout: AVAudioChannelLayout): AVAudioFormat;
-  static createWithStandardFormatWithSampleRateWithChannels(_: number, channels: number): AVAudioFormat;
+  static createWithStandardFormat_SampleRate_ChannelLayout(_: number, channelLayout: AVAudioChannelLayout): AVAudioFormat;
+  static createWithStandardFormat_SampleRate_Channels(_: number, channels: number): AVAudioFormat;
   static createWithCmAudioFormatDescription(_: any): AVAudioFormat;
-  static createWithCommonFormatWithSampleRateWithChannelsWithInterleaved(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, channels: number, interleaved: boolean): AVAudioFormat;
-  static createWithCommonFormatWithSampleRateWithInterleavedWithChannelLayout(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, interleaved: boolean, channelLayout: AVAudioChannelLayout): AVAudioFormat;
+  static createWithCommonFormat_SampleRate_Channels_Interleaved(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, channels: number, interleaved: boolean): AVAudioFormat;
+  static createWithCommonFormat_SampleRate_Interleaved_ChannelLayout(_: AVAudioFormat.AVAudioCommonFormat, sampleRate: number, interleaved: boolean, channelLayout: AVAudioChannelLayout): AVAudioFormat;
   static createWithSettings(_: Map<string, any>): AVAudioFormat;
   static createWithStreamDescription(_: AudioStreamBasicDescription): AVAudioFormat;
-  static createWithStreamDescriptionWithChannelLayout(_: AudioStreamBasicDescription, channelLayout?: AVAudioChannelLayout): AVAudioFormat;
+  static createWithStreamDescription_ChannelLayout(_: AudioStreamBasicDescription, channelLayout?: AVAudioChannelLayout): AVAudioFormat;
 }
+
+export function AVAudioFormat(args?: any): AVAudioFormat;
 
 export class AVAudioIONode extends AVAudioNode {
   audioUnit: ComponentInstanceRecord;
@@ -616,6 +694,8 @@ export class AVAudioIONode extends AVAudioNode {
   isVoiceProcessingEnabled: boolean;
   setVoiceProcessingEnabled(error: boolean): boolean;
 }
+
+export function AVAudioIONode(args?: any): AVAudioIONode;
 
 export class AVAudioInputNode extends AVAudioIONode {
   isVoiceProcessingAGCEnabled: boolean;
@@ -627,9 +707,13 @@ export class AVAudioInputNode extends AVAudioIONode {
   setManualRenderingInputPCMFormat(_: AVAudioFormat, inputBlock: (p1: number) => AudioBufferList): boolean;
 }
 
+export function AVAudioInputNode(args?: any): AVAudioInputNode;
+
 export class AVAudioMix extends NSObject {
   inputParameters: AVAudioMixInputParameters[];
 }
+
+export function AVAudioMix(args?: any): AVAudioMix;
 
 export class AVAudioMixInputParameters extends NSObject {
   audioTapProcessor: any;
@@ -638,11 +722,15 @@ export class AVAudioMixInputParameters extends NSObject {
   getVolumeRamp(for_: CMTime, startVolume?: number, endVolume?: number, timeRange?: CMTimeRange): boolean;
 }
 
+export function AVAudioMixInputParameters(args?: any): AVAudioMixInputParameters;
+
 export class AVAudioMixerNode extends AVAudioNode {
   nextAvailableInputBus: number;
   outputVolume: number;
   setOutputVolume(_: number);
 }
+
+export function AVAudioMixerNode(args?: any): AVAudioMixerNode;
 
 interface AVAudioMixing {
   volume: number;
@@ -653,6 +741,8 @@ interface AVAudioMixing {
 export class AVAudioMixingDestination extends NSObject {
   connectionPoint: AVAudioConnectionPoint;
 }
+
+export function AVAudioMixingDestination(args?: any): AVAudioMixingDestination;
 
 export class AVAudioNode extends NSObject {
   auAudioUnit: AUAudioUnit;
@@ -671,8 +761,12 @@ export class AVAudioNode extends NSObject {
   reset(): void;
 }
 
+export function AVAudioNode(args?: any): AVAudioNode;
+
 export class AVAudioOutputNode extends AVAudioIONode {
 }
+
+export function AVAudioOutputNode(args?: any): AVAudioOutputNode;
 
 export class AVAudioPCMBuffer extends AVAudioBuffer {
   floatChannelData: number;
@@ -682,8 +776,10 @@ export class AVAudioPCMBuffer extends AVAudioBuffer {
   int16ChannelData: number;
   int32ChannelData: number;
   stride: number;
-  static createWithPcmFormatWithFrameCapacity(_: AVAudioFormat, frameCapacity: number): AVAudioPCMBuffer;
+  static createWithPcmFormat_FrameCapacity(_: AVAudioFormat, frameCapacity: number): AVAudioPCMBuffer;
 }
+
+export function AVAudioPCMBuffer(args?: any): AVAudioPCMBuffer;
 
 export class AVAudioPlayer extends NSObject {
   currentDevice: string;
@@ -709,14 +805,14 @@ export class AVAudioPlayer extends NSObject {
   rate: number;
   setRate(_: number);
   settings: Map<string, any>;
-  url: URL;
+  url: NSURL;
   volume: number;
   setVolume(_: number);
   averagePower(forChannel: number): number;
-  static createWithContentsOf(error: URL): AVAudioPlayer;
-  static createWithContentsOfWithFileTypeHint(fileTypeHint: URL, error?: string): AVAudioPlayer;
+  static createWithContentsOf(error: NSURL): AVAudioPlayer;
+  static createWithContentsOf_FileTypeHint(fileTypeHint: NSURL, error?: string): AVAudioPlayer;
   static createWithData(error: NSData): AVAudioPlayer;
-  static createWithDataWithFileTypeHint(fileTypeHint: NSData, error?: string): AVAudioPlayer;
+  static createWithData_FileTypeHint(fileTypeHint: NSData, error?: string): AVAudioPlayer;
   pause(): void;
   peakPower(forChannel: number): number;
   play(): boolean;
@@ -727,8 +823,10 @@ export class AVAudioPlayer extends NSObject {
   updateMeters(): void;
 }
 
+export function AVAudioPlayer(args?: any): AVAudioPlayer;
+
 interface AVAudioPlayerDelegate {
-  audioPlayerDecodeErrorDidOccur(_: AVAudioPlayer, error?: Error): void;
+  audioPlayerDecodeErrorDidOccur(_: AVAudioPlayer, error?: NSError): void;
   audioPlayerDidFinishPlaying(_: AVAudioPlayer, successfully: boolean): void;
 }
 
@@ -751,6 +849,8 @@ export class AVAudioPlayerNode extends AVAudioNode {
   stop(): void;
 }
 
+export function AVAudioPlayerNode(args?: any): AVAudioPlayerNode;
+
 export class AVAudioRecorder extends NSObject {
   currentTime: number;
   delegate: any;
@@ -761,11 +861,11 @@ export class AVAudioRecorder extends NSObject {
   setMeteringEnabled(_: boolean);
   isRecording: boolean;
   settings: Map<string, any>;
-  url: URL;
+  url: NSURL;
   averagePower(forChannel: number): number;
   deleteRecording(): boolean;
-  static createWithUrlWithFormat(format: URL, error: AVAudioFormat): AVAudioRecorder;
-  static createWithUrlWithSettings(settings: URL, error: Map<string, any>): AVAudioRecorder;
+  static createWithUrl_Format(format: NSURL, error: AVAudioFormat): AVAudioRecorder;
+  static createWithUrl_Settings(settings: NSURL, error: Map<string, any>): AVAudioRecorder;
   pause(): void;
   peakPower(forChannel: number): number;
   prepareToRecord(): boolean;
@@ -777,9 +877,11 @@ export class AVAudioRecorder extends NSObject {
   updateMeters(): void;
 }
 
+export function AVAudioRecorder(args?: any): AVAudioRecorder;
+
 interface AVAudioRecorderDelegate {
   audioRecorderDidFinishRecording(_: AVAudioRecorder, successfully: boolean): void;
-  audioRecorderEncodeErrorDidOccur(_: AVAudioRecorder, error?: Error): void;
+  audioRecorderEncodeErrorDidOccur(_: AVAudioRecorder, error?: NSError): void;
 }
 
 export class AVAudioSequencer extends NSObject {
@@ -799,22 +901,30 @@ export class AVAudioSequencer extends NSObject {
   hostTime(forBeats: number): number;
   static createWithAudioEngine(_: AVAudioEngine): AVAudioSequencer;
   loadFromData(options: NSData, error: AVAudioSequencer.AVMusicSequenceLoadOptions): boolean;
-  loadFromURL(options: URL, error: AVAudioSequencer.AVMusicSequenceLoadOptions): boolean;
+  loadFromURL(options: NSURL, error: AVAudioSequencer.AVMusicSequenceLoadOptions): boolean;
   prepareToPlay(): void;
   seconds(forBeats: number): number;
   startAndReturnError(): boolean;
   stop(): void;
-  writeToURL(SMPTEResolution: URL, replaceExisting: number, error: boolean): boolean;
+  writeToURL(SMPTEResolution: NSURL, replaceExisting: number, error: boolean): boolean;
 }
+
+export function AVAudioSequencer(args?: any): AVAudioSequencer;
 
 export class AVAudioSession extends NSObject {
 }
 
+export function AVAudioSession(args?: any): AVAudioSession;
+
 export class AVAudioSessionChannelDescription extends NSObject {
 }
 
+export function AVAudioSessionChannelDescription(args?: any): AVAudioSessionChannelDescription;
+
 export class AVAudioSessionDataSourceDescription extends NSObject {
 }
+
+export function AVAudioSessionDataSourceDescription(args?: any): AVAudioSessionDataSourceDescription;
 
 interface AVAudioSessionDelegate {
 }
@@ -822,17 +932,25 @@ interface AVAudioSessionDelegate {
 export class AVAudioSessionPortDescription extends NSObject {
 }
 
+export function AVAudioSessionPortDescription(args?: any): AVAudioSessionPortDescription;
+
 export class AVAudioSessionRouteDescription extends NSObject {
 }
+
+export function AVAudioSessionRouteDescription(args?: any): AVAudioSessionRouteDescription;
 
 export class AVAudioSinkNode extends AVAudioNode {
   static createWithReceiverBlock(_: (p1: AudioTimeStamp, p2: number, p3: AudioBufferList) => number): AVAudioSinkNode;
 }
 
+export function AVAudioSinkNode(args?: any): AVAudioSinkNode;
+
 export class AVAudioSourceNode extends AVAudioNode {
-  static createWithFormatWithRenderBlock(_: AVAudioFormat, renderBlock: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
+  static createWithFormat_RenderBlock(_: AVAudioFormat, renderBlock: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
   static createWithRenderBlock(_: (p1: boolean, p2: AudioTimeStamp, p3: number, p4: AudioBufferList) => number): AVAudioSourceNode;
 }
+
+export function AVAudioSourceNode(args?: any): AVAudioSourceNode;
 
 interface AVAudioStereoMixing {
   pan: number;
@@ -849,19 +967,23 @@ export class AVAudioTime extends NSObject {
   sampleTime: number;
   isSampleTimeValid: boolean;
   extrapolateTime(fromAnchor: AVAudioTime): AVAudioTime;
-  static createWithAudioTimeStampWithSampleRate(_: AudioTimeStamp, sampleRate: number): AVAudioTime;
+  static createWithAudioTimeStamp_SampleRate(_: AudioTimeStamp, sampleRate: number): AVAudioTime;
   static createWithHostTime(_: number): AVAudioTime;
-  static createWithHostTimeWithSampleTimeWithAtRate(_: number, sampleTime: number, atRate: number): AVAudioTime;
-  static createWithSampleTimeWithAtRate(_: number, atRate: number): AVAudioTime;
+  static createWithHostTime_SampleTime_AtRate(_: number, sampleTime: number, atRate: number): AVAudioTime;
+  static createWithSampleTime_AtRate(_: number, atRate: number): AVAudioTime;
 }
 
+export function AVAudioTime(args?: any): AVAudioTime;
+
 export class AVAudioUnit extends AVAudioNode {
-  static instantiate(with_: AudioComponentDescription, options: AudioComponent.AudioComponentInstantiationOptions, completionHandler?: (p1: AVAudioUnit, p2: Error) => void): void;
+  static instantiate(with_: AudioComponentDescription, options: AudioComponent.AudioComponentInstantiationOptions, completionHandler?: (p1: AVAudioUnit, p2: NSError) => void): void;
   audioComponentDescription: AudioComponentDescription;
   audioUnit: ComponentInstanceRecord;
   manufacturerName: string;
-  loadAudioUnitPresetAtURL(error: URL): boolean;
+  loadAudioUnitPresetAtURL(error: NSURL): boolean;
 }
+
+export function AVAudioUnit(args?: any): AVAudioUnit;
 
 export class AVAudioUnitComponent extends NSObject {
   allTagNames: string[];
@@ -873,7 +995,7 @@ export class AVAudioUnitComponent extends NSObject {
   hasMIDIInput: boolean;
   hasMIDIOutput: boolean;
   icon: NSImage;
-  iconURL: URL;
+  iconURL: NSURL;
   localizedTypeName: string;
   manufacturerName: string;
   name: string;
@@ -886,6 +1008,8 @@ export class AVAudioUnitComponent extends NSObject {
   supportsNumberInputChannels(_: number, outputChannels: number): boolean;
 }
 
+export function AVAudioUnitComponent(args?: any): AVAudioUnitComponent;
+
 export class AVAudioUnitComponentManager extends NSObject {
   static createWithSharedAudioUnitComponentManager(): AVAudioUnitComponentManager;
   standardLocalizedTagNames: string[];
@@ -894,6 +1018,8 @@ export class AVAudioUnitComponentManager extends NSObject {
   components(matching: NSPredicate): AVAudioUnitComponent[];
   components(passingTest: (p1: AVAudioUnitComponent, p2: boolean) => boolean): AVAudioUnitComponent[];
 }
+
+export function AVAudioUnitComponentManager(args?: any): AVAudioUnitComponentManager;
 
 export class AVAudioUnitDelay extends AVAudioUnitEffect {
   delayTime: number;
@@ -906,6 +1032,8 @@ export class AVAudioUnitDelay extends AVAudioUnitEffect {
   setWetDryMix(_: number);
 }
 
+export function AVAudioUnitDelay(args?: any): AVAudioUnitDelay;
+
 export class AVAudioUnitDistortion extends AVAudioUnitEffect {
   preGain: number;
   setPreGain(_: number);
@@ -914,12 +1042,16 @@ export class AVAudioUnitDistortion extends AVAudioUnitEffect {
   loadFactoryPreset(_: AVAudioUnitDistortion.AVAudioUnitDistortionPreset): void;
 }
 
+export function AVAudioUnitDistortion(args?: any): AVAudioUnitDistortion;
+
 export class AVAudioUnitEQ extends AVAudioUnitEffect {
   bands: AVAudioUnitEQFilterParameters[];
   globalGain: number;
   setGlobalGain(_: number);
   static createWithNumberOfBands(_: number): AVAudioUnitEQ;
 }
+
+export function AVAudioUnitEQ(args?: any): AVAudioUnitEQ;
 
 export class AVAudioUnitEQFilterParameters extends NSObject {
   bandwidth: number;
@@ -934,17 +1066,23 @@ export class AVAudioUnitEQFilterParameters extends NSObject {
   setGain(_: number);
 }
 
+export function AVAudioUnitEQFilterParameters(args?: any): AVAudioUnitEQFilterParameters;
+
 export class AVAudioUnitEffect extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitEffect;
 }
 
+export function AVAudioUnitEffect(args?: any): AVAudioUnitEffect;
+
 export class AVAudioUnitGenerator extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitGenerator;
 }
+
+export function AVAudioUnitGenerator(args?: any): AVAudioUnitGenerator;
 
 export class AVAudioUnitMIDIInstrument extends AVAudioUnit {
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitMIDIInstrument;
@@ -961,11 +1099,15 @@ export class AVAudioUnitMIDIInstrument extends AVAudioUnit {
   stopNote(_: number, onChannel: number): void;
 }
 
+export function AVAudioUnitMIDIInstrument(args?: any): AVAudioUnitMIDIInstrument;
+
 export class AVAudioUnitReverb extends AVAudioUnitEffect {
   wetDryMix: number;
   setWetDryMix(_: number);
   loadFactoryPreset(_: AVAudioUnitReverb.AVAudioUnitReverbPreset): void;
 }
+
+export function AVAudioUnitReverb(args?: any): AVAudioUnitReverb;
 
 export class AVAudioUnitSampler extends AVAudioUnitMIDIInstrument {
   globalTuning: number;
@@ -974,16 +1116,20 @@ export class AVAudioUnitSampler extends AVAudioUnitMIDIInstrument {
   setMasterGain(_: number);
   stereoPan: number;
   setStereoPan(_: number);
-  loadAudioFilesAtURLs(error: URL[]): boolean;
-  loadInstrumentAtURL(error: URL): boolean;
-  loadSoundBankInstrumentAtURL(program: URL, bankMSB: number, bankLSB: number, error: number): boolean;
+  loadAudioFilesAtURLs(error: NSURL[]): boolean;
+  loadInstrumentAtURL(error: NSURL): boolean;
+  loadSoundBankInstrumentAtURL(program: NSURL, bankMSB: number, bankLSB: number, error: number): boolean;
 }
+
+export function AVAudioUnitSampler(args?: any): AVAudioUnitSampler;
 
 export class AVAudioUnitTimeEffect extends AVAudioUnit {
   bypass: boolean;
   setBypass(_: boolean);
   static createWithAudioComponentDescription(_: AudioComponentDescription): AVAudioUnitTimeEffect;
 }
+
+export function AVAudioUnitTimeEffect(args?: any): AVAudioUnitTimeEffect;
 
 export class AVAudioUnitTimePitch extends AVAudioUnitTimeEffect {
   overlap: number;
@@ -994,10 +1140,14 @@ export class AVAudioUnitTimePitch extends AVAudioUnitTimeEffect {
   setRate(_: number);
 }
 
+export function AVAudioUnitTimePitch(args?: any): AVAudioUnitTimePitch;
+
 export class AVAudioUnitVarispeed extends AVAudioUnitTimeEffect {
   rate: number;
   setRate(_: number);
 }
+
+export function AVAudioUnitVarispeed(args?: any): AVAudioUnitVarispeed;
 
 export class AVCameraCalibrationData extends NSObject {
   extrinsicMatrix: simd_float4x3;
@@ -1009,6 +1159,8 @@ export class AVCameraCalibrationData extends NSObject {
   pixelSize: number;
 }
 
+export function AVCameraCalibrationData(args?: any): AVCameraCalibrationData;
+
 export class AVCaptureAudioChannel extends NSObject {
   averagePowerLevel: number;
   // @ts-ignore 
@@ -1019,6 +1171,8 @@ export class AVCaptureAudioChannel extends NSObject {
   setVolume(_: number);
 }
 
+export function AVCaptureAudioChannel(args?: any): AVCaptureAudioChannel;
+
 export class AVCaptureAudioDataOutput extends AVCaptureOutput {
   audioSettings: Map<string, any>;
   setAudioSettings(_: Map<string, any>);
@@ -1027,6 +1181,8 @@ export class AVCaptureAudioDataOutput extends AVCaptureOutput {
   recommendedAudioSettingsForAssetWriter(writingTo: string): Map<any, any>;
   setSampleBufferDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVCaptureAudioDataOutput(args?: any): AVCaptureAudioDataOutput;
 
 interface AVCaptureAudioDataOutputSampleBufferDelegate {
   captureOutput(_: AVCaptureOutput, didOutput: any, from: AVCaptureConnection): void;
@@ -1039,8 +1195,10 @@ export class AVCaptureAudioFileOutput extends AVCaptureFileOutput {
   metadata: AVMetadataItem[];
   setMetadata(_: AVMetadataItem[]);
   // @ts-ignore 
-  startRecording(to: URL, outputFileType: string, recordingDelegate: any): void;
+  startRecording(to: NSURL, outputFileType: string, recordingDelegate: any): void;
 }
+
+export function AVCaptureAudioFileOutput(args?: any): AVCaptureAudioFileOutput;
 
 export class AVCaptureAudioPreviewOutput extends AVCaptureOutput {
   outputDeviceUniqueID: string;
@@ -1049,13 +1207,19 @@ export class AVCaptureAudioPreviewOutput extends AVCaptureOutput {
   setVolume(_: number);
 }
 
+export function AVCaptureAudioPreviewOutput(args?: any): AVCaptureAudioPreviewOutput;
+
 export class AVCaptureAutoExposureBracketedStillImageSettings extends AVCaptureBracketedStillImageSettings {
-  static createWithAutoExposureSettingsWithExposureTargetBias(exposureTargetBias: number): AVCaptureAutoExposureBracketedStillImageSettings;
+  static createWithExposureTargetBias(exposureTargetBias: number): AVCaptureAutoExposureBracketedStillImageSettings;
   exposureTargetBias: number;
 }
 
+export function AVCaptureAutoExposureBracketedStillImageSettings(args?: any): AVCaptureAutoExposureBracketedStillImageSettings;
+
 export class AVCaptureBracketedStillImageSettings extends NSObject {
 }
+
+export function AVCaptureBracketedStillImageSettings(args?: any): AVCaptureBracketedStillImageSettings;
 
 export class AVCaptureConnection extends NSObject {
   isActive: boolean;
@@ -1083,9 +1247,11 @@ export class AVCaptureConnection extends NSObject {
   videoOrientation: AVCaptureSession.AVCaptureVideoOrientation;
   setVideoOrientation(_: AVCaptureSession.AVCaptureVideoOrientation);
   videoPreviewLayer: AVCaptureVideoPreviewLayer;
-  static createWithInputPortWithVideoPreviewLayer(_: AVCaptureInput.Port, videoPreviewLayer: AVCaptureVideoPreviewLayer): AVCaptureConnection;
-  static createWithInputPortsWithOutput(_: AVCaptureInput.Port[], output: AVCaptureOutput): AVCaptureConnection;
+  static createWithInputPort_VideoPreviewLayer(_: AVCaptureInput.Port, videoPreviewLayer: AVCaptureVideoPreviewLayer): AVCaptureConnection;
+  static createWithInputPorts_Output(_: AVCaptureInput.Port[], output: AVCaptureOutput): AVCaptureConnection;
 }
+
+export function AVCaptureConnection(args?: any): AVCaptureConnection;
 
 export class AVCaptureDataOutputSynchronizer extends NSObject {
   dataOutputs: AVCaptureOutput[];
@@ -1094,6 +1260,8 @@ export class AVCaptureDataOutputSynchronizer extends NSObject {
   static createWithDataOutputs(_: AVCaptureOutput[]): AVCaptureDataOutputSynchronizer;
   setDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVCaptureDataOutputSynchronizer(args?: any): AVCaptureDataOutputSynchronizer;
 
 interface AVCaptureDataOutputSynchronizerDelegate {
   dataOutputSynchronizer(_: AVCaptureDataOutputSynchronizer, didOutput: AVCaptureSynchronizedDataCollection): void;
@@ -1108,6 +1276,8 @@ export class AVCaptureDepthDataOutput extends AVCaptureOutput {
   setFilteringEnabled(_: boolean);
   setDelegate(_?: any, callbackQueue?: NSObject): void;
 }
+
+export function AVCaptureDepthDataOutput(args?: any): AVCaptureDepthDataOutput;
 
 interface AVCaptureDepthDataOutputDelegate {
   depthDataOutput(_: AVCaptureDepthDataOutput, didOutput: AVDepthData, timestamp: CMTime, connection: AVCaptureConnection): void;
@@ -1183,11 +1353,15 @@ export class AVCaptureDevice extends NSObject {
   unlockForConfiguration(): void;
 }
 
+export function AVCaptureDevice(args?: any): AVCaptureDevice;
+
 export class AVCaptureDeviceInput extends AVCaptureInput {
-  static createWithDeviceInputWithDeviceError(error: AVCaptureDevice): AVCaptureDeviceInput;
+  static createWithError(error: AVCaptureDevice): AVCaptureDeviceInput;
   device: AVCaptureDevice;
   static createWithDevice(error: AVCaptureDevice): AVCaptureDeviceInput;
 }
+
+export function AVCaptureDeviceInput(args?: any): AVCaptureDeviceInput;
 
 export class AVCaptureFileOutput extends AVCaptureOutput {
   delegate: any;
@@ -1198,16 +1372,18 @@ export class AVCaptureFileOutput extends AVCaptureOutput {
   setMaxRecordedFileSize(_: number);
   minFreeDiskSpaceLimit: number;
   setMinFreeDiskSpaceLimit(_: number);
-  outputFileURL: URL;
+  outputFileURL: NSURL;
   recordedDuration: CMTime;
   recordedFileSize: number;
   isRecording: boolean;
   isRecordingPaused: boolean;
   pauseRecording(): void;
   resumeRecording(): void;
-  startRecording(to: URL, recordingDelegate: any): void;
+  startRecording(to: NSURL, recordingDelegate: any): void;
   stopRecording(): void;
 }
+
+export function AVCaptureFileOutput(args?: any): AVCaptureFileOutput;
 
 interface AVCaptureFileOutputDelegate {
   fileOutput(_: AVCaptureFileOutput, didOutputSampleBuffer: any, from: AVCaptureConnection): void;
@@ -1215,27 +1391,33 @@ interface AVCaptureFileOutputDelegate {
 }
 
 interface AVCaptureFileOutputRecordingDelegate {
-  fileOutput(_: AVCaptureFileOutput, didStartRecordingTo: URL, from: AVCaptureConnection[]): void;
-  fileOutput(_: AVCaptureFileOutput, didPauseRecordingTo: URL, from: AVCaptureConnection[]): void;
-  fileOutput(_: AVCaptureFileOutput, didResumeRecordingTo: URL, from: AVCaptureConnection[]): void;
-  fileOutput(_: AVCaptureFileOutput, willFinishRecordingTo: URL, from: AVCaptureConnection[], error?: Error): void;
-  fileOutput(_: AVCaptureFileOutput, didFinishRecordingTo: URL, from: AVCaptureConnection[], error?: Error): void;
+  fileOutput(_: AVCaptureFileOutput, didStartRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+  fileOutput(_: AVCaptureFileOutput, didPauseRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+  fileOutput(_: AVCaptureFileOutput, didResumeRecordingTo: NSURL, from: AVCaptureConnection[]): void;
+  fileOutput(_: AVCaptureFileOutput, willFinishRecordingTo: NSURL, from: AVCaptureConnection[], error?: NSError): void;
+  fileOutput(_: AVCaptureFileOutput, didFinishRecordingTo: NSURL, from: AVCaptureConnection[], error?: NSError): void;
 }
 
 export class AVCaptureInput extends NSObject {
   ports: AVCaptureInput.Port[];
 }
 
+export function AVCaptureInput(args?: any): AVCaptureInput;
+
 export class AVCaptureManualExposureBracketedStillImageSettings extends AVCaptureBracketedStillImageSettings {
-  static createWithManualExposureSettingsWithExposureDurationWithISO(exposureDuration: CMTime, iso: number): AVCaptureManualExposureBracketedStillImageSettings;
+  static createWithExposureDuration_Iso(exposureDuration: CMTime, iso: number): AVCaptureManualExposureBracketedStillImageSettings;
   ISO: number;
   exposureDuration: CMTime;
 }
 
+export function AVCaptureManualExposureBracketedStillImageSettings(args?: any): AVCaptureManualExposureBracketedStillImageSettings;
+
 export class AVCaptureMetadataInput extends AVCaptureInput {
   appendTimedMetadataGroup(error: AVTimedMetadataGroup): boolean;
-  static createWithFormatDescriptionWithClock(_: any, clock: any): AVCaptureMetadataInput;
+  static createWithFormatDescription_Clock(_: any, clock: any): AVCaptureMetadataInput;
 }
+
+export function AVCaptureMetadataInput(args?: any): AVCaptureMetadataInput;
 
 export class AVCaptureMetadataOutput extends AVCaptureOutput {
   availableMetadataObjectTypes: string[];
@@ -1247,6 +1429,8 @@ export class AVCaptureMetadataOutput extends AVCaptureOutput {
   setRectOfInterest(_: CGRect);
   setMetadataObjectsDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVCaptureMetadataOutput(args?: any): AVCaptureMetadataOutput;
 
 interface AVCaptureMetadataOutputObjectsDelegate {
   metadataOutput(_: AVCaptureOutput, didOutput: AVMetadataObject[], from: AVCaptureConnection): void;
@@ -1261,11 +1445,15 @@ export class AVCaptureMovieFileOutput extends AVCaptureFileOutput {
   setOutputSettings(_?: Map<string, any>, for_?: AVCaptureConnection): void;
 }
 
+export function AVCaptureMovieFileOutput(args?: any): AVCaptureMovieFileOutput;
+
 export class AVCaptureMultiCamSession extends AVCaptureSession {
   hardwareCost: number;
   systemPressureCost: number;
   static isMultiCamSupported: boolean;
 }
+
+export function AVCaptureMultiCamSession(args?: any): AVCaptureMultiCamSession;
 
 export class AVCaptureOutput extends NSObject {
   connections: AVCaptureConnection[];
@@ -1274,6 +1462,8 @@ export class AVCaptureOutput extends NSObject {
   outputRectConverted(fromMetadataOutputRect: CGRect): CGRect;
   transformedMetadataObject(for_: AVMetadataObject, connection: AVCaptureConnection): AVMetadataObject;
 }
+
+export function AVCaptureOutput(args?: any): AVCaptureOutput;
 
 export class AVCapturePhoto extends NSObject {
   photoCount: number;
@@ -1284,18 +1474,22 @@ export class AVCapturePhoto extends NSObject {
   fileDataRepresentation(): NSData;
 }
 
+export function AVCapturePhoto(args?: any): AVCapturePhoto;
+
 export class AVCapturePhotoBracketSettings extends AVCapturePhotoSettings {
   bracketedSettings: AVCaptureBracketedStillImageSettings[];
   isLensStabilizationEnabled: boolean;
   setLensStabilizationEnabled(_: boolean);
 }
 
+export function AVCapturePhotoBracketSettings(args?: any): AVCapturePhotoBracketSettings;
+
 interface AVCapturePhotoCaptureDelegate {
   photoOutput(_: AVCapturePhotoOutput, willBeginCaptureFor: AVCaptureResolvedPhotoSettings): void;
   photoOutput(_: AVCapturePhotoOutput, willCapturePhotoFor: AVCaptureResolvedPhotoSettings): void;
   photoOutput(_: AVCapturePhotoOutput, didCapturePhotoFor: AVCaptureResolvedPhotoSettings): void;
-  photoOutput(_: AVCapturePhotoOutput, didFinishProcessingPhoto: AVCapturePhoto, error?: Error): void;
-  photoOutput(_: AVCapturePhotoOutput, didFinishCaptureFor: AVCaptureResolvedPhotoSettings, error?: Error): void;
+  photoOutput(_: AVCapturePhotoOutput, didFinishProcessingPhoto: AVCapturePhoto, error?: NSError): void;
+  photoOutput(_: AVCapturePhotoOutput, didFinishCaptureFor: AVCaptureResolvedPhotoSettings, error?: NSError): void;
 }
 
 interface AVCapturePhotoFileDataRepresentationCustomizer {
@@ -1315,17 +1509,23 @@ export class AVCapturePhotoOutput extends AVCaptureOutput {
   supportedPhotoPixelFormatTypes(for_: string): number[];
 }
 
+export function AVCapturePhotoOutput(args?: any): AVCapturePhotoOutput;
+
 export class AVCapturePhotoSettings extends NSObject {
   format: Map<string, any>;
   processedFileType: string;
   uniqueID: number;
 }
 
+export function AVCapturePhotoSettings(args?: any): AVCapturePhotoSettings;
+
 export class AVCaptureResolvedPhotoSettings extends NSObject {
   expectedPhotoCount: number;
   photoDimensions: CMVideoDimensions;
   uniqueID: number;
 }
+
+export function AVCaptureResolvedPhotoSettings(args?: any): AVCaptureResolvedPhotoSettings;
 
 export class AVCaptureScreenInput extends AVCaptureInput {
   capturesCursor: boolean;
@@ -1340,6 +1540,8 @@ export class AVCaptureScreenInput extends AVCaptureInput {
   setScaleFactor(_: number);
   static createWithDisplayID(_: number): AVCaptureScreenInput;
 }
+
+export function AVCaptureScreenInput(args?: any): AVCaptureScreenInput;
 
 export class AVCaptureSession extends NSObject {
   connections: AVCaptureConnection[];
@@ -1367,14 +1569,20 @@ export class AVCaptureSession extends NSObject {
   stopRunning(): void;
 }
 
+export function AVCaptureSession(args?: any): AVCaptureSession;
+
 export class AVCaptureSynchronizedData extends NSObject {
   timestamp: CMTime;
 }
+
+export function AVCaptureSynchronizedData(args?: any): AVCaptureSynchronizedData;
 
 export class AVCaptureSynchronizedDataCollection extends NSObject {
   count: number;
   synchronizedData(for_: AVCaptureOutput): AVCaptureSynchronizedData;
 }
+
+export function AVCaptureSynchronizedDataCollection(args?: any): AVCaptureSynchronizedDataCollection;
 
 export class AVCaptureSynchronizedDepthData extends AVCaptureSynchronizedData {
   depthData: AVDepthData;
@@ -1382,15 +1590,21 @@ export class AVCaptureSynchronizedDepthData extends AVCaptureSynchronizedData {
   droppedReason: AVCaptureOutputBase.AVCaptureOutput.DataDroppedReason;
 }
 
+export function AVCaptureSynchronizedDepthData(args?: any): AVCaptureSynchronizedDepthData;
+
 export class AVCaptureSynchronizedMetadataObjectData extends AVCaptureSynchronizedData {
   metadataObjects: AVMetadataObject[];
 }
+
+export function AVCaptureSynchronizedMetadataObjectData(args?: any): AVCaptureSynchronizedMetadataObjectData;
 
 export class AVCaptureSynchronizedSampleBufferData extends AVCaptureSynchronizedData {
   droppedReason: AVCaptureOutputBase.AVCaptureOutput.DataDroppedReason;
   sampleBuffer: any;
   sampleBufferWasDropped: boolean;
 }
+
+export function AVCaptureSynchronizedSampleBufferData(args?: any): AVCaptureSynchronizedSampleBufferData;
 
 export class AVCaptureVideoDataOutput extends AVCaptureOutput {
   alwaysDiscardsLateVideoFrames: boolean;
@@ -1407,6 +1621,8 @@ export class AVCaptureVideoDataOutput extends AVCaptureOutput {
   setSampleBufferDelegate(_?: any, queue?: NSObject): void;
 }
 
+export function AVCaptureVideoDataOutput(args?: any): AVCaptureVideoDataOutput;
+
 interface AVCaptureVideoDataOutputSampleBufferDelegate {
   captureOutput(_: AVCaptureOutput, didOutput: any, from: AVCaptureConnection): void;
   captureOutput(_: AVCaptureOutput, didDrop: any, from: AVCaptureConnection): void;
@@ -1420,13 +1636,15 @@ export class AVCaptureVideoPreviewLayer extends CALayer {
   setVideoGravity(_: string);
   captureDevicePointConverted(fromLayerPoint: CGPoint): CGPoint;
   static createWithSession(_: AVCaptureSession): AVCaptureVideoPreviewLayer;
-  static createWithSessionWithNoConnection(_: AVCaptureSession): AVCaptureVideoPreviewLayer;
+  static createWithSession_NoConnection(_: AVCaptureSession): AVCaptureVideoPreviewLayer;
   metadataOutputRectConverted(fromLayerRect: CGRect): CGRect;
   layerPointConverted(fromCaptureDevicePoint: CGPoint): CGPoint;
   layerRectConverted(fromMetadataOutputRect: CGRect): CGRect;
   setSessionWithNoConnection(_: AVCaptureSession): void;
   transformedMetadataObject(for_: AVMetadataObject): AVMetadataObject;
 }
+
+export function AVCaptureVideoPreviewLayer(args?: any): AVCaptureVideoPreviewLayer;
 
 export class AVComposition extends AVAsset {
   urlAssetInitializationOptions: Map<string, any>;
@@ -1435,23 +1653,31 @@ export class AVComposition extends AVAsset {
   track(withTrackID: number): AVCompositionTrack;
 }
 
+export function AVComposition(args?: any): AVComposition;
+
 export class AVCompositionTrack extends AVAssetTrack {
   formatDescriptionReplacements: AVCompositionTrackFormatDescriptionReplacement[];
   // @ts-ignore 
   segment(forTrackTime: CMTime): AVCompositionTrackSegment;
 }
 
+export function AVCompositionTrack(args?: any): AVCompositionTrack;
+
 export class AVCompositionTrackFormatDescriptionReplacement extends NSObject {
   originalFormatDescription: any;
   replacementFormatDescription: any;
 }
 
+export function AVCompositionTrackFormatDescriptionReplacement(args?: any): AVCompositionTrackFormatDescriptionReplacement;
+
 export class AVCompositionTrackSegment extends AVAssetTrackSegment {
   sourceTrackID: number;
-  sourceURL: URL;
+  sourceURL: NSURL;
   static createWithTimeRange(_: CMTimeRange): AVCompositionTrackSegment;
-  static createWithUrlWithTrackIDWithSourceTimeRangeWithTargetTimeRange(_: URL, trackID: number, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange): AVCompositionTrackSegment;
+  static createWithUrl_TrackID_SourceTimeRange_TargetTimeRange(_: NSURL, trackID: number, sourceTimeRange: CMTimeRange, targetTimeRange: CMTimeRange): AVCompositionTrackSegment;
 }
+
+export function AVCompositionTrackSegment(args?: any): AVCompositionTrackSegment;
 
 interface AVContentKeyRecipient {
   mayRequireContentKeysForMediaDataProcessing: boolean;
@@ -1459,47 +1685,53 @@ interface AVContentKeyRecipient {
 
 export class AVContentKeyRequest extends NSObject {
   canProvidePersistableContentKey: boolean;
-  error: Error;
+  error: NSError;
   identifier: any;
   initializationData: NSData;
   options: Map<string, any>;
   renewsExpiringResponseData: boolean;
   status: AVContentKeySession.AVContentKeyRequest.Status;
-  makeStreamingContentKeyRequestData(forApp: NSData, contentIdentifier?: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: Error) => void): void;
+  makeStreamingContentKeyRequestData(forApp: NSData, contentIdentifier?: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
   processContentKeyResponse(_: AVContentKeyResponse): void;
-  processContentKeyResponseError(_: Error): void;
+  processContentKeyResponseError(_: NSError): void;
   respondByRequestingPersistableContentKeyRequestAndReturnError(): boolean;
 }
+
+export function AVContentKeyRequest(args?: any): AVContentKeyRequest;
 
 export class AVContentKeyResponse extends NSObject {
 }
 
+export function AVContentKeyResponse(args?: any): AVContentKeyResponse;
+
 export class AVContentKeySession extends NSObject {
-  static pendingExpiredSessionReports(withAppIdentifier: NSData, storageDirectoryAt: URL): NSData[];
-  static removePendingExpiredSessionReports(_: NSData[], withAppIdentifier: NSData, storageDirectoryAt: URL): void;
+  static pendingExpiredSessionReports(withAppIdentifier: NSData, storageDirectoryAt: NSURL): NSData[];
+  static removePendingExpiredSessionReports(_: NSData[], withAppIdentifier: NSData, storageDirectoryAt: NSURL): void;
   contentKeyRecipients: any[];
   contentProtectionSessionIdentifier: NSData;
   delegate: any;
   delegateQueue: NSObject;
   keySystem: string;
-  storageURL: URL;
+  storageURL: NSURL;
   addContentKeyRecipient(_: any): void;
   expire(): void;
-  invalidateAllPersistableContentKeys(forApp: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: Error) => void): void;
-  invalidatePersistableContentKey(_: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: Error) => void): void;
-  makeSecureTokenForExpirationDate(ofPersistableContentKey: NSData, completionHandler?: (p1: NSData, p2: Error) => void): void;
+  invalidateAllPersistableContentKeys(forApp: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+  invalidatePersistableContentKey(_: NSData, options?: Map<string, any>, completionHandler?: (p1: NSData, p2: NSError) => void): void;
+  makeSecureTokenForExpirationDate(ofPersistableContentKey: NSData, completionHandler?: (p1: NSData, p2: NSError) => void): void;
   processContentKeyRequest(withIdentifier?: any, initializationData?: NSData, options?: Map<string, any>): void;
   removeContentKeyRecipient(_: any): void;
   renewExpiringResponseData(for_: AVContentKeyRequest): void;
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
+export function AVContentKeySession(args?: any): AVContentKeySession;
+
 interface AVContentKeySessionDelegate {
   contentKeySession(_: AVContentKeySession, didProvide: AVContentKeyRequest): void;
   contentKeySession(_: AVContentKeySession, didProvideRenewingContentKeyRequest: AVContentKeyRequest): void;
   contentKeySession(_: AVContentKeySession, didProvide: AVPersistableContentKeyRequest): void;
   contentKeySession(_: AVContentKeySession, didUpdatePersistableContentKey: NSData, forContentKeyIdentifier: any): void;
-  contentKeySession(_: AVContentKeySession, contentKeyRequest: AVContentKeyRequest, didFailWithError: Error): void;
+  contentKeySession(_: AVContentKeySession, contentKeyRequest: AVContentKeyRequest, didFailWithError: NSError): void;
   contentKeySession(_: AVContentKeySession, shouldRetry: AVContentKeyRequest, reason: string): boolean;
   contentKeySession(_: AVContentKeySession, contentKeyRequestDidSucceed: AVContentKeyRequest): void;
   contentKeySessionContentProtectionSessionIdentifierDidChange(_: AVContentKeySession): void;
@@ -1509,11 +1741,13 @@ interface AVContentKeySessionDelegate {
 export class AVDateRangeMetadataGroup extends AVMetadataGroup {
   endDate: Date;
   startDate: Date;
-  static createWithItemsWithStartDateWithEndDate(_: AVMetadataItem[], startDate: Date, endDate?: Date): AVDateRangeMetadataGroup;
+  static createWithItems_StartDate_EndDate(_: AVMetadataItem[], startDate: Date, endDate?: Date): AVDateRangeMetadataGroup;
 }
 
+export function AVDateRangeMetadataGroup(args?: any): AVDateRangeMetadataGroup;
+
 export class AVDepthData extends NSObject {
-  static createWithDepthDataFromDictionaryRepresentationError(error: Map<any, any>): AVDepthData;
+  static createWithError(error: Map<any, any>): AVDepthData;
   availableDepthDataTypes: number[];
   cameraCalibrationData: AVCameraCalibrationData;
   depthDataAccuracy: AVDepthData.Accuracy;
@@ -1522,10 +1756,12 @@ export class AVDepthData extends NSObject {
   depthDataQuality: AVDepthData.Quality;
   depthDataType: number;
   createWithDepthDataByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVDepthData;
-  createWithDepthDataByConvertingToDepthDataType(toDepthDataType: number): AVDepthData;
-  createWithDepthDataByReplacingDepthDataMapWithPixelBufferError(error: any): AVDepthData;
+  createWithToDepthDataType(toDepthDataType: number): AVDepthData;
+  createWithError(error: any): AVDepthData;
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
 }
+
+export function AVDepthData(args?: any): AVDepthData;
 
 interface AVFragmentMinding {
   isAssociatedWithFragmentMinder: boolean;
@@ -1536,32 +1772,44 @@ export class AVFragmentedAsset extends AVURLAsset {
   track(withTrackID: number): AVFragmentedAssetTrack;
 }
 
+export function AVFragmentedAsset(args?: any): AVFragmentedAsset;
+
 export class AVFragmentedAssetMinder extends NSObject {
   assets: AVAsset[];
   mindingInterval: number;
   setMindingInterval(_: number);
   addFragmentedAsset(_: AVAsset): void;
-  static createWithAssetWithMindingInterval(_: AVAsset, mindingInterval: number): AVFragmentedAssetMinder;
+  static createWithAsset_MindingInterval(_: AVAsset, mindingInterval: number): AVFragmentedAssetMinder;
   removeFragmentedAsset(_: AVAsset): void;
 }
 
+export function AVFragmentedAssetMinder(args?: any): AVFragmentedAssetMinder;
+
 export class AVFragmentedAssetTrack extends AVAssetTrack {
 }
+
+export function AVFragmentedAssetTrack(args?: any): AVFragmentedAssetTrack;
 
 export class AVFragmentedMovie extends AVMovie {
   // @ts-ignore 
   track(withTrackID: number): AVFragmentedMovieTrack;
 }
 
+export function AVFragmentedMovie(args?: any): AVFragmentedMovie;
+
 export class AVFragmentedMovieMinder extends AVFragmentedAssetMinder {
   movies: AVFragmentedMovie[];
   add(_: AVFragmentedMovie): void;
-  static createWithMovieWithMindingInterval(_: AVFragmentedMovie, mindingInterval: number): AVFragmentedMovieMinder;
+  static createWithMovie_MindingInterval(_: AVFragmentedMovie, mindingInterval: number): AVFragmentedMovieMinder;
   remove(_: AVFragmentedMovie): void;
 }
 
+export function AVFragmentedMovieMinder(args?: any): AVFragmentedMovieMinder;
+
 export class AVFragmentedMovieTrack extends AVMovieTrack {
 }
+
+export function AVFragmentedMovieTrack(args?: any): AVFragmentedMovieTrack;
 
 export class AVFrameRateRange extends NSObject {
   maxFrameDuration: CMTime;
@@ -1570,6 +1818,8 @@ export class AVFrameRateRange extends NSObject {
   minFrameRate: number;
 }
 
+export function AVFrameRateRange(args?: any): AVFrameRateRange;
+
 export class AVMIDIPlayer extends NSObject {
   currentPosition: number;
   setCurrentPosition(_: number);
@@ -1577,25 +1827,31 @@ export class AVMIDIPlayer extends NSObject {
   isPlaying: boolean;
   rate: number;
   setRate(_: number);
-  static createWithContentsOfWithSoundBankURL(soundBankURL: URL, error?: URL): AVMIDIPlayer;
-  static createWithDataWithSoundBankURL(soundBankURL: NSData, error?: URL): AVMIDIPlayer;
+  static createWithContentsOf_SoundBankURL(soundBankURL: NSURL, error?: NSURL): AVMIDIPlayer;
+  static createWithData_SoundBankURL(soundBankURL: NSData, error?: NSURL): AVMIDIPlayer;
   play(_?: () => void): void;
   prepareToPlay(): void;
   stop(): void;
 }
 
+export function AVMIDIPlayer(args?: any): AVMIDIPlayer;
+
 // export function AVMakeRectWithAspectRatioInsideRect(aspectRatio: CGSize, boundingRect: CGRect): CGRect;
 
 export class AVMediaDataStorage extends NSObject {
-  url(): URL;
-  static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVMediaDataStorage;
+  url(): NSURL;
+  static createWithUrl_Options(_: NSURL, options?: Map<string, any>): AVMediaDataStorage;
 }
+
+export function AVMediaDataStorage(args?: any): AVMediaDataStorage;
 
 export class AVMediaSelection extends NSObject {
   asset: AVAsset;
   mediaSelectionCriteriaCanBeAppliedAutomatically(to: AVMediaSelectionGroup): boolean;
   selectedMediaOption(in_: AVMediaSelectionGroup): AVMediaSelectionOption;
 }
+
+export function AVMediaSelection(args?: any): AVMediaSelection;
 
 export class AVMediaSelectionGroup extends NSObject {
   static mediaSelectionOptions(from: AVMediaSelectionOption[], filteredAndSortedAccordingToPreferredLanguages: string[]): AVMediaSelectionOption[];
@@ -1608,6 +1864,8 @@ export class AVMediaSelectionGroup extends NSObject {
   options: AVMediaSelectionOption[];
   mediaSelectionOption(withPropertyList: any): AVMediaSelectionOption;
 }
+
+export function AVMediaSelectionGroup(args?: any): AVMediaSelectionGroup;
 
 export class AVMediaSelectionOption extends NSObject {
   availableMetadataFormats: string[];
@@ -1623,15 +1881,23 @@ export class AVMediaSelectionOption extends NSObject {
   propertyList(): any;
 }
 
+export function AVMediaSelectionOption(args?: any): AVMediaSelectionOption;
+
 export class AVMetadataBodyObject extends AVMetadataObject {
   bodyID: number;
 }
 
+export function AVMetadataBodyObject(args?: any): AVMetadataBodyObject;
+
 export class AVMetadataCatBodyObject extends AVMetadataBodyObject {
 }
 
+export function AVMetadataCatBodyObject(args?: any): AVMetadataCatBodyObject;
+
 export class AVMetadataDogBodyObject extends AVMetadataBodyObject {
 }
+
+export function AVMetadataDogBodyObject(args?: any): AVMetadataDogBodyObject;
 
 export class AVMetadataFaceObject extends AVMetadataObject {
   faceID: number;
@@ -1641,14 +1907,20 @@ export class AVMetadataFaceObject extends AVMetadataObject {
   yawAngle: number;
 }
 
+export function AVMetadataFaceObject(args?: any): AVMetadataFaceObject;
+
 export class AVMetadataGroup extends NSObject {
   classifyingLabel: string;
   items: AVMetadataItem[];
   uniqueID: string;
 }
 
+export function AVMetadataGroup(args?: any): AVMetadataGroup;
+
 export class AVMetadataHumanBodyObject extends AVMetadataBodyObject {
 }
+
+export function AVMetadataHumanBodyObject(args?: any): AVMetadataHumanBodyObject;
 
 export class AVMetadataItem extends NSObject {
   //  static identifier(forKey: any, keySpace: string): string;
@@ -1676,21 +1948,29 @@ export class AVMetadataItem extends NSObject {
   time: CMTime;
 }
 
+export function AVMetadataItem(args?: any): AVMetadataItem;
+
 export class AVMetadataItemFilter extends NSObject {
   static forSharing(): AVMetadataItemFilter;
 }
 
+export function AVMetadataItemFilter(args?: any): AVMetadataItemFilter;
+
 export class AVMetadataItemValueRequest extends NSObject {
   metadataItem: AVMetadataItem;
-  respond(error: Error): void;
+  respond(error: NSError): void;
   respond(value: any): void;
 }
+
+export function AVMetadataItemValueRequest(args?: any): AVMetadataItemValueRequest;
 
 export class AVMetadataMachineReadableCodeObject extends AVMetadataObject {
   corners: Map<any, any>[];
   descriptor: CIBarcodeDescriptor;
   stringValue: string;
 }
+
+export function AVMetadataMachineReadableCodeObject(args?: any): AVMetadataMachineReadableCodeObject;
 
 export class AVMetadataObject extends NSObject {
   bounds: CGRect;
@@ -1699,25 +1979,31 @@ export class AVMetadataObject extends NSObject {
   type: string;
 }
 
+export function AVMetadataObject(args?: any): AVMetadataObject;
+
 export class AVMetadataSalientObject extends AVMetadataObject {
   objectID: number;
 }
 
+export function AVMetadataSalientObject(args?: any): AVMetadataSalientObject;
+
 export class AVMovie extends AVAsset {
   static movieTypes(): string[];
-  url: URL;
+  url: NSURL;
   canContainMovieFragments: boolean;
   containsMovieFragments: boolean;
   data: NSData;
   defaultMediaDataStorage: AVMediaDataStorage;
-  static createWithDataWithOptions(_: NSData, options?: Map<string, any>): AVMovie;
-  static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVMovie;
+  static createWithData_Options(_: NSData, options?: Map<string, any>): AVMovie;
+  static createWithUrl_Options(_: NSURL, options?: Map<string, any>): AVMovie;
   is(compatibleWithFileType: string): boolean;
   makeMovieHeader(fileType: string): NSData;
   // @ts-ignore 
   track(withTrackID: number): AVMovieTrack;
-  writeMovieHeaderToURL(fileType: URL, options: string, error: AVMovie.AVMovieWritingOptions): boolean;
+  writeMovieHeaderToURL(fileType: NSURL, options: string, error: AVMovie.AVMovieWritingOptions): boolean;
 }
+
+export function AVMovie(args?: any): AVMovie;
 
 export class AVMovieTrack extends AVAssetTrack {
   alternateGroupID: number;
@@ -1725,6 +2011,8 @@ export class AVMovieTrack extends AVAssetTrack {
   mediaDecodeTimeRange: CMTimeRange;
   mediaPresentationTimeRange: CMTimeRange;
 }
+
+export function AVMovieTrack(args?: any): AVMovieTrack;
 
 export class AVMusicTrack extends NSObject {
   destinationAudioUnit: AVAudioUnit;
@@ -1750,10 +2038,14 @@ export class AVMusicTrack extends NSObject {
   timeResolution: number;
 }
 
+export function AVMusicTrack(args?: any): AVMusicTrack;
+
 export class AVMutableAudioMix extends AVAudioMix {
   inputParameters: AVAudioMixInputParameters[];
   setInputParameters(_: AVAudioMixInputParameters[]);
 }
+
+export function AVMutableAudioMix(args?: any): AVMutableAudioMix;
 
 export class AVMutableAudioMixInputParameters extends AVAudioMixInputParameters {
   audioTapProcessor: any;
@@ -1765,6 +2057,8 @@ export class AVMutableAudioMixInputParameters extends AVAudioMixInputParameters 
   setVolume(_: number, at: CMTime): void;
   setVolumeRamp(fromStartVolume: number, toEndVolume: number, timeRange: CMTimeRange): void;
 }
+
+export function AVMutableAudioMixInputParameters(args?: any): AVMutableAudioMixInputParameters;
 
 export class AVMutableComposition extends AVComposition {
   naturalSize: CGSize;
@@ -1779,6 +2073,8 @@ export class AVMutableComposition extends AVComposition {
   // @ts-ignore 
   track(withTrackID: number): AVMutableCompositionTrack;
 }
+
+export function AVMutableComposition(args?: any): AVMutableComposition;
 
 export class AVMutableCompositionTrack extends AVCompositionTrack {
   // @ts-ignore 
@@ -1807,6 +2103,8 @@ export class AVMutableCompositionTrack extends AVCompositionTrack {
   validateTrackSegments(error: AVCompositionTrackSegment[]): boolean;
 }
 
+export function AVMutableCompositionTrack(args?: any): AVMutableCompositionTrack;
+
 export class AVMutableDateRangeMetadataGroup extends AVDateRangeMetadataGroup {
   endDate: Date;
   setEndDate(_: Date);
@@ -1816,9 +2114,13 @@ export class AVMutableDateRangeMetadataGroup extends AVDateRangeMetadataGroup {
   setStartDate(_: Date);
 }
 
+export function AVMutableDateRangeMetadataGroup(args?: any): AVMutableDateRangeMetadataGroup;
+
 export class AVMutableMediaSelection extends AVMediaSelection {
   select(_?: AVMediaSelectionOption, in_?: AVMediaSelectionGroup): void;
 }
+
+export function AVMutableMediaSelection(args?: any): AVMutableMediaSelection;
 
 export class AVMutableMetadataItem extends AVMetadataItem {
   dataType: string;
@@ -1837,8 +2139,10 @@ export class AVMutableMetadataItem extends AVMetadataItem {
   setTime(_: CMTime);
 }
 
+export function AVMutableMetadataItem(args?: any): AVMutableMetadataItem;
+
 export class AVMutableMovie extends AVMovie {
-  static createWithSettingsFromMovieOptionsWithError(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
+  static createWithOptions_Error(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
   defaultMediaDataStorage: AVMediaDataStorage;
   setDefaultMediaDataStorage(_: AVMediaDataStorage);
   interleavingPeriod: CMTime;
@@ -1856,10 +2160,10 @@ export class AVMutableMovie extends AVMovie {
   addMutableTrack(withMediaType: string, copySettingsFrom?: AVAssetTrack, options?: Map<string, any>): AVMutableMovieTrack;
   addMutableTracksCopyingSettings(from: AVAssetTrack[], options?: Map<string, any>): AVMutableMovieTrack[];
   // @ts-ignore 
-  static createWithDataWithOptions(options: NSData, error?: Map<string, any>): AVMutableMovie;
-  static createWithSettingsFromMovieWithOptions(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
+  static createWithData_Options(options: NSData, error?: Map<string, any>): AVMutableMovie;
+  static createWithSettingsFromMovie_Options(options?: AVMovie, error?: Map<string, any>): AVMutableMovie;
   // @ts-ignore 
-  static createWithUrlWithOptions(options: URL, error?: Map<string, any>): AVMutableMovie;
+  static createWithUrl_Options(options: NSURL, error?: Map<string, any>): AVMutableMovie;
   insertEmptyTimeRange(_: CMTimeRange): void;
   insertTimeRange(_: CMTimeRange, of: AVAsset, at: CMTime, copySampleData: boolean): boolean;
   mutableTrack(compatibleWith: AVAssetTrack): AVMutableMovieTrack;
@@ -1869,6 +2173,8 @@ export class AVMutableMovie extends AVMovie {
   // @ts-ignore 
   track(withTrackID: number): AVMutableMovieTrack;
 }
+
+export function AVMutableMovie(args?: any): AVMutableMovie;
 
 export class AVMutableMovieTrack extends AVMovieTrack {
   alternateGroupID: number;
@@ -1903,8 +2209,8 @@ export class AVMutableMovieTrack extends AVMovieTrack {
   setPreferredVolume(_: number);
   productionApertureDimensions: CGSize;
   setProductionApertureDimensions(_: CGSize);
-  sampleReferenceBaseURL: URL;
-  setSampleReferenceBaseURL(_: URL);
+  sampleReferenceBaseURL: NSURL;
+  setSampleReferenceBaseURL(_: NSURL);
   timescale: number;
   setTimescale(_: number);
   addTrackAssociation(to: AVMovieTrack, type: string): void;
@@ -1918,12 +2224,16 @@ export class AVMutableMovieTrack extends AVMovieTrack {
   scaleTimeRange(_: CMTimeRange, toDuration: CMTime): void;
 }
 
+export function AVMutableMovieTrack(args?: any): AVMutableMovieTrack;
+
 export class AVMutableTimedMetadataGroup extends AVTimedMetadataGroup {
   items: AVMetadataItem[];
   setItems(_: AVMetadataItem[]);
   timeRange: CMTimeRange;
   setTimeRange(_: CMTimeRange);
 }
+
+export function AVMutableTimedMetadataGroup(args?: any): AVMutableTimedMetadataGroup;
 
 export class AVMutableVideoComposition extends AVVideoComposition {
   animationTool: AVVideoCompositionCoreAnimationTool;
@@ -1948,6 +2258,8 @@ export class AVMutableVideoComposition extends AVVideoComposition {
   setSourceTrackIDForFrameTiming(_: number);
 }
 
+export function AVMutableVideoComposition(args?: any): AVMutableVideoComposition;
+
 export class AVMutableVideoCompositionInstruction extends AVVideoCompositionInstruction {
   backgroundColor: any;
   setBackgroundColor(_: any);
@@ -1959,6 +2271,8 @@ export class AVMutableVideoCompositionInstruction extends AVVideoCompositionInst
   setTimeRange(_: CMTimeRange);
 }
 
+export function AVMutableVideoCompositionInstruction(args?: any): AVMutableVideoCompositionInstruction;
+
 export class AVMutableVideoCompositionLayerInstruction extends AVVideoCompositionLayerInstruction {
   trackID: number;
   setTrackID(_: number);
@@ -1969,6 +2283,8 @@ export class AVMutableVideoCompositionLayerInstruction extends AVVideoCompositio
   setTransform(_: CGAffineTransform, at: CMTime): void;
   setTransformRamp(fromStart: CGAffineTransform, toEnd: CGAffineTransform, timeRange: CMTimeRange): void;
 }
+
+export function AVMutableVideoCompositionLayerInstruction(args?: any): AVMutableVideoCompositionLayerInstruction;
 
 export class AVOutputSettingsAssistant extends NSObject {
   static availableOutputSettingsPresets(): string[];
@@ -1985,9 +2301,13 @@ export class AVOutputSettingsAssistant extends NSObject {
   videoSettings: Map<string, any>;
 }
 
+export function AVOutputSettingsAssistant(args?: any): AVOutputSettingsAssistant;
+
 export class AVPersistableContentKeyRequest extends AVContentKeyRequest {
   persistableContentKeyFromKeyVendorResponse(options: NSData, error?: Map<string, any>): NSData;
 }
+
+export function AVPersistableContentKeyRequest(args?: any): AVPersistableContentKeyRequest;
 
 export class AVPlayer extends NSObject {
   actionAtItemEnd: AVPlayer.ActionAtItemEnd;
@@ -2001,7 +2321,7 @@ export class AVPlayer extends NSObject {
   automaticallyWaitsToMinimizeStalling: boolean;
   setAutomaticallyWaitsToMinimizeStalling(_: boolean);
   currentItem: AVPlayerItem;
-  error: Error;
+  error: NSError;
   isExternalPlaybackActive: boolean;
   masterClock: any;
   setMasterClock(_: any);
@@ -2025,7 +2345,7 @@ export class AVPlayer extends NSObject {
   cancelPendingPrerolls(): void;
   currentTime(): CMTime;
   static createWithPlayerItem(_?: AVPlayerItem): AVPlayer;
-  static createWithUrl(_: URL): AVPlayer;
+  static createWithUrl(_: NSURL): AVPlayer;
   mediaSelectionCriteria(forMediaCharacteristic: string): AVPlayerMediaSelectionCriteria;
   pause(): void;
   play(): void;
@@ -2042,6 +2362,8 @@ export class AVPlayer extends NSObject {
   setMediaSelectionCriteria(_?: AVPlayerMediaSelectionCriteria, forMediaCharacteristic?: string): void;
   setRate(_: number, time: CMTime, atHostTime: CMTime): void;
 }
+
+export function AVPlayer(args?: any): AVPlayer;
 
 export class AVPlayerItem extends NSObject {
   isApplicationAuthorizedForPlayback: boolean;
@@ -2072,7 +2394,7 @@ export class AVPlayerItem extends NSObject {
   currentMediaSelection: AVMediaSelection;
   customVideoCompositor: any;
   duration: CMTime;
-  error: Error;
+  error: NSError;
   forwardPlaybackEndTime: CMTime;
   setForwardPlaybackEndTime(_: CMTime);
   loadedTimeRanges: NSValue[];
@@ -2112,8 +2434,8 @@ export class AVPlayerItem extends NSObject {
   currentTime(): CMTime;
   errorLog(): AVPlayerItemErrorLog;
   static createWithAsset(_: AVAsset): AVPlayerItem;
-  static createWithAssetWithAutomaticallyLoadedAssetKeys(_: AVAsset, automaticallyLoadedAssetKeys?: string[]): AVPlayerItem;
-  static createWithUrl(_: URL): AVPlayerItem;
+  static createWithAsset_AutomaticallyLoadedAssetKeys(_: AVAsset, automaticallyLoadedAssetKeys?: string[]): AVPlayerItem;
+  static createWithUrl(_: NSURL): AVPlayerItem;
   remove(_: AVPlayerItemMediaDataCollector): void;
   remove(_: AVPlayerItemOutput): void;
   requestContentAuthorizationAsynchronously(withTimeoutInterval: number, completionHandler: () => void): void;
@@ -2125,11 +2447,15 @@ export class AVPlayerItem extends NSObject {
   step(byCount: number): void;
 }
 
+export function AVPlayerItem(args?: any): AVPlayerItem;
+
 export class AVPlayerItemAccessLog extends NSObject {
   events: AVPlayerItemAccessLogEvent[];
   extendedLogDataStringEncoding: number;
   extendedLogData(): NSData;
 }
+
+export function AVPlayerItemAccessLog(args?: any): AVPlayerItemAccessLog;
 
 export class AVPlayerItemAccessLogEvent extends NSObject {
   URI: string;
@@ -2160,11 +2486,15 @@ export class AVPlayerItemAccessLogEvent extends NSObject {
   transferDuration: number;
 }
 
+export function AVPlayerItemAccessLogEvent(args?: any): AVPlayerItemAccessLogEvent;
+
 export class AVPlayerItemErrorLog extends NSObject {
   events: AVPlayerItemErrorLogEvent[];
   extendedLogDataStringEncoding: number;
   extendedLogData(): NSData;
 }
+
+export function AVPlayerItemErrorLog(args?: any): AVPlayerItemErrorLog;
 
 export class AVPlayerItemErrorLogEvent extends NSObject {
   URI: string;
@@ -2175,6 +2505,8 @@ export class AVPlayerItemErrorLogEvent extends NSObject {
   playbackSessionID: string;
   serverAddress: string;
 }
+
+export function AVPlayerItemErrorLogEvent(args?: any): AVPlayerItemErrorLogEvent;
 
 export class AVPlayerItemLegibleOutput extends AVPlayerItemOutput {
   advanceIntervalForDelegateInvocation: number;
@@ -2187,6 +2519,8 @@ export class AVPlayerItemLegibleOutput extends AVPlayerItemOutput {
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
+export function AVPlayerItemLegibleOutput(args?: any): AVPlayerItemLegibleOutput;
+
 interface AVPlayerItemLegibleOutputPushDelegate {
   legibleOutput(_: AVPlayerItemLegibleOutput, didOutputAttributedStrings: NSAttributedString[], nativeSampleBuffers: any[], forItemTime: CMTime): void;
 }
@@ -2194,12 +2528,16 @@ interface AVPlayerItemLegibleOutputPushDelegate {
 export class AVPlayerItemMediaDataCollector extends NSObject {
 }
 
+export function AVPlayerItemMediaDataCollector(args?: any): AVPlayerItemMediaDataCollector;
+
 export class AVPlayerItemMetadataCollector extends AVPlayerItemMediaDataCollector {
   delegate: any;
   delegateQueue: NSObject;
-  static createWithIdentifiersWithClassifyingLabels(_?: string[], classifyingLabels?: string[]): AVPlayerItemMetadataCollector;
+  static createWithIdentifiers_ClassifyingLabels(_?: string[], classifyingLabels?: string[]): AVPlayerItemMetadataCollector;
   setDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVPlayerItemMetadataCollector(args?: any): AVPlayerItemMetadataCollector;
 
 interface AVPlayerItemMetadataCollectorPushDelegate {
   metadataCollector(_: AVPlayerItemMetadataCollector, didCollect: AVDateRangeMetadataGroup[], indexesOfNewGroups: IndexSet, indexesOfModifiedGroups: IndexSet): void;
@@ -2214,6 +2552,8 @@ export class AVPlayerItemMetadataOutput extends AVPlayerItemOutput {
   setDelegate(_?: any, queue?: NSObject): void;
 }
 
+export function AVPlayerItemMetadataOutput(args?: any): AVPlayerItemMetadataOutput;
+
 interface AVPlayerItemMetadataOutputPushDelegate {
   metadataOutput(_: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups: AVTimedMetadataGroup[], from?: AVPlayerItemTrack): void;
 }
@@ -2225,6 +2565,8 @@ export class AVPlayerItemOutput extends NSObject {
   itemTime(forHostTime: number): CMTime;
   itemTime(forMachAbsoluteTime: number): CMTime;
 }
+
+export function AVPlayerItemOutput(args?: any): AVPlayerItemOutput;
 
 interface AVPlayerItemOutputPullDelegate {
   outputMediaDataWillChange(_: AVPlayerItemOutput): void;
@@ -2245,6 +2587,8 @@ export class AVPlayerItemTrack extends NSObject {
   setVideoFieldMode(_: string);
 }
 
+export function AVPlayerItemTrack(args?: any): AVPlayerItemTrack;
+
 export class AVPlayerItemVideoOutput extends AVPlayerItemOutput {
   delegate: any;
   delegateQueue: NSObject;
@@ -2255,6 +2599,8 @@ export class AVPlayerItemVideoOutput extends AVPlayerItemOutput {
   requestNotificationOfMediaDataChange(withAdvanceInterval: number): void;
   setDelegate(_?: any, queue?: NSObject): void;
 }
+
+export function AVPlayerItemVideoOutput(args?: any): AVPlayerItemVideoOutput;
 
 export class AVPlayerLayer extends CALayer {
   pixelBufferAttributes: Map<string, any>;
@@ -2267,31 +2613,39 @@ export class AVPlayerLayer extends CALayer {
   videoRect: CGRect;
 }
 
+export function AVPlayerLayer(args?: any): AVPlayerLayer;
+
 export class AVPlayerLooper extends NSObject {
-  error: Error;
+  error: NSError;
   loopCount: number;
   loopingPlayerItems: AVPlayerItem[];
   status: AVPlayerLooper.Status;
   disableLooping(): void;
-  static createWithPlayerWithTemplateItemWithTimeRange(_: AVQueuePlayer, templateItem: AVPlayerItem, timeRange: CMTimeRange): AVPlayerLooper;
+  static createWithPlayer_TemplateItem_TimeRange(_: AVQueuePlayer, templateItem: AVPlayerItem, timeRange: CMTimeRange): AVPlayerLooper;
 }
+
+export function AVPlayerLooper(args?: any): AVPlayerLooper;
 
 export class AVPlayerMediaSelectionCriteria extends NSObject {
   preferredLanguages: string[];
   preferredMediaCharacteristics: string[];
   principalMediaCharacteristics: string[];
-  static createWithPreferredLanguagesWithPreferredMediaCharacteristics(_?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
-  static createWithPrincipalMediaCharacteristicsWithPreferredLanguagesWithPreferredMediaCharacteristics(_?: string[], preferredLanguages?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
+  static createWithPreferredLanguages_PreferredMediaCharacteristics(_?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
+  static createWithPrincipalMediaCharacteristics_PreferredLanguages_PreferredMediaCharacteristics(_?: string[], preferredLanguages?: string[], preferredMediaCharacteristics?: string[]): AVPlayerMediaSelectionCriteria;
 }
 
+export function AVPlayerMediaSelectionCriteria(args?: any): AVPlayerMediaSelectionCriteria;
+
 export class AVPortraitEffectsMatte extends NSObject {
-  static createWithPortraitEffectsMatteFromDictionaryRepresentationError(error: Map<any, any>): AVPortraitEffectsMatte;
+  static createWithError(error: Map<any, any>): AVPortraitEffectsMatte;
   mattingImage: any;
   pixelFormatType: number;
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
   createWithPortraitEffectsMatteByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVPortraitEffectsMatte;
-  createWithPortraitEffectsMatteByReplacingPortraitEffectsMatteWithPixelBufferError(error: any): AVPortraitEffectsMatte;
+  createWithError(error: any): AVPortraitEffectsMatte;
 }
+
+export function AVPortraitEffectsMatte(args?: any): AVPortraitEffectsMatte;
 
 export class AVQueuePlayer extends AVPlayer {
   advanceToNextItem(): void;
@@ -2302,6 +2656,8 @@ export class AVQueuePlayer extends AVPlayer {
   removeAllItems(): void;
   remove(_: AVPlayerItem): void;
 }
+
+export function AVQueuePlayer(args?: any): AVQueuePlayer;
 
 interface AVQueuedSampleBufferRendering {
   isReadyForMoreMediaData: boolean;
@@ -2318,12 +2674,14 @@ export class AVRouteDetector extends NSObject {
   setRouteDetectionEnabled(_: boolean);
 }
 
+export function AVRouteDetector(args?: any): AVRouteDetector;
+
 export class AVSampleBufferAudioRenderer extends NSObject {
   audioOutputDeviceUniqueID: string;
   setAudioOutputDeviceUniqueID(_: string);
   audioTimePitchAlgorithm: string;
   setAudioTimePitchAlgorithm(_: string);
-  error: Error;
+  error: NSError;
   isMuted: boolean;
   setMuted(_: boolean);
   status: AVQueuedSampleBufferRendering.AVQueuedSampleBufferRenderingStatus;
@@ -2332,10 +2690,12 @@ export class AVSampleBufferAudioRenderer extends NSObject {
   flush(fromSourceTime: CMTime, completionHandler: (p1: boolean) => void): void;
 }
 
+export function AVSampleBufferAudioRenderer(args?: any): AVSampleBufferAudioRenderer;
+
 export class AVSampleBufferDisplayLayer extends CALayer {
   controlTimebase: any;
   setControlTimebase(_: any);
-  error: Error;
+  error: NSError;
   preventsCapture: boolean;
   setPreventsCapture(_: boolean);
   preventsDisplaySleepDuringVideoPlayback: boolean;
@@ -2346,11 +2706,15 @@ export class AVSampleBufferDisplayLayer extends CALayer {
   flushAndRemoveImage(): void;
 }
 
+export function AVSampleBufferDisplayLayer(args?: any): AVSampleBufferDisplayLayer;
+
 export class AVSampleBufferGenerator extends NSObject {
-  static notifyOfDataReady(for_: any, completionHandler: (p1: boolean, p2: Error) => void): void;
+  static notifyOfDataReady(for_: any, completionHandler: (p1: boolean, p2: NSError) => void): void;
   createSampleBuffer(for_: AVSampleBufferRequest): any;
-  static createWithAssetWithTimebase(_: AVAsset, timebase?: any): AVSampleBufferGenerator;
+  static createWithAsset_Timebase(_: AVAsset, timebase?: any): AVSampleBufferGenerator;
 }
+
+export function AVSampleBufferGenerator(args?: any): AVSampleBufferGenerator;
 
 export class AVSampleBufferRenderSynchronizer extends NSObject {
   rate: number;
@@ -2365,6 +2729,8 @@ export class AVSampleBufferRenderSynchronizer extends NSObject {
   removeTimeObserver(_: any): void;
   setRate(_: number, time: CMTime): void;
 }
+
+export function AVSampleBufferRenderSynchronizer(args?: any): AVSampleBufferRenderSynchronizer;
 
 export class AVSampleBufferRequest extends NSObject {
   direction: AVSampleBufferGenerator.AVSampleBufferRequest.Direction;
@@ -2383,10 +2749,12 @@ export class AVSampleBufferRequest extends NSObject {
   static createWithStartCursor(_: AVSampleCursor): AVSampleBufferRequest;
 }
 
+export function AVSampleBufferRequest(args?: any): AVSampleBufferRequest;
+
 export class AVSampleCursor extends NSObject {
   currentChunkInfo: AVSampleCursorChunkInfo;
   currentChunkStorageRange: AVSampleCursorStorageRange;
-  currentChunkStorageURL: URL;
+  currentChunkStorageURL: NSURL;
   currentSampleAudioDependencyInfo: AVSampleCursorAudioDependencyInfo;
   currentSampleDependencyInfo: AVSampleCursorDependencyInfo;
   currentSampleDuration: CMTime;
@@ -2406,15 +2774,19 @@ export class AVSampleCursor extends NSObject {
   stepInPresentationOrder(byCount: number): number;
 }
 
+export function AVSampleCursor(args?: any): AVSampleCursor;
+
 export class AVSemanticSegmentationMatte extends NSObject {
-  static createWithSemanticSegmentationMatteFromImageSourceAuxiliaryDataTypeDictionaryRepresentationWithError(dictionaryRepresentation: string, error: Map<any, any>): AVSemanticSegmentationMatte;
+  static createWithDictionaryRepresentation_Error(dictionaryRepresentation: string, error: Map<any, any>): AVSemanticSegmentationMatte;
   matteType: string;
   mattingImage: any;
   pixelFormatType: number;
   dictionaryRepresentation(forAuxiliaryDataType?: string): Map<any, any>;
   createWithSemanticSegmentationMatteByApplyingExifOrientation(_: CGImageProperties.CGImagePropertyOrientation): AVSemanticSegmentationMatte;
-  createWithSemanticSegmentationMatteByReplacingSemanticSegmentationMatteWithPixelBufferError(error: any): AVSemanticSegmentationMatte;
+  createWithError(error: any): AVSemanticSegmentationMatte;
 }
+
+export function AVSemanticSegmentationMatte(args?: any): AVSemanticSegmentationMatte;
 
 export class AVSpeechSynthesisVoice extends NSObject {
   static currentLanguageCode(): string;
@@ -2427,6 +2799,8 @@ export class AVSpeechSynthesisVoice extends NSObject {
   quality: AVSpeechSynthesis.AVSpeechSynthesisVoiceQuality;
 }
 
+export function AVSpeechSynthesisVoice(args?: any): AVSpeechSynthesisVoice;
+
 export class AVSpeechSynthesizer extends NSObject {
   delegate: any;
   setDelegate(_: any);
@@ -2438,6 +2812,8 @@ export class AVSpeechSynthesizer extends NSObject {
   stopSpeaking(at: AVSpeechSynthesis.AVSpeechBoundary): boolean;
   write(_: AVSpeechUtterance, toBufferCallback: (p1: AVAudioBuffer) => void): void;
 }
+
+export function AVSpeechSynthesizer(args?: any): AVSpeechSynthesizer;
 
 interface AVSpeechSynthesizerDelegate {
   speechSynthesizer(_: AVSpeechSynthesizer, didStart: AVSpeechUtterance): void;
@@ -2467,10 +2843,14 @@ export class AVSpeechUtterance extends NSObject {
   static createWithString(_: string): AVSpeechUtterance;
 }
 
+export function AVSpeechUtterance(args?: any): AVSpeechUtterance;
+
 export class AVSynchronizedLayer extends CALayer {
   playerItem: AVPlayerItem;
   setPlayerItem(_: AVPlayerItem);
 }
+
+export function AVSynchronizedLayer(args?: any): AVSynchronizedLayer;
 
 export class AVTextStyleRule extends NSObject {
   static propertyList(for_: AVTextStyleRule[]): any;
@@ -2478,26 +2858,32 @@ export class AVTextStyleRule extends NSObject {
   textMarkupAttributes: Map<string, any>;
   textSelector: string;
   static createWithTextMarkupAttributes(_: Map<string, any>): AVTextStyleRule;
-  static createWithTextMarkupAttributesWithTextSelector(_: Map<string, any>, textSelector?: string): AVTextStyleRule;
+  static createWithTextMarkupAttributes_TextSelector(_: Map<string, any>, textSelector?: string): AVTextStyleRule;
 }
+
+export function AVTextStyleRule(args?: any): AVTextStyleRule;
 
 export class AVTimedMetadataGroup extends AVMetadataGroup {
   timeRange: CMTimeRange;
   copyFormatDescription(): any;
-  static createWithItemsWithTimeRange(_: AVMetadataItem[], timeRange: CMTimeRange): AVTimedMetadataGroup;
+  static createWithItems_TimeRange(_: AVMetadataItem[], timeRange: CMTimeRange): AVTimedMetadataGroup;
   static createWithSampleBuffer(_: any): AVTimedMetadataGroup;
 }
+
+export function AVTimedMetadataGroup(args?: any): AVTimedMetadataGroup;
 
 export class AVURLAsset extends AVAsset {
   static audiovisualMIMETypes(): string[];
   static audiovisualTypes(): string[];
   static isPlayableExtendedMIMEType(_: string): boolean;
-  URL: URL;
+  URL: NSURL;
   assetCache: AVAssetCache;
   resourceLoader: AVAssetResourceLoader;
   compatibleTrack(for_: AVCompositionTrack): AVAssetTrack;
-  static createWithUrlWithOptions(_: URL, options?: Map<string, any>): AVURLAsset;
+  static createWithUrl_Options(_: NSURL, options?: Map<string, any>): AVURLAsset;
 }
+
+export function AVURLAsset(args?: any): AVURLAsset;
 
 interface AVVideoCompositing {
   requiredPixelBufferAttributesForRenderContext: Map<string, any>;
@@ -2524,13 +2910,19 @@ export class AVVideoComposition extends NSObject {
   isValid(for_?: AVAsset, timeRange?: CMTimeRange, validationDelegate?: any): boolean;
 }
 
+export function AVVideoComposition(args?: any): AVVideoComposition;
+
 export class AVVideoCompositionCoreAnimationTool extends NSObject {
 }
+
+export function AVVideoCompositionCoreAnimationTool(args?: any): AVVideoCompositionCoreAnimationTool;
 
 export class AVVideoCompositionInstruction extends NSObject {
   backgroundColor: any;
   layerInstructions: AVVideoCompositionLayerInstruction[];
 }
+
+export function AVVideoCompositionInstruction(args?: any): AVVideoCompositionInstruction;
 
 interface AVVideoCompositionInstructionProtocol {
   containsTweening: boolean;
@@ -2547,6 +2939,8 @@ export class AVVideoCompositionLayerInstruction extends NSObject {
   getTransformRamp(for_: CMTime, start?: CGAffineTransform, end?: CGAffineTransform, timeRange?: CMTimeRange): boolean;
 }
 
+export function AVVideoCompositionLayerInstruction(args?: any): AVVideoCompositionLayerInstruction;
+
 export class AVVideoCompositionRenderContext extends NSObject {
   edgeWidths: AVEdgeWidths;
   highQualityRendering: boolean;
@@ -2558,10 +2952,14 @@ export class AVVideoCompositionRenderContext extends NSObject {
   newPixelBuffer(): any;
 }
 
+export function AVVideoCompositionRenderContext(args?: any): AVVideoCompositionRenderContext;
+
 export class AVVideoCompositionRenderHint extends NSObject {
   endCompositionTime: CMTime;
   startCompositionTime: CMTime;
 }
+
+export function AVVideoCompositionRenderHint(args?: any): AVVideoCompositionRenderHint;
 
 interface AVVideoCompositionValidationHandling {
   videoComposition(_: AVVideoComposition, shouldContinueValidatingAfterFindingInvalidValueForKey: string): boolean;
@@ -2582,6 +2980,8 @@ export class AVCaptureView extends NSView {
   setSession(_?: AVCaptureSession, showVideoPreview?: boolean, showAudioPreview?: boolean): void;
 }
 
+export function AVCaptureView(args?: any): AVCaptureView;
+
 interface AVCaptureViewDelegate {
   captureView(_: AVCaptureView, startRecordingTo: AVCaptureFileOutput): void;
 }
@@ -2601,8 +3001,10 @@ export class AVPictureInPictureController extends NSObject {
   stopPictureInPicture(): void;
 }
 
+export function AVPictureInPictureController(args?: any): AVPictureInPictureController;
+
 interface AVPictureInPictureControllerDelegate {
-  pictureInPictureController(_: AVPictureInPictureController, failedToStartPictureInPictureWithError: Error): void;
+  pictureInPictureController(_: AVPictureInPictureController, failedToStartPictureInPictureWithError: NSError): void;
   pictureInPictureController(_: AVPictureInPictureController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
   pictureInPictureControllerDidStartPictureInPicture(_: AVPictureInPictureController): void;
   pictureInPictureControllerDidStopPictureInPicture(_: AVPictureInPictureController): void;
@@ -2641,8 +3043,10 @@ export class AVPlayerView extends NSView {
   flashChapterNumber(_: number, chapterTitle?: string): void;
 }
 
+export function AVPlayerView(args?: any): AVPlayerView;
+
 interface AVPlayerViewPictureInPictureDelegate {
-  playerView(_: AVPlayerView, failedToStartPictureInPictureWithError: Error): void;
+  playerView(_: AVPlayerView, failedToStartPictureInPictureWithError: NSError): void;
   playerView(_: AVPlayerView, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler: (p1: boolean) => void): void;
   playerViewDidStartPicture(inPicture: AVPlayerView): void;
   playerViewDidStopPicture(inPicture: AVPlayerView): void;
@@ -2662,6 +3066,8 @@ export class AVRoutePickerView extends NSView {
   setRoutePickerButtonColor(_?: NSColor, for_?: AVRoutePickerView.AVRoutePickerViewButtonState): void;
 }
 
+export function AVRoutePickerView(args?: any): AVRoutePickerView;
+
 interface AVRoutePickerViewDelegate {
   routePickerViewDidEndPresentingRoutes(_: AVRoutePickerView): void;
   routePickerViewWillBeginPresentingRoutes(_: AVRoutePickerView): void;
@@ -2670,6 +3076,8 @@ interface AVRoutePickerViewDelegate {
 export class NSATSTypesetter extends NSTypesetter {
   static shared: NSATSTypesetter;
 }
+
+export function NSATSTypesetter(args?: any): NSATSTypesetter;
 
 interface NSAccessibility {
   accessibilityActivationPoint: CGPoint;
@@ -2886,8 +3294,8 @@ interface NSAccessibility {
   setAccessibilityUnitDescription(_: string);
   accessibilityUnits: NSAccessibilityConstants.NSAccessibility.Units;
   setAccessibilityUnits(_: NSAccessibilityConstants.NSAccessibility.Units);
-  accessibilityURL: URL;
-  setAccessibilityURL(_: URL);
+  accessibilityURL: NSURL;
+  setAccessibilityURL(_: NSURL);
   accessibilityValue: any;
   setAccessibilityValue(_: any);
   accessibilityValueDescription: string;
@@ -2970,9 +3378,11 @@ export class NSAccessibilityCustomAction extends NSObject {
   setSelector(_: string);
   target: any;
   setTarget(_: any);
-  static createWithNameWithHandler(_: string, handler?: () => boolean): NSAccessibilityCustomAction;
-  static createWithNameWithTargetWithSelector(_: string, target: any, selector: string): NSAccessibilityCustomAction;
+  static createWithName_Handler(_: string, handler?: () => boolean): NSAccessibilityCustomAction;
+  static createWithName_Target_Selector(_: string, target: any, selector: string): NSAccessibilityCustomAction;
 }
+
+export function NSAccessibilityCustomAction(args?: any): NSAccessibilityCustomAction;
 
 export class NSAccessibilityCustomRotor extends NSObject {
   itemLoadingDelegate: any;
@@ -2983,9 +3393,11 @@ export class NSAccessibilityCustomRotor extends NSObject {
   setLabel(_: string);
   type: NSAccessibilityCustomRotor.RotorType;
   setType(_: NSAccessibilityCustomRotor.RotorType);
-  static createWithLabelWithItemSearchDelegate(_: string, itemSearchDelegate: any): NSAccessibilityCustomRotor;
-  static createWithRotorTypeWithItemSearchDelegate(_: NSAccessibilityCustomRotor.RotorType, itemSearchDelegate: any): NSAccessibilityCustomRotor;
+  static createWithLabel_ItemSearchDelegate(_: string, itemSearchDelegate: any): NSAccessibilityCustomRotor;
+  static createWithRotorType_ItemSearchDelegate(_: NSAccessibilityCustomRotor.RotorType, itemSearchDelegate: any): NSAccessibilityCustomRotor;
 }
+
+export function NSAccessibilityCustomRotor(args?: any): NSAccessibilityCustomRotor;
 
 interface NSAccessibilityCustomRotorItemSearchDelegate {
   rotor(_: NSAccessibilityCustomRotor, resultFor: NSAccessibilityCustomRotor.SearchParameters): NSAccessibilityCustomRotor.ItemResult;
@@ -2997,6 +3409,8 @@ export class NSAccessibilityElement extends NSObject {
   setAccessibilityFrameInParentSpace(_: CGRect);
   accessibilityAddChildElement(_: NSAccessibilityElement): void;
 }
+
+export function NSAccessibilityElement(args?: any): NSAccessibilityElement;
 
 interface NSAccessibilityElementLoading {
   accessibilityElement(withToken: any): any;
@@ -3120,6 +3534,8 @@ interface NSAccessibilityTable {
 export class NSActionCell extends NSCell {
 }
 
+export function NSActionCell(args?: any): NSActionCell;
+
 export class NSAlert extends NSObject {
   accessoryView: NSView;
   setAccessoryView(_: NSView);
@@ -3148,6 +3564,8 @@ export class NSAlert extends NSObject {
   runModal(): number;
 }
 
+export function NSAlert(args?: any): NSAlert;
+
 interface NSAlertDelegate {
   alertShowHelp(_: NSAlert): boolean;
 }
@@ -3161,6 +3579,8 @@ export class NSAlignmentFeedbackFilter extends NSObject {
   update(with_: NSEvent): void;
   update(withPanRecognizer: NSPanGestureRecognizer): void;
 }
+
+export function NSAlignmentFeedbackFilter(args?: any): NSAlignmentFeedbackFilter;
 
 interface NSAlignmentFeedbackToken {
 }
@@ -3193,13 +3613,15 @@ export class NSAnimation extends NSObject {
   addProgressMark(_: number): void;
   clearStart(): void;
   clearStop(): void;
-  static createWithDurationWithAnimationCurve(_: number, animationCurve: NSAnimation.Curve): NSAnimation;
+  static createWithDuration_AnimationCurve(_: number, animationCurve: NSAnimation.Curve): NSAnimation;
   removeProgressMark(_: number): void;
   start(): void;
   start(when: NSAnimation, reachesProgress: number): void;
   stop(): void;
   stop(when: NSAnimation, reachesProgress: number): void;
 }
+
+export function NSAnimation(args?: any): NSAnimation;
 
 export class NSAnimationContext extends NSObject {
   static beginGrouping(): void;
@@ -3217,6 +3639,8 @@ export class NSAnimationContext extends NSObject {
   static current: NSAnimationContext;
 }
 
+export function NSAnimationContext(args?: any): NSAnimationContext;
+
 interface NSAnimationDelegate {
   animation(_: NSAnimation, valueForProgress: number): number;
   animation(_: NSAnimation, didReachProgressMark: number): void;
@@ -3231,8 +3655,10 @@ export class NSAppearance extends NSObject {
   static current: NSAppearance;
   setCurrentAppearance(_: NSAppearance);
   bestMatch(from: string[]): string;
-  static createWithAppearanceNamedWithBundle(_: string, bundle?: Bundle): NSAppearance;
+  static createWithAppearanceNamed_Bundle(_: string, bundle?: Bundle): NSAppearance;
 }
+
+export function NSAppearance(args?: any): NSAppearance;
 
 interface NSAppearanceCustomization {
   appearance: NSAppearance;
@@ -3315,7 +3741,7 @@ export class NSApplication extends NSResponder {
   reply(toOpenOrPrint: NSApplication.DelegateReply): void;
   reportException(_: NSException): void;
   requestUserAttention(_: NSApplication.RequestUserAttentionType): number;
-  restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: Error) => void): boolean;
+  restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: NSError) => void): boolean;
   run(): void;
   runModal(for_: NSWindow): number;
   runModalSession(_: any): number;
@@ -3343,9 +3769,11 @@ export class NSApplication extends NSResponder {
   window(withWindowNumber: number): NSWindow;
 }
 
+export function NSApplication(args?: any): NSApplication;
+
 interface NSApplicationDelegate {
   application(_: NSApplication, continue_: NSUserActivity, restorationHandler: (p1: any[]) => void): boolean;
-  application(_: NSApplication, open: URL[]): void;
+  application(_: NSApplication, open: NSURL[]): void;
   application(_: NSApplication, openFile: string): boolean;
   application(_: NSApplication, openFiles: string[]): void;
   application(_: NSApplication, openTempFile: string): boolean;
@@ -3355,10 +3783,10 @@ interface NSApplicationDelegate {
   application(_: NSApplication, printFiles: string[], withSettings: Map<string, any>, showPrintPanels: boolean): NSApplication.PrintReply;
   application(_: NSApplication, userDidAcceptCloudKitShareWith: CKShare.Metadata): void;
   application(_: NSApplication, didUpdate: NSUserActivity): void;
-  application(_: NSApplication, didFailToContinueUserActivityWithType: string, error: Error): void;
-  application(_: NSApplication, willPresentError: Error): Error;
+  application(_: NSApplication, didFailToContinueUserActivityWithType: string, error: NSError): void;
+  application(_: NSApplication, willPresentError: NSError): NSError;
   application(_: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken: NSData): void;
-  application(_: NSApplication, didFailToRegisterForRemoteNotificationsWithError: Error): void;
+  application(_: NSApplication, didFailToRegisterForRemoteNotificationsWithError: NSError): void;
   application(_: NSApplication, didReceiveRemoteNotification: Map<string, any>): void;
   application(_: NSApplication, willEncodeRestorableState: NSCoder): void;
   application(_: NSApplication, didDecodeRestorableState: NSCoder): void;
@@ -3439,6 +3867,8 @@ export class NSArrayController extends NSObjectController {
   setSelectionIndexes(_: IndexSet): boolean;
 }
 
+export function NSArrayController(args?: any): NSArrayController;
+
 // export function NSAvailableWindowDepths(): NSGraphics.NSWindow.Depth;
 
 // export function NSBeep(): void;
@@ -3513,6 +3943,8 @@ export class NSBezierPath extends NSObject {
   transform(using: AffineTransform): void;
 }
 
+export function NSBezierPath(args?: any): NSBezierPath;
+
 export class NSBindingSelectionMarker extends NSObject {
   static defaultPlaceholder(for_?: NSBindingSelectionMarker, on?: typeof NSObject, withBinding?: string): any;
   static setDefaultPlaceholder(_?: any, for_?: NSBindingSelectionMarker, on?: typeof NSObject, withBinding?: string): void;
@@ -3520,6 +3952,8 @@ export class NSBindingSelectionMarker extends NSObject {
   static noSelectionMarker: NSBindingSelectionMarker;
   static notApplicableSelectionMarker: NSBindingSelectionMarker;
 }
+
+export function NSBindingSelectionMarker(args?: any): NSBindingSelectionMarker;
 
 // @ts-ignore
 export class NSBitmapImageRep extends NSImageRep {
@@ -3550,8 +3984,8 @@ export class NSBitmapImageRep extends NSImageRep {
   getPixel(_: number, atX: number, y: number): void;
   incrementalLoad(from: NSData, complete: boolean): number;
   static createWithForIncrementalLoad(): NSBitmapImageRep;
-  static createWithBitmapDataPlanesWithPixelsWideWithPixelsHighWithBitsPerSampleWithSamplesPerPixelWithHasAlphaWithIsPlanarWithColorSpaceNameWithBitmapFormatWithBytesPerRowWithBitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bitmapFormat?: NSBitmapImageRep.Format, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
-  static createWithBitmapDataPlanesWithPixelsWideWithPixelsHighWithBitsPerSampleWithSamplesPerPixelWithHasAlphaWithIsPlanarWithColorSpaceNameWithBytesPerRowWithBitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
+  static createWithBitmapDataPlanes_PixelsWide_PixelsHigh_BitsPerSample_SamplesPerPixel_HasAlpha_IsPlanar_ColorSpaceName_BitmapFormat_BytesPerRow_BitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bitmapFormat?: NSBitmapImageRep.Format, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
+  static createWithBitmapDataPlanes_PixelsWide_PixelsHigh_BitsPerSample_SamplesPerPixel_HasAlpha_IsPlanar_ColorSpaceName_BytesPerRow_BitsPerPixel(_?: string, pixelsWide?: number, pixelsHigh?: number, bitsPerSample?: number, samplesPerPixel?: number, hasAlpha?: boolean, isPlanar?: boolean, colorSpaceName?: string, bytesPerRow?: number, bitsPerPixel?: number): NSBitmapImageRep;
   static createWithCgImage(_: any): NSBitmapImageRep;
   static createWithCiImage(_: CIImage): NSBitmapImageRep;
   static createWithData(_: NSData): NSBitmapImageRep;
@@ -3563,6 +3997,8 @@ export class NSBitmapImageRep extends NSImageRep {
   // @ts-ignore 
   value(forProperty: string): any;
 }
+
+export function NSBitmapImageRep(args?: any): NSBitmapImageRep;
 
 // export function NSBitsPerPixelFromDepth(depth: NSGraphics.NSWindow.Depth): number;
 
@@ -3597,6 +4033,8 @@ export class NSBox extends NSView {
   setFrameFromContentFrame(_: CGRect): void;
   sizeToFit(): void;
 }
+
+export function NSBox(args?: any): NSBox;
 
 export class NSBrowser extends NSControl {
   static removeSavedColumns(withAutosaveName: string): void;
@@ -3712,6 +4150,8 @@ export class NSBrowser extends NSControl {
   width(ofColumn: number): number;
 }
 
+export function NSBrowser(args?: any): NSBrowser;
+
 export class NSBrowserCell extends NSCell {
   alternateImage: NSImage;
   setAlternateImage(_: NSImage);
@@ -3726,6 +4166,8 @@ export class NSBrowserCell extends NSCell {
   reset(): void;
   set(): void;
 }
+
+export function NSBrowserCell(args?: any): NSBrowserCell;
 
 interface NSBrowserDelegate {
   browser(_: NSBrowser, numberOfRowsInColumn: number): number;
@@ -3815,6 +4257,8 @@ export class NSButton extends NSControl {
   setPeriodicDelay(_: number, interval: number): void;
 }
 
+export function NSButton(args?: any): NSButton;
+
 export class NSButtonCell extends NSActionCell {
   alternateImage: NSImage;
   setAlternateImage(_: NSImage);
@@ -3857,6 +4301,8 @@ export class NSButtonCell extends NSActionCell {
   setPeriodicDelay(_: number, interval: number): void;
 }
 
+export function NSButtonCell(args?: any): NSButtonCell;
+
 export class NSButtonTouchBarItem extends NSTouchBarItem {
   action: string;
   setAction(_: string);
@@ -3875,10 +4321,14 @@ export class NSButtonTouchBarItem extends NSTouchBarItem {
   setTitle(_: string);
 }
 
+export function NSButtonTouchBarItem(args?: any): NSButtonTouchBarItem;
+
 export class NSCIImageRep extends NSImageRep {
   ciImage: CIImage;
   static createWithCiImage(_: CIImage): NSCIImageRep;
 }
+
+export function NSCIImageRep(args?: any): NSCIImageRep;
 
 export class NSCandidateListTouchBarItem<CandidateType> extends NSTouchBarItem {
   allowsCollapsing: boolean;
@@ -3900,6 +4350,8 @@ export class NSCandidateListTouchBarItem<CandidateType> extends NSTouchBarItem {
   setCandidates(_: CandidateType[], forSelectedRange: NSRange, in_?: string): void;
   update(withInsertionPointVisibility: boolean): void;
 }
+
+export function NSCandidateListTouchBarItem<CandidateType>(args?: any): NSCandidateListTouchBarItem<CandidateType>;
 
 interface NSCandidateListTouchBarItemDelegate {
   candidateListTouchBarItem(_: NSCandidateListTouchBarItem<any>, beginSelectingCandidateAt: number): void;
@@ -4050,6 +4502,8 @@ export class NSCell extends NSObject implements NSUserInterfaceItemIdentificatio
   trackMouse(with_: NSEvent, in_: CGRect, of: NSView, untilMouseUp: boolean): boolean;
 }
 
+export function NSCell(args?: any): NSCell;
+
 interface NSChangeSpelling {
   changeSpelling(_?: any): void;
 }
@@ -4062,6 +4516,8 @@ export class NSClickGestureRecognizer extends NSGestureRecognizer {
   numberOfTouchesRequired: number;
   setNumberOfTouchesRequired(_: number);
 }
+
+export function NSClickGestureRecognizer(args?: any): NSClickGestureRecognizer;
 
 export class NSClipView extends NSView {
   automaticallyAdjustsContentInsets: boolean;
@@ -4085,9 +4541,11 @@ export class NSClipView extends NSView {
   viewFrameChanged(_: Notification): void;
 }
 
+export function NSClipView(args?: any): NSClipView;
+
 interface NSCloudSharingServiceDelegate {
   options(for_: NSSharingService, share: NSItemProvider): NSSharingService.CloudKitOptions;
-  sharingService(_: NSSharingService, didCompleteForItems: any[], error?: Error): void;
+  sharingService(_: NSSharingService, didCompleteForItems: any[], error?: NSError): void;
   sharingService(_: NSSharingService, didSave: CKShare): void;
   sharingService(_: NSSharingService, didStopSharing: CKShare): void;
 }
@@ -4103,6 +4561,8 @@ export class NSCollectionLayoutAnchor extends NSObject {
   offset: CGPoint;
 }
 
+export function NSCollectionLayoutAnchor(args?: any): NSCollectionLayoutAnchor;
+
 export class NSCollectionLayoutBoundarySupplementaryItem extends NSCollectionLayoutSupplementaryItem {
   alignment: NSCollectionViewCompositionalLayout.NSRectAlignment;
   extendsBoundary: boolean;
@@ -4112,6 +4572,8 @@ export class NSCollectionLayoutBoundarySupplementaryItem extends NSCollectionLay
   setPinToVisibleBounds(_: boolean);
 }
 
+export function NSCollectionLayoutBoundarySupplementaryItem(args?: any): NSCollectionLayoutBoundarySupplementaryItem;
+
 interface NSCollectionLayoutContainer {
   contentInsets: NSDirectionalEdgeInsets;
   contentSize: CGSize;
@@ -4120,11 +4582,13 @@ interface NSCollectionLayoutContainer {
 }
 
 export class NSCollectionLayoutDecorationItem extends NSCollectionLayoutItem {
-  static createWithBackgroundDecorationItemWithElementKind(elementKind: string): NSCollectionLayoutDecorationItem;
+  static createWithElementKind(elementKind: string): NSCollectionLayoutDecorationItem;
   elementKind: string;
   zIndex: number;
   setZIndex(_: number);
 }
+
+export function NSCollectionLayoutDecorationItem(args?: any): NSCollectionLayoutDecorationItem;
 
 export class NSCollectionLayoutDimension extends NSObject {
   static createWithAbsoluteDimension(_: number): NSCollectionLayoutDimension;
@@ -4138,6 +4602,8 @@ export class NSCollectionLayoutDimension extends NSObject {
   isFractionalWidth: boolean;
 }
 
+export function NSCollectionLayoutDimension(args?: any): NSCollectionLayoutDimension;
+
 export class NSCollectionLayoutEdgeSpacing extends NSObject {
   bottom: NSCollectionLayoutSpacing;
   leading: NSCollectionLayoutSpacing;
@@ -4145,16 +4611,18 @@ export class NSCollectionLayoutEdgeSpacing extends NSObject {
   trailing: NSCollectionLayoutSpacing;
 }
 
+export function NSCollectionLayoutEdgeSpacing(args?: any): NSCollectionLayoutEdgeSpacing;
+
 interface NSCollectionLayoutEnvironment {
   container: any;
 }
 
 export class NSCollectionLayoutGroup extends NSCollectionLayoutItem {
-  static createWithCustomGroupWithLayoutSizeWithItemProvider(layoutSize: NSCollectionLayoutSize, itemProvider: (p1: any) => NSCollectionLayoutGroupCustomItem[]): NSCollectionLayoutGroup;
-  static createWithHorizontalGroupWithLayoutSizeWithSubitemWithCount(layoutSize: NSCollectionLayoutSize, subitem: NSCollectionLayoutItem, count: number): NSCollectionLayoutGroup;
-  static createWithHorizontalGroupWithLayoutSizeWithSubitems(layoutSize: NSCollectionLayoutSize, subitems: NSCollectionLayoutItem[]): NSCollectionLayoutGroup;
-  static createWithVerticalGroupWithLayoutSizeWithSubitemWithCount(layoutSize: NSCollectionLayoutSize, subitem: NSCollectionLayoutItem, count: number): NSCollectionLayoutGroup;
-  static createWithVerticalGroupWithLayoutSizeWithSubitems(layoutSize: NSCollectionLayoutSize, subitems: NSCollectionLayoutItem[]): NSCollectionLayoutGroup;
+  static createWithLayoutSize_ItemProvider(layoutSize: NSCollectionLayoutSize, itemProvider: (p1: any) => NSCollectionLayoutGroupCustomItem[]): NSCollectionLayoutGroup;
+  static createWithLayoutSize_Subitem_Count(layoutSize: NSCollectionLayoutSize, subitem: NSCollectionLayoutItem, count: number): NSCollectionLayoutGroup;
+  static createWithLayoutSize_Subitems(layoutSize: NSCollectionLayoutSize, subitems: NSCollectionLayoutItem[]): NSCollectionLayoutGroup;
+  static createWithLayoutSize_Subitem_Count(layoutSize: NSCollectionLayoutSize, subitem: NSCollectionLayoutItem, count: number): NSCollectionLayoutGroup;
+  static createWithLayoutSize_Subitems(layoutSize: NSCollectionLayoutSize, subitems: NSCollectionLayoutItem[]): NSCollectionLayoutGroup;
   interItemSpacing: NSCollectionLayoutSpacing;
   setInterItemSpacing(_: NSCollectionLayoutSpacing);
   subitems: NSCollectionLayoutItem[];
@@ -4163,10 +4631,14 @@ export class NSCollectionLayoutGroup extends NSCollectionLayoutItem {
   visualDescription(): string;
 }
 
+export function NSCollectionLayoutGroup(args?: any): NSCollectionLayoutGroup;
+
 export class NSCollectionLayoutGroupCustomItem extends NSObject {
   frame: CGRect;
   zIndex: number;
 }
+
+export function NSCollectionLayoutGroupCustomItem(args?: any): NSCollectionLayoutGroupCustomItem;
 
 export class NSCollectionLayoutItem extends NSObject {
   contentInsets: NSDirectionalEdgeInsets;
@@ -4176,6 +4648,8 @@ export class NSCollectionLayoutItem extends NSObject {
   layoutSize: NSCollectionLayoutSize;
   supplementaryItems: NSCollectionLayoutSupplementaryItem[];
 }
+
+export function NSCollectionLayoutItem(args?: any): NSCollectionLayoutItem;
 
 export class NSCollectionLayoutSection extends NSObject {
   boundarySupplementaryItems: NSCollectionLayoutBoundarySupplementaryItem[];
@@ -4194,10 +4668,14 @@ export class NSCollectionLayoutSection extends NSObject {
   setVisibleItemsInvalidationHandler(_: (p1: any[], p2: CGPoint, p3: any) => void);
 }
 
+export function NSCollectionLayoutSection(args?: any): NSCollectionLayoutSection;
+
 export class NSCollectionLayoutSize extends NSObject {
   heightDimension: NSCollectionLayoutDimension;
   widthDimension: NSCollectionLayoutDimension;
 }
+
+export function NSCollectionLayoutSize(args?: any): NSCollectionLayoutSize;
 
 export class NSCollectionLayoutSpacing extends NSObject {
   static createWithFixedSpacing(_: number): NSCollectionLayoutSpacing;
@@ -4207,6 +4685,8 @@ export class NSCollectionLayoutSpacing extends NSObject {
   spacing: number;
 }
 
+export function NSCollectionLayoutSpacing(args?: any): NSCollectionLayoutSpacing;
+
 export class NSCollectionLayoutSupplementaryItem extends NSCollectionLayoutItem {
   containerAnchor: NSCollectionLayoutAnchor;
   elementKind: string;
@@ -4214,6 +4694,8 @@ export class NSCollectionLayoutSupplementaryItem extends NSCollectionLayoutItem 
   zIndex: number;
   setZIndex(_: number);
 }
+
+export function NSCollectionLayoutSupplementaryItem(args?: any): NSCollectionLayoutSupplementaryItem;
 
 interface NSCollectionLayoutVisibleItem {
   alpha: number;
@@ -4301,14 +4783,18 @@ export class NSCollectionView extends NSView {
   visibleSupplementaryViews(ofKind: string): NSView[];
 }
 
+export function NSCollectionView(args?: any): NSCollectionView;
+
 export class NSCollectionViewCompositionalLayout extends NSCollectionViewLayout {
   configuration: NSCollectionViewCompositionalLayoutConfiguration;
   setConfiguration(_: NSCollectionViewCompositionalLayoutConfiguration);
   static createWithSection(_: NSCollectionLayoutSection): NSCollectionViewCompositionalLayout;
-  static createWithSectionWithConfiguration(_: NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
+  static createWithSection_Configuration(_: NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
   static createWithSectionProvider(_: (p1: number, p2: any) => NSCollectionLayoutSection): NSCollectionViewCompositionalLayout;
-  static createWithSectionProviderWithConfiguration(_: (p1: number, p2: any) => NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
+  static createWithSectionProvider_Configuration(_: (p1: number, p2: any) => NSCollectionLayoutSection, configuration: NSCollectionViewCompositionalLayoutConfiguration): NSCollectionViewCompositionalLayout;
 }
+
+export function NSCollectionViewCompositionalLayout(args?: any): NSCollectionViewCompositionalLayout;
 
 export class NSCollectionViewCompositionalLayoutConfiguration extends NSObject {
   boundarySupplementaryItems: NSCollectionLayoutBoundarySupplementaryItem[];
@@ -4318,6 +4804,8 @@ export class NSCollectionViewCompositionalLayoutConfiguration extends NSObject {
   scrollDirection: NSCollectionViewFlowLayout.NSCollectionView.ScrollDirection;
   setScrollDirection(_: NSCollectionViewFlowLayout.NSCollectionView.ScrollDirection);
 }
+
+export function NSCollectionViewCompositionalLayoutConfiguration(args?: any): NSCollectionViewCompositionalLayoutConfiguration;
 
 interface NSCollectionViewDataSource {
   collectionView(_: NSCollectionView, numberOfItemsInSection: number): number;
@@ -4370,10 +4858,12 @@ export class NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, 
   setSupplementaryViewProvider(_: (p1: NSCollectionView, p2: string, p3: IndexPath) => NSView);
   applySnapshot(_: NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>, animatingDifferences: boolean): void;
   indexPath(forItemIdentifier: ItemIdentifierType): IndexPath;
-  // static createWithCollectionViewWithItemProvider(_: NSCollectionView, itemProvider: (p1: NSCollectionView, p2: IndexPath, p3: ItemIdentifierType) => NSCollectionViewItem): NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType>;
+  // static createWithCollectionView_ItemProvider(_: NSCollectionView, itemProvider: (p1: NSCollectionView, p2: IndexPath, p3: ItemIdentifierType) => NSCollectionViewItem): NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType>;
   itemIdentifier(for_: IndexPath): ItemIdentifierType;
   snapshot(): NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>;
 }
+
+export function NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType>(args?: any): NSCollectionViewDiffableDataSourceReference<SectionIdentifierType, ItemIdentifierType>;
 
 interface NSCollectionViewElement {
   apply(_: NSCollectionViewLayoutAttributes): void;
@@ -4409,12 +4899,16 @@ export class NSCollectionViewFlowLayout extends NSCollectionViewLayout {
   section(atIndexIsCollapsed: number): boolean;
 }
 
+export function NSCollectionViewFlowLayout(args?: any): NSCollectionViewFlowLayout;
+
 export class NSCollectionViewFlowLayoutInvalidationContext extends NSCollectionViewLayoutInvalidationContext {
   invalidateFlowLayoutAttributes: boolean;
   setInvalidateFlowLayoutAttributes(_: boolean);
   invalidateFlowLayoutDelegateMetrics: boolean;
   setInvalidateFlowLayoutDelegateMetrics(_: boolean);
 }
+
+export function NSCollectionViewFlowLayoutInvalidationContext(args?: any): NSCollectionViewFlowLayoutInvalidationContext;
 
 export class NSCollectionViewGridLayout extends NSCollectionViewLayout {
   backgroundColors: NSColor[];
@@ -4435,6 +4929,8 @@ export class NSCollectionViewGridLayout extends NSCollectionViewLayout {
   setMinimumLineSpacing(_: number);
 }
 
+export function NSCollectionViewGridLayout(args?: any): NSCollectionViewGridLayout;
+
 export class NSCollectionViewItem extends NSViewController {
   collectionView: NSCollectionView;
   draggingImageComponents: NSDraggingImageComponent[];
@@ -4447,6 +4943,8 @@ export class NSCollectionViewItem extends NSViewController {
   textField: NSTextField;
   setTextField(_: NSTextField);
 }
+
+export function NSCollectionViewItem(args?: any): NSCollectionViewItem;
 
 export class NSCollectionViewLayout extends NSObject {
   collectionView: NSCollectionView;
@@ -4489,6 +4987,8 @@ export class NSCollectionViewLayout extends NSObject {
   targetContentOffset(forProposedContentOffset: CGPoint, withScrollingVelocity: CGPoint): CGPoint;
 }
 
+export function NSCollectionViewLayout(args?: any): NSCollectionViewLayout;
+
 export class NSCollectionViewLayoutAttributes extends NSObject {
   alpha: number;
   setAlpha(_: number);
@@ -4506,6 +5006,8 @@ export class NSCollectionViewLayoutAttributes extends NSObject {
   setZIndex(_: number);
 }
 
+export function NSCollectionViewLayoutAttributes(args?: any): NSCollectionViewLayoutAttributes;
+
 export class NSCollectionViewLayoutInvalidationContext extends NSObject {
   contentOffsetAdjustment: CGPoint;
   setContentOffsetAdjustment(_: CGPoint);
@@ -4520,6 +5022,8 @@ export class NSCollectionViewLayoutInvalidationContext extends NSObject {
   invalidateItems(at: Set<any>): void;
   invalidateSupplementaryElements(ofKind: string, at: Set<any>): void;
 }
+
+export function NSCollectionViewLayoutInvalidationContext(args?: any): NSCollectionViewLayoutInvalidationContext;
 
 interface NSCollectionViewPrefetching {
   collectionView(_: NSCollectionView, prefetchItemsAt: IndexPath[]): void;
@@ -4536,17 +5040,21 @@ export class NSCollectionViewTransitionLayout extends NSCollectionViewLayout {
   nextLayout: NSCollectionViewLayout;
   transitionProgress: number;
   setTransitionProgress(_: number);
-  static createWithCurrentLayoutWithNextLayout(_: NSCollectionViewLayout, nextLayout: NSCollectionViewLayout): NSCollectionViewTransitionLayout;
+  static createWithCurrentLayout_NextLayout(_: NSCollectionViewLayout, nextLayout: NSCollectionViewLayout): NSCollectionViewTransitionLayout;
   updateValue(_: number, forAnimatedKey: string): void;
   // @ts-ignore 
   value(forAnimatedKey: string): number;
 }
+
+export function NSCollectionViewTransitionLayout(args?: any): NSCollectionViewTransitionLayout;
 
 export class NSCollectionViewUpdateItem extends NSObject {
   indexPathAfterUpdate: IndexPath;
   indexPathBeforeUpdate: IndexPath;
   updateAction: NSCollectionViewLayout.NSCollectionView.UpdateAction;
 }
+
+export function NSCollectionViewUpdateItem(args?: any): NSCollectionViewUpdateItem;
 
 export class NSColor extends NSObject {
   cgColor: any;
@@ -4653,6 +5161,8 @@ export class NSColor extends NSObject {
   write(to: NSPasteboard): void;
 }
 
+export function NSColor(args?: any): NSColor;
+
 interface NSColorChanging {
   changeColor(_?: NSColorPanel): void;
 }
@@ -4664,13 +5174,15 @@ export class NSColorList extends NSObject {
   static availableColorLists: NSColorList[];
   color(withKey: string): NSColor;
   static createWithName(_: string): NSColorList;
-  static createWithNameWithFromFile(_: string, fromFile?: string): NSColorList;
+  static createWithName_FromFile(_: string, fromFile?: string): NSColorList;
   insertColor(_: NSColor, key: string, at: number): void;
   removeColor(withKey: string): void;
   removeFile(): void;
   setColor(_: NSColor, forKey: string): void;
-  writeToURL(error?: URL): boolean;
+  writeToURL(error?: NSURL): boolean;
 }
+
+export function NSColorList(args?: any): NSColorList;
 
 export class NSColorPanel extends NSPanel {
   static dragColor(_: NSColor, with_: NSEvent, from: NSView): boolean;
@@ -4695,6 +5207,8 @@ export class NSColorPanel extends NSPanel {
   setTarget(_?: any): void;
 }
 
+export function NSColorPanel(args?: any): NSColorPanel;
+
 export class NSColorPicker extends NSObject {
   buttonToolTip: string;
   colorPanel: NSColorPanel;
@@ -4702,11 +5216,13 @@ export class NSColorPicker extends NSObject {
   provideNewButtonImage: NSImage;
 }
 
+export function NSColorPicker(args?: any): NSColorPicker;
+
 export class NSColorPickerTouchBarItem extends NSTouchBarItem {
-  static createWithColorPickerWithIdentifier(withIdentifier: string): NSColorPickerTouchBarItem;
-  static createWithColorPickerWithIdentifierWithButtonImage(withIdentifier: string, buttonImage: NSImage): NSColorPickerTouchBarItem;
-  static createWithStrokeColorPickerWithIdentifier(withIdentifier: string): NSColorPickerTouchBarItem;
-  static createWithTextColorPickerWithIdentifier(withIdentifier: string): NSColorPickerTouchBarItem;
+  static createWith_Identifier(withIdentifier: string): NSColorPickerTouchBarItem;
+  static createWith_Identifier_ButtonImage(withIdentifier: string, buttonImage: NSImage): NSColorPickerTouchBarItem;
+  static createWith_Identifier(withIdentifier: string): NSColorPickerTouchBarItem;
+  static createWith_Identifier(withIdentifier: string): NSColorPickerTouchBarItem;
   action: string;
   setAction(_: string);
   allowedColorSpaces: NSColorSpace[];
@@ -4725,6 +5241,8 @@ export class NSColorPickerTouchBarItem extends NSTouchBarItem {
   target: any;
   setTarget(_: any);
 }
+
+export function NSColorPickerTouchBarItem(args?: any): NSColorPickerTouchBarItem;
 
 interface NSColorPickingCustom {
   currentMode(): NSColorPanel.Mode;
@@ -4748,6 +5266,8 @@ interface NSColorPickingDefault {
 export class NSColorSampler extends NSObject {
   show(selectionHandler?: (p1: NSColor) => void): void;
 }
+
+export function NSColorSampler(args?: any): NSColorSampler;
 
 export class NSColorSpace extends NSObject {
   static availableColorSpaces(with_: NSColorSpace.Model): NSColorSpace[];
@@ -4774,6 +5294,8 @@ export class NSColorSpace extends NSObject {
   static createWithIccProfileData(_: NSData): NSColorSpace;
 }
 
+export function NSColorSpace(args?: any): NSColorSpace;
+
 // export function NSColorSpaceFromDepth(depth: NSGraphics.NSWindow.Depth): string;
 
 export class NSColorWell extends NSControl {
@@ -4787,6 +5309,8 @@ export class NSColorWell extends NSControl {
   drawWell(inside: CGRect): void;
   takeColorFrom(_?: any): void;
 }
+
+export function NSColorWell(args?: any): NSColorWell;
 
 export class NSComboBox extends NSTextField {
   isButtonBordered: boolean;
@@ -4828,6 +5352,8 @@ export class NSComboBox extends NSTextField {
   selectItem(withObjectValue?: any): void;
 }
 
+export function NSComboBox(args?: any): NSComboBox;
+
 export class NSComboBoxCell extends NSTextFieldCell {
   isButtonBordered: boolean;
   setButtonBordered(_: boolean);
@@ -4866,6 +5392,8 @@ export class NSComboBoxCell extends NSTextFieldCell {
   selectItem(at: number): void;
   selectItem(withObjectValue?: any): void;
 }
+
+export function NSComboBoxCell(args?: any): NSComboBoxCell;
 
 interface NSComboBoxCellDataSource {
   comboBoxCell(_: NSComboBoxCell, objectValueForItemAt: number): any;
@@ -4971,6 +5499,8 @@ export class NSControl extends NSView {
   validateEditing(): void;
 }
 
+export function NSControl(args?: any): NSControl;
+
 interface NSControlTextEditingDelegate {
   control(_: NSControl, textShouldBeginEditing: NSText): boolean;
   control(_: NSControl, textShouldEndEditing: NSText): boolean;
@@ -4987,6 +5517,8 @@ interface NSControlTextEditingDelegate {
 export class NSController extends NSObject {
   isEditing: boolean;
 }
+
+export function NSController(args?: any): NSController;
 
 // export function NSCreateFileContentsPboardType(fileType: string): string;
 
@@ -5019,19 +5551,23 @@ export class NSCursor extends NSObject {
   static resizeRight: NSCursor;
   static resizeUp: NSCursor;
   static resizeUpDown: NSCursor;
-  static createWithImageWithHotSpot(_: NSImage, hotSpot: CGPoint): NSCursor;
+  static createWithImage_HotSpot(_: NSImage, hotSpot: CGPoint): NSCursor;
   pop(): void;
   push(): void;
   set(): void;
 }
 
+export function NSCursor(args?: any): NSCursor;
+
 export class NSCustomImageRep extends NSImageRep {
   delegate: any;
   drawSelector: string;
   drawingHandler: (p1: CGRect) => boolean;
-  static createWithDrawSelectorWithDelegate(_: string, delegate: any): NSCustomImageRep;
-  static createWithSizeWithFlippedWithDrawingHandler(_: CGSize, flipped: boolean, drawingHandler: (p1: CGRect) => boolean): NSCustomImageRep;
+  static createWithDrawSelector_Delegate(_: string, delegate: any): NSCustomImageRep;
+  static createWithSize_Flipped_DrawingHandler(_: CGSize, flipped: boolean, drawingHandler: (p1: CGRect) => boolean): NSCustomImageRep;
 }
+
+export function NSCustomImageRep(args?: any): NSCustomImageRep;
 
 export class NSCustomTouchBarItem extends NSTouchBarItem {
   customizationLabel: string;
@@ -5040,13 +5576,17 @@ export class NSCustomTouchBarItem extends NSTouchBarItem {
   setViewController(_: NSViewController);
 }
 
+export function NSCustomTouchBarItem(args?: any): NSCustomTouchBarItem;
+
 export class NSDataAsset extends NSObject {
   data: NSData;
   name: string;
   typeIdentifier: string;
   static createWithName(_: string): NSDataAsset;
-  static createWithNameWithBundle(_: string, bundle: Bundle): NSDataAsset;
+  static createWithName_Bundle(_: string, bundle: Bundle): NSDataAsset;
 }
+
+export function NSDataAsset(args?: any): NSDataAsset;
 
 export class NSDatePicker extends NSControl {
   backgroundColor: NSColor;
@@ -5085,6 +5625,8 @@ export class NSDatePicker extends NSControl {
   setTimeZone(_: TimeZone);
 }
 
+export function NSDatePicker(args?: any): NSDatePicker;
+
 export class NSDatePickerCell extends NSActionCell {
   backgroundColor: NSColor;
   setBackgroundColor(_: NSColor);
@@ -5116,6 +5658,8 @@ export class NSDatePickerCell extends NSActionCell {
   setTimeZone(_: TimeZone);
 }
 
+export function NSDatePickerCell(args?: any): NSDatePickerCell;
+
 interface NSDatePickerCellDelegate {
   datePickerCell(_: NSDatePickerCell, validateProposedDateValue: Date, timeInterval?: number): void;
 }
@@ -5137,6 +5681,8 @@ export class NSDictionaryController extends NSArrayController {
   newObject(): NSDictionaryControllerKeyValuePair;
 }
 
+export function NSDictionaryController(args?: any): NSDictionaryController;
+
 export class NSDictionaryControllerKeyValuePair extends NSObject {
   isExplicitlyIncluded: boolean;
   key: string;
@@ -5144,6 +5690,8 @@ export class NSDictionaryControllerKeyValuePair extends NSObject {
   localizedKey: string;
   setLocalizedKey(_: string);
 }
+
+export function NSDictionaryControllerKeyValuePair(args?: any): NSDictionaryControllerKeyValuePair;
 
 export class NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType> extends NSObject {
   itemIdentifiers: ItemIdentifierType[];
@@ -5171,6 +5719,8 @@ export class NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemId
   sectionIdentifier(forSectionContainingItemIdentifier: ItemIdentifierType): SectionIdentifierType;
 }
 
+export function NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>(args?: any): NSDiffableDataSourceSnapshotReference<SectionIdentifierType, ItemIdentifierType>;
+
 export class NSDockTile extends NSObject {
   badgeLabel: string;
   setBadgeLabel(_: string);
@@ -5183,6 +5733,8 @@ export class NSDockTile extends NSObject {
   display(): void;
 }
 
+export function NSDockTile(args?: any): NSDockTile;
+
 interface NSDockTilePlugIn {
   dockMenu(): NSMenu;
   setDockTile(_?: NSDockTile): void;
@@ -5193,11 +5745,11 @@ export class NSDocument extends NSObject {
   static isNativeType(_: string): boolean;
   pdfPrintOperation: NSPrintOperation;
   allowsDocumentSharing: boolean;
-  autosavedContentsFileURL: URL;
-  setAutosavedContentsFileURL(_: URL);
+  autosavedContentsFileURL: NSURL;
+  setAutosavedContentsFileURL(_: NSURL);
   autosavingFileType: string;
   autosavingIsImplicitlyCancellable: boolean;
-  backupFileURL: URL;
+  backupFileURL: NSURL;
   isBrowsingVersions: boolean;
   displayName: string;
   setDisplayName(_: string);
@@ -5211,8 +5763,8 @@ export class NSDocument extends NSObject {
   fileType: string;
   setFileType(_: string);
   fileTypeFromLastRunSavePanel: string;
-  fileURL: URL;
-  setFileURL(_: URL);
+  fileURL: NSURL;
+  setFileURL(_: NSURL);
   hasUnautosavedChanges: boolean;
   hasUndoManager: boolean;
   setHasUndoManager(_: boolean);
@@ -5240,9 +5792,9 @@ export class NSDocument extends NSObject {
   static writableTypes: string[];
   addWindowController(_: NSWindowController): void;
   autosave(withDelegate?: any, didAutosave?: string, contextInfo?: any): void;
-  autosave(withImplicitCancellability: boolean, completionHandler?: (p1: Error) => void): void;
+  autosave(withImplicitCancellability: boolean, completionHandler?: (p1: NSError) => void): void;
   browseVersions(_?: any): void;
-  canAsynchronouslyWrite(to: URL, ofType: string, for_: NSDocument.SaveOperationType): boolean;
+  canAsynchronouslyWrite(to: NSURL, ofType: string, for_: NSDocument.SaveOperationType): boolean;
   canClose(withDelegate: any, shouldClose?: string, contextInfo?: any): void;
   changeCountToken(for_: NSDocument.SaveOperationType): any;
   checkAutosavingSafetyAndReturnError(): boolean;
@@ -5256,44 +5808,44 @@ export class NSDocument extends NSObject {
   duplicate(withDelegate?: any, didDuplicate?: string, contextInfo?: any): void;
   encodeRestorableState(with_: NSCoder): void;
   encodeRestorableState(with_: NSCoder, backgroundQueue: OperationQueue): void;
-  fileAttributesToWriteToURL(ofType: URL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: URL): Map<string, any>;
+  fileAttributesToWriteToURL(ofType: NSURL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: NSURL): Map<string, any>;
   fileNameExtension(forType: string, saveOperation: NSDocument.SaveOperationType): string;
   fileWrapperOfType(error: string): FileWrapper;
   handleClose(_: NSCloseCommand): any;
   handlePrint(_: NSScriptCommand): any;
   handleSave(_: NSScriptCommand): any;
-  static createWithForURLWithContentsOfURLWithOfType(withContentsOfURL?: URL, ofType?: URL, error?: string): NSDocument;
-  static createWithContentsOfWithOfType(ofType: URL, error: string): NSDocument;
+  static createWithForURL__ContentsOfURL_OfType(withContentsOfURL?: NSURL, ofType?: NSURL, error?: string): NSDocument;
+  static createWithContentsOf_OfType(ofType: NSURL, error: string): NSDocument;
   static createWithType(error: string): NSDocument;
   invalidateRestorableState(): void;
   lock(_?: any): void;
   lock(completionHandler?: (p1: boolean) => void): void;
-  lock(completionHandler?: (p1: Error) => void): void;
+  lock(completionHandler?: (p1: NSError) => void): void;
   makeWindowControllers(): void;
   move(_?: any): void;
   moveToUbiquityContainer(_?: any): void;
   move(completionHandler?: (p1: boolean) => void): void;
-  move(to: URL, completionHandler?: (p1: Error) => void): void;
+  move(to: NSURL, completionHandler?: (p1: NSError) => void): void;
   performActivity(withSynchronousWaiting: boolean, using: (p1: () => void) => void): void;
   performAsynchronousFileAccess(_: (p1: () => void) => void): void;
   performSynchronousFileAccess(_: () => void): void;
   preparePageLayout(_: NSPageLayout): boolean;
   prepareSavePanel(_: NSSavePanel): boolean;
   prepare(_: NSSharingServicePicker): void;
-  presentError(_: Error): boolean;
-  presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
+  presentError(_: NSError): boolean;
+  presentError(_: NSError, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
   printDocument(_?: any): void;
   print(withSettings: Map<string, any>, showPrintPanel: boolean, delegate?: any, didPrint?: string, contextInfo?: any): void;
   printOperationWithSettings(error: Map<string, any>): NSPrintOperation;
   readFromData(ofType: NSData, error: string): boolean;
   readFromFileWrapper(ofType: FileWrapper, error: string): boolean;
-  readFromURL(ofType: URL, error: string): boolean;
+  readFromURL(ofType: NSURL, error: string): boolean;
   removeWindowController(_: NSWindowController): void;
   rename(_?: any): void;
-  restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: Error) => void): void;
+  restoreWindow(withIdentifier: string, state: NSCoder, completionHandler?: (p1: NSWindow, p2: NSError) => void): void;
   restoreState(with_: NSCoder): void;
   revertToSaved(_?: any): void;
-  revertToContentsOfURL(ofType: URL, error: string): boolean;
+  revertToContentsOfURL(ofType: NSURL, error: string): boolean;
   runModalPageLayout(with_: NSPrintInfo, delegate?: any, didRun?: string, contextInfo?: any): void;
   runModalPrintOperation(_: NSPrintOperation, delegate?: any, didRun?: string, contextInfo?: any): void;
   runModalSavePanel(for_: NSDocument.SaveOperationType, delegate?: any, didSave?: string, contextInfo?: any): void;
@@ -5303,8 +5855,8 @@ export class NSDocument extends NSObject {
   saveTo(_?: any): void;
   saveToPDF(_?: any): void;
   save(withDelegate?: any, didSave?: string, contextInfo?: any): void;
-  save(to: URL, ofType: string, for_: NSDocument.SaveOperationType, completionHandler?: (p1: Error) => void): void;
-  save(to: URL, ofType: string, for_: NSDocument.SaveOperationType, delegate?: any, didSave?: string, contextInfo?: any): void;
+  save(to: NSURL, ofType: string, for_: NSDocument.SaveOperationType, completionHandler?: (p1: NSError) => void): void;
+  save(to: NSURL, ofType: string, for_: NSDocument.SaveOperationType, delegate?: any, didSave?: string, contextInfo?: any): void;
   scheduleAutosaving(): void;
   setDisplayName(_?: string): void;
   setWindow(_?: NSWindow): void;
@@ -5316,19 +5868,21 @@ export class NSDocument extends NSObject {
   unblockUserInteraction(): void;
   unlock(_?: any): void;
   unlock(completionHandler?: (p1: boolean) => void): void;
-  unlock(completionHandler?: (p1: Error) => void): void;
+  unlock(completionHandler?: (p1: NSError) => void): void;
   updateChangeCount(_: NSDocument.ChangeType): void;
   updateChangeCount(withToken: any, for_: NSDocument.SaveOperationType): void;
   updateUserActivityState(_: NSUserActivity): void;
-  willNotPresentError(_: Error): void;
-  willPresentError(_: Error): Error;
+  willNotPresentError(_: NSError): void;
+  willPresentError(_: NSError): NSError;
   windowControllerDidLoadNib(_: NSWindowController): void;
   windowControllerWillLoadNib(_: NSWindowController): void;
   // dupe name w static property   writableTypes(for_: NSDocument.SaveOperationType): string[];
-  writeSafelyToURL(ofType: URL, forSaveOperation: string, error: NSDocument.SaveOperationType): boolean;
-  writeToURL(ofType: URL, error: string): boolean;
-  writeToURL(ofType: URL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: URL): boolean;
+  writeSafelyToURL(ofType: NSURL, forSaveOperation: string, error: NSDocument.SaveOperationType): boolean;
+  writeToURL(ofType: NSURL, error: string): boolean;
+  writeToURL(ofType: NSURL, forSaveOperation: string, originalContentsURL: NSDocument.SaveOperationType, error?: NSURL): boolean;
 }
+
+export function NSDocument(args?: any): NSDocument;
 
 export class NSDocumentController extends NSObject {
   allowsAutomaticShareMenu: boolean;
@@ -5341,39 +5895,41 @@ export class NSDocumentController extends NSObject {
   documents: NSDocument[];
   hasEditedDocuments: boolean;
   maximumRecentDocumentCount: number;
-  recentDocumentURLs: URL[];
+  recentDocumentURLs: NSURL[];
   static shared: NSDocumentController;
-  urlsFromRunningOpenPanel(): URL[];
+  urlsFromRunningOpenPanel(): NSURL[];
   addDocument(_: NSDocument): void;
   beginOpenPanel(_: NSOpenPanel, forTypes?: string[], completionHandler?: (p1: number) => void): void;
-  beginOpenPanel(completionHandler?: (p1: URL[]) => void): void;
+  beginOpenPanel(completionHandler?: (p1: NSURL[]) => void): void;
   clearRecentDocuments(_?: any): void;
   closeAllDocuments(withDelegate?: any, didCloseAllSelector?: string, contextInfo?: any): void;
   displayName(forType: string): string;
   documentClass(forType: string): typeof NSObject;
-  document(for_: URL): NSDocument;
+  document(for_: NSURL): NSDocument;
   document(for_: NSWindow): NSDocument;
-  duplicateDocumentWithContentsOfURL(copying: URL, displayName: boolean, error?: string): NSDocument;
-  makeDocumentForURL(withContentsOfURL?: URL, ofType?: URL, error?: string): NSDocument;
-  makeDocumentWithContentsOfURL(ofType: URL, error: string): NSDocument;
+  duplicateDocumentWithContentsOfURL(copying: NSURL, displayName: boolean, error?: string): NSDocument;
+  makeDocumentForURL(withContentsOfURL?: NSURL, ofType?: NSURL, error?: string): NSDocument;
+  makeDocumentWithContentsOfURL(ofType: NSURL, error: string): NSDocument;
   makeUntitledDocumentOfType(error: string): NSDocument;
   newDocument(_?: any): void;
   noteNewRecentDocument(_: NSDocument): void;
-  noteNewRecentDocumentURL(_: URL): void;
+  noteNewRecentDocumentURL(_: NSURL): void;
   openDocument(_?: any): void;
-  openDocument(withContentsOf: URL, display: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: Error) => void): void;
+  openDocument(withContentsOf: NSURL, display: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: NSError) => void): void;
   openUntitledDocumentAndDisplay(error: boolean): NSDocument;
-  presentError(_: Error): boolean;
-  presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
+  presentError(_: NSError): boolean;
+  presentError(_: NSError, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
   removeDocument(_: NSDocument): void;
-  reopenDocument(for_?: URL, withContentsOf?: URL, display?: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: Error) => void): void;
+  reopenDocument(for_?: NSURL, withContentsOf?: NSURL, display?: boolean, completionHandler?: (p1: NSDocument, p2: boolean, p3: NSError) => void): void;
   reviewUnsavedDocuments(withAlertTitle?: string, cancellable?: boolean, delegate?: any, didReviewAllSelector?: string, contextInfo?: any): void;
   runModalOpenPanel(_: NSOpenPanel, forTypes?: string[]): number;
   saveAllDocuments(_?: any): void;
   standardShareMenuItem(): NSMenuItem;
-  typeForContentsOfURL(error: URL): string;
-  willPresentError(_: Error): Error;
+  typeForContentsOfURL(error: NSURL): string;
+  willPresentError(_: NSError): NSError;
 }
+
+export function NSDocumentController(args?: any): NSDocumentController;
 
 // export function NSDottedFrameRect(rect: CGRect): void;
 
@@ -5398,6 +5954,8 @@ export class NSDraggingImageComponent extends NSObject {
   setKey(_: string);
   static createWithKey(_: string): NSDraggingImageComponent;
 }
+
+export function NSDraggingImageComponent(args?: any): NSDraggingImageComponent;
 
 interface NSDraggingInfo {
   animatesToDestination: boolean;
@@ -5431,6 +5989,8 @@ export class NSDraggingItem extends NSObject {
   setDraggingFrame(_: CGRect, contents?: any): void;
 }
 
+export function NSDraggingItem(args?: any): NSDraggingItem;
+
 export class NSDraggingSession extends NSObject {
   animatesToStartingPositionsOnCancelOrFail: boolean;
   setAnimatesToStartingPositionsOnCancelOrFail(_: boolean);
@@ -5443,6 +6003,8 @@ export class NSDraggingSession extends NSObject {
   draggingSequenceNumber: number;
   enumerateDraggingItems(options: NSDragging.NSDraggingItemEnumerationOptions, for_?: NSView, classes?: typeof NSObject[], searchOptions?: Map<string, any>, using?: (p1: NSDraggingItem, p2: number, p3: boolean) => void): void;
 }
+
+export function NSDraggingSession(args?: any): NSDraggingSession;
 
 interface NSDraggingSource {
   draggingSession(_: NSDraggingSession, sourceOperationMaskFor: NSDragging.NSDraggingContext): NSDragging.NSDragOperation;
@@ -5484,6 +6046,8 @@ export class NSEPSImageRep extends NSImageRep {
   boundingBox: CGRect;
   static createWithData(_: NSData): NSEPSImageRep;
 }
+
+export function NSEPSImageRep(args?: any): NSEPSImageRep;
 
 interface NSEditor {
   commitEditing(): boolean;
@@ -5579,6 +6143,8 @@ export class NSEvent extends NSObject {
   trackSwipeEvent(options: NSEvent.SwipeTrackingOptions, dampenAmountThresholdMin: number, max: number, usingHandler: (p1: number, p2: NSEvent.Phase, p3: boolean, p4: boolean) => void): void;
 }
 
+export function NSEvent(args?: any): NSEvent;
+
 export class NSFilePromiseProvider extends NSObject {
   delegate: any;
   setDelegate(_: any);
@@ -5586,12 +6152,14 @@ export class NSFilePromiseProvider extends NSObject {
   setFileType(_: string);
   userInfo: any;
   setUserInfo(_: any);
-  static createWithFileTypeWithDelegate(_: string, delegate: any): NSFilePromiseProvider;
+  static createWithFileType_Delegate(_: string, delegate: any): NSFilePromiseProvider;
 }
+
+export function NSFilePromiseProvider(args?: any): NSFilePromiseProvider;
 
 interface NSFilePromiseProviderDelegate {
   filePromiseProvider(_: NSFilePromiseProvider, fileNameForType: string): string;
-  filePromiseProvider(_: NSFilePromiseProvider, writePromiseTo: URL, completionHandler?: (p1: Error) => void): void;
+  filePromiseProvider(_: NSFilePromiseProvider, writePromiseTo: NSURL, completionHandler?: (p1: NSError) => void): void;
   operationQueue(for_: NSFilePromiseProvider): OperationQueue;
 }
 
@@ -5599,8 +6167,10 @@ export class NSFilePromiseReceiver extends NSObject {
   fileNames: string[];
   fileTypes: string[];
   static readableDraggedTypes: string[];
-  receivePromisedFiles(atDestination: URL, options: Map<any, any>, operationQueue: OperationQueue, reader?: (p1: URL, p2: Error) => void): void;
+  receivePromisedFiles(atDestination: NSURL, options: Map<any, any>, operationQueue: OperationQueue, reader?: (p1: NSURL, p2: NSError) => void): void;
 }
+
+export function NSFilePromiseReceiver(args?: any): NSFilePromiseReceiver;
 
 export class NSFont extends NSObject {
   static boldSystemFont(ofSize: number): NSFont;
@@ -5665,11 +6235,15 @@ export class NSFont extends NSObject {
   set(in_: NSGraphicsContext): void;
 }
 
+export function NSFont(args?: any): NSFont;
+
 export class NSFontAssetRequest extends NSObject {
   downloadedFontDescriptors: NSFontDescriptor[];
-  download(withCompletionHandler?: (p1: Error) => boolean): void;
-  static createWithFontDescriptorsWithOptions(_: NSFontDescriptor[], options: NSFontAssetRequest.Options): NSFontAssetRequest;
+  download(withCompletionHandler?: (p1: NSError) => boolean): void;
+  static createWithFontDescriptors_Options(_: NSFontDescriptor[], options: NSFontAssetRequest.Options): NSFontAssetRequest;
 }
+
+export function NSFontAssetRequest(args?: any): NSFontAssetRequest;
 
 interface NSFontChanging {
   changeFont(_?: NSFontManager): void;
@@ -5685,6 +6259,8 @@ export class NSFontCollection extends NSObject {
   static allFontCollectionNames: string[];
   static withAllAvailableDescriptors: NSFontCollection;
 }
+
+export function NSFontCollection(args?: any): NSFontCollection;
 
 export class NSFontDescriptor extends NSObject {
   fontAttributes: Map<string, any>;
@@ -5705,6 +6281,8 @@ export class NSFontDescriptor extends NSObject {
   matchingFontDescriptors(withMandatoryKeys?: Set<any>): NSFontDescriptor[];
   object(forKey: string): any;
 }
+
+export function NSFontDescriptor(args?: any): NSFontDescriptor;
 
 export class NSFontManager extends NSObject {
   static setFontManagerFactory(_?: typeof NSObject): void;
@@ -5752,6 +6330,8 @@ export class NSFontManager extends NSObject {
   weight(of: NSFont): number;
 }
 
+export function NSFontManager(args?: any): NSFontManager;
+
 export class NSFontPanel extends NSPanel {
   accessoryView: NSView;
   setAccessoryView(_: NSView);
@@ -5764,6 +6344,8 @@ export class NSFontPanel extends NSPanel {
   reloadDefaultFontFamilies(): void;
   setPanelFont(_: NSFont, isMultiple: boolean): void;
 }
+
+export function NSFontPanel(args?: any): NSFontPanel;
 
 export class NSFormCell extends NSActionCell {
   attributedTitle: NSAttributedString;
@@ -5781,6 +6363,8 @@ export class NSFormCell extends NSActionCell {
   titleFont: NSFont;
   setTitleFont(_: NSFont);
 }
+
+export function NSFormCell(args?: any): NSFormCell;
 
 // export function NSFrameRect(rect: CGRect): void;
 
@@ -5819,7 +6403,7 @@ export class NSGestureRecognizer extends NSObject {
   canBePrevented(by: NSGestureRecognizer): boolean;
   canPrevent(_: NSGestureRecognizer): boolean;
   flagsChanged(with_: NSEvent): void;
-  static createWithTargetWithAction(_?: any, action?: string): NSGestureRecognizer;
+  static createWithTarget_Action(_?: any, action?: string): NSGestureRecognizer;
   keyDown(with_: NSEvent): void;
   keyUp(with_: NSEvent): void;
   location(in_?: NSView): CGPoint;
@@ -5845,6 +6429,8 @@ export class NSGestureRecognizer extends NSObject {
   touchesMoved(with_: NSEvent): void;
 }
 
+export function NSGestureRecognizer(args?: any): NSGestureRecognizer;
+
 interface NSGestureRecognizerDelegate {
   gestureRecognizer(_: NSGestureRecognizer, shouldAttemptToRecognizeWith: NSEvent): boolean;
   gestureRecognizer(_: NSGestureRecognizer, shouldRecognizeSimultaneouslyWith: NSGestureRecognizer): boolean;
@@ -5863,6 +6449,8 @@ export class NSGlyphGenerator extends NSObject {
   generateGlyphs(for_: any, desiredNumberOfCharacters: number, glyphIndex?: number, characterIndex?: number): void;
 }
 
+export function NSGlyphGenerator(args?: any): NSGlyphGenerator;
+
 export class NSGlyphInfo extends NSObject {
   baseString: string;
   characterCollection: NSGlyphInfo.NSCharacterCollection;
@@ -5870,6 +6458,8 @@ export class NSGlyphInfo extends NSObject {
   glyphID: number;
   glyphName: string;
 }
+
+export function NSGlyphInfo(args?: any): NSGlyphInfo;
 
 interface NSGlyphStorage {
   attributedString(): NSAttributedString;
@@ -5889,11 +6479,13 @@ export class NSGradient extends NSObject {
   draw(in_: CGRect, relativeCenterPosition: CGPoint): void;
   getColor(_?: NSColor, location?: number, at?: number): void;
   static createWithColors(_: NSColor[]): NSGradient;
-  static createWithColorsWithAtLocationsWithColorSpace(_: NSColor[], atLocations?: number, colorSpace?: NSColorSpace): NSGradient;
+  static createWithColors_AtLocations_ColorSpace(_: NSColor[], atLocations?: number, colorSpace?: NSColorSpace): NSGradient;
   static createWithColorsAndLocations(_: NSColor): NSGradient;
-  static createWithStartingColorWithEndingColor(_: NSColor, endingColor: NSColor): NSGradient;
+  static createWithStartingColor_EndingColor(_: NSColor, endingColor: NSColor): NSGradient;
   interpolatedColor(atLocation: number): NSColor;
 }
+
+export function NSGradient(args?: any): NSGradient;
 
 export class NSGraphicsContext extends NSObject {
   static currentContextDrawingToScreen(): boolean;
@@ -5921,6 +6513,8 @@ export class NSGraphicsContext extends NSObject {
   saveGraphicsState(): void;
 }
 
+export function NSGraphicsContext(args?: any): NSGraphicsContext;
+
 export class NSGridCell extends NSObject {
   column: NSGridColumn;
   contentView: NSView;
@@ -5936,6 +6530,8 @@ export class NSGridCell extends NSObject {
   setYPlacement(_: NSGridView.NSGridCell.Placement);
   static emptyContentView: NSView;
 }
+
+export function NSGridCell(args?: any): NSGridCell;
 
 export class NSGridColumn extends NSObject {
   gridView: NSGridView;
@@ -5953,6 +6549,8 @@ export class NSGridColumn extends NSObject {
   cell(at: number): NSGridCell;
   mergeCells(in_: NSRange): void;
 }
+
+export function NSGridColumn(args?: any): NSGridColumn;
 
 export class NSGridRow extends NSObject {
   bottomPadding: number;
@@ -5972,6 +6570,8 @@ export class NSGridRow extends NSObject {
   cell(at: number): NSGridCell;
   mergeCells(in_: NSRange): void;
 }
+
+export function NSGridRow(args?: any): NSGridRow;
 
 export class NSGridView extends NSView {
   columnSpacing: number;
@@ -6003,6 +6603,8 @@ export class NSGridView extends NSView {
   row(at: number): NSGridRow;
 }
 
+export function NSGridView(args?: any): NSGridView;
+
 export class NSGroupTouchBarItem extends NSTouchBarItem {
   customizationLabel: string;
   setCustomizationLabel(_: string);
@@ -6019,9 +6621,13 @@ export class NSGroupTouchBarItem extends NSTouchBarItem {
   setPrioritizedCompressionOptions(_: NSUserInterfaceCompressionOptions[]);
 }
 
+export function NSGroupTouchBarItem(args?: any): NSGroupTouchBarItem;
+
 export class NSHapticFeedbackManager extends NSObject {
   static defaultPerformer: any;
 }
+
+export function NSHapticFeedbackManager(args?: any): NSHapticFeedbackManager;
 
 interface NSHapticFeedbackPerformer {
   perform(_: NSHapticFeedback.NSHapticFeedbackManager.FeedbackPattern, performanceTime: NSHapticFeedback.NSHapticFeedbackManager.PerformanceTime): void;
@@ -6039,6 +6645,8 @@ export class NSHelpManager extends NSObject {
   setContextHelp(_: NSAttributedString, for_: any): void;
   showContextHelp(for_: any, locationHint: CGPoint): boolean;
 }
+
+export function NSHelpManager(args?: any): NSHelpManager;
 
 interface NSIgnoreMisspelledWords {
   ignoreSpelling(_?: any): void;
@@ -6088,9 +6696,9 @@ export class NSImage extends NSObject {
   drawRepresentation(_: NSImageRep, in_: CGRect): boolean;
   hitTest(_: CGRect, withDestinationRect: CGRect, context?: NSGraphicsContext, hints?: Map<string, any>, flipped?: boolean): boolean;
   static createWithByReferencingFile(_: string): NSImage;
-  static createWithCgImageWithSize(_: any, size: CGSize): NSImage;
+  static createWithCgImage_Size(_: any, size: CGSize): NSImage;
   static createWithContentsOfFile(_: string): NSImage;
-  static createWithContentsOf(_: URL): NSImage;
+  static createWithContentsOf(_: NSURL): NSImage;
   static createWithData(_: NSData): NSImage;
   static createWithDataIgnoringOrientation(_: NSData): NSImage;
   static createWithIconRef(_: any): NSImage;
@@ -6107,6 +6715,8 @@ export class NSImage extends NSObject {
   unlockFocus(): void;
 }
 
+export function NSImage(args?: any): NSImage;
+
 export class NSImageCell extends NSCell {
   imageAlignment: NSImageCell.NSImageAlignment;
   setImageAlignment(_: NSImageCell.NSImageAlignment);
@@ -6115,6 +6725,8 @@ export class NSImageCell extends NSCell {
   imageScaling: NSCell.NSImageScaling;
   setImageScaling(_: NSCell.NSImageScaling);
 }
+
+export function NSImageCell(args?: any): NSImageCell;
 
 interface NSImageDelegate {
   image(_: NSImage, willLoadRepresentation: NSImageRep): void;
@@ -6132,7 +6744,7 @@ export class NSImageRep extends NSObject {
 // @ts-ignore 
     static imageReps(withContentsOfFile: string): NSImageRep[];
 // @ts-ignore 
-    static imageReps(withContentsOf: URL): NSImageRep[];
+    static imageReps(withContentsOf: NSURL): NSImageRep[];
 // @ts-ignore 
     static imageReps(with_: NSPasteboard): NSImageRep[];
   static registerClass(_: typeof NSObject): void;
@@ -6163,6 +6775,8 @@ export class NSImageRep extends NSObject {
   draw(in_: CGRect, from: CGRect, operation: NSGraphics.NSCompositingOperation, fraction: number, respectFlipped: boolean, hints?: Map<string, any>): boolean;
 }
 
+export function NSImageRep(args?: any): NSImageRep;
+
 export class NSImageView extends NSControl {
   allowsCutCopyPaste: boolean;
   setAllowsCutCopyPaste(_: boolean);
@@ -6181,6 +6795,8 @@ export class NSImageView extends NSControl {
   imageScaling: NSCell.NSImageScaling;
   setImageScaling(_: NSCell.NSImageScaling);
 }
+
+export function NSImageView(args?: any): NSImageView;
 
 interface NSInputServerMouseTracker {
 }
@@ -6202,6 +6818,8 @@ export class NSLayoutAnchor<AnchorType> extends NSObject {
   constraint(lessThanOrEqualTo: NSLayoutAnchor<any>): NSLayoutConstraint;
   constraint(lessThanOrEqualTo: NSLayoutAnchor<any>, constant: number): NSLayoutConstraint;
 }
+
+export function NSLayoutAnchor<AnchorType>(args?: any): NSLayoutAnchor<AnchorType>;
 
 export class NSLayoutConstraint extends NSObject {
   static activateConstraints(_: NSLayoutConstraint[]): void;
@@ -6227,6 +6845,8 @@ export class NSLayoutConstraint extends NSObject {
   setShouldBeArchived(_: boolean);
 }
 
+export function NSLayoutConstraint(args?: any): NSLayoutConstraint;
+
 export class NSLayoutDimension extends NSLayoutAnchor<NSLayoutDimension> {
   // @ts-ignore 
   constraint(equalTo: NSLayoutDimension, multiplier: number): NSLayoutConstraint;
@@ -6248,6 +6868,8 @@ export class NSLayoutDimension extends NSLayoutAnchor<NSLayoutDimension> {
   constraint(lessThanOrEqualToConstant: number): NSLayoutConstraint;
 }
 
+export function NSLayoutDimension(args?: any): NSLayoutDimension;
+
 export class NSLayoutGuide extends NSObject implements NSUserInterfaceItemIdentification {
   bottomAnchor: NSLayoutYAxisAnchor;
   centerXAnchor: NSLayoutXAxisAnchor;
@@ -6267,6 +6889,8 @@ export class NSLayoutGuide extends NSObject implements NSUserInterfaceItemIdenti
   setIdentifier(_: string);
   constraintsAffectingLayout(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint[];
 }
+
+export function NSLayoutGuide(args?: any): NSLayoutGuide;
 
 export class NSLayoutManager extends NSObject {
   allowsNonContiguousLayout: boolean;
@@ -6398,6 +7022,8 @@ export class NSLayoutManager extends NSObject {
   usedRect(for_: NSTextContainer): CGRect;
 }
 
+export function NSLayoutManager(args?: any): NSLayoutManager;
+
 interface NSLayoutManagerDelegate {
   layoutManager(_: NSLayoutManager, shouldGenerateGlyphs: number, properties: NSLayoutManager.GlyphProperty, characterIndexes: number, font: NSFont, forGlyphRange: NSRange): number;
   layoutManager(_: NSLayoutManager, lineSpacingAfterGlyphAt: number, withProposedLineFragmentRect: CGRect): number;
@@ -6418,9 +7044,13 @@ export class NSLayoutXAxisAnchor extends NSLayoutAnchor<NSLayoutXAxisAnchor> {
   anchorWithOffset(to: NSLayoutXAxisAnchor): NSLayoutDimension;
 }
 
+export function NSLayoutXAxisAnchor(args?: any): NSLayoutXAxisAnchor;
+
 export class NSLayoutYAxisAnchor extends NSLayoutAnchor<NSLayoutYAxisAnchor> {
   anchorWithOffset(to: NSLayoutYAxisAnchor): NSLayoutDimension;
 }
+
+export function NSLayoutYAxisAnchor(args?: any): NSLayoutYAxisAnchor;
 
 export class NSLevelIndicator extends NSControl {
   criticalFillColor: NSColor;
@@ -6459,6 +7089,8 @@ export class NSLevelIndicator extends NSControl {
   tickMarkValue(at: number): number;
 }
 
+export function NSLevelIndicator(args?: any): NSLevelIndicator;
+
 export class NSLevelIndicatorCell extends NSActionCell {
   criticalValue: number;
   setCriticalValue(_: number);
@@ -6481,10 +7113,14 @@ export class NSLevelIndicatorCell extends NSActionCell {
   tickMarkValue(at: number): number;
 }
 
+export function NSLevelIndicatorCell(args?: any): NSLevelIndicatorCell;
+
 export class NSMagnificationGestureRecognizer extends NSGestureRecognizer {
   magnification: number;
   setMagnification(_: number);
 }
+
+export function NSMagnificationGestureRecognizer(args?: any): NSMagnificationGestureRecognizer;
 
 export class NSMatrix extends NSControl {
   allowsEmptySelection: boolean;
@@ -6546,9 +7182,9 @@ export class NSMatrix extends NSControl {
   getRow(_: number, column: number, of: NSCell): boolean;
   highlightCell(_: boolean, atRow: number, column: number): void;
   // @ts-ignore 
-  static createWithFrameWithModeWithCellClassWithNumberOfRowsWithNumberOfColumns(_: CGRect, mode: NSMatrix.Mode, cellClass?: typeof NSObject, numberOfRows?: number, numberOfColumns?: number): NSMatrix;
+  static createWithFrame_Mode_CellClass_NumberOfRows_NumberOfColumns(_: CGRect, mode: NSMatrix.Mode, cellClass?: typeof NSObject, numberOfRows?: number, numberOfColumns?: number): NSMatrix;
   // @ts-ignore 
-  static createWithFrameWithModeWithPrototypeWithNumberOfRowsWithNumberOfColumns(_: CGRect, mode: NSMatrix.Mode, prototype: NSCell, numberOfRows: number, numberOfColumns: number): NSMatrix;
+  static createWithFrame_Mode_Prototype_NumberOfRows_NumberOfColumns(_: CGRect, mode: NSMatrix.Mode, prototype: NSCell, numberOfRows: number, numberOfColumns: number): NSMatrix;
   insertColumn(_: number): void;
   insertColumn(_: number, with_?: NSCell[]): void;
   insertRow(_: number): void;
@@ -6587,6 +7223,8 @@ export class NSMatrix extends NSControl {
   toolTip(for_: NSCell): string;
 }
 
+export function NSMatrix(args?: any): NSMatrix;
+
 interface NSMatrixDelegate {
 }
 
@@ -6600,6 +7238,8 @@ export class NSMediaLibraryBrowserController extends NSObject {
   static shared: NSMediaLibraryBrowserController;
   togglePanel(_?: any): void;
 }
+
+export function NSMediaLibraryBrowserController(args?: any): NSMediaLibraryBrowserController;
 
 export class NSMenu extends NSObject implements NSUserInterfaceItemIdentification {
   static menuBarVisible(): boolean;
@@ -6660,6 +7300,8 @@ export class NSMenu extends NSObject implements NSUserInterfaceItemIdentificatio
   submenuAction(_?: any): void;
   update(): void;
 }
+
+export function NSMenu(args?: any): NSMenu;
 
 interface NSMenuDelegate {
   confinementRect(for_: NSMenu, on?: NSScreen): CGRect;
@@ -6727,8 +7369,10 @@ export class NSMenuItem extends NSObject implements NSUserInterfaceItemIdentific
   setUsesUserKeyEquivalents(_: boolean);
   identifier: string;
   setIdentifier(_: string);
-  static createWithTitleWithActionWithKeyEquivalent(_: string, action?: string, keyEquivalent?: string): NSMenuItem;
+  static createWithTitle_Action_KeyEquivalent(_: string, action?: string, keyEquivalent?: string): NSMenuItem;
 }
+
+export function NSMenuItem(args?: any): NSMenuItem;
 
 export class NSMenuItemCell extends NSButtonCell {
   imageWidth: number;
@@ -6754,6 +7398,8 @@ export class NSMenuItemCell extends NSButtonCell {
   stateImageRect(forBounds: CGRect): CGRect;
 }
 
+export function NSMenuItemCell(args?: any): NSMenuItemCell;
+
 interface NSMenuItemValidation {
   validateMenuItem(_: NSMenuItem): boolean;
 }
@@ -6765,6 +7411,8 @@ export class NSMenuToolbarItem extends NSToolbarItem {
   setShowsIndicator(_: boolean);
 }
 
+export function NSMenuToolbarItem(args?: any): NSMenuToolbarItem;
+
 export class NSMutableFontCollection extends NSFontCollection {
   exclusionDescriptors: NSFontDescriptor[];
   setExclusionDescriptors(_: NSFontDescriptor[]);
@@ -6774,6 +7422,8 @@ export class NSMutableFontCollection extends NSFontCollection {
   addQuery(for_: NSFontDescriptor[]): void;
   removeQuery(for_: NSFontDescriptor[]): void;
 }
+
+export function NSMutableFontCollection(args?: any): NSMutableFontCollection;
 
 export class NSMutableParagraphStyle extends NSParagraphStyle {
   alignment: NSText.NSTextAlignment;
@@ -6821,11 +7471,15 @@ export class NSMutableParagraphStyle extends NSParagraphStyle {
   setParagraphStyle(_: NSParagraphStyle): void;
 }
 
+export function NSMutableParagraphStyle(args?: any): NSMutableParagraphStyle;
+
 export class NSNib extends NSObject {
-  static createWithNibDataWithBundle(_: NSData, bundle?: Bundle): NSNib;
-  static createWithNibNamedWithBundle(_: string, bundle?: Bundle): NSNib;
+  static createWithNibData_Bundle(_: NSData, bundle?: Bundle): NSNib;
+  static createWithNibNamed_Bundle(_: string, bundle?: Bundle): NSNib;
   instantiate(withOwner?: any, topLevelObjects?: any[]): boolean;
 }
+
+export function NSNib(args?: any): NSNib;
 
 // export function NSNumberOfColorComponents(colorSpaceName: string): number;
 
@@ -6863,8 +7517,10 @@ export class NSObjectController extends NSController {
   validateUserInterfaceItem(_: any): boolean;
 }
 
+export function NSObjectController(args?: any): NSObjectController;
+
 export class NSOpenPanel extends NSSavePanel {
-  urls: URL[];
+  urls: NSURL[];
   isAccessoryViewDisclosed: boolean;
   setAccessoryViewDisclosed(_: boolean);
   allowsMultipleSelection: boolean;
@@ -6881,10 +7537,12 @@ export class NSOpenPanel extends NSSavePanel {
   setResolvesAliases(_: boolean);
 }
 
+export function NSOpenPanel(args?: any): NSOpenPanel;
+
 interface NSOpenSavePanelDelegate {
-  panel(_: any, shouldEnable: URL): boolean;
-  panel(validateURL: any, error: URL): boolean;
-  panel(_: any, didChangeToDirectoryURL?: URL): void;
+  panel(_: any, shouldEnable: NSURL): boolean;
+  panel(validateURL: any, error: NSURL): boolean;
+  panel(_: any, didChangeToDirectoryURL?: NSURL): void;
   panel(_: any, userEnteredFilename: string, confirmed: boolean): string;
   panel(_: any, willExpand: boolean): void;
   panelSelectionDidChange(_?: any): void;
@@ -6931,6 +7589,8 @@ export class NSOutlineView extends NSTableView {
   setDropItem(_?: any, dropChildIndex?: number): void;
   shouldCollapseAutoExpandedItems(forDeposited: boolean): boolean;
 }
+
+export function NSOutlineView(args?: any): NSOutlineView;
 
 interface NSOutlineViewDataSource {
   outlineView(_: NSOutlineView, numberOfChildrenOfItem?: any): number;
@@ -6998,9 +7658,11 @@ export class NSPDFImageRep extends NSImageRep {
   static createWithData(_: NSData): NSPDFImageRep;
 }
 
+export function NSPDFImageRep(args?: any): NSPDFImageRep;
+
 export class NSPDFInfo extends NSObject {
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
   attributes: Map<string, any>;
   isFileExtensionHidden: boolean;
   setFileExtensionHidden(_: boolean);
@@ -7012,6 +7674,8 @@ export class NSPDFInfo extends NSObject {
   setTagNames(_: string[]);
 }
 
+export function NSPDFInfo(args?: any): NSPDFInfo;
+
 export class NSPDFPanel extends NSObject {
   accessoryController: NSViewController;
   setAccessoryController(_: NSViewController);
@@ -7022,11 +7686,15 @@ export class NSPDFPanel extends NSObject {
   beginSheet(with_: NSPDFInfo, modalFor?: NSWindow, completionHandler?: (p1: number) => void): void;
 }
 
+export function NSPDFPanel(args?: any): NSPDFPanel;
+
 export class NSPICTImageRep extends NSImageRep {
   pictRepresentation: NSData;
   boundingBox: CGRect;
   static createWithData(_: NSData): NSPICTImageRep;
 }
+
+export function NSPICTImageRep(args?: any): NSPICTImageRep;
 
 export class NSPageController extends NSViewController {
   arrangedObjects: any[];
@@ -7044,6 +7712,8 @@ export class NSPageController extends NSViewController {
   navigateForward(to: any): void;
   takeSelectedIndexFrom(_?: any): void;
 }
+
+export function NSPageController(args?: any): NSPageController;
 
 interface NSPageControllerDelegate {
   pageController(_: NSPageController, identifierFor: any): string;
@@ -7065,6 +7735,8 @@ export class NSPageLayout extends NSObject {
   runModal(with_: NSPrintInfo): number;
 }
 
+export function NSPageLayout(args?: any): NSPageLayout;
+
 export class NSPanGestureRecognizer extends NSGestureRecognizer {
   buttonMask: number;
   setButtonMask(_: number);
@@ -7075,6 +7747,8 @@ export class NSPanGestureRecognizer extends NSGestureRecognizer {
   velocity(in_?: NSView): CGPoint;
 }
 
+export function NSPanGestureRecognizer(args?: any): NSPanGestureRecognizer;
+
 export class NSPanel extends NSWindow {
   becomesKeyOnlyIfNeeded: boolean;
   setBecomesKeyOnlyIfNeeded(_: boolean);
@@ -7083,6 +7757,8 @@ export class NSPanel extends NSWindow {
   worksWhenModal: boolean;
   setWorksWhenModal(_: boolean);
 }
+
+export function NSPanel(args?: any): NSPanel;
 
 export class NSParagraphStyle extends NSObject {
   static defaultWritingDirection(forLanguage?: string): NSText.NSWritingDirection;
@@ -7108,6 +7784,8 @@ export class NSParagraphStyle extends NSObject {
   tighteningFactorForTruncation: number;
   static default: NSParagraphStyle;
 }
+
+export function NSParagraphStyle(args?: any): NSParagraphStyle;
 
 export class NSPasteboard extends NSObject {
   static withUniqueName(): NSPasteboard;
@@ -7139,6 +7817,8 @@ export class NSPasteboard extends NSObject {
   writeObjects(_: any[]): boolean;
 }
 
+export function NSPasteboard(args?: any): NSPasteboard;
+
 export class NSPasteboardItem extends NSObject {
   types: string[];
   availableType(from: string[]): string;
@@ -7149,6 +7829,8 @@ export class NSPasteboardItem extends NSObject {
   setPropertyList(_: any, forType: string): boolean;
   setString(_: string, forType: string): boolean;
 }
+
+export function NSPasteboardItem(args?: any): NSPasteboardItem;
 
 interface NSPasteboardItemDataProvider {
   pasteboard(_?: NSPasteboard, item?: NSPasteboardItem, provideDataForType?: string): void;
@@ -7170,8 +7852,8 @@ interface NSPasteboardWriting {
 }
 
 export class NSPathCell extends NSActionCell {
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
   allowedTypes: string[];
   setAllowedTypes(_: string[]);
   backgroundColor: NSColor;
@@ -7197,19 +7879,23 @@ export class NSPathCell extends NSActionCell {
   setObjectValue(_?: any): void;
 }
 
+export function NSPathCell(args?: any): NSPathCell;
+
 interface NSPathCellDelegate {
   pathCell(_: NSPathCell, willDisplay: NSOpenPanel): void;
   pathCell(_: NSPathCell, willPopUp: NSMenu): void;
 }
 
 export class NSPathComponentCell extends NSTextFieldCell {
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
 }
 
+export function NSPathComponentCell(args?: any): NSPathComponentCell;
+
 export class NSPathControl extends NSControl {
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
   allowedTypes: string[];
   setAllowedTypes(_: string[]);
   backgroundColor: NSColor;
@@ -7232,6 +7918,8 @@ export class NSPathControl extends NSControl {
   setDraggingSourceOperationMask(_: NSDragging.NSDragOperation, forLocal: boolean): void;
 }
 
+export function NSPathControl(args?: any): NSPathControl;
+
 interface NSPathControlDelegate {
   pathControl(_: NSPathControl, shouldDrag: NSPathControlItem, with_: NSPasteboard): boolean;
   pathControl(_: NSPathControl, shouldDrag: NSPathComponentCell, with_: NSPasteboard): boolean;
@@ -7242,7 +7930,7 @@ interface NSPathControlDelegate {
 }
 
 export class NSPathControlItem extends NSObject {
-  url: URL;
+  url: NSURL;
   attributedTitle: NSAttributedString;
   setAttributedTitle(_: NSAttributedString);
   image: NSImage;
@@ -7251,15 +7939,19 @@ export class NSPathControlItem extends NSObject {
   setTitle(_: string);
 }
 
+export function NSPathControlItem(args?: any): NSPathControlItem;
+
 // export function NSPerformService(itemName: string, pboard: NSPasteboard): boolean;
 
 export class NSPersistentDocument extends NSDocument {
   managedObjectContext: NSManagedObjectContext;
   setManagedObjectContext(_: NSManagedObjectContext);
   managedObjectModel: NSManagedObjectModel;
-  configurePersistentStoreCoordinatorForURL(ofType: URL, modelConfiguration: string, storeOptions?: string, error?: Map<string, any>): boolean;
+  configurePersistentStoreCoordinatorForURL(ofType: NSURL, modelConfiguration: string, storeOptions?: string, error?: Map<string, any>): boolean;
   persistentStoreType(forFileType: string): string;
 }
+
+export function NSPersistentDocument(args?: any): NSPersistentDocument;
 
 export class NSPickerTouchBarItem extends NSTouchBarItem {
   action: string;
@@ -7289,6 +7981,8 @@ export class NSPickerTouchBarItem extends NSTouchBarItem {
   setLabel(_: string, at: number): void;
 }
 
+export function NSPickerTouchBarItem(args?: any): NSPickerTouchBarItem;
+
 // export function NSPlanarFromDepth(depth: NSGraphics.NSWindow.Depth): boolean;
 
 export class NSPopUpButton extends NSButton {
@@ -7313,7 +8007,7 @@ export class NSPopUpButton extends NSButton {
   indexOfItem(withTarget?: any, andAction?: string): number;
   indexOfItem(withTitle: string): number;
   // @ts-ignore 
-  static createWithFrameWithPullsDown(_: CGRect, pullsDown: boolean): NSPopUpButton;
+  static createWithFrame_PullsDown(_: CGRect, pullsDown: boolean): NSPopUpButton;
   insertItem(withTitle: string, at: number): void;
   item(at: number): NSMenuItem;
   itemTitle(at: number): string;
@@ -7329,6 +8023,8 @@ export class NSPopUpButton extends NSButton {
   setTitle(_: string): void;
   synchronizeTitleAndSelectedItem(): void;
 }
+
+export function NSPopUpButton(args?: any): NSPopUpButton;
 
 export class NSPopUpButtonCell extends NSMenuItemCell {
   altersStateOfSelectedItem: boolean;
@@ -7360,7 +8056,7 @@ export class NSPopUpButtonCell extends NSMenuItemCell {
   indexOfItem(withTarget?: any, andAction?: string): number;
   indexOfItem(withTitle: string): number;
   // @ts-ignore 
-  static createWithTextCellWithPullsDown(_: string, pullsDown: boolean): NSPopUpButtonCell;
+  static createWithTextCell_PullsDown(_: string, pullsDown: boolean): NSPopUpButtonCell;
   insertItem(withTitle: string, at: number): void;
   item(at: number): NSMenuItem;
   itemTitle(at: number): string;
@@ -7378,6 +8074,8 @@ export class NSPopUpButtonCell extends NSMenuItemCell {
   setTitle(_?: string): void;
   synchronizeTitleAndSelectedItem(): void;
 }
+
+export function NSPopUpButtonCell(args?: any): NSPopUpButtonCell;
 
 export class NSPopover extends NSResponder {
   animates: boolean;
@@ -7398,6 +8096,8 @@ export class NSPopover extends NSResponder {
   performClose(_?: any): void;
   show(relativeTo: CGRect, of: NSView, preferredEdge: NSGeometry.NSRectEdge): void;
 }
+
+export function NSPopover(args?: any): NSPopover;
 
 interface NSPopoverDelegate {
   detachableWindow(for_: NSPopover): NSWindow;
@@ -7430,10 +8130,14 @@ export class NSPopoverTouchBarItem extends NSTouchBarItem {
   showPopover(_?: any): void;
 }
 
+export function NSPopoverTouchBarItem(args?: any): NSPopoverTouchBarItem;
+
 export class NSPredicateEditor extends NSRuleEditor {
   rowTemplates: NSPredicateEditorRowTemplate[];
   setRowTemplates(_: NSPredicateEditorRowTemplate[]);
 }
+
+export function NSPredicateEditor(args?: any): NSPredicateEditor;
 
 export class NSPredicateEditorRowTemplate extends NSObject {
   static templates(withAttributeKeyPaths: string[], in_: NSEntityDescription): NSPredicateEditorRowTemplate[];
@@ -7447,12 +8151,14 @@ export class NSPredicateEditorRowTemplate extends NSObject {
   templateViews: NSView[];
   displayableSubpredicates(of: NSPredicate): NSPredicate[];
   static createWithCompoundTypes(_: number[]): NSPredicateEditorRowTemplate;
-  static createWithLeftExpressionsWithRightExpressionAttributeTypeWithModifierWithOperatorsWithOptions(_: NSExpression[], rightExpressionAttributeType: NSAttributeDescription.NSAttributeType, modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
-  static createWithLeftExpressionsWithRightExpressionsWithModifierWithOperatorsWithOptions(_: NSExpression[], rightExpressions: NSExpression[], modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
+  static createWithLeftExpressions_RightExpressionAttributeType_Modifier_Operators_Options(_: NSExpression[], rightExpressionAttributeType: NSAttributeDescription.NSAttributeType, modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
+  static createWithLeftExpressions_RightExpressions_Modifier_Operators_Options(_: NSExpression[], rightExpressions: NSExpression[], modifier: NSComparisonPredicate.Modifier, operators: number[], options: number): NSPredicateEditorRowTemplate;
   match(for_: NSPredicate): number;
   predicate(withSubpredicates?: NSPredicate[]): NSPredicate;
   setPredicate(_: NSPredicate): void;
 }
+
+export function NSPredicateEditorRowTemplate(args?: any): NSPredicateEditorRowTemplate;
 
 export class NSPressGestureRecognizer extends NSGestureRecognizer {
   allowableMovement: number;
@@ -7465,11 +8171,15 @@ export class NSPressGestureRecognizer extends NSGestureRecognizer {
   setNumberOfTouchesRequired(_: number);
 }
 
+export function NSPressGestureRecognizer(args?: any): NSPressGestureRecognizer;
+
 export class NSPressureConfiguration extends NSObject {
   pressureBehavior: NSEvent.PressureBehavior;
   static createWithPressureBehavior(_: NSEvent.PressureBehavior): NSPressureConfiguration;
   set(): void;
 }
+
+export function NSPressureConfiguration(args?: any): NSPressureConfiguration;
 
 export class NSPrintInfo extends NSObject {
   bottomMargin: number;
@@ -7519,6 +8229,8 @@ export class NSPrintInfo extends NSObject {
   updateFromPMPrintSettings(): void;
 }
 
+export function NSPrintInfo(args?: any): NSPrintInfo;
+
 export class NSPrintOperation extends NSObject {
   static epsOperation(with_: NSView, inside: CGRect, to?: NSMutableData): NSPrintOperation;
   static epsOperation(with_: NSView, inside: CGRect, to: NSMutableData, printInfo: NSPrintInfo): NSPrintOperation;
@@ -7557,6 +8269,8 @@ export class NSPrintOperation extends NSObject {
   runModal(for_: NSWindow, delegate?: any, didRun?: string, contextInfo?: any): void;
 }
 
+export function NSPrintOperation(args?: any): NSPrintOperation;
+
 export class NSPrintPanel extends NSObject {
   accessoryControllers: NSViewController[];
   helpAnchor: string;
@@ -7575,6 +8289,8 @@ export class NSPrintPanel extends NSObject {
   setDefaultButtonTitle(_?: string): void;
 }
 
+export function NSPrintPanel(args?: any): NSPrintPanel;
+
 interface NSPrintPanelAccessorizing {
   keyPathsForValuesAffectingPreview(): Set<any>;
   localizedSummaryItems(): Map<string, string>[];
@@ -7589,6 +8305,8 @@ export class NSPrinter extends NSObject {
   static printerTypes: string[];
   pageSize(forPaper: string): CGSize;
 }
+
+export function NSPrinter(args?: any): NSPrinter;
 
 export class NSProgressIndicator extends NSView {
   isBezeled: boolean;
@@ -7616,6 +8334,8 @@ export class NSProgressIndicator extends NSView {
   startAnimation(_?: any): void;
   stopAnimation(_?: any): void;
 }
+
+export function NSProgressIndicator(args?: any): NSProgressIndicator;
 
 // export function NSRectClip(rect: CGRect): void;
 
@@ -7678,8 +8398,8 @@ export class NSResponder extends NSObject {
   otherMouseUp(with_: NSEvent): void;
   performKeyEquivalent(with_: NSEvent): boolean;
   performTextFinderAction(_?: any): void;
-  presentError(_: Error): boolean;
-  presentError(_: Error, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
+  presentError(_: NSError): boolean;
+  presentError(_: NSError, modalFor: NSWindow, delegate?: any, didPresent?: string, contextInfo?: any): void;
   pressureChange(with_: NSEvent): void;
   quickLook(with_: NSEvent): void;
   resignFirstResponder(): boolean;
@@ -7706,8 +8426,10 @@ export class NSResponder extends NSObject {
   validateProposedFirstResponder(_: NSResponder, for_?: NSEvent): boolean;
   wantsForwardedScrollEvents(for_: NSEvent.GestureAxis): boolean;
   wantsScrollEventsForSwipeTracking(on: NSEvent.GestureAxis): boolean;
-  willPresentError(_: Error): Error;
+  willPresentError(_: NSError): NSError;
 }
+
+export function NSResponder(args?: any): NSResponder;
 
 export class NSRotationGestureRecognizer extends NSGestureRecognizer {
   rotation: number;
@@ -7715,6 +8437,8 @@ export class NSRotationGestureRecognizer extends NSGestureRecognizer {
   rotationInDegrees: number;
   setRotationInDegrees(_: number);
 }
+
+export function NSRotationGestureRecognizer(args?: any): NSRotationGestureRecognizer;
 
 export class NSRuleEditor extends NSControl {
   canRemoveAllRows: boolean;
@@ -7759,6 +8483,8 @@ export class NSRuleEditor extends NSControl {
   subrowIndexes(forRow: number): IndexSet;
 }
 
+export function NSRuleEditor(args?: any): NSRuleEditor;
+
 interface NSRuleEditorDelegate {
   ruleEditor(_: NSRuleEditor, numberOfChildrenForCriterion?: any, with_?: NSRuleEditor.RowType): number;
   ruleEditor(_: NSRuleEditor, child: number, forCriterion?: any, with_?: NSRuleEditor.RowType): any;
@@ -7785,9 +8511,11 @@ export class NSRulerMarker extends NSObject {
   ruler: NSRulerView;
   thicknessRequiredInRuler: number;
   draw(_: CGRect): void;
-  static createWithRulerViewWithMarkerLocationWithImageWithImageOrigin(_: NSRulerView, markerLocation: number, image: NSImage, imageOrigin: CGPoint): NSRulerMarker;
+  static createWithRulerView_MarkerLocation_Image_ImageOrigin(_: NSRulerView, markerLocation: number, image: NSImage, imageOrigin: CGPoint): NSRulerMarker;
   trackMouse(with_: NSEvent, adding: boolean): boolean;
 }
+
+export function NSRulerMarker(args?: any): NSRulerMarker;
 
 export class NSRulerView extends NSView {
   static registerUnit(withName: string, abbreviation: string, unitToPointsConversionFactor: number, stepUpCycle: number[], stepDownCycle: number[]): void;
@@ -7816,12 +8544,14 @@ export class NSRulerView extends NSView {
   addMarker(_: NSRulerMarker): void;
   drawHashMarksAndLabels(in_: CGRect): void;
   drawMarkers(in_: CGRect): void;
-  static createWithScrollViewWithOrientation(_?: NSScrollView, orientation?: NSRulerView.Orientation): NSRulerView;
+  static createWithScrollView_Orientation(_?: NSScrollView, orientation?: NSRulerView.Orientation): NSRulerView;
   invalidateHashMarks(): void;
   moveRulerline(fromLocation: number, toLocation: number): void;
   removeMarker(_: NSRulerMarker): void;
   trackMarker(_: NSRulerMarker, withMouseEvent: NSEvent): boolean;
 }
+
+export function NSRulerView(args?: any): NSRulerView;
 
 export class NSRunningApplication extends NSObject {
   static runningApplications(withBundleIdentifier: string): NSRunningApplication[];
@@ -7829,9 +8559,9 @@ export class NSRunningApplication extends NSObject {
   activationPolicy: NSRunningApplication.NSApplication.ActivationPolicy;
   isActive: boolean;
   bundleIdentifier: string;
-  bundleURL: URL;
+  bundleURL: NSURL;
   executableArchitecture: number;
-  executableURL: URL;
+  executableURL: NSURL;
   isFinishedLaunching: boolean;
   isHidden: boolean;
   icon: NSImage;
@@ -7848,8 +8578,10 @@ export class NSRunningApplication extends NSObject {
   unhide(): boolean;
 }
 
+export function NSRunningApplication(args?: any): NSRunningApplication;
+
 export class NSSavePanel extends NSPanel {
-  url: URL;
+  url: NSURL;
   accessoryView: NSView;
   setAccessoryView(_: NSView);
   allowedFileTypes: string[];
@@ -7862,8 +8594,8 @@ export class NSSavePanel extends NSPanel {
   setCanSelectHiddenExtension(_: boolean);
   delegate: any;
   setDelegate(_: any);
-  directoryURL: URL;
-  setDirectoryURL(_: URL);
+  directoryURL: NSURL;
+  setDirectoryURL(_: NSURL);
   isExpanded: boolean;
   isExtensionHidden: boolean;
   setExtensionHidden(_: boolean);
@@ -7891,6 +8623,8 @@ export class NSSavePanel extends NSPanel {
   validateVisibleColumns(): void;
 }
 
+export function NSSavePanel(args?: any): NSSavePanel;
+
 export class NSScreen extends NSObject {
   backingScaleFactor: number;
   colorSpace: NSColorSpace;
@@ -7912,6 +8646,8 @@ export class NSScreen extends NSObject {
   convertRectFromBacking(_: CGRect): CGRect;
   convertRectToBacking(_: CGRect): CGRect;
 }
+
+export function NSScreen(args?: any): NSScreen;
 
 export class NSScrollView extends NSView {
   //  static contentSize(forFrameSize: CGSize, horizontalScrollerClass?: typeof NSObject, verticalScrollerClass?: typeof NSObject, borderType?: NSView.NSBorderType, controlSize?: NSCell.NSControl.ControlSize, scrollerStyle?: NSScroller.Style): CGSize;
@@ -8000,6 +8736,8 @@ export class NSScrollView extends NSView {
   tile(): void;
 }
 
+export function NSScrollView(args?: any): NSScrollView;
+
 export class NSScroller extends NSControl {
   static scrollerWidth(for_: NSCell.NSControl.ControlSize, scrollerStyle: NSScroller.Style): number;
   hitPart: NSScroller.Part;
@@ -8020,6 +8758,8 @@ export class NSScroller extends NSControl {
   testPart(_: CGPoint): NSScroller.Part;
   trackKnob(with_: NSEvent): void;
 }
+
+export function NSScroller(args?: any): NSScroller;
 
 export class NSScrubber extends NSView {
   backgroundColor: NSColor;
@@ -8065,6 +8805,8 @@ export class NSScrubber extends NSView {
   scrollItem(at: number, to: NSScrubber.Alignment): void;
 }
 
+export function NSScrubber(args?: any): NSScrubber;
+
 export class NSScrubberArrangedView extends NSView {
   isHighlighted: boolean;
   setHighlighted(_: boolean);
@@ -8072,6 +8814,8 @@ export class NSScrubberArrangedView extends NSView {
   setSelected(_: boolean);
   apply(_: NSScrubberLayoutAttributes): void;
 }
+
+export function NSScrubberArrangedView(args?: any): NSScrubberArrangedView;
 
 interface NSScrubberDataSource {
   numberOfItems(for_: NSScrubber): number;
@@ -8095,6 +8839,8 @@ export class NSScrubberFlowLayout extends NSScrubberLayout {
   invalidateLayoutForItems(at: IndexSet): void;
 }
 
+export function NSScrubberFlowLayout(args?: any): NSScrubberFlowLayout;
+
 interface NSScrubberFlowLayoutDelegate {
   scrubber(_: NSScrubber, layout: NSScrubberFlowLayout, sizeForItemAt: number): CGSize;
 }
@@ -8107,8 +8853,12 @@ export class NSScrubberImageItemView extends NSScrubberItemView {
   imageView: NSImageView;
 }
 
+export function NSScrubberImageItemView(args?: any): NSScrubberImageItemView;
+
 export class NSScrubberItemView extends NSScrubberArrangedView {
 }
+
+export function NSScrubberItemView(args?: any): NSScrubberItemView;
 
 export class NSScrubberLayout extends NSObject {
   automaticallyMirrorsInRightToLeftLayout: boolean;
@@ -8125,6 +8875,8 @@ export class NSScrubberLayout extends NSObject {
   shouldInvalidateLayoutForChange(fromVisibleRect: CGRect, toVisibleRect: CGRect): boolean;
 }
 
+export function NSScrubberLayout(args?: any): NSScrubberLayout;
+
 export class NSScrubberLayoutAttributes extends NSObject {
   alpha: number;
   setAlpha(_: number);
@@ -8134,11 +8886,15 @@ export class NSScrubberLayoutAttributes extends NSObject {
   setItemIndex(_: number);
 }
 
+export function NSScrubberLayoutAttributes(args?: any): NSScrubberLayoutAttributes;
+
 export class NSScrubberProportionalLayout extends NSScrubberLayout {
   numberOfVisibleItems: number;
   setNumberOfVisibleItems(_: number);
   static createWithNumberOfVisibleItems(_: number): NSScrubberProportionalLayout;
 }
+
+export function NSScrubberProportionalLayout(args?: any): NSScrubberProportionalLayout;
 
 export class NSScrubberSelectionStyle extends NSObject {
   static outlineOverlayStyle: NSScrubberSelectionStyle;
@@ -8146,14 +8902,20 @@ export class NSScrubberSelectionStyle extends NSObject {
   makeSelectionView(): NSScrubberSelectionView;
 }
 
+export function NSScrubberSelectionStyle(args?: any): NSScrubberSelectionStyle;
+
 export class NSScrubberSelectionView extends NSScrubberArrangedView {
 }
+
+export function NSScrubberSelectionView(args?: any): NSScrubberSelectionView;
 
 export class NSScrubberTextItemView extends NSScrubberItemView {
   textField: NSTextField;
   title: string;
   setTitle(_: string);
 }
+
+export function NSScrubberTextItemView(args?: any): NSScrubberTextItemView;
 
 export class NSSearchField extends NSTextField {
   centersPlaceholder: boolean;
@@ -8176,6 +8938,8 @@ export class NSSearchField extends NSTextField {
   rectForSearchButton(whenCentered: boolean): CGRect;
   rectForSearchText(whenCentered: boolean): CGRect;
 }
+
+export function NSSearchField(args?: any): NSSearchField;
 
 export class NSSearchFieldCell extends NSTextFieldCell {
   cancelButtonCell: NSButtonCell;
@@ -8201,6 +8965,8 @@ export class NSSearchFieldCell extends NSTextFieldCell {
   searchTextRect(forBounds: CGRect): CGRect;
 }
 
+export function NSSearchFieldCell(args?: any): NSSearchFieldCell;
+
 interface NSSearchFieldDelegate {
   searchFieldDidEndSearching(_: NSSearchField): void;
   searchFieldDidStartSearching(_: NSSearchField): void;
@@ -8209,10 +8975,14 @@ interface NSSearchFieldDelegate {
 export class NSSecureTextField extends NSTextField {
 }
 
+export function NSSecureTextField(args?: any): NSSecureTextField;
+
 export class NSSecureTextFieldCell extends NSTextFieldCell {
   echosBullets: boolean;
   setEchosBullets(_: boolean);
 }
+
+export function NSSecureTextFieldCell(args?: any): NSSecureTextFieldCell;
 
 export class NSSegmentedCell extends NSActionCell {
   segmentCount: number;
@@ -8255,6 +9025,8 @@ export class NSSegmentedCell extends NSActionCell {
   toolTip(forSegment: number): string;
   width(forSegment: number): number;
 }
+
+export function NSSegmentedCell(args?: any): NSSegmentedCell;
 
 export class NSSegmentedControl extends NSControl {
   doubleValueForSelectedSegment: number;
@@ -8307,6 +9079,8 @@ export class NSSegmentedControl extends NSControl {
   width(forSegment: number): number;
 }
 
+export function NSSegmentedControl(args?: any): NSSegmentedControl;
+
 interface NSSeguePerforming {
   performSegue(withIdentifier: string, sender?: any): void;
   prepare(for_: NSStoryboardSegue, sender?: any): void;
@@ -8332,33 +9106,37 @@ export class NSShadow extends NSObject {
   set(): void;
 }
 
+export function NSShadow(args?: any): NSShadow;
+
 export class NSSharingService extends NSObject {
   static sharingServices(forItems: any[]): NSSharingService[];
   accountName: string;
   alternateImage: NSImage;
-  attachmentFileURLs: URL[];
+  attachmentFileURLs: NSURL[];
   delegate: any;
   setDelegate(_: any);
   image: NSImage;
   menuItemTitle: string;
   setMenuItemTitle(_: string);
   messageBody: string;
-  permanentLink: URL;
+  permanentLink: NSURL;
   recipients: string[];
   setRecipients(_: string[]);
   subject: string;
   setSubject(_: string);
   title: string;
   canPerform(withItems?: any[]): boolean;
-  static createWithTitleWithImageWithAlternateImageWithHandler(_: string, image: NSImage, alternateImage?: NSImage, handler?: () => void): NSSharingService;
+  static createWithTitle_Image_AlternateImage_Handler(_: string, image: NSImage, alternateImage?: NSImage, handler?: () => void): NSSharingService;
   // @ts-ignore 
   perform(withItems: any[]): void;
 }
 
+export function NSSharingService(args?: any): NSSharingService;
+
 interface NSSharingServiceDelegate {
   anchoringView(for_: NSSharingService, showRelativeTo: CGRect, preferredEdge: NSGeometry.NSRectEdge): NSView;
   sharingService(_: NSSharingService, willShareItems: any[]): void;
-  sharingService(_: NSSharingService, didFailToShareItems: any[], error: Error): void;
+  sharingService(_: NSSharingService, didFailToShareItems: any[], error: NSError): void;
   sharingService(_: NSSharingService, didShareItems: any[]): void;
   sharingService(_: NSSharingService, sourceFrameOnScreenForShareItem: any): CGRect;
   sharingService(_: NSSharingService, transitionImageForShareItem: any, contentRect: CGRect): NSImage;
@@ -8372,6 +9150,8 @@ export class NSSharingServicePicker extends NSObject {
   show(relativeTo: CGRect, of: NSView, preferredEdge: NSGeometry.NSRectEdge): void;
 }
 
+export function NSSharingServicePicker(args?: any): NSSharingServicePicker;
+
 interface NSSharingServicePickerDelegate {
   sharingServicePicker(_: NSSharingServicePicker, sharingServicesForItems: any[], proposedSharingServices: NSSharingService[]): NSSharingService[];
   sharingServicePicker(_: NSSharingServicePicker, delegateFor: NSSharingService): any;
@@ -8382,6 +9162,8 @@ export class NSSharingServicePickerToolbarItem extends NSToolbarItem {
   delegate: any;
   setDelegate(_: any);
 }
+
+export function NSSharingServicePickerToolbarItem(args?: any): NSSharingServicePickerToolbarItem;
 
 interface NSSharingServicePickerToolbarItemDelegate {
   items(for_: NSSharingServicePickerToolbarItem): any[];
@@ -8398,6 +9180,8 @@ export class NSSharingServicePickerTouchBarItem extends NSTouchBarItem {
   isEnabled: boolean;
   setEnabled(_: boolean);
 }
+
+export function NSSharingServicePickerTouchBarItem(args?: any): NSSharingServicePickerTouchBarItem;
 
 interface NSSharingServicePickerTouchBarItemDelegate {
   items(for_: NSSharingServicePickerTouchBarItem): any[];
@@ -8432,6 +9216,8 @@ export class NSSlider extends NSControl {
   tickMarkValue(at: number): number;
 }
 
+export function NSSlider(args?: any): NSSlider;
+
 export class NSSliderAccessory extends NSObject {
   behavior: NSSliderAccessoryBehavior;
   setBehavior(_: NSSliderAccessoryBehavior);
@@ -8440,12 +9226,16 @@ export class NSSliderAccessory extends NSObject {
   setEnabled(_: boolean);
 }
 
+export function NSSliderAccessory(args?: any): NSSliderAccessory;
+
 export class NSSliderAccessoryBehavior extends NSObject {
   static automaticBehavior: NSSliderAccessoryBehavior;
   static valueResetBehavior: NSSliderAccessoryBehavior;
   static valueStepBehavior: NSSliderAccessoryBehavior;
   handleAction(_: NSSliderAccessory): void;
 }
+
+export function NSSliderAccessoryBehavior(args?: any): NSSliderAccessoryBehavior;
 
 export class NSSliderCell extends NSActionCell {
   allowsTickMarkValuesOnly: boolean;
@@ -8477,6 +9267,8 @@ export class NSSliderCell extends NSActionCell {
   tickMarkValue(at: number): number;
 }
 
+export function NSSliderCell(args?: any): NSSliderCell;
+
 export class NSSliderTouchBarItem extends NSTouchBarItem {
   action: string;
   setAction(_: string);
@@ -8502,6 +9294,8 @@ export class NSSliderTouchBarItem extends NSTouchBarItem {
   setValueAccessoryWidth(_: number);
 }
 
+export function NSSliderTouchBarItem(args?: any): NSSliderTouchBarItem;
+
 export class NSSound extends NSObject {
   static canInit(with_: NSPasteboard): boolean;
   currentTime: number;
@@ -8518,8 +9312,8 @@ export class NSSound extends NSObject {
   volume: number;
   setVolume(_: number);
   static soundUnfilteredTypes: string[];
-  static createWithContentsOfFileWithByReference(_: string, byReference: boolean): NSSound;
-  static createWithContentsOfWithByReference(_: URL, byReference: boolean): NSSound;
+  static createWithContentsOfFile_ByReference(_: string, byReference: boolean): NSSound;
+  static createWithContentsOf_ByReference(_: NSURL, byReference: boolean): NSSound;
   static createWithData(_: NSData): NSSound;
   static createWithPasteboard(_: NSPasteboard): NSSound;
   pause(): boolean;
@@ -8529,6 +9323,8 @@ export class NSSound extends NSObject {
   stop(): boolean;
   write(to: NSPasteboard): void;
 }
+
+export function NSSound(args?: any): NSSound;
 
 interface NSSoundDelegate {
   sound(_: NSSound, didFinishPlaying: boolean): void;
@@ -8548,6 +9344,8 @@ export class NSSpeechRecognizer extends NSObject {
   startListening(): void;
   stopListening(): void;
 }
+
+export function NSSpeechRecognizer(args?: any): NSSpeechRecognizer;
 
 interface NSSpeechRecognizerDelegate {
   speechRecognizer(_: NSSpeechRecognizer, didRecognizeCommand: string): void;
@@ -8576,11 +9374,13 @@ export class NSSpeechSynthesizer extends NSObject {
   setObject(forProperty?: any, error?: string): boolean;
   setVoice(_?: string): boolean;
   startSpeaking(_: string): boolean;
-  startSpeaking(_: string, to: URL): boolean;
+  startSpeaking(_: string, to: NSURL): boolean;
   stopSpeaking(): void;
   stopSpeaking(at: NSSpeechSynthesizer.Boundary): void;
   voice(): string;
 }
+
+export function NSSpeechSynthesizer(args?: any): NSSpeechSynthesizer;
 
 interface NSSpeechSynthesizerDelegate {
   speechSynthesizer(_: NSSpeechSynthesizer, didFinishSpeaking: boolean): void;
@@ -8645,6 +9445,8 @@ export class NSSpellChecker extends NSObject {
   userQuotesArray(forLanguage: string): string[];
 }
 
+export function NSSpellChecker(args?: any): NSSpellChecker;
+
 export class NSSplitView extends NSView {
   arrangedSubviews: NSView[];
   arrangesAllSubviews: boolean;
@@ -8672,6 +9474,8 @@ export class NSSplitView extends NSView {
   setPosition(_: number, ofDividerAt: number): void;
 }
 
+export function NSSplitView(args?: any): NSSplitView;
+
 export class NSSplitViewController extends NSViewController {
   minimumThicknessForInlineSidebars: number;
   setMinimumThicknessForInlineSidebars(_: number);
@@ -8685,6 +9489,8 @@ export class NSSplitViewController extends NSViewController {
   splitViewItem(for_: NSViewController): NSSplitViewItem;
   toggleSidebar(_?: any): void;
 }
+
+export function NSSplitViewController(args?: any): NSSplitViewController;
 
 interface NSSplitViewDelegate {
   splitView(_: NSSplitView, canCollapseSubview: NSView): boolean;
@@ -8723,6 +9529,8 @@ export class NSSplitViewItem extends NSObject {
   viewController: NSViewController;
   setViewController(_: NSViewController);
 }
+
+export function NSSplitViewItem(args?: any): NSSplitViewItem;
 
 interface NSSpringLoadingDestination {
   draggingEnded(_: any): void;
@@ -8766,6 +9574,8 @@ export class NSStackView extends NSView {
   setVisibilityPriority(_: number, for_: NSView): void;
   visibilityPriority(for_: NSView): number;
 }
+
+export function NSStackView(args?: any): NSStackView;
 
 interface NSStackViewDelegate {
   stackView(_: NSStackView, willDetach: NSView[]): void;
@@ -8878,10 +9688,14 @@ export class NSStatusBar extends NSObject {
   statusItem(withLength: number): NSStatusItem;
 }
 
+export function NSStatusBar(args?: any): NSStatusBar;
+
 export class NSStatusBarButton extends NSButton {
   appearsDisabled: boolean;
   setAppearsDisabled(_: boolean);
 }
+
+export function NSStatusBarButton(args?: any): NSStatusBarButton;
 
 export class NSStatusItem extends NSObject {
   autosaveName: string;
@@ -8898,6 +9712,8 @@ export class NSStatusItem extends NSObject {
   setVisible(_: boolean);
 }
 
+export function NSStatusItem(args?: any): NSStatusItem;
+
 export class NSStepper extends NSControl {
   autorepeat: boolean;
   setAutorepeat(_: boolean);
@@ -8911,6 +9727,8 @@ export class NSStepper extends NSControl {
   setValueWraps(_: boolean);
 }
 
+export function NSStepper(args?: any): NSStepper;
+
 export class NSStepperCell extends NSActionCell {
   autorepeat: boolean;
   setAutorepeat(_: boolean);
@@ -8923,6 +9741,8 @@ export class NSStepperCell extends NSActionCell {
   valueWraps: boolean;
   setValueWraps(_: boolean);
 }
+
+export function NSStepperCell(args?: any): NSStepperCell;
 
 export class NSStepperTouchBarItem extends NSTouchBarItem {
   action: string;
@@ -8939,6 +9759,8 @@ export class NSStepperTouchBarItem extends NSTouchBarItem {
   setTarget(_: any);
 }
 
+export function NSStepperTouchBarItem(args?: any): NSStepperTouchBarItem;
+
 export class NSStoryboard extends NSObject {
   static main: NSStoryboard;
   instantiateController(withIdentifier: string): any;
@@ -8947,14 +9769,18 @@ export class NSStoryboard extends NSObject {
   instantiateInitialControllerWithCreator(_?: (p1: NSCoder) => any): any;
 }
 
+export function NSStoryboard(args?: any): NSStoryboard;
+
 export class NSStoryboardSegue extends NSObject {
   destinationController: any;
   identifier: string;
   sourceController: any;
-  static createWithIdentifierWithSourceWithDestination(_: string, source: any, destination: any): NSStoryboardSegue;
+  static createWithIdentifier_Source_Destination(_: string, source: any, destination: any): NSStoryboardSegue;
   // @ts-ignore 
   perform(): void;
 }
+
+export function NSStoryboardSegue(args?: any): NSStoryboardSegue;
 
 export class NSStringDrawingContext extends NSObject {
   actualScaleFactor: number;
@@ -8963,10 +9789,14 @@ export class NSStringDrawingContext extends NSObject {
   totalBounds: CGRect;
 }
 
+export function NSStringDrawingContext(args?: any): NSStringDrawingContext;
+
 export class NSSwitch extends NSControl {
   state: number;
   setState(_: number);
 }
+
+export function NSSwitch(args?: any): NSSwitch;
 
 export class NSTabView extends NSView {
   allowsTruncatedLabels: boolean;
@@ -9008,6 +9838,8 @@ export class NSTabView extends NSView {
   takeSelectedTabViewItemFromSender(_?: any): void;
 }
 
+export function NSTabView(args?: any): NSTabView;
+
 export class NSTabViewController extends NSViewController {
   canPropagateSelectedChildViewControllerTitle: boolean;
   setCanPropagateSelectedChildViewControllerTitle(_: boolean);
@@ -9026,6 +9858,8 @@ export class NSTabViewController extends NSViewController {
   removeTabViewItem(_: NSTabViewItem): void;
   tabViewItem(for_: NSViewController): NSTabViewItem;
 }
+
+export function NSTabViewController(args?: any): NSTabViewController;
 
 interface NSTabViewDelegate {
   tabView(_: NSTabView, shouldSelect?: NSTabViewItem): boolean;
@@ -9056,6 +9890,8 @@ export class NSTabViewItem extends NSObject {
   sizeOfLabel(_: boolean): CGSize;
 }
 
+export function NSTabViewItem(args?: any): NSTabViewItem;
+
 export class NSTableCellView extends NSView {
   backgroundStyle: NSCell.NSView.BackgroundStyle;
   setBackgroundStyle(_: NSCell.NSView.BackgroundStyle);
@@ -9069,6 +9905,8 @@ export class NSTableCellView extends NSView {
   textField: NSTextField;
   setTextField(_: NSTextField);
 }
+
+export function NSTableCellView(args?: any): NSTableCellView;
 
 export class NSTableColumn extends NSObject implements NSUserInterfaceItemIdentification {
   isEditable: boolean;
@@ -9099,10 +9937,14 @@ export class NSTableColumn extends NSObject implements NSUserInterfaceItemIdenti
   sizeToFit(): void;
 }
 
+export function NSTableColumn(args?: any): NSTableColumn;
+
 export class NSTableHeaderCell extends NSTextFieldCell {
   drawSortIndicator(withFrame: CGRect, in_: NSView, ascending: boolean, priority: number): void;
   sortIndicatorRect(forBounds: CGRect): CGRect;
 }
+
+export function NSTableHeaderCell(args?: any): NSTableHeaderCell;
 
 export class NSTableHeaderView extends NSView {
   draggedColumn: number;
@@ -9113,6 +9955,8 @@ export class NSTableHeaderView extends NSView {
   column(at: CGPoint): number;
   headerRect(ofColumn: number): CGRect;
 }
+
+export function NSTableHeaderView(args?: any): NSTableHeaderView;
 
 export class NSTableRowView extends NSView {
   backgroundColor: NSColor;
@@ -9146,6 +9990,8 @@ export class NSTableRowView extends NSView {
   // @ts-ignore 
   view(atColumn: number): any;
 }
+
+export function NSTableRowView(args?: any): NSTableRowView;
 
 export class NSTableView extends NSControl {
   allowsColumnReordering: boolean;
@@ -9281,6 +10127,8 @@ export class NSTableView extends NSControl {
   view(atColumn: number, row: number, makeIfNecessary: boolean): NSView;
 }
 
+export function NSTableView(args?: any): NSTableView;
+
 interface NSTableViewDataSource {
   numberOfRows(in_: NSTableView): number;
   tableView(_: NSTableView, objectValueFor?: NSTableColumn, row?: number): any;
@@ -9336,6 +10184,8 @@ export class NSTableViewRowAction extends NSObject {
   title: string;
   setTitle(_: string);
 }
+
+export function NSTableViewRowAction(args?: any): NSTableViewRowAction;
 
 export class NSText extends NSView {
   alignment: NSText.NSTextAlignment;
@@ -9407,12 +10257,16 @@ export class NSText extends NSView {
   writeRTFD(toFile: string, atomically: boolean): boolean;
 }
 
+export function NSText(args?: any): NSText;
+
 export class NSTextAlternatives extends NSObject {
   alternativeStrings: string[];
   primaryString: string;
-  static createWithPrimaryStringWithAlternativeStrings(_: string, alternativeStrings: string[]): NSTextAlternatives;
+  static createWithPrimaryString_AlternativeStrings(_: string, alternativeStrings: string[]): NSTextAlternatives;
   noteSelectedAlternativeString(_: string): void;
 }
+
+export function NSTextAlternatives(args?: any): NSTextAlternatives;
 
 export class NSTextAttachment extends NSObject {
   attachmentCell: any;
@@ -9427,12 +10281,16 @@ export class NSTextAttachment extends NSObject {
   setFileWrapper(_: FileWrapper);
   image: NSImage;
   setImage(_: NSImage);
-  static createWithDataWithOfType(_?: NSData, ofType?: string): NSTextAttachment;
+  static createWithData_OfType(_?: NSData, ofType?: string): NSTextAttachment;
   static createWithFileWrapper(_?: FileWrapper): NSTextAttachment;
 }
 
+export function NSTextAttachment(args?: any): NSTextAttachment;
+
 export class NSTextAttachmentCell extends NSCell {
 }
+
+export function NSTextAttachmentCell(args?: any): NSTextAttachmentCell;
 
 interface NSTextAttachmentCellProtocol {
   attachment: NSTextAttachment;
@@ -9480,6 +10338,8 @@ export class NSTextBlock extends NSObject {
   widthValueType(for_: NSTextTable.NSTextBlock.Layer, edge: NSGeometry.NSRectEdge): NSTextTable.NSTextBlock.ValueType;
 }
 
+export function NSTextBlock(args?: any): NSTextBlock;
+
 interface NSTextCheckingClient {
   addAnnotations(_: Map<string, string>, range: NSRange): void;
   annotatedSubstring(forProposedRange: NSRange, actualRange?: NSRange): NSAttributedString;
@@ -9514,6 +10374,8 @@ export class NSTextCheckingController extends NSObject {
   validAnnotations(): string[];
 }
 
+export function NSTextCheckingController(args?: any): NSTextCheckingController;
+
 export class NSTextContainer extends NSObject {
   containerSize: CGSize;
   setContainerSize(_: CGSize);
@@ -9542,6 +10404,8 @@ export class NSTextContainer extends NSObject {
   lineFragmentRect(forProposedRect: CGRect, sweepDirection: NSTextContainer.NSLineSweepDirection, movementDirection: NSTextContainer.NSLineMovementDirection, remaining?: CGRect): CGRect;
   replaceLayoutManager(_: NSLayoutManager): void;
 }
+
+export function NSTextContainer(args?: any): NSTextContainer;
 
 interface NSTextDelegate {
   textDidBeginEditing(_: Notification): void;
@@ -9596,6 +10460,8 @@ export class NSTextField extends NSControl {
   textShouldEndEditing(_: NSText): boolean;
 }
 
+export function NSTextField(args?: any): NSTextField;
+
 export class NSTextFieldCell extends NSActionCell {
   allowedInputSourceLocales: string[];
   setAllowedInputSourceLocales(_: string[]);
@@ -9613,6 +10479,8 @@ export class NSTextFieldCell extends NSActionCell {
   setTextColor(_: NSColor);
   setWantsNotificationForMarkedText(_: boolean): void;
 }
+
+export function NSTextFieldCell(args?: any): NSTextFieldCell;
 
 interface NSTextFieldDelegate {
   textField(_: NSTextField, textView: NSTextView, candidatesForSelectedRange: NSRange): any[];
@@ -9638,6 +10506,8 @@ export class NSTextFinder extends NSObject {
   performAction(_: NSTextFinder.Action): void;
   validateAction(_: NSTextFinder.Action): boolean;
 }
+
+export function NSTextFinder(args?: any): NSTextFinder;
 
 interface NSTextFinderBarContainer {
   findBarView: NSView;
@@ -9708,6 +10578,8 @@ export class NSTextInputContext extends NSObject {
   invalidateCharacterCoordinates(): void;
 }
 
+export function NSTextInputContext(args?: any): NSTextInputContext;
+
 interface NSTextInputTraits {
   autocorrectionType?: NSTextCheckingClient.NSTextInputTraitType;
   setAutocorrectionType(_: NSTextCheckingClient.NSTextInputTraitType);
@@ -9740,9 +10612,11 @@ export class NSTextList extends NSObject {
   markerFormat: string;
   startingItemNumber: number;
   setStartingItemNumber(_: number);
-  static createWithMarkerFormatWithOptions(_: string, options: number): NSTextList;
+  static createWithMarkerFormat_Options(_: string, options: number): NSTextList;
   marker(forItemNumber: number): string;
 }
+
+export function NSTextList(args?: any): NSTextList;
 
 export class NSTextStorage extends NSMutableAttributedString {
   attributeRuns: NSTextStorage[];
@@ -9772,6 +10646,8 @@ export class NSTextStorage extends NSMutableAttributedString {
   removeLayoutManager(_: NSLayoutManager): void;
 }
 
+export function NSTextStorage(args?: any): NSTextStorage;
+
 interface NSTextStorageDelegate {
   textStorage(_: NSTextStorage, willProcessEditing: NSTextStorage.NSTextStorageEditActions, range: NSRange, changeInLength: number): void;
   textStorage(_: NSTextStorage, didProcessEditing: NSTextStorage.NSTextStorageEditActions, range: NSRange, changeInLength: number): void;
@@ -9783,9 +10659,11 @@ export class NSTextTab extends NSObject {
   location: number;
   options: Map<string, any>;
   tabStopType: NSParagraphStyle.TextTabType;
-  static createWithTextAlignmentWithLocationWithOptions(_: NSText.NSTextAlignment, location: number, options: Map<string, any>): NSTextTab;
-  static createWithTypeWithLocation(_: NSParagraphStyle.TextTabType, location: number): NSTextTab;
+  static createWithTextAlignment_Location_Options(_: NSText.NSTextAlignment, location: number, options: Map<string, any>): NSTextTab;
+  static createWithType_Location(_: NSParagraphStyle.TextTabType, location: number): NSTextTab;
 }
+
+export function NSTextTab(args?: any): NSTextTab;
 
 export class NSTextTable extends NSTextBlock {
   collapsesBorders: boolean;
@@ -9803,14 +10681,18 @@ export class NSTextTable extends NSTextBlock {
   rect(for_: NSTextTableBlock, layoutAt: CGPoint, in_: CGRect, textContainer: NSTextContainer, characterRange: NSRange): CGRect;
 }
 
+export function NSTextTable(args?: any): NSTextTable;
+
 export class NSTextTableBlock extends NSTextBlock {
   columnSpan: number;
   rowSpan: number;
   startingColumn: number;
   startingRow: number;
   table: NSTextTable;
-  static createWithTableWithStartingRowWithRowSpanWithStartingColumnWithColumnSpan(_: NSTextTable, startingRow: number, rowSpan: number, startingColumn: number, columnSpan: number): NSTextTableBlock;
+  static createWithTable_StartingRow_RowSpan_StartingColumn_ColumnSpan(_: NSTextTable, startingRow: number, rowSpan: number, startingColumn: number, columnSpan: number): NSTextTableBlock;
 }
+
+export function NSTextTableBlock(args?: any): NSTextTableBlock;
 
 export class NSTextView extends NSText {
   static createWithFieldEditor(): NSTextView;
@@ -9930,7 +10812,7 @@ export class NSTextView extends NSText {
   drawBackground(in_: CGRect): void;
   handleTextCheckingResults(_: NSTextCheckingResult[], forRange: NSRange, types: number, options: Map<string, any>, orthography: NSOrthography, wordCount: number): void;
   // @ts-ignore 
-  static createWithFrameWithTextContainer(_: CGRect, textContainer?: NSTextContainer): NSTextView;
+  static createWithFrame_TextContainer(_: CGRect, textContainer?: NSTextContainer): NSTextView;
   insertCompletion(_: string, forPartialWordRange: NSRange, movement: number, isFinal: boolean): void;
   invalidateTextContainerOrigin(): void;
   loosenKerning(_?: any): void;
@@ -10002,6 +10884,8 @@ export class NSTextView extends NSText {
   writeSelection(to: NSPasteboard, types: string[]): boolean;
 }
 
+export function NSTextView(args?: any): NSTextView;
+
 interface NSTextViewDelegate {
   textView(_: NSTextView, clickedOnLink: any, at: number): boolean;
   textView(_: NSTextView, clickedOn: any, in_: CGRect, at: number): void;
@@ -10021,7 +10905,7 @@ interface NSTextViewDelegate {
   textView(_: NSTextView, menu: NSMenu, for_: NSEvent, at: number): NSMenu;
   textView(_: NSTextView, willCheckTextIn: NSRange, options: Map<string, any>, types: number): Map<string, any>;
   textView(_: NSTextView, didCheckTextIn: NSRange, types: number, options: Map<string, any>, results: NSTextCheckingResult[], orthography: NSOrthography, wordCount: number): NSTextCheckingResult[];
-  textView(_: NSTextView, urlForContentsOf: NSTextAttachment, at: number): URL;
+  textView(_: NSTextView, urlForContentsOf: NSTextAttachment, at: number): NSURL;
   textView(_: NSTextView, willShow: NSSharingServicePicker, forItems: any[]): NSSharingServicePicker;
   textView(_: NSTextView, shouldUpdateTouchBarItemIdentifiers: string[]): string[];
   textView(_: NSTextView, candidatesForSelectedRange: NSRange): any[];
@@ -10041,6 +10925,8 @@ export class NSTitlebarAccessoryViewController extends NSViewController {
   setLayoutAttribute(_: NSLayoutConstraint.Attribute);
 }
 
+export function NSTitlebarAccessoryViewController(args?: any): NSTitlebarAccessoryViewController;
+
 export class NSTokenField extends NSTextField {
   completionDelay: number;
   setCompletionDelay(_: number);
@@ -10054,6 +10940,8 @@ export class NSTokenField extends NSTextField {
   static defaultTokenizingCharacterSet: CharacterSet;
 }
 
+export function NSTokenField(args?: any): NSTokenField;
+
 export class NSTokenFieldCell extends NSTextFieldCell {
   completionDelay: number;
   setCompletionDelay(_: number);
@@ -10066,6 +10954,8 @@ export class NSTokenFieldCell extends NSTextFieldCell {
   static defaultCompletionDelay: number;
   static defaultTokenizingCharacterSet: CharacterSet;
 }
+
+export function NSTokenFieldCell(args?: any): NSTokenFieldCell;
 
 interface NSTokenFieldCellDelegate {
   tokenFieldCell(_: NSTokenFieldCell, completionsForSubstring: string, indexOfToken: number, indexOfSelectedItem: number): any[];
@@ -10127,6 +11017,8 @@ export class NSToolbar extends NSObject {
   validateVisibleItems(): void;
 }
 
+export function NSToolbar(args?: any): NSToolbar;
+
 interface NSToolbarDelegate {
   toolbar(_: NSToolbar, itemForItemIdentifier: string, willBeInsertedIntoToolbar: boolean): NSToolbarItem;
   toolbarAllowedItemIdentifiers(_: NSToolbar): string[];
@@ -10175,6 +11067,8 @@ export class NSToolbarItem extends NSObject {
   validate(): void;
 }
 
+export function NSToolbarItem(args?: any): NSToolbarItem;
+
 export class NSToolbarItemGroup extends NSToolbarItem {
   controlRepresentation: NSToolbarItemGroup.ControlRepresentation;
   setControlRepresentation(_: NSToolbarItemGroup.ControlRepresentation);
@@ -10187,6 +11081,8 @@ export class NSToolbarItemGroup extends NSToolbarItem {
   isSelected(at: number): boolean;
   setSelected(_: boolean, at: number): void;
 }
+
+export function NSToolbarItemGroup(args?: any): NSToolbarItemGroup;
 
 interface NSToolbarItemValidation {
   validateToolbarItem(_: NSToolbarItem): boolean;
@@ -10203,6 +11099,8 @@ export class NSTouch extends NSObject {
   location(in_?: NSView): CGPoint;
   previousLocation(in_?: NSView): CGPoint;
 }
+
+export function NSTouch(args?: any): NSTouch;
 
 export class NSTouchBar extends NSObject {
   customizationAllowedItemIdentifiers: string[];
@@ -10228,6 +11126,8 @@ export class NSTouchBar extends NSObject {
   item(forIdentifier: string): NSTouchBarItem;
 }
 
+export function NSTouchBar(args?: any): NSTouchBar;
+
 interface NSTouchBarDelegate {
   touchBar(_: NSTouchBar, makeItemForIdentifier: string): NSTouchBarItem;
 }
@@ -10242,6 +11142,8 @@ export class NSTouchBarItem extends NSObject {
   static createWithIdentifier(_: string): NSTouchBarItem;
 }
 
+export function NSTouchBarItem(args?: any): NSTouchBarItem;
+
 interface NSTouchBarProvider {
   touchBar: NSTouchBar;
 }
@@ -10251,8 +11153,10 @@ export class NSTrackingArea extends NSObject {
   owner: any;
   rect: CGRect;
   userInfo: Map<any, any>;
-  static createWithRectWithOptionsWithOwnerWithUserInfo(_: CGRect, options: NSTrackingArea.Options, owner?: any, userInfo?: Map<any, any>): NSTrackingArea;
+  static createWithRect_Options_Owner_UserInfo(_: CGRect, options: NSTrackingArea.Options, owner?: any, userInfo?: Map<any, any>): NSTrackingArea;
 }
+
+export function NSTrackingArea(args?: any): NSTrackingArea;
 
 export class NSTreeController extends NSObjectController {
   alwaysUsesMultipleValuesMarker: boolean;
@@ -10289,6 +11193,8 @@ export class NSTreeController extends NSObjectController {
   setSelectionIndexPaths(_: IndexPath[]): boolean;
 }
 
+export function NSTreeController(args?: any): NSTreeController;
+
 export class NSTreeNode extends NSObject {
   children: NSTreeNode[];
   indexPath: IndexPath;
@@ -10300,6 +11206,8 @@ export class NSTreeNode extends NSObject {
   static createWithRepresentedObject(_?: any): NSTreeNode;
   sort(with_: NSSortDescriptor[], recursively: boolean): void;
 }
+
+export function NSTreeNode(args?: any): NSTreeNode;
 
 export class NSTypesetter extends NSObject {
   static printingAdjustment(in_: NSLayoutManager, forNominallySpacedGlyphRange: NSRange, packedGlyphs: string, count: number): CGSize;
@@ -10358,6 +11266,8 @@ export class NSTypesetter extends NSObject {
   willSetLineFragmentRect(_: CGRect, forGlyphRange: NSRange, usedRect: CGRect, baselineOffset: number): void;
 }
 
+export function NSTypesetter(args?: any): NSTypesetter;
+
 // export function NSUnregisterServicesProvider(name: string): void;
 
 // export function NSUpdateDynamicServices(): void;
@@ -10375,11 +11285,13 @@ export class NSUserDefaultsController extends NSController {
   setInitialValues(_: Map<string, any>);
   values: any;
   static shared: NSUserDefaultsController;
-  static createWithDefaultsWithInitialValues(_?: UserDefaults, initialValues?: Map<string, any>): NSUserDefaultsController;
+  static createWithDefaults_InitialValues(_?: UserDefaults, initialValues?: Map<string, any>): NSUserDefaultsController;
   revert(_?: any): void;
   revertToInitialValues(_?: any): void;
   save(_?: any): void;
 }
+
+export function NSUserDefaultsController(args?: any): NSUserDefaultsController;
 
 interface NSUserInterfaceCompression {
   activeCompressionOptions: NSUserInterfaceCompressionOptions;
@@ -10400,6 +11312,8 @@ export class NSUserInterfaceCompressionOptions extends NSObject {
   union(_: NSUserInterfaceCompressionOptions): NSUserInterfaceCompressionOptions;
   subtracting(_: NSUserInterfaceCompressionOptions): NSUserInterfaceCompressionOptions;
 }
+
+export function NSUserInterfaceCompressionOptions(args?: any): NSUserInterfaceCompressionOptions;
 
 interface NSUserInterfaceItemIdentification {
   identifier: string;
@@ -10559,7 +11473,7 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   static requiresConstraintBasedLayout: boolean;
   identifier: string;
   setIdentifier(_: string);
-  acceptsFirstMouse(for_?: NSEvent): boolean;
+  acceptsFirstMouseFor(for_?: NSEvent): boolean;
   addConstraint(_: NSLayoutConstraint): void;
   addConstraints(_: NSLayoutConstraint[]): void;
   addCursorRectCursor(_: CGRect, cursor: NSCursor): void;
@@ -10567,47 +11481,47 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   addLayoutGuide(_: NSLayoutGuide): void;
   addSubview(_: NSView): void;
   addSubviewPositionedWithRelativeTo(_: NSView, positioned: NSGraphics.NSWindow.OrderingMode, relativeTo?: NSView): void;
-  addToolTipRectWithOwnerWithUserData(_: CGRect, owner: any, userData?: any): number;
+  addToolTipOwnerWithUserData(_: CGRect, owner: any, userData?: any): number;
   addTrackingArea(_: NSTrackingArea): void;
   addTrackingRectOwnerWithUserDataWithAssumeInside(_: CGRect, owner: any, userData?: any, assumeInside?: boolean): number;
   adjustPageHeightNewTopWithBottomWithLimit(_: number, top: number, bottom: number, limit: number): void;
   adjustPageWidthNewLeftWithRightWithLimit(_: number, left: number, right: number, limit: number): void;
   adjustScroll(_: CGRect): CGRect;
   alignmentRectForFrame(forFrame: CGRect): CGRect;
-  ancestorSharedWithView(with_: NSView): NSView;
-  autoscroll(with_: NSEvent): boolean;
+  ancestorSharedWith(with_: NSView): NSView;
+  autoscrollWith(with_: NSEvent): boolean;
   backingAlignedRectOptions(_: CGRect, options: NSGeometry.AlignmentOptions): CGRect;
   beginDocument(): void;
-  beginDraggingSessionWithItemsWithEventWithSource(with_: NSDraggingItem[], event: NSEvent, source: any): NSDraggingSession;
-  beginPageInRectWithAtPlacement(in_: CGRect, atPlacement: CGPoint): void;
-  bitmapImageRepForCachingDisplayInRect(in_: CGRect): NSBitmapImageRep;
-  cacheDisplayInRectWithToBitmapImageRep(in_: CGRect, to: NSBitmapImageRep): void;
+  beginDraggingSessionWithEventWithSource(with_: NSDraggingItem[], event: NSEvent, source: any): NSDraggingSession;
+  beginPageInWithAtPlacement(in_: CGRect, atPlacement: CGPoint): void;
+  bitmapImageRepForCachingDisplayIn(in_: CGRect): NSBitmapImageRep;
+  cacheDisplayInWithTo(in_: CGRect, to: NSBitmapImageRep): void;
   centerScanRect(_: CGRect): CGRect;
-  constraintsAffectingLayoutForOrientation(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint[];
-  contentCompressionResistancePriorityForOrientation(for_: NSLayoutConstraint.Orientation): number;
-  contentHuggingPriorityForOrientation(for_: NSLayoutConstraint.Orientation): number;
-  convertPointWithFromView(_: CGPoint, from?: NSView): CGPoint;
-  convertPointWithToView(_: CGPoint, to?: NSView): CGPoint;
+  constraintsAffectingLayoutFor(for_: NSLayoutConstraint.Orientation): NSLayoutConstraint[];
+  contentCompressionResistancePriorityFor(for_: NSLayoutConstraint.Orientation): number;
+  contentHuggingPriorityFor(for_: NSLayoutConstraint.Orientation): number;
+  convertFrom(_: CGPoint, from?: NSView): CGPoint;
+  convertTo(_: CGPoint, to?: NSView): CGPoint;
   convertPointFromBacking(_: CGPoint): CGPoint;
   convertPointFromLayer(_: CGPoint): CGPoint;
   convertPointToBacking(_: CGPoint): CGPoint;
   convertPointToLayer(_: CGPoint): CGPoint;
-  convertRectWithFromView(_: CGRect, from?: NSView): CGRect;
-  convertRectWithToView(_: CGRect, to?: NSView): CGRect;
+  convertFrom(_: CGRect, from?: NSView): CGRect;
+  convertTo(_: CGRect, to?: NSView): CGRect;
   convertRectFromBacking(_: CGRect): CGRect;
   convertRectFromLayer(_: CGRect): CGRect;
   convertRectToBacking(_: CGRect): CGRect;
   convertRectToLayer(_: CGRect): CGRect;
-  convertSizeWithFromView(_: CGSize, from?: NSView): CGSize;
-  convertSizeWithToView(_: CGSize, to?: NSView): CGSize;
+  convertFrom(_: CGSize, from?: NSView): CGSize;
+  convertTo(_: CGSize, to?: NSView): CGSize;
   convertSizeFromBacking(_: CGSize): CGSize;
   convertSizeFromLayer(_: CGSize): CGSize;
   convertSizeToBacking(_: CGSize): CGSize;
   convertSizeToLayer(_: CGSize): CGSize;
-  dataWithEPSInsideRect(inside: CGRect): NSData;
-  dataWithPDFInsideRect(inside: CGRect): NSData;
+  dataWithEPSInside(inside: CGRect): NSData;
+  dataWithPDFInside(inside: CGRect): NSData;
   didAddSubview(_: NSView): void;
-  didCloseMenuWithEvent(_: NSMenu, with_?: NSEvent): void;
+  didCloseMenuWith(_: NSMenu, with_?: NSEvent): void;
   discardCursorRects(): void;
   display(): void;
   displayIfNeeded(): void;
@@ -10616,15 +11530,15 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   displayIfNeededInRectIgnoringOpacity(_: CGRect): void;
   displayRect(_: CGRect): void;
   displayRectIgnoringOpacity(_: CGRect): void;
-  displayRectIgnoringOpacityWithInContext(_: CGRect, in_: NSGraphicsContext): void;
+  displayIgnoringOpacityIn(_: CGRect, in_: NSGraphicsContext): void;
   drawFocusRingMask(): void;
-  drawPageBorderWithSize(with_: CGSize): void;
+  drawPageBorderWith(with_: CGSize): void;
   drawRect(_: CGRect): void;
   endDocument(): void;
   endPage(): void;
   enterFullScreenModeWithOptions(_: NSScreen, withOptions?: Map<string, any>): boolean;
   exerciseAmbiguityInLayout(): void;
-  exitFullScreenModeWithOptions(options?: Map<string, any>): void;
+  exitFullScreenModeOptions(options?: Map<string, any>): void;
   getRectsBeingDrawnCount(_?: CGRect, count?: number): void;
   getRectsExposedDuringLiveResizeCount(_: CGRect, count: number): void;
   hitTest(_: CGPoint): NSView;
@@ -10637,15 +11551,15 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   locationOfPrintRect(_: CGRect): CGPoint;
   makeBackingLayer(): CALayer;
   // @ts-ignore 
-  menuForEvent(for_: NSEvent): NSMenu;
-  mouseWithInRect(_: CGPoint, in_: CGRect): boolean;
+  menuFor(for_: NSEvent): NSMenu;
+  isMousePointIn(_: CGPoint, in_: CGRect): boolean;
   needsToDrawRect(_: CGRect): boolean;
   noteFocusRingMaskChanged(): void;
-  prepareContentInRect(in_: CGRect): void;
+  prepareContentIn(in_: CGRect): void;
   prepareForReuse(): void;
   print(_?: any): void;
   rectForPage(_: number): CGRect;
-  rectForSmartMagnificationAtPointWithInRect(at: CGPoint, in_: CGRect): CGRect;
+  rectForSmartMagnificationAtWithIn(at: CGPoint, in_: CGRect): CGRect;
   reflectScrolledClipView(_: NSClipView): void;
   registerForDraggedTypes(_: string[]): void;
   removeAllToolTips(): void;
@@ -10664,37 +11578,37 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   resizeSubviewsWithOldSize(withOldSize: CGSize): void;
   resizeWithOldSuperviewSize(withOldSuperviewSize: CGSize): void;
   // @ts-ignore 
-  rotateByAngle(byDegrees: number): void;
-  rulerViewDidAddMarker(_: NSRulerView, didAdd: NSRulerMarker): void;
-  rulerViewDidMoveMarker(_: NSRulerView, didMove: NSRulerMarker): void;
-  rulerViewDidRemoveMarker(_: NSRulerView, didRemove: NSRulerMarker): void;
-  rulerViewHandleMouseDown(_: NSRulerView, handleMouseDownWith: NSEvent): void;
-  rulerViewLocationForPoint(_: NSRulerView, locationFor: CGPoint): number;
+  rotateByDegrees(byDegrees: number): void;
+  rulerViewDidAdd(_: NSRulerView, didAdd: NSRulerMarker): void;
+  rulerViewDidMove(_: NSRulerView, didMove: NSRulerMarker): void;
+  rulerViewDidRemove(_: NSRulerView, didRemove: NSRulerMarker): void;
+  rulerViewHandleMouseDownWith(_: NSRulerView, handleMouseDownWith: NSEvent): void;
+  rulerViewLocationFor(_: NSRulerView, locationFor: CGPoint): number;
   rulerViewPointForLocation(_: NSRulerView, pointForLocation: number): CGPoint;
-  rulerViewShouldAddMarker(_: NSRulerView, shouldAdd: NSRulerMarker): boolean;
-  rulerViewShouldMoveMarker(_: NSRulerView, shouldMove: NSRulerMarker): boolean;
-  rulerViewShouldRemoveMarker(_: NSRulerView, shouldRemove: NSRulerMarker): boolean;
-  rulerViewWillAddMarkerWithAtLocation(_: NSRulerView, willAdd: NSRulerMarker, atLocation: number): number;
-  rulerViewWillMoveMarkerWithToLocation(_: NSRulerView, willMove: NSRulerMarker, toLocation: number): number;
+  rulerViewShouldAdd(_: NSRulerView, shouldAdd: NSRulerMarker): boolean;
+  rulerViewShouldMove(_: NSRulerView, shouldMove: NSRulerMarker): boolean;
+  rulerViewShouldRemove(_: NSRulerView, shouldRemove: NSRulerMarker): boolean;
+  rulerViewWillAddWithAtLocation(_: NSRulerView, willAdd: NSRulerMarker, atLocation: number): number;
+  rulerViewWillMoveWithToLocation(_: NSRulerView, willMove: NSRulerMarker, toLocation: number): number;
   rulerViewWillSetClientView(_: NSRulerView, willSetClientView: NSView): void;
-  scaleUnitSquareToSize(to: CGSize): void;
-  scrollClipViewWithToPoint(_: NSClipView, to: CGPoint): void;
+  scaleUnitSquareTo(to: CGSize): void;
+  scrollTo(_: NSClipView, to: CGPoint): void;
   scrollPoint(_: CGPoint): void;
   scrollRectToVisible(_: CGRect): boolean;
   setBoundsOrigin(_: CGPoint): void;
   setBoundsSize(_: CGSize): void;
-  setContentCompressionResistancePriorityForOrientation(_: number, for_: NSLayoutConstraint.Orientation): void;
-  setContentHuggingPriorityForOrientation(_: number, for_: NSLayoutConstraint.Orientation): void;
+  setContentCompressionResistancePriorityFor(_: number, for_: NSLayoutConstraint.Orientation): void;
+  setContentHuggingPriorityFor(_: number, for_: NSLayoutConstraint.Orientation): void;
   setFrameOrigin(_: CGPoint): void;
   setFrameSize(_: CGSize): void;
   setKeyboardFocusRingNeedsDisplayInRect(_: CGRect): void;
   setNeedsDisplayInRect(_: CGRect): void;
-  shouldDelayWindowOrderingForEvent(for_: NSEvent): boolean;
-  showDefinitionForAttributedStringWithAtPoint(for_?: NSAttributedString, at?: CGPoint): void;
-  showDefinitionForAttributedStringWithRangeWithOptionsWithBaselineOriginProvider(for_?: NSAttributedString, range?: NSRange, options?: Map<string, any>, baselineOriginProvider?: (p1: NSRange) => CGPoint): void;
-  sortSubviewsUsingFunctionWithContext(_?: (p1: NSView, p2: NSView, p3: any) => NSObjCRuntime.ComparisonResult, context?: any): void;
-  translateOriginToPoint(to: CGPoint): void;
-  translateRectsNeedingDisplayInRectWithBy(in_: CGRect, by: CGSize): void;
+  shouldDelayWindowOrderingFor(for_: NSEvent): boolean;
+  showDefinitionForWithAt(for_?: NSAttributedString, at?: CGPoint): void;
+  showDefinitionForWithRangeWithOptionsWithBaselineOriginProvider(for_?: NSAttributedString, range?: NSRange, options?: Map<string, any>, baselineOriginProvider?: (p1: NSRange) => CGPoint): void;
+  sortSubviewsContext(_?: (p1: NSView, p2: NSView, p3: any) => NSObjCRuntime.ComparisonResult, context?: any): void;
+  translateOriginTo(to: CGPoint): void;
+  translateRectsNeedingDisplayInWithBy(in_: CGRect, by: CGSize): void;
   unregisterDraggedTypes(): void;
   updateConstraints(): void;
   updateConstraintsForSubtreeIfNeeded(): void;
@@ -10712,17 +11626,21 @@ export class NSView extends NSResponder implements NSUserInterfaceItemIdentifica
   viewWillMoveToWindow(toWindow?: NSWindow): void;
   viewWillStartLiveResize(): void;
   //   tag(_: number): NSView;
-  willOpenMenuWithEvent(_: NSMenu, with_: NSEvent): void;
+  willOpenMenuWith(_: NSMenu, with_: NSEvent): void;
   willRemoveSubview(_: NSView): void;
-  writeEPSInsideRectWithToPasteboard(inside: CGRect, to: NSPasteboard): void;
-  writePDFInsideRectWithToPasteboard(inside: CGRect, to: NSPasteboard): void;
+  writeEPSInsideWithTo(inside: CGRect, to: NSPasteboard): void;
+  writePDFInsideWithTo(inside: CGRect, to: NSPasteboard): void;
 }
+
+export function NSView(args?: any): NSView;
 
 export class NSViewAnimation extends NSAnimation {
   viewAnimations: Map<string, any>[];
   setViewAnimations(_: Map<string, any>[]);
   static createWithViewAnimations(_: Map<string, any>[]): NSViewAnimation;
 }
+
+export function NSViewAnimation(args?: any): NSViewAnimation;
 
 export class NSViewController extends NSResponder implements NSUserInterfaceItemIdentification {
   children: NSViewController[];
@@ -10752,7 +11670,7 @@ export class NSViewController extends NSResponder implements NSUserInterfaceItem
   addChild(_: NSViewController): void;
   dismiss(_?: any): void;
   dismiss(_: NSViewController): void;
-  static createWithNibNameWithBundle(_?: string, bundle?: Bundle): NSViewController;
+  static createWithNibName_Bundle(_?: string, bundle?: Bundle): NSViewController;
   insertChild(_: NSViewController, at: number): void;
   loadView(): void;
   preferredContentSizeDidChange(for_: NSViewController): void;
@@ -10773,6 +11691,8 @@ export class NSViewController extends NSResponder implements NSUserInterfaceItem
   viewWillLayout(): void;
   viewWillTransition(to: CGSize): void;
 }
+
+export function NSViewController(args?: any): NSViewController;
 
 interface NSViewControllerPresentationAnimator {
   animateDismissal(of: NSViewController, from: NSViewController): void;
@@ -10800,6 +11720,8 @@ export class NSVisualEffectView extends NSView {
   state: NSVisualEffectView.State;
   setState(_: NSVisualEffectView.State);
 }
+
+export function NSVisualEffectView(args?: any): NSVisualEffectView;
 
 export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentification {
   static contentRect(forFrameRect: CGRect, styleMask: NSWindow.StyleMask): CGRect;
@@ -10930,8 +11852,8 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   setReleasedWhenClosed(_: boolean);
   representedFilename: string;
   setRepresentedFilename(_: string);
-  representedURL: URL;
-  setRepresentedURL(_: URL);
+  representedURL: NSURL;
+  setRepresentedURL(_: NSURL);
   isResizable: boolean;
   resizeFlags: NSEvent.ModifierFlags;
   resizeIncrements: CGSize;
@@ -11036,8 +11958,8 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   handleClose(_: NSCloseCommand): any;
   handlePrint(_: NSScriptCommand): any;
   handleSave(_: NSScriptCommand): any;
-  static createWithContentRectWithStyleMaskWithBackingWithDefer(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean): NSWindow;
-  static createWithContentRectWithStyleMaskWithBackingWithDeferWithScreen(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean, screen?: NSScreen): NSWindow;
+  static createWithContentRect_StyleMask_Backing_Defer(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean): NSWindow;
+  static createWithContentRect_StyleMask_Backing_Defer_Screen(_: CGRect, styleMask: NSWindow.StyleMask, backing: NSGraphics.NSWindow.BackingStoreType, defer: boolean, screen?: NSScreen): NSWindow;
   static createWithWindowRef(_: any): NSWindow;
   insertTitlebarAccessoryViewController(_: NSTitlebarAccessoryViewController, at: number): void;
   invalidateCursorRects(for_: NSView): void;
@@ -11109,6 +12031,8 @@ export class NSWindow extends NSResponder implements NSUserInterfaceItemIdentifi
   zoom(_?: any): void;
 }
 
+export function NSWindow(args?: any): NSWindow;
+
 export class NSWindowController extends NSResponder {
   contentViewController: NSViewController;
   setContentViewController(_: NSViewController);
@@ -11131,8 +12055,8 @@ export class NSWindowController extends NSResponder {
   dismissController(_?: any): void;
   static createWithWindow(_?: NSWindow): NSWindowController;
   static createWithWindowNibName(_: string): NSWindowController;
-  static createWithWindowNibNameWithOwner(_: string, owner: any): NSWindowController;
-  static createWithWindowNibPathWithOwner(_: string, owner: any): NSWindowController;
+  static createWithWindowNibName_Owner(_: string, owner: any): NSWindowController;
+  static createWithWindowNibPath_Owner(_: string, owner: any): NSWindowController;
   loadWindow(): void;
   setDocumentEdited(_: boolean): void;
   showWindow(_?: any): void;
@@ -11141,6 +12065,8 @@ export class NSWindowController extends NSResponder {
   windowTitle(forDocumentDisplayName: string): string;
   windowWillLoad(): void;
 }
+
+export function NSWindowController(args?: any): NSWindowController;
 
 interface NSWindowDelegate {
   customWindowsToEnterFullScreen(for_: NSWindow): NSWindow[];
@@ -11210,6 +12136,8 @@ export class NSWindowTab extends NSObject {
   setToolTip(_: string);
 }
 
+export function NSWindowTab(args?: any): NSWindowTab;
+
 export class NSWindowTabGroup extends NSObject {
   identifier: string;
   isOverviewVisible: boolean;
@@ -11222,6 +12150,8 @@ export class NSWindowTabGroup extends NSObject {
   insertWindow(_: NSWindow, at: number): void;
   removeWindow(_: NSWindow): void;
 }
+
+export function NSWindowTabGroup(args?: any): NSWindowTabGroup;
 
 export class NSWorkspace extends NSObject {
   accessibilityDisplayShouldDifferentiateWithoutColor: boolean;
@@ -11238,12 +12168,12 @@ export class NSWorkspace extends NSObject {
   isSwitchControlEnabled: boolean;
   isVoiceOverEnabled: boolean;
   static shared: NSWorkspace;
-  urlForApplication(toOpen: URL): URL;
-  urlForApplication(withBundleIdentifier: string): URL;
-  activateFileViewerSelecting(_: URL[]): void;
+  urlForApplication(toOpen: NSURL): NSURL;
+  urlForApplication(withBundleIdentifier: string): NSURL;
+  activateFileViewerSelecting(_: NSURL[]): void;
   desktopImageOptions(for_: NSScreen): Map<string, any>;
-  desktopImageURL(for_: NSScreen): URL;
-  duplicate(_: URL[], completionHandler?: (p1: Map<URL, URL>, p2: Error) => void): void;
+  desktopImageURL(for_: NSScreen): NSURL;
+  duplicate(_: NSURL[], completionHandler?: (p1: Map<NSURL, NSURL>, p2: NSError) => void): void;
   extendPowerOff(by: number): number;
   filenameExtension(_: string, isValidForType: string): boolean;
   getFileSystemInfo(forPath: string, isRemovable?: boolean, isWritable?: boolean, isUnmountable?: boolean, description?: string, type?: string): boolean;
@@ -11253,42 +12183,48 @@ export class NSWorkspace extends NSObject {
   icon(forFileType: string): NSImage;
   icon(forFiles: string[]): NSImage;
   isFilePackage(atPath: string): boolean;
-  launchApplicationAtURL(options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
+  launchApplicationAtURL(options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
   localizedDescription(forType: string): string;
   noteFileSystemChanged(_: string): void;
-  openApplication(at: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  open(_: URL): boolean;
-  open(_: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  openURL(options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  open(_: URL[], withApplicationAt: URL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: Error) => void): void;
-  openURLs(withApplicationAtURL: URL[], options: URL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
+  openApplication(at: NSURL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: NSError) => void): void;
+  open(_: NSURL): boolean;
+  open(_: NSURL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: NSError) => void): void;
+  openURL(options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
+  open(_: NSURL[], withApplicationAt: NSURL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: NSError) => void): void;
+  openURLs(withApplicationAtURL: NSURL[], options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
   preferredFilenameExtension(forType: string): string;
-  recycle(_: URL[], completionHandler?: (p1: Map<URL, URL>, p2: Error) => void): void;
-  requestAuthorization(to: NSWorkspace.AuthorizationType, completionHandler?: (p1: NSWorkspace.Authorization, p2: Error) => void): void;
+  recycle(_: NSURL[], completionHandler?: (p1: Map<NSURL, NSURL>, p2: NSError) => void): void;
+  requestAuthorization(to: NSWorkspace.AuthorizationType, completionHandler?: (p1: NSWorkspace.Authorization, p2: NSError) => void): void;
   selectFile(_?: string, inFileViewerRootedAtPath?: string): boolean;
-  setDesktopImageURL(forScreen: URL, options: NSScreen, error: Map<string, any>): boolean;
+  setDesktopImageURL(forScreen: NSURL, options: NSScreen, error: Map<string, any>): boolean;
   setIcon(_?: NSImage, forFile?: string, options?: NSWorkspace.IconCreationOptions): boolean;
   showSearchResults(forQueryString: string): boolean;
   type(_: string, conformsToType: string): boolean;
   typeOfFile(error: string): string;
   unmountAndEjectDevice(atPath: string): boolean;
-  unmountAndEjectDeviceAtURL(error: URL): boolean;
+  unmountAndEjectDeviceAtURL(error: NSURL): boolean;
 }
 
+export function NSWorkspace(args?: any): NSWorkspace;
+
 export class CKAcceptSharesOperation extends CKOperation {
-  acceptSharesCompletionBlock: (p1: Error) => void;
-  setAcceptSharesCompletionBlock(_: (p1: Error) => void);
-  perShareCompletionBlock: (p1: CKShare.Metadata, p2: CKShare, p3: Error) => void;
-  setPerShareCompletionBlock(_: (p1: CKShare.Metadata, p2: CKShare, p3: Error) => void);
+  acceptSharesCompletionBlock: (p1: NSError) => void;
+  setAcceptSharesCompletionBlock(_: (p1: NSError) => void);
+  perShareCompletionBlock: (p1: CKShare.Metadata, p2: CKShare, p3: NSError) => void;
+  setPerShareCompletionBlock(_: (p1: CKShare.Metadata, p2: CKShare, p3: NSError) => void);
   shareMetadatas: CKShare.Metadata[];
   setShareMetadatas(_: CKShare.Metadata[]);
   static createWithShareMetadatas(_: CKShare.Metadata[]): CKAcceptSharesOperation;
 }
 
+export function CKAcceptSharesOperation(args?: any): CKAcceptSharesOperation;
+
 export class CKAsset extends NSObject {
-  fileURL: URL;
-  static createWithFileURL(_: URL): CKAsset;
+  fileURL: NSURL;
+  static createWithFileURL(_: NSURL): CKAsset;
 }
+
+export function CKAsset(args?: any): CKAsset;
 
 export class CKContainer extends NSObject {
   static default(): CKContainer;
@@ -11296,51 +12232,59 @@ export class CKContainer extends NSObject {
   privateCloudDatabase: CKDatabase;
   publicCloudDatabase: CKDatabase;
   sharedCloudDatabase: CKDatabase;
-  accept(_: CKShare.Metadata, completionHandler?: (p1: CKShare, p2: Error) => void): void;
-  accountStatus(completionHandler?: (p1: CKContainer.CKAccountStatus, p2: Error) => void): void;
+  accept(_: CKShare.Metadata, completionHandler?: (p1: CKShare, p2: NSError) => void): void;
+  accountStatus(completionHandler?: (p1: CKContainer.CKAccountStatus, p2: NSError) => void): void;
   add(_: CKOperation): void;
   database(with_: CKDatabase.Scope): CKDatabase;
-  discoverAllIdentities(completionHandler?: (p1: CKUserIdentity[], p2: Error) => void): void;
-  discoverUserIdentity(withEmailAddress: string, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  discoverUserIdentity(withPhoneNumber: string, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  discoverUserIdentity(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKUserIdentity, p2: Error) => void): void;
-  fetchAllLongLivedOperationIDsWithCompletionHandler(_?: (p1: string[], p2: Error) => void): void;
-  fetchLongLivedOperationWithID(_: string, completionHandler?: (p1: CKOperation, p2: Error) => void): void;
-  fetchShareMetadata(with_: URL, completionHandler?: (p1: CKShare.Metadata, p2: Error) => void): void;
-  fetchShareParticipant(withEmailAddress: string, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  fetchShareParticipant(withPhoneNumber: string, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  fetchShareParticipant(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKShare.Participant, p2: Error) => void): void;
-  fetchUserRecordID(completionHandler?: (p1: CKRecord.ID, p2: Error) => void): void;
-  requestApplicationPermission(_: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: Error) => void): void;
-  status(forApplicationPermission: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: Error) => void): void;
+  discoverAllIdentities(completionHandler?: (p1: CKUserIdentity[], p2: NSError) => void): void;
+  discoverUserIdentity(withEmailAddress: string, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
+  discoverUserIdentity(withPhoneNumber: string, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
+  discoverUserIdentity(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
+  fetchAllLongLivedOperationIDsWithCompletionHandler(_?: (p1: string[], p2: NSError) => void): void;
+  fetchLongLivedOperationWithID(_: string, completionHandler?: (p1: CKOperation, p2: NSError) => void): void;
+  fetchShareMetadata(with_: NSURL, completionHandler?: (p1: CKShare.Metadata, p2: NSError) => void): void;
+  fetchShareParticipant(withEmailAddress: string, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
+  fetchShareParticipant(withPhoneNumber: string, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
+  fetchShareParticipant(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
+  fetchUserRecordID(completionHandler?: (p1: CKRecord.ID, p2: NSError) => void): void;
+  requestApplicationPermission(_: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: NSError) => void): void;
+  status(forApplicationPermission: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: NSError) => void): void;
 }
+
+export function CKContainer(args?: any): CKContainer;
 
 export class CKDatabase extends NSObject {
   databaseScope: CKDatabase.Scope;
   add(_: CKDatabaseOperation): void;
-  delete(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord.ID, p2: Error) => void): void;
-  delete(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone.ID, p2: Error) => void): void;
-  __delete(withSubscriptionID: string, completionHandler?: (p1: string, p2: Error) => void): void;
-  fetchAllRecordZones(completionHandler?: (p1: CKRecordZone[], p2: Error) => void): void;
-  fetchAllSubscriptions(completionHandler?: (p1: CKSubscription[], p2: Error) => void): void;
-  fetch(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord, p2: Error) => void): void;
-  fetch(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone, p2: Error) => void): void;
-  __fetch(withSubscriptionID: string, completionHandler?: (p1: CKSubscription, p2: Error) => void): void;
+  delete(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord.ID, p2: NSError) => void): void;
+  delete(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone.ID, p2: NSError) => void): void;
+  __delete(withSubscriptionID: string, completionHandler?: (p1: string, p2: NSError) => void): void;
+  fetchAllRecordZones(completionHandler?: (p1: CKRecordZone[], p2: NSError) => void): void;
+  fetchAllSubscriptions(completionHandler?: (p1: CKSubscription[], p2: NSError) => void): void;
+  fetch(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord, p2: NSError) => void): void;
+  fetch(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone, p2: NSError) => void): void;
+  __fetch(withSubscriptionID: string, completionHandler?: (p1: CKSubscription, p2: NSError) => void): void;
   // @ts-ignore 
-  perform(_: CKQuery, inZoneWith?: CKRecordZone.ID, completionHandler?: (p1: CKRecord[], p2: Error) => void): void;
-  save(_: CKRecord, completionHandler?: (p1: CKRecord, p2: Error) => void): void;
-  save(_: CKRecordZone, completionHandler?: (p1: CKRecordZone, p2: Error) => void): void;
-  save(_: CKSubscription, completionHandler?: (p1: CKSubscription, p2: Error) => void): void;
+  perform(_: CKQuery, inZoneWith?: CKRecordZone.ID, completionHandler?: (p1: CKRecord[], p2: NSError) => void): void;
+  save(_: CKRecord, completionHandler?: (p1: CKRecord, p2: NSError) => void): void;
+  save(_: CKRecordZone, completionHandler?: (p1: CKRecordZone, p2: NSError) => void): void;
+  save(_: CKSubscription, completionHandler?: (p1: CKSubscription, p2: NSError) => void): void;
 }
+
+export function CKDatabase(args?: any): CKDatabase;
 
 export class CKDatabaseNotification extends CKNotification {
   databaseScope: CKDatabase.Scope;
 }
 
+export function CKDatabaseNotification(args?: any): CKDatabaseNotification;
+
 export class CKDatabaseOperation extends CKOperation {
   database: CKDatabase;
   setDatabase(_: CKDatabase);
 }
+
+export function CKDatabaseOperation(args?: any): CKDatabaseOperation;
 
 export class CKDatabaseSubscription extends CKSubscription {
   recordType: string;
@@ -11348,16 +12292,20 @@ export class CKDatabaseSubscription extends CKSubscription {
   static createWithSubscriptionID(_: string): CKDatabaseSubscription;
 }
 
+export function CKDatabaseSubscription(args?: any): CKDatabaseSubscription;
+
 export class CKDiscoverAllUserIdentitiesOperation extends CKOperation {
-  discoverAllUserIdentitiesCompletionBlock: (p1: Error) => void;
-  setDiscoverAllUserIdentitiesCompletionBlock(_: (p1: Error) => void);
+  discoverAllUserIdentitiesCompletionBlock: (p1: NSError) => void;
+  setDiscoverAllUserIdentitiesCompletionBlock(_: (p1: NSError) => void);
   userIdentityDiscoveredBlock: (p1: CKUserIdentity) => void;
   setUserIdentityDiscoveredBlock(_: (p1: CKUserIdentity) => void);
 }
 
+export function CKDiscoverAllUserIdentitiesOperation(args?: any): CKDiscoverAllUserIdentitiesOperation;
+
 export class CKDiscoverUserIdentitiesOperation extends CKOperation {
-  discoverUserIdentitiesCompletionBlock: (p1: Error) => void;
-  setDiscoverUserIdentitiesCompletionBlock(_: (p1: Error) => void);
+  discoverUserIdentitiesCompletionBlock: (p1: NSError) => void;
+  setDiscoverUserIdentitiesCompletionBlock(_: (p1: NSError) => void);
   userIdentityDiscoveredBlock: (p1: CKUserIdentity, p2: CKUserIdentity.LookupInfo) => void;
   setUserIdentityDiscoveredBlock(_: (p1: CKUserIdentity, p2: CKUserIdentity.LookupInfo) => void);
   userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
@@ -11365,13 +12313,15 @@ export class CKDiscoverUserIdentitiesOperation extends CKOperation {
   static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKDiscoverUserIdentitiesOperation;
 }
 
+export function CKDiscoverUserIdentitiesOperation(args?: any): CKDiscoverUserIdentitiesOperation;
+
 export class CKFetchDatabaseChangesOperation extends CKDatabaseOperation {
   changeTokenUpdatedBlock: (p1: CKServerChangeToken) => void;
   setChangeTokenUpdatedBlock(_: (p1: CKServerChangeToken) => void);
   fetchAllChanges: boolean;
   setFetchAllChanges(_: boolean);
-  fetchDatabaseChangesCompletionBlock: (p1: CKServerChangeToken, p2: boolean, p3: Error) => void;
-  setFetchDatabaseChangesCompletionBlock(_: (p1: CKServerChangeToken, p2: boolean, p3: Error) => void);
+  fetchDatabaseChangesCompletionBlock: (p1: CKServerChangeToken, p2: boolean, p3: NSError) => void;
+  setFetchDatabaseChangesCompletionBlock(_: (p1: CKServerChangeToken, p2: boolean, p3: NSError) => void);
   previousServerChangeToken: CKServerChangeToken;
   setPreviousServerChangeToken(_: CKServerChangeToken);
   recordZoneWithIDChangedBlock: (p1: CKRecordZone.ID) => void;
@@ -11385,43 +12335,49 @@ export class CKFetchDatabaseChangesOperation extends CKDatabaseOperation {
   static createWithPreviousServerChangeToken(_?: CKServerChangeToken): CKFetchDatabaseChangesOperation;
 }
 
+export function CKFetchDatabaseChangesOperation(args?: any): CKFetchDatabaseChangesOperation;
+
 export class CKFetchRecordZoneChangesOperation extends CKDatabaseOperation {
   configurationsByRecordZoneID: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>;
   setConfigurationsByRecordZoneID(_: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>);
   fetchAllChanges: boolean;
   setFetchAllChanges(_: boolean);
-  fetchRecordZoneChangesCompletionBlock: (p1: Error) => void;
-  setFetchRecordZoneChangesCompletionBlock(_: (p1: Error) => void);
+  fetchRecordZoneChangesCompletionBlock: (p1: NSError) => void;
+  setFetchRecordZoneChangesCompletionBlock(_: (p1: NSError) => void);
   recordChangedBlock: (p1: CKRecord) => void;
   setRecordChangedBlock(_: (p1: CKRecord) => void);
   recordWithIDWasDeletedBlock: (p1: CKRecord.ID, p2: string) => void;
   setRecordWithIDWasDeletedBlock(_: (p1: CKRecord.ID, p2: string) => void);
   recordZoneChangeTokensUpdatedBlock: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData) => void;
   setRecordZoneChangeTokensUpdatedBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData) => void);
-  recordZoneFetchCompletionBlock: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: Error) => void;
-  setRecordZoneFetchCompletionBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: Error) => void);
+  recordZoneFetchCompletionBlock: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: NSError) => void;
+  setRecordZoneFetchCompletionBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: NSError) => void);
   recordZoneIDs: CKRecordZone.ID[];
   setRecordZoneIDs(_: CKRecordZone.ID[]);
-  static createWithRecordZoneiDsWithConfigurationsByRecordZoneID(_: CKRecordZone.ID[], configurationsByRecordZoneID?: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>): CKFetchRecordZoneChangesOperation;
+  static createWithRecordZoneiDs_ConfigurationsByRecordZoneID(_: CKRecordZone.ID[], configurationsByRecordZoneID?: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>): CKFetchRecordZoneChangesOperation;
 }
+
+export function CKFetchRecordZoneChangesOperation(args?: any): CKFetchRecordZoneChangesOperation;
 
 export class CKFetchRecordZonesOperation extends CKDatabaseOperation {
   static createWithFetchAllRecordZonesOperation(): CKFetchRecordZonesOperation;
-  fetchRecordZonesCompletionBlock: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: Error) => void;
-  setFetchRecordZonesCompletionBlock(_: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: Error) => void);
+  fetchRecordZonesCompletionBlock: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: NSError) => void;
+  setFetchRecordZonesCompletionBlock(_: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: NSError) => void);
   recordZoneIDs: CKRecordZone.ID[];
   setRecordZoneIDs(_: CKRecordZone.ID[]);
   static createWithRecordZoneiDs(_: CKRecordZone.ID[]): CKFetchRecordZonesOperation;
 }
 
+export function CKFetchRecordZonesOperation(args?: any): CKFetchRecordZonesOperation;
+
 export class CKFetchRecordsOperation extends CKDatabaseOperation {
   static createWithFetchCurrentUserRecordOperation(): CKFetchRecordsOperation;
   desiredKeys: string[];
   setDesiredKeys(_: string[]);
-  fetchRecordsCompletionBlock: (p1: Map<CKRecord.ID, CKRecord>, p2: Error) => void;
-  setFetchRecordsCompletionBlock(_: (p1: Map<CKRecord.ID, CKRecord>, p2: Error) => void);
-  perRecordCompletionBlock: (p1: CKRecord, p2: CKRecord.ID, p3: Error) => void;
-  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: CKRecord.ID, p3: Error) => void);
+  fetchRecordsCompletionBlock: (p1: Map<CKRecord.ID, CKRecord>, p2: NSError) => void;
+  setFetchRecordsCompletionBlock(_: (p1: Map<CKRecord.ID, CKRecord>, p2: NSError) => void);
+  perRecordCompletionBlock: (p1: CKRecord, p2: CKRecord.ID, p3: NSError) => void;
+  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: CKRecord.ID, p3: NSError) => void);
   perRecordProgressBlock: (p1: CKRecord.ID, p2: number) => void;
   setPerRecordProgressBlock(_: (p1: CKRecord.ID, p2: number) => void);
   recordIDs: CKRecord.ID[];
@@ -11429,22 +12385,26 @@ export class CKFetchRecordsOperation extends CKDatabaseOperation {
   static createWithRecordiDs(_: CKRecord.ID[]): CKFetchRecordsOperation;
 }
 
+export function CKFetchRecordsOperation(args?: any): CKFetchRecordsOperation;
+
 export class CKFetchShareMetadataOperation extends CKOperation {
-  fetchShareMetadataCompletionBlock: (p1: Error) => void;
-  setFetchShareMetadataCompletionBlock(_: (p1: Error) => void);
-  perShareMetadataBlock: (p1: URL, p2: CKShare.Metadata, p3: Error) => void;
-  setPerShareMetadataBlock(_: (p1: URL, p2: CKShare.Metadata, p3: Error) => void);
+  fetchShareMetadataCompletionBlock: (p1: NSError) => void;
+  setFetchShareMetadataCompletionBlock(_: (p1: NSError) => void);
+  perShareMetadataBlock: (p1: NSURL, p2: CKShare.Metadata, p3: NSError) => void;
+  setPerShareMetadataBlock(_: (p1: NSURL, p2: CKShare.Metadata, p3: NSError) => void);
   rootRecordDesiredKeys: string[];
   setRootRecordDesiredKeys(_: string[]);
-  shareURLs: URL[];
-  setShareURLs(_: URL[]);
+  shareURLs: NSURL[];
+  setShareURLs(_: NSURL[]);
   shouldFetchRootRecord: boolean;
   setShouldFetchRootRecord(_: boolean);
 }
 
+export function CKFetchShareMetadataOperation(args?: any): CKFetchShareMetadataOperation;
+
 export class CKFetchShareParticipantsOperation extends CKOperation {
-  fetchShareParticipantsCompletionBlock: (p1: Error) => void;
-  setFetchShareParticipantsCompletionBlock(_: (p1: Error) => void);
+  fetchShareParticipantsCompletionBlock: (p1: NSError) => void;
+  setFetchShareParticipantsCompletionBlock(_: (p1: NSError) => void);
   shareParticipantFetchedBlock: (p1: CKShare.Participant) => void;
   setShareParticipantFetchedBlock(_: (p1: CKShare.Participant) => void);
   userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
@@ -11452,48 +12412,58 @@ export class CKFetchShareParticipantsOperation extends CKOperation {
   static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKFetchShareParticipantsOperation;
 }
 
+export function CKFetchShareParticipantsOperation(args?: any): CKFetchShareParticipantsOperation;
+
 export class CKFetchSubscriptionsOperation extends CKDatabaseOperation {
   static createWithFetchAllSubscriptionsOperation(): CKFetchSubscriptionsOperation;
-  fetchSubscriptionCompletionBlock: (p1: Map<string, CKSubscription>, p2: Error) => void;
-  setFetchSubscriptionCompletionBlock(_: (p1: Map<string, CKSubscription>, p2: Error) => void);
+  fetchSubscriptionCompletionBlock: (p1: Map<string, CKSubscription>, p2: NSError) => void;
+  setFetchSubscriptionCompletionBlock(_: (p1: Map<string, CKSubscription>, p2: NSError) => void);
   subscriptionIDs: string[];
   setSubscriptionIDs(_: string[]);
   static createWithSubscriptioniDs(_: string[]): CKFetchSubscriptionsOperation;
 }
 
+export function CKFetchSubscriptionsOperation(args?: any): CKFetchSubscriptionsOperation;
+
 export class CKFetchWebAuthTokenOperation extends CKDatabaseOperation {
   apiToken: string;
   setAPIToken(_: string);
-  fetchWebAuthTokenCompletionBlock: (p1: string, p2: Error) => void;
-  setFetchWebAuthTokenCompletionBlock(_: (p1: string, p2: Error) => void);
+  fetchWebAuthTokenCompletionBlock: (p1: string, p2: NSError) => void;
+  setFetchWebAuthTokenCompletionBlock(_: (p1: string, p2: NSError) => void);
   static createWithApiToken(_: string): CKFetchWebAuthTokenOperation;
 }
+
+export function CKFetchWebAuthTokenOperation(args?: any): CKFetchWebAuthTokenOperation;
 
 export class CKLocationSortDescriptor extends NSSortDescriptor {
   relativeLocation: CLLocation;
   // @ts-ignore 
-  static createWithKeyWithRelativeLocation(_: string, relativeLocation: CLLocation): CKLocationSortDescriptor;
+  static createWithKey_RelativeLocation(_: string, relativeLocation: CLLocation): CKLocationSortDescriptor;
 }
 
+export function CKLocationSortDescriptor(args?: any): CKLocationSortDescriptor;
+
 export class CKModifyRecordZonesOperation extends CKDatabaseOperation {
-  modifyRecordZonesCompletionBlock: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: Error) => void;
-  setModifyRecordZonesCompletionBlock(_: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: Error) => void);
+  modifyRecordZonesCompletionBlock: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: NSError) => void;
+  setModifyRecordZonesCompletionBlock(_: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: NSError) => void);
   recordZoneIDsToDelete: CKRecordZone.ID[];
   setRecordZoneIDsToDelete(_: CKRecordZone.ID[]);
   recordZonesToSave: CKRecordZone[];
   setRecordZonesToSave(_: CKRecordZone[]);
-  static createWithRecordZonesToSaveWithRecordZoneiDsToDelete(_?: CKRecordZone[], recordZoneIDsToDelete?: CKRecordZone.ID[]): CKModifyRecordZonesOperation;
+  static createWithRecordZonesToSave_RecordZoneiDsToDelete(_?: CKRecordZone[], recordZoneIDsToDelete?: CKRecordZone.ID[]): CKModifyRecordZonesOperation;
 }
+
+export function CKModifyRecordZonesOperation(args?: any): CKModifyRecordZonesOperation;
 
 export class CKModifyRecordsOperation extends CKDatabaseOperation {
   isAtomic: boolean;
   setAtomic(_: boolean);
   clientChangeTokenData: NSData;
   setClientChangeTokenData(_: NSData);
-  modifyRecordsCompletionBlock: (p1: CKRecord[], p2: CKRecord.ID[], p3: Error) => void;
-  setModifyRecordsCompletionBlock(_: (p1: CKRecord[], p2: CKRecord.ID[], p3: Error) => void);
-  perRecordCompletionBlock: (p1: CKRecord, p2: Error) => void;
-  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: Error) => void);
+  modifyRecordsCompletionBlock: (p1: CKRecord[], p2: CKRecord.ID[], p3: NSError) => void;
+  setModifyRecordsCompletionBlock(_: (p1: CKRecord[], p2: CKRecord.ID[], p3: NSError) => void);
+  perRecordCompletionBlock: (p1: CKRecord, p2: NSError) => void;
+  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: NSError) => void);
   perRecordProgressBlock: (p1: CKRecord, p2: number) => void;
   setPerRecordProgressBlock(_: (p1: CKRecord, p2: number) => void);
   recordIDsToDelete: CKRecord.ID[];
@@ -11502,18 +12472,22 @@ export class CKModifyRecordsOperation extends CKDatabaseOperation {
   setRecordsToSave(_: CKRecord[]);
   savePolicy: CKModifyRecordsOperation.RecordSavePolicy;
   setSavePolicy(_: CKModifyRecordsOperation.RecordSavePolicy);
-  static createWithRecordsToSaveWithRecordiDsToDelete(_?: CKRecord[], recordIDsToDelete?: CKRecord.ID[]): CKModifyRecordsOperation;
+  static createWithRecordsToSave_RecordiDsToDelete(_?: CKRecord[], recordIDsToDelete?: CKRecord.ID[]): CKModifyRecordsOperation;
 }
 
+export function CKModifyRecordsOperation(args?: any): CKModifyRecordsOperation;
+
 export class CKModifySubscriptionsOperation extends CKDatabaseOperation {
-  modifySubscriptionsCompletionBlock: (p1: CKSubscription[], p2: string[], p3: Error) => void;
-  setModifySubscriptionsCompletionBlock(_: (p1: CKSubscription[], p2: string[], p3: Error) => void);
+  modifySubscriptionsCompletionBlock: (p1: CKSubscription[], p2: string[], p3: NSError) => void;
+  setModifySubscriptionsCompletionBlock(_: (p1: CKSubscription[], p2: string[], p3: NSError) => void);
   subscriptionIDsToDelete: string[];
   setSubscriptionIDsToDelete(_: string[]);
   subscriptionsToSave: CKSubscription[];
   setSubscriptionsToSave(_: CKSubscription[]);
-  static createWithSubscriptionsToSaveWithSubscriptioniDsToDelete(_?: CKSubscription[], subscriptionIDsToDelete?: string[]): CKModifySubscriptionsOperation;
+  static createWithSubscriptionsToSave_SubscriptioniDsToDelete(_?: CKSubscription[], subscriptionIDsToDelete?: string[]): CKModifySubscriptionsOperation;
 }
+
+export function CKModifySubscriptionsOperation(args?: any): CKModifySubscriptionsOperation;
 
 export class CKNotification extends NSObject {
   alertActionLocalizationKey: string;
@@ -11537,6 +12511,8 @@ export class CKNotification extends NSObject {
   titleLocalizationKey: string;
 }
 
+export function CKNotification(args?: any): CKNotification;
+
 export class CKOperation extends Operation {
   configuration: CKOperation.Configuration;
   setConfiguration(_: CKOperation.Configuration);
@@ -11546,6 +12522,8 @@ export class CKOperation extends Operation {
   setLongLivedOperationWasPersistedBlock(_: () => void);
   operationID: string;
 }
+
+export function CKOperation(args?: any): CKOperation;
 
 export class CKOperationGroup extends NSObject {
   defaultConfiguration: CKOperation.Configuration;
@@ -11561,13 +12539,17 @@ export class CKOperationGroup extends NSObject {
   setQuantity(_: number);
 }
 
+export function CKOperationGroup(args?: any): CKOperationGroup;
+
 export class CKQuery extends NSObject {
   predicate: NSPredicate;
   recordType: string;
   sortDescriptors: NSSortDescriptor[];
   setSortDescriptors(_: NSSortDescriptor[]);
-  static createWithRecordTypeWithPredicate(_: string, predicate: NSPredicate): CKQuery;
+  static createWithRecordType_Predicate(_: string, predicate: NSPredicate): CKQuery;
 }
+
+export function CKQuery(args?: any): CKQuery;
 
 export class CKQueryNotification extends CKNotification {
   databaseScope: CKDatabase.Scope;
@@ -11576,6 +12558,8 @@ export class CKQueryNotification extends CKNotification {
   recordID: CKRecord.ID;
 }
 
+export function CKQueryNotification(args?: any): CKQueryNotification;
+
 export class CKQueryOperation extends CKDatabaseOperation {
   cursor: CKQueryOperation.Cursor;
   setCursor(_: CKQueryOperation.Cursor);
@@ -11583,8 +12567,8 @@ export class CKQueryOperation extends CKDatabaseOperation {
   setDesiredKeys(_: string[]);
   query: CKQuery;
   setQuery(_: CKQuery);
-  queryCompletionBlock: (p1: CKQueryOperation.Cursor, p2: Error) => void;
-  setQueryCompletionBlock(_: (p1: CKQueryOperation.Cursor, p2: Error) => void);
+  queryCompletionBlock: (p1: CKQueryOperation.Cursor, p2: NSError) => void;
+  setQueryCompletionBlock(_: (p1: CKQueryOperation.Cursor, p2: NSError) => void);
   recordFetchedBlock: (p1: CKRecord) => void;
   setRecordFetchedBlock(_: (p1: CKRecord) => void);
   resultsLimit: number;
@@ -11595,15 +12579,19 @@ export class CKQueryOperation extends CKDatabaseOperation {
   static createWithQuery(_: CKQuery): CKQueryOperation;
 }
 
+export function CKQueryOperation(args?: any): CKQueryOperation;
+
 export class CKQuerySubscription extends CKSubscription {
   predicate: NSPredicate;
   querySubscriptionOptions: CKSubscription.CKQuerySubscription.Options;
   recordType: string;
   zoneID: CKRecordZone.ID;
   setZoneID(_: CKRecordZone.ID);
-  static createWithRecordTypeWithPredicateWithOptions(_: string, predicate: NSPredicate, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
-  static createWithRecordTypeWithPredicateWithSubscriptionIDWithOptions(_: string, predicate: NSPredicate, subscriptionID: string, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
+  static createWithRecordType_Predicate_Options(_: string, predicate: NSPredicate, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
+  static createWithRecordType_Predicate_SubscriptionID_Options(_: string, predicate: NSPredicate, subscriptionID: string, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
 }
+
+export function CKQuerySubscription(args?: any): CKQuerySubscription;
 
 export class CKRecord extends NSObject {
   creationDate: Date;
@@ -11619,11 +12607,13 @@ export class CKRecord extends NSObject {
   allTokens(): string[];
   encodeSystemFields(with_: NSCoder): void;
   static createWithRecordType(_: string): CKRecord;
-  static createWithRecordTypeWithRecordID(_: string, recordID: CKRecord.ID): CKRecord;
-  static createWithRecordTypeWithZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord;
+  static createWithRecordType_RecordID(_: string, recordID: CKRecord.ID): CKRecord;
+  static createWithRecordType_ZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord;
   setParent(_?: CKRecord): void;
   setParent(_?: CKRecord.ID): void;
 }
+
+export function CKRecord(args?: any): CKRecord;
 
 interface CKRecordKeyValueSetting {
   allKeys(): string[];
@@ -11642,24 +12632,32 @@ export class CKRecordZone extends NSObject {
   static createWithZoneName(_: string): CKRecordZone;
 }
 
+export function CKRecordZone(args?: any): CKRecordZone;
+
 export class CKRecordZoneNotification extends CKNotification {
   databaseScope: CKDatabase.Scope;
   recordZoneID: CKRecordZone.ID;
 }
+
+export function CKRecordZoneNotification(args?: any): CKRecordZoneNotification;
 
 export class CKRecordZoneSubscription extends CKSubscription {
   recordType: string;
   setRecordType(_: string);
   zoneID: CKRecordZone.ID;
   static createWithZoneID(_: CKRecordZone.ID): CKRecordZoneSubscription;
-  static createWithZoneIDWithSubscriptionID(_: CKRecordZone.ID, subscriptionID: string): CKRecordZoneSubscription;
+  static createWithZoneID_SubscriptionID(_: CKRecordZone.ID, subscriptionID: string): CKRecordZoneSubscription;
 }
+
+export function CKRecordZoneSubscription(args?: any): CKRecordZoneSubscription;
 
 export class CKServerChangeToken extends NSObject {
 }
 
+export function CKServerChangeToken(args?: any): CKServerChangeToken;
+
 export class CKShare extends CKRecord {
-  url: URL;
+  url: NSURL;
   currentUserParticipant: CKShare.Participant;
   owner: CKShare.Participant;
   participants: CKShare.Participant[];
@@ -11670,12 +12668,16 @@ export class CKShare extends CKRecord {
   removeParticipant(_: CKShare.Participant): void;
 }
 
+export function CKShare(args?: any): CKShare;
+
 export class CKSubscription extends NSObject {
   notificationInfo: CKSubscription.NotificationInfo;
   setNotificationInfo(_: CKSubscription.NotificationInfo);
   subscriptionID: string;
   subscriptionType: CKSubscription.SubscriptionType;
 }
+
+export function CKSubscription(args?: any): CKSubscription;
 
 export class CKUserIdentity extends NSObject {
   contactIdentifiers: string[];
@@ -11684,6 +12686,8 @@ export class CKUserIdentity extends NSObject {
   nameComponents: PersonNameComponents;
   userRecordID: CKRecord.ID;
 }
+
+export function CKUserIdentity(args?: any): CKUserIdentity;
 
 interface __CKRecordObjCValue {
 }
@@ -11746,8 +12750,10 @@ export class AUAudioUnitViewConfiguration extends NSObject {
   height: number;
   hostHasController: boolean;
   width: number;
-  static createWithWidthWithHeightWithHostHasController(_: number, height: number, hostHasController: boolean): AUAudioUnitViewConfiguration;
+  static createWithWidth_Height_HostHasController(_: number, height: number, hostHasController: boolean): AUAudioUnitViewConfiguration;
 }
+
+export function AUAudioUnitViewConfiguration(args?: any): AUAudioUnitViewConfiguration;
 
 interface AUCustomViewPersistentData {
   customViewPersistentData: Map<string, any>;
@@ -11759,26 +12765,38 @@ export class AUGenericView extends NSView {
   showsExpertParameters: boolean;
   setShowsExpertParameters(_: boolean);
   static createWithAudioUnit(_: ComponentInstanceRecord): AUGenericView;
-  static createWithAudioUnitWithDisplayFlags(_: ComponentInstanceRecord, displayFlags: AUGenericView.AUGenericViewDisplayFlags): AUGenericView;
+  static createWithAudioUnit_DisplayFlags(_: ComponentInstanceRecord, displayFlags: AUGenericView.AUGenericViewDisplayFlags): AUGenericView;
 }
+
+export function AUGenericView(args?: any): AUGenericView;
 
 export class AUPannerView extends NSView {
   static AUPannerViewWithAudioUnit(_: ComponentInstanceRecord): AUPannerView;
   audioUnit: ComponentInstanceRecord;
 }
 
+export function AUPannerView(args?: any): AUPannerView;
+
 export class AUViewController extends NSViewController {
 }
+
+export function AUViewController(args?: any): AUViewController;
 
 export class CABTLEMIDIWindowController extends NSWindowController {
 }
 
+export function CABTLEMIDIWindowController(args?: any): CABTLEMIDIWindowController;
+
 export class CAInterDeviceAudioViewController extends NSViewController {
 }
+
+export function CAInterDeviceAudioViewController(args?: any): CAInterDeviceAudioViewController;
 
 export class CANetworkBrowserWindowController extends NSWindowController {
   static isAVBSupported(): boolean;
 }
+
+export function CANetworkBrowserWindowController(args?: any): CANetworkBrowserWindowController;
 
 export class CBATTRequest extends NSObject {
   central: CBCentral;
@@ -11786,34 +12804,42 @@ export class CBATTRequest extends NSObject {
   offset: number;
 }
 
+export function CBATTRequest(args?: any): CBATTRequest;
+
 export class CBAttribute extends NSObject {
-  UUID: CBUUID;
+  uuid: CBUUID;
 }
+
+export function CBAttribute(args?: any): CBAttribute;
 
 export class CBCentral extends CBPeer {
   maximumUpdateValueLength: number;
 }
+
+export function CBCentral(args?: any): CBCentral;
 
 export class CBCentralManager extends CBManager {
   delegate: any;
   setDelegate(_: any);
   isScanning: boolean;
   cancelPeripheralConnection(_: CBPeripheral): void;
-  connectPeripheral(_: CBPeripheral, options?: Map<string, any>): void;
-  static createWithDelegateWithQueue(_?: any, queue?: NSObject): CBCentralManager;
-  static createWithDelegateWithQueueWithOptions(_?: any, queue?: NSObject, options?: Map<string, any>): CBCentralManager;
-  retrieveConnectedPeripheralsWithServices(_: CBUUID[]): CBPeripheral[];
-  retrievePeripheralsWithIdentifiers(_: UUID[]): CBPeripheral[];
-  scanForPeripheralsWithServices(_?: CBUUID[], options?: Map<string, any>): void;
+  connect(_: CBPeripheral, options?: Map<string, any>): void;
+  static createWithDelegate_Queue(_?: any, queue?: NSObject): CBCentralManager;
+  static createWithDelegate_Queue_Options(_?: any, queue?: NSObject, options?: Map<string, any>): CBCentralManager;
+  retrieveConnectedPeripherals(withServices: CBUUID[]): CBPeripheral[];
+  retrievePeripherals(withIdentifiers: UUID[]): CBPeripheral[];
+  scanForPeripherals(withServices?: CBUUID[], options?: Map<string, any>): void;
   stopScan(): void;
 }
 
+export function CBCentralManager(args?: any): CBCentralManager;
+
 interface CBCentralManagerDelegate {
   centralManager(_: CBCentralManager, willRestoreState: Map<string, any>): void;
-  centralManager(_: CBCentralManager, didDiscoverPeripheral: CBPeripheral, advertisementData: Map<string, any>, RSSI: number): void;
-  centralManager(_: CBCentralManager, didConnectPeripheral: CBPeripheral): void;
-  centralManager(_: CBCentralManager, didFailToConnectPeripheral: CBPeripheral, error?: Error): void;
-  centralManager(_: CBCentralManager, didDisconnectPeripheral: CBPeripheral, error?: Error): void;
+  centralManager(_: CBCentralManager, didDiscover: CBPeripheral, advertisementData: Map<string, any>, rssi: number): void;
+  centralManager(_: CBCentralManager, didConnect: CBPeripheral): void;
+  centralManager(_: CBCentralManager, didFailToConnect: CBPeripheral, error?: NSError): void;
+  centralManager(_: CBCentralManager, didDisconnectPeripheral: CBPeripheral, error?: NSError): void;
   centralManagerDidUpdateState(_: CBCentralManager): void;
 }
 
@@ -11824,22 +12850,30 @@ export class CBCharacteristic extends CBAttribute {
   service: CBService;
 }
 
+export function CBCharacteristic(args?: any): CBCharacteristic;
+
 export class CBDescriptor extends CBAttribute {
   characteristic: CBCharacteristic;
 }
 
+export function CBDescriptor(args?: any): CBDescriptor;
+
 export class CBL2CAPChannel extends NSObject {
-  PSM: number;
+  psm: number;
   inputStream: InputStream;
   outputStream: OutputStream;
   peer: CBPeer;
 }
+
+export function CBL2CAPChannel(args?: any): CBL2CAPChannel;
 
 export class CBManager extends NSObject {
   authorization: CBManager.CBManagerAuthorization;
   state: CBManager.CBManagerState;
   //   static authorization: CBManager.CBManagerAuthorization;
 }
+
+export function CBManager(args?: any): CBManager;
 
 export class CBMutableCharacteristic extends CBCharacteristic {
   descriptors: CBDescriptor[];
@@ -11849,24 +12883,32 @@ export class CBMutableCharacteristic extends CBCharacteristic {
   properties: CBCharacteristic.CBCharacteristicProperties;
   setProperties(_: CBCharacteristic.CBCharacteristicProperties);
   subscribedCentrals: CBCentral[];
-  static createWithTypeWithPropertiesWithValueWithPermissions(_: CBUUID, properties: CBCharacteristic.CBCharacteristicProperties, value?: NSData, permissions?: CBCharacteristic.CBAttributePermissions): CBMutableCharacteristic;
+  static createWithType_Properties_Value_Permissions(_: CBUUID, properties: CBCharacteristic.CBCharacteristicProperties, value?: NSData, permissions?: CBCharacteristic.CBAttributePermissions): CBMutableCharacteristic;
 }
 
+export function CBMutableCharacteristic(args?: any): CBMutableCharacteristic;
+
 export class CBMutableDescriptor extends CBDescriptor {
-  static createWithTypeWithValue(_: CBUUID, value?: any): CBMutableDescriptor;
+  static createWithType_Value(_: CBUUID, value?: any): CBMutableDescriptor;
 }
+
+export function CBMutableDescriptor(args?: any): CBMutableDescriptor;
 
 export class CBMutableService extends CBService {
   characteristics: CBCharacteristic[];
   setCharacteristics(_: CBCharacteristic[]);
   includedServices: CBService[];
   setIncludedServices(_: CBService[]);
-  static createWithTypeWithPrimary(_: CBUUID, primary: boolean): CBMutableService;
+  static createWithType_Primary(_: CBUUID, primary: boolean): CBMutableService;
 }
+
+export function CBMutableService(args?: any): CBMutableService;
 
 export class CBPeer extends NSObject {
   identifier: UUID;
 }
+
+export function CBPeer(args?: any): CBPeer;
 
 export class CBPeripheral extends CBPeer {
   canSendWriteWithoutResponse: boolean;
@@ -11875,68 +12917,72 @@ export class CBPeripheral extends CBPeer {
   name: string;
   services: CBService[];
   state: CBPeripheral.CBPeripheralState;
-  discoverCharacteristics(_?: CBUUID[], forService?: CBService): void;
-  discoverDescriptorsForCharacteristic(_: CBCharacteristic): void;
-  discoverIncludedServices(_?: CBUUID[], forService?: CBService): void;
+  discoverCharacteristics(_?: CBUUID[], for_?: CBService): void;
+  discoverDescriptors(for_: CBCharacteristic): void;
+  discoverIncludedServices(_?: CBUUID[], for_?: CBService): void;
   discoverServices(_?: CBUUID[]): void;
-  maximumWriteValueLengthForType(_: CBPeripheral.CBCharacteristicWriteType): number;
+  maximumWriteValueLength(for_: CBPeripheral.CBCharacteristicWriteType): number;
   openL2CAPChannel(_: number): void;
   readRSSI(): void;
-  readValueForCharacteristic(_: CBCharacteristic): void;
-  readValueForDescriptor(_: CBDescriptor): void;
-  setNotifyValue(_: boolean, forCharacteristic: CBCharacteristic): void;
-  writeValue(_: NSData, forCharacteristic: CBCharacteristic, type: CBPeripheral.CBCharacteristicWriteType): void;
-  writeValue(_: NSData, forDescriptor: CBDescriptor): void;
+  readValue(for_: CBCharacteristic): void;
+  readValue(for_: CBDescriptor): void;
+  setNotifyValue(_: boolean, for_: CBCharacteristic): void;
+  writeValue(_: NSData, for_: CBCharacteristic, type: CBPeripheral.CBCharacteristicWriteType): void;
+  writeValue(_: NSData, for_: CBDescriptor): void;
 }
+
+export function CBPeripheral(args?: any): CBPeripheral;
 
 interface CBPeripheralDelegate {
   peripheral(_: CBPeripheral, didModifyServices: CBService[]): void;
-  peripheral(_: CBPeripheral, didReadRSSI: number, error?: Error): void;
-  peripheral(_: CBPeripheral, didDiscoverServices?: Error): void;
-  peripheral(_: CBPeripheral, didDiscoverIncludedServicesForService: CBService, error?: Error): void;
-  peripheral(_: CBPeripheral, didDiscoverCharacteristicsForService: CBService, error?: Error): void;
-  peripheral(_: CBPeripheral, didUpdateValueForCharacteristic: CBCharacteristic, error?: Error): void;
-  peripheral(_: CBPeripheral, didWriteValueForCharacteristic: CBCharacteristic, error?: Error): void;
-  peripheral(_: CBPeripheral, didUpdateNotificationStateForCharacteristic: CBCharacteristic, error?: Error): void;
-  peripheral(_: CBPeripheral, didDiscoverDescriptorsForCharacteristic: CBCharacteristic, error?: Error): void;
-  peripheral(_: CBPeripheral, didUpdateValueForDescriptor: CBDescriptor, error?: Error): void;
-  peripheral(_: CBPeripheral, didWriteValueForDescriptor: CBDescriptor, error?: Error): void;
-  peripheral(_: CBPeripheral, didOpenL2CAPChannel?: CBL2CAPChannel, error?: Error): void;
+  peripheral(_: CBPeripheral, didReadRSSI: number, error?: NSError): void;
+  peripheral(_: CBPeripheral, didDiscoverServices?: NSError): void;
+  peripheral(_: CBPeripheral, didDiscoverIncludedServicesFor: CBService, error?: NSError): void;
+  peripheral(_: CBPeripheral, didDiscoverCharacteristicsFor: CBService, error?: NSError): void;
+  peripheral(_: CBPeripheral, didUpdateValueFor: CBCharacteristic, error?: NSError): void;
+  peripheral(_: CBPeripheral, didWriteValueFor: CBCharacteristic, error?: NSError): void;
+  peripheral(_: CBPeripheral, didUpdateNotificationStateFor: CBCharacteristic, error?: NSError): void;
+  peripheral(_: CBPeripheral, didDiscoverDescriptorsFor: CBCharacteristic, error?: NSError): void;
+  peripheral(_: CBPeripheral, didUpdateValueFor: CBDescriptor, error?: NSError): void;
+  peripheral(_: CBPeripheral, didWriteValueFor: CBDescriptor, error?: NSError): void;
+  peripheral(_: CBPeripheral, didOpen?: CBL2CAPChannel, error?: NSError): void;
   peripheralDidUpdateName(_: CBPeripheral): void;
-  peripheralIsReadyToSendWriteWithoutResponse(_: CBPeripheral): void;
+  peripheralIsReady(toSendWriteWithoutResponse: CBPeripheral): void;
 }
 
 export class CBPeripheralManager extends CBManager {
   delegate: any;
   setDelegate(_: any);
   isAdvertising: boolean;
-  addService(_: CBMutableService): void;
-  static createWithDelegateWithQueue(_?: any, queue?: NSObject): CBPeripheralManager;
-  static createWithDelegateWithQueueWithOptions(_?: any, queue?: NSObject, options?: Map<string, any>): CBPeripheralManager;
-  publishL2CAPChannelWithEncryption(_: boolean): void;
+  add(_: CBMutableService): void;
+  static createWithDelegate_Queue(_?: any, queue?: NSObject): CBPeripheralManager;
+  static createWithDelegate_Queue_Options(_?: any, queue?: NSObject, options?: Map<string, any>): CBPeripheralManager;
+  publishL2CAPChannel(withEncryption: boolean): void;
   removeAllServices(): void;
-  removeService(_: CBMutableService): void;
-  respondToRequest(_: CBATTRequest, withResult: CBError.CBATTError): void;
-  setDesiredConnectionLatency(_: CBPeripheralManager.CBPeripheralManagerConnectionLatency, forCentral: CBCentral): void;
+  remove(_: CBMutableService): void;
+  respond(to: CBATTRequest, withResult: CBError.CBATTError): void;
+  setDesiredConnectionLatency(_: CBPeripheralManager.CBPeripheralManagerConnectionLatency, for_: CBCentral): void;
   startAdvertising(_?: Map<string, any>): void;
   stopAdvertising(): void;
   unpublishL2CAPChannel(_: number): void;
-  updateValue(_: NSData, forCharacteristic: CBMutableCharacteristic, onSubscribedCentrals?: CBCentral[]): boolean;
+  updateValue(_: NSData, for_: CBMutableCharacteristic, onSubscribedCentrals?: CBCentral[]): boolean;
 }
+
+export function CBPeripheralManager(args?: any): CBPeripheralManager;
 
 interface CBPeripheralManagerDelegate {
   peripheralManager(_: CBPeripheralManager, willRestoreState: Map<string, any>): void;
-  peripheralManager(_: CBPeripheralManager, didAddService: CBService, error?: Error): void;
-  peripheralManager(_: CBPeripheralManager, central: CBCentral, didSubscribeToCharacteristic: CBCharacteristic): void;
-  peripheralManager(_: CBPeripheralManager, central: CBCentral, didUnsubscribeFromCharacteristic: CBCharacteristic): void;
-  peripheralManager(_: CBPeripheralManager, didReceiveReadRequest: CBATTRequest): void;
-  peripheralManager(_: CBPeripheralManager, didReceiveWriteRequests: CBATTRequest[]): void;
-  peripheralManager(_: CBPeripheralManager, didPublishL2CAPChannel: number, error?: Error): void;
-  peripheralManager(_: CBPeripheralManager, didUnpublishL2CAPChannel: number, error?: Error): void;
-  peripheralManager(_: CBPeripheralManager, didOpenL2CAPChannel?: CBL2CAPChannel, error?: Error): void;
-  peripheralManagerDidStartAdvertising(_: CBPeripheralManager, error?: Error): void;
+  peripheralManager(_: CBPeripheralManager, didAdd: CBService, error?: NSError): void;
+  peripheralManager(_: CBPeripheralManager, central: CBCentral, didSubscribeTo: CBCharacteristic): void;
+  peripheralManager(_: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom: CBCharacteristic): void;
+  peripheralManager(_: CBPeripheralManager, didReceiveRead: CBATTRequest): void;
+  peripheralManager(_: CBPeripheralManager, didReceiveWrite: CBATTRequest[]): void;
+  peripheralManager(_: CBPeripheralManager, didPublishL2CAPChannel: number, error?: NSError): void;
+  peripheralManager(_: CBPeripheralManager, didUnpublishL2CAPChannel: number, error?: NSError): void;
+  peripheralManager(_: CBPeripheralManager, didOpen?: CBL2CAPChannel, error?: NSError): void;
+  peripheralManagerDidStartAdvertising(_: CBPeripheralManager, error?: NSError): void;
   peripheralManagerDidUpdateState(_: CBPeripheralManager): void;
-  peripheralManagerIsReadyToUpdateSubscribers(_: CBPeripheralManager): void;
+  peripheralManagerIsReady(toUpdateSubscribers: CBPeripheralManager): void;
 }
 
 export class CBService extends CBAttribute {
@@ -11946,26 +12992,31 @@ export class CBService extends CBAttribute {
   peripheral: CBPeripheral;
 }
 
+export function CBService(args?: any): CBService;
+
 export class CBUUID extends NSObject {
-  static UUIDWithData(_: NSData): CBUUID;
-  static UUIDWithNSUUID(_: UUID): CBUUID;
-  static UUIDWithString(_: string): CBUUID;
-  UUIDString: string;
+  uuidString: string;
   data: NSData;
 }
+
+export function CBUUID(args?: any): CBUUID;
 
 export class NSAsynchronousFetchRequest<ResultType> extends NSPersistentStoreRequest {
   completionBlock: (p1: NSAsynchronousFetchResult<any>) => void;
   estimatedResultCount: number;
   setEstimatedResultCount(_: number);
   fetchRequest: NSFetchRequest<any>;
-  // static createWithFetchRequestWithCompletionBlock(_: NSFetchRequest<any>, completionBlock?: (p1: NSAsynchronousFetchResult<any>) => void): NSAsynchronousFetchRequest<ResultType>;
+  // static createWithFetchRequest_CompletionBlock(_: NSFetchRequest<any>, completionBlock?: (p1: NSAsynchronousFetchResult<any>) => void): NSAsynchronousFetchRequest<ResultType>;
 }
+
+export function NSAsynchronousFetchRequest<ResultType>(args?: any): NSAsynchronousFetchRequest<ResultType>;
 
 export class NSAsynchronousFetchResult<ResultType> extends NSPersistentStoreAsynchronousResult {
   fetchRequest: NSAsynchronousFetchRequest<any>;
   finalResult: ResultType[];
 }
+
+export function NSAsynchronousFetchResult<ResultType>(args?: any): NSAsynchronousFetchResult<ResultType>;
 
 export class NSAtomicStore extends NSPersistentStore {
   addCacheNodes(_: Set<any>): void;
@@ -11982,12 +13033,16 @@ export class NSAtomicStore extends NSPersistentStore {
   willRemoveCacheNodes(_: Set<any>): void;
 }
 
+export function NSAtomicStore(args?: any): NSAtomicStore;
+
 export class NSAtomicStoreCacheNode extends NSObject {
   objectID: NSManagedObjectID;
   propertyCache: Map<string, any>;
   setPropertyCache(_: Map<string, any>);
   static createWithObjectID(_: NSManagedObjectID): NSAtomicStoreCacheNode;
 }
+
+export function NSAtomicStoreCacheNode(args?: any): NSAtomicStoreCacheNode;
 
 export class NSAttributeDescription extends NSPropertyDescription {
   allowsExternalBinaryDataStorage: boolean;
@@ -12004,6 +13059,8 @@ export class NSAttributeDescription extends NSPropertyDescription {
   setValueTransformerName(_: string);
 }
 
+export function NSAttributeDescription(args?: any): NSAttributeDescription;
+
 export class NSBatchDeleteRequest extends NSPersistentStoreRequest {
   fetchRequest: NSFetchRequest<any>;
   resultType: NSPersistentStoreResult.NSBatchDeleteRequestResultType;
@@ -12012,10 +13069,14 @@ export class NSBatchDeleteRequest extends NSPersistentStoreRequest {
   static createWithObjectiDs(_: NSManagedObjectID[]): NSBatchDeleteRequest;
 }
 
+export function NSBatchDeleteRequest(args?: any): NSBatchDeleteRequest;
+
 export class NSBatchDeleteResult extends NSPersistentStoreResult {
   result: any;
   resultType: NSPersistentStoreResult.NSBatchDeleteRequestResultType;
 }
+
+export function NSBatchDeleteResult(args?: any): NSBatchDeleteResult;
 
 export class NSBatchInsertRequest extends NSPersistentStoreRequest {
   entity: NSEntityDescription;
@@ -12024,14 +13085,18 @@ export class NSBatchInsertRequest extends NSPersistentStoreRequest {
   setObjectsToInsert(_: Map<string, any>[]);
   resultType: NSPersistentStoreResult.NSBatchInsertRequestResultType;
   setResultType(_: NSPersistentStoreResult.NSBatchInsertRequestResultType);
-  static createWithEntityWithObjects(_: NSEntityDescription, objects: Map<string, any>[]): NSBatchInsertRequest;
-  static createWithEntityNameWithObjects(_: string, objects: Map<string, any>[]): NSBatchInsertRequest;
+  static createWithEntity_Objects(_: NSEntityDescription, objects: Map<string, any>[]): NSBatchInsertRequest;
+  static createWithEntityName_Objects(_: string, objects: Map<string, any>[]): NSBatchInsertRequest;
 }
+
+export function NSBatchInsertRequest(args?: any): NSBatchInsertRequest;
 
 export class NSBatchInsertResult extends NSPersistentStoreResult {
   result: any;
   resultType: NSPersistentStoreResult.NSBatchInsertRequestResultType;
 }
+
+export function NSBatchInsertResult(args?: any): NSBatchInsertResult;
 
 export class NSBatchUpdateRequest extends NSPersistentStoreRequest {
   entity: NSEntityDescription;
@@ -12048,10 +13113,14 @@ export class NSBatchUpdateRequest extends NSPersistentStoreRequest {
   static createWithEntityName(_: string): NSBatchUpdateRequest;
 }
 
+export function NSBatchUpdateRequest(args?: any): NSBatchUpdateRequest;
+
 export class NSBatchUpdateResult extends NSPersistentStoreResult {
   result: any;
   resultType: NSPersistentStoreResult.NSBatchUpdateRequestResultType;
 }
+
+export function NSBatchUpdateResult(args?: any): NSBatchUpdateResult;
 
 export class NSConstraintConflict extends NSObject {
   conflictingObjects: NSManagedObject[];
@@ -12062,19 +13131,25 @@ export class NSConstraintConflict extends NSObject {
   databaseSnapshot: Map<string, any>;
 }
 
+export function NSConstraintConflict(args?: any): NSConstraintConflict;
+
 export class NSCoreDataCoreSpotlightDelegate extends NSObject {
   attributeSetForObject(_: NSManagedObject): CSSearchableItemAttributeSet;
   domainIdentifier(): string;
   indexName(): string;
-  static createWithForStoreWithDescriptionWithModel(_: NSPersistentStoreDescription, model: NSManagedObjectModel): NSCoreDataCoreSpotlightDelegate;
+  static createWithForStore_Description_Model(_: NSPersistentStoreDescription, model: NSManagedObjectModel): NSCoreDataCoreSpotlightDelegate;
   searchableIndex(_: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler: () => void): void;
   searchableIndex(_: CSSearchableIndex, reindexSearchableItemsWithIdentifiers: string[], acknowledgementHandler: () => void): void;
 }
+
+export function NSCoreDataCoreSpotlightDelegate(args?: any): NSCoreDataCoreSpotlightDelegate;
 
 export class NSDerivedAttributeDescription extends NSAttributeDescription {
   derivationExpression: NSExpression;
   setDerivationExpression(_: NSExpression);
 }
+
+export function NSDerivedAttributeDescription(args?: any): NSDerivedAttributeDescription;
 
 export class NSEntityDescription extends NSObject {
   static entity(forEntityName: string, in_: NSManagedObjectContext): NSEntityDescription;
@@ -12112,6 +13187,8 @@ export class NSEntityDescription extends NSObject {
   relationships(forDestination: NSEntityDescription): NSRelationshipDescription[];
 }
 
+export function NSEntityDescription(args?: any): NSEntityDescription;
+
 export class NSEntityMapping extends NSObject {
   attributeMappings: NSPropertyMapping[];
   setAttributeMappings(_: NSPropertyMapping[]);
@@ -12137,6 +13214,8 @@ export class NSEntityMapping extends NSObject {
   setUserInfo(_: Map<any, any>);
 }
 
+export function NSEntityMapping(args?: any): NSEntityMapping;
+
 export class NSEntityMigrationPolicy extends NSObject {
   begin(_: NSEntityMapping, with_: NSMigrationManager): boolean;
   createDestinationInstances(forSource: NSManagedObject, in_: NSEntityMapping, manager: NSMigrationManager): boolean;
@@ -12147,12 +13226,16 @@ export class NSEntityMigrationPolicy extends NSObject {
   performCustomValidation(forMapping: NSEntityMapping, manager: NSMigrationManager): boolean;
 }
 
+export function NSEntityMigrationPolicy(args?: any): NSEntityMigrationPolicy;
+
 export class NSExpressionDescription extends NSPropertyDescription {
   expression: NSExpression;
   setExpression(_: NSExpression);
   expressionResultType: NSAttributeDescription.NSAttributeType;
   setExpressionResultType(_: NSAttributeDescription.NSAttributeType);
 }
+
+export function NSExpressionDescription(args?: any): NSExpressionDescription;
 
 export class NSFetchIndexDescription extends NSObject {
   elements: NSFetchIndexElementDescription[];
@@ -12162,8 +13245,10 @@ export class NSFetchIndexDescription extends NSObject {
   setName(_: string);
   partialIndexPredicate: NSPredicate;
   setPartialIndexPredicate(_: NSPredicate);
-  static createWithNameWithElements(_: string, elements?: NSFetchIndexElementDescription[]): NSFetchIndexDescription;
+  static createWithName_Elements(_: string, elements?: NSFetchIndexElementDescription[]): NSFetchIndexDescription;
 }
+
+export function NSFetchIndexDescription(args?: any): NSFetchIndexDescription;
 
 export class NSFetchIndexElementDescription extends NSObject {
   isAscending: boolean;
@@ -12173,8 +13258,10 @@ export class NSFetchIndexElementDescription extends NSObject {
   indexDescription: NSFetchIndexDescription;
   property: NSPropertyDescription;
   propertyName: string;
-  static createWithPropertyWithCollationType(_: NSPropertyDescription, collationType: NSFetchIndexElementDescription.NSFetchIndexElementType): NSFetchIndexElementDescription;
+  static createWithProperty_CollationType(_: NSPropertyDescription, collationType: NSFetchIndexElementDescription.NSFetchIndexElementType): NSFetchIndexElementDescription;
 }
+
+export function NSFetchIndexElementDescription(args?: any): NSFetchIndexElementDescription;
 
 export class NSFetchRequest<ResultType> extends NSPersistentStoreRequest {
   entity: NSEntityDescription;
@@ -12216,12 +13303,16 @@ export class NSFetchRequest<ResultType> extends NSPersistentStoreRequest {
   // static createWithEntityName(_: string): NSFetchRequest<ResultType>;
 }
 
+export function NSFetchRequest<ResultType>(args?: any): NSFetchRequest<ResultType>;
+
 export class NSFetchRequestExpression extends NSExpression {
   static expression(forFetch: NSExpression, context: NSExpression, countOnly: boolean): NSExpression;
   contextExpression: NSExpression;
   isCountOnlyRequest: boolean;
   requestExpression: NSExpression;
 }
+
+export function NSFetchRequestExpression(args?: any): NSFetchRequestExpression;
 
 interface NSFetchRequestResult {
 }
@@ -12230,6 +13321,8 @@ export class NSFetchedPropertyDescription extends NSPropertyDescription {
   fetchRequest: NSFetchRequest<any>;
   setFetchRequest(_: NSFetchRequest<any>);
 }
+
+export function NSFetchedPropertyDescription(args?: any): NSFetchedPropertyDescription;
 
 export class NSFetchedResultsController<ResultType> extends NSObject {
   static deleteCache(withName?: string): void;
@@ -12243,12 +13336,14 @@ export class NSFetchedResultsController<ResultType> extends NSObject {
   sectionNameKeyPath: string;
   sections: any[];
   indexPath(forObject: ResultType): IndexPath;
-  // static createWithFetchRequestWithManagedObjectContextWithSectionNameKeyPathWithCacheName(_: NSFetchRequest<any>, managedObjectContext: NSManagedObjectContext, sectionNameKeyPath?: string, cacheName?: string): NSFetchedResultsController<ResultType>;
+  // static createWithFetchRequest_ManagedObjectContext_SectionNameKeyPath_CacheName(_: NSFetchRequest<any>, managedObjectContext: NSManagedObjectContext, sectionNameKeyPath?: string, cacheName?: string): NSFetchedResultsController<ResultType>;
   object(at: IndexPath): ResultType;
   performFetch(): boolean;
   section(forSectionIndexTitle: string, at: number): number;
   sectionIndexTitle(forSectionName: string): string;
 }
+
+export function NSFetchedResultsController<ResultType>(args?: any): NSFetchedResultsController<ResultType>;
 
 interface NSFetchedResultsControllerDelegate {
   controller(_: NSFetchedResultsController<any>, didChangeContentWith: NSDiffableDataSourceSnapshotReference<string, NSManagedObjectID>): void;
@@ -12268,7 +13363,7 @@ interface NSFetchedResultsSectionInfo {
 }
 
 export class NSIncrementalStore extends NSPersistentStore {
-  static identifierForNewStore(at: URL): any;
+  static identifierForNewStore(at: NSURL): any;
   executeRequest(withContext: NSPersistentStoreRequest, error?: NSManagedObjectContext): any;
   managedObjectContextDidRegisterObjects(with_: NSManagedObjectID[]): void;
   managedObjectContextDidUnregisterObjects(with_: NSManagedObjectID[]): void;
@@ -12279,13 +13374,17 @@ export class NSIncrementalStore extends NSPersistentStore {
   referenceObject(for_: NSManagedObjectID): any;
 }
 
+export function NSIncrementalStore(args?: any): NSIncrementalStore;
+
 export class NSIncrementalStoreNode extends NSObject {
   objectID: NSManagedObjectID;
-  static createWithObjectIDWithValuesWithVersion(_: NSManagedObjectID, withValues: Map<string, any>, version: number): NSIncrementalStoreNode;
+  static createWithObjectID__Values_Version(_: NSManagedObjectID, withValues: Map<string, any>, version: number): NSIncrementalStoreNode;
   update(withValues: Map<string, any>, version: number): void;
   // @ts-ignore 
   value(for_: NSPropertyDescription): any;
 }
+
+export function NSIncrementalStoreNode(args?: any): NSIncrementalStoreNode;
 
 export class NSManagedObject extends NSObject {
   //  static entity(): NSEntityDescription;
@@ -12312,7 +13411,7 @@ export class NSManagedObject extends NSObject {
   didTurnIntoFault(): void;
   hasFault(forRelationshipNamed: string): boolean;
   static createWithContext(_: NSManagedObjectContext): NSManagedObject;
-  static createWithEntityWithInsertIntoManagedObjectContext(_: NSEntityDescription, insertIntoManagedObjectContext?: NSManagedObjectContext): NSManagedObject;
+  static createWithEntity_InsertIntoManagedObjectContext(_: NSEntityDescription, insertIntoManagedObjectContext?: NSManagedObjectContext): NSManagedObject;
   objectIDs(forRelationshipNamed: string): NSManagedObjectID[];
   // @ts-ignore 
   observationInfo(): any;
@@ -12327,6 +13426,8 @@ export class NSManagedObject extends NSObject {
   willSave(): void;
   willTurnIntoFault(): void;
 }
+
+export function NSManagedObject(args?: any): NSManagedObject;
 
 export class NSManagedObjectContext extends NSObject {
   static mergeChanges(fromRemoteContextSave: Map<any, any>, into: NSManagedObjectContext[]): void;
@@ -12388,12 +13489,16 @@ export class NSManagedObjectContext extends NSObject {
   undo(): void;
 }
 
+export function NSManagedObjectContext(args?: any): NSManagedObjectContext;
+
 export class NSManagedObjectID extends NSObject {
   entity: NSEntityDescription;
   persistentStore: NSPersistentStore;
   isTemporaryID: boolean;
-  uriRepresentation(): URL;
+  uriRepresentation(): NSURL;
 }
+
+export function NSManagedObjectID(args?: any): NSManagedObjectID;
 
 export class NSManagedObjectModel extends NSObject {
   static mergedModel(from?: Bundle[]): NSManagedObjectModel;
@@ -12408,19 +13513,23 @@ export class NSManagedObjectModel extends NSObject {
   setVersionIdentifiers(_: Set<any>);
   fetchRequestFromTemplate(withName: string, substitutionVariables: Map<string, any>): NSFetchRequest<any>;
   fetchRequestTemplate(forName: string): NSFetchRequest<any>;
-  static createWithContentsOf(_: URL): NSManagedObjectModel;
+  static createWithContentsOf(_: NSURL): NSManagedObjectModel;
   isConfiguration(withName?: string, compatibleWithStoreMetadata?: Map<string, any>): boolean;
   setEntities(_: NSEntityDescription[], forConfigurationName: string): void;
   setFetchRequestTemplate(_?: NSFetchRequest<any>, forName?: string): void;
 }
+
+export function NSManagedObjectModel(args?: any): NSManagedObjectModel;
 
 export class NSMappingModel extends NSObject {
   static inferredMappingModelForSourceModel(destinationModel: NSManagedObjectModel, error: NSManagedObjectModel): NSMappingModel;
   entityMappings: NSEntityMapping[];
   setEntityMappings(_: NSEntityMapping[]);
   entityMappingsByName: Map<string, NSEntityMapping>;
-  static createWithContentsOf(_?: URL): NSMappingModel;
+  static createWithContentsOf(_?: NSURL): NSMappingModel;
 }
+
+export function NSMappingModel(args?: any): NSMappingModel;
 
 export class NSMergeConflict extends NSObject {
   cachedSnapshot: Map<string, any>;
@@ -12429,8 +13538,10 @@ export class NSMergeConflict extends NSObject {
   oldVersionNumber: number;
   persistedSnapshot: Map<string, any>;
   sourceObject: NSManagedObject;
-  static createWithSourceWithNewVersionWithOldVersionWithCachedSnapshotWithPersistedSnapshot(_: NSManagedObject, newVersion: number, oldVersion: number, cachedSnapshot?: Map<string, any>, persistedSnapshot?: Map<string, any>): NSMergeConflict;
+  static createWithSource_NewVersion_OldVersion_CachedSnapshot_PersistedSnapshot(_: NSManagedObject, newVersion: number, oldVersion: number, cachedSnapshot?: Map<string, any>, persistedSnapshot?: Map<string, any>): NSMergeConflict;
 }
+
+export function NSMergeConflict(args?: any): NSMergeConflict;
 
 export class NSMergePolicy extends NSObject {
   mergeType: NSMergePolicy.NSMergePolicyType;
@@ -12445,6 +13556,8 @@ export class NSMergePolicy extends NSObject {
   resolve(optimisticLockingConflicts: NSMergeConflict[]): boolean;
 }
 
+export function NSMergePolicy(args?: any): NSMergePolicy;
+
 export class NSMigrationManager extends NSObject {
   currentEntityMapping: NSEntityMapping;
   destinationContext: NSManagedObjectContext;
@@ -12458,15 +13571,17 @@ export class NSMigrationManager extends NSObject {
   usesStoreSpecificMigrationManager: boolean;
   setUsesStoreSpecificMigrationManager(_: boolean);
   associate(sourceInstance: NSManagedObject, withDestinationInstance: NSManagedObject, for_: NSEntityMapping): void;
-  cancelMigrationWithError(_: Error): void;
+  cancelMigrationWithError(_: NSError): void;
   destinationEntity(for_: NSEntityMapping): NSEntityDescription;
   destinationInstances(forEntityMappingName: string, sourceInstances?: NSManagedObject[]): NSManagedObject[];
-  static createWithSourceModelWithDestinationModel(_: NSManagedObjectModel, destinationModel: NSManagedObjectModel): NSMigrationManager;
-  migrateStore(from: URL, sourceType: string, options?: Map<any, any>, with_?: NSMappingModel, toDestinationURL?: URL, destinationType?: string, destinationOptions?: Map<any, any>): boolean;
+  static createWithSourceModel_DestinationModel(_: NSManagedObjectModel, destinationModel: NSManagedObjectModel): NSMigrationManager;
+  migrateStore(from: NSURL, sourceType: string, options?: Map<any, any>, with_?: NSMappingModel, toDestinationURL?: NSURL, destinationType?: string, destinationOptions?: Map<any, any>): boolean;
   reset(): void;
   sourceEntity(for_: NSEntityMapping): NSEntityDescription;
   sourceInstances(forEntityMappingName: string, destinationInstances?: NSManagedObject[]): NSManagedObject[];
 }
+
+export function NSMigrationManager(args?: any): NSMigrationManager;
 
 export class NSPersistentCloudKitContainer extends NSPersistentContainer {
   initializeCloudKitSchemaWithOptions(error: NSPersistentCloudKitContainer.NSPersistentCloudKitContainerSchemaInitializationOptions): boolean;
@@ -12476,13 +13591,17 @@ export class NSPersistentCloudKitContainer extends NSPersistentContainer {
   records(for_: NSManagedObjectID[]): Map<NSManagedObjectID, CKRecord>;
 }
 
+export function NSPersistentCloudKitContainer(args?: any): NSPersistentCloudKitContainer;
+
 export class NSPersistentCloudKitContainerOptions extends NSObject {
   containerIdentifier: string;
   static createWithContainerIdentifier(_: string): NSPersistentCloudKitContainerOptions;
 }
 
+export function NSPersistentCloudKitContainerOptions(args?: any): NSPersistentCloudKitContainerOptions;
+
 export class NSPersistentContainer extends NSObject {
-  static defaultDirectoryURL(): URL;
+  static defaultDirectoryURL(): NSURL;
   managedObjectModel: NSManagedObjectModel;
   name: string;
   persistentStoreCoordinator: NSPersistentStoreCoordinator;
@@ -12490,11 +13609,13 @@ export class NSPersistentContainer extends NSObject {
   setPersistentStoreDescriptions(_: NSPersistentStoreDescription[]);
   viewContext: NSManagedObjectContext;
   static createWithName(_: string): NSPersistentContainer;
-  static createWithNameWithManagedObjectModel(_: string, managedObjectModel: NSManagedObjectModel): NSPersistentContainer;
-  loadPersistentStores(completionHandler?: (p1: NSPersistentStoreDescription, p2: Error) => void): void;
+  static createWithName_ManagedObjectModel(_: string, managedObjectModel: NSManagedObjectModel): NSPersistentContainer;
+  loadPersistentStores(completionHandler?: (p1: NSPersistentStoreDescription, p2: NSError) => void): void;
   newBackgroundContext(): NSManagedObjectContext;
   performBackgroundTask(_: (p1: NSManagedObjectContext) => void): void;
 }
+
+export function NSPersistentContainer(args?: any): NSPersistentContainer;
 
 export class NSPersistentHistoryChange extends NSObject {
   //  static entityDescription(with_: NSManagedObjectContext): NSEntityDescription;
@@ -12508,14 +13629,16 @@ export class NSPersistentHistoryChange extends NSObject {
   static fetchRequest: NSFetchRequest<any>;
 }
 
+export function NSPersistentHistoryChange(args?: any): NSPersistentHistoryChange;
+
 export class NSPersistentHistoryChangeRequest extends NSPersistentStoreRequest {
-  static createWithDeleteHistoryBeforeDate(before: Date): NSPersistentHistoryChangeRequest;
-  static createWithDeleteHistoryBeforeToken(before?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
-  static createWithDeleteHistoryBeforeTransaction(before?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
-  static createWithFetchHistoryAfterDate(after: Date): NSPersistentHistoryChangeRequest;
-  static createWithFetchHistoryAfterToken(after?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
-  static createWithFetchHistoryAfterTransaction(after?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
-  static createWithFetchHistoryWithFetchRequest(withFetch: NSFetchRequest<any>): NSPersistentHistoryChangeRequest;
+  static createWithBefore(before: Date): NSPersistentHistoryChangeRequest;
+  static createWithBefore(before?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
+  static createWithBefore(before?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
+  static createWithAfter(after: Date): NSPersistentHistoryChangeRequest;
+  static createWithAfter(after?: NSPersistentHistoryToken): NSPersistentHistoryChangeRequest;
+  static createWithAfter(after?: NSPersistentHistoryTransaction): NSPersistentHistoryChangeRequest;
+  static createWith_Fetch(withFetch: NSFetchRequest<any>): NSPersistentHistoryChangeRequest;
   fetchRequest: NSFetchRequest<any>;
   setFetchRequest(_: NSFetchRequest<any>);
   resultType: NSPersistentStoreResult.NSPersistentHistoryResultType;
@@ -12523,13 +13646,19 @@ export class NSPersistentHistoryChangeRequest extends NSPersistentStoreRequest {
   token: NSPersistentHistoryToken;
 }
 
+export function NSPersistentHistoryChangeRequest(args?: any): NSPersistentHistoryChangeRequest;
+
 export class NSPersistentHistoryResult extends NSPersistentStoreResult {
   result: any;
   resultType: NSPersistentStoreResult.NSPersistentHistoryResultType;
 }
 
+export function NSPersistentHistoryResult(args?: any): NSPersistentHistoryResult;
+
 export class NSPersistentHistoryToken extends NSObject {
 }
+
+export function NSPersistentHistoryToken(args?: any): NSPersistentHistoryToken;
 
 export class NSPersistentHistoryTransaction extends NSObject {
   //  static entityDescription(with_: NSManagedObjectContext): NSEntityDescription;
@@ -12547,12 +13676,14 @@ export class NSPersistentHistoryTransaction extends NSObject {
   objectIDNotification(): Notification;
 }
 
+export function NSPersistentHistoryTransaction(args?: any): NSPersistentHistoryTransaction;
+
 export class NSPersistentStore extends NSObject {
-  static metadataForPersistentStoreWithURL(error: URL): Map<string, any>;
+  static metadataForPersistentStoreWithURL(error: NSURL): Map<string, any>;
   static migrationManagerClass(): typeof NSObject;
-  static setMetadata(_?: Map<string, any>, forPersistentStoreAt?: URL): boolean;
-  url: URL;
-  setURL(_: URL);
+  static setMetadata(_?: Map<string, any>, forPersistentStoreAt?: NSURL): boolean;
+  url: NSURL;
+  setURL(_: NSURL);
   configurationName: string;
   coreSpotlightExporter: NSCoreDataCoreSpotlightDelegate;
   identifier: string;
@@ -12569,47 +13700,53 @@ export class NSPersistentStore extends NSObject {
   willRemove(from?: NSPersistentStoreCoordinator): void;
 }
 
+export function NSPersistentStore(args?: any): NSPersistentStore;
+
 export class NSPersistentStoreAsynchronousResult extends NSPersistentStoreResult {
   managedObjectContext: NSManagedObjectContext;
-  operationError: Error;
+  operationError: NSError;
   progress: Progress;
   cancel(): void;
 }
 
+export function NSPersistentStoreAsynchronousResult(args?: any): NSPersistentStoreAsynchronousResult;
+
 export class NSPersistentStoreCoordinator extends NSObject {
-  static elementsDerived(fromExternalRecordAt: URL): Map<any, any>;
-  static metadataForPersistentStore(ofType: string, at: URL, options?: Map<any, any>): Map<string, any>;
+  static elementsDerived(fromExternalRecordAt: NSURL): Map<any, any>;
+  static metadataForPersistentStore(ofType: string, at: NSURL, options?: Map<any, any>): Map<string, any>;
   static registerStoreClass(_?: typeof NSObject, forStoreType?: string): void;
-  static setMetadata(_?: Map<string, any>, forPersistentStoreOfType?: string, at?: URL, options?: Map<any, any>): boolean;
+  static setMetadata(_?: Map<string, any>, forPersistentStoreOfType?: string, at?: NSURL, options?: Map<any, any>): boolean;
   managedObjectModel: NSManagedObjectModel;
   name: string;
   setName(_: string);
   persistentStores: NSPersistentStore[];
   static registeredStoreTypes: Map<string, NSValue>;
-  url(for_: NSPersistentStore): URL;
-  addPersistentStore(with_: NSPersistentStoreDescription, completionHandler?: (p1: NSPersistentStoreDescription, p2: Error) => void): void;
-  addPersistentStore(ofType: string, configurationName?: string, at?: URL, options?: Map<any, any>): NSPersistentStore;
+  url(for_: NSPersistentStore): NSURL;
+  addPersistentStore(with_: NSPersistentStoreDescription, completionHandler?: (p1: NSPersistentStoreDescription, p2: NSError) => void): void;
+  addPersistentStore(ofType: string, configurationName?: string, at?: NSURL, options?: Map<any, any>): NSPersistentStore;
   currentPersistentHistoryToken(fromStores?: any[]): NSPersistentHistoryToken;
-  destroyPersistentStore(at: URL, ofType: string, options?: Map<any, any>): boolean;
+  destroyPersistentStore(at: NSURL, ofType: string, options?: Map<any, any>): boolean;
   executeRequest(withContext: NSPersistentStoreRequest, error: NSManagedObjectContext): any;
-  importStore(withIdentifier?: string, fromExternalRecordsDirectoryAt?: URL, to?: URL, options?: Map<any, any>, ofType?: string): NSPersistentStore;
+  importStore(withIdentifier?: string, fromExternalRecordsDirectoryAt?: NSURL, to?: NSURL, options?: Map<any, any>, ofType?: string): NSPersistentStore;
   static createWithManagedObjectModel(_: NSManagedObjectModel): NSPersistentStoreCoordinator;
-  managedObjectID(forURIRepresentation: URL): NSManagedObjectID;
+  managedObjectID(forURIRepresentation: NSURL): NSManagedObjectID;
   metadata(for_: NSPersistentStore): Map<string, any>;
-  migratePersistentStore(toURL: NSPersistentStore, options: URL, withType?: Map<any, any>, error?: string): NSPersistentStore;
+  migratePersistentStore(toURL: NSPersistentStore, options: NSURL, withType?: Map<any, any>, error?: string): NSPersistentStore;
   // @ts-ignore 
   perform(_: () => void): void;
   performAndWait(_: () => void): void;
-  persistentStore(for_: URL): NSPersistentStore;
+  persistentStore(for_: NSURL): NSPersistentStore;
   remove(_: NSPersistentStore): boolean;
-  replacePersistentStore(at: URL, destinationOptions?: Map<any, any>, withPersistentStoreFrom?: URL, sourceOptions?: Map<any, any>, ofType?: string): boolean;
+  replacePersistentStore(at: NSURL, destinationOptions?: Map<any, any>, withPersistentStoreFrom?: NSURL, sourceOptions?: Map<any, any>, ofType?: string): boolean;
   setMetadata(_?: Map<string, any>, for_?: NSPersistentStore): void;
-  setURL(_: URL, for_: NSPersistentStore): boolean;
+  setURL(_: NSURL, for_: NSPersistentStore): boolean;
 }
 
+export function NSPersistentStoreCoordinator(args?: any): NSPersistentStoreCoordinator;
+
 export class NSPersistentStoreDescription extends NSObject {
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
   cloudKitContainerOptions: NSPersistentCloudKitContainerOptions;
   setCloudKitContainerOptions(_: NSPersistentCloudKitContainerOptions);
   configuration: string;
@@ -12628,11 +13765,13 @@ export class NSPersistentStoreDescription extends NSObject {
   setTimeout(_: number);
   type: string;
   setType(_: string);
-  static createWithUrl(_: URL): NSPersistentStoreDescription;
+  static createWithUrl(_: NSURL): NSPersistentStoreDescription;
   setOption(_?: NSObject, forKey?: string): void;
   // @ts-ignore 
   setValue(_?: NSObject, forPragmaNamed?: string): void;
 }
+
+export function NSPersistentStoreDescription(args?: any): NSPersistentStoreDescription;
 
 export class NSPersistentStoreRequest extends NSObject {
   affectedStores: NSPersistentStore[];
@@ -12640,8 +13779,12 @@ export class NSPersistentStoreRequest extends NSObject {
   requestType: NSPersistentStoreRequest.NSPersistentStoreRequestType;
 }
 
+export function NSPersistentStoreRequest(args?: any): NSPersistentStoreRequest;
+
 export class NSPersistentStoreResult extends NSObject {
 }
+
+export function NSPersistentStoreResult(args?: any): NSPersistentStoreResult;
 
 export class NSPropertyDescription extends NSObject {
   entity: NSEntityDescription;
@@ -12665,6 +13808,8 @@ export class NSPropertyDescription extends NSObject {
   setValidationPredicates(_?: NSPredicate[], withValidationWarnings?: string[]): void;
 }
 
+export function NSPropertyDescription(args?: any): NSPropertyDescription;
+
 export class NSPropertyMapping extends NSObject {
   name: string;
   setName(_: string);
@@ -12674,9 +13819,13 @@ export class NSPropertyMapping extends NSObject {
   setValueExpression(_: NSExpression);
 }
 
+export function NSPropertyMapping(args?: any): NSPropertyMapping;
+
 export class NSQueryGenerationToken extends NSObject {
   static current: NSQueryGenerationToken;
 }
+
+export function NSQueryGenerationToken(args?: any): NSQueryGenerationToken;
 
 export class NSRelationshipDescription extends NSPropertyDescription {
   deleteRule: NSRelationshipDescription.NSDeleteRule;
@@ -12694,12 +13843,16 @@ export class NSRelationshipDescription extends NSPropertyDescription {
   isToMany: boolean;
 }
 
+export function NSRelationshipDescription(args?: any): NSRelationshipDescription;
+
 export class NSSaveChangesRequest extends NSPersistentStoreRequest {
   deletedObjects: Set<any>;
   insertedObjects: Set<any>;
   lockedObjects: Set<any>;
   updatedObjects: Set<any>;
 }
+
+export function NSSaveChangesRequest(args?: any): NSSaveChangesRequest;
 
 // export function CFAbsoluteTimeGetCurrent(): number;
 
@@ -12919,17 +14072,17 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFBundleCopyExecutableArchitectures(bundle: any): any[];
 
-// export function CFBundleCopyExecutableArchitecturesForURL(url: URL): any[];
+// export function CFBundleCopyExecutableArchitecturesForURL(url: NSURL): any[];
 
 // export function CFBundleCopyExecutableURL(bundle: any): URL;
 
-// export function CFBundleCopyInfoDictionaryForURL(url: URL): Map<any, any>;
+// export function CFBundleCopyInfoDictionaryForURL(url: NSURL): Map<any, any>;
 
-// export function CFBundleCopyInfoDictionaryInDirectory(bundleURL: URL): Map<any, any>;
+// export function CFBundleCopyInfoDictionaryInDirectory(bundleURL: NSURL): Map<any, any>;
 
 // export function CFBundleCopyLocalizationsForPreferences(locArray: any[], prefArray: any[]): any[];
 
-// export function CFBundleCopyLocalizationsForURL(url: URL): any[];
+// export function CFBundleCopyLocalizationsForURL(url: NSURL): any[];
 
 // export function CFBundleCopyLocalizedString(bundle: any, key: string, value: string, tableName: string): string;
 
@@ -12941,13 +14094,13 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFBundleCopyResourceURLForLocalization(bundle: any, resourceName: string, resourceType: string, subDirName: string, localizationName: string): URL;
 
-// export function CFBundleCopyResourceURLInDirectory(bundleURL: URL, resourceName: string, resourceType: string, subDirName: string): URL;
+// export function CFBundleCopyResourceURLInDirectory(bundleURL: NSURL, resourceName: string, resourceType: string, subDirName: string): URL;
 
 // export function CFBundleCopyResourceURLsOfType(bundle: any, resourceType: string, subDirName: string): any[];
 
 // export function CFBundleCopyResourceURLsOfTypeForLocalization(bundle: any, resourceType: string, subDirName: string, localizationName: string): any[];
 
-// export function CFBundleCopyResourceURLsOfTypeInDirectory(bundleURL: URL, resourceType: string, subDirName: string): any[];
+// export function CFBundleCopyResourceURLsOfTypeInDirectory(bundleURL: NSURL, resourceType: string, subDirName: string): any[];
 
 // export function CFBundleCopyResourcesDirectoryURL(bundle: any): URL;
 
@@ -12957,9 +14110,9 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFBundleCopySupportFilesDirectoryURL(bundle: any): URL;
 
-// export function CFBundleCreate(allocator: any, bundleURL: URL): any;
+// export function CFBundleCreate(allocator: any, bundleURL: NSURL): any;
 
-// export function CFBundleCreateBundlesFromDirectory(allocator: any, directoryURL: URL, bundleType: string): any[];
+// export function CFBundleCreateBundlesFromDirectory(allocator: any, directoryURL: NSURL, bundleType: string): any[];
 
 // export function CFBundleGetAllBundles(): any[];
 
@@ -12985,7 +14138,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFBundleGetPackageInfo(bundle: any, packageType: number, packageCreator: number): void;
 
-// export function CFBundleGetPackageInfoInDirectory(url: URL, packageType: number, packageCreator: number): boolean;
+// export function CFBundleGetPackageInfoInDirectory(url: NSURL, packageType: number, packageCreator: number): boolean;
 
 // export function CFBundleGetPlugIn(bundle: any): any;
 
@@ -12999,9 +14152,9 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFBundleLoadExecutable(bundle: any): boolean;
 
-// export function CFBundleLoadExecutableAndReturnError(bundle: any, error: Error): boolean;
+// export function CFBundleLoadExecutableAndReturnError(bundle: any, error: NSError): boolean;
 
-// export function CFBundlePreflightExecutable(bundle: any, error: Error): boolean;
+// export function CFBundlePreflightExecutable(bundle: any, error: NSError): boolean;
 
 // export function CFBundleUnloadExecutable(bundle: any): void;
 
@@ -13199,21 +14352,21 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFEqual(cf1: any, cf2: any): boolean;
 
-// export function CFErrorCopyDescription(err: Error): string;
+// export function CFErrorCopyDescription(err: NSError): string;
 
-// export function CFErrorCopyFailureReason(err: Error): string;
+// export function CFErrorCopyFailureReason(err: NSError): string;
 
-// export function CFErrorCopyRecoverySuggestion(err: Error): string;
+// export function CFErrorCopyRecoverySuggestion(err: NSError): string;
 
-// export function CFErrorCopyUserInfo(err: Error): Map<any, any>;
+// export function CFErrorCopyUserInfo(err: NSError): Map<any, any>;
 
 // export function CFErrorCreate(allocator: any, domain: any, code: number, userInfo: Map<any, any>): Error;
 
 // export function CFErrorCreateWithUserInfoKeysAndValues(allocator: any, domain: any, code: number, userInfoKeys: any, userInfoValues: any, numUserInfoValues: number): Error;
 
-// export function CFErrorGetCode(err: Error): number;
+// export function CFErrorGetCode(err: NSError): number;
 
-// export function CFErrorGetDomain(err: Error): any;
+// export function CFErrorGetDomain(err: NSError): any;
 
 // export function CFErrorGetTypeID(): number;
 
@@ -13433,7 +14586,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFPlugInAddInstanceForFactory(factoryID: any): void;
 
-// export function CFPlugInCreate(allocator: any, plugInURL: URL): any;
+// export function CFPlugInCreate(allocator: any, plugInURL: NSURL): any;
 
 // export function CFPlugInFindFactoriesForPlugInType(typeUUID: any): any[];
 
@@ -13499,17 +14652,17 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFPreferencesSynchronize(applicationID: string, userName: string, hostName: string): boolean;
 
-// export function CFPropertyListCreateData(allocator: any, propertyList: any, format: CFPropertyList.CFPropertyListFormat, options: number, error: Error): NSData;
+// export function CFPropertyListCreateData(allocator: any, propertyList: any, format: CFPropertyList.CFPropertyListFormat, options: number, error: NSError): NSData;
 
 // export function CFPropertyListCreateDeepCopy(allocator: any, propertyList: any, mutabilityOption: number): any;
 
-// export function CFPropertyListCreateWithData(allocator: any, data: NSData, options: number, format: CFPropertyList.CFPropertyListFormat, error: Error): any;
+// export function CFPropertyListCreateWithData(allocator: any, data: NSData, options: number, format: CFPropertyList.CFPropertyListFormat, error: NSError): any;
 
-// export function CFPropertyListCreateWithStream(allocator: any, stream: InputStream, streamLength: number, options: number, format: CFPropertyList.CFPropertyListFormat, error: Error): any;
+// export function CFPropertyListCreateWithStream(allocator: any, stream: InputStream, streamLength: number, options: number, format: CFPropertyList.CFPropertyListFormat, error: NSError): any;
 
 // export function CFPropertyListIsValid(plist: any, format: CFPropertyList.CFPropertyListFormat): boolean;
 
-// export function CFPropertyListWrite(propertyList: any, stream: OutputStream, format: CFPropertyList.CFPropertyListFormat, options: number, error: Error): number;
+// export function CFPropertyListWrite(propertyList: any, stream: OutputStream, format: CFPropertyList.CFPropertyListFormat, options: number, error: NSError): number;
 
 // export function CFReadStreamClose(stream: InputStream): void;
 
@@ -13521,7 +14674,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFReadStreamCreateWithBytesNoCopy(alloc: any, bytes: string | any, length: number, bytesDeallocator: any): InputStream;
 
-// export function CFReadStreamCreateWithFile(alloc: any, fileURL: URL): InputStream;
+// export function CFReadStreamCreateWithFile(alloc: any, fileURL: NSURL): InputStream;
 
 // export function CFReadStreamGetBuffer(stream: InputStream, maxBytesToRead: number, numBytesRead: number): string;
 
@@ -14003,71 +15156,71 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFTreeSortChildren(tree: any, comparator: (p1: any, p2: any, p3: any) => CFBase.CFComparisonResult, context: any): void;
 
-// export function CFURLCanBeDecomposed(anURL: URL): boolean;
+// export function CFURLCanBeDecomposed(anURL: NSURL): boolean;
 
-// export function CFURLClearResourcePropertyCache(url: URL): void;
+// export function CFURLClearResourcePropertyCache(url: NSURL): void;
 
-// export function CFURLClearResourcePropertyCacheForKey(url: URL, key: string): void;
+// export function CFURLClearResourcePropertyCacheForKey(url: NSURL, key: string): void;
 
-// export function CFURLCopyAbsoluteURL(relativeURL: URL): URL;
+// export function CFURLCopyAbsoluteURL(relativeURL: NSURL): URL;
 
-// export function CFURLCopyFileSystemPath(anURL: URL, pathStyle: CFURL.CFURLPathStyle): string;
+// export function CFURLCopyFileSystemPath(anURL: NSURL, pathStyle: CFURL.CFURLPathStyle): string;
 
-// export function CFURLCopyFragment(anURL: URL, charactersToLeaveEscaped: string): string;
+// export function CFURLCopyFragment(anURL: NSURL, charactersToLeaveEscaped: string): string;
 
-// export function CFURLCopyHostName(anURL: URL): string;
+// export function CFURLCopyHostName(anURL: NSURL): string;
 
-// export function CFURLCopyLastPathComponent(url: URL): string;
+// export function CFURLCopyLastPathComponent(url: NSURL): string;
 
-// export function CFURLCopyNetLocation(anURL: URL): string;
+// export function CFURLCopyNetLocation(anURL: NSURL): string;
 
-// export function CFURLCopyPassword(anURL: URL): string;
+// export function CFURLCopyPassword(anURL: NSURL): string;
 
-// export function CFURLCopyPath(anURL: URL): string;
+// export function CFURLCopyPath(anURL: NSURL): string;
 
-// export function CFURLCopyPathExtension(url: URL): string;
+// export function CFURLCopyPathExtension(url: NSURL): string;
 
-// export function CFURLCopyQueryString(anURL: URL, charactersToLeaveEscaped: string): string;
+// export function CFURLCopyQueryString(anURL: NSURL, charactersToLeaveEscaped: string): string;
 
-// export function CFURLCopyResourcePropertiesForKeys(url: URL, keys: any[], error: Error): Map<any, any>;
+// export function CFURLCopyResourcePropertiesForKeys(url: NSURL, keys: any[], error: NSError): Map<any, any>;
 
-// export function CFURLCopyResourcePropertyForKey(url: URL, key: string, propertyValueTypeRefPtr: any, error: Error): boolean;
+// export function CFURLCopyResourcePropertyForKey(url: NSURL, key: string, propertyValueTypeRefPtr: any, error: NSError): boolean;
 
-// export function CFURLCopyResourceSpecifier(anURL: URL): string;
+// export function CFURLCopyResourceSpecifier(anURL: NSURL): string;
 
-// export function CFURLCopyScheme(anURL: URL): string;
+// export function CFURLCopyScheme(anURL: NSURL): string;
 
-// export function CFURLCopyStrictPath(anURL: URL, isAbsolute: string | any): string;
+// export function CFURLCopyStrictPath(anURL: NSURL, isAbsolute: string | any): string;
 
-// export function CFURLCopyUserName(anURL: URL): string;
+// export function CFURLCopyUserName(anURL: NSURL): string;
 
-// export function CFURLCreateAbsoluteURLWithBytes(alloc: any, relativeURLBytes: string | any, length: number, encoding: number, baseURL: URL, useCompatibilityMode: boolean): URL;
+// export function CFURLCreateAbsoluteURLWithBytes(alloc: any, relativeURLBytes: string | any, length: number, encoding: number, baseURL: NSURL, useCompatibilityMode: boolean): URL;
 
-// export function CFURLCreateBookmarkData(allocator: any, url: URL, options: CFURL.CFURLBookmarkCreationOptions, resourcePropertiesToInclude: any[], relativeToURL: URL, error: Error): NSData;
+// export function CFURLCreateBookmarkData(allocator: any, url: NSURL, options: CFURL.CFURLBookmarkCreationOptions, resourcePropertiesToInclude: any[], relativeToURL: NSURL, error: NSError): NSData;
 
 // export function CFURLCreateBookmarkDataFromAliasRecord(allocatorRef: any, aliasRecordDataRef: NSData): NSData;
 
-// export function CFURLCreateBookmarkDataFromFile(allocator: any, fileURL: URL, errorRef: Error): NSData;
+// export function CFURLCreateBookmarkDataFromFile(allocator: any, fileURL: NSURL, errorRef: NSError): NSData;
 
-// export function CFURLCreateByResolvingBookmarkData(allocator: any, bookmark: NSData, options: CFURL.CFURLBookmarkResolutionOptions, relativeToURL: URL, resourcePropertiesToInclude: any[], isStale: string | any, error: Error): URL;
+// export function CFURLCreateByResolvingBookmarkData(allocator: any, bookmark: NSData, options: CFURL.CFURLBookmarkResolutionOptions, relativeToURL: NSURL, resourcePropertiesToInclude: any[], isStale: string | any, error: NSError): URL;
 
-// export function CFURLCreateCopyAppendingPathComponent(allocator: any, url: URL, pathComponent: string, isDirectory: boolean): URL;
+// export function CFURLCreateCopyAppendingPathComponent(allocator: any, url: NSURL, pathComponent: string, isDirectory: boolean): URL;
 
-// export function CFURLCreateCopyAppendingPathExtension(allocator: any, url: URL, extension: string): URL;
+// export function CFURLCreateCopyAppendingPathExtension(allocator: any, url: NSURL, extension: string): URL;
 
-// export function CFURLCreateCopyDeletingLastPathComponent(allocator: any, url: URL): URL;
+// export function CFURLCreateCopyDeletingLastPathComponent(allocator: any, url: NSURL): URL;
 
-// export function CFURLCreateCopyDeletingPathExtension(allocator: any, url: URL): URL;
+// export function CFURLCreateCopyDeletingPathExtension(allocator: any, url: NSURL): URL;
 
-// export function CFURLCreateData(allocator: any, url: URL, encoding: number, escapeWhitespace: boolean): NSData;
+// export function CFURLCreateData(allocator: any, url: NSURL, encoding: number, escapeWhitespace: boolean): NSData;
 
-// export function CFURLCreateFilePathURL(allocator: any, url: URL, error: Error): URL;
+// export function CFURLCreateFilePathURL(allocator: any, url: NSURL, error: NSError): URL;
 
-// export function CFURLCreateFileReferenceURL(allocator: any, url: URL, error: Error): URL;
+// export function CFURLCreateFileReferenceURL(allocator: any, url: NSURL, error: NSError): URL;
 
 // export function CFURLCreateFromFileSystemRepresentation(allocator: any, buffer: string | any, bufLen: number, isDirectory: boolean): URL;
 
-// export function CFURLCreateFromFileSystemRepresentationRelativeToBase(allocator: any, buffer: string | any, bufLen: number, isDirectory: boolean, baseURL: URL): URL;
+// export function CFURLCreateFromFileSystemRepresentationRelativeToBase(allocator: any, buffer: string | any, bufLen: number, isDirectory: boolean, baseURL: NSURL): URL;
 
 // export function CFURLCreateResourcePropertiesForKeysFromBookmarkData(allocator: any, resourcePropertiesToReturn: any[], bookmark: NSData): Map<any, any>;
 
@@ -14075,57 +15228,57 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFURLCreateStringByReplacingPercentEscapes(allocator: any, originalString: string, charactersToLeaveEscaped: string): string;
 
-// export function CFURLCreateWithBytes(allocator: any, URLBytes: string | any, length: number, encoding: number, baseURL: URL): URL;
+// export function CFURLCreateWithBytes(allocator: any, URLBytes: string | any, length: number, encoding: number, baseURL: NSURL): URL;
 
 // export function CFURLCreateWithFileSystemPath(allocator: any, filePath: string, pathStyle: CFURL.CFURLPathStyle, isDirectory: boolean): URL;
 
-// export function CFURLCreateWithFileSystemPathRelativeToBase(allocator: any, filePath: string, pathStyle: CFURL.CFURLPathStyle, isDirectory: boolean, baseURL: URL): URL;
+// export function CFURLCreateWithFileSystemPathRelativeToBase(allocator: any, filePath: string, pathStyle: CFURL.CFURLPathStyle, isDirectory: boolean, baseURL: NSURL): URL;
 
-// export function CFURLCreateWithString(allocator: any, URLString: string, baseURL: URL): URL;
+// export function CFURLCreateWithString(allocator: any, URLString: string, baseURL: NSURL): URL;
 
-// export function CFURLEnumeratorCreateForDirectoryURL(alloc: any, directoryURL: URL, option: CFURLEnumerator.CFURLEnumeratorOptions, propertyKeys: any[]): any;
+// export function CFURLEnumeratorCreateForDirectoryURL(alloc: any, directoryURL: NSURL, option: CFURLEnumerator.CFURLEnumeratorOptions, propertyKeys: any[]): any;
 
 // export function CFURLEnumeratorCreateForMountedVolumes(alloc: any, option: CFURLEnumerator.CFURLEnumeratorOptions, propertyKeys: any[]): any;
 
 // export function CFURLEnumeratorGetDescendentLevel(enumerator: any): number;
 
-// export function CFURLEnumeratorGetNextURL(enumerator: any, url: URL, error: Error): CFURLEnumerator.CFURLEnumeratorResult;
+// export function CFURLEnumeratorGetNextURL(enumerator: any, url: NSURL, error: NSError): CFURLEnumerator.CFURLEnumeratorResult;
 
 // export function CFURLEnumeratorGetTypeID(): number;
 
 // export function CFURLEnumeratorSkipDescendents(enumerator: any): void;
 
-// export function CFURLGetBaseURL(anURL: URL): URL;
+// export function CFURLGetBaseURL(anURL: NSURL): URL;
 
-// export function CFURLGetByteRangeForComponent(url: URL, component: CFURL.CFURLComponentType, rangeIncludingSeparators: CFRange): CFRange;
+// export function CFURLGetByteRangeForComponent(url: NSURL, component: CFURL.CFURLComponentType, rangeIncludingSeparators: CFRange): CFRange;
 
-// export function CFURLGetBytes(url: URL, buffer: string | any, bufferLength: number): number;
+// export function CFURLGetBytes(url: NSURL, buffer: string | any, bufferLength: number): number;
 
-// export function CFURLGetFileSystemRepresentation(url: URL, resolveAgainstBase: boolean, buffer: string | any, maxBufLen: number): boolean;
+// export function CFURLGetFileSystemRepresentation(url: NSURL, resolveAgainstBase: boolean, buffer: string | any, maxBufLen: number): boolean;
 
-// export function CFURLGetPortNumber(anURL: URL): number;
+// export function CFURLGetPortNumber(anURL: NSURL): number;
 
-// export function CFURLGetString(anURL: URL): string;
+// export function CFURLGetString(anURL: NSURL): string;
 
 // export function CFURLGetTypeID(): number;
 
-// export function CFURLHasDirectoryPath(anURL: URL): boolean;
+// export function CFURLHasDirectoryPath(anURL: NSURL): boolean;
 
-// export function CFURLIsFileReferenceURL(url: URL): boolean;
+// export function CFURLIsFileReferenceURL(url: NSURL): boolean;
 
-// export function CFURLResourceIsReachable(url: URL, error: Error): boolean;
+// export function CFURLResourceIsReachable(url: NSURL, error: NSError): boolean;
 
-// export function CFURLSetResourcePropertiesForKeys(url: URL, keyedPropertyValues: Map<any, any>, error: Error): boolean;
+// export function CFURLSetResourcePropertiesForKeys(url: NSURL, keyedPropertyValues: Map<any, any>, error: NSError): boolean;
 
-// export function CFURLSetResourcePropertyForKey(url: URL, key: string, propertyValue: any, error: Error): boolean;
+// export function CFURLSetResourcePropertyForKey(url: NSURL, key: string, propertyValue: any, error: NSError): boolean;
 
-// export function CFURLSetTemporaryResourcePropertyForKey(url: URL, key: string, propertyValue: any): void;
+// export function CFURLSetTemporaryResourcePropertyForKey(url: NSURL, key: string, propertyValue: any): void;
 
-// export function CFURLStartAccessingSecurityScopedResource(url: URL): boolean;
+// export function CFURLStartAccessingSecurityScopedResource(url: NSURL): boolean;
 
-// export function CFURLStopAccessingSecurityScopedResource(url: URL): void;
+// export function CFURLStopAccessingSecurityScopedResource(url: NSURL): void;
 
-// export function CFURLWriteBookmarkDataToFile(bookmarkRef: NSData, fileURL: URL, options: number, errorRef: Error): boolean;
+// export function CFURLWriteBookmarkDataToFile(bookmarkRef: NSData, fileURL: NSURL, options: number, errorRef: NSError): boolean;
 
 // export function CFUUIDCreate(alloc: any): any;
 
@@ -14149,9 +15302,9 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFUserNotificationCreateRunLoopSource(allocator: any, userNotification: any, callout: (p1: any, p2: number) => void, order: number): any;
 
-// export function CFUserNotificationDisplayAlert(timeout: number, flags: number, iconURL: URL, soundURL: URL, localizationURL: URL, alertHeader: string, alertMessage: string, defaultButtonTitle: string, alternateButtonTitle: string, otherButtonTitle: string, responseFlags: number): number;
+// export function CFUserNotificationDisplayAlert(timeout: number, flags: number, iconURL: NSURL, soundURL: NSURL, localizationURL: NSURL, alertHeader: string, alertMessage: string, defaultButtonTitle: string, alternateButtonTitle: string, otherButtonTitle: string, responseFlags: number): number;
 
-// export function CFUserNotificationDisplayNotice(timeout: number, flags: number, iconURL: URL, soundURL: URL, localizationURL: URL, alertHeader: string, alertMessage: string, defaultButtonTitle: string): number;
+// export function CFUserNotificationDisplayNotice(timeout: number, flags: number, iconURL: NSURL, soundURL: NSURL, localizationURL: NSURL, alertHeader: string, alertMessage: string, defaultButtonTitle: string): number;
 
 // export function CFUserNotificationGetResponseDictionary(userNotification: any): Map<any, any>;
 
@@ -14177,7 +15330,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CFWriteStreamCreateWithBuffer(alloc: any, buffer: string | any, bufferCapacity: number): OutputStream;
 
-// export function CFWriteStreamCreateWithFile(alloc: any, fileURL: URL): OutputStream;
+// export function CFWriteStreamCreateWithFile(alloc: any, fileURL: NSURL): OutputStream;
 
 // export function CFWriteStreamGetError(stream: OutputStream): CFStreamError;
 
@@ -14603,7 +15756,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CGDataConsumerCreateWithCFData(data: NSData): any;
 
-// export function CGDataConsumerCreateWithURL(url: URL): any;
+// export function CGDataConsumerCreateWithURL(url: NSURL): any;
 
 // export function CGDataConsumerRelease(consumer: any): void;
 
@@ -14621,7 +15774,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CGDataProviderCreateWithFilename(filename: string | any): any;
 
-// export function CGDataProviderCreateWithURL(url: URL): any;
+// export function CGDataProviderCreateWithURL(url: NSURL): any;
 
 // export function CGDataProviderGetInfo(provider: any): any;
 
@@ -15057,7 +16210,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CGPDFContextCreate(consumer: any, mediaBox: CGRect, auxiliaryInfo: Map<any, any>): any;
 
-// export function CGPDFContextCreateWithURL(url: URL, mediaBox: CGRect, auxiliaryInfo: Map<any, any>): any;
+// export function CGPDFContextCreateWithURL(url: NSURL, mediaBox: CGRect, auxiliaryInfo: Map<any, any>): any;
 
 // export function CGPDFContextEndPage(context: any): void;
 
@@ -15067,7 +16220,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CGPDFContextSetOutline(context: any, outline: Map<any, any>): void;
 
-// export function CGPDFContextSetURLForRect(context: any, url: URL, rect: CGRect): void;
+// export function CGPDFContextSetURLForRect(context: any, url: NSURL, rect: CGRect): void;
 
 // export function CGPDFDictionaryApplyBlock(dict: any, block: (p1: string, p2: any, p3: any) => boolean, info: any): void;
 
@@ -15099,7 +16252,7 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 
 // export function CGPDFDocumentCreateWithProvider(provider: any): any;
 
-// export function CGPDFDocumentCreateWithURL(url: URL): any;
+// export function CGPDFDocumentCreateWithURL(url: NSURL): any;
 
 // export function CGPDFDocumentGetAccessPermissions(document: any): CGPDFDocument.CGPDFAccessPermissions;
 
@@ -15440,8 +16593,8 @@ export class NSSaveChangesRequest extends NSPersistentStoreRequest {
 // export function getterFunction9(): number;
 
 interface CHHapticAdvancedPatternPlayer {
-  completionHandler: (p1: Error) => void;
-  setCompletionHandler(_: (p1: Error) => void);
+  completionHandler: (p1: NSError) => void;
+  setCompletionHandler(_: (p1: NSError) => void);
   loopEnabled: boolean;
   setLoopEnabled(_: boolean);
   loopEnd: number;
@@ -15464,8 +16617,10 @@ export class CHHapticDynamicParameter extends NSObject {
   parameterID: string;
   relativeTime: number;
   setRelativeTime(_: number);
-  static createWithParameterIDWithValueWithRelativeTime(_: string, value: number, relativeTime: number): CHHapticDynamicParameter;
+  static createWithParameterID_Value_RelativeTime(_: string, value: number, relativeTime: number): CHHapticDynamicParameter;
 }
+
+export function CHHapticDynamicParameter(args?: any): CHHapticDynamicParameter;
 
 export class CHHapticEngine extends NSObject {
   static capabilitiesForHardware(): any;
@@ -15485,15 +16640,17 @@ export class CHHapticEngine extends NSObject {
   makeAdvancedPlayer(with_: CHHapticPattern): any;
   makePlayer(with_: CHHapticPattern): any;
   static createWithAudioSession(error?: AVAudioSession): CHHapticEngine;
-  notifyWhenPlayersFinished(finishedHandler: (p1: Error) => CHHapticEngine.FinishedAction): void;
+  notifyWhenPlayersFinished(finishedHandler: (p1: NSError) => CHHapticEngine.FinishedAction): void;
   playPatternFromData(error: NSData): boolean;
-  playPatternFromURL(error: URL): boolean;
-  registerAudioResource(options: URL, error: Map<any, any>): number;
+  playPatternFromURL(error: NSURL): boolean;
+  registerAudioResource(options: NSURL, error: Map<any, any>): number;
   startAndReturnError(): boolean;
-  startWithCompletionHandler(_?: (p1: Error) => void): void;
-  stopWithCompletionHandler(_?: (p1: Error) => void): void;
+  start(completionHandler?: (p1: NSError) => void): void;
+  stop(completionHandler?: (p1: NSError) => void): void;
   unregisterAudioResource(error: number): boolean;
 }
+
+export function CHHapticEngine(args?: any): CHHapticEngine;
 
 export class CHHapticEvent extends NSObject {
   duration: number;
@@ -15502,16 +16659,20 @@ export class CHHapticEvent extends NSObject {
   relativeTime: number;
   setRelativeTime(_: number);
   type: string;
-  static createWithAudioResourceIDWithParametersWithRelativeTime(_: number, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
-  static createWithAudioResourceIDWithParametersWithRelativeTimeWithDuration(_: number, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
-  static createWithEventTypeWithParametersWithRelativeTime(_: string, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
-  static createWithEventTypeWithParametersWithRelativeTimeWithDuration(_: string, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
+  static createWithAudioResourceID_Parameters_RelativeTime(_: number, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
+  static createWithAudioResourceID_Parameters_RelativeTime_Duration(_: number, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
+  static createWithEventType_Parameters_RelativeTime(_: string, parameters: CHHapticEventParameter[], relativeTime: number): CHHapticEvent;
+  static createWithEventType_Parameters_RelativeTime_Duration(_: string, parameters: CHHapticEventParameter[], relativeTime: number, duration: number): CHHapticEvent;
 }
+
+export function CHHapticEvent(args?: any): CHHapticEvent;
 
 export class CHHapticEventParameter extends NSObject {
   parameterID: string;
-  static createWithParameterIDWithValue(_: string, value: number): CHHapticEventParameter;
+  static createWithParameterID_Value(_: string, value: number): CHHapticEventParameter;
 }
+
+export function CHHapticEventParameter(args?: any): CHHapticEventParameter;
 
 interface CHHapticParameterAttributes {
   defaultValue: number;
@@ -15524,16 +16685,20 @@ export class CHHapticParameterCurve extends NSObject {
   parameterID: string;
   relativeTime: number;
   setRelativeTime(_: number);
-  static createWithParameterIDWithControlPointsWithRelativeTime(_: string, controlPoints: CHHapticParameterCurve.ControlPoint[], relativeTime: number): CHHapticParameterCurve;
+  static createWithParameterID_ControlPoints_RelativeTime(_: string, controlPoints: CHHapticParameterCurve.ControlPoint[], relativeTime: number): CHHapticParameterCurve;
 }
+
+export function CHHapticParameterCurve(args?: any): CHHapticParameterCurve;
 
 export class CHHapticPattern extends NSObject {
   duration: number;
   exportDictionaryAndReturnError(): Map<string, any>;
   static createWithDictionary(error: Map<string, any>): CHHapticPattern;
-  static createWithEventsWithParameterCurves(parameterCurves: CHHapticEvent[], error: CHHapticParameterCurve[]): CHHapticPattern;
-  static createWithEventsWithParameters(parameters: CHHapticEvent[], error: CHHapticDynamicParameter[]): CHHapticPattern;
+  static createWithEvents_ParameterCurves(parameterCurves: CHHapticEvent[], error: CHHapticParameterCurve[]): CHHapticPattern;
+  static createWithEvents_Parameters(parameters: CHHapticEvent[], error: CHHapticDynamicParameter[]): CHHapticPattern;
 }
+
+export function CHHapticPattern(args?: any): CHHapticPattern;
 
 interface CHHapticPatternPlayer {
   isMuted: boolean;
@@ -15580,8 +16745,10 @@ export class CIAztecCodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectedPayload: NSData;
   isCompact: boolean;
   layerCount: number;
-  static createWithPayloadWithIsCompactWithLayerCountWithDataCodewordCount(_: NSData, isCompact: boolean, layerCount: number, dataCodewordCount: number): CIAztecCodeDescriptor;
+  static createWithPayload_IsCompact_LayerCount_DataCodewordCount(_: NSData, isCompact: boolean, layerCount: number, dataCodewordCount: number): CIAztecCodeDescriptor;
 }
+
+export function CIAztecCodeDescriptor(args?: any): CIAztecCodeDescriptor;
 
 interface CIAztecCodeGenerator {
   compactStyle: number;
@@ -15596,6 +16763,8 @@ interface CIAztecCodeGenerator {
 
 export class CIBarcodeDescriptor extends NSObject {
 }
+
+export function CIBarcodeDescriptor(args?: any): CIBarcodeDescriptor;
 
 interface CIBarcodeGenerator {
   barcodeDescriptor: CIBarcodeDescriptor;
@@ -15625,8 +16794,8 @@ interface CIBicubicScaleTransform {
 }
 
 export class CIBlendKernel extends CIColorKernel {
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithError(fromMetalLibraryData: string, error: NSData): CIBlendKernel;
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormatWithError(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIBlendKernel;
+  //  static createWithFromMetalLibraryData_Error(fromMetalLibraryData: string, error: NSData): CIBlendKernel;
+  //  static createWithFromMetalLibraryData_OutputPixelFormat_Error(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIBlendKernel;
   static clear: CIBlendKernel;
   static color: CIBlendKernel;
   static colorBurn: CIBlendKernel;
@@ -15673,6 +16842,8 @@ export class CIBlendKernel extends CIColorKernel {
   // @ts-ignore 
   apply(foreground: CIImage, background: CIImage, colorSpace: any): CIImage;
 }
+
+export function CIBlendKernel(args?: any): CIBlendKernel;
 
 interface CIBlendWithMask {
   backgroundImage: CIImage;
@@ -15783,11 +16954,13 @@ export class CIColor extends NSObject {
   static yellow: CIColor;
   static createWithCgColor(_: any): CIColor;
   static createWithColor(_: NSColor): CIColor;
-  static createWithRedWithGreenWithBlue(_: number, green: number, blue: number): CIColor;
-  static createWithRedWithGreenWithBlueWithAlpha(_: number, green: number, blue: number, alpha: number): CIColor;
-  static createWithRedWithGreenWithBlueWithAlphaWithColorSpace(_: number, green: number, blue: number, alpha: number, colorSpace: any): CIColor;
-  static createWithRedWithGreenWithBlueWithColorSpace(_: number, green: number, blue: number, colorSpace: any): CIColor;
+  static createWithRed_Green_Blue(_: number, green: number, blue: number): CIColor;
+  static createWithRed_Green_Blue_Alpha(_: number, green: number, blue: number, alpha: number): CIColor;
+  static createWithRed_Green_Blue_Alpha_ColorSpace(_: number, green: number, blue: number, alpha: number, colorSpace: any): CIColor;
+  static createWithRed_Green_Blue_ColorSpace(_: number, green: number, blue: number, colorSpace: any): CIColor;
 }
+
+export function CIColor(args?: any): CIColor;
 
 interface CIColorClamp {
   inputImage: CIImage;
@@ -15872,11 +17045,13 @@ interface CIColorInvert {
 }
 
 export class CIColorKernel extends CIKernel {
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithError(fromMetalLibraryData: string, error: NSData): CIColorKernel;
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormatWithError(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIColorKernel;
+  //  static createWithFromMetalLibraryData_Error(fromMetalLibraryData: string, error: NSData): CIColorKernel;
+  //  static createWithFromMetalLibraryData_OutputPixelFormat_Error(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIColorKernel;
   // @ts-ignore 
   apply(extent: CGRect, arguments_?: any[]): CIImage;
 }
+
+export function CIColorKernel(args?: any): CIColorKernel;
 
 interface CIColorMap {
   gradientImage: CIImage;
@@ -15956,7 +17131,7 @@ export class CIContext extends NSObject {
   depthBlurEffectFilter(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, hairSemanticSegmentation?: CIImage, orientation?: CGImageProperties.CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
   depthBlurEffectFilter(for_: CIImage, disparityImage: CIImage, portraitEffectsMatte?: CIImage, orientation?: CGImageProperties.CGImagePropertyOrientation, options?: Map<any, any>): CIFilter;
   depthBlurEffectFilter(forImageData: NSData, options?: Map<any, any>): CIFilter;
-  depthBlurEffectFilter(forImageURL: URL, options?: Map<any, any>): CIFilter;
+  depthBlurEffectFilter(forImageURL: NSURL, options?: Map<any, any>): CIFilter;
   draw(_: CIImage, in_: CGRect, from: CGRect): void;
   static createWithOptions(_?: Map<string, any>): CIContext;
   prepareRender(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): boolean;
@@ -15969,11 +17144,13 @@ export class CIContext extends NSObject {
   startTaskToClear(error: CIRenderDestination): CIRenderTask;
   startTaskToRender(fromRect: CIImage, toDestination: CGRect, atPoint: CIRenderDestination, error: CGPoint): CIRenderTask;
   startTaskToRender(toDestination: CIImage, error: CIRenderDestination): CIRenderTask;
-  writeHEIFRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
-  writeJPEGRepresentationOfImage(toURL: CIImage, colorSpace: URL, options: any, error: Map<string, any>): boolean;
-  writePNGRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
-  writeTIFFRepresentationOfImage(toURL: CIImage, format: URL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+  writeHEIFRepresentationOfImage(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+  writeJPEGRepresentationOfImage(toURL: CIImage, colorSpace: NSURL, options: any, error: Map<string, any>): boolean;
+  writePNGRepresentationOfImage(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
+  writeTIFFRepresentationOfImage(toURL: CIImage, format: NSURL, colorSpace: number, options: any, error: Map<string, any>): boolean;
 }
+
+export function CIContext(args?: any): CIContext;
 
 interface CIConvolution {
   bias: number;
@@ -16022,8 +17199,10 @@ export class CIDataMatrixCodeDescriptor extends CIBarcodeDescriptor {
   eccVersion: CIBarcodeDescriptor.CIDataMatrixCodeECCVersion;
   errorCorrectedPayload: NSData;
   rowCount: number;
-  static createWithPayloadWithRowCountWithColumnCountWithEccVersion(_: NSData, rowCount: number, columnCount: number, eccVersion: CIBarcodeDescriptor.CIDataMatrixCodeECCVersion): CIDataMatrixCodeDescriptor;
+  static createWithPayload_RowCount_ColumnCount_EccVersion(_: NSData, rowCount: number, columnCount: number, eccVersion: CIBarcodeDescriptor.CIDataMatrixCodeECCVersion): CIDataMatrixCodeDescriptor;
 }
+
+export function CIDataMatrixCodeDescriptor(args?: any): CIDataMatrixCodeDescriptor;
 
 interface CIDepthOfField {
   inputImage: CIImage;
@@ -16051,6 +17230,8 @@ export class CIDetector extends NSObject {
   features(in_: CIImage): CIFeature[];
   features(in_: CIImage, options?: Map<string, any>): CIFeature[];
 }
+
+export function CIDetector(args?: any): CIDetector;
 
 interface CIDiscBlur {
   inputImage: CIImage;
@@ -16166,6 +17347,8 @@ export class CIFaceFeature extends CIFeature {
   trackingID: number;
 }
 
+export function CIFaceFeature(args?: any): CIFaceFeature;
+
 interface CIFalseColor {
   color0: CIColor;
   setColor0(_: CIColor);
@@ -16179,6 +17362,8 @@ export class CIFeature extends NSObject {
   bounds: CGRect;
   type: string;
 }
+
+export function CIFeature(args?: any): CIFeature;
 
 export class CIFilter extends NSObject {
   static CMYKHalftone(): CIFilter;
@@ -16285,7 +17470,7 @@ export class CIFilter extends NSObject {
   static localizedDescription(forFilterName: string): string;
   static localizedName(forCategory: string): string;
   static localizedName(forFilterName: string): string;
-  static localizedReferenceDocumentation(forFilterName: string): URL;
+  static localizedReferenceDocumentation(forFilterName: string): NSURL;
   static luminosityBlendModeFilter(): CIFilter;
   static maskToAlphaFilter(): CIFilter;
   static maskedVariableBlurFilter(): CIFilter;
@@ -16386,6 +17571,8 @@ export class CIFilter extends NSObject {
   viewForUIConfiguration(_: Map<any, any>, excludedKeys: any[]): IKFilterUIView;
 }
 
+export function CIFilter(args?: any): CIFilter;
+
 interface CIFilterConstructor {
   filter(withName: string): CIFilter;
 }
@@ -16398,12 +17585,14 @@ export class CIFilterGenerator extends NSObject {
   disconnectObject(_: any, withKey: string, to: any, withKey2: string): void;
   exportKey(_: string, from: any, withName?: string): void;
   filter(): CIFilter;
-  static createWithContentsOf(_: URL): CIFilterGenerator;
+  static createWithContentsOf(_: NSURL): CIFilterGenerator;
   registerFilterName(_: string): void;
   removeExportedKey(_: string): void;
   setAttributes(_: Map<any, any>, forExportedKey: string): void;
-  write(to: URL, atomically: boolean): boolean;
+  write(to: NSURL, atomically: boolean): boolean;
 }
+
+export function CIFilterGenerator(args?: any): CIFilterGenerator;
 
 interface CIFilterProtocol {
   outputImage: CIImage;
@@ -16419,6 +17608,8 @@ export class CIFilterShape extends NSObject {
   union(with_: CIFilterShape): CIFilterShape;
   union(with_: CGRect): CIFilterShape;
 }
+
+export function CIFilterShape(args?: any): CIFilterShape;
 
 interface CIFlashTransition {
   center: CGPoint;
@@ -16597,13 +17788,13 @@ interface CIHueSaturationValueGradient {
 
 export class CIImage extends NSObject {
   static empty(): CIImage;
-  static createWithImageWithDepthData(_: AVDepthData): CIImage;
-  static createWithImageWithDepthDataOptions(_: AVDepthData, options?: Map<string, any>): CIImage;
+  static createWithImage_DepthData(_: AVDepthData): CIImage;
+  static createWithOptions(_: AVDepthData, options?: Map<string, any>): CIImage;
   static imageWithImageProvider(_: any, _2: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
-  static createWithImageWithPortaitEffectsMatte(_: AVPortraitEffectsMatte): CIImage;
-  static createWithImageWithPortaitEffectsMatteOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
-  static createWithImageWithSemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
-  static createWithImageWithSemanticSegmentationMatteOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
+  static createWithImage_PortaitEffectsMatte(_: AVPortraitEffectsMatte): CIImage;
+  static createWithOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
+  static createWithImage_SemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
+  static createWithOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
   cgImage: any;
   colorSpace: any;
   definition: CIFilterShape;
@@ -16613,7 +17804,7 @@ export class CIImage extends NSObject {
   portraitEffectsMatte: AVPortraitEffectsMatte;
   properties: Map<string, any>;
   semanticSegmentationMatte: AVSemanticSegmentationMatte;
-  url: URL;
+  url: NSURL;
   static black: CIImage;
   static blue: CIImage;
   static clear: CIImage;
@@ -16651,43 +17842,47 @@ export class CIImage extends NSObject {
   unpremultiplyingAlpha(): CIImage;
   orientationTransform(for_: CGImageProperties.CGImagePropertyOrientation): CGAffineTransform;
   orientationTransform(forExifOrientation: number): CGAffineTransform;
-  static createWithBitmapDataWithBytesPerRowWithSizeWithFormatWithColorSpace(_: NSData, bytesPerRow: number, size: CGSize, format: number, colorSpace?: any): CIImage;
+  static createWithBitmapData_BytesPerRow_Size_Format_ColorSpace(_: NSData, bytesPerRow: number, size: CGSize, format: number, colorSpace?: any): CIImage;
   static createWithBitmapImageRep(_: NSBitmapImageRep): CIImage;
   static createWithCgImage(_: any): CIImage;
-  static createWithCgImageWithOptions(_: any, options?: Map<string, any>): CIImage;
-  static createWithCgImageSourceWithIndexWithOptions(_: any, index: number, options?: Map<string, any>): CIImage;
+  static createWithCgImage_Options(_: any, options?: Map<string, any>): CIImage;
+  static createWithCgImageSource_Index_Options(_: any, index: number, options?: Map<string, any>): CIImage;
   static createWithCvImageBuffer(_: any): CIImage;
-  static createWithCvImageBufferWithOptions(_: any, options?: Map<string, any>): CIImage;
+  static createWithCvImageBuffer_Options(_: any, options?: Map<string, any>): CIImage;
   static createWithCvPixelBuffer(_: any): CIImage;
-  static createWithCvPixelBufferWithOptions(_: any, options?: Map<string, any>): CIImage;
+  static createWithCvPixelBuffer_Options(_: any, options?: Map<string, any>): CIImage;
   static createWithColor(_: CIColor): CIImage;
-  static createWithContentsOf(_: URL): CIImage;
-  static createWithContentsOfWithOptions(_: URL, options?: Map<string, any>): CIImage;
+  static createWithContentsOf(_: NSURL): CIImage;
+  static createWithContentsOf_Options(_: NSURL, options?: Map<string, any>): CIImage;
   static createWithData(_: NSData): CIImage;
-  static createWithDataWithOptions(_: NSData, options?: Map<string, any>): CIImage;
+  static createWithData_Options(_: NSData, options?: Map<string, any>): CIImage;
   static createWithDepthData(_: AVDepthData): CIImage;
-  static createWithDepthDataWithOptions(_: AVDepthData, options?: Map<string, any>): CIImage;
+  static createWithDepthData_Options(_: AVDepthData, options?: Map<string, any>): CIImage;
   static createWithIoSurface(_: any): CIImage;
-  static createWithIoSurfaceWithOptions(_: any, options?: Map<string, any>): CIImage;
-  static createWithImageProviderWithSizeWithFormatWithColorSpaceWithOptions(_: any, _2: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
-  static createWithMtlTextureWithOptions(_: any, options?: Map<string, any>): CIImage;
+  static createWithIoSurface_Options(_: any, options?: Map<string, any>): CIImage;
+  static createWithImageProvider_Size_Format_ColorSpace_Options(_: any, _2: number, size: number, format: number, colorSpace?: any, options?: Map<string, any>): CIImage;
+  static createWithMtlTexture_Options(_: any, options?: Map<string, any>): CIImage;
   static createWithPortaitEffectsMatte(_: AVPortraitEffectsMatte): CIImage;
-  static createWithPortaitEffectsMatteWithOptions(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
+  static createWithPortaitEffectsMatte_Options(_: AVPortraitEffectsMatte, options?: Map<string, any>): CIImage;
   static createWithSemanticSegmentationMatte(_: AVSemanticSegmentationMatte): CIImage;
-  static createWithSemanticSegmentationMatteWithOptions(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
+  static createWithSemanticSegmentationMatte_Options(_: AVSemanticSegmentationMatte, options?: Map<string, any>): CIImage;
   regionOfInterest(for_: CIImage, in_: CGRect): CGRect;
 }
+
+export function CIImage(args?: any): CIImage;
 
 export class CIImageAccumulator extends NSObject {
   extent: CGRect;
   format: number;
   clear(): void;
   image(): CIImage;
-  static createWithExtentWithFormat(_: CGRect, format: number): CIImageAccumulator;
-  static createWithExtentWithFormatWithColorSpace(_: CGRect, format: number, colorSpace: any): CIImageAccumulator;
+  static createWithExtent_Format(_: CGRect, format: number): CIImageAccumulator;
+  static createWithExtent_Format_ColorSpace(_: CGRect, format: number, colorSpace: any): CIImageAccumulator;
   setImage(_: CIImage): void;
   setImage(_: CIImage, dirtyRect: CGRect): void;
 }
+
+export function CIImageAccumulator(args?: any): CIImageAccumulator;
 
 interface CIImageProcessorInput {
   baseAddress: any;
@@ -16708,6 +17903,8 @@ export class CIImageProcessorKernel extends NSObject {
   static outputIsOpaque: boolean;
   static synchronizeInputs: boolean;
 }
+
+export function CIImageProcessorKernel(args?: any): CIImageProcessorKernel;
 
 interface CIImageProcessorOutput {
   baseAddress: any;
@@ -16732,12 +17929,14 @@ interface CIKaleidoscope {
 }
 
 export class CIKernel extends NSObject {
-  static createWithKernelWithFunctionNameFromMetalLibraryDataWithError(fromMetalLibraryData: string, error: NSData): CIKernel;
-  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormatWithError(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIKernel;
+  static createWithFromMetalLibraryData_Error(fromMetalLibraryData: string, error: NSData): CIKernel;
+  static createWithFromMetalLibraryData_OutputPixelFormat_Error(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIKernel;
   name: string;
   apply(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, arguments_?: any[]): CIImage;
   setROISelector(_: string): void;
 }
+
+export function CIKernel(args?: any): CIKernel;
 
 interface CIKeystoneCorrectionCombined {
   focalLength: number;
@@ -16993,8 +18192,10 @@ export class CIPDF417CodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectedPayload: NSData;
   isCompact: boolean;
   rowCount: number;
-  static createWithPayloadWithIsCompactWithRowCountWithColumnCount(_: NSData, isCompact: boolean, rowCount: number, columnCount: number): CIPDF417CodeDescriptor;
+  static createWithPayload_IsCompact_RowCount_ColumnCount(_: NSData, isCompact: boolean, rowCount: number, columnCount: number): CIPDF417CodeDescriptor;
 }
+
+export function CIPDF417CodeDescriptor(args?: any): CIPDF417CodeDescriptor;
 
 interface CIPageCurlTransition {
   angle: number;
@@ -17111,9 +18312,11 @@ interface CIPixellate {
 }
 
 export class CIPlugIn extends NSObject {
-  static loadNonExecutablePlugIn(_: URL): void;
+  static loadNonExecutablePlugIn(_: NSURL): void;
   static loadNonExecutablePlugIns(): void;
 }
+
+export function CIPlugIn(args?: any): CIPlugIn;
 
 interface CIPlugInRegistration {
   load(_: any): boolean;
@@ -17133,8 +18336,10 @@ export class CIQRCodeDescriptor extends CIBarcodeDescriptor {
   errorCorrectionLevel: CIBarcodeDescriptor.CIQRCodeErrorCorrectionLevel;
   maskPattern: number;
   symbolVersion: number;
-  static createWithPayloadWithSymbolVersionWithMaskPatternWithErrorCorrectionLevel(_: NSData, symbolVersion: number, maskPattern: number, errorCorrectionLevel: CIBarcodeDescriptor.CIQRCodeErrorCorrectionLevel): CIQRCodeDescriptor;
+  static createWithPayload_SymbolVersion_MaskPattern_ErrorCorrectionLevel(_: NSData, symbolVersion: number, maskPattern: number, errorCorrectionLevel: CIBarcodeDescriptor.CIQRCodeErrorCorrectionLevel): CIQRCodeDescriptor;
 }
+
+export function CIQRCodeDescriptor(args?: any): CIQRCodeDescriptor;
 
 export class CIQRCodeFeature extends CIFeature {
   bottomLeft: CGPoint;
@@ -17144,6 +18349,8 @@ export class CIQRCodeFeature extends CIFeature {
   topLeft: CGPoint;
   topRight: CGPoint;
 }
+
+export function CIQRCodeFeature(args?: any): CIQRCodeFeature;
 
 interface CIQRCodeGenerator {
   correctionLevel: string;
@@ -17175,6 +18382,8 @@ export class CIRectangleFeature extends CIFeature {
   topRight: CGPoint;
 }
 
+export function CIRectangleFeature(args?: any): CIRectangleFeature;
+
 export class CIRenderDestination extends NSObject {
   alphaMode: CIRenderDestination.CIRenderDestinationAlphaMode;
   setAlphaMode(_: CIRenderDestination.CIRenderDestinationAlphaMode);
@@ -17192,13 +18401,15 @@ export class CIRenderDestination extends NSObject {
   setFlipped(_: boolean);
   height: number;
   width: number;
-  static createWithBitmapDataWithWidthWithHeightWithBytesPerRowWithFormat(_: any, width: number, height: number, bytesPerRow: number, format: number): CIRenderDestination;
-  static createWithGlTextureWithTargetWithWidthWithHeight(_: number, target: number, width: number, height: number): CIRenderDestination;
+  static createWithBitmapData_Width_Height_BytesPerRow_Format(_: any, width: number, height: number, bytesPerRow: number, format: number): CIRenderDestination;
+  static createWithGlTexture_Target_Width_Height(_: number, target: number, width: number, height: number): CIRenderDestination;
   static createWithIoSurface(_: IOSurface): CIRenderDestination;
-  static createWithMtlTextureWithCommandBuffer(_: any, commandBuffer?: any): CIRenderDestination;
+  static createWithMtlTexture_CommandBuffer(_: any, commandBuffer?: any): CIRenderDestination;
   static createWithPixelBuffer(_: any): CIRenderDestination;
-  static createWithWidthWithHeightWithPixelFormatWithCommandBufferWithMtlTextureProvider(_: number, height: number, pixelFormat: MTLPixelFormat.MTLPixelFormat, commandBuffer?: any, mtlTextureProvider?: () => any): CIRenderDestination;
+  static createWithWidth_Height_PixelFormat_CommandBuffer_MtlTextureProvider(_: number, height: number, pixelFormat: MTLPixelFormat.MTLPixelFormat, commandBuffer?: any, mtlTextureProvider?: () => any): CIRenderDestination;
 }
+
+export function CIRenderDestination(args?: any): CIRenderDestination;
 
 export class CIRenderInfo extends NSObject {
   kernelExecutionTime: number;
@@ -17206,9 +18417,13 @@ export class CIRenderInfo extends NSObject {
   pixelsProcessed: number;
 }
 
+export function CIRenderInfo(args?: any): CIRenderInfo;
+
 export class CIRenderTask extends NSObject {
   waitUntilCompletedAndReturnError(): CIRenderInfo;
 }
+
+export function CIRenderTask(args?: any): CIRenderTask;
 
 interface CIRippleTransition {
   center: CGPoint;
@@ -17243,12 +18458,14 @@ interface CISaliencyMap {
 }
 
 export class CISampler extends NSObject {
-  static createWithSamplerWithImageKeysAndValues(_: CIImage, keysAndValues: any): CISampler;
+  static createWithKeysAndValues(_: CIImage, keysAndValues: any): CISampler;
   definition: CIFilterShape;
   extent: CGRect;
   static createWithImage(_: CIImage): CISampler;
-  static createWithImageWithOptions(_: CIImage, options?: Map<any, any>): CISampler;
+  static createWithImage_Options(_: CIImage, options?: Map<any, any>): CISampler;
 }
+
+export function CISampler(args?: any): CISampler;
 
 interface CISepiaTone {
   inputImage: CIImage;
@@ -17438,6 +18655,8 @@ export class CITextFeature extends CIFeature {
   topRight: CGPoint;
 }
 
+export function CITextFeature(args?: any): CITextFeature;
+
 interface CITextImageGenerator {
   fontName: string;
   setFontName(_: string);
@@ -17536,14 +18755,16 @@ export class CIVector extends NSObject {
   static createWithCgPoint(_: CGPoint): CIVector;
   static createWithCgRect(_: CGRect): CIVector;
   static createWithString(_: string): CIVector;
-  static createWithValuesWithCount(_: number, count: number): CIVector;
+  static createWithValues_Count(_: number, count: number): CIVector;
   static createWithX(_: number): CIVector;
-  static createWithXWithY(_: number, Y: number): CIVector;
-  static createWithXWithYWithZ(_: number, Y: number, Z: number): CIVector;
-  static createWithXWithYWithZWithW(_: number, Y: number, Z: number, W: number): CIVector;
+  static createWithX_Y(_: number, Y: number): CIVector;
+  static createWithX_Y_Z(_: number, Y: number, Z: number): CIVector;
+  static createWithX_Y_Z_W(_: number, Y: number, Z: number, W: number): CIVector;
   // @ts-ignore 
   value(at: number): number;
 }
+
+export function CIVector(args?: any): CIVector;
 
 interface CIVibrance {
   amount: number;
@@ -17575,11 +18796,13 @@ interface CIVignetteEffect {
 }
 
 export class CIWarpKernel extends CIKernel {
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithError(fromMetalLibraryData: string, error: NSData): CIWarpKernel;
-  //  static createWithKernelWithFunctionNameFromMetalLibraryDataWithOutputPixelFormatWithError(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIWarpKernel;
+  //  static createWithFromMetalLibraryData_Error(fromMetalLibraryData: string, error: NSData): CIWarpKernel;
+  //  static createWithFromMetalLibraryData_OutputPixelFormat_Error(fromMetalLibraryData: string, outputPixelFormat: NSData, error: number): CIWarpKernel;
   // @ts-ignore 
   apply(extent: CGRect, roiCallback: (p1: number, p2: CGRect) => CGRect, image: CIImage, arguments_?: any[]): CIImage;
 }
+
+export function CIWarpKernel(args?: any): CIWarpKernel;
 
 interface CIWhitePointAdjust {
   color: CIColor;
@@ -17607,53 +18830,63 @@ export class CLBeacon extends NSObject {
   major: number;
   minor: number;
   proximity: CLRegion.CLProximity;
-  proximityUUID: UUID;
   rssi: number;
 }
 
+export function CLBeacon(args?: any): CLBeacon;
+
 export class CLBeaconIdentityConstraint extends NSObject {
-  UUID: UUID;
+  uuid: UUID;
   major: number;
   minor: number;
   static createWithUuID(_: UUID): CLBeaconIdentityConstraint;
-  static createWithUuIDWithMajor(_: UUID, major: number): CLBeaconIdentityConstraint;
-  static createWithUuIDWithMajorWithMinor(_: UUID, major: number, minor: number): CLBeaconIdentityConstraint;
+  static createWithUuID_Major(_: UUID, major: number): CLBeaconIdentityConstraint;
+  static createWithUuID_Major_Minor(_: UUID, major: number, minor: number): CLBeaconIdentityConstraint;
 }
+
+export function CLBeaconIdentityConstraint(args?: any): CLBeaconIdentityConstraint;
 
 export class CLBeaconRegion extends CLRegion {
   major: number;
   minor: number;
   notifyEntryStateOnDisplay: boolean;
   setNotifyEntryStateOnDisplay(_: boolean);
-  proximityUUID: UUID;
-  static createWithProximityuuIDWithIdentifier(_: UUID, identifier: string): CLBeaconRegion;
-  static createWithProximityuuIDWithMajorWithIdentifier(_: UUID, major: number, identifier: string): CLBeaconRegion;
-  static createWithProximityuuIDWithMajorWithMinorWithIdentifier(_: UUID, major: number, minor: number, identifier: string): CLBeaconRegion;
-  peripheralDataWithMeasuredPower(_?: number): Map<string, any>;
+  static createWithProximityuuID_Identifier(_: UUID, identifier: string): CLBeaconRegion;
+  static createWithProximityuuID_Major_Identifier(_: UUID, major: number, identifier: string): CLBeaconRegion;
+  static createWithProximityuuID_Major_Minor_Identifier(_: UUID, major: number, minor: number, identifier: string): CLBeaconRegion;
+  peripheralData(withMeasuredPower?: number): Map<string, any>;
 }
+
+export function CLBeaconRegion(args?: any): CLBeaconRegion;
 
 export class CLCircularRegion extends CLRegion {
   center: CLLocationCoordinate2D;
   radius: number;
-  containsCoordinate(_: CLLocationCoordinate2D): boolean;
-  static createWithCenterWithRadiusWithIdentifier(_: CLLocationCoordinate2D, radius: number, identifier: string): CLCircularRegion;
+  contains(_: CLLocationCoordinate2D): boolean;
+  static createWithCenter_Radius_Identifier(_: CLLocationCoordinate2D, radius: number, identifier: string): CLCircularRegion;
 }
+
+export function CLCircularRegion(args?: any): CLCircularRegion;
 
 export class CLFloor extends NSObject {
   level: number;
 }
 
+export function CLFloor(args?: any): CLFloor;
+
 export class CLGeocoder extends NSObject {
   isGeocoding: boolean;
   cancelGeocode(): void;
-  geocodeAddressString(_: string, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  geocodeAddressString(_: string, inRegion?: CLRegion, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  geocodeAddressString(_: string, inRegion?: CLRegion, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  geocodePostalAddress(_: CNPostalAddress, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  geocodePostalAddress(_: CNPostalAddress, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
-  reverseGeocodeLocation(_: CLLocation, completionHandler: (p1: CLPlacemark[], p2: Error) => void): void;
-  reverseGeocodeLocation(_: CLLocation, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: Error) => void): void;
+  geocodeAddressString(_: string, completionHandler: (p1: CLPlacemark[], p2: NSError) => void): void;
+  geocodeAddressString(_: string, in_?: CLRegion, completionHandler?: (p1: CLPlacemark[], p2: NSError) => void): void;
+  geocodeAddressString(_: string, in_?: CLRegion, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: NSError) => void): void;
+  geocodePostalAddress(_: CNPostalAddress, completionHandler: (p1: CLPlacemark[], p2: NSError) => void): void;
+  geocodePostalAddress(_: CNPostalAddress, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: NSError) => void): void;
+  reverseGeocodeLocation(_: CLLocation, completionHandler: (p1: CLPlacemark[], p2: NSError) => void): void;
+  reverseGeocodeLocation(_: CLLocation, preferredLocale?: Locale, completionHandler?: (p1: CLPlacemark[], p2: NSError) => void): void;
 }
+
+export function CLGeocoder(args?: any): CLGeocoder;
 
 export class CLHeading extends NSObject {
   headingAccuracy: number;
@@ -17664,6 +18897,8 @@ export class CLHeading extends NSObject {
   y: number;
   z: number;
 }
+
+export function CLHeading(args?: any): CLHeading;
 
 export class CLLocation extends NSObject {
   altitude: number;
@@ -17676,22 +18911,21 @@ export class CLLocation extends NSObject {
   speedAccuracy: number;
   timestamp: Date;
   verticalAccuracy: number;
-  distanceFromLocation(_: CLLocation): number;
-  static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithCourseWithCourseAccuracyWithSpeedWithSpeedAccuracyWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, courseAccuracy: number, speed: number, speedAccuracy: number, timestamp: Date): CLLocation;
-  static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithCourseWithSpeedWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, speed: number, timestamp: Date): CLLocation;
-  static createWithCoordinateWithAltitudeWithHorizontalAccuracyWithVerticalAccuracyWithTimestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, timestamp: Date): CLLocation;
-  static createWithLatitudeWithLongitude(_: number, longitude: number): CLLocation;
+  distance(from: CLLocation): number;
+  static createWithCoordinate_Altitude_HorizontalAccuracy_VerticalAccuracy_Course_CourseAccuracy_Speed_SpeedAccuracy_Timestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, courseAccuracy: number, speed: number, speedAccuracy: number, timestamp: Date): CLLocation;
+  static createWithCoordinate_Altitude_HorizontalAccuracy_VerticalAccuracy_Course_Speed_Timestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, course: number, speed: number, timestamp: Date): CLLocation;
+  static createWithCoordinate_Altitude_HorizontalAccuracy_VerticalAccuracy_Timestamp(_: CLLocationCoordinate2D, altitude: number, horizontalAccuracy: number, verticalAccuracy: number, timestamp: Date): CLLocation;
+  static createWithLatitude_Longitude(_: number, longitude: number): CLLocation;
 }
+
+export function CLLocation(args?: any): CLLocation;
 
 // export function CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D): boolean;
 
 // export function CLLocationCoordinate2DMake(latitude: number, longitude: number): CLLocationCoordinate2D;
 
 export class CLLocationManager extends NSObject {
-  static authorizationStatus(): CLLocationManager.CLAuthorizationStatus;
-  static headingAvailable(): boolean;
-  static isMonitoringAvailableForClass(_: typeof NSObject): boolean;
-  static locationServicesEnabled(): boolean;
+  static isMonitoringAvailable(for_: typeof NSObject): boolean;
   static significantLocationChangeMonitoringAvailable(): boolean;
   delegate: any;
   setDelegate(_: any);
@@ -17702,30 +18936,30 @@ export class CLLocationManager extends NSObject {
   location: CLLocation;
   maximumRegionMonitoringDistance: number;
   monitoredRegions: Set<any>;
-  purpose: string;
-  setPurpose(_: string);
   requestAlwaysAuthorization(): void;
   requestLocation(): void;
-  requestStateForRegion(_: CLRegion): void;
-  startMonitoringForRegion(_: CLRegion): void;
+  requestState(for_: CLRegion): void;
+  startMonitoring(for_: CLRegion): void;
   startMonitoringSignificantLocationChanges(): void;
   startUpdatingLocation(): void;
-  stopMonitoringForRegion(_: CLRegion): void;
+  stopMonitoring(for_: CLRegion): void;
   stopMonitoringSignificantLocationChanges(): void;
   stopUpdatingLocation(): void;
 }
 
+export function CLLocationManager(args?: any): CLLocationManager;
+
 interface CLLocationManagerDelegate {
-  locationManager(_: CLLocationManager, didUpdateToLocation: CLLocation, fromLocation: CLLocation): void;
+  locationManager(_: CLLocationManager, didUpdateTo: CLLocation, from: CLLocation): void;
   locationManager(_: CLLocationManager, didUpdateLocations: CLLocation[]): void;
-  locationManager(_: CLLocationManager, didDetermineState: CLRegion.CLRegionState, forRegion: CLRegion): void;
+  locationManager(_: CLLocationManager, didDetermineState: CLRegion.CLRegionState, for_: CLRegion): void;
   locationManager(_: CLLocationManager, didEnterRegion: CLRegion): void;
   locationManager(_: CLLocationManager, didExitRegion: CLRegion): void;
-  locationManager(_: CLLocationManager, didFailWithError: Error): void;
-  locationManager(_: CLLocationManager, monitoringDidFailForRegion?: CLRegion, withError?: Error): void;
-  locationManager(_: CLLocationManager, didChangeAuthorizationStatus: CLLocationManager.CLAuthorizationStatus): void;
-  locationManager(_: CLLocationManager, didStartMonitoringForRegion: CLRegion): void;
-  locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError?: Error): void;
+  locationManager(_: CLLocationManager, didFailWithError: NSError): void;
+  locationManager(_: CLLocationManager, monitoringDidFailFor?: CLRegion, withError?: NSError): void;
+  locationManager(_: CLLocationManager, didChangeAuthorization: CLLocationManager.CLAuthorizationStatus): void;
+  locationManager(_: CLLocationManager, didStartMonitoringFor: CLRegion): void;
+  locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError?: NSError): void;
 }
 
 export class CLPlacemark extends NSObject {
@@ -17749,6 +18983,8 @@ export class CLPlacemark extends NSObject {
   static createWithPlacemark(_: CLPlacemark): CLPlacemark;
 }
 
+export function CLPlacemark(args?: any): CLPlacemark;
+
 export class CLRegion extends NSObject {
   identifier: string;
   notifyOnEntry: boolean;
@@ -17757,12 +18993,16 @@ export class CLRegion extends NSObject {
   setNotifyOnExit(_: boolean);
 }
 
+export function CLRegion(args?: any): CLRegion;
+
 export class CLVisit extends NSObject {
   arrivalDate: Date;
   coordinate: CLLocationCoordinate2D;
   departureDate: Date;
   horizontalAccuracy: number;
 }
+
+export function CLVisit(args?: any): CLVisit;
 
 // export function MIDIClientCreate(name: string, notifyProc: (p1: MIDINotification, p2: any) => void, notifyRefCon: any, outClient: number): number;
 
@@ -17913,9 +19153,11 @@ export class MLArrayBatchProvider extends NSObject {
   static createWithDictionary(error: Map<string, any[]>): MLArrayBatchProvider;
 }
 
+export function MLArrayBatchProvider(args?: any): MLArrayBatchProvider;
+
 interface MLBatchProvider {
   count: number;
-  featuresAtIndex(_: number): any;
+  features(at: number): any;
 }
 
 interface MLCustomLayer {
@@ -17934,11 +19176,14 @@ export class MLDictionaryConstraint extends NSObject {
   keyType: MLFeatureType.MLFeatureType;
 }
 
+export function MLDictionaryConstraint(args?: any): MLDictionaryConstraint;
+
 export class MLDictionaryFeatureProvider extends NSObject {
   dictionary: Map<string, MLFeatureValue>;
   static createWithDictionary(error: Map<string, any>): MLDictionaryFeatureProvider;
-  objectForKeyedSubscript(_: string): MLFeatureValue;
 }
+
+export function MLDictionaryFeatureProvider(args?: any): MLDictionaryFeatureProvider;
 
 export class MLFeatureDescription extends NSObject {
   dictionaryConstraint: MLDictionaryConstraint;
@@ -17951,27 +19196,23 @@ export class MLFeatureDescription extends NSObject {
   isAllowedValue(_: MLFeatureValue): boolean;
 }
 
+export function MLFeatureDescription(args?: any): MLFeatureDescription;
+
 interface MLFeatureProvider {
   featureNames: Set<any>;
-  featureValueForName(_: string): MLFeatureValue;
+  featureValue(for_: string): MLFeatureValue;
 }
 
 export class MLFeatureValue extends NSObject {
-  static createWithFeatureValueWithCGImageConstraintWithOptionsWithError(constraint: any, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithCGImageOrientationWithConstraintWithOptionsWithError(orientation: any, constraint: CGImageProperties.CGImagePropertyOrientation, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithCGImageOrientationWithPixelsWideWithPixelsHighWithPixelFormatTypeWithOptionsWithError(orientation: any, pixelsWide: CGImageProperties.CGImagePropertyOrientation, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithCGImagePixelsWideWithPixelsHighWithPixelFormatTypeWithOptionsWithError(pixelsWide: any, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithDictionaryError(error: Map<any, number>): MLFeatureValue;
-  static createWithFeatureValueWithDouble(_: number): MLFeatureValue;
-  static createWithFeatureValueWithImageAtURLConstraintWithOptionsWithError(constraint: URL, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithImageAtURLOrientationWithConstraintWithOptionsWithError(orientation: URL, constraint: CGImageProperties.CGImagePropertyOrientation, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithImageAtURLOrientationWithPixelsWideWithPixelsHighWithPixelFormatTypeWithOptionsWithError(orientation: URL, pixelsWide: CGImageProperties.CGImagePropertyOrientation, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithImageAtURLPixelsWideWithPixelsHighWithPixelFormatTypeWithOptionsWithError(pixelsWide: URL, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
-  static createWithFeatureValueWithInt64(_: number): MLFeatureValue;
-  static createWithFeatureValueWithMultiArray(_: MLMultiArray): MLFeatureValue;
-  static createWithFeatureValueWithPixelBuffer(_: any): MLFeatureValue;
-  static createWithFeatureValueWithSequence(_: MLSequence): MLFeatureValue;
-  static createWithFeatureValueWithString(_: string): MLFeatureValue;
+  static createWithConstraint_Options_Error(constraint: any, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
+  static createWithOrientation_Constraint_Options_Error(orientation: any, constraint: CGImageProperties.CGImagePropertyOrientation, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
+  static createWithOrientation_PixelsWide_PixelsHigh_PixelFormatType_Options_Error(orientation: any, pixelsWide: CGImageProperties.CGImagePropertyOrientation, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
+  static createWithPixelsWide_PixelsHigh_PixelFormatType_Options_Error(pixelsWide: any, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
+  static createWithError(error: Map<any, number>): MLFeatureValue;
+  static createWithConstraint_Options_Error(constraint: NSURL, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
+  static createWithOrientation_Constraint_Options_Error(orientation: NSURL, constraint: CGImageProperties.CGImagePropertyOrientation, options: MLImageConstraint, error?: Map<string, any>): MLFeatureValue;
+  static createWithOrientation_PixelsWide_PixelsHigh_PixelFormatType_Options_Error(orientation: NSURL, pixelsWide: CGImageProperties.CGImagePropertyOrientation, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
+  static createWithPixelsWide_PixelsHigh_PixelFormatType_Options_Error(pixelsWide: NSURL, pixelsHigh: number, pixelFormatType: number, options: number, error?: Map<string, any>): MLFeatureValue;
   dictionaryValue: Map<any, number>;
   doubleValue: number;
   imageBufferValue: any;
@@ -17981,8 +19222,11 @@ export class MLFeatureValue extends NSObject {
   stringValue: string;
   type: MLFeatureType.MLFeatureType;
   isUndefined: boolean;
-  isEqualToFeatureValue(_: MLFeatureValue): boolean;
+  // @ts-ignore 
+  isEqual(to: MLFeatureValue): boolean;
 }
+
+export function MLFeatureValue(args?: any): MLFeatureValue;
 
 export class MLImageConstraint extends NSObject {
   pixelFormatType: number;
@@ -17991,10 +19235,14 @@ export class MLImageConstraint extends NSObject {
   sizeConstraint: MLImageSizeConstraint;
 }
 
+export function MLImageConstraint(args?: any): MLImageConstraint;
+
 export class MLImageSize extends NSObject {
   pixelsHigh: number;
   pixelsWide: number;
 }
+
+export function MLImageSize(args?: any): MLImageSize;
 
 export class MLImageSizeConstraint extends NSObject {
   enumeratedImageSizes: MLImageSize[];
@@ -18003,10 +19251,14 @@ export class MLImageSizeConstraint extends NSObject {
   type: MLImageSizeConstraintType.MLImageSizeConstraintType;
 }
 
+export function MLImageSizeConstraint(args?: any): MLImageSizeConstraint;
+
 export class MLKey extends NSObject {
   name: string;
   scope: string;
 }
+
+export function MLKey(args?: any): MLKey;
 
 export class MLMetricKey extends MLKey {
   static epochIndex: MLMetricKey;
@@ -18014,10 +19266,12 @@ export class MLMetricKey extends MLKey {
   static miniBatchIndex: MLMetricKey;
 }
 
+export function MLMetricKey(args?: any): MLMetricKey;
+
 export class MLModel extends NSObject {
-  static compileModelAtURL(error: URL): URL;
-  static createWithModelWithContentsOfURLConfigurationWithError(configuration: URL, error: MLModelConfiguration): MLModel;
-  static createWithModelWithContentsOfURLError(error: URL): MLModel;
+  static compileModelAtURL(error: NSURL): NSURL;
+  static createWithConfiguration_Error(configuration: NSURL, error: MLModelConfiguration): MLModel;
+  static createWithError(error: NSURL): MLModel;
   configuration: MLModelConfiguration;
   modelDescription: MLModelDescription;
   parameterValueForKey(error: MLParameterKey): any;
@@ -18027,6 +19281,8 @@ export class MLModel extends NSObject {
   predictions(from: any, options: MLPredictionOptions): any;
 }
 
+export function MLModel(args?: any): MLModel;
+
 export class MLModelConfiguration extends NSObject {
   allowLowPrecisionAccumulationOnGPU: boolean;
   setAllowLowPrecisionAccumulationOnGPU(_: boolean);
@@ -18035,6 +19291,8 @@ export class MLModelConfiguration extends NSObject {
   preferredMetalDevice: any;
   setPreferredMetalDevice(_: any);
 }
+
+export function MLModelConfiguration(args?: any): MLModelConfiguration;
 
 export class MLModelDescription extends NSObject {
   inputDescriptionsByName: Map<string, MLFeatureDescription>;
@@ -18047,19 +19305,19 @@ export class MLModelDescription extends NSObject {
   trainingInputDescriptionsByName: Map<string, MLFeatureDescription>;
 }
 
+export function MLModelDescription(args?: any): MLModelDescription;
+
 export class MLMultiArray extends NSObject {
   count: number;
   dataPointer: any;
   dataType: MLMultiArray.MLMultiArrayDataType;
   shape: number[];
   strides: number[];
-  static createWithDataPointerWithShapeWithDataTypeWithStridesWithDeallocator(shape: any, dataType: number[], strides: MLMultiArray.MLMultiArrayDataType, deallocator: number[], error?: (p1: any) => void): MLMultiArray;
-  static createWithShapeWithDataType(dataType: number[], error: MLMultiArray.MLMultiArrayDataType): MLMultiArray;
-  objectAtIndexedSubscript(_: number): number;
-  objectForKeyedSubscript(_: number[]): number;
-  setObject(_: number, atIndexedSubscript: number): void;
-  setObject(_: number, forKeyedSubscript: number[]): void;
+  static createWithDataPointer_Shape_DataType_Strides_Deallocator(shape: any, dataType: number[], strides: MLMultiArray.MLMultiArrayDataType, deallocator: number[], error?: (p1: any) => void): MLMultiArray;
+  static createWithShape_DataType(dataType: number[], error: MLMultiArray.MLMultiArrayDataType): MLMultiArray;
 }
+
+export function MLMultiArray(args?: any): MLMultiArray;
 
 export class MLMultiArrayConstraint extends NSObject {
   dataType: MLMultiArray.MLMultiArrayDataType;
@@ -18067,11 +19325,15 @@ export class MLMultiArrayConstraint extends NSObject {
   shapeConstraint: MLMultiArrayShapeConstraint;
 }
 
+export function MLMultiArrayConstraint(args?: any): MLMultiArrayConstraint;
+
 export class MLMultiArrayShapeConstraint extends NSObject {
   enumeratedShapes: number[][];
   sizeRangeForDimension: NSValue[];
   type: MLMultiArrayShapeConstraintType.MLMultiArrayShapeConstraintType;
 }
+
+export function MLMultiArrayShapeConstraint(args?: any): MLMultiArrayShapeConstraint;
 
 export class MLNumericConstraint extends NSObject {
   enumeratedNumbers: Set<any>;
@@ -18079,11 +19341,15 @@ export class MLNumericConstraint extends NSObject {
   minNumber: number;
 }
 
+export function MLNumericConstraint(args?: any): MLNumericConstraint;
+
 export class MLParameterDescription extends NSObject {
   defaultValue: any;
   key: MLParameterKey;
   numericConstraint: MLNumericConstraint;
 }
+
+export function MLParameterDescription(args?: any): MLParameterDescription;
 
 export class MLParameterKey extends MLKey {
   static beta1: MLParameterKey;
@@ -18100,13 +19366,17 @@ export class MLParameterKey extends MLKey {
   static seed: MLParameterKey;
   static shuffle: MLParameterKey;
   static weights: MLParameterKey;
-  scopedTo(_: string): MLParameterKey;
+  scoped(to: string): MLParameterKey;
 }
+
+export function MLParameterKey(args?: any): MLParameterKey;
 
 export class MLPredictionOptions extends NSObject {
   usesCPUOnly: boolean;
   setUsesCPUOnly(_: boolean);
 }
+
+export function MLPredictionOptions(args?: any): MLPredictionOptions;
 
 export class MLSequence extends NSObject {
   int64Values: number[];
@@ -18114,18 +19384,24 @@ export class MLSequence extends NSObject {
   type: MLFeatureType.MLFeatureType;
 }
 
+export function MLSequence(args?: any): MLSequence;
+
 export class MLSequenceConstraint extends NSObject {
   countRange: NSRange;
   valueDescription: MLFeatureDescription;
 }
 
+export function MLSequenceConstraint(args?: any): MLSequenceConstraint;
+
 export class MLTask extends NSObject {
-  error: Error;
+  error: NSError;
   state: MLTask.MLTaskState;
   taskIdentifier: string;
   cancel(): void;
   resume(): void;
 }
+
+export function MLTask(args?: any): MLTask;
 
 export class MLUpdateContext extends NSObject {
   event: MLUpdateProgressEvent.MLUpdateProgressEvent;
@@ -18134,18 +19410,25 @@ export class MLUpdateContext extends NSObject {
   task: MLUpdateTask;
 }
 
+export function MLUpdateContext(args?: any): MLUpdateContext;
+
 export class MLUpdateProgressHandlers extends NSObject {
-  static createWithForEventsWithProgressHandlerWithCallback(_: MLUpdateProgressEvent.MLUpdateProgressEvent, progressHandler?: (p1: MLUpdateContext) => void, completionHandler?: (p1: MLUpdateContext) => void): MLUpdateProgressHandlers;
+  static createWithForEvents_ProgressHandler_Callback(_: MLUpdateProgressEvent.MLUpdateProgressEvent, progressHandler?: (p1: MLUpdateContext) => void, completionHandler?: (p1: MLUpdateContext) => void): MLUpdateProgressHandlers;
 }
+
+export function MLUpdateProgressHandlers(args?: any): MLUpdateProgressHandlers;
 
 export class MLUpdateTask extends MLTask {
-  static createWithUpdateTaskForModelAtURLTrainingDataWithConfigurationWithCallbackWithError(trainingData: URL, configuration: any, completionHandler?: MLModelConfiguration, error?: (p1: MLUpdateContext) => void): MLUpdateTask;
-  static createWithUpdateTaskForModelAtURLTrainingDataWithConfigurationWithProgressHandlersWithError(trainingData: URL, configuration: any, progressHandlers?: MLModelConfiguration, error?: MLUpdateProgressHandlers): MLUpdateTask;
-  resumeWithParameters(_: Map<MLParameterKey, any>): void;
+  static createWithTrainingData_Configuration_Callback_Error(trainingData: NSURL, configuration: any, completionHandler?: MLModelConfiguration, error?: (p1: MLUpdateContext) => void): MLUpdateTask;
+  static createWithTrainingData_Configuration_ProgressHandlers_Error(trainingData: NSURL, configuration: any, progressHandlers?: MLModelConfiguration, error?: MLUpdateProgressHandlers): MLUpdateTask;
+  // @ts-ignore 
+  resume(withParameters: Map<MLParameterKey, any>): void;
 }
 
+export function MLUpdateTask(args?: any): MLUpdateTask;
+
 interface MLWritable {
-  writeToURL(error: URL): boolean;
+  writeToURL(error: NSURL): boolean;
 }
 
 // export function CMAudioClockCreate(allocator: any, clockOut: any): number;
@@ -18804,16 +20087,22 @@ export class CMAccelerometerData extends CMLogItem {
   acceleration: CMAcceleration;
 }
 
+export function CMAccelerometerData(args?: any): CMAccelerometerData;
+
 export class CMAltimeter extends NSObject {
   static isRelativeAltitudeAvailable(): boolean;
-  startRelativeAltitudeUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMAltitudeData, p2: Error) => void): void;
+  startRelativeAltitudeUpdates(to: OperationQueue, withHandler: (p1: CMAltitudeData, p2: NSError) => void): void;
   stopRelativeAltitudeUpdates(): void;
 }
+
+export function CMAltimeter(args?: any): CMAltimeter;
 
 export class CMAltitudeData extends CMLogItem {
   pressure: number;
   relativeAltitude: number;
 }
+
+export function CMAltitudeData(args?: any): CMAltitudeData;
 
 export class CMAttitude extends NSObject {
   pitch: number;
@@ -18821,8 +20110,10 @@ export class CMAttitude extends NSObject {
   roll: number;
   rotationMatrix: CMRotationMatrix;
   yaw: number;
-  multiplyByInverseOfAttitude(_: CMAttitude): void;
+  multiply(byInverseOf: CMAttitude): void;
 }
+
+export function CMAttitude(args?: any): CMAttitude;
 
 export class CMDeviceMotion extends CMLogItem {
   attitude: CMAttitude;
@@ -18833,6 +20124,8 @@ export class CMDeviceMotion extends CMLogItem {
   userAcceleration: CMAcceleration;
 }
 
+export function CMDeviceMotion(args?: any): CMDeviceMotion;
+
 export class CMDyskineticSymptomResult extends NSObject {
   endDate: Date;
   percentLikely: number;
@@ -18840,17 +20133,25 @@ export class CMDyskineticSymptomResult extends NSObject {
   startDate: Date;
 }
 
+export function CMDyskineticSymptomResult(args?: any): CMDyskineticSymptomResult;
+
 export class CMGyroData extends CMLogItem {
   rotationRate: CMRotationRate;
 }
+
+export function CMGyroData(args?: any): CMGyroData;
 
 export class CMLogItem extends NSObject {
   timestamp: number;
 }
 
+export function CMLogItem(args?: any): CMLogItem;
+
 export class CMMagnetometerData extends CMLogItem {
   magneticField: CMMagneticField;
 }
+
+export function CMMagnetometerData(args?: any): CMMagnetometerData;
 
 export class CMMotionActivity extends CMLogItem {
   automotive: boolean;
@@ -18862,12 +20163,16 @@ export class CMMotionActivity extends CMLogItem {
   walking: boolean;
 }
 
+export function CMMotionActivity(args?: any): CMMotionActivity;
+
 export class CMMotionActivityManager extends NSObject {
   static isActivityAvailable(): boolean;
-  queryActivityStartingFromDate(_: Date, toDate: Date, toQueue: OperationQueue, withHandler: (p1: CMMotionActivity[], p2: Error) => void): void;
-  startActivityUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMMotionActivity) => void): void;
+  queryActivityStarting(from: Date, to: Date, to2: OperationQueue, withHandler: (p1: CMMotionActivity[], p2: NSError) => void): void;
+  startActivityUpdates(to: OperationQueue, withHandler: (p1: CMMotionActivity) => void): void;
   stopActivityUpdates(): void;
 }
+
+export function CMMotionActivityManager(args?: any): CMMotionActivityManager;
 
 export class CMMotionManager extends NSObject {
   isAccelerometerActive: boolean;
@@ -18886,35 +20191,41 @@ export class CMMotionManager extends NSObject {
   gyroUpdateInterval: number;
   setGyroUpdateInterval(_: number);
   startAccelerometerUpdates(): void;
-  startAccelerometerUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMAccelerometerData, p2: Error) => void): void;
+  startAccelerometerUpdates(to: OperationQueue, withHandler: (p1: CMAccelerometerData, p2: NSError) => void): void;
   startDeviceMotionUpdates(): void;
-  startDeviceMotionUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMDeviceMotion, p2: Error) => void): void;
+  startDeviceMotionUpdates(to: OperationQueue, withHandler: (p1: CMDeviceMotion, p2: NSError) => void): void;
   startGyroUpdates(): void;
-  startGyroUpdatesToQueue(_: OperationQueue, withHandler: (p1: CMGyroData, p2: Error) => void): void;
+  startGyroUpdates(to: OperationQueue, withHandler: (p1: CMGyroData, p2: NSError) => void): void;
   stopAccelerometerUpdates(): void;
   stopDeviceMotionUpdates(): void;
   stopGyroUpdates(): void;
 }
+
+export function CMMotionManager(args?: any): CMMotionManager;
 
 export class CMMovementDisorderManager extends NSObject {
   static authorizationStatus(): CMAuthorization.CMAuthorizationStatus;
   static isAvailable(): boolean;
   lastProcessedDate(): Date;
   monitorKinesiasExpirationDate(): Date;
-  monitorKinesiasForDuration(_: number): void;
-  queryDyskineticSymptomFromDate(_: Date, toDate: Date, withHandler: (p1: CMDyskineticSymptomResult[], p2: Error) => void): void;
-  queryTremorFromDate(_: Date, toDate: Date, withHandler: (p1: CMTremorResult[], p2: Error) => void): void;
+  monitorKinesias(forDuration: number): void;
+  queryDyskineticSymptom(from: Date, to: Date, withHandler: (p1: CMDyskineticSymptomResult[], p2: NSError) => void): void;
+  queryTremor(from: Date, to: Date, withHandler: (p1: CMTremorResult[], p2: NSError) => void): void;
 }
+
+export function CMMovementDisorderManager(args?: any): CMMovementDisorderManager;
 
 export class CMPedometer extends NSObject {
   static isDistanceAvailable(): boolean;
   static isFloorCountingAvailable(): boolean;
   static isPaceAvailable(): boolean;
   static isStepCountingAvailable(): boolean;
-  queryPedometerDataFromDate(_: Date, toDate: Date, withHandler: (p1: CMPedometerData, p2: Error) => void): void;
-  startPedometerUpdatesFromDate(_: Date, withHandler: (p1: CMPedometerData, p2: Error) => void): void;
-  stopPedometerUpdates(): void;
+  queryPedometerData(from: Date, to: Date, withHandler: (p1: CMPedometerData, p2: NSError) => void): void;
+  startUpdates(from: Date, withHandler: (p1: CMPedometerData, p2: NSError) => void): void;
+  stopUpdates(): void;
 }
+
+export function CMPedometer(args?: any): CMPedometer;
 
 export class CMPedometerData extends NSObject {
   averageActivePace: number;
@@ -18928,32 +20239,44 @@ export class CMPedometerData extends NSObject {
   startDate: Date;
 }
 
+export function CMPedometerData(args?: any): CMPedometerData;
+
 export class CMPedometerEvent extends NSObject {
   date: Date;
   type: CMPedometer.CMPedometerEventType;
 }
+
+export function CMPedometerEvent(args?: any): CMPedometerEvent;
 
 export class CMRecordedAccelerometerData extends CMAccelerometerData {
   identifier: number;
   startDate: Date;
 }
 
+export function CMRecordedAccelerometerData(args?: any): CMRecordedAccelerometerData;
+
 export class CMSensorDataList extends NSObject {
 }
+
+export function CMSensorDataList(args?: any): CMSensorDataList;
 
 export class CMSensorRecorder extends NSObject {
   static isAccelerometerRecordingAvailable(): boolean;
   static isAuthorizedForRecording(): boolean;
-  accelerometerDataFromDate(_: Date, toDate: Date): CMSensorDataList;
-  recordAccelerometerForDuration(_: number): void;
+  accelerometerData(from: Date, to: Date): CMSensorDataList;
+  recordAccelerometer(forDuration: number): void;
 }
+
+export function CMSensorRecorder(args?: any): CMSensorRecorder;
 
 export class CMStepCounter extends NSObject {
   static isStepCountingAvailable(): boolean;
-  queryStepCountStartingFrom(_: Date, to: Date, toQueue: OperationQueue, withHandler: (p1: number, p2: Error) => void): void;
-  startStepCountingUpdatesToQueue(_: OperationQueue, updateOn: number, withHandler: (p1: number, p2: Date, p3: Error) => void): void;
+  queryStepCountStarting(from: Date, to: Date, to2: OperationQueue, withHandler: (p1: number, p2: NSError) => void): void;
+  startStepCountingUpdates(to: OperationQueue, updateOn: number, withHandler: (p1: number, p2: Date, p3: NSError) => void): void;
   stopStepCountingUpdates(): void;
 }
+
+export function CMStepCounter(args?: any): CMStepCounter;
 
 export class CMTremorResult extends NSObject {
   endDate: Date;
@@ -18965,6 +20288,8 @@ export class CMTremorResult extends NSObject {
   percentUnknown: number;
   startDate: Date;
 }
+
+export function CMTremorResult(args?: any): CMTremorResult;
 
 // export function AECallObjectAccessor(desiredClass: number, containerToken: AEDesc, containerClass: number, keyForm: number, keyData: AEDesc, token: AEDesc): number;
 
@@ -18986,7 +20311,7 @@ export class CMTremorResult extends NSObject {
 
 // export function AECreateList(factoringPtr: any, factoredSize: number, isRecord: boolean, resultList: AEDesc): number;
 
-// export function AECreateRemoteProcessResolver(allocator: any, url: URL): any;
+// export function AECreateRemoteProcessResolver(allocator: any, url: NSURL): any;
 
 // export function AEDecodeMessage(header: mach_msg_header_t, event: AEDesc, reply: AEDesc): number;
 
@@ -19130,15 +20455,15 @@ export class CMTremorResult extends NSObject {
 
 // export function AEUnflattenDesc(buffer: any, result: AEDesc): number;
 
-// export function CSBackupIsItemExcluded(item: URL, excludeByPath: string | any): boolean;
+// export function CSBackupIsItemExcluded(item: NSURL, excludeByPath: string | any): boolean;
 
-// export function CSBackupSetItemExcluded(item: URL, exclude: boolean, excludeByPath: boolean): number;
+// export function CSBackupSetItemExcluded(item: NSURL, exclude: boolean, excludeByPath: boolean): number;
 
 // export function CSDiskSpaceCancelRecovery(operationUUID: any): void;
 
-// export function CSDiskSpaceGetRecoveryEstimate(volumeURL: URL): number;
+// export function CSDiskSpaceGetRecoveryEstimate(volumeURL: NSURL): number;
 
-// export function CSDiskSpaceStartRecovery(volumeURL: URL, bytesNeeded: number, options: number, outOperationUUID: any, callbackQueue: NSObject, callback: (p1: boolean, p2: number, p3: Error) => void): void;
+// export function CSDiskSpaceStartRecovery(volumeURL: NSURL, bytesNeeded: number, options: number, outOperationUUID: any, callbackQueue: NSObject, callback: (p1: boolean, p2: number, p3: NSError) => void): void;
 
 // export function CSGetDefaultIdentityAuthority(): any;
 
@@ -19156,7 +20481,7 @@ export class CMTremorResult extends NSObject {
 
 // export function CSIdentityAuthorityGetTypeID(): number;
 
-// export function CSIdentityCommit(identity: any, authorization: any, error: Error): boolean;
+// export function CSIdentityCommit(identity: any, authorization: any, error: NSError): boolean;
 
 // export function CSIdentityCommitAsynchronously(identity: any, clientContext: CSIdentityClientContext, runLoop: any, runLoopMode: string, authorization: any): boolean;
 
@@ -19218,7 +20543,7 @@ export class CMTremorResult extends NSObject {
 
 // export function CSIdentityQueryCreateForUUID(allocator: any, uuid: any, authority: any): any;
 
-// export function CSIdentityQueryExecute(query: any, flags: number, error: Error): boolean;
+// export function CSIdentityQueryExecute(query: any, flags: number, error: NSError): boolean;
 
 // export function CSIdentityQueryExecuteAsynchronously(query: any, flags: number, clientContext: CSIdentityQueryClientContext, runLoop: any, runLoopMode: string): boolean;
 
@@ -19240,7 +20565,7 @@ export class CMTremorResult extends NSObject {
 
 // export function CSIdentitySetImageData(identity: any, imageData: NSData, imageDataType: string): void;
 
-// export function CSIdentitySetImageURL(identity: any, url: URL): void;
+// export function CSIdentitySetImageURL(identity: any, url: NSURL): void;
 
 // export function CSIdentitySetIsEnabled(user: any, isEnabled: boolean): void;
 
@@ -19412,25 +20737,25 @@ export class CMTremorResult extends NSObject {
 
 // export function InvokeUnicodeToTextFallbackUPP(iSrcUniStr: number, iSrcUniStrLen: number, oSrcConvLen: number, oDestStr: string | any, iDestStrLen: number, oDestConvLen: number, iInfoPtr: any, iUnicodeMappingPtr: UnicodeMapping, userUPP: (p1: number, p2: number, p3: number, p4: string, p5: number, p6: number, p7: any, p8: UnicodeMapping) => number): number;
 
-// export function LSCanURLAcceptURL(inItemURL: URL, inTargetURL: URL, inRoleMask: LSInfo.LSRolesMask, inFlags: LSInfo.LSAcceptanceFlags, outAcceptsItem: string | any): number;
+// export function LSCanURLAcceptURL(inItemURL: NSURL, inTargetURL: NSURL, inRoleMask: LSInfo.LSRolesMask, inFlags: LSInfo.LSAcceptanceFlags, outAcceptsItem: string | any): number;
 
 // export function LSCopyAllRoleHandlersForContentType(inContentType: string, inRole: LSInfo.LSRolesMask): any[];
 
-// export function LSCopyApplicationURLsForBundleIdentifier(inBundleIdentifier: string, outError: Error): any[];
+// export function LSCopyApplicationURLsForBundleIdentifier(inBundleIdentifier: string, outError: NSError): any[];
 
-// export function LSCopyApplicationURLsForURL(inURL: URL, inRoleMask: LSInfo.LSRolesMask): any[];
+// export function LSCopyApplicationURLsForURL(inURL: NSURL, inRoleMask: LSInfo.LSRolesMask): any[];
 
-// export function LSCopyDefaultApplicationURLForContentType(inContentType: string, inRoleMask: LSInfo.LSRolesMask, outError: Error): URL;
+// export function LSCopyDefaultApplicationURLForContentType(inContentType: string, inRoleMask: LSInfo.LSRolesMask, outError: NSError): URL;
 
-// export function LSCopyDefaultApplicationURLForURL(inURL: URL, inRoleMask: LSInfo.LSRolesMask, outError: Error): URL;
+// export function LSCopyDefaultApplicationURLForURL(inURL: NSURL, inRoleMask: LSInfo.LSRolesMask, outError: NSError): URL;
 
 // export function LSCopyDefaultRoleHandlerForContentType(inContentType: string, inRole: LSInfo.LSRolesMask): string;
 
-// export function LSOpenCFURLRef(inURL: URL, outLaunchedURL: URL): number;
+// export function LSOpenCFURLRef(inURL: NSURL, outLaunchedURL: NSURL): number;
 
-// export function LSOpenFromURLSpec(inLaunchSpec: LSLaunchURLSpec, outLaunchedURL: URL): number;
+// export function LSOpenFromURLSpec(inLaunchSpec: LSLaunchURLSpec, outLaunchedURL: NSURL): number;
 
-// export function LSRegisterURL(inURL: URL, inUpdate: boolean): number;
+// export function LSRegisterURL(inURL: NSURL, inUpdate: boolean): number;
 
 // export function LSSetDefaultHandlerForURLScheme(inURLScheme: string, inHandlerBundleID: string): number;
 
@@ -19472,7 +20797,7 @@ export class CMTremorResult extends NSObject {
 
 // export function MDItemCreate(allocator: any, path: string): any;
 
-// export function MDItemCreateWithURL(allocator: any, url: URL): any;
+// export function MDItemCreateWithURL(allocator: any, url: NSURL): any;
 
 // export function MDItemGetTypeID(): number;
 
@@ -19660,7 +20985,7 @@ export class CMTremorResult extends NSObject {
 
 // export function SKDocumentCreate(inScheme: string, inParent: any, inName: string): any;
 
-// export function SKDocumentCreateWithURL(inURL: URL): any;
+// export function SKDocumentCreateWithURL(inURL: NSURL): any;
 
 // export function SKDocumentGetName(inDocument: any): string;
 
@@ -19686,7 +21011,7 @@ export class CMTremorResult extends NSObject {
 
 // export function SKIndexCopyDocumentRefsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentRefsArray: any): void;
 
-// export function SKIndexCopyDocumentURLsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentURLsArray: URL): void;
+// export function SKIndexCopyDocumentURLsForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outDocumentURLsArray: NSURL): void;
 
 // export function SKIndexCopyInfoForDocumentIDs(inIndex: any, inCount: number, inDocumentIDsArray: number, outNamesArray: string, outParentIDsArray: number): void;
 
@@ -19696,7 +21021,7 @@ export class CMTremorResult extends NSObject {
 
 // export function SKIndexCreateWithMutableData(inData: NSData, inIndexName: string, inIndexType: SKIndex.SKIndexType, inAnalysisProperties: Map<any, any>): any;
 
-// export function SKIndexCreateWithURL(inURL: URL, inIndexName: string, inIndexType: SKIndex.SKIndexType, inAnalysisProperties: Map<any, any>): any;
+// export function SKIndexCreateWithURL(inURL: NSURL, inIndexName: string, inIndexType: SKIndex.SKIndexType, inAnalysisProperties: Map<any, any>): any;
 
 // export function SKIndexDocumentIteratorCopyNext(inIterator: any): any;
 
@@ -19738,7 +21063,7 @@ export class CMTremorResult extends NSObject {
 
 // export function SKIndexOpenWithMutableData(inData: NSData, inIndexName: string): any;
 
-// export function SKIndexOpenWithURL(inURL: URL, inIndexName: string, inWriteAccess: boolean): any;
+// export function SKIndexOpenWithURL(inURL: NSURL, inIndexName: string, inWriteAccess: boolean): any;
 
 // export function SKIndexRemoveDocument(inIndex: any, inDocument: any): boolean;
 
@@ -19989,21 +21314,27 @@ export class CSCustomAttributeKey extends NSObject {
   isSearchableByDefault: boolean;
   isUnique: boolean;
   static createWithKeyName(_: string): CSCustomAttributeKey;
-  static createWithKeyNameWithSearchableWithSearchableByDefaultWithUniqueWithMultiValued(_: string, searchable: boolean, searchableByDefault: boolean, unique: boolean, multiValued: boolean): CSCustomAttributeKey;
+  static createWithKeyName_Searchable_SearchableByDefault_Unique_MultiValued(_: string, searchable: boolean, searchableByDefault: boolean, unique: boolean, multiValued: boolean): CSCustomAttributeKey;
 }
+
+export function CSCustomAttributeKey(args?: any): CSCustomAttributeKey;
 
 export class CSIndexExtensionRequestHandler extends NSObject {
 }
 
+export function CSIndexExtensionRequestHandler(args?: any): CSIndexExtensionRequestHandler;
+
 export class CSLocalizedString extends NSString {
-  //  static createWithObjectWithItemProviderDataTypeIdentifierWithError(typeIdentifier: NSData, error: string): CSLocalizedString;
-  //  static createWithContentsOfFileEncodingWithError(encoding: string, error: number): CSLocalizedString;
-  //  static createWithContentsOfFileUsedEncodingWithError(usedEncoding: string, error?: number): CSLocalizedString;
-  //  static createWithContentsOfURLEncodingWithError(encoding: URL, error: number): CSLocalizedString;
-  //  static createWithContentsOfURLUsedEncodingWithError(usedEncoding: URL, error?: number): CSLocalizedString;
+  //  static createWithTypeIdentifier_Error(typeIdentifier: NSData, error: string): CSLocalizedString;
+  //  static createWithEncoding_Error(encoding: string, error: number): CSLocalizedString;
+  //  static createWithUsedEncoding_Error(usedEncoding: string, error?: number): CSLocalizedString;
+  //  static createWithEncoding_Error(encoding: NSURL, error: number): CSLocalizedString;
+  //  static createWithUsedEncoding_Error(usedEncoding: NSURL, error?: number): CSLocalizedString;
   static createWithLocalizedStrings(_: Map<any, any>): CSLocalizedString;
   localizedString(): string;
 }
+
+export function CSLocalizedString(args?: any): CSLocalizedString;
 
 export class CSPerson extends NSObject {
   contactIdentifier: string;
@@ -20011,42 +21342,48 @@ export class CSPerson extends NSObject {
   displayName: string;
   handleIdentifier: string;
   handles: string[];
-  static createWithDisplayNameWithHandlesWithHandleIdentifier(_?: string, handles?: string[], handleIdentifier?: string): CSPerson;
+  static createWithDisplayName_Handles_HandleIdentifier(_?: string, handles?: string[], handleIdentifier?: string): CSPerson;
 }
+
+export function CSPerson(args?: any): CSPerson;
 
 export class CSSearchQuery extends NSObject {
   isCancelled: boolean;
-  completionHandler: (p1: Error) => void;
-  setCompletionHandler(_: (p1: Error) => void);
+  completionHandler: (p1: NSError) => void;
+  setCompletionHandler(_: (p1: NSError) => void);
   foundItemCount: number;
   foundItemsHandler: (p1: CSSearchableItem[]) => void;
   setFoundItemsHandler(_: (p1: CSSearchableItem[]) => void);
   protectionClasses: string[];
   setProtectionClasses(_: string[]);
   cancel(): void;
-  static createWithQueryStringWithAttributes(_: string, attributes?: string[]): CSSearchQuery;
+  static createWithQueryString_Attributes(_: string, attributes?: string[]): CSSearchQuery;
   start(): void;
 }
+
+export function CSSearchQuery(args?: any): CSSearchQuery;
 
 export class CSSearchableIndex extends NSObject {
   static createWithDefaultSearchableIndex(): CSSearchableIndex;
   static isIndexingAvailable(): boolean;
   indexDelegate: any;
   setIndexDelegate(_: any);
-  beginIndexBatch(): void;
-  deleteAllSearchableItemsWithCompletionHandler(_?: (p1: Error) => void): void;
-  deleteSearchableItemsWithDomainIdentifiers(_: string[], completionHandler?: (p1: Error) => void): void;
-  deleteSearchableItemsWithIdentifiers(_: string[], completionHandler?: (p1: Error) => void): void;
-  endIndexBatchWithClientState(_: NSData, completionHandler?: (p1: Error) => void): void;
-  fetchLastClientStateWithCompletionHandler(_?: (p1: NSData, p2: Error) => void): void;
-  indexSearchableItems(_: CSSearchableItem[], completionHandler?: (p1: Error) => void): void;
+  beginBatch(): void;
+  deleteAllSearchableItems(completionHandler?: (p1: NSError) => void): void;
+  deleteSearchableItems(withDomainIdentifiers: string[], completionHandler?: (p1: NSError) => void): void;
+  deleteSearchableItems(withIdentifiers: string[], completionHandler?: (p1: NSError) => void): void;
+  endBatch(withClientState: NSData, completionHandler?: (p1: NSError) => void): void;
+  fetchLastClientState(completionHandler?: (p1: NSData, p2: NSError) => void): void;
+  indexSearchableItems(_: CSSearchableItem[], completionHandler?: (p1: NSError) => void): void;
   static createWithName(_: string): CSSearchableIndex;
-  static createWithNameWithProtectionClass(_: string, protectionClass?: string): CSSearchableIndex;
+  static createWithName_ProtectionClass(_: string, protectionClass?: string): CSSearchableIndex;
 }
+
+export function CSSearchableIndex(args?: any): CSSearchableIndex;
 
 interface CSSearchableIndexDelegate {
   dataForSearchableIndex(itemIdentifier: CSSearchableIndex, typeIdentifier: string, error: string): NSData;
-  fileURLForSearchableIndex(itemIdentifier: CSSearchableIndex, typeIdentifier: string, inPlace: string, error: boolean): URL;
+  fileURLForSearchableIndex(itemIdentifier: CSSearchableIndex, typeIdentifier: string, inPlace: string, error: boolean): NSURL;
   searchableIndex(_: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler: () => void): void;
   searchableIndex(_: CSSearchableIndex, reindexSearchableItemsWithIdentifiers: string[], acknowledgementHandler: () => void): void;
   searchableIndexDidFinishThrottle(_: CSSearchableIndex): void;
@@ -20062,8 +21399,10 @@ export class CSSearchableItem extends NSObject {
   setExpirationDate(_: Date);
   uniqueIdentifier: string;
   setUniqueIdentifier(_: string);
-  static createWithUniqueIdentifierWithDomainIdentifierWithAttributeSet(_?: string, domainIdentifier?: string, attributeSet?: CSSearchableItemAttributeSet): CSSearchableItem;
+  static createWithUniqueIdentifier_DomainIdentifier_AttributeSet(_?: string, domainIdentifier?: string, attributeSet?: CSSearchableItemAttributeSet): CSSearchableItem;
 }
+
+export function CSSearchableItem(args?: any): CSSearchableItem;
 
 export class CSSearchableItemAttributeSet extends NSObject {
   EXIFGPSVersion: string;
@@ -20100,8 +21439,8 @@ export class CSSearchableItemAttributeSet extends NSObject {
   setHTMLContentData(_: NSData);
   ISOSpeed: number;
   setISOSpeed(_: number);
-  URL: URL;
-  setURL(_: URL);
+  URL: NSURL;
+  setURL(_: NSURL);
   accountHandles: string[];
   setAccountHandles(_: string[]);
   accountIdentifier: string;
@@ -20186,8 +21525,8 @@ export class CSSearchableItemAttributeSet extends NSObject {
   setContentType(_: string);
   contentTypeTree: string[];
   setContentTypeTree(_: string[]);
-  contentURL: URL;
-  setContentURL(_: URL);
+  contentURL: NSURL;
+  setContentURL(_: NSURL);
   contributors: string[];
   setContributors(_: string[]);
   copyright: string;
@@ -20410,8 +21749,8 @@ export class CSSearchableItemAttributeSet extends NSObject {
   setThoroughfare(_: string);
   thumbnailData: NSData;
   setThumbnailData(_: NSData);
-  thumbnailURL: URL;
-  setThumbnailURL(_: URL);
+  thumbnailURL: NSURL;
+  setThumbnailURL(_: NSURL);
   timeSignature: string;
   setTimeSignature(_: string);
   timestamp: Date;
@@ -20435,8 +21774,11 @@ export class CSSearchableItemAttributeSet extends NSObject {
   static createWithItemContentType(_: string): CSSearchableItemAttributeSet;
   // @ts-ignore 
   setValue(_?: any, forCustomKey?: CSCustomAttributeKey): void;
-  valueForCustomKey(_: CSCustomAttributeKey): any;
+  // @ts-ignore 
+  value(forCustomKey: CSCustomAttributeKey): any;
 }
+
+export function CSSearchableItemAttributeSet(args?: any): CSSearchableItemAttributeSet;
 
 // export function CTFontCollectionCopyExclusionDescriptors(collection: NSFontCollection): any[];
 
@@ -20624,7 +21966,7 @@ export class CSSearchableItemAttributeSet extends NSObject {
 
 // export function CTFontManagerCreateFontDescriptorsFromData(data: NSData): any[];
 
-// export function CTFontManagerCreateFontDescriptorsFromURL(fileURL: URL): any[];
+// export function CTFontManagerCreateFontDescriptorsFromURL(fileURL: NSURL): any[];
 
 // export function CTFontManagerCreateFontRequestRunLoopSource(sourceOrder: number, createMatchesCallback: (p1: Map<any, any>, p2: number) => any[]): any;
 
@@ -20632,19 +21974,19 @@ export class CSSearchableItemAttributeSet extends NSObject {
 
 // export function CTFontManagerGetAutoActivationSetting(bundleIdentifier: string): CTFontManager.CTFontManagerAutoActivationSetting;
 
-// export function CTFontManagerGetScopeForURL(fontURL: URL): CTFontManager.CTFontManagerScope;
+// export function CTFontManagerGetScopeForURL(fontURL: NSURL): CTFontManager.CTFontManagerScope;
 
-// export function CTFontManagerIsSupportedFont(fontURL: URL): boolean;
+// export function CTFontManagerIsSupportedFont(fontURL: NSURL): boolean;
 
 // export function CTFontManagerRegisterFontDescriptors(fontDescriptors: any[], scope: CTFontManager.CTFontManagerScope, enabled: boolean, registrationHandler: (p1: any[], p2: boolean) => boolean): void;
 
 // export function CTFontManagerRegisterFontURLs(fontURLs: any[], scope: CTFontManager.CTFontManagerScope, enabled: boolean, registrationHandler: (p1: any[], p2: boolean) => boolean): void;
 
-// export function CTFontManagerRegisterFontsForURL(fontURL: URL, scope: CTFontManager.CTFontManagerScope, error: Error): boolean;
+// export function CTFontManagerRegisterFontsForURL(fontURL: NSURL, scope: CTFontManager.CTFontManagerScope, error: NSError): boolean;
 
 // export function CTFontManagerRegisterFontsWithAssetNames(fontAssetNames: any[], bundle: any, scope: CTFontManager.CTFontManagerScope, enabled: boolean, registrationHandler: (p1: any[], p2: boolean) => boolean): void;
 
-// export function CTFontManagerRegisterGraphicsFont(font: any, error: Error): boolean;
+// export function CTFontManagerRegisterGraphicsFont(font: any, error: NSError): boolean;
 
 // export function CTFontManagerRequestFonts(fontDescriptors: any[], completionHandler: (p1: any[]) => void): void;
 
@@ -20654,9 +21996,9 @@ export class CSSearchableItemAttributeSet extends NSObject {
 
 // export function CTFontManagerUnregisterFontURLs(fontURLs: any[], scope: CTFontManager.CTFontManagerScope, registrationHandler: (p1: any[], p2: boolean) => boolean): void;
 
-// export function CTFontManagerUnregisterFontsForURL(fontURL: URL, scope: CTFontManager.CTFontManagerScope, error: Error): boolean;
+// export function CTFontManagerUnregisterFontsForURL(fontURL: NSURL, scope: CTFontManager.CTFontManagerScope, error: NSError): boolean;
 
-// export function CTFontManagerUnregisterGraphicsFont(font: any, error: Error): boolean;
+// export function CTFontManagerUnregisterGraphicsFont(font: any, error: NSError): boolean;
 
 // export function CTFrameDraw(frame: any, context: any): void;
 
@@ -21012,32 +22354,36 @@ export class CWChannel extends NSObject {
   channelBand: CoreWLANTypes.CWChannelBand;
   channelNumber: number;
   channelWidth: CoreWLANTypes.CWChannelWidth;
-  isEqualToChannel(_: CWChannel): boolean;
+  // @ts-ignore 
+  isEqual(to: CWChannel): boolean;
 }
 
+export function CWChannel(args?: any): CWChannel;
+
 export class CWConfiguration extends NSObject {
-  static createWithConfiguration(): CWConfiguration;
-  static createWithConfigurationWithConfiguration(_: CWConfiguration): CWConfiguration;
   networkProfiles: NSOrderedSet<any>;
   rememberJoinedNetworks: boolean;
   requireAdministratorForAssociation: boolean;
   requireAdministratorForIBSSMode: boolean;
   requireAdministratorForPower: boolean;
   static createWithConfiguration(_: CWConfiguration): CWConfiguration;
-  isEqualToConfiguration(_: CWConfiguration): boolean;
+  // @ts-ignore 
+  isEqual(to: CWConfiguration): boolean;
 }
 
+export function CWConfiguration(args?: any): CWConfiguration;
+
 interface CWEventDelegate {
-  bssidDidChangeForWiFiInterfaceWithName(_: string): void;
+  bssidDidChangeForWiFiInterface(withName: string): void;
   clientConnectionInterrupted(): void;
   clientConnectionInvalidated(): void;
-  countryCodeDidChangeForWiFiInterfaceWithName(_: string): void;
-  linkDidChangeForWiFiInterfaceWithName(_: string): void;
-  linkQualityDidChangeForWiFiInterfaceWithName(_: string, rssi: number, transmitRate: number): void;
-  modeDidChangeForWiFiInterfaceWithName(_: string): void;
-  powerStateDidChangeForWiFiInterfaceWithName(_: string): void;
-  scanCacheUpdatedForWiFiInterfaceWithName(_: string): void;
-  ssidDidChangeForWiFiInterfaceWithName(_: string): void;
+  countryCodeDidChangeForWiFiInterface(withName: string): void;
+  linkDidChangeForWiFiInterface(withName: string): void;
+  linkQualityDidChangeForWiFiInterface(withName: string, rssi: number, transmitRate: number): void;
+  modeDidChangeForWiFiInterface(withName: string): void;
+  powerStateDidChangeForWiFiInterface(withName: string): void;
+  scanCacheUpdatedForWiFiInterface(withName: string): void;
+  ssidDidChangeForWiFiInterface(withName: string): void;
 }
 
 export class CWInterface extends NSObject {
@@ -21075,6 +22421,8 @@ export class CWInterface extends NSObject {
   wlanChannel(): CWChannel;
 }
 
+export function CWInterface(args?: any): CWInterface;
+
 // export function CWKeychainCopyEAPIdentityList(list: any[]): number;
 
 // export function CWKeychainCopyWiFiEAPIdentity(domain: CoreWLANTypes.CWKeychainDomain, ssid: NSData, identity: any): number;
@@ -21096,28 +22444,26 @@ export class CWInterface extends NSObject {
 // export function CWMergeNetworks(networks: Set<any>): Set<any>;
 
 export class CWMutableConfiguration extends CWConfiguration {
-  //  static createWithConfiguration(): CWMutableConfiguration;
-  //  static createWithConfigurationWithConfiguration(_: CWConfiguration): CWMutableConfiguration;
   networkProfiles: NSOrderedSet<any>;
   setNetworkProfiles(_: NSOrderedSet<any>);
   rememberJoinedNetworks: boolean;
   setRememberJoinedNetworks(_: boolean);
   requireAdministratorForAssociation: boolean;
   setRequireAdministratorForAssociation(_: boolean);
-  requireAdministratorForIBSSMode: boolean;
-  setRequireAdministratorForIBSSMode(_: boolean);
   requireAdministratorForPower: boolean;
   setRequireAdministratorForPower(_: boolean);
 }
 
+export function CWMutableConfiguration(args?: any): CWMutableConfiguration;
+
 export class CWMutableNetworkProfile extends CWNetworkProfile {
-  //  static createWithNetworkProfile(): CWMutableNetworkProfile;
-  //  static createWithNetworkProfileWithNetworkProfile(_: CWNetworkProfile): CWMutableNetworkProfile;
   security: CoreWLANTypes.CWSecurity;
   setSecurity(_: CoreWLANTypes.CWSecurity);
   ssidData: NSData;
   setSsidData(_: NSData);
 }
+
+export function CWMutableNetworkProfile(args?: any): CWMutableNetworkProfile;
 
 export class CWNetwork extends NSObject {
   beaconInterval: number;
@@ -21130,33 +22476,300 @@ export class CWNetwork extends NSObject {
   ssid: string;
   ssidData: NSData;
   wlanChannel: CWChannel;
-  isEqualToNetwork(_: CWNetwork): boolean;
+  // @ts-ignore 
+  isEqual(to: CWNetwork): boolean;
   supportsPHYMode(_: CoreWLANTypes.CWPHYMode): boolean;
   supportsSecurity(_: CoreWLANTypes.CWSecurity): boolean;
 }
 
+export function CWNetwork(args?: any): CWNetwork;
+
 export class CWNetworkProfile extends NSObject {
-  static createWithNetworkProfile(): CWNetworkProfile;
-  static createWithNetworkProfileWithNetworkProfile(_: CWNetworkProfile): CWNetworkProfile;
   security: CoreWLANTypes.CWSecurity;
   ssid: string;
   ssidData: NSData;
   static createWithNetworkProfile(_: CWNetworkProfile): CWNetworkProfile;
-  isEqualToNetworkProfile(_: CWNetworkProfile): boolean;
+  // @ts-ignore 
+  isEqual(to: CWNetworkProfile): boolean;
 }
+
+export function CWNetworkProfile(args?: any): CWNetworkProfile;
 
 export class CWWiFiClient extends NSObject {
   static interfaceNames(): string[];
-  static sharedWiFiClient(): CWWiFiClient;
+  static shared(): CWWiFiClient;
   delegate: any;
   setDelegate(_: any);
   interface(): CWInterface;
-  interfaceWithName(_?: string): CWInterface;
+  interface(withName?: string): CWInterface;
   interfaces(): CWInterface[];
   startMonitoringEventWithType(error: CoreWLANTypes.CWEventType): boolean;
   stopMonitoringAllEventsAndReturnError(): boolean;
   stopMonitoringEventWithType(error: CoreWLANTypes.CWEventType): boolean;
 }
+
+export function CWWiFiClient(args?: any): CWWiFiClient;
+
+// export function DispatchGroup.init(): NSObject;
+
+interface OS_dispatch_data {
+}
+
+interface OS_dispatch_group {
+}
+
+interface OS_dispatch_io {
+}
+
+interface OS_dispatch_object {
+}
+
+interface OS_dispatch_queue {
+}
+
+interface OS_dispatch_queue_attr {
+}
+
+interface OS_dispatch_queue_concurrent {
+}
+
+interface OS_dispatch_queue_global {
+}
+
+interface OS_dispatch_queue_main {
+}
+
+interface OS_dispatch_queue_serial {
+}
+
+interface OS_dispatch_semaphore {
+}
+
+interface OS_dispatch_source {
+}
+
+interface OS_dispatch_workloop {
+}
+
+// export function dispatchMain(): void;
+
+// export function dispatch_activate(object_: NSObject): void;
+
+// export function dispatch_after(when: number, queue: NSObject, block: () => void): void;
+
+// export function dispatch_after_f(when: number, queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_apply(iterations: number, queue: NSObject, block: (p1: number) => void): void;
+
+// export function dispatch_apply_f(iterations: number, queue: NSObject, context: any, work: (p1: any, p2: number) => void): void;
+
+// export function dispatch_assert_queue(queue: NSObject): void;
+
+// export function dispatch_assert_queue_barrier(queue: NSObject): void;
+
+// export function dispatch_assert_queue_not(queue: NSObject): void;
+
+// export function dispatch_async(queue: NSObject, block: () => void): void;
+
+// export function dispatch_async_and_wait(queue: NSObject, block: () => void): void;
+
+// export function dispatch_async_and_wait_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_async_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_barrier_async(queue: NSObject, block: () => void): void;
+
+// export function dispatch_barrier_async_and_wait(queue: NSObject, block: () => void): void;
+
+// export function dispatch_barrier_async_and_wait_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_barrier_async_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_barrier_sync(queue: NSObject, block: () => void): void;
+
+// export function dispatch_barrier_sync_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_block_cancel(block: () => void): void;
+
+// export function dispatch_block_create(flags: Dispatch.dispatch_block_flags_t, block: () => void): () => void;
+
+// export function dispatch_block_create_with_qos_class(flags: Dispatch.dispatch_block_flags_t, qos_class: qos.qos_class_t, relative_priority: number, block: () => void): () => void;
+
+// export function dispatch_block_notify(block: () => void, queue: NSObject, notification_block: () => void): void;
+
+// export function dispatch_block_perform(flags: Dispatch.dispatch_block_flags_t, block: () => void): void;
+
+// export function dispatch_block_testcancel(block: () => void): number;
+
+// export function dispatch_block_wait(block: () => void, timeout: number): number;
+
+// export function dispatch_cancel(object_: any): void;
+
+// export function dispatch_data_apply(data: NSObject, applier: (p1: NSObject, p2: number, p3: any, p4: number) => boolean): boolean;
+
+// export function dispatch_data_copy_region(data: NSObject, location: number, offset_ptr: number): NSObject;
+
+// export function dispatch_data_create(buffer: any, size: number, queue: NSObject, destructor: () => void): NSObject;
+
+// export function dispatch_data_create_concat(data1: NSObject, data2: NSObject): NSObject;
+
+// export function dispatch_data_create_map(data: NSObject, buffer_ptr: any, size_ptr: number): NSObject;
+
+// export function dispatch_data_create_subrange(data: NSObject, offset: number, length: number): NSObject;
+
+// export function dispatch_data_get_size(data: NSObject): number;
+
+// export function dispatch_get_context(object_: NSObject): any;
+
+// export function dispatch_get_global_queue(identifier: number, flags: number): NSObject;
+
+// export function dispatch_get_specific(key: any): any;
+
+// export function dispatch_group_async(group: NSObject, queue: NSObject, block: () => void): void;
+
+// export function dispatch_group_async_f(group: NSObject, queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_group_enter(group: NSObject): void;
+
+// export function dispatch_group_leave(group: NSObject): void;
+
+// export function dispatch_group_notify(group: NSObject, queue: NSObject, block: () => void): void;
+
+// export function dispatch_group_notify_f(group: NSObject, queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_group_wait(group: NSObject, timeout: number): number;
+
+// export function dispatch_io_barrier(channel: NSObject, barrier: () => void): void;
+
+// export function dispatch_io_close(channel: NSObject, flags: number): void;
+
+// export function dispatch_io_create(type: number, fd: number, queue: NSObject, cleanup_handler: (p1: number) => void): NSObject;
+
+// export function dispatch_io_create_with_io(type: number, io: NSObject, queue: NSObject, cleanup_handler: (p1: number) => void): NSObject;
+
+// export function dispatch_io_create_with_path(type: number, path: string | any, oflag: number, mode: number, queue: NSObject, cleanup_handler: (p1: number) => void): NSObject;
+
+// export function dispatch_io_get_descriptor(channel: NSObject): number;
+
+// export function dispatch_io_read(channel: NSObject, offset: number, length: number, queue: NSObject, io_handler: (p1: boolean, p2: NSObject, p3: number) => void): void;
+
+// export function dispatch_io_set_high_water(channel: NSObject, high_water: number): void;
+
+// export function dispatch_io_set_interval(channel: NSObject, interval: number, flags: number): void;
+
+// export function dispatch_io_set_low_water(channel: NSObject, low_water: number): void;
+
+// export function dispatch_io_write(channel: NSObject, offset: number, data: NSObject, queue: NSObject, io_handler: (p1: boolean, p2: NSObject, p3: number) => void): void;
+
+// export function dispatch_notify(object_: any, queue: NSObject, notification_block: () => void): void;
+
+// export function dispatch_once(predicate: number, block: () => void): void;
+
+// export function dispatch_once_f(predicate: number, context: any, function_: (p1: any) => void): void;
+
+// export function dispatch_queue_attr_make_initially_inactive(attr: NSObject): NSObject;
+
+// export function dispatch_queue_attr_make_with_autorelease_frequency(attr: NSObject, frequency: Dispatch.dispatch_autorelease_frequency_t): NSObject;
+
+// export function dispatch_queue_attr_make_with_qos_class(attr: NSObject, qos_class: qos.qos_class_t, relative_priority: number): NSObject;
+
+// export function dispatch_queue_create(label: string | any, attr: NSObject): NSObject;
+
+// export function dispatch_queue_create_with_target(label: string | any, attr: NSObject, target: NSObject): NSObject;
+
+// export function dispatch_queue_get_label(queue: NSObject): string;
+
+// export function dispatch_queue_get_qos_class(queue: NSObject, relative_priority_ptr: number): qos.qos_class_t;
+
+// export function dispatch_queue_get_specific(queue: NSObject, key: any): any;
+
+// export function dispatch_queue_set_specific(queue: NSObject, key: any, context: any, destructor: (p1: any) => void): void;
+
+// export function dispatch_read(fd: number, length: number, queue: NSObject, handler: (p1: NSObject, p2: number) => void): void;
+
+// export function dispatch_release(object_: NSObject): void;
+
+// export function dispatch_resume(object_: NSObject): void;
+
+// export function dispatch_retain(object_: NSObject): void;
+
+// export function dispatch_semaphore_create(value: number): NSObject;
+
+// export function dispatch_semaphore_signal(dsema: NSObject): number;
+
+// export function dispatch_semaphore_wait(dsema: NSObject, timeout: number): number;
+
+// export function dispatch_set_context(object_: NSObject, context: any): void;
+
+// export function dispatch_set_finalizer_f(object_: NSObject, finalizer: (p1: any) => void): void;
+
+// export function dispatch_set_qos_class_floor(object_: NSObject, qos_class: qos.qos_class_t, relative_priority: number): void;
+
+// export function dispatch_set_target_queue(object_: NSObject, queue: NSObject): void;
+
+// export function dispatch_source_cancel(source: NSObject): void;
+
+// export function dispatch_source_create(type: any, handle: number, mask: number, queue: NSObject): NSObject;
+
+// export function dispatch_source_get_data(source: NSObject): number;
+
+// export function dispatch_source_get_handle(source: NSObject): number;
+
+// export function dispatch_source_get_mask(source: NSObject): number;
+
+// export function dispatch_source_merge_data(source: NSObject, value: number): void;
+
+// export function dispatch_source_set_cancel_handler(source: NSObject, handler: () => void): void;
+
+// export function dispatch_source_set_cancel_handler_f(source: NSObject, handler: (p1: any) => void): void;
+
+// export function dispatch_source_set_event_handler(source: NSObject, handler: () => void): void;
+
+// export function dispatch_source_set_event_handler_f(source: NSObject, handler: (p1: any) => void): void;
+
+// export function dispatch_source_set_registration_handler(source: NSObject, handler: () => void): void;
+
+// export function dispatch_source_set_registration_handler_f(source: NSObject, handler: (p1: any) => void): void;
+
+// export function dispatch_source_set_timer(source: NSObject, start: number, interval: number, leeway: number): void;
+
+// export function dispatch_source_testcancel(source: NSObject): number;
+
+// export function dispatch_suspend(object_: NSObject): void;
+
+// export function dispatch_sync(queue: NSObject, block: () => void): void;
+
+// export function dispatch_sync_f(queue: NSObject, context: any, work: (p1: any) => void): void;
+
+// export function dispatch_testcancel(object_: any): number;
+
+// export function dispatch_time(when: number, delta: number): number;
+
+// export function dispatch_wait(object_: any, timeout: number): number;
+
+// export function dispatch_walltime(when: timespec, delta: number): number;
+
+// export function dispatch_workloop_create(label: string | any): NSObject;
+
+// export function dispatch_workloop_create_inactive(label: string | any): NSObject;
+
+// export function dispatch_workloop_set_autorelease_frequency(workloop: NSObject, frequency: Dispatch.dispatch_autorelease_frequency_t): void;
+
+// export function dispatch_write(fd: number, data: NSObject, queue: NSObject, handler: (p1: NSObject, p2: number) => void): void;
+
+// export function dispatch_introspection_hook_queue_callout_begin(queue: NSObject, context: any, function_: (p1: any) => void): void;
+
+// export function dispatch_introspection_hook_queue_callout_end(queue: NSObject, context: any, function_: (p1: any) => void): void;
+
+// export function dispatch_introspection_hook_queue_create(queue: NSObject): void;
+
+// export function dispatch_introspection_hook_queue_destroy(queue: NSObject): void;
+
+// export function dispatch_introspection_hook_queue_item_complete(item: NSObject): void;
+
+// export function dispatch_introspection_hook_queue_item_dequeue(queue: NSObject, item: NSObject): void;
+
+// export function dispatch_introspection_hook_queue_item_enqueue(queue: NSObject, item: NSObject): void;
 
 export class AffineTransform extends NSObject {
   transformStruct: NSAffineTransformStruct;
@@ -21177,28 +22790,32 @@ export class AffineTransform extends NSObject {
   translateX(by: number, yBy: number): void;
 }
 
+export function AffineTransform(args?: any): AffineTransform;
+
 export class BlockOperation extends Operation {
   executionBlocks: () => void[];
   addExecutionBlock(_: () => void): void;
 }
 
+export function BlockOperation(args?: any): BlockOperation;
+
 export class Bundle extends NSObject {
-  static url(forResource?: string, withExtension?: string, subdirectory?: string, in_?: URL): URL;
-  static urls(forResourcesWithExtension?: string, subdirectory?: string, in_?: URL): URL[];
+  static url(forResource?: string, withExtension?: string, subdirectory?: string, in_?: NSURL): NSURL;
+  static urls(forResourcesWithExtension?: string, subdirectory?: string, in_?: NSURL): NSURL[];
   //  static path(forResource?: string, ofType?: string, inDirectory?: string): string;
   //  static paths(forResourcesOfType?: string, inDirectory?: string): string[];
   //  static preferredLocalizations(from: string[]): string[];
   //  static preferredLocalizations(from: string[], forPreferences?: string[]): string[];
-  appStoreReceiptURL: URL;
+  appStoreReceiptURL: NSURL;
   builtInPlugInsPath: string;
-  builtInPlugInsURL: URL;
+  builtInPlugInsURL: NSURL;
   bundleIdentifier: string;
   bundlePath: string;
-  bundleURL: URL;
+  bundleURL: NSURL;
   developmentLocalization: string;
   executableArchitectures: number[];
   executablePath: string;
-  executableURL: URL;
+  executableURL: NSURL;
   infoDictionary: Map<string, any>;
   isLoaded: boolean;
   localizations: string[];
@@ -21206,28 +22823,28 @@ export class Bundle extends NSObject {
   preferredLocalizations: string[];
   principalClass: typeof NSObject;
   privateFrameworksPath: string;
-  privateFrameworksURL: URL;
+  privateFrameworksURL: NSURL;
   resourcePath: string;
-  resourceURL: URL;
+  resourceURL: NSURL;
   sharedFrameworksPath: string;
-  sharedFrameworksURL: URL;
+  sharedFrameworksURL: NSURL;
   sharedSupportPath: string;
-  sharedSupportURL: URL;
+  sharedSupportURL: NSURL;
   static allBundles: Bundle[];
   static allFrameworks: Bundle[];
   static main: Bundle;
-  url(forAuxiliaryExecutable: string): URL;
-  urlForImageResource(_: string): URL;
-  url(forResource?: string, withExtension?: string): URL;
-  url(forResource?: string, withExtension?: string, subdirectory?: string): URL;
-  url(forResource?: string, withExtension?: string, subdirectory?: string, localization?: string): URL;
-  urls(forResourcesWithExtension?: string, subdirectory?: string): URL[];
-  urls(forResourcesWithExtension?: string, subdirectory?: string, localization?: string): URL[];
+  url(forAuxiliaryExecutable: string): NSURL;
+  urlForImageResource(_: string): NSURL;
+  url(forResource?: string, withExtension?: string): NSURL;
+  url(forResource?: string, withExtension?: string, subdirectory?: string): NSURL;
+  url(forResource?: string, withExtension?: string, subdirectory?: string, localization?: string): NSURL;
+  urls(forResourcesWithExtension?: string, subdirectory?: string): NSURL[];
+  urls(forResourcesWithExtension?: string, subdirectory?: string, localization?: string): NSURL[];
   classNamed(_: string): typeof NSObject;
   contextHelp(forKey: string): NSAttributedString;
   image(forResource: string): NSImage;
   static createWithPath(_: string): Bundle;
-  static createWithUrl(_: URL): Bundle;
+  static createWithUrl(_: NSURL): Bundle;
   // @ts-ignore 
   // dupe name w inherited static method  load(): boolean;
   loadAndReturnError(): boolean;
@@ -21245,6 +22862,8 @@ export class Bundle extends NSObject {
   preflightAndReturnError(): boolean;
   unload(): boolean;
 }
+
+export function Bundle(args?: any): Bundle;
 
 export class ByteCountFormatter extends Formatter {
   isAdaptive: boolean;
@@ -21267,14 +22886,18 @@ export class ByteCountFormatter extends Formatter {
   setZeroPadsFractionDigits(_: boolean);
 }
 
+export function ByteCountFormatter(args?: any): ByteCountFormatter;
+
 export class CachedURLResponse extends NSObject {
   data: NSData;
   response: URLResponse;
   storagePolicy: URLCache.StoragePolicy;
   userInfo: Map<any, any>;
-  static createWithResponseWithData(_: URLResponse, data: NSData): CachedURLResponse;
-  static createWithResponseWithDataWithUserInfoWithStoragePolicy(_: URLResponse, data: NSData, userInfo?: Map<any, any>, storagePolicy?: URLCache.StoragePolicy): CachedURLResponse;
+  static createWithResponse_Data(_: URLResponse, data: NSData): CachedURLResponse;
+  static createWithResponse_Data_UserInfo_StoragePolicy(_: URLResponse, data: NSData, userInfo?: Map<any, any>, storagePolicy?: URLCache.StoragePolicy): CachedURLResponse;
 }
+
+export function CachedURLResponse(args?: any): CachedURLResponse;
 
 export class Calendar extends NSObject {
   amSymbol: string;
@@ -21346,6 +22969,8 @@ export class Calendar extends NSObject {
   startOfDay(for_: Date): Date;
 }
 
+export function Calendar(args?: any): Calendar;
+
 export class CharacterSet extends NSObject {
   bitmapRepresentation: NSData;
   inverted: CharacterSet;
@@ -21376,17 +23001,21 @@ export class CharacterSet extends NSObject {
   longCharacterIsMember(_: number): boolean;
 }
 
+export function CharacterSet(args?: any): CharacterSet;
+
 export class CollectionDifference<ObjectType> extends NSObject {
   hasChanges: boolean;
   insertions: NSOrderedCollectionChange<any>[];
   removals: NSOrderedCollectionChange<any>[];
   transformingChanges(_: (p1: NSOrderedCollectionChange<any>) => NSOrderedCollectionChange<any>): CollectionDifference<any>;
   // static createWithChanges(_: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
-  // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjects(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[]): CollectionDifference<ObjectType>;
-  // static createWithInsertIndexesWithInsertedObjectsWithRemoveIndexesWithRemovedObjectsWithAdditionalChanges(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[], additionalChanges?: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
+  // static createWithInsertIndexes_InsertedObjects_RemoveIndexes_RemovedObjects(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[]): CollectionDifference<ObjectType>;
+  // static createWithInsertIndexes_InsertedObjects_RemoveIndexes_RemovedObjects_AdditionalChanges(_: IndexSet, insertedObjects?: ObjectType[], removeIndexes?: IndexSet, removedObjects?: ObjectType[], additionalChanges?: NSOrderedCollectionChange<any>[]): CollectionDifference<ObjectType>;
   // @ts-ignore 
   createWithInverseDifference(): CollectionDifference<ObjectType>;
 }
+
+export function CollectionDifference<ObjectType>(args?: any): CollectionDifference<ObjectType>;
 
 export class DateComponents extends NSObject {
   calendar: Calendar;
@@ -21430,6 +23059,8 @@ export class DateComponents extends NSObject {
   value(forComponent: Calendar.Unit): number;
 }
 
+export function DateComponents(args?: any): DateComponents;
+
 export class DateComponentsFormatter extends Formatter {
   static localizedString(from: DateComponents, unitsStyle: DateComponentsFormatter.UnitsStyle): string;
   allowedUnits: Calendar.Unit;
@@ -21455,6 +23086,8 @@ export class DateComponentsFormatter extends Formatter {
   zeroFormattingBehavior: DateComponentsFormatter.ZeroFormattingBehavior;
   setZeroFormattingBehavior(_: DateComponentsFormatter.ZeroFormattingBehavior);
 }
+
+export function DateComponentsFormatter(args?: any): DateComponentsFormatter;
 
 export class DateFormatter extends Formatter {
   //  static dateFormat(fromTemplate: string, options: number, locale?: Locale): string;
@@ -21535,19 +23168,23 @@ export class DateFormatter extends Formatter {
   setLocalizedDateFormatFromTemplate(_: string): void;
 }
 
+export function DateFormatter(args?: any): DateFormatter;
+
 export class DateInterval extends NSObject {
   duration: number;
   endDate: Date;
   startDate: Date;
   compare(_: DateInterval): NSObjCRuntime.ComparisonResult;
   contains(_: Date): boolean;
-  static createWithStartDateWithDuration(_: Date, duration: number): DateInterval;
-  static createWithStartDateWithEndDate(_: Date, endDate: Date): DateInterval;
+  static createWithStartDate_Duration(_: Date, duration: number): DateInterval;
+  static createWithStartDate_EndDate(_: Date, endDate: Date): DateInterval;
   intersection(with_: DateInterval): DateInterval;
   intersects(_: DateInterval): boolean;
   // @ts-ignore 
   isEqual(to: DateInterval): boolean;
 }
+
+export function DateInterval(args?: any): DateInterval;
 
 export class DateIntervalFormatter extends Formatter {
   calendar: Calendar;
@@ -21564,6 +23201,8 @@ export class DateIntervalFormatter extends Formatter {
   setTimeZone(_: TimeZone);
 }
 
+export function DateIntervalFormatter(args?: any): DateIntervalFormatter;
+
 export class Decimal extends NSNumber {
   static defaultBehavior: any;
   setDefaultBehavior(_: any);
@@ -21572,24 +23211,26 @@ export class Decimal extends NSNumber {
   static notANumber: number;
   static one: number;
   static zero: number;
-  adding(_: number): Decimal;
-  adding(_: number, withBehavior?: any): Decimal;
-  dividing(by: number): Decimal;
-  dividing(by: number, withBehavior?: any): Decimal;
-  multiplying(by: number): Decimal;
-  multiplying(by: number, withBehavior?: any): Decimal;
-  multiplying(byPowerOf10: number): Decimal;
-  multiplying(byPowerOf10: number, withBehavior?: any): Decimal;
-  raising(toPower: number): Decimal;
-  raising(toPower: number, withBehavior?: any): Decimal;
-  rounding(accordingToBehavior?: any): Decimal;
-  subtracting(_: number): Decimal;
-  subtracting(_: number, withBehavior?: any): Decimal;
-  static createWithDecimal(_: NSDecimal): Decimal;
-  static createWithMantissaWithExponentWithIsNegative(_: number, exponent: number, isNegative: boolean): Decimal;
-  static createWithString(_?: string): Decimal;
-  static createWithStringWithLocale(_?: string, locale?: any): Decimal;
+  adding(_: number): number;
+  adding(_: number, withBehavior?: any): number;
+  dividing(by: number): number;
+  dividing(by: number, withBehavior?: any): number;
+  multiplying(by: number): number;
+  multiplying(by: number, withBehavior?: any): number;
+  multiplying(byPowerOf10: number): number;
+  multiplying(byPowerOf10: number, withBehavior?: any): number;
+  raising(toPower: number): number;
+  raising(toPower: number, withBehavior?: any): number;
+  rounding(accordingToBehavior?: any): number;
+  subtracting(_: number): number;
+  subtracting(_: number, withBehavior?: any): number;
+  static createWithDecimal(_: NSDecimal): number;
+  static createWithMantissa_Exponent_IsNegative(_: number, exponent: number, isNegative: boolean): number;
+  static createWithString(_?: string): number;
+  static createWithString_Locale(_?: string, locale?: any): number;
 }
+
+export function Decimal(args?: any): Decimal;
 
 export class Dictionary<KeyType, ObjectType> extends NSObject {
   static sharedKeySet<KeyType>(forKeys: KeyType[]): any;
@@ -21620,12 +23261,12 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   fileSystemNumber(): number;
   fileType(): string;
   // static createWithContentsOfFile(_: string): Dictionary<KeyType, ObjectType>;
-  // static createWithContentsOf(_: URL): Dictionary<KeyType, ObjectType>;
-  // static createWithContentsOf(error: URL): Dictionary<KeyType, ObjectType>;
+  // static createWithContentsOf(_: NSURL): Dictionary<KeyType, ObjectType>;
+  // static createWithContentsOf(error: NSURL): Dictionary<KeyType, ObjectType>;
   // static createWithDictionary(_: Map<KeyType, ObjectType>): Dictionary<KeyType, ObjectType>;
-  // static createWithDictionaryWithCopyItems(_: Map<KeyType, ObjectType>, copyItems: boolean): Dictionary<KeyType, ObjectType>;
-  // static createWithObjectsWithForKeys(_: ObjectType[], forKeys: KeyType[]): Dictionary<KeyType, ObjectType>;
-  // static createWithObjectsWithForKeysWithCount(_?: ObjectType, forKeys?: KeyType, count?: number): Dictionary<KeyType, ObjectType>;
+  // static createWithDictionary_CopyItems(_: Map<KeyType, ObjectType>, copyItems: boolean): Dictionary<KeyType, ObjectType>;
+  // static createWithObjects_ForKeys(_: ObjectType[], forKeys: KeyType[]): Dictionary<KeyType, ObjectType>;
+  // static createWithObjects_ForKeys_Count(_?: ObjectType, forKeys?: KeyType, count?: number): Dictionary<KeyType, ObjectType>;
   // static createWithObjectsAndKeys(_: any): Dictionary<KeyType, ObjectType>;
   // @ts-ignore 
   isEqual(to: Map<KeyType, ObjectType>): boolean;
@@ -21642,16 +23283,20 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   // @ts-ignore 
   value(forKey: string): ObjectType;
   write(toFile: string, atomically: boolean): boolean;
-  write(to: URL, atomically: boolean): boolean;
-  writeToURL(error: URL): boolean;
+  write(to: NSURL, atomically: boolean): boolean;
+  writeToURL(error: NSURL): boolean;
 }
+
+export function Dictionary<KeyType, ObjectType>(args?: any): Dictionary<KeyType, ObjectType>;
 
 export class Dimension extends Unit {
   static createWithBaseUnit(): Dimension;
   converter: UnitConverter;
   // @ts-ignore 
-  static createWithSymbolWithConverter(_: string, converter: UnitConverter): Dimension;
+  static createWithSymbol_Converter(_: string, converter: UnitConverter): Dimension;
 }
+
+export function Dimension(args?: any): Dimension;
 
 export class DistributedNotificationCenter extends NotificationCenter {
   suspended: boolean;
@@ -21670,6 +23315,8 @@ export class DistributedNotificationCenter extends NotificationCenter {
   removeObserver(_: any, name?: string, object_?: string): void;
 }
 
+export function DistributedNotificationCenter(args?: any): DistributedNotificationCenter;
+
 export class EnergyFormatter extends Formatter {
   isForFoodEnergyUse: boolean;
   setForFoodEnergyUse(_: boolean);
@@ -21681,10 +23328,12 @@ export class EnergyFormatter extends Formatter {
   unitString(fromValue: number, unit: EnergyFormatter.Unit): string;
 }
 
+export function EnergyFormatter(args?: any): EnergyFormatter;
+
 export class FileHandle extends NSObject {
-  static createWithFileHandleForReadingFromURLError(error: URL): FileHandle;
-  static createWithFileHandleForUpdatingURLError(error: URL): FileHandle;
-  static createWithFileHandleForWritingToURLError(error: URL): FileHandle;
+  static createWithError(error: NSURL): FileHandle;
+  static createWithError(error: NSURL): FileHandle;
+  static createWithError(error: NSURL): FileHandle;
   availableData: NSData;
   fileDescriptor: number;
   offsetInFile: number;
@@ -21702,7 +23351,7 @@ export class FileHandle extends NSObject {
   closeFile(): void;
   getOffset(error: number): boolean;
   static createWithFileDescriptor(_: number): FileHandle;
-  static createWithFileDescriptorWithCloseOnDealloc(_: number, closeOnDealloc: boolean): FileHandle;
+  static createWithFileDescriptor_CloseOnDealloc(_: number, closeOnDealloc: boolean): FileHandle;
   readData(ofLength: number): NSData;
   readDataToEndOfFile(): NSData;
   readDataToEndOfFileAndReturnError(): NSData;
@@ -21725,85 +23374,89 @@ export class FileHandle extends NSObject {
   writeData(error: NSData): boolean;
 }
 
+export function FileHandle(args?: any): FileHandle;
+
 export class FileManager extends NSObject {
   currentDirectoryPath: string;
   delegate: any;
   setDelegate(_: any);
-  homeDirectoryForCurrentUser: URL;
-  temporaryDirectory: URL;
+  homeDirectoryForCurrentUser: NSURL;
+  temporaryDirectory: NSURL;
   ubiquityIdentityToken: any;
   static default: FileManager;
-  url(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask, appropriateFor?: URL, create?: boolean): URL;
-  url(forPublishingUbiquitousItemAt: URL, expiration?: Date): URL;
-  url(forUbiquityContainerIdentifier?: string): URL;
-  urls(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask): URL[];
+  url(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask, appropriateFor?: NSURL, create?: boolean): NSURL;
+  url(forPublishingUbiquitousItemAt: NSURL, expiration?: Date): NSURL;
+  url(forUbiquityContainerIdentifier?: string): NSURL;
+  urls(for_: NSPathUtilities.FileManager.SearchPathDirectory, in_: NSPathUtilities.FileManager.SearchPathDomainMask): NSURL[];
   attributesOfFileSystemForPath(error: string): Map<string, any>;
   attributesOfItemAtPath(error: string): Map<string, any>;
   changeCurrentDirectoryPath(_: string): boolean;
   componentsToDisplay(forPath: string): string[];
-  containerURL(forSecurityApplicationGroupIdentifier: string): URL;
+  containerURL(forSecurityApplicationGroupIdentifier: string): NSURL;
   contents(atPath: string): NSData;
   contentsEqual(atPath: string, andPath: string): boolean;
   contentsOfDirectoryAtPath(error: string): string[];
-  contentsOfDirectoryAtURL(includingPropertiesForKeys: URL, options?: string[], error?: FileManager.DirectoryEnumerationOptions): URL[];
+  contentsOfDirectoryAtURL(includingPropertiesForKeys: NSURL, options?: string[], error?: FileManager.DirectoryEnumerationOptions): NSURL[];
   copyItemAtPath(toPath: string, error: string): boolean;
-  copyItemAtURL(toURL: URL, error: URL): boolean;
+  copyItemAtURL(toURL: NSURL, error: NSURL): boolean;
   createDirectoryAtPath(withIntermediateDirectories: string, attributes: boolean, error?: Map<string, any>): boolean;
-  createDirectoryAtURL(withIntermediateDirectories: URL, attributes: boolean, error?: Map<string, any>): boolean;
+  createDirectoryAtURL(withIntermediateDirectories: NSURL, attributes: boolean, error?: Map<string, any>): boolean;
   createFile(atPath: string, contents?: NSData, attributes?: Map<string, any>): boolean;
   createSymbolicLinkAtPath(withDestinationPath: string, error: string): boolean;
-  createSymbolicLinkAtURL(withDestinationURL: URL, error: URL): boolean;
+  createSymbolicLinkAtURL(withDestinationURL: NSURL, error: NSURL): boolean;
   destinationOfSymbolicLinkAtPath(error: string): string;
   displayName(atPath: string): string;
   enumerator(atPath: string): FileManager.DirectoryEnumerator<any>;
-  enumeratorAtURL(_: URL, includingPropertiesForKeys?: string[], options?: FileManager.DirectoryEnumerationOptions, errorHandler?: (p1: URL, p2: Error) => boolean): FileManager.DirectoryEnumerator<any>;
-  evictUbiquitousItemAtURL(error: URL): boolean;
+  enumeratorAtURL(_: NSURL, includingPropertiesForKeys?: string[], options?: FileManager.DirectoryEnumerationOptions, errorHandler?: (p1: NSURL, p2: NSError) => boolean): FileManager.DirectoryEnumerator<any>;
+  evictUbiquitousItemAtURL(error: NSURL): boolean;
   fileExists(atPath: string): boolean;
   fileExists(atPath: string, isDirectory?: boolean): boolean;
   fileSystemRepresentation(withPath: string): string;
-  getFileProviderServicesForItem(at: URL, completionHandler?: (p1: Map<string, NSFileProviderService>, p2: Error) => void): void;
-  getRelationship(ofDirectory: FileManager.URLRelationship, inDomain: NSPathUtilities.FileManager.SearchPathDirectory, toItemAtURL: NSPathUtilities.FileManager.SearchPathDomainMask, error: URL): boolean;
-  getRelationship(ofDirectoryAtURL: FileManager.URLRelationship, toItemAtURL: URL, error: URL): boolean;
-  homeDirectory(forUser: string): URL;
+  getFileProviderServicesForItem(at: NSURL, completionHandler?: (p1: Map<string, NSFileProviderService>, p2: NSError) => void): void;
+  getRelationship(ofDirectory: FileManager.URLRelationship, inDomain: NSPathUtilities.FileManager.SearchPathDirectory, toItemAtURL: NSPathUtilities.FileManager.SearchPathDomainMask, error: NSURL): boolean;
+  getRelationship(ofDirectoryAtURL: FileManager.URLRelationship, toItemAtURL: NSURL, error: NSURL): boolean;
+  homeDirectory(forUser: string): NSURL;
   isDeletableFile(atPath: string): boolean;
   isExecutableFile(atPath: string): boolean;
   isReadableFile(atPath: string): boolean;
-  isUbiquitousItem(at: URL): boolean;
+  isUbiquitousItem(at: NSURL): boolean;
   isWritableFile(atPath: string): boolean;
   linkItemAtPath(toPath: string, error: string): boolean;
-  linkItemAtURL(toURL: URL, error: URL): boolean;
-  mountedVolumeURLs(includingResourceValuesForKeys?: string[], options?: FileManager.VolumeEnumerationOptions): URL[];
+  linkItemAtURL(toURL: NSURL, error: NSURL): boolean;
+  mountedVolumeURLs(includingResourceValuesForKeys?: string[], options?: FileManager.VolumeEnumerationOptions): NSURL[];
   moveItemAtPath(toPath: string, error: string): boolean;
-  moveItemAtURL(toURL: URL, error: URL): boolean;
+  moveItemAtURL(toURL: NSURL, error: NSURL): boolean;
   removeItemAtPath(error: string): boolean;
-  removeItemAtURL(error: URL): boolean;
-  replaceItemAtURL(withItemAtURL: URL, backupItemName: URL, options?: string, resultingItemURL?: FileManager.ItemReplacementOptions, error?: URL): boolean;
+  removeItemAtURL(error: NSURL): boolean;
+  replaceItemAtURL(withItemAtURL: NSURL, backupItemName: NSURL, options?: string, resultingItemURL?: FileManager.ItemReplacementOptions, error?: NSURL): boolean;
   setAttributes(ofItemAtPath: Map<string, any>, error: string): boolean;
-  setUbiquitous(itemAtURL: boolean, destinationURL: URL, error: URL): boolean;
-  startDownloadingUbiquitousItemAtURL(error: URL): boolean;
+  setUbiquitous(itemAtURL: boolean, destinationURL: NSURL, error: NSURL): boolean;
+  startDownloadingUbiquitousItemAtURL(error: NSURL): boolean;
   subpaths(atPath: string): string[];
   subpathsOfDirectoryAtPath(error: string): string[];
-  trashItemAtURL(resultingItemURL: URL, error?: URL): boolean;
-  unmountVolume(at: URL, options: FileManager.UnmountOptions, completionHandler?: (p1: Error) => void): void;
+  trashItemAtURL(resultingItemURL: NSURL, error?: NSURL): boolean;
+  unmountVolume(at: NSURL, options: FileManager.UnmountOptions, completionHandler?: (p1: NSError) => void): void;
 }
+
+export function FileManager(args?: any): FileManager;
 
 interface FileManagerDelegate {
   fileManager(_: FileManager, shouldCopyItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldCopyItemAt: URL, to: URL): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, copyingItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, copyingItemAt: URL, to: URL): boolean;
+  fileManager(_: FileManager, shouldCopyItemAt: NSURL, to: NSURL): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, copyingItemAtPath: string, toPath: string): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, copyingItemAt: NSURL, to: NSURL): boolean;
   fileManager(_: FileManager, shouldMoveItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldMoveItemAt: URL, to: URL): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, movingItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, movingItemAt: URL, to: URL): boolean;
+  fileManager(_: FileManager, shouldMoveItemAt: NSURL, to: NSURL): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, movingItemAtPath: string, toPath: string): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, movingItemAt: NSURL, to: NSURL): boolean;
   fileManager(_: FileManager, shouldLinkItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldLinkItemAt: URL, to: URL): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, linkingItemAtPath: string, toPath: string): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, linkingItemAt: URL, to: URL): boolean;
+  fileManager(_: FileManager, shouldLinkItemAt: NSURL, to: NSURL): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, linkingItemAtPath: string, toPath: string): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, linkingItemAt: NSURL, to: NSURL): boolean;
   fileManager(_: FileManager, shouldRemoveItemAtPath: string): boolean;
-  fileManager(_: FileManager, shouldRemoveItemAt: URL): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, removingItemAtPath: string): boolean;
-  fileManager(_: FileManager, shouldProceedAfterError: Error, removingItemAt: URL): boolean;
+  fileManager(_: FileManager, shouldRemoveItemAt: NSURL): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, removingItemAtPath: string): boolean;
+  fileManager(_: FileManager, shouldProceedAfterError: NSError, removingItemAt: NSURL): boolean;
 }
 
 export class FileWrapper extends NSObject {
@@ -21821,20 +23474,22 @@ export class FileWrapper extends NSObject {
   regularFileContents: NSData;
   serializedRepresentation: NSData;
   isSymbolicLink: boolean;
-  symbolicLinkDestinationURL: URL;
+  symbolicLinkDestinationURL: NSURL;
   addFileWrapper(_: FileWrapper): string;
   addRegularFile(withContents: NSData, preferredFilename: string): string;
-  static createWithDirectoryWithFileWrappers(_: Map<string, FileWrapper>): FileWrapper;
-  static createWithRegularFileWithContents(_: NSData): FileWrapper;
-  static createWithSymbolicLinkWithDestinationURL(_: URL): FileWrapper;
+  static createWithDirectory_FileWrappers(_: Map<string, FileWrapper>): FileWrapper;
+  static createWithRegularFile_Contents(_: NSData): FileWrapper;
+  static createWithSymbolicLink_DestinationURL(_: NSURL): FileWrapper;
   static createWithSerializedRepresentation(_: NSData): FileWrapper;
-  static createWithUrlWithOptions(options: URL, error: FileWrapper.ReadingOptions): FileWrapper;
+  static createWithUrl_Options(options: NSURL, error: FileWrapper.ReadingOptions): FileWrapper;
   keyForChildFileWrapper(_: FileWrapper): string;
-  matchesContents(of: URL): boolean;
-  readFromURL(options: URL, error: FileWrapper.ReadingOptions): boolean;
+  matchesContents(of: NSURL): boolean;
+  readFromURL(options: NSURL, error: FileWrapper.ReadingOptions): boolean;
   removeFileWrapper(_: FileWrapper): void;
-  writeToURL(options: URL, originalContentsURL: FileWrapper.WritingOptions, error?: URL): boolean;
+  writeToURL(options: NSURL, originalContentsURL: FileWrapper.WritingOptions, error?: NSURL): boolean;
 }
+
+export function FileWrapper(args?: any): FileWrapper;
 
 export class Formatter extends NSObject {
   attributedString(for_: any, withDefaultAttributes?: Map<string, any>): NSAttributedString;
@@ -21844,12 +23499,14 @@ export class Formatter extends NSObject {
   isPartialStringValid(_: string, proposedSelectedRange?: NSRange, originalString?: string, originalSelectedRange?: NSRange, errorDescription?: string): boolean;
 }
 
+export function Formatter(args?: any): Formatter;
+
 export class HTTPCookie extends NSObject {
-  static cookies(withResponseHeaderFields: Map<string, string>, for_: URL): HTTPCookie[];
+  static cookies(withResponseHeaderFields: Map<string, string>, for_: NSURL): HTTPCookie[];
   static requestHeaderFields(with_: HTTPCookie[]): Map<string, string>;
   isHTTPOnly: boolean;
   comment: string;
-  commentURL: URL;
+  commentURL: NSURL;
   domain: string;
   expiresDate: Date;
   name: string;
@@ -21862,6 +23519,8 @@ export class HTTPCookie extends NSObject {
   static createWithProperties(_: Map<string, any>): HTTPCookie;
 }
 
+export function HTTPCookie(args?: any): HTTPCookie;
+
 export class HTTPCookieStorage extends NSObject {
   static sharedCookieStorage(forGroupContainerIdentifier: string): HTTPCookieStorage;
   cookieAcceptPolicy: HTTPCookieStorage.HTTPCookie.AcceptPolicy;
@@ -21871,20 +23530,24 @@ export class HTTPCookieStorage extends NSObject {
   getCookiesFor(_: URLSessionTask, completionHandler?: (p1: HTTPCookie[]) => void): void;
   removeCookies(since: Date): void;
   setCookie(_: HTTPCookie): void;
-  setCookies(_: HTTPCookie[], for_?: URL, mainDocumentURL?: URL): void;
+  setCookies(_: HTTPCookie[], for_?: NSURL, mainDocumentURL?: NSURL): void;
   sortedCookies(using: NSSortDescriptor[]): HTTPCookie[];
   storeCookies(_: HTTPCookie[], for_: URLSessionTask): void;
 }
+
+export function HTTPCookieStorage(args?: any): HTTPCookieStorage;
 
 export class HTTPURLResponse extends URLResponse {
   static localizedString(forStatusCode: number): string;
   allHeaderFields: Map<any, any>;
   statusCode: number;
   // @ts-ignore 
-  static createWithUrlWithStatusCodeWithHttpVersionWithHeaderFields(_: URL, statusCode: number, HTTPVersion?: string, headerFields?: Map<string, string>): HTTPURLResponse;
+  static createWithUrl_StatusCode_HttpVersion_HeaderFields(_: NSURL, statusCode: number, HTTPVersion?: string, headerFields?: Map<string, string>): HTTPURLResponse;
   // @ts-ignore 
   value(forHTTPHeaderField: string): string;
 }
+
+export function HTTPURLResponse(args?: any): HTTPURLResponse;
 
 export class Host extends NSObject {
   static createWithCurrentHost(): Host;
@@ -21897,6 +23560,8 @@ export class Host extends NSObject {
   isEqual(to: Host): boolean;
 }
 
+export function Host(args?: any): Host;
+
 export class ISO8601DateFormatter extends Formatter {
   formatOptions: ISO8601DateFormatter.Options;
   setFormatOptions(_: ISO8601DateFormatter.Options);
@@ -21904,6 +23569,8 @@ export class ISO8601DateFormatter extends Formatter {
   setTimeZone(_: TimeZone);
   date(from: string): Date;
 }
+
+export function ISO8601DateFormatter(args?: any): ISO8601DateFormatter;
 
 export class IndexPath extends NSObject {
   item: number;
@@ -21916,8 +23583,10 @@ export class IndexPath extends NSObject {
   adding(_: number): IndexPath;
   removingLastIndex(): IndexPath;
   static createWithIndex(_: number): IndexPath;
-  static createWithIndexesWithLength(_?: number, length?: number): IndexPath;
+  static createWithIndexes_Length(_?: number, length?: number): IndexPath;
 }
+
+export function IndexPath(args?: any): IndexPath;
 
 export class IndexSet extends NSObject {
   count: number;
@@ -21952,14 +23621,18 @@ export class IndexSet extends NSObject {
   isEqual(to: IndexSet): boolean;
 }
 
+export function IndexSet(args?: any): IndexSet;
+
 export class InputStream extends Stream {
   hasBytesAvailable: boolean;
   getBuffer(_?: string, length?: number): boolean;
   static createWithData(_: NSData): InputStream;
   static createWithFileAtPath(_: string): InputStream;
-  static createWithUrl(_: URL): InputStream;
+  static createWithUrl(_: NSURL): InputStream;
   read(_: string, maxLength: number): number;
 }
+
+export function InputStream(args?: any): InputStream;
 
 export class JSONSerialization extends NSObject {
   static JSONObjectWithData(options: NSData, error: JSONSerialization.ReadingOptions): any;
@@ -21968,6 +23641,8 @@ export class JSONSerialization extends NSObject {
   static isValidJSONObject(_: any): boolean;
   static writeJSONObject(_: any, to: OutputStream, options: JSONSerialization.WritingOptions): number;
 }
+
+export function JSONSerialization(args?: any): JSONSerialization;
 
 export class LengthFormatter extends Formatter {
   isForPersonHeightUse: boolean;
@@ -21980,6 +23655,8 @@ export class LengthFormatter extends Formatter {
   unitString(fromValue: number, unit: LengthFormatter.Unit): string;
 }
 
+export function LengthFormatter(args?: any): LengthFormatter;
+
 export class ListFormatter extends Formatter {
   static localizedString(byJoining: string[]): string;
   itemFormatter: Formatter;
@@ -21987,6 +23664,8 @@ export class ListFormatter extends Formatter {
   locale: Locale;
   setLocale(_: Locale);
 }
+
+export function ListFormatter(args?: any): ListFormatter;
 
 export class Locale extends NSObject {
   static canonicalLanguageIdentifier(from: string): string;
@@ -22038,6 +23717,8 @@ export class Locale extends NSObject {
   object(forKey: string): any;
 }
 
+export function Locale(args?: any): Locale;
+
 export class MassFormatter extends Formatter {
   isForPersonMassUse: boolean;
   setForPersonMassUse(_: boolean);
@@ -22049,15 +23730,19 @@ export class MassFormatter extends Formatter {
   unitString(fromValue: number, unit: MassFormatter.Unit): string;
 }
 
+export function MassFormatter(args?: any): MassFormatter;
+
 export class Measurement<UnitType> extends NSObject {
   doubleValue: number;
   unit: UnitType;
   canBeConverted(to: Unit): boolean;
-  // static createWithDoubleValueWithUnit(_: number, unit: UnitType): Measurement<UnitType>;
+  // static createWithDoubleValue_Unit(_: number, unit: UnitType): Measurement<UnitType>;
   adding(_: Measurement<any>): Measurement<any>;
   converting(to: Unit): Measurement<any>;
   subtracting(_: Measurement<any>): Measurement<any>;
 }
+
+export function Measurement<UnitType>(args?: any): Measurement<UnitType>;
 
 export class MeasurementFormatter extends Formatter {
   locale: Locale;
@@ -22070,8 +23755,12 @@ export class MeasurementFormatter extends Formatter {
   setUnitStyle(_: Formatter.UnitStyle);
 }
 
+export function MeasurementFormatter(args?: any): MeasurementFormatter;
+
 export class MessagePort extends Port {
 }
+
+export function MessagePort(args?: any): MessagePort;
 
 // export function NSAllHashTableObjects(table: NSHashTable<any>): any[];
 
@@ -22100,7 +23789,7 @@ export class NSAppleEventDescriptor extends NSObject {
   enumCodeValue: number;
   eventClass: number;
   eventID: number;
-  fileURLValue: URL;
+  fileURLValue: NSURL;
   int32Value: number;
   isRecordDescriptor: boolean;
   numberOfItems: number;
@@ -22115,9 +23804,9 @@ export class NSAppleEventDescriptor extends NSObject {
   static createWithListDescriptor(): NSAppleEventDescriptor;
   static createWithRecordDescriptor(): NSAppleEventDescriptor;
   static createWithAeDescNoCopy(_: AEDesc): NSAppleEventDescriptor;
-  static createWithDescriptorTypeWithBytesWithLength(_: number, bytes?: any, length?: number): NSAppleEventDescriptor;
-  static createWithDescriptorTypeWithData(_: number, data?: NSData): NSAppleEventDescriptor;
-  static createWithEventClassWithEventIDWithTargetDescriptorWithReturnIDWithTransactionID(_: number, eventID: number, targetDescriptor?: NSAppleEventDescriptor, returnID?: number, transactionID?: number): NSAppleEventDescriptor;
+  static createWithDescriptorType_Bytes_Length(_: number, bytes?: any, length?: number): NSAppleEventDescriptor;
+  static createWithDescriptorType_Data(_: number, data?: NSData): NSAppleEventDescriptor;
+  static createWithEventClass_EventID_TargetDescriptor_ReturnID_TransactionID(_: number, eventID: number, targetDescriptor?: NSAppleEventDescriptor, returnID?: number, transactionID?: number): NSAppleEventDescriptor;
   insert(_: NSAppleEventDescriptor, at: number): void;
   keywordForDescriptor(at: number): number;
   paramDescriptor(forKeyword: number): NSAppleEventDescriptor;
@@ -22129,6 +23818,8 @@ export class NSAppleEventDescriptor extends NSObject {
   setDescriptor(_: NSAppleEventDescriptor, forKeyword: number): void;
   setParam(_: NSAppleEventDescriptor, forKeyword: number): void;
 }
+
+export function NSAppleEventDescriptor(args?: any): NSAppleEventDescriptor;
 
 export class NSAppleEventManager extends NSObject {
   static shared(): NSAppleEventManager;
@@ -22144,6 +23835,8 @@ export class NSAppleEventManager extends NSObject {
   suspendCurrentAppleEvent(): any;
 }
 
+export function NSAppleEventManager(args?: any): NSAppleEventManager;
+
 export class NSAppleScript extends NSObject {
   isCompiled: boolean;
   richTextSource: NSAttributedString;
@@ -22151,9 +23844,11 @@ export class NSAppleScript extends NSObject {
   compileAndReturnError(_?: Map<string, any>): boolean;
   executeAndReturnError(_?: Map<string, any>): NSAppleEventDescriptor;
   executeAppleEvent(_: NSAppleEventDescriptor, error?: Map<string, any>): NSAppleEventDescriptor;
-  static createWithContentsOfWithError(_: URL, error?: Map<string, any>): NSAppleScript;
+  static createWithContentsOf_Error(_: NSURL, error?: Map<string, any>): NSAppleScript;
   static createWithSource(_: string): NSAppleScript;
 }
+
+export function NSAppleScript(args?: any): NSAppleScript;
 
 export class NSArray<ObjectType> extends NSObject {
   static createWithObjects<ObjectType>(_: ObjectType): NSArray<ObjectType>;
@@ -22192,12 +23887,12 @@ export class NSArray<ObjectType> extends NSObject {
   indexesOfObjects(passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
   indexesOfObjects(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
   // static createWithArray(_: ObjectType[]): NSArray<ObjectType>;
-  // static createWithArrayWithCopyItems(_: ObjectType[], copyItems: boolean): NSArray<ObjectType>;
+  // static createWithArray_CopyItems(_: ObjectType[], copyItems: boolean): NSArray<ObjectType>;
   // static createWithContentsOfFile(_: string): NSArray<ObjectType>;
-  // static createWithContentsOf(_: URL): NSArray<ObjectType>;
-  // static createWithContentsOf(error: URL): NSArray<ObjectType>;
+  // static createWithContentsOf(_: NSURL): NSArray<ObjectType>;
+  // static createWithContentsOf(error: NSURL): NSArray<ObjectType>;
   // static createWithObjects(_: ObjectType): NSArray<ObjectType>;
-  // static createWithObjectsWithCount(_?: ObjectType, count?: number): NSArray<ObjectType>;
+  // static createWithObjects_Count(_?: ObjectType, count?: number): NSArray<ObjectType>;
   // @ts-ignore 
   isEqual(to: ObjectType[]): boolean;
   object(at: number): ObjectType;
@@ -22217,13 +23912,17 @@ export class NSArray<ObjectType> extends NSObject {
   sortedArray(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
   subarray(with_: NSRange): ObjectType[];
   write(toFile: string, atomically: boolean): boolean;
-  write(to: URL, atomically: boolean): boolean;
-  writeToURL(error: URL): boolean;
+  write(to: NSURL, atomically: boolean): boolean;
+  writeToURL(error: NSURL): boolean;
 }
+
+export function NSArray<ObjectType>(args?: any): NSArray<ObjectType>;
 
 export class NSAssertionHandler extends NSObject {
   static currentHandler: NSAssertionHandler;
 }
+
+export function NSAssertionHandler(args?: any): NSAssertionHandler;
 
 export class NSAttributedString extends NSObject {
   length: number;
@@ -22251,17 +23950,17 @@ export class NSAttributedString extends NSObject {
   fileWrapperFromRange(documentAttributes: NSRange, error: Map<string, any>): FileWrapper;
   fontAttributes(in_: NSRange): Map<string, any>;
   static createWithAttributedString(_: NSAttributedString): NSAttributedString;
-  static createWithDataWithOptionsWithDocumentAttributes(options: NSData, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
-  static createWithDocFormatWithDocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithHtmlWithBaseURLWithDocumentAttributes(_: NSData, baseURL: URL, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithHtmlWithDocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithHtmlWithOptionsWithDocumentAttributes(_: NSData, options: Map<string, any>, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithRtfWithDocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithRtfdWithDocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
-  static createWithRtfdFileWrapperWithDocumentAttributes(_: FileWrapper, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithData_Options_DocumentAttributes(options: NSData, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
+  static createWithDocFormat_DocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithHtml_BaseURL_DocumentAttributes(_: NSData, baseURL: NSURL, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithHtml_DocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithHtml_Options_DocumentAttributes(_: NSData, options: Map<string, any>, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithRtf_DocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithRtfd_DocumentAttributes(_: NSData, documentAttributes?: Map<string, any>): NSAttributedString;
+  static createWithRtfdFileWrapper_DocumentAttributes(_: FileWrapper, documentAttributes?: Map<string, any>): NSAttributedString;
   static createWithString(_: string): NSAttributedString;
-  static createWithStringWithAttributes(_: string, attributes?: Map<string, any>): NSAttributedString;
-  static createWithUrlWithOptionsWithDocumentAttributes(options: URL, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
+  static createWithString_Attributes(_: string, attributes?: Map<string, any>): NSAttributedString;
+  static createWithUrl_Options_DocumentAttributes(options: NSURL, documentAttributes: Map<string, any>, error?: Map<string, any>): NSAttributedString;
   // @ts-ignore 
   isEqual(to: NSAttributedString): boolean;
   itemNumber(in_: NSTextList, at: number): number;
@@ -22275,12 +23974,16 @@ export class NSAttributedString extends NSObject {
   size(): CGSize;
 }
 
+export function NSAttributedString(args?: any): NSAttributedString;
+
 export class NSAutoreleasePool extends NSObject {
   //  static add(_: any): void;
   static showPools(): void;
   add(_: any): void;
   drain(): void;
 }
+
+export function NSAutoreleasePool(args?: any): NSAutoreleasePool;
 
 export class NSBackgroundActivityScheduler extends NSObject {
   identifier: string;
@@ -22298,17 +24001,21 @@ export class NSBackgroundActivityScheduler extends NSObject {
   schedule(_: (p1: (p1: NSBackgroundActivityScheduler.Result) => void) => void): void;
 }
 
+export function NSBackgroundActivityScheduler(args?: any): NSBackgroundActivityScheduler;
+
 export class NSBundleResourceRequest extends NSObject {
   bundle: Bundle;
   loadingPriority: number;
   setLoadingPriority(_: number);
   tags: Set<any>;
-  beginAccessingResources(completionHandler?: (p1: Error) => void): void;
+  beginAccessingResources(completionHandler?: (p1: NSError) => void): void;
   conditionallyBeginAccessingResources(completionHandler: (p1: boolean) => void): void;
   endAccessingResources(): void;
   static createWithTags(_: Set<any>): NSBundleResourceRequest;
-  static createWithTagsWithBundle(_: Set<any>, bundle: Bundle): NSBundleResourceRequest;
+  static createWithTags_Bundle(_: Set<any>, bundle: Bundle): NSBundleResourceRequest;
 }
+
+export function NSBundleResourceRequest(args?: any): NSBundleResourceRequest;
 
 export class NSCache<KeyType, ObjectType> extends NSObject {
   countLimit: number;
@@ -22328,6 +24035,8 @@ export class NSCache<KeyType, ObjectType> extends NSObject {
   setObject(_: ObjectType, forKey: KeyType, cost: number): void;
 }
 
+export function NSCache<KeyType, ObjectType>(args?: any): NSCache<KeyType, ObjectType>;
+
 interface NSCacheDelegate {
   cache(_: NSCache<any, any>, willEvictObject: any): void;
 }
@@ -22335,10 +24044,14 @@ interface NSCacheDelegate {
 export class NSCalendarDate extends Date {
 }
 
+export function NSCalendarDate(args?: any): NSCalendarDate;
+
 export class NSClassDescription extends NSObject {
   static invalidateClassDescriptionCache(): void;
   static register(_: NSClassDescription, for_: typeof NSObject): void;
 }
+
+export function NSClassDescription(args?: any): NSClassDescription;
 
 // export function NSClassFromString(aClassName: string): typeof NSObject;
 
@@ -22347,14 +24060,18 @@ export class NSCloneCommand extends NSScriptCommand {
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
+export function NSCloneCommand(args?: any): NSCloneCommand;
+
 export class NSCloseCommand extends NSScriptCommand {
 }
+
+export function NSCloseCommand(args?: any): NSCloseCommand;
 
 export class NSCoder extends NSObject {
   allowedClasses: Set<any>;
   allowsKeyedCoding: boolean;
   decodingFailurePolicy: NSCoder.DecodingFailurePolicy;
-  error: Error;
+  error: NSError;
   requiresSecureCoding: boolean;
   systemVersion: number;
   containsValue(forKey: string): boolean;
@@ -22413,10 +24130,12 @@ export class NSCoder extends NSObject {
   encode(_: CGSize): void;
   encode(_: CGSize, forKey: string): void;
   encodeValue(ofObjCType: string, at: any): void;
-  failWithError(_: Error): void;
+  failWithError(_: NSError): void;
   // @ts-ignore 
   // dupe name w inherited static method  version(forClassName: string): number;
 }
+
+export function NSCoder(args?: any): NSCoder;
 
 interface NSCoding {
   encode(with_: NSCoder): void;
@@ -22433,15 +24152,19 @@ export class NSComparisonPredicate extends NSPredicate {
   options: NSComparisonPredicate.Options;
   predicateOperatorType: NSComparisonPredicate.Operator;
   rightExpression: NSExpression;
-  static createWithLeftExpressionWithRightExpressionWithCustomSelector(_: NSExpression, rightExpression: NSExpression, customSelector: string): NSComparisonPredicate;
-  static createWithLeftExpressionWithRightExpressionWithModifierWithTypeWithOptions(_: NSExpression, rightExpression: NSExpression, modifier: NSComparisonPredicate.Modifier, type: NSComparisonPredicate.Operator, options: NSComparisonPredicate.Options): NSComparisonPredicate;
+  static createWithLeftExpression_RightExpression_CustomSelector(_: NSExpression, rightExpression: NSExpression, customSelector: string): NSComparisonPredicate;
+  static createWithLeftExpression_RightExpression_Modifier_Type_Options(_: NSExpression, rightExpression: NSExpression, modifier: NSComparisonPredicate.Modifier, type: NSComparisonPredicate.Operator, options: NSComparisonPredicate.Options): NSComparisonPredicate;
 }
+
+export function NSComparisonPredicate(args?: any): NSComparisonPredicate;
 
 export class NSCompoundPredicate extends NSPredicate {
   compoundPredicateType: NSCompoundPredicate.LogicalType;
   subpredicates: any[];
-  static createWithTypeWithSubpredicates(_: NSCompoundPredicate.LogicalType, subpredicates: NSPredicate[]): NSCompoundPredicate;
+  static createWithType_Subpredicates(_: NSCompoundPredicate.LogicalType, subpredicates: NSPredicate[]): NSCompoundPredicate;
 }
+
+export function NSCompoundPredicate(args?: any): NSCompoundPredicate;
 
 export class NSCondition extends NSObject {
   name: string;
@@ -22451,6 +24174,8 @@ export class NSCondition extends NSObject {
   wait(): void;
   wait(until: Date): boolean;
 }
+
+export function NSCondition(args?: any): NSCondition;
 
 export class NSConditionLock extends NSObject {
   condition: number;
@@ -22465,13 +24190,15 @@ export class NSConditionLock extends NSObject {
   unlock(withCondition: number): void;
 }
 
+export function NSConditionLock(args?: any): NSConditionLock;
+
 export class NSConnection extends NSObject {
   static allConnections(): NSConnection[];
   static currentConversation(): any;
   static rootProxyForConnection(withRegisteredName: string, host?: string): NSDistantObject;
   static rootProxyForConnection(withRegisteredName: string, host?: string, using?: NSPortNameServer): NSDistantObject;
-  static createWithServiceConnectionWithNameWithRootObject(withName: string, rootObject: any): NSConnection;
-  static createWithServiceConnectionWithNameWithRootObjectWithUsingNameServer(withName: string, rootObject: any, using: NSPortNameServer): NSConnection;
+  static createWith_Name_RootObject(withName: string, rootObject: any): NSConnection;
+  static createWith_Name_RootObject_Using(withName: string, rootObject: any, using: NSPortNameServer): NSConnection;
   delegate: any;
   setDelegate(_: any);
   independentConversationQueueing: boolean;
@@ -22495,7 +24222,7 @@ export class NSConnection extends NSObject {
   add(_: RunLoop): void;
   dispatch(withComponents: any[]): void;
   enableMultipleThreads(): void;
-  static createWithReceivePortWithSendPort(_?: Port, sendPort?: Port): NSConnection;
+  static createWithReceivePort_SendPort(_?: Port, sendPort?: Port): NSConnection;
   invalidate(): void;
   registerName(_?: string): boolean;
   registerName(_?: string, with_?: NSPortNameServer): boolean;
@@ -22503,6 +24230,8 @@ export class NSConnection extends NSObject {
   remove(_: RunLoop): void;
   runInNewThread(): void;
 }
+
+export function NSConnection(args?: any): NSConnection;
 
 interface NSConnectionDelegate {
   authenticateComponents(_: any[], with_: NSData): boolean;
@@ -22514,12 +24243,14 @@ interface NSConnectionDelegate {
 }
 
 export class NSConstantString extends NSSimpleCString {
-  //  static createWithObjectWithItemProviderDataTypeIdentifierWithError(typeIdentifier: NSData, error: string): NSConstantString;
-  //  static createWithContentsOfFileEncodingWithError(encoding: string, error: number): NSConstantString;
-  //  static createWithContentsOfFileUsedEncodingWithError(usedEncoding: string, error?: number): NSConstantString;
-  //  static createWithContentsOfURLEncodingWithError(encoding: URL, error: number): NSConstantString;
-  //  static createWithContentsOfURLUsedEncodingWithError(usedEncoding: URL, error?: number): NSConstantString;
+  //  static createWithTypeIdentifier_Error(typeIdentifier: NSData, error: string): NSConstantString;
+  //  static createWithEncoding_Error(encoding: string, error: number): NSConstantString;
+  //  static createWithUsedEncoding_Error(usedEncoding: string, error?: number): NSConstantString;
+  //  static createWithEncoding_Error(encoding: NSURL, error: number): NSConstantString;
+  //  static createWithUsedEncoding_Error(usedEncoding: NSURL, error?: number): NSConstantString;
 }
+
+export function NSConstantString(args?: any): NSConstantString;
 
 // export function NSContainsRect(aRect: CGRect, bRect: CGRect): boolean;
 
@@ -22536,6 +24267,8 @@ interface NSCopying {
 export class NSCountCommand extends NSScriptCommand {
 }
 
+export function NSCountCommand(args?: any): NSCountCommand;
+
 // export function NSCountFrames(): number;
 
 // export function NSCountHashTable(table: NSHashTable<any>): number;
@@ -22548,10 +24281,14 @@ export class NSCountedSet<ObjectType> extends NSMutableSet<ObjectType> {
   count(for_: ObjectType): number;
 }
 
+export function NSCountedSet<ObjectType>(args?: any): NSCountedSet<ObjectType>;
+
 export class NSCreateCommand extends NSScriptCommand {
   createClassDescription: NSScriptClassDescription;
   resolvedKeyDictionary: Map<string, any>;
 }
+
+export function NSCreateCommand(args?: any): NSCreateCommand;
 
 // export function NSCreateHashTable(callBacks: NSHashTableCallBacks, capacity: number): NSHashTable<any>;
 
@@ -22568,6 +24305,8 @@ export class NSDataDetector extends NSRegularExpression {
   checkingTypes: number;
   static createWithTypes(error: number): NSDataDetector;
 }
+
+export function NSDataDetector(args?: any): NSDataDetector;
 
 // export function NSDeallocateMemoryPages(ptr: any, bytes: number): void;
 
@@ -22590,15 +24329,17 @@ export class NSDataDetector extends NSRegularExpression {
 // export function NSDecimalNormalize(number1: number, number2: number, roundingMode: NSDecimal.Decimal.RoundingMode): NSDecimal.Decimal.CalculationError;
 
 interface NSDecimalNumberBehaviors {
-  exceptionDuringOperation(_: string, error: NSDecimal.Decimal.CalculationError, leftOperand: number, rightOperand?: number): Decimal;
+  exceptionDuringOperation(_: string, error: NSDecimal.Decimal.CalculationError, leftOperand: number, rightOperand?: number): number;
   roundingMode(): NSDecimal.Decimal.RoundingMode;
   scale(): number;
 }
 
 export class NSDecimalNumberHandler extends NSObject {
   static defaultDecimalNumberHandler: NSDecimalNumberHandler;
-  static createWithRoundingModeWithScaleWithRaiseOnExactnessWithRaiseOnOverflowWithRaiseOnUnderflowWithRaiseOnDivideByZero(_: NSDecimal.Decimal.RoundingMode, scale: number, raiseOnExactness: boolean, raiseOnOverflow: boolean, raiseOnUnderflow: boolean, raiseOnDivideByZero: boolean): NSDecimalNumberHandler;
+  static createWithRoundingMode_Scale_RaiseOnExactness_RaiseOnOverflow_RaiseOnUnderflow_RaiseOnDivideByZero(_: NSDecimal.Decimal.RoundingMode, scale: number, raiseOnExactness: boolean, raiseOnOverflow: boolean, raiseOnUnderflow: boolean, raiseOnDivideByZero: boolean): NSDecimalNumberHandler;
 }
+
+export function NSDecimalNumberHandler(args?: any): NSDecimalNumberHandler;
 
 // export function NSDecimalPower(result: number, number: number, power: number, roundingMode: NSDecimal.Decimal.RoundingMode): NSDecimal.Decimal.CalculationError;
 
@@ -22617,6 +24358,8 @@ export class NSDeleteCommand extends NSScriptCommand {
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
 
+export function NSDeleteCommand(args?: any): NSDeleteCommand;
+
 interface NSDiscardableContent {
   beginContentAccess(): boolean;
   discardContentIfPossible(): void;
@@ -22626,14 +24369,16 @@ interface NSDiscardableContent {
 
 export class NSDistantObject extends NSProxy {
   //  static createWithAlloc(): NSDistantObject;
-  //  static createWithAllocWithZone(with_?: any): NSDistantObject;
+  //  static createWith_(with_?: any): NSDistantObject;
   static proxy(withLocal: any, connection: NSConnection): any;
   static proxy(withTarget: any, connection: NSConnection): any;
   connectionForProxy: NSConnection;
-  static createWithLocalWithConnection(_: any, connection: NSConnection): NSDistantObject;
-  static createWithTargetWithConnection(_: any, connection: NSConnection): NSDistantObject;
+  static createWithLocal_Connection(_: any, connection: NSConnection): NSDistantObject;
+  static createWithTarget_Connection(_: any, connection: NSConnection): NSDistantObject;
   setProtocolForProxy(_?: any /* Protocol */): void;
 }
+
+export function NSDistantObject(args?: any): NSDistantObject;
 
 export class NSDistantObjectRequest extends NSObject {
   connection: NSConnection;
@@ -22642,6 +24387,8 @@ export class NSDistantObjectRequest extends NSObject {
   reply(with_?: NSException): void;
 }
 
+export function NSDistantObjectRequest(args?: any): NSDistantObjectRequest;
+
 export class NSDistributedLock extends NSObject {
   lockDate: Date;
   break(): void;
@@ -22649,6 +24396,8 @@ export class NSDistributedLock extends NSObject {
   try(): boolean;
   unlock(): void;
 }
+
+export function NSDistributedLock(args?: any): NSDistributedLock;
 
 // export function NSDivideRect(inRect: CGRect, slice: CGRect, rem: CGRect, amount: number, edge: NSGeometry.NSRectEdge): void;
 
@@ -22667,6 +24416,8 @@ export class NSEnumerator<ObjectType> extends NSObject {
   nextObject(): ObjectType;
 }
 
+export function NSEnumerator<ObjectType>(args?: any): NSEnumerator<ObjectType>;
+
 // export function NSEqualPoints(aPoint: CGPoint, bPoint: CGPoint): boolean;
 
 // export function NSEqualRects(aRect: CGRect, bRect: CGRect): boolean;
@@ -22679,12 +24430,16 @@ export class NSException extends NSObject {
   name: string;
   reason: string;
   userInfo: Map<any, any>;
-  static createWithNameWithReasonWithUserInfo(_: string, reason?: string, userInfo?: Map<any, any>): NSException;
+  static createWithName_Reason_UserInfo(_: string, reason?: string, userInfo?: Map<any, any>): NSException;
   raise(): void;
 }
 
+export function NSException(args?: any): NSException;
+
 export class NSExistsCommand extends NSScriptCommand {
 }
+
+export function NSExistsCommand(args?: any): NSExistsCommand;
 
 export class NSExpression extends NSObject {
   static expressionForAnyKey(): NSExpression;
@@ -22708,12 +24463,16 @@ export class NSExpression extends NSObject {
   static createWithExpressionType(_: NSExpression.ExpressionType): NSExpression;
 }
 
+export function NSExpression(args?: any): NSExpression;
+
 export class NSExtensionContext extends NSObject {
   inputItems: any[];
-  cancelRequest(withError: Error): void;
+  cancelRequest(withError: NSError): void;
   completeRequest(returningItems?: any[], completionHandler?: (p1: boolean) => void): void;
-  open(_: URL, completionHandler?: (p1: boolean) => void): void;
+  open(_: NSURL, completionHandler?: (p1: boolean) => void): void;
 }
+
+export function NSExtensionContext(args?: any): NSExtensionContext;
 
 export class NSExtensionItem extends NSObject {
   attachments: NSItemProvider[];
@@ -22726,6 +24485,8 @@ export class NSExtensionItem extends NSObject {
   setUserInfo(_: Map<any, any>);
 }
 
+export function NSExtensionItem(args?: any): NSExtensionItem;
+
 interface NSExtensionRequestHandling {
   beginRequest(with_: NSExtensionContext): void;
 }
@@ -22737,10 +24498,12 @@ interface NSFastEnumeration {
 }
 
 export class NSFileAccessIntent extends NSObject {
-  static createWithReadingIntentWithURLWithOptions(with_: URL, options: NSFileCoordinator.ReadingOptions): NSFileAccessIntent;
-  static createWithWritingIntentWithURLWithOptions(with_: URL, options: NSFileCoordinator.WritingOptions): NSFileAccessIntent;
-  URL: URL;
+  static createWith__Options(with_: NSURL, options: NSFileCoordinator.ReadingOptions): NSFileAccessIntent;
+  static createWith__Options(with_: NSURL, options: NSFileCoordinator.WritingOptions): NSFileAccessIntent;
+  URL: NSURL;
 }
+
+export function NSFileAccessIntent(args?: any): NSFileAccessIntent;
 
 export class NSFileCoordinator extends NSObject {
   static addFilePresenter(_: any): void;
@@ -22749,61 +24512,67 @@ export class NSFileCoordinator extends NSObject {
   setPurposeIdentifier(_: string);
   static filePresenters: any[];
   cancel(): void;
-  coordinate(with_: NSFileAccessIntent[], queue: OperationQueue, byAccessor?: (p1: Error) => void): void;
-  coordinate(readingItemAt: URL, options: NSFileCoordinator.ReadingOptions, error?: Error, byAccessor?: (p1: URL) => void): void;
-  coordinate(readingItemAt: URL, options: NSFileCoordinator.ReadingOptions, writingItemAt: URL, options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL, p2: URL) => void): void;
-  coordinate(writingItemAt: URL, options: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL) => void): void;
-  coordinate(writingItemAt: URL, options: NSFileCoordinator.WritingOptions, writingItemAt2: URL, options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: URL, p2: URL) => void): void;
+  coordinate(with_: NSFileAccessIntent[], queue: OperationQueue, byAccessor?: (p1: NSError) => void): void;
+  coordinate(readingItemAt: NSURL, options: NSFileCoordinator.ReadingOptions, error?: NSError, byAccessor?: (p1: NSURL) => void): void;
+  coordinate(readingItemAt: NSURL, options: NSFileCoordinator.ReadingOptions, writingItemAt: NSURL, options2: NSFileCoordinator.WritingOptions, error?: NSError, byAccessor?: (p1: NSURL, p2: NSURL) => void): void;
+  coordinate(writingItemAt: NSURL, options: NSFileCoordinator.WritingOptions, error?: NSError, byAccessor?: (p1: NSURL) => void): void;
+  coordinate(writingItemAt: NSURL, options: NSFileCoordinator.WritingOptions, writingItemAt2: NSURL, options2: NSFileCoordinator.WritingOptions, error?: NSError, byAccessor?: (p1: NSURL, p2: NSURL) => void): void;
   static createWithFilePresenter(_?: any): NSFileCoordinator;
-  item(at: URL, didChangeUbiquityAttributes: Set<any>): void;
-  item(at: URL, didMoveTo: URL): void;
-  item(at: URL, willMoveTo: URL): void;
-  prepare(forReadingItemsAt: URL[], options: NSFileCoordinator.ReadingOptions, writingItemsAt: URL[], options2: NSFileCoordinator.WritingOptions, error?: Error, byAccessor?: (p1: () => void) => void): void;
+  item(at: NSURL, didChangeUbiquityAttributes: Set<any>): void;
+  item(at: NSURL, didMoveTo: NSURL): void;
+  item(at: NSURL, willMoveTo: NSURL): void;
+  prepare(forReadingItemsAt: NSURL[], options: NSFileCoordinator.ReadingOptions, writingItemsAt: NSURL[], options2: NSFileCoordinator.WritingOptions, error?: NSError, byAccessor?: (p1: () => void) => void): void;
 }
+
+export function NSFileCoordinator(args?: any): NSFileCoordinator;
 
 interface NSFilePresenter {
   observedPresentedItemUbiquityAttributes?: Set<any>;
   presentedItemOperationQueue: OperationQueue;
-  presentedItemURL: URL;
-  primaryPresentedItemURL?: URL;
-  accommodatePresentedItemDeletion(completionHandler?: (p1: Error) => void): void;
-  accommodatePresentedSubitemDeletion(at: URL, completionHandler?: (p1: Error) => void): void;
+  presentedItemURL: NSURL;
+  primaryPresentedItemURL?: NSURL;
+  accommodatePresentedItemDeletion(completionHandler?: (p1: NSError) => void): void;
+  accommodatePresentedSubitemDeletion(at: NSURL, completionHandler?: (p1: NSError) => void): void;
   presentedItemDidChange(): void;
   presentedItemDidChangeUbiquityAttributes(_: Set<any>): void;
   presentedItemDidGain(_: NSFileVersion): void;
   presentedItemDidLose(_: NSFileVersion): void;
-  presentedItemDidMove(to: URL): void;
+  presentedItemDidMove(to: NSURL): void;
   presentedItemDidResolveConflict(_: NSFileVersion): void;
-  presentedSubitem(at: URL, didMoveTo: URL): void;
-  presentedSubitem(at: URL, didGain: NSFileVersion): void;
-  presentedSubitem(at: URL, didLose: NSFileVersion): void;
-  presentedSubitem(at: URL, didResolve: NSFileVersion): void;
-  presentedSubitemDidAppear(at: URL): void;
-  presentedSubitemDidChange(at: URL): void;
+  presentedSubitem(at: NSURL, didMoveTo: NSURL): void;
+  presentedSubitem(at: NSURL, didGain: NSFileVersion): void;
+  presentedSubitem(at: NSURL, didLose: NSFileVersion): void;
+  presentedSubitem(at: NSURL, didResolve: NSFileVersion): void;
+  presentedSubitemDidAppear(at: NSURL): void;
+  presentedSubitemDidChange(at: NSURL): void;
   relinquishPresentedItem(toReader?: (p1: () => void) => void): void;
   relinquishPresentedItem(toWriter?: (p1: () => void) => void): void;
-  savePresentedItemChanges(completionHandler?: (p1: Error) => void): void;
+  savePresentedItemChanges(completionHandler?: (p1: NSError) => void): void;
 }
 
 export class NSFileProviderService extends NSObject {
   name: string;
-  getFileProviderConnection(completionHandler?: (p1: NSXPCConnection, p2: Error) => void): void;
+  getFileProviderConnection(completionHandler?: (p1: NSXPCConnection, p2: NSError) => void): void;
 }
+
+export function NSFileProviderService(args?: any): NSFileProviderService;
 
 export class NSFileSecurity extends NSObject {
 }
 
+export function NSFileSecurity(args?: any): NSFileSecurity;
+
 // export function NSFileTypeForHFSTypeCode(hfsFileTypeCode: number): string;
 
 export class NSFileVersion extends NSObject {
-  static addVersionOfItemAtURL(withContentsOfURL: URL, options: URL, error: NSFileVersion.AddingOptions): NSFileVersion;
-  static currentVersionOfItem(at: URL): NSFileVersion;
-  static getNonlocalVersionsOfItem(at: URL, completionHandler?: (p1: NSFileVersion[], p2: Error) => void): void;
-  static otherVersionsOfItem(at: URL): NSFileVersion[];
-  static removeOtherVersionsOfItemAtURL(error: URL): boolean;
-  static temporaryDirectoryURLForNewVersionOfItem(at: URL): URL;
-  static unresolvedConflictVersionsOfItem(at: URL): NSFileVersion[];
-  url: URL;
+  static addVersionOfItemAtURL(withContentsOfURL: NSURL, options: NSURL, error: NSFileVersion.AddingOptions): NSFileVersion;
+  static currentVersionOfItem(at: NSURL): NSFileVersion;
+  static getNonlocalVersionsOfItem(at: NSURL, completionHandler?: (p1: NSFileVersion[], p2: NSError) => void): void;
+  static otherVersionsOfItem(at: NSURL): NSFileVersion[];
+  static removeOtherVersionsOfItemAtURL(error: NSURL): boolean;
+  static temporaryDirectoryURLForNewVersionOfItem(at: NSURL): NSURL;
+  static unresolvedConflictVersionsOfItem(at: NSURL): NSFileVersion[];
+  url: NSURL;
   isConflict: boolean;
   isDiscardable: boolean;
   setDiscardable(_: boolean);
@@ -22817,8 +24586,10 @@ export class NSFileVersion extends NSObject {
   isResolved: boolean;
   setResolved(_: boolean);
   removeAndReturnError(): boolean;
-  replaceItemAtURL(options: URL, error: NSFileVersion.ReplacingOptions): URL;
+  replaceItemAtURL(options: NSURL, error: NSFileVersion.ReplacingOptions): NSURL;
 }
+
+export function NSFileVersion(args?: any): NSFileVersion;
 
 // export function NSFrameAddress(frame: number): any;
 
@@ -22840,8 +24611,12 @@ export class NSGarbageCollector extends NSObject {
   isEnabled(): boolean;
 }
 
+export function NSGarbageCollector(args?: any): NSGarbageCollector;
+
 export class NSGetCommand extends NSScriptCommand {
 }
+
+export function NSGetCommand(args?: any): NSGetCommand;
 
 // export function NSGetSizeAndAlignment(typePtr: string | any, sizep: number, alignp: number): string;
 
@@ -22870,8 +24645,8 @@ export class NSHashTable<ObjectType> extends NSObject {
   setRepresentation: Set<any>;
   add(_?: ObjectType): void;
   contains(_?: ObjectType): boolean;
-  // static createWithOptionsWithCapacity(_: NSPointerFunctions.Options, capacity: number): NSHashTable<ObjectType>;
-  // static createWithPointerFunctionsWithCapacity(_: NSPointerFunctions, capacity: number): NSHashTable<ObjectType>;
+  // static createWithOptions_Capacity(_: NSPointerFunctions.Options, capacity: number): NSHashTable<ObjectType>;
+  // static createWithPointerFunctions_Capacity(_: NSPointerFunctions, capacity: number): NSHashTable<ObjectType>;
   intersect(_: NSHashTable<any>): void;
   intersects(_: NSHashTable<any>): boolean;
   // @ts-ignore 
@@ -22885,6 +24660,8 @@ export class NSHashTable<ObjectType> extends NSObject {
   union(_: NSHashTable<any>): void;
 }
 
+export function NSHashTable<ObjectType>(args?: any): NSHashTable<ObjectType>;
+
 // export function NSHomeDirectory(): string;
 
 // export function NSHomeDirectoryForUser(userName: string): string;
@@ -22895,8 +24672,10 @@ export class NSIndexSpecifier extends NSScriptObjectSpecifier {
   index: number;
   setIndex(_: number);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithIndex(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, index?: number): NSIndexSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_Index(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, index?: number): NSIndexSpecifier;
 }
+
+export function NSIndexSpecifier(args?: any): NSIndexSpecifier;
 
 // export function NSInsetRect(aRect: CGRect, dX: number, dY: number): CGRect;
 
@@ -22926,12 +24705,16 @@ export class NSInvocation extends NSObject {
   setReturnValue(_: any): void;
 }
 
+export function NSInvocation(args?: any): NSInvocation;
+
 export class NSInvocationOperation extends Operation {
   invocation: NSInvocation;
   result: any;
   static createWithInvocation(_: NSInvocation): NSInvocationOperation;
-  static createWithTargetWithSelectorWithObject(_: any, selector: string, object_?: any): NSInvocationOperation;
+  static createWithTarget_Selector_Object(_: any, selector: string, object_?: any): NSInvocationOperation;
 }
+
+export function NSInvocationOperation(args?: any): NSInvocationOperation;
 
 // export function NSIsEmptyRect(aRect: CGRect): boolean;
 
@@ -22940,31 +24723,33 @@ export class NSInvocationOperation extends Operation {
 export class NSItemProvider extends NSObject {
   containerFrame: CGRect;
   preferredPresentationSize: CGSize;
-  previewImageHandler: (p1: (p1: any, p2: Error) => void, p2: typeof NSObject, p3: Map<any, any>) => void;
-  setPreviewImageHandler(_: (p1: (p1: any, p2: Error) => void, p2: typeof NSObject, p3: Map<any, any>) => void);
+  previewImageHandler: (p1: (p1: any, p2: NSError) => void, p2: typeof NSObject, p3: Map<any, any>) => void;
+  setPreviewImageHandler(_: (p1: (p1: any, p2: NSError) => void, p2: typeof NSObject, p3: Map<any, any>) => void);
   sourceFrame: CGRect;
   suggestedName: string;
   setSuggestedName(_: string);
   canLoadObject(ofClass: typeof NSObject): boolean;
   hasItemConformingToTypeIdentifier(_: string): boolean;
   hasRepresentationConforming(toTypeIdentifier: string, fileOptions: NSItemProvider.NSItemProviderFileOptions): boolean;
-  static createWithContentsOf(_: URL): NSItemProvider;
-  static createWithItemWithTypeIdentifier(_?: any, typeIdentifier?: string): NSItemProvider;
+  static createWithContentsOf(_: NSURL): NSItemProvider;
+  static createWithItem_TypeIdentifier(_?: any, typeIdentifier?: string): NSItemProvider;
   static createWithObject(_: any): NSItemProvider;
-  loadDataRepresentation(forTypeIdentifier: string, completionHandler?: (p1: NSData, p2: Error) => void): Progress;
-  loadFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: URL, p2: Error) => void): Progress;
-  loadInPlaceFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: URL, p2: boolean, p3: Error) => void): Progress;
-  loadItem(forTypeIdentifier: string, options?: Map<any, any>, completionHandler?: (p1: any, p2: Error) => void): void;
-  loadObject(ofClass: typeof NSObject, completionHandler?: (p1: any, p2: Error) => void): Progress;
-  loadPreviewImage(options: Map<any, any>, completionHandler: (p1: any, p2: Error) => void): void;
+  loadDataRepresentation(forTypeIdentifier: string, completionHandler?: (p1: NSData, p2: NSError) => void): Progress;
+  loadFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: NSURL, p2: NSError) => void): Progress;
+  loadInPlaceFileRepresentation(forTypeIdentifier: string, completionHandler?: (p1: NSURL, p2: boolean, p3: NSError) => void): Progress;
+  loadItem(forTypeIdentifier: string, options?: Map<any, any>, completionHandler?: (p1: any, p2: NSError) => void): void;
+  loadObject(ofClass: typeof NSObject, completionHandler?: (p1: any, p2: NSError) => void): Progress;
+  loadPreviewImage(options: Map<any, any>, completionHandler: (p1: any, p2: NSError) => void): void;
   registerCloudKitShare(_: CKShare, container: CKContainer): void;
-  registerCloudKitShare(preparationHandler?: (p1: (p1: CKShare, p2: CKContainer, p3: Error) => void) => void): void;
-  registerDataRepresentation(forTypeIdentifier: string, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: NSData, p2: Error) => void) => Progress): void;
-  registerFileRepresentation(forTypeIdentifier: string, fileOptions: NSItemProvider.NSItemProviderFileOptions, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: URL, p2: boolean, p3: Error) => void) => Progress): void;
-  registerItem(forTypeIdentifier: string, loadHandler: (p1: (p1: any, p2: Error) => void, p2: typeof NSObject, p3: Map<any, any>) => void): void;
+  registerCloudKitShare(preparationHandler?: (p1: (p1: CKShare, p2: CKContainer, p3: NSError) => void) => void): void;
+  registerDataRepresentation(forTypeIdentifier: string, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: NSData, p2: NSError) => void) => Progress): void;
+  registerFileRepresentation(forTypeIdentifier: string, fileOptions: NSItemProvider.NSItemProviderFileOptions, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: NSURL, p2: boolean, p3: NSError) => void) => Progress): void;
+  registerItem(forTypeIdentifier: string, loadHandler: (p1: (p1: any, p2: NSError) => void, p2: typeof NSObject, p3: Map<any, any>) => void): void;
   registerObject(_: any, visibility: NSItemProvider.NSItemProviderRepresentationVisibility): void;
-  registerObject(ofClass: typeof NSObject, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: any, p2: Error) => void) => Progress): void;
+  registerObject(ofClass: typeof NSObject, visibility: NSItemProvider.NSItemProviderRepresentationVisibility, loadHandler?: (p1: (p1: any, p2: NSError) => void) => Progress): void;
 }
+
+export function NSItemProvider(args?: any): NSItemProvider;
 
 interface NSItemProviderReading {
 }
@@ -22972,7 +24757,7 @@ interface NSItemProviderReading {
 interface NSItemProviderWriting {
   writableTypeIdentifiersForItemProvider?: string[];
   itemProviderVisibilityForRepresentation(withTypeIdentifier: string): NSItemProvider.NSItemProviderRepresentationVisibility;
-  loadData(withTypeIdentifier: string, forItemProviderCompletionHandler?: (p1: NSData, p2: Error) => void): Progress;
+  loadData(withTypeIdentifier: string, forItemProviderCompletionHandler?: (p1: NSData, p2: NSError) => void): Progress;
 }
 
 export class NSKeyedArchiver extends NSCoder {
@@ -22992,6 +24777,8 @@ export class NSKeyedArchiver extends NSCoder {
   static createWithRequiringSecureCoding(_: boolean): NSKeyedArchiver;
   setClassName(_?: string, for_?: typeof NSObject): void;
 }
+
+export function NSKeyedArchiver(args?: any): NSKeyedArchiver;
 
 interface NSKeyedArchiverDelegate {
   archiver(_: NSKeyedArchiver, willEncode: any): any;
@@ -23018,6 +24805,8 @@ export class NSKeyedUnarchiver extends NSCoder {
   setClass(_?: typeof NSObject, forClassName?: string): void;
 }
 
+export function NSKeyedUnarchiver(args?: any): NSKeyedUnarchiver;
+
 interface NSKeyedUnarchiverDelegate {
   unarchiver(_: NSKeyedUnarchiver, cannotDecodeObjectOfClassName: string, originalClasses: string[]): typeof NSObject;
   unarchiver(_: NSKeyedUnarchiver, didDecode?: any): any;
@@ -23037,7 +24826,7 @@ export class NSLinguisticTagger extends NSObject {
   tagSchemes: string[];
   enumerateTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
   enumerateTags(in_: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: boolean) => void): void;
-  static createWithTagSchemesWithOptions(_: string[], options: number): NSLinguisticTagger;
+  static createWithTagSchemes_Options(_: string[], options: number): NSLinguisticTagger;
   orthography(at: number, effectiveRange?: NSRange): NSOrthography;
   possibleTags(at: number, scheme: string, tokenRange?: NSRange, sentenceRange?: NSRange, scores?: NSValue[]): string[];
   sentenceRange(for_: NSRange): NSRange;
@@ -23050,12 +24839,16 @@ export class NSLinguisticTagger extends NSObject {
   tokenRange(at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit): NSRange;
 }
 
+export function NSLinguisticTagger(args?: any): NSLinguisticTagger;
+
 export class NSLock extends NSObject {
   name: string;
   setName(_: string);
   lock(before: Date): boolean;
   try(): boolean;
 }
+
+export function NSLock(args?: any): NSLock;
 
 interface NSLocking {
   lock(): void;
@@ -23065,15 +24858,19 @@ interface NSLocking {
 // export function NSLogPageSize(): number;
 
 export class NSLogicalTest extends NSScriptWhoseTest {
-  static createWithAndTestWith(_: NSSpecifierTest[]): NSLogicalTest;
-  static createWithNotTestWith(_: NSScriptWhoseTest): NSLogicalTest;
-  static createWithOrTestWith(_: NSSpecifierTest[]): NSLogicalTest;
+  static createWithAndTest_(_: NSSpecifierTest[]): NSLogicalTest;
+  static createWithNotTest_(_: NSScriptWhoseTest): NSLogicalTest;
+  static createWithOrTest_(_: NSSpecifierTest[]): NSLogicalTest;
 }
+
+export function NSLogicalTest(args?: any): NSLogicalTest;
 
 export class NSMachBootstrapServer extends NSPortNameServer {
   static sharedInstance(): any;
   servicePort(withName: string): Port;
 }
+
+export function NSMachBootstrapServer(args?: any): NSMachBootstrapServer;
 
 export class NSMachPort extends Port {
   static port(withMachPort: number): Port;
@@ -23082,10 +24879,12 @@ export class NSMachPort extends Port {
   // @ts-ignore 
   delegate(): any;
   static createWithMachPort(_: number): NSMachPort;
-  static createWithMachPortWithOptions(_: number, options: Port.NSMachPort.Options): NSMachPort;
+  static createWithMachPort_Options(_: number, options: Port.NSMachPort.Options): NSMachPort;
   // @ts-ignore 
   setDelegate(_?: any): void;
 }
+
+export function NSMachPort(args?: any): NSMachPort;
 
 interface NSMachPortDelegate {
   handleMachMessage(_: any): void;
@@ -23114,8 +24913,8 @@ export class NSMapTable<KeyType, ObjectType> extends NSObject {
   keyPointerFunctions: NSPointerFunctions;
   valuePointerFunctions: NSPointerFunctions;
   dictionaryRepresentation(): Map<KeyType, ObjectType>;
-  // static createWithKeyOptionsWithValueOptionsWithCapacity(_: NSPointerFunctions.Options, valueOptions: NSPointerFunctions.Options, capacity: number): NSMapTable<KeyType, ObjectType>;
-  // static createWithKeyPointerFunctionsWithValuePointerFunctionsWithCapacity(_: NSPointerFunctions, valuePointerFunctions: NSPointerFunctions, capacity: number): NSMapTable<KeyType, ObjectType>;
+  // static createWithKeyOptions_ValueOptions_Capacity(_: NSPointerFunctions.Options, valueOptions: NSPointerFunctions.Options, capacity: number): NSMapTable<KeyType, ObjectType>;
+  // static createWithKeyPointerFunctions_ValuePointerFunctions_Capacity(_: NSPointerFunctions, valuePointerFunctions: NSPointerFunctions, capacity: number): NSMapTable<KeyType, ObjectType>;
   keyEnumerator(): NSEnumerator<any>;
   objectEnumerator(): NSEnumerator<any>;
   object(forKey?: KeyType): ObjectType;
@@ -23124,17 +24923,23 @@ export class NSMapTable<KeyType, ObjectType> extends NSObject {
   setObject(_?: ObjectType, forKey?: KeyType): void;
 }
 
+export function NSMapTable<KeyType, ObjectType>(args?: any): NSMapTable<KeyType, ObjectType>;
+
 export class NSMessagePortNameServer extends NSPortNameServer {
   static sharedInstance(): any;
 }
 
+export function NSMessagePortNameServer(args?: any): NSMessagePortNameServer;
+
 export class NSMetadataItem extends NSObject {
   attributes: string[];
-  static createWithUrl(_: URL): NSMetadataItem;
+  static createWithUrl(_: NSURL): NSMetadataItem;
   // @ts-ignore 
   value(forAttribute: string): any;
   values(forAttributes: string[]): Map<string, any>;
 }
+
+export function NSMetadataItem(args?: any): NSMetadataItem;
 
 export class NSMetadataQuery extends NSObject {
   delegate: any;
@@ -23174,10 +24979,14 @@ export class NSMetadataQuery extends NSObject {
   value(ofAttribute: string, forResultAt: number): any;
 }
 
+export function NSMetadataQuery(args?: any): NSMetadataQuery;
+
 export class NSMetadataQueryAttributeValueTuple extends NSObject {
   attribute: string;
   count: number;
 }
+
+export function NSMetadataQueryAttributeValueTuple(args?: any): NSMetadataQueryAttributeValueTuple;
 
 interface NSMetadataQueryDelegate {
   metadataQuery(_: NSMetadataQuery, replacementObjectForResultObject: NSMetadataItem): any;
@@ -23192,6 +25001,8 @@ export class NSMetadataQueryResultGroup extends NSObject {
   result(at: number): any;
 }
 
+export function NSMetadataQueryResultGroup(args?: any): NSMetadataQueryResultGroup;
+
 export class NSMethodSignature extends NSObject {
   frameLength: number;
   methodReturnLength: number;
@@ -23201,8 +25012,12 @@ export class NSMethodSignature extends NSObject {
   isOneway(): boolean;
 }
 
+export function NSMethodSignature(args?: any): NSMethodSignature;
+
 export class NSMiddleSpecifier extends NSScriptObjectSpecifier {
 }
+
+export function NSMiddleSpecifier(args?: any): NSMiddleSpecifier;
 
 // export function NSMouseInRect(aPoint: CGPoint, aRect: CGRect, flipped: boolean): boolean;
 
@@ -23210,6 +25025,8 @@ export class NSMoveCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
+
+export function NSMoveCommand(args?: any): NSMoveCommand;
 
 export class NSMutableArray<ObjectType> extends NSArray<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableArray<ObjectType>;
@@ -23243,6 +25060,8 @@ export class NSMutableArray<ObjectType> extends NSArray<ObjectType> {
   sort(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): void;
 }
 
+export function NSMutableArray<ObjectType>(args?: any): NSMutableArray<ObjectType>;
+
 export class NSMutableAttributedString extends NSAttributedString {
   mutableString: NSMutableString;
   addAttribute(_: string, value: any, range: NSRange): void;
@@ -23258,7 +25077,7 @@ export class NSMutableAttributedString extends NSAttributedString {
   fixParagraphStyleAttribute(in_: NSRange): void;
   insert(_: NSAttributedString, at: number): void;
   read(from: NSData, options: Map<string, any>, documentAttributes?: Map<string, any>): boolean;
-  read(from: URL, options: Map<string, any>, documentAttributes?: Map<string, any>): boolean;
+  read(from: NSURL, options: Map<string, any>, documentAttributes?: Map<string, any>): boolean;
   removeAttribute(_: string, range: NSRange): void;
   replaceCharacters(in_: NSRange, with_: NSAttributedString): void;
   replaceCharacters(in_: NSRange, with_: string): void;
@@ -23272,6 +25091,8 @@ export class NSMutableAttributedString extends NSAttributedString {
   updateAttachments(fromPath: string): void;
 }
 
+export function NSMutableAttributedString(args?: any): NSMutableAttributedString;
+
 export class NSMutableCharacterSet extends CharacterSet {
   addCharacters(in_: NSRange): void;
   addCharacters(in_: string): void;
@@ -23282,13 +25103,15 @@ export class NSMutableCharacterSet extends CharacterSet {
   removeCharacters(in_: string): void;
 }
 
+export function NSMutableCharacterSet(args?: any): NSMutableCharacterSet;
+
 interface NSMutableCopying {
   mutableCopy(with_?: any): any;
 }
 
 export class NSMutableData extends NSData {
-  //  static createWithContentsOfFileOptionsWithError(options: string, error: NSData.ReadingOptions): NSMutableData;
-  //  static createWithContentsOfURLOptionsWithError(options: URL, error: NSData.ReadingOptions): NSMutableData;
+  //  static createWithOptions_Error(options: string, error: NSData.ReadingOptions): NSMutableData;
+  //  static createWithOptions_Error(options: NSURL, error: NSData.ReadingOptions): NSMutableData;
   length: number;
   setLength(_: number);
   mutableBytes: any;
@@ -23305,6 +25128,8 @@ export class NSMutableData extends NSData {
   setData(_: NSData): void;
 }
 
+export function NSMutableData(args?: any): NSMutableData;
+
 export class NSMutableDictionary<KeyType, ObjectType> extends Dictionary<KeyType, ObjectType> {
   addEntries(from: Map<KeyType, ObjectType>): void;
   // static createWithCapacity(_: number): NSMutableDictionary<KeyType, ObjectType>;
@@ -23317,6 +25142,8 @@ export class NSMutableDictionary<KeyType, ObjectType> extends Dictionary<KeyType
   setValue(_?: ObjectType, forKey?: string): void;
 }
 
+export function NSMutableDictionary<KeyType, ObjectType>(args?: any): NSMutableDictionary<KeyType, ObjectType>;
+
 export class NSMutableIndexSet extends IndexSet {
   add(_: number): void;
   add(_: IndexSet): void;
@@ -23327,6 +25154,8 @@ export class NSMutableIndexSet extends IndexSet {
   remove(in_: NSRange): void;
   shiftIndexesStarting(at: number, by: number): void;
 }
+
+export function NSMutableIndexSet(args?: any): NSMutableIndexSet;
 
 export class NSMutableOrderedSet<ObjectType> extends NSOrderedSet<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableOrderedSet<ObjectType>;
@@ -23362,6 +25191,8 @@ export class NSMutableOrderedSet<ObjectType> extends NSOrderedSet<ObjectType> {
   unionSet(_: Set<any>): void;
 }
 
+export function NSMutableOrderedSet<ObjectType>(args?: any): NSMutableOrderedSet<ObjectType>;
+
 export class NSMutableSet<ObjectType> extends Set<ObjectType> {
   //  static createWithObjects<ObjectType>(_: ObjectType): NSMutableSet<ObjectType>;
   // @ts-ignore 
@@ -23377,6 +25208,8 @@ export class NSMutableSet<ObjectType> extends Set<ObjectType> {
   union(_: Set<any>): void;
 }
 
+export function NSMutableSet<ObjectType>(args?: any): NSMutableSet<ObjectType>;
+
 export class NSMutableURLRequest extends URLRequest {
   httpBody: NSData;
   setHTTPBody(_: NSData);
@@ -23388,8 +25221,8 @@ export class NSMutableURLRequest extends URLRequest {
   setHTTPShouldHandleCookies(_: boolean);
   httpShouldUsePipelining: boolean;
   setHTTPShouldUsePipelining(_: boolean);
-  url: URL;
-  setURL(_: URL);
+  url: NSURL;
+  setURL(_: NSURL);
   allHTTPHeaderFields: Map<string, string>;
   setAllHTTPHeaderFields(_: Map<string, string>);
   allowsCellularAccess: boolean;
@@ -23400,8 +25233,8 @@ export class NSMutableURLRequest extends URLRequest {
   setAllowsExpensiveNetworkAccess(_: boolean);
   cachePolicy: URLRequest.CachePolicy;
   setCachePolicy(_: URLRequest.CachePolicy);
-  mainDocumentURL: URL;
-  setMainDocumentURL(_: URL);
+  mainDocumentURL: NSURL;
+  setMainDocumentURL(_: NSURL);
   networkServiceType: URLRequest.NetworkServiceType;
   setNetworkServiceType(_: URLRequest.NetworkServiceType);
   timeoutInterval: number;
@@ -23411,12 +25244,16 @@ export class NSMutableURLRequest extends URLRequest {
   setValue(_?: string, forHTTPHeaderField?: string): void;
 }
 
+export function NSMutableURLRequest(args?: any): NSMutableURLRequest;
+
 export class NSNameSpecifier extends NSScriptObjectSpecifier {
   name: string;
   setName(_: string);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithName(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, name?: string): NSNameSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_Name(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, name?: string): NSNameSpecifier;
 }
+
+export function NSNameSpecifier(args?: any): NSNameSpecifier;
 
 // export function NSNextHashEnumeratorItem(enumerator: NSHashEnumerator): any;
 
@@ -23424,6 +25261,8 @@ export class NSNameSpecifier extends NSScriptObjectSpecifier {
 
 export class NSNull extends NSObject {
 }
+
+export function NSNull(args?: any): NSNull;
 
 export class NSNumber extends NSValue {
   boolValue: boolean;
@@ -23450,6 +25289,8 @@ export class NSNumber extends NSValue {
   isEqual(to: number): boolean;
 }
 
+export function NSNumber(args?: any): NSNumber;
+
 // export function NSOffsetRect(aRect: CGRect, dX: number, dY: number): CGRect;
 
 // export function NSOpenStepRootDirectory(): string;
@@ -23459,9 +25300,11 @@ export class NSOrderedCollectionChange<ObjectType> extends NSObject {
   changeType: NSOrderedCollectionChange.NSCollectionChangeType;
   index: number;
   object: ObjectType;
-  // static createWithObjectWithTypeWithIndex(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number): NSOrderedCollectionChange<ObjectType>;
-  // static createWithObjectWithTypeWithIndexWithAssociatedIndex(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number, associatedIndex?: number): NSOrderedCollectionChange<ObjectType>;
+  // static createWithObject_Type_Index(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number): NSOrderedCollectionChange<ObjectType>;
+  // static createWithObject_Type_Index_AssociatedIndex(_?: ObjectType, type?: NSOrderedCollectionChange.NSCollectionChangeType, index?: number, associatedIndex?: number): NSOrderedCollectionChange<ObjectType>;
 }
+
+export function NSOrderedCollectionChange<ObjectType>(args?: any): NSOrderedCollectionChange<ObjectType>;
 
 export class NSOrderedSet<ObjectType> extends NSObject {
   static createWithObjects<ObjectType>(_: ObjectType): NSOrderedSet<ObjectType>;
@@ -23492,16 +25335,16 @@ export class NSOrderedSet<ObjectType> extends NSObject {
   indexes(ofObjectsPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
   indexes(options: NSObjCRuntime.NSEnumerationOptions, ofObjectsPassingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
   // static createWithArray(_: ObjectType[]): NSOrderedSet<ObjectType>;
-  // static createWithArrayWithCopyItems(_: ObjectType[], copyItems: boolean): NSOrderedSet<ObjectType>;
-  // static createWithArrayWithRangeWithCopyItems(_: ObjectType[], range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
+  // static createWithArray_CopyItems(_: ObjectType[], copyItems: boolean): NSOrderedSet<ObjectType>;
+  // static createWithArray_Range_CopyItems(_: ObjectType[], range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
   // static createWithObject(_: ObjectType): NSOrderedSet<ObjectType>;
   // static createWithObjects(_: ObjectType): NSOrderedSet<ObjectType>;
-  // static createWithObjectsWithCount(_?: ObjectType, count?: number): NSOrderedSet<ObjectType>;
+  // static createWithObjects_Count(_?: ObjectType, count?: number): NSOrderedSet<ObjectType>;
   // static createWithOrderedSet(_: NSOrderedSet<any>): NSOrderedSet<ObjectType>;
-  // static createWithOrderedSetWithCopyItems(_: NSOrderedSet<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
-  // static createWithOrderedSetWithRangeWithCopyItems(_: NSOrderedSet<any>, range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
+  // static createWithOrderedSet_CopyItems(_: NSOrderedSet<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
+  // static createWithOrderedSet_Range_CopyItems(_: NSOrderedSet<any>, range: NSRange, copyItems: boolean): NSOrderedSet<ObjectType>;
   // static createWithSet(_: Set<any>): NSOrderedSet<ObjectType>;
-  // static createWithSetWithCopyItems(_: Set<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
+  // static createWithSet_CopyItems(_: Set<any>, copyItems: boolean): NSOrderedSet<ObjectType>;
   intersects(_: NSOrderedSet<any>): boolean;
   intersectsSet(_: Set<any>): boolean;
   // @ts-ignore 
@@ -23518,15 +25361,19 @@ export class NSOrderedSet<ObjectType> extends NSObject {
   sortedArray(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
 }
 
+export function NSOrderedSet<ObjectType>(args?: any): NSOrderedSet<ObjectType>;
+
 export class NSOrthography extends NSObject {
-  static createWithDefaultOrthographyForLanguage(forLanguage: string): NSOrthography;
+  static createWithForLanguage(forLanguage: string): NSOrthography;
   allLanguages: string[];
   allScripts: string[];
   dominantScript: string;
   languageMap: Map<string, string[]>;
-  static createWithDominantScriptWithLanguageMap(_: string, languageMap: Map<string, string[]>): NSOrthography;
+  static createWithDominantScript_LanguageMap(_: string, languageMap: Map<string, string[]>): NSOrthography;
   languages(forScript: string): string[];
 }
+
+export function NSOrthography(args?: any): NSOrthography;
 
 // export function NSPageSize(): number;
 
@@ -23551,6 +25398,8 @@ export class NSPointerArray extends NSObject {
   replacePointer(at: number, withPointer?: any): void;
 }
 
+export function NSPointerArray(args?: any): NSPointerArray;
+
 export class NSPointerFunctions extends NSObject {
   acquireFunction: (p1: any, p2: (p1: any) => number, p3: boolean) => any;
   setAcquireFunction(_: (p1: any, p2: (p1: any) => number, p3: boolean) => any);
@@ -23567,12 +25416,16 @@ export class NSPointerFunctions extends NSObject {
   static createWithOptions(_: NSPointerFunctions.Options): NSPointerFunctions;
 }
 
+export function NSPointerFunctions(args?: any): NSPointerFunctions;
+
 export class NSPortCoder extends NSCoder {
   decodePortObject(): Port;
   encodePortObject(_: Port): void;
   isBycopy(): boolean;
   isByref(): boolean;
 }
+
+export function NSPortCoder(args?: any): NSPortCoder;
 
 export class NSPortNameServer extends NSObject {
   static systemDefault(): NSPortNameServer;
@@ -23582,6 +25435,8 @@ export class NSPortNameServer extends NSObject {
   removePort(forName: string): boolean;
 }
 
+export function NSPortNameServer(args?: any): NSPortNameServer;
+
 export class NSPositionalSpecifier extends NSObject {
   insertionContainer: any;
   insertionIndex: number;
@@ -23589,9 +25444,11 @@ export class NSPositionalSpecifier extends NSObject {
   insertionReplaces: boolean;
   position: NSScriptObjectSpecifiers.NSPositionalSpecifier.InsertionPosition;
   evaluate(): void;
-  static createWithPositionWithObjectSpecifier(_: NSScriptObjectSpecifiers.NSPositionalSpecifier.InsertionPosition, objectSpecifier: NSScriptObjectSpecifier): NSPositionalSpecifier;
+  static createWithPosition_ObjectSpecifier(_: NSScriptObjectSpecifiers.NSPositionalSpecifier.InsertionPosition, objectSpecifier: NSScriptObjectSpecifier): NSPositionalSpecifier;
   setInsertionClassDescription(_: NSScriptClassDescription): void;
 }
+
+export function NSPositionalSpecifier(args?: any): NSPositionalSpecifier;
 
 export class NSPredicate extends NSObject {
   predicateFormat: string;
@@ -23601,16 +25458,22 @@ export class NSPredicate extends NSObject {
   createWithSubstitutionVariables(_: Map<string, any>): NSPredicate;
 }
 
+export function NSPredicate(args?: any): NSPredicate;
+
 export class NSPropertySpecifier extends NSScriptObjectSpecifier {
 }
 
+export function NSPropertySpecifier(args?: any): NSPropertySpecifier;
+
 export class NSProtocolChecker extends NSProxy {
   //  static createWithAlloc(): NSProtocolChecker;
-  //  static createWithAllocWithZone(with_?: any): NSProtocolChecker;
+  //  static createWith_(with_?: any): NSProtocolChecker;
   protocol: any /* Protocol */;
   target: NSObject;
-  static createWithTargetWithProtocol(_: NSObject, protocol: any /* Protocol */): NSProtocolChecker;
+  static createWithTarget_Protocol(_: NSObject, protocol: any /* Protocol */): NSProtocolChecker;
 }
+
+export function NSProtocolChecker(args?: any): NSProtocolChecker;
 
 // export function NSProtocolFromString(namestr: string): any /* Protocol */;
 
@@ -23623,16 +25486,24 @@ export class NSProxy {
   forwardInvocation(_: NSInvocation): void;
 }
 
+export function NSProxy(args?: any): NSProxy;
+
 export class NSPurgeableData extends NSMutableData {
-  //  static createWithContentsOfFileOptionsWithError(options: string, error: NSData.ReadingOptions): NSPurgeableData;
-  //  static createWithContentsOfURLOptionsWithError(options: URL, error: NSData.ReadingOptions): NSPurgeableData;
+  //  static createWithOptions_Error(options: string, error: NSData.ReadingOptions): NSPurgeableData;
+  //  static createWithOptions_Error(options: NSURL, error: NSData.ReadingOptions): NSPurgeableData;
 }
+
+export function NSPurgeableData(args?: any): NSPurgeableData;
 
 export class NSQuitCommand extends NSScriptCommand {
 }
 
+export function NSQuitCommand(args?: any): NSQuitCommand;
+
 export class NSRandomSpecifier extends NSScriptObjectSpecifier {
 }
+
+export function NSRandomSpecifier(args?: any): NSRandomSpecifier;
 
 // export function NSRangeFromString(aString: string): NSRange;
 
@@ -23642,8 +25513,10 @@ export class NSRangeSpecifier extends NSScriptObjectSpecifier {
   startSpecifier: NSScriptObjectSpecifier;
   setStartSpecifier(_: NSScriptObjectSpecifier);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithStartSpecifierWithEndSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, startSpecifier?: NSScriptObjectSpecifier, endSpecifier?: NSScriptObjectSpecifier): NSRangeSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_StartSpecifier_EndSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, startSpecifier?: NSScriptObjectSpecifier, endSpecifier?: NSScriptObjectSpecifier): NSRangeSpecifier;
 }
+
+export function NSRangeSpecifier(args?: any): NSRangeSpecifier;
 
 // export function NSReallocateCollectable(ptr: any, size: number, options: number): any;
 
@@ -23658,6 +25531,8 @@ export class NSRecursiveLock extends NSObject {
   try(): boolean;
 }
 
+export function NSRecursiveLock(args?: any): NSRecursiveLock;
+
 // export function NSRecycleZone(zone: any): void;
 
 export class NSRegularExpression extends NSObject {
@@ -23669,7 +25544,7 @@ export class NSRegularExpression extends NSObject {
   pattern: string;
   enumerateMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange, using?: (p1: NSTextCheckingResult, p2: NSRegularExpression.MatchingFlags, p3: boolean) => void): void;
   firstMatch(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSTextCheckingResult;
-  static createWithPatternWithOptions(options: string, error: NSRegularExpression.Options): NSRegularExpression;
+  static createWithPattern_Options(options: string, error: NSRegularExpression.Options): NSRegularExpression;
   matches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSTextCheckingResult[];
   numberOfMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): number;
   rangeOfFirstMatch(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange): NSRange;
@@ -23678,14 +25553,18 @@ export class NSRegularExpression extends NSObject {
   stringByReplacingMatches(in_: string, options: NSRegularExpression.MatchingOptions, range: NSRange, withTemplate: string): string;
 }
 
+export function NSRegularExpression(args?: any): NSRegularExpression;
+
 export class NSRelativeSpecifier extends NSScriptObjectSpecifier {
   baseSpecifier: NSScriptObjectSpecifier;
   setBaseSpecifier(_: NSScriptObjectSpecifier);
   relativePosition: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition;
   setRelativePosition(_: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithRelativePositionWithBaseSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, relativePosition?: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition, baseSpecifier?: NSScriptObjectSpecifier): NSRelativeSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_RelativePosition_BaseSpecifier(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, relativePosition?: NSScriptObjectSpecifiers.NSRelativeSpecifier.RelativePosition, baseSpecifier?: NSScriptObjectSpecifier): NSRelativeSpecifier;
 }
+
+export function NSRelativeSpecifier(args?: any): NSRelativeSpecifier;
 
 // export function NSResetHashTable(table: NSHashTable<any>): void;
 
@@ -23707,7 +25586,7 @@ export class NSScriptClassDescription extends NSClassDescription {
   hasProperty(forKey: string): boolean;
   hasReadableProperty(forKey: string): boolean;
   hasWritableProperty(forKey: string): boolean;
-  static createWithSuiteNameWithClassNameWithDictionary(_: string, className: string, dictionary?: Map<any, any>): NSScriptClassDescription;
+  static createWithSuiteName_ClassName_Dictionary(_: string, className: string, dictionary?: Map<any, any>): NSScriptClassDescription;
   isLocationRequiredToCreate(forKey: string): boolean;
   key(withAppleEventCode: number): string;
   matchesAppleEventCode(_: number): boolean;
@@ -23716,12 +25595,16 @@ export class NSScriptClassDescription extends NSClassDescription {
   type(forKey: string): string;
 }
 
+export function NSScriptClassDescription(args?: any): NSScriptClassDescription;
+
 export class NSScriptCoercionHandler extends NSObject {
   static shared(): NSScriptCoercionHandler;
   // @ts-ignore 
   coerceValue(_: any, to: typeof NSObject): any;
   registerCoercer(_: any, selector: string, toConvertFrom: typeof NSObject, to: typeof NSObject): void;
 }
+
+export function NSScriptCoercionHandler(args?: any): NSScriptCoercionHandler;
 
 export class NSScriptCommand extends NSObject {
   static current(): NSScriptCommand;
@@ -23751,6 +25634,8 @@ export class NSScriptCommand extends NSObject {
   suspendExecution(): void;
 }
 
+export function NSScriptCommand(args?: any): NSScriptCommand;
+
 export class NSScriptCommandDescription extends NSObject {
   appleEventClassCode: number;
   appleEventCode: number;
@@ -23763,10 +25648,12 @@ export class NSScriptCommandDescription extends NSObject {
   appleEventCodeForArgument(withName: string): number;
   createCommandInstance(): NSScriptCommand;
   createCommandInstance(with_?: any): NSScriptCommand;
-  static createWithSuiteNameWithCommandNameWithDictionary(_: string, commandName: string, dictionary?: Map<any, any>): NSScriptCommandDescription;
+  static createWithSuiteName_CommandName_Dictionary(_: string, commandName: string, dictionary?: Map<any, any>): NSScriptCommandDescription;
   isOptionalArgument(withName: string): boolean;
   typeForArgument(withName: string): string;
 }
+
+export function NSScriptCommandDescription(args?: any): NSScriptCommandDescription;
 
 export class NSScriptExecutionContext extends NSObject {
   static shared(): NSScriptExecutionContext;
@@ -23777,6 +25664,8 @@ export class NSScriptExecutionContext extends NSObject {
   topLevelObject: any;
   setTopLevelObject(_: any);
 }
+
+export function NSScriptExecutionContext(args?: any): NSScriptExecutionContext;
 
 export class NSScriptObjectSpecifier extends NSObject {
   childSpecifier: NSScriptObjectSpecifier;
@@ -23798,10 +25687,12 @@ export class NSScriptObjectSpecifier extends NSObject {
   keyClassDescription: NSScriptClassDescription;
   objectsByEvaluatingSpecifier: any;
   indicesOfObjectsByEvaluating(withContainer: any, count: number): number;
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKey(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string): NSScriptObjectSpecifier;
-  static createWithContainerSpecifierWithKey(_: NSScriptObjectSpecifier, key: string): NSScriptObjectSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string): NSScriptObjectSpecifier;
+  static createWithContainerSpecifier_Key(_: NSScriptObjectSpecifier, key: string): NSScriptObjectSpecifier;
   objectsByEvaluating(withContainers: any): any;
 }
+
+export function NSScriptObjectSpecifier(args?: any): NSScriptObjectSpecifier;
 
 export class NSScriptSuiteRegistry extends NSObject {
   static setShared(_: NSScriptSuiteRegistry): void;
@@ -23822,9 +25713,13 @@ export class NSScriptSuiteRegistry extends NSObject {
   suite(forAppleEventCode: number): string;
 }
 
+export function NSScriptSuiteRegistry(args?: any): NSScriptSuiteRegistry;
+
 export class NSScriptWhoseTest extends NSObject {
   isTrue(): boolean;
 }
+
+export function NSScriptWhoseTest(args?: any): NSScriptWhoseTest;
 
 // export function NSSearchPathForDirectoriesInDomains(directory: NSPathUtilities.FileManager.SearchPathDirectory, domainMask: NSPathUtilities.FileManager.SearchPathDomainMask, expandTilde: boolean): string[];
 
@@ -23835,12 +25730,16 @@ export class NSSecureUnarchiveFromDataTransformer extends ValueTransformer {
   static allowedTopLevelClasses: typeof NSObject[];
 }
 
+export function NSSecureUnarchiveFromDataTransformer(args?: any): NSSecureUnarchiveFromDataTransformer;
+
 // export function NSSelectorFromString(aSelectorName: string): string;
 
 export class NSSetCommand extends NSScriptCommand {
   keySpecifier: NSScriptObjectSpecifier;
   setReceiversSpecifier(_?: NSScriptObjectSpecifier): void;
 }
+
+export function NSSetCommand(args?: any): NSSetCommand;
 
 // export function NSSetUncaughtExceptionHandler(p1: (p1: NSException) => void): void;
 
@@ -23860,6 +25759,8 @@ export class NSSocketPortNameServer extends NSPortNameServer {
   register(_: Port, name: string, nameServerPortNumber: number): boolean;
 }
 
+export function NSSocketPortNameServer(args?: any): NSSocketPortNameServer;
+
 export class NSSortDescriptor extends NSObject {
   ascending: boolean;
   comparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult;
@@ -23868,14 +25769,18 @@ export class NSSortDescriptor extends NSObject {
   selector: string;
   allowEvaluation(): void;
   compare(_: any, to: any): NSObjCRuntime.ComparisonResult;
-  static createWithKeyWithAscending(_?: string, ascending?: boolean): NSSortDescriptor;
-  static createWithKeyWithAscendingWithComparator(_?: string, ascending?: boolean, comparator?: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): NSSortDescriptor;
-  static createWithKeyWithAscendingWithSelector(_?: string, ascending?: boolean, selector?: string): NSSortDescriptor;
+  static createWithKey_Ascending(_?: string, ascending?: boolean): NSSortDescriptor;
+  static createWithKey_Ascending_Comparator(_?: string, ascending?: boolean, comparator?: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): NSSortDescriptor;
+  static createWithKey_Ascending_Selector(_?: string, ascending?: boolean, selector?: string): NSSortDescriptor;
 }
 
+export function NSSortDescriptor(args?: any): NSSortDescriptor;
+
 export class NSSpecifierTest extends NSScriptWhoseTest {
-  static createWithObjectSpecifierWithComparisonOperatorWithTestObject(_?: NSScriptObjectSpecifier, comparisonOperator?: NSScriptWhoseTests.NSSpecifierTest.TestComparisonOperation, testObject?: any): NSSpecifierTest;
+  static createWithObjectSpecifier_ComparisonOperator_TestObject(_?: NSScriptObjectSpecifier, comparisonOperator?: NSScriptWhoseTests.NSSpecifierTest.TestComparisonOperation, testObject?: any): NSSpecifierTest;
 }
+
+export function NSSpecifierTest(args?: any): NSSpecifierTest;
 
 export class NSSpellServer extends NSObject {
   delegate: any;
@@ -23884,6 +25789,8 @@ export class NSSpellServer extends NSObject {
   registerLanguage(_?: string, byVendor?: string): boolean;
   run(): void;
 }
+
+export function NSSpellServer(args?: any): NSSpellServer;
 
 interface NSSpellServerDelegate {
   spellServer(_: NSSpellServer, findMisspelledWordIn: string, language: string, wordCount: number, countOnly: boolean): NSRange;
@@ -23924,7 +25831,7 @@ export class NSTextCheckingResult extends NSObject {
   static dateCheckingResult(range: NSRange, date: Date): NSTextCheckingResult;
   static dateCheckingResult(range: NSRange, date: Date, timeZone: TimeZone, duration: number): NSTextCheckingResult;
   static grammarCheckingResult(range: NSRange, details: Map<string, any>[]): NSTextCheckingResult;
-  static linkCheckingResult(range: NSRange, url: URL): NSTextCheckingResult;
+  static linkCheckingResult(range: NSRange, url: NSURL): NSTextCheckingResult;
   static orthographyCheckingResult(range: NSRange, orthography: NSOrthography): NSTextCheckingResult;
   static phoneNumberCheckingResult(range: NSRange, phoneNumber: string): NSTextCheckingResult;
   static quoteCheckingResult(range: NSRange, replacementString: string): NSTextCheckingResult;
@@ -23932,7 +25839,7 @@ export class NSTextCheckingResult extends NSObject {
   static replacementCheckingResult(range: NSRange, replacementString: string): NSTextCheckingResult;
   static spellCheckingResult(range: NSRange): NSTextCheckingResult;
   static transitInformationCheckingResult(range: NSRange, components: Map<string, string>): NSTextCheckingResult;
-  url: URL;
+  url: NSURL;
   addressComponents: Map<string, string>;
   alternativeStrings: string[];
   components: Map<string, string>;
@@ -23949,10 +25856,12 @@ export class NSTextCheckingResult extends NSObject {
   adjustingRanges(offset: number): NSTextCheckingResult;
 }
 
+export function NSTextCheckingResult(args?: any): NSTextCheckingResult;
+
 export class NSURLConnection extends NSObject {
-  static canHandle(_: URLRequest): boolean;
-  currentRequest: URLRequest;
-  originalRequest: URLRequest;
+  static canHandle(_: NSURLRequest): boolean;
+  currentRequest: NSURLRequest;
+  originalRequest: NSURLRequest;
   cancel(): void;
   schedule(in_: RunLoop, forMode: string): void;
   setDelegateQueue(_?: OperationQueue): void;
@@ -23960,25 +25869,27 @@ export class NSURLConnection extends NSObject {
   unschedule(from: RunLoop, forMode: string): void;
 }
 
+export function NSURLConnection(args?: any): NSURLConnection;
+
 interface NSURLConnectionDataDelegate {
-  connection(_: NSURLConnection, willSend: URLRequest, redirectResponse?: URLResponse): URLRequest;
+  connection(_: NSURLConnection, willSend: NSURLRequest, redirectResponse?: URLResponse): NSURLRequest;
   connection(_: NSURLConnection, didReceive: URLResponse): void;
   connection(_: NSURLConnection, didReceive: NSData): void;
-  connection(_: NSURLConnection, needNewBodyStream: URLRequest): InputStream;
+  connection(_: NSURLConnection, needNewBodyStream: NSURLRequest): InputStream;
   connection(_: NSURLConnection, didSendBodyData: number, totalBytesWritten: number, totalBytesExpectedToWrite: number): void;
   connection(_: NSURLConnection, willCacheResponse: CachedURLResponse): CachedURLResponse;
   connectionDidFinishLoading(_: NSURLConnection): void;
 }
 
 interface NSURLConnectionDelegate {
-  connection(_: NSURLConnection, didFailWithError: Error): void;
+  connection(_: NSURLConnection, didFailWithError: NSError): void;
   connection(_: NSURLConnection, willSendRequestFor: URLAuthenticationChallenge): void;
   connectionShouldUseCredentialStorage(_: NSURLConnection): boolean;
 }
 
 interface NSURLConnectionDownloadDelegate {
   connection(_: NSURLConnection, didWriteData: number, totalBytesWritten: number, expectedTotalBytes: number): void;
-  connectionDidFinishDownloading(_: NSURLConnection, destinationURL: URL): void;
+  connectionDidFinishDownloading(_: NSURLConnection, destinationURL: NSURL): void;
   connectionDidResumeDownloading(_: NSURLConnection, totalBytesWritten: number, expectedTotalBytes: number): void;
 }
 
@@ -23986,15 +25897,17 @@ export class NSURLDownload extends NSObject {
   static canResumeDownloadDecoded(withEncodingMIMEType: string): boolean;
   deletesFileUponFailure: boolean;
   setDeletesFileUponFailure(_: boolean);
-  request: URLRequest;
+  request: NSURLRequest;
   resumeData: NSData;
   cancel(): void;
   setDestination(_: string, allowOverwrite: boolean): void;
 }
 
+export function NSURLDownload(args?: any): NSURLDownload;
+
 interface NSURLDownloadDelegate {
-  download(_: NSURLDownload, willSend: URLRequest, redirectResponse?: URLResponse): URLRequest;
-  download(_: NSURLDownload, canAuthenticateAgainstProtectionSpace: URLProtectionSpace): boolean;
+  download(_: NSURLDownload, willSend: NSURLRequest, redirectResponse?: URLResponse): NSURLRequest;
+  download(_: NSURLDownload, canAuthenticateAgainstProtectionSpace: NSURLProtectionSpace): boolean;
   download(_: NSURLDownload, didReceive: URLAuthenticationChallenge): void;
   download(_: NSURLDownload, didCancel: URLAuthenticationChallenge): void;
   download(_: NSURLDownload, didReceive: URLResponse): void;
@@ -24003,7 +25916,7 @@ interface NSURLDownloadDelegate {
   download(_: NSURLDownload, shouldDecodeSourceDataOfMIMEType: string): boolean;
   download(_: NSURLDownload, decideDestinationWithSuggestedFilename: string): void;
   download(_: NSURLDownload, didCreateDestination: string): void;
-  download(_: NSURLDownload, didFailWithError: Error): void;
+  download(_: NSURLDownload, didFailWithError: NSError): void;
   downloadDidBegin(_: NSURLDownload): void;
   downloadDidFinish(_: NSURLDownload): void;
   downloadShouldUseCredentialStorage(_: NSURLDownload): boolean;
@@ -24012,12 +25925,16 @@ interface NSURLDownloadDelegate {
 export class NSURLHandle extends NSObject {
 }
 
+export function NSURLHandle(args?: any): NSURLHandle;
+
 export class NSURLSessionWebSocketMessage extends NSObject {
   data: NSData;
   type: URLSession.NSURLSessionWebSocketMessageType;
   static createWithData(_: NSData): NSURLSessionWebSocketMessage;
   static createWithString(_: string): NSURLSessionWebSocketMessage;
 }
+
+export function NSURLSessionWebSocketMessage(args?: any): NSURLSessionWebSocketMessage;
 
 export class NSUbiquitousKeyValueStore extends NSObject {
   dictionaryRepresentation: Map<string, any>;
@@ -24041,6 +25958,8 @@ export class NSUbiquitousKeyValueStore extends NSObject {
   synchronize(): boolean;
 }
 
+export function NSUbiquitousKeyValueStore(args?: any): NSUbiquitousKeyValueStore;
+
 // export function NSUnionRange(range1: NSRange, range2: NSRange): NSRange;
 
 // export function NSUnionRect(aRect: CGRect, bRect: CGRect): CGRect;
@@ -24049,8 +25968,10 @@ export class NSUniqueIDSpecifier extends NSScriptObjectSpecifier {
   uniqueID: any;
   setUniqueID(_: any);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithUniqueID(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, uniqueID?: any): NSUniqueIDSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_UniqueID(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, uniqueID?: any): NSUniqueIDSpecifier;
 }
+
+export function NSUniqueIDSpecifier(args?: any): NSUniqueIDSpecifier;
 
 export class NSUnitInformationStorage extends Dimension {
   //  static createWithBaseUnit(): NSUnitInformationStorage;
@@ -24091,6 +26012,8 @@ export class NSUnitInformationStorage extends Dimension {
   static zettabytes: NSUnitInformationStorage;
 }
 
+export function NSUnitInformationStorage(args?: any): NSUnitInformationStorage;
+
 export class NSUserActivity extends NSObject {
   activityType: string;
   contentAttributeSet: CSSearchableItemAttributeSet;
@@ -24110,8 +26033,8 @@ export class NSUserActivity extends NSObject {
   setKeywords(_: Set<any>);
   needsSave: boolean;
   setNeedsSave(_: boolean);
-  referrerURL: URL;
-  setReferrerURL(_: URL);
+  referrerURL: NSURL;
+  setReferrerURL(_: NSURL);
   requiredUserInfoKeys: Set<any>;
   setRequiredUserInfoKeys(_: Set<any>);
   supportsContinuationStreams: boolean;
@@ -24122,15 +26045,17 @@ export class NSUserActivity extends NSObject {
   setTitle(_: string);
   userInfo: Map<any, any>;
   setUserInfo(_: Map<any, any>);
-  webpageURL: URL;
-  setWebpageURL(_: URL);
+  webpageURL: NSURL;
+  setWebpageURL(_: NSURL);
   addUserInfoEntries(from: Map<any, any>): void;
   becomeCurrent(): void;
-  getContinuationStreams(completionHandler?: (p1: InputStream, p2: OutputStream, p3: Error) => void): void;
+  getContinuationStreams(completionHandler?: (p1: InputStream, p2: OutputStream, p3: NSError) => void): void;
   static createWithActivityType(_: string): NSUserActivity;
   invalidate(): void;
   resignCurrent(): void;
 }
+
+export function NSUserActivity(args?: any): NSUserActivity;
 
 interface NSUserActivityDelegate {
   userActivity(_: NSUserActivity, didReceive: InputStream, outputStream: OutputStream): void;
@@ -24140,15 +26065,19 @@ interface NSUserActivityDelegate {
 
 export class NSUserAppleScriptTask extends NSUserScriptTask {
   // @ts-ignore 
-  execute(withAppleEvent?: NSAppleEventDescriptor, completionHandler?: (p1: NSAppleEventDescriptor, p2: Error) => void): void;
+  execute(withAppleEvent?: NSAppleEventDescriptor, completionHandler?: (p1: NSAppleEventDescriptor, p2: NSError) => void): void;
 }
+
+export function NSUserAppleScriptTask(args?: any): NSUserAppleScriptTask;
 
 export class NSUserAutomatorTask extends NSUserScriptTask {
   variables: Map<string, any>;
   setVariables(_: Map<string, any>);
   // @ts-ignore 
-  execute(withInput?: any, completionHandler?: (p1: any, p2: Error) => void): void;
+  execute(withInput?: any, completionHandler?: (p1: any, p2: NSError) => void): void;
 }
+
+export function NSUserAutomatorTask(args?: any): NSUserAutomatorTask;
 
 // export function NSUserName(): string;
 
@@ -24193,10 +26122,14 @@ export class NSUserNotification extends NSObject {
   setUserInfo(_: Map<string, any>);
 }
 
+export function NSUserNotification(args?: any): NSUserNotification;
+
 export class NSUserNotificationAction extends NSObject {
   identifier: string;
   title: string;
 }
+
+export function NSUserNotificationAction(args?: any): NSUserNotificationAction;
 
 export class NSUserNotificationCenter extends NSObject {
   delegate: any;
@@ -24212,6 +26145,8 @@ export class NSUserNotificationCenter extends NSObject {
   scheduleNotification(_: NSUserNotification): void;
 }
 
+export function NSUserNotificationCenter(args?: any): NSUserNotificationCenter;
+
 interface NSUserNotificationCenterDelegate {
   userNotificationCenter(_: NSUserNotificationCenter, didDeliver: NSUserNotification): void;
   userNotificationCenter(_: NSUserNotificationCenter, didActivate: NSUserNotification): void;
@@ -24219,10 +26154,12 @@ interface NSUserNotificationCenterDelegate {
 }
 
 export class NSUserScriptTask extends NSObject {
-  scriptURL: URL;
-  execute(completionHandler?: (p1: Error) => void): void;
-  static createWithUrl(error: URL): NSUserScriptTask;
+  scriptURL: NSURL;
+  execute(completionHandler?: (p1: NSError) => void): void;
+  static createWithUrl(error: NSURL): NSUserScriptTask;
 }
+
+export function NSUserScriptTask(args?: any): NSUserScriptTask;
 
 export class NSUserUnixTask extends NSUserScriptTask {
   standardError: FileHandle;
@@ -24232,8 +26169,10 @@ export class NSUserUnixTask extends NSUserScriptTask {
   standardOutput: FileHandle;
   setStandardOutput(_: FileHandle);
   // @ts-ignore 
-  execute(withArguments?: string[], completionHandler?: (p1: Error) => void): void;
+  execute(withArguments?: string[], completionHandler?: (p1: NSError) => void): void;
 }
+
+export function NSUserUnixTask(args?: any): NSUserUnixTask;
 
 export class NSValue extends NSObject {
   CATransform3DValue: CATransform3D;
@@ -24250,10 +26189,12 @@ export class NSValue extends NSObject {
   sizeValue: CGSize;
   getValue(_: any): void;
   getValue(_: any, size: number): void;
-  static createWithBytesWithObjCType(_: any, objCType: string): NSValue;
+  static createWithBytes_ObjCType(_: any, objCType: string): NSValue;
   // @ts-ignore 
   isEqual(to: NSValue): boolean;
 }
+
+export function NSValue(args?: any): NSValue;
 
 export class NSWhoseSpecifier extends NSScriptObjectSpecifier {
   endSubelementIdentifier: NSScriptObjectSpecifiers.NSWhoseSpecifier.SubelementIdentifier;
@@ -24267,8 +26208,10 @@ export class NSWhoseSpecifier extends NSScriptObjectSpecifier {
   test: NSScriptWhoseTest;
   setTest(_: NSScriptWhoseTest);
   // @ts-ignore 
-  static createWithContainerClassDescriptionWithContainerSpecifierWithKeyWithTest(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, test?: NSScriptWhoseTest): NSWhoseSpecifier;
+  static createWithContainerClassDescription_ContainerSpecifier_Key_Test(_: NSScriptClassDescription, containerSpecifier?: NSScriptObjectSpecifier, key?: string, test?: NSScriptWhoseTest): NSWhoseSpecifier;
 }
+
+export function NSWhoseSpecifier(args?: any): NSWhoseSpecifier;
 
 export class NSXPCCoder extends NSCoder {
   connection: NSXPCConnection;
@@ -24277,6 +26220,8 @@ export class NSXPCCoder extends NSCoder {
   decodeXPCObject(ofType: any, forKey: string): NSObject;
   encodeXPCObject(_: NSObject, forKey: string): void;
 }
+
+export function NSXPCCoder(args?: any): NSXPCCoder;
 
 export class NSXPCConnection extends NSObject {
   static current(): NSXPCConnection;
@@ -24298,13 +26243,15 @@ export class NSXPCConnection extends NSObject {
   remoteObjectProxy: any;
   serviceName: string;
   static createWithListenerEndpoint(_: NSXPCListenerEndpoint): NSXPCConnection;
-  static createWithMachServiceNameWithOptions(_: string, options: NSXPCConnection.Options): NSXPCConnection;
+  static createWithMachServiceName_Options(_: string, options: NSXPCConnection.Options): NSXPCConnection;
   static createWithServiceName(_: string): NSXPCConnection;
   invalidate(): void;
   resume(): void;
   scheduleSendBarrierBlock(_: () => void): void;
   suspend(): void;
 }
+
+export function NSXPCConnection(args?: any): NSXPCConnection;
 
 export class NSXPCInterface extends NSObject {
   protocol: any /* Protocol */;
@@ -24316,6 +26263,8 @@ export class NSXPCInterface extends NSObject {
   setInterface(_: NSXPCInterface, for_: string, argumentIndex: number, ofReply: boolean): void;
   setXPCType(_: any, for_: string, argumentIndex: number, ofReply: boolean): void;
 }
+
+export function NSXPCInterface(args?: any): NSXPCInterface;
 
 export class NSXPCListener extends NSObject {
   static anonymous(): NSXPCListener;
@@ -24329,6 +26278,8 @@ export class NSXPCListener extends NSObject {
   suspend(): void;
 }
 
+export function NSXPCListener(args?: any): NSXPCListener;
+
 interface NSXPCListenerDelegate {
   listener(_: NSXPCListener, shouldAcceptNewConnection: NSXPCConnection): boolean;
 }
@@ -24336,10 +26287,12 @@ interface NSXPCListenerDelegate {
 export class NSXPCListenerEndpoint extends NSObject {
 }
 
+export function NSXPCListenerEndpoint(args?: any): NSXPCListenerEndpoint;
+
 interface NSXPCProxyCreating {
   remoteObjectProxy: any;
-  remoteObjectProxyWithErrorHandler(_: (p1: Error) => void): any;
-  synchronousRemoteObjectProxyWithErrorHandler(_: (p1: Error) => void): any;
+  remoteObjectProxyWithErrorHandler(_: (p1: NSError) => void): any;
+  synchronousRemoteObjectProxyWithErrorHandler(_: (p1: NSError) => void): any;
 }
 
 // export function NSZoneCalloc(zone: any, numElems: number, byteSize: number): any;
@@ -24369,8 +26322,8 @@ export class NetService extends NSObject {
   type: string;
   txtRecordData(): NSData;
   getInputStream(_?: InputStream, outputStream?: OutputStream): boolean;
-  static createWithDomainWithTypeWithName(_: string, type: string, name: string): NetService;
-  static createWithDomainWithTypeWithNameWithPort(_: string, type: string, name: string, port: number): NetService;
+  static createWithDomain_Type_Name(_: string, type: string, name: string): NetService;
+  static createWithDomain_Type_Name_Port(_: string, type: string, name: string, port: number): NetService;
   publish(): void;
   publish(options: NSNetServices.NetService.Options): void;
   remove(from: RunLoop, forMode: string): void;
@@ -24381,6 +26334,8 @@ export class NetService extends NSObject {
   stop(): void;
   stopMonitoring(): void;
 }
+
+export function NetService(args?: any): NetService;
 
 export class NetServiceBrowser extends NSObject {
   delegate: any;
@@ -24394,6 +26349,8 @@ export class NetServiceBrowser extends NSObject {
   searchForServices(ofType: string, inDomain: string): void;
   stop(): void;
 }
+
+export function NetServiceBrowser(args?: any): NetServiceBrowser;
 
 interface NetServiceBrowserDelegate {
   netServiceBrowser(_: NetServiceBrowser, didNotSearch: Map<string, number>): void;
@@ -24421,8 +26378,10 @@ export class Notification extends NSObject {
   name: string;
   object: any;
   userInfo: Map<any, any>;
-  static createWithNameWithObjectWithUserInfo(_: string, object_?: any, userInfo?: Map<any, any>): Notification;
+  static createWithName_Object_UserInfo(_: string, object_?: any, userInfo?: Map<any, any>): Notification;
 }
+
+export function Notification(args?: any): Notification;
 
 export class NotificationCenter extends NSObject {
   static defaultCenter: NotificationCenter;
@@ -24439,6 +26398,8 @@ export class NotificationCenter extends NSObject {
   removeObserver(_: any, name?: string, object_?: any): void;
 }
 
+export function NotificationCenter(args?: any): NotificationCenter;
+
 export class NotificationQueue extends NSObject {
   static default: NotificationQueue;
   dequeueNotifications(matching: Notification, coalesceMask: number): void;
@@ -24446,6 +26407,8 @@ export class NotificationQueue extends NSObject {
   enqueue(_: Notification, postingStyle: NotificationQueue.PostingStyle, coalesceMask: NotificationQueue.NotificationCoalescing, forModes?: string[]): void;
   static createWithNotificationCenter(_: NotificationCenter): NotificationQueue;
 }
+
+export function NotificationQueue(args?: any): NotificationQueue;
 
 export class NumberFormatter extends Formatter {
   static defaultFormatterBehavior(): NumberFormatter.Behavior;
@@ -24586,6 +26549,8 @@ export class NumberFormatter extends Formatter {
   number(from: string): number;
 }
 
+export function NumberFormatter(args?: any): NumberFormatter;
+
 export class Operation extends NSObject {
   isAsynchronous: boolean;
   isCancelled: boolean;
@@ -24610,6 +26575,8 @@ export class Operation extends NSObject {
   waitUntilFinished(): void;
 }
 
+export function Operation(args?: any): Operation;
+
 export class OperationQueue extends NSObject {
   maxConcurrentOperationCount: number;
   setMaxConcurrentOperationCount(_: number);
@@ -24633,15 +26600,19 @@ export class OperationQueue extends NSObject {
   waitUntilAllOperationsAreFinished(): void;
 }
 
+export function OperationQueue(args?: any): OperationQueue;
+
 export class OutputStream extends Stream {
   static createWithOutputStreamToMemory(): OutputStream;
   hasSpaceAvailable: boolean;
-  static createWithToBufferWithCapacity(_: string, capacity: number): OutputStream;
-  static createWithToFileAtPathWithAppend(_: string, append: boolean): OutputStream;
+  static createWithToBuffer_Capacity(_: string, capacity: number): OutputStream;
+  static createWithToFileAtPath_Append(_: string, append: boolean): OutputStream;
   static createWithToMemory(): OutputStream;
-  static createWithUrlWithAppend(_: URL, append: boolean): OutputStream;
+  static createWithUrl_Append(_: NSURL, append: boolean): OutputStream;
   write(_: string, maxLength: number): number;
 }
+
+export function OutputStream(args?: any): OutputStream;
 
 export class PersonNameComponents extends NSObject {
   familyName: string;
@@ -24660,6 +26631,8 @@ export class PersonNameComponents extends NSObject {
   setPhoneticRepresentation(_: PersonNameComponents);
 }
 
+export function PersonNameComponents(args?: any): PersonNameComponents;
+
 export class PersonNameComponentsFormatter extends Formatter {
   static localizedString(from: PersonNameComponents, style: PersonNameComponentsFormatter.Style, options: PersonNameComponentsFormatter.Options): string;
   isPhonetic: boolean;
@@ -24670,10 +26643,14 @@ export class PersonNameComponentsFormatter extends Formatter {
   personNameComponents(from: string): PersonNameComponents;
 }
 
+export function PersonNameComponentsFormatter(args?: any): PersonNameComponentsFormatter;
+
 export class Pipe extends NSObject {
   fileHandleForReading: FileHandle;
   fileHandleForWriting: FileHandle;
 }
+
+export function Pipe(args?: any): Pipe;
 
 export class Port extends NSObject {
   reservedSpaceLength: number;
@@ -24687,6 +26664,8 @@ export class Port extends NSObject {
   setDelegate(_?: any): void;
 }
 
+export function Port(args?: any): Port;
+
 interface PortDelegate {
   handle(_: PortMessage): void;
 }
@@ -24697,23 +26676,25 @@ export class PortMessage extends NSObject {
   setMsgid(_: number);
   receivePort: Port;
   sendPort: Port;
-  static createWithSendPortWithReceivePortWithComponents(_?: Port, receivePort?: Port, components?: any[]): PortMessage;
+  static createWithSendPort_ReceivePort_Components(_?: Port, receivePort?: Port, components?: any[]): PortMessage;
   send(before: Date): boolean;
 }
 
+export function PortMessage(args?: any): PortMessage;
+
 export class Process extends NSObject {
-  static run(_: URL, _2: string[], arguments_?: Error, terminationHandler?: (p1: Process) => void): Process;
+  static run(_: NSURL, _2: string[], arguments_?: NSError, terminationHandler?: (p1: Process) => void): Process;
   static launchedProcess(launchPath: string, arguments_: string[]): Process;
   arguments: string[];
   setArguments(_: string[]);
   currentDirectoryPath: string;
   setCurrentDirectoryPath(_: string);
-  currentDirectoryURL: URL;
-  setCurrentDirectoryURL(_: URL);
+  currentDirectoryURL: NSURL;
+  setCurrentDirectoryURL(_: NSURL);
   environment: Map<string, string>;
   setEnvironment(_: Map<string, string>);
-  executableURL: URL;
-  setExecutableURL(_: URL);
+  executableURL: NSURL;
+  setExecutableURL(_: NSURL);
   launchPath: string;
   setLaunchPath(_: string);
   processIdentifier: number;
@@ -24737,6 +26718,8 @@ export class Process extends NSObject {
   terminate(): void;
   waitUntilExit(): void;
 }
+
+export function Process(args?: any): Process;
 
 export class ProcessInfo extends NSObject {
   activeProcessorCount: number;
@@ -24769,8 +26752,10 @@ export class ProcessInfo extends NSObject {
   performActivity(options: ProcessInfo.ActivityOptions, reason: string, using: () => void): void;
 }
 
+export function ProcessInfo(args?: any): ProcessInfo;
+
 export class Progress extends NSObject {
-  static addSubscriber(forFileURL: URL, withPublishingHandler: (p1: Progress) => () => void): any;
+  static addSubscriber(forFileURL: NSURL, withPublishingHandler: (p1: Progress) => () => void): any;
   static current(): Progress;
   static discreteProgress(totalUnitCount: number): Progress;
   static removeSubscriber(_: any): void;
@@ -24789,8 +26774,8 @@ export class Progress extends NSObject {
   setFileOperationKind(_: string);
   fileTotalCount: number;
   setFileTotalCount(_: number);
-  fileURL: URL;
-  setFileURL(_: URL);
+  fileURL: NSURL;
+  setFileURL(_: NSURL);
   isFinished: boolean;
   fractionCompleted: number;
   isIndeterminate: boolean;
@@ -24816,7 +26801,7 @@ export class Progress extends NSObject {
   addChild(_: Progress, withPendingUnitCount: number): void;
   becomeCurrent(withPendingUnitCount: number): void;
   cancel(): void;
-  static createWithParentWithUserInfo(_?: Progress, userInfo?: Map<string, any>): Progress;
+  static createWithParent_UserInfo(_?: Progress, userInfo?: Map<string, any>): Progress;
   pause(): void;
   performAsCurrentWithPendingUnitCount(_: number, usingBlock: () => void): void;
   publish(): void;
@@ -24825,6 +26810,8 @@ export class Progress extends NSObject {
   setUserInfoObject(_?: any, forKey?: string): void;
   unpublish(): void;
 }
+
+export function Progress(args?: any): Progress;
 
 interface ProgressReporting {
   progress: Progress;
@@ -24837,6 +26824,8 @@ export class PropertyListSerialization extends NSObject {
   static propertyListWithStream(options: InputStream, format: NSPropertyList.PropertyListSerialization.MutabilityOptions, error?: NSPropertyList.PropertyListSerialization.PropertyListFormat): any;
   static writePropertyList(_: any, to: OutputStream, format: NSPropertyList.PropertyListSerialization.PropertyListFormat, options: number): number;
 }
+
+export function PropertyListSerialization(args?: any): PropertyListSerialization;
 
 export class RelativeDateTimeFormatter extends Formatter {
   calendar: Calendar;
@@ -24853,6 +26842,8 @@ export class RelativeDateTimeFormatter extends Formatter {
   localizedString(from: DateComponents): string;
   localizedString(fromTimeInterval: number): string;
 }
+
+export function RelativeDateTimeFormatter(args?: any): RelativeDateTimeFormatter;
 
 export class RunLoop extends NSObject {
   currentMode: string;
@@ -24877,6 +26868,8 @@ export class RunLoop extends NSObject {
   run(until: Date): void;
 }
 
+export function RunLoop(args?: any): RunLoop;
+
 export class Scanner extends NSObject {
   static localizedScanner(with_: string): any;
   isAtEnd: boolean;
@@ -24896,25 +26889,29 @@ export class Scanner extends NSObject {
   scanUnsignedLongLong(_?: number): boolean;
 }
 
+export function Scanner(args?: any): Scanner;
+
 export class SocketPort extends Port {
   address: NSData;
   protocol: number;
   protocolFamily: number;
   socket: number;
   socketType: number;
-  static createWithRemoteWithProtocolFamilyWithSocketTypeWithProtocolWithAddress(_: number, socketType: number, protocol: number, address: NSData): SocketPort;
-  static createWithRemoteWithtcpPortWithHost(_: number, host?: string): SocketPort;
-  static createWithProtocolFamilyWithSocketTypeWithProtocolWithAddress(_: number, socketType: number, protocol: number, address: NSData): SocketPort;
-  static createWithProtocolFamilyWithSocketTypeWithProtocolWithSocket(_: number, socketType: number, protocol: number, socket: number): SocketPort;
+  static createWithRemote_ProtocolFamily_SocketType_Protocol_Address(_: number, socketType: number, protocol: number, address: NSData): SocketPort;
+  static createWithRemote_tcpPort_Host(_: number, host?: string): SocketPort;
+  static createWithProtocolFamily_SocketType_Protocol_Address(_: number, socketType: number, protocol: number, address: NSData): SocketPort;
+  static createWithProtocolFamily_SocketType_Protocol_Socket(_: number, socketType: number, protocol: number, socket: number): SocketPort;
   static createWithTcpPort(_: number): SocketPort;
 }
+
+export function SocketPort(args?: any): SocketPort;
 
 export class Stream extends NSObject {
   static getBoundStreams(withBufferSize: number, inputStream?: InputStream, outputStream?: OutputStream): void;
   static getStreamsToHost(withName: string, port: number, inputStream?: InputStream, outputStream?: OutputStream): void;
   delegate: any;
   setDelegate(_: any);
-  streamError: Error;
+  streamError: NSError;
   streamStatus: Stream.Status;
   close(): void;
   open(): void;
@@ -24923,6 +26920,8 @@ export class Stream extends NSObject {
   schedule(in_: RunLoop, forMode: string): void;
   setProperty(_?: any, forKey?: string): boolean;
 }
+
+export function Stream(args?: any): Stream;
 
 interface StreamDelegate {
   stream(_: Stream, handle: Stream.Event): void;
@@ -24957,10 +26956,12 @@ export class Thread extends NSObject {
   static main: Thread;
   cancel(): void;
   static createWithBlock(_: () => void): Thread;
-  static createWithTargetWithSelectorWithObject(_: any, selector: string, object_?: any): Thread;
+  static createWithTarget_Selector_Object(_: any, selector: string, object_?: any): Thread;
   main(): void;
   start(): void;
 }
+
+export function Thread(args?: any): Thread;
 
 export class TimeZone extends NSObject {
   //  static abbreviationDictionary(): Map<string, string>;
@@ -24976,11 +26977,13 @@ export class TimeZone extends NSObject {
   static system: TimeZone;
   static timeZoneDataVersion: string;
   static createWithName(_: string): TimeZone;
-  static createWithNameWithData(_: string, data?: NSData): TimeZone;
+  static createWithName_Data(_: string, data?: NSData): TimeZone;
   // @ts-ignore 
   isEqual(to: TimeZone): boolean;
   localizedName(_: TimeZone.NameStyle, locale?: Locale): string;
 }
+
+export function TimeZone(args?: any): TimeZone;
 
 export class Timer extends NSObject {
   static scheduledTimer(timeInterval: number, invocation: NSInvocation, repeats: boolean): Timer;
@@ -24994,31 +26997,33 @@ export class Timer extends NSObject {
   userInfo: any;
   isValid: boolean;
   fire(): void;
-  static createWithFireDateWithIntervalWithRepeatsWithBlock(_: Date, interval: number, repeats: boolean, block: (p1: Timer) => void): Timer;
+  static createWithFireDate_Interval_Repeats_Block(_: Date, interval: number, repeats: boolean, block: (p1: Timer) => void): Timer;
   invalidate(): void;
 }
 
-export class URL extends NSObject {
-  static createWithURLByResolvingBookmarkDataOptionsWithRelativeToURLWithBookmarkDataIsStaleWithError(options: NSData, relativeToURL: URL.BookmarkResolutionOptions, bookmarkDataIsStale?: URL, error?: boolean): URL;
-  //  static absoluteURL(withDataRepresentation: NSData, relativeTo?: URL): URL;
-  static bookmarkDataWithContentsOfURL(error: URL): NSData;
-  //  static fileURL(withFileSystemRepresentation: string, isDirectory: boolean, relativeTo?: URL): URL;
-  //  static fileURL(withPath: string): URL;
-  //  static fileURL(withPath: string, isDirectory: boolean): URL;
-  //  static fileURL(withPath: string, isDirectory: boolean, relativeTo?: URL): URL;
-  //  static fileURL(withPath: string, relativeTo?: URL): URL;
-  //  static fileURL(withPathComponents: string[]): URL;
+export function Timer(args?: any): Timer;
+
+export class NSURL extends NSObject {
+  static createWithOptions_RelativeToURL_BookmarkDataIsStale_Error(options: NSData, relativeToURL: URL.BookmarkResolutionOptions, bookmarkDataIsStale?: NSURL, error?: boolean): NSURL;
+  //  static absoluteURL(withDataRepresentation: NSData, relativeTo?: NSURL): NSURL;
+  static bookmarkDataWithContentsOfURL(error: NSURL): NSData;
+  //  static fileURL(withFileSystemRepresentation: string, isDirectory: boolean, relativeTo?: NSURL): NSURL;
+  //  static fileURL(withPath: string): NSURL;
+  //  static fileURL(withPath: string, isDirectory: boolean): NSURL;
+  //  static fileURL(withPath: string, isDirectory: boolean, relativeTo?: NSURL): NSURL;
+  //  static fileURL(withPath: string, relativeTo?: NSURL): NSURL;
+  //  static fileURL(withPathComponents: string[]): NSURL;
   static resourceValues(forKeys: string[], fromBookmarkData: NSData): Map<string, any>;
-  static writeBookmarkData(toURL: NSData, options: URL, error: number): boolean;
-  deletingLastPathComponent: URL;
-  deletingPathExtension: URL;
-  resolvingSymlinksInPath: URL;
-  standardizingPath: URL;
+  static writeBookmarkData(toURL: NSData, options: NSURL, error: number): boolean;
+  deletingLastPathComponent: NSURL;
+  deletingPathExtension: NSURL;
+  resolvingSymlinksInPath: NSURL;
+  standardizingPath: NSURL;
   absoluteString: string;
-  absoluteURL: URL;
-  baseURL: URL;
+  absoluteURL: NSURL;
+  baseURL: NSURL;
   dataRepresentation: NSData;
-  filePathURL: URL;
+  filePathURL: NSURL;
   fileSystemRepresentation: string;
   isFileURL: boolean;
   fragment: string;
@@ -25035,27 +27040,27 @@ export class URL extends NSObject {
   relativeString: string;
   resourceSpecifier: string;
   scheme: string;
-  standardized: URL;
+  standardized: NSURL;
   user: string;
-  appendingPathComponent(_: string): URL;
-  appendingPathComponent(_: string, isDirectory: boolean): URL;
-  appendingPathExtension(_: string): URL;
-  bookmarkDataWithOptions(includingResourceValuesForKeys: URL.BookmarkCreationOptions, relativeToURL?: string[], error?: URL): NSData;
+  appendingPathComponent(_: string): NSURL;
+  appendingPathComponent(_: string, isDirectory: boolean): NSURL;
+  appendingPathExtension(_: string): NSURL;
+  bookmarkDataWithOptions(includingResourceValuesForKeys: URL.BookmarkCreationOptions, relativeToURL?: string[], error?: NSURL): NSData;
   checkPromisedItemIsReachableAndReturnError(): boolean;
   checkResourceIsReachableAndReturnError(): boolean;
-  fileReferenceURL(): URL;
+  fileReferenceURL(): NSURL;
   getFileSystemRepresentation(_: string, maxLength: number): boolean;
   getPromisedItemResourceValue(forKey?: any, error?: string): boolean;
   getResourceValue(forKey?: any, error?: string): boolean;
-  static createWithAbsoluteurlWithDataRepresentationWithRelativeToURL(_: NSData, relativeToURL?: URL): URL;
-  static createWithFileurlWithFileSystemRepresentationWithIsDirectoryWithRelativeToURL(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  static createWithFileurlWithPath(_: string): URL;
-  static createWithFileurlWithPathWithIsDirectory(_: string, isDirectory: boolean): URL;
-  static createWithFileurlWithPathWithIsDirectoryWithRelativeToURL(_: string, isDirectory: boolean, relativeToURL?: URL): URL;
-  static createWithFileurlWithPathWithRelativeToURL(_: string, relativeToURL?: URL): URL;
-  static createWithDataRepresentationWithRelativeToURL(_: NSData, relativeToURL?: URL): URL;
-  static createWithString(_: string): URL;
-  static createWithStringWithRelativeToURL(_: string, relativeToURL?: URL): URL;
+  static createWithAbsoluteurl_DataRepresentation_RelativeToURL(_: NSData, relativeToURL?: NSURL): NSURL;
+  static createWithFileurl_FileSystemRepresentation_IsDirectory_RelativeToURL(_: string, isDirectory: boolean, relativeToURL?: NSURL): NSURL;
+  static createWithFileurl_Path(_: string): NSURL;
+  static createWithFileurl_Path_IsDirectory(_: string, isDirectory: boolean): NSURL;
+  static createWithFileurl_Path_IsDirectory_RelativeToURL(_: string, isDirectory: boolean, relativeToURL?: NSURL): NSURL;
+  static createWithFileurl_Path_RelativeToURL(_: string, relativeToURL?: NSURL): NSURL;
+  static createWithDataRepresentation_RelativeToURL(_: NSData, relativeToURL?: NSURL): NSURL;
+  static createWithString(_: string): NSURL;
+  static createWithString_RelativeToURL(_: string, relativeToURL?: NSURL): NSURL;
   isFileReferenceURL(): boolean;
   promisedItemResourceValuesForKeys(error: string[]): Map<string, any>;
   removeAllCachedResourceValues(): void;
@@ -25069,23 +27074,27 @@ export class URL extends NSObject {
   write(to: NSPasteboard): void;
 }
 
+export function NSURL(args?: any): NSURL;
+
 export class URLAuthenticationChallenge extends NSObject {
-  error: Error;
+  error: NSError;
   failureResponse: URLResponse;
   previousFailureCount: number;
-  proposedCredential: URLCredential;
-  protectionSpace: URLProtectionSpace;
+  proposedCredential: NSURLCredential;
+  protectionSpace: NSURLProtectionSpace;
   sender: any;
-  static createWithAuthenticationChallengeWithSender(_: URLAuthenticationChallenge, sender: any): URLAuthenticationChallenge;
-  static createWithProtectionSpaceWithProposedCredentialWithPreviousFailureCountWithFailureResponseWithErrorWithSender(_: URLProtectionSpace, proposedCredential?: URLCredential, previousFailureCount?: number, failureResponse?: URLResponse, error?: Error, sender?: any): URLAuthenticationChallenge;
+  static createWithAuthenticationChallenge_Sender(_: URLAuthenticationChallenge, sender: any): URLAuthenticationChallenge;
+  static createWithProtectionSpace_ProposedCredential_PreviousFailureCount_FailureResponse_Error_Sender(_: NSURLProtectionSpace, proposedCredential?: NSURLCredential, previousFailureCount?: number, failureResponse?: URLResponse, error?: NSError, sender?: any): URLAuthenticationChallenge;
 }
+
+export function URLAuthenticationChallenge(args?: any): URLAuthenticationChallenge;
 
 interface URLAuthenticationChallengeSender {
   cancel(_: URLAuthenticationChallenge): void;
   continueWithoutCredential(for_: URLAuthenticationChallenge): void;
   performDefaultHandling(for_: URLAuthenticationChallenge): void;
   rejectProtectionSpaceAndContinue(with_: URLAuthenticationChallenge): void;
-  use(_: URLCredential, for_: URLAuthenticationChallenge): void;
+  use(_: NSURLCredential, for_: URLAuthenticationChallenge): void;
 }
 
 export class URLCache extends NSObject {
@@ -25097,19 +27106,21 @@ export class URLCache extends NSObject {
   setMemoryCapacity(_: number);
   static shared: URLCache;
   setSharedURLCache(_: URLCache);
-  cachedResponse(for_: URLRequest): CachedURLResponse;
+  cachedResponse(for_: NSURLRequest): CachedURLResponse;
   getCachedResponse(for_: URLSessionDataTask, completionHandler?: (p1: CachedURLResponse) => void): void;
-  static createWithMemoryCapacityWithDiskCapacityWithDirectoryURL(_: number, diskCapacity: number, directoryURL?: URL): URLCache;
-  static createWithMemoryCapacityWithDiskCapacityWithDiskPath(_: number, diskCapacity: number, diskPath?: string): URLCache;
+  static createWithMemoryCapacity_DiskCapacity_DirectoryURL(_: number, diskCapacity: number, directoryURL?: NSURL): URLCache;
+  static createWithMemoryCapacity_DiskCapacity_DiskPath(_: number, diskCapacity: number, diskPath?: string): URLCache;
   removeAllCachedResponses(): void;
   removeCachedResponse(for_: URLSessionDataTask): void;
-  removeCachedResponse(for_: URLRequest): void;
+  removeCachedResponse(for_: NSURLRequest): void;
   removeCachedResponses(since: Date): void;
   storeCachedResponse(_: CachedURLResponse, for_: URLSessionDataTask): void;
-  storeCachedResponse(_: CachedURLResponse, for_: URLRequest): void;
+  storeCachedResponse(_: CachedURLResponse, for_: NSURLRequest): void;
 }
 
-export class URLComponents extends NSObject {
+export function URLCache(args?: any): URLCache;
+
+export class NSURLComponents extends NSObject {
   fragment: string;
   setFragment(_: string);
   host: string;
@@ -25128,16 +27139,16 @@ export class URLComponents extends NSObject {
   setPercentEncodedPath(_: string);
   percentEncodedQuery: string;
   setPercentEncodedQuery(_: string);
-  percentEncodedQueryItems: URLQueryItem[];
-  setPercentEncodedQueryItems(_: URLQueryItem[]);
+  percentEncodedQueryItems: NSURLQueryItem[];
+  setPercentEncodedQueryItems(_: NSURLQueryItem[]);
   percentEncodedUser: string;
   setPercentEncodedUser(_: string);
   port: number;
   setPort(_: number);
   query: string;
   setQuery(_: string);
-  queryItems: URLQueryItem[];
-  setQueryItems(_: URLQueryItem[]);
+  queryItems: NSURLQueryItem[];
+  setQueryItems(_: NSURLQueryItem[]);
   rangeOfFragment: NSRange;
   rangeOfHost: NSRange;
   rangeOfPassword: NSRange;
@@ -25150,39 +27161,45 @@ export class URLComponents extends NSObject {
   setScheme(_: string);
   user: string;
   setUser(_: string);
-  static createWithString(_: string): URLComponents;
-  static createWithUrlWithResolvingAgainstBaseURL(_: URL, resolvingAgainstBaseURL: boolean): URLComponents;
+  static createWithString(_: string): NSURLComponents;
+  static createWithUrl_ResolvingAgainstBaseURL(_: NSURL, resolvingAgainstBaseURL: boolean): NSURLComponents;
 }
 
-export class URLCredential extends NSObject {
+export function NSURLComponents(args?: any): NSURLComponents;
+
+export class NSURLCredential extends NSObject {
   certificates: any[];
   hasPassword: boolean;
   identity: any;
   password: string;
   persistence: URLCredential.Persistence;
   user: string;
-  static createWithIdentityWithCertificatesWithPersistence(_: any, certificates?: any[], persistence?: URLCredential.Persistence): URLCredential;
-  static createWithTrust(_: any): URLCredential;
-  static createWithUserWithPasswordWithPersistence(_: string, password: string, persistence: URLCredential.Persistence): URLCredential;
+  static createWithIdentity_Certificates_Persistence(_: any, certificates?: any[], persistence?: URLCredential.Persistence): NSURLCredential;
+  static createWithTrust(_: any): NSURLCredential;
+  static createWithUser_Password_Persistence(_: string, password: string, persistence: URLCredential.Persistence): NSURLCredential;
 }
+
+export function NSURLCredential(args?: any): NSURLCredential;
 
 export class URLCredentialStorage extends NSObject {
-  allCredentials: Map<URLProtectionSpace, Map<string, URLCredential>>;
+  allCredentials: Map<NSURLProtectionSpace, Map<string, NSURLCredential>>;
   static shared: URLCredentialStorage;
-  credentials(for_: URLProtectionSpace): Map<string, URLCredential>;
-  defaultCredential(for_: URLProtectionSpace): URLCredential;
-  getCredentials(for_: URLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: Map<string, URLCredential>) => void): void;
-  getDefaultCredential(for_: URLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: URLCredential) => void): void;
-  remove(_: URLCredential, for_: URLProtectionSpace): void;
-  remove(_: URLCredential, for_: URLProtectionSpace, options?: Map<string, any>): void;
-  remove(_: URLCredential, for_: URLProtectionSpace, options?: Map<string, any>, task?: URLSessionTask): void;
-  set(_: URLCredential, for_: URLProtectionSpace): void;
-  set(_: URLCredential, for_: URLProtectionSpace, task: URLSessionTask): void;
-  setDefaultCredential(_: URLCredential, for_: URLProtectionSpace): void;
-  setDefaultCredential(_: URLCredential, for_: URLProtectionSpace, task: URLSessionTask): void;
+  credentials(for_: NSURLProtectionSpace): Map<string, NSURLCredential>;
+  defaultCredential(for_: NSURLProtectionSpace): NSURLCredential;
+  getCredentials(for_: NSURLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: Map<string, NSURLCredential>) => void): void;
+  getDefaultCredential(for_: NSURLProtectionSpace, task: URLSessionTask, completionHandler?: (p1: NSURLCredential) => void): void;
+  remove(_: NSURLCredential, for_: NSURLProtectionSpace): void;
+  remove(_: NSURLCredential, for_: NSURLProtectionSpace, options?: Map<string, any>): void;
+  remove(_: NSURLCredential, for_: NSURLProtectionSpace, options?: Map<string, any>, task?: URLSessionTask): void;
+  set(_: NSURLCredential, for_: NSURLProtectionSpace): void;
+  set(_: NSURLCredential, for_: NSURLProtectionSpace, task: URLSessionTask): void;
+  setDefaultCredential(_: NSURLCredential, for_: NSURLProtectionSpace): void;
+  setDefaultCredential(_: NSURLCredential, for_: NSURLProtectionSpace, task: URLSessionTask): void;
 }
 
-export class URLProtectionSpace extends NSObject {
+export function URLCredentialStorage(args?: any): URLCredentialStorage;
+
+export class NSURLProtectionSpace extends NSObject {
   authenticationMethod: string;
   distinguishedNames: NSData[];
   host: string;
@@ -25193,75 +27210,85 @@ export class URLProtectionSpace extends NSObject {
   realm: string;
   receivesCredentialSecurely: boolean;
   serverTrust: any;
-  static createWithHostWithPortWithProtocolWithRealmWithAuthenticationMethod(_: string, port: number, protocol?: string, realm?: string, authenticationMethod?: string): URLProtectionSpace;
-  static createWithProxyHostWithPortWithTypeWithRealmWithAuthenticationMethod(_: string, port: number, type?: string, realm?: string, authenticationMethod?: string): URLProtectionSpace;
+  static createWithHost_Port_Protocol_Realm_AuthenticationMethod(_: string, port: number, protocol?: string, realm?: string, authenticationMethod?: string): NSURLProtectionSpace;
+  static createWithProxyHost_Port_Type_Realm_AuthenticationMethod(_: string, port: number, type?: string, realm?: string, authenticationMethod?: string): NSURLProtectionSpace;
 }
 
+export function NSURLProtectionSpace(args?: any): NSURLProtectionSpace;
+
 export class URLProtocol extends NSObject {
-  static canInit(with_: URLRequest): boolean;
+  static canInit(with_: NSURLRequest): boolean;
   static canInit(with_: URLSessionTask): boolean;
-  static canonicalRequest(for_: URLRequest): URLRequest;
-  static property(forKey: string, in_: URLRequest): any;
+  static canonicalRequest(for_: NSURLRequest): NSURLRequest;
+  static property(forKey: string, in_: NSURLRequest): any;
   static registerClass(_: typeof NSObject): boolean;
   static removeProperty(forKey: string, in_: NSMutableURLRequest): void;
-  static requestIsCacheEquivalent(_: URLRequest, to: URLRequest): boolean;
+  static requestIsCacheEquivalent(_: NSURLRequest, to: NSURLRequest): boolean;
   static setProperty(_: any, forKey: string, in_: NSMutableURLRequest): void;
   static unregisterClass(_: typeof NSObject): void;
   cachedResponse: CachedURLResponse;
   client: any;
-  request: URLRequest;
+  request: NSURLRequest;
   task: URLSessionTask;
-  static createWithRequestWithCachedResponseWithClient(_: URLRequest, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
-  static createWithTaskWithCachedResponseWithClient(_: URLSessionTask, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
+  static createWithRequest_CachedResponse_Client(_: NSURLRequest, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
+  static createWithTask_CachedResponse_Client(_: URLSessionTask, cachedResponse?: CachedURLResponse, client?: any): URLProtocol;
   startLoading(): void;
   stopLoading(): void;
 }
 
+export function URLProtocol(args?: any): URLProtocol;
+
 interface URLProtocolClient {
-  urlProtocol(_: URLProtocol, wasRedirectedTo: URLRequest, redirectResponse: URLResponse): void;
+  urlProtocol(_: URLProtocol, wasRedirectedTo: NSURLRequest, redirectResponse: URLResponse): void;
   urlProtocol(_: URLProtocol, cachedResponseIsValid: CachedURLResponse): void;
   urlProtocol(_: URLProtocol, didReceive: URLResponse, cacheStoragePolicy: URLCache.StoragePolicy): void;
   urlProtocol(_: URLProtocol, didLoad: NSData): void;
-  urlProtocol(_: URLProtocol, didFailWithError: Error): void;
+  urlProtocol(_: URLProtocol, didFailWithError: NSError): void;
   urlProtocol(_: URLProtocol, didReceive: URLAuthenticationChallenge): void;
   urlProtocol(_: URLProtocol, didCancel: URLAuthenticationChallenge): void;
   urlProtocolDidFinishLoading(_: URLProtocol): void;
 }
 
-export class URLQueryItem extends NSObject {
+export class NSURLQueryItem extends NSObject {
   name: string;
-  static createWithNameWithValue(_: string, value?: string): URLQueryItem;
+  static createWithName_Value(_: string, value?: string): NSURLQueryItem;
 }
 
-export class URLRequest extends NSObject {
+export function NSURLQueryItem(args?: any): NSURLQueryItem;
+
+export class NSURLRequest extends NSObject {
   httpBody: NSData;
   httpBodyStream: InputStream;
   httpMethod: string;
   httpShouldHandleCookies: boolean;
   httpShouldUsePipelining: boolean;
-  url: URL;
+  url: NSURL;
   allHTTPHeaderFields: Map<string, string>;
   allowsCellularAccess: boolean;
   allowsConstrainedNetworkAccess: boolean;
   allowsExpensiveNetworkAccess: boolean;
   cachePolicy: URLRequest.CachePolicy;
-  mainDocumentURL: URL;
+  mainDocumentURL: NSURL;
   networkServiceType: URLRequest.NetworkServiceType;
   timeoutInterval: number;
-  static createWithUrl(_: URL): URLRequest;
-  static createWithUrlWithCachePolicyWithTimeoutInterval(_: URL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): URLRequest;
+  static createWithUrl(_: NSURL): NSURLRequest;
+  static createWithUrl_CachePolicy_TimeoutInterval(_: NSURL, cachePolicy: URLRequest.CachePolicy, timeoutInterval: number): NSURLRequest;
   // @ts-ignore 
   value(forHTTPHeaderField: string): string;
 }
 
+export function NSURLRequest(args?: any): NSURLRequest;
+
 export class URLResponse extends NSObject {
   mimeType: string;
-  url: URL;
+  url: NSURL;
   expectedContentLength: number;
   suggestedFilename: string;
   textEncodingName: string;
-  static createWithUrlWithMimeTypeWithExpectedContentLengthWithTextEncodingName(_: URL, MIMEType?: string, expectedContentLength?: number, textEncodingName?: string): URLResponse;
+  static createWithUrl_MimeType_ExpectedContentLength_TextEncodingName(_: NSURL, MIMEType?: string, expectedContentLength?: number, textEncodingName?: string): URLResponse;
 }
+
+export function URLResponse(args?: any): URLResponse;
 
 export class URLSession extends NSObject {
   configuration: URLSessionConfiguration;
@@ -25270,16 +27297,16 @@ export class URLSession extends NSObject {
   sessionDescription: string;
   setSessionDescription(_: string);
   static shared: URLSession;
-  dataTask(with_: URLRequest): URLSessionDataTask;
-  dataTask(with_: URLRequest, completionHandler?: (p1: NSData, p2: URLResponse, p3: Error) => void): URLSessionDataTask;
-  dataTask(with_: URL): URLSessionDataTask;
-  dataTask(with_: URL, completionHandler?: (p1: NSData, p2: URLResponse, p3: Error) => void): URLSessionDataTask;
-  downloadTask(with_: URLRequest): URLSessionDownloadTask;
-  downloadTask(with_: URLRequest, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
+  dataTask(with_: NSURLRequest): URLSessionDataTask;
+  dataTask(with_: NSURLRequest, completionHandler?: (p1: NSData, p2: URLResponse, p3: NSError) => void): URLSessionDataTask;
+  dataTask(with_: NSURL): URLSessionDataTask;
+  dataTask(with_: NSURL, completionHandler?: (p1: NSData, p2: URLResponse, p3: NSError) => void): URLSessionDataTask;
+  downloadTask(with_: NSURLRequest): URLSessionDownloadTask;
+  downloadTask(with_: NSURLRequest, completionHandler?: (p1: NSURL, p2: URLResponse, p3: NSError) => void): URLSessionDownloadTask;
   downloadTask(withResumeData: NSData): URLSessionDownloadTask;
-  downloadTask(withResumeData: NSData, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
-  downloadTask(with_: URL): URLSessionDownloadTask;
-  downloadTask(with_: URL, completionHandler?: (p1: URL, p2: URLResponse, p3: Error) => void): URLSessionDownloadTask;
+  downloadTask(withResumeData: NSData, completionHandler?: (p1: NSURL, p2: URLResponse, p3: NSError) => void): URLSessionDownloadTask;
+  downloadTask(with_: NSURL): URLSessionDownloadTask;
+  downloadTask(with_: NSURL, completionHandler?: (p1: NSURL, p2: URLResponse, p3: NSError) => void): URLSessionDownloadTask;
   finishTasksAndInvalidate(): void;
   flush(completionHandler: () => void): void;
   getAllTasks(completionHandler: (p1: URLSessionTask[]) => void): void;
@@ -25288,15 +27315,17 @@ export class URLSession extends NSObject {
   reset(completionHandler: () => void): void;
   streamTask(withHostName: string, port: number): URLSessionStreamTask;
   streamTask(with_: NetService): URLSessionStreamTask;
-  uploadTask(with_: URLRequest, from: NSData): URLSessionUploadTask;
-  uploadTask(with_: URLRequest, from?: NSData, completionHandler?: (p1: NSData, p2: URLResponse, p3: Error) => void): URLSessionUploadTask;
-  uploadTask(with_: URLRequest, fromFile: URL): URLSessionUploadTask;
-  uploadTask(with_: URLRequest, fromFile: URL, completionHandler?: (p1: NSData, p2: URLResponse, p3: Error) => void): URLSessionUploadTask;
-  uploadTask(withStreamedRequest: URLRequest): URLSessionUploadTask;
-  webSocketTask(with_: URLRequest): URLSessionWebSocketTask;
-  webSocketTask(with_: URL): URLSessionWebSocketTask;
-  webSocketTask(with_: URL, protocols: string[]): URLSessionWebSocketTask;
+  uploadTask(with_: NSURLRequest, from: NSData): URLSessionUploadTask;
+  uploadTask(with_: NSURLRequest, from?: NSData, completionHandler?: (p1: NSData, p2: URLResponse, p3: NSError) => void): URLSessionUploadTask;
+  uploadTask(with_: NSURLRequest, fromFile: NSURL): URLSessionUploadTask;
+  uploadTask(with_: NSURLRequest, fromFile: NSURL, completionHandler?: (p1: NSData, p2: URLResponse, p3: NSError) => void): URLSessionUploadTask;
+  uploadTask(withStreamedRequest: NSURLRequest): URLSessionUploadTask;
+  webSocketTask(with_: NSURLRequest): URLSessionWebSocketTask;
+  webSocketTask(with_: NSURL): URLSessionWebSocketTask;
+  webSocketTask(with_: NSURL, protocols: string[]): URLSessionWebSocketTask;
 }
+
+export function URLSession(args?: any): URLSession;
 
 export class URLSessionConfiguration extends NSObject {
   static background(withIdentifier: string): URLSessionConfiguration;
@@ -25355,6 +27384,8 @@ export class URLSessionConfiguration extends NSObject {
   static ephemeralSessionConfiguration: URLSessionConfiguration;
 }
 
+export function URLSessionConfiguration(args?: any): URLSessionConfiguration;
+
 interface URLSessionDataDelegate {
   urlSession(_: URLSession, dataTask: URLSessionDataTask, didReceive: URLResponse, completionHandler: (p1: URLSession.ResponseDisposition) => void): void;
   urlSession(_: URLSession, dataTask: URLSessionDataTask, didBecome: URLSessionDownloadTask): void;
@@ -25366,13 +27397,15 @@ interface URLSessionDataDelegate {
 export class URLSessionDataTask extends URLSessionTask {
 }
 
+export function URLSessionDataTask(args?: any): URLSessionDataTask;
+
 interface URLSessionDelegate {
-  urlSession(_: URLSession, didBecomeInvalidWithError?: Error): void;
-  urlSession(_: URLSession, didReceive: URLAuthenticationChallenge, completionHandler?: (p1: URLSession.AuthChallengeDisposition, p2: URLCredential) => void): void;
+  urlSession(_: URLSession, didBecomeInvalidWithError?: NSError): void;
+  urlSession(_: URLSession, didReceive: URLAuthenticationChallenge, completionHandler?: (p1: URLSession.AuthChallengeDisposition, p2: NSURLCredential) => void): void;
 }
 
 interface URLSessionDownloadDelegate {
-  urlSession(_: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo: URL): void;
+  urlSession(_: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo: NSURL): void;
   urlSession(_: URLSession, downloadTask: URLSessionDownloadTask, didWriteData: number, totalBytesWritten: number, totalBytesExpectedToWrite: number): void;
   urlSession(_: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset: number, expectedTotalBytes: number): void;
 }
@@ -25381,6 +27414,8 @@ export class URLSessionDownloadTask extends URLSessionTask {
   // @ts-ignore 
   cancel(byProducingResumeData?: (p1: NSData) => void): void;
 }
+
+export function URLSessionDownloadTask(args?: any): URLSessionDownloadTask;
 
 interface URLSessionStreamDelegate {
   urlSession(_: URLSession, readClosedFor: URLSessionStreamTask): void;
@@ -25393,10 +27428,12 @@ export class URLSessionStreamTask extends URLSessionTask {
   captureStreams(): void;
   closeRead(): void;
   closeWrite(): void;
-  readData(ofMinLength: number, maxLength: number, timeout: number, completionHandler?: (p1: NSData, p2: boolean, p3: Error) => void): void;
+  readData(ofMinLength: number, maxLength: number, timeout: number, completionHandler?: (p1: NSData, p2: boolean, p3: NSError) => void): void;
   startSecureConnection(): void;
-  write(_: NSData, timeout: number, completionHandler?: (p1: Error) => void): void;
+  write(_: NSData, timeout: number, completionHandler?: (p1: NSError) => void): void;
 }
+
+export function URLSessionStreamTask(args?: any): URLSessionStreamTask;
 
 export class URLSessionTask extends NSObject {
   countOfBytesClientExpectsToReceive: number;
@@ -25407,11 +27444,11 @@ export class URLSessionTask extends NSObject {
   countOfBytesExpectedToSend: number;
   countOfBytesReceived: number;
   countOfBytesSent: number;
-  currentRequest: URLRequest;
+  currentRequest: NSURLRequest;
   earliestBeginDate: Date;
   setEarliestBeginDate(_: Date);
-  error: Error;
-  originalRequest: URLRequest;
+  error: NSError;
+  originalRequest: NSURLRequest;
   priority: number;
   setPriority(_: number);
   response: URLResponse;
@@ -25424,24 +27461,28 @@ export class URLSessionTask extends NSObject {
   suspend(): void;
 }
 
+export function URLSessionTask(args?: any): URLSessionTask;
+
 interface URLSessionTaskDelegate {
-  urlSession(_: URLSession, task: URLSessionTask, willBeginDelayedRequest: URLRequest, completionHandler?: (p1: URLSession.NSURLSessionDelayedRequestDisposition, p2: URLRequest) => void): void;
+  urlSession(_: URLSession, task: URLSessionTask, willBeginDelayedRequest: NSURLRequest, completionHandler?: (p1: URLSession.NSURLSessionDelayedRequestDisposition, p2: NSURLRequest) => void): void;
   urlSession(_: URLSession, taskIsWaitingForConnectivity: URLSessionTask): void;
-  urlSession(_: URLSession, task: URLSessionTask, willPerformHTTPRedirection: HTTPURLResponse, newRequest: URLRequest, completionHandler?: (p1: URLRequest) => void): void;
-  urlSession(_: URLSession, task: URLSessionTask, didReceive: URLAuthenticationChallenge, completionHandler?: (p1: URLSession.AuthChallengeDisposition, p2: URLCredential) => void): void;
+  urlSession(_: URLSession, task: URLSessionTask, willPerformHTTPRedirection: HTTPURLResponse, newRequest: NSURLRequest, completionHandler?: (p1: NSURLRequest) => void): void;
+  urlSession(_: URLSession, task: URLSessionTask, didReceive: URLAuthenticationChallenge, completionHandler?: (p1: URLSession.AuthChallengeDisposition, p2: NSURLCredential) => void): void;
   urlSession(_: URLSession, task: URLSessionTask, needNewBodyStream?: (p1: InputStream) => void): void;
   urlSession(_: URLSession, task: URLSessionTask, didSendBodyData: number, totalBytesSent: number, totalBytesExpectedToSend: number): void;
   urlSession(_: URLSession, task: URLSessionTask, didFinishCollecting: URLSessionTaskMetrics): void;
-  urlSession(_: URLSession, task: URLSessionTask, didCompleteWithError?: Error): void;
+  urlSession(_: URLSession, task: URLSessionTask, didCompleteWithError?: NSError): void;
 }
 
 export class URLSessionTaskMetrics extends NSObject {
   redirectCount: number;
   taskInterval: DateInterval;
-  transactionMetrics: URLSessionTaskTransactionMetrics[];
+  transactionMetrics: NSURLSessionTaskTransactionMetrics[];
 }
 
-export class URLSessionTaskTransactionMetrics extends NSObject {
+export function URLSessionTaskMetrics(args?: any): URLSessionTaskMetrics;
+
+export class NSURLSessionTaskTransactionMetrics extends NSObject {
   isCellular: boolean;
   connectEndDate: Date;
   connectStartDate: Date;
@@ -25465,7 +27506,7 @@ export class URLSessionTaskTransactionMetrics extends NSObject {
   isProxyConnection: boolean;
   remoteAddress: string;
   remotePort: number;
-  request: URLRequest;
+  request: NSURLRequest;
   requestEndDate: Date;
   requestStartDate: Date;
   resourceFetchType: URLSession.URLSessionTaskMetrics.ResourceFetchType;
@@ -25477,8 +27518,12 @@ export class URLSessionTaskTransactionMetrics extends NSObject {
   secureConnectionStartDate: Date;
 }
 
+export function NSURLSessionTaskTransactionMetrics(args?: any): NSURLSessionTaskTransactionMetrics;
+
 export class URLSessionUploadTask extends URLSessionDataTask {
 }
+
+export function URLSessionUploadTask(args?: any): URLSessionUploadTask;
 
 interface URLSessionWebSocketDelegate {
   urlSession(_: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol?: string): void;
@@ -25492,10 +27537,12 @@ export class URLSessionWebSocketTask extends URLSessionTask {
   setMaximumMessageSize(_: number);
   // @ts-ignore 
   cancel(with_: URLSession.URLSessionWebSocketTask.CloseCode, reason?: NSData): void;
-  receiveMessageWithCompletionHandler(_?: (p1: NSURLSessionWebSocketMessage, p2: Error) => void): void;
-  sendMessage(_: NSURLSessionWebSocketMessage, completionHandler?: (p1: Error) => void): void;
-  sendPing(pongReceiveHandler?: (p1: Error) => void): void;
+  receiveMessageWithCompletionHandler(_?: (p1: NSURLSessionWebSocketMessage, p2: NSError) => void): void;
+  sendMessage(_: NSURLSessionWebSocketMessage, completionHandler?: (p1: NSError) => void): void;
+  sendPing(pongReceiveHandler?: (p1: NSError) => void): void;
 }
+
+export function URLSessionWebSocketTask(args?: any): URLSessionWebSocketTask;
 
 export class UUID extends NSObject {
   uuidString: string;
@@ -25503,6 +27550,8 @@ export class UUID extends NSObject {
   static createWithUuidBytes(_?: number): UUID;
   static createWithUuidString(_: string): UUID;
 }
+
+export function UUID(args?: any): UUID;
 
 export class UndoManager extends NSObject {
   canRedo: boolean;
@@ -25540,16 +27589,22 @@ export class UndoManager extends NSObject {
   undoNestedGroup(): void;
 }
 
+export function UndoManager(args?: any): UndoManager;
+
 export class Unit extends NSObject {
   symbol: string;
   static createWithSymbol(_: string): Unit;
 }
+
+export function Unit(args?: any): Unit;
 
 export class UnitAcceleration extends Dimension {
   //  static createWithBaseUnit(): UnitAcceleration;
   static gravity: UnitAcceleration;
   static metersPerSecondSquared: UnitAcceleration;
 }
+
+export function UnitAcceleration(args?: any): UnitAcceleration;
 
 export class UnitAngle extends Dimension {
   //  static createWithBaseUnit(): UnitAngle;
@@ -25560,6 +27615,8 @@ export class UnitAngle extends Dimension {
   static radians: UnitAngle;
   static revolutions: UnitAngle;
 }
+
+export function UnitAngle(args?: any): UnitAngle;
 
 export class UnitArea extends Dimension {
   //  static createWithBaseUnit(): UnitArea;
@@ -25579,6 +27636,8 @@ export class UnitArea extends Dimension {
   static squareYards: UnitArea;
 }
 
+export function UnitArea(args?: any): UnitArea;
+
 export class UnitConcentrationMass extends Dimension {
   //  static createWithBaseUnit(): UnitConcentrationMass;
   static millimolesPerLiter(withGramsPerMole: number): UnitConcentrationMass;
@@ -25586,23 +27645,31 @@ export class UnitConcentrationMass extends Dimension {
   static milligramsPerDeciliter: UnitConcentrationMass;
 }
 
+export function UnitConcentrationMass(args?: any): UnitConcentrationMass;
+
 export class UnitConverter extends NSObject {
   baseUnitValue(fromValue: number): number;
   // @ts-ignore 
   value(fromBaseUnitValue: number): number;
 }
 
+export function UnitConverter(args?: any): UnitConverter;
+
 export class UnitConverterLinear extends UnitConverter {
   coefficient: number;
   constant: number;
   static createWithCoefficient(_: number): UnitConverterLinear;
-  static createWithCoefficientWithConstant(_: number, constant: number): UnitConverterLinear;
+  static createWithCoefficient_Constant(_: number, constant: number): UnitConverterLinear;
 }
+
+export function UnitConverterLinear(args?: any): UnitConverterLinear;
 
 export class UnitDispersion extends Dimension {
   //  static createWithBaseUnit(): UnitDispersion;
   static partsPerMillion: UnitDispersion;
 }
+
+export function UnitDispersion(args?: any): UnitDispersion;
 
 export class UnitDuration extends Dimension {
   //  static createWithBaseUnit(): UnitDuration;
@@ -25615,6 +27682,8 @@ export class UnitDuration extends Dimension {
   static seconds: UnitDuration;
 }
 
+export function UnitDuration(args?: any): UnitDuration;
+
 export class UnitElectricCharge extends Dimension {
   //  static createWithBaseUnit(): UnitElectricCharge;
   static ampereHours: UnitElectricCharge;
@@ -25625,6 +27694,8 @@ export class UnitElectricCharge extends Dimension {
   static milliampereHours: UnitElectricCharge;
 }
 
+export function UnitElectricCharge(args?: any): UnitElectricCharge;
+
 export class UnitElectricCurrent extends Dimension {
   //  static createWithBaseUnit(): UnitElectricCurrent;
   static amperes: UnitElectricCurrent;
@@ -25633,6 +27704,8 @@ export class UnitElectricCurrent extends Dimension {
   static microamperes: UnitElectricCurrent;
   static milliamperes: UnitElectricCurrent;
 }
+
+export function UnitElectricCurrent(args?: any): UnitElectricCurrent;
 
 export class UnitElectricPotentialDifference extends Dimension {
   //  static createWithBaseUnit(): UnitElectricPotentialDifference;
@@ -25643,6 +27716,8 @@ export class UnitElectricPotentialDifference extends Dimension {
   static volts: UnitElectricPotentialDifference;
 }
 
+export function UnitElectricPotentialDifference(args?: any): UnitElectricPotentialDifference;
+
 export class UnitElectricResistance extends Dimension {
   //  static createWithBaseUnit(): UnitElectricResistance;
   static kiloohms: UnitElectricResistance;
@@ -25652,6 +27727,8 @@ export class UnitElectricResistance extends Dimension {
   static ohms: UnitElectricResistance;
 }
 
+export function UnitElectricResistance(args?: any): UnitElectricResistance;
+
 export class UnitEnergy extends Dimension {
   //  static createWithBaseUnit(): UnitEnergy;
   static calories: UnitEnergy;
@@ -25660,6 +27737,8 @@ export class UnitEnergy extends Dimension {
   static kilojoules: UnitEnergy;
   static kilowattHours: UnitEnergy;
 }
+
+export function UnitEnergy(args?: any): UnitEnergy;
 
 export class UnitFrequency extends Dimension {
   //  static createWithBaseUnit(): UnitFrequency;
@@ -25674,6 +27753,8 @@ export class UnitFrequency extends Dimension {
   static terahertz: UnitFrequency;
 }
 
+export function UnitFrequency(args?: any): UnitFrequency;
+
 export class UnitFuelEfficiency extends Dimension {
   //  static createWithBaseUnit(): UnitFuelEfficiency;
   static litersPer100Kilometers: UnitFuelEfficiency;
@@ -25681,10 +27762,14 @@ export class UnitFuelEfficiency extends Dimension {
   static milesPerImperialGallon: UnitFuelEfficiency;
 }
 
+export function UnitFuelEfficiency(args?: any): UnitFuelEfficiency;
+
 export class UnitIlluminance extends Dimension {
   //  static createWithBaseUnit(): UnitIlluminance;
   static lux: UnitIlluminance;
 }
+
+export function UnitIlluminance(args?: any): UnitIlluminance;
 
 export class UnitLength extends Dimension {
   //  static createWithBaseUnit(): UnitLength;
@@ -25712,6 +27797,8 @@ export class UnitLength extends Dimension {
   static yards: UnitLength;
 }
 
+export function UnitLength(args?: any): UnitLength;
+
 export class UnitMass extends Dimension {
   //  static createWithBaseUnit(): UnitMass;
   static carats: UnitMass;
@@ -25732,6 +27819,8 @@ export class UnitMass extends Dimension {
   static stones: UnitMass;
 }
 
+export function UnitMass(args?: any): UnitMass;
+
 export class UnitPower extends Dimension {
   //  static createWithBaseUnit(): UnitPower;
   static femtowatts: UnitPower;
@@ -25747,6 +27836,8 @@ export class UnitPower extends Dimension {
   static watts: UnitPower;
 }
 
+export function UnitPower(args?: any): UnitPower;
+
 export class UnitPressure extends Dimension {
   //  static createWithBaseUnit(): UnitPressure;
   static bars: UnitPressure;
@@ -25761,6 +27852,8 @@ export class UnitPressure extends Dimension {
   static poundsForcePerSquareInch: UnitPressure;
 }
 
+export function UnitPressure(args?: any): UnitPressure;
+
 export class UnitSpeed extends Dimension {
   //  static createWithBaseUnit(): UnitSpeed;
   static kilometersPerHour: UnitSpeed;
@@ -25769,12 +27862,16 @@ export class UnitSpeed extends Dimension {
   static milesPerHour: UnitSpeed;
 }
 
+export function UnitSpeed(args?: any): UnitSpeed;
+
 export class UnitTemperature extends Dimension {
   //  static createWithBaseUnit(): UnitTemperature;
   static celsius: UnitTemperature;
   static fahrenheit: UnitTemperature;
   static kelvin: UnitTemperature;
 }
+
+export function UnitTemperature(args?: any): UnitTemperature;
 
 export class UnitVolume extends Dimension {
   //  static createWithBaseUnit(): UnitVolume;
@@ -25811,11 +27908,13 @@ export class UnitVolume extends Dimension {
   static teaspoons: UnitVolume;
 }
 
+export function UnitVolume(args?: any): UnitVolume;
+
 export class UserDefaults extends NSObject {
   static resetStandardUserDefaults(): void;
   volatileDomainNames: string[];
   static standard: UserDefaults;
-  url(forKey: string): URL;
+  url(forKey: string): NSURL;
   addSuite(named: string): void;
   array(forKey: string): any[];
   bool(forKey: string): boolean;
@@ -25841,12 +27940,14 @@ export class UserDefaults extends NSObject {
   set(_: number, forKey: string): void;
   set(_?: any, forKey?: string): void;
   setPersistentDomain(_: Map<string, any>, forName: string): void;
-  set(_?: URL, forKey?: string): void;
+  set(_?: NSURL, forKey?: string): void;
   setVolatileDomain(_: Map<string, any>, forName: string): void;
   stringArray(forKey: string): string[];
   synchronize(): boolean;
   volatileDomain(forName: string): Map<string, any>;
 }
+
+export function UserDefaults(args?: any): UserDefaults;
 
 export class ValueTransformer extends NSObject {
   static allowsReverseTransformation(): boolean;
@@ -25856,6 +27957,8 @@ export class ValueTransformer extends NSObject {
   reverseTransformedValue(_?: any): any;
   transformedValue(_?: any): any;
 }
+
+export function ValueTransformer(args?: any): ValueTransformer;
 
 export class XMLDTD extends XMLNode {
   static predefinedEntityDeclaration(forName: string): XMLDTDNode;
@@ -25867,8 +27970,8 @@ export class XMLDTD extends XMLNode {
   attributeDeclaration(forName: string, elementName: string): XMLDTDNode;
   elementDeclaration(forName: string): XMLDTDNode;
   entityDeclaration(forName: string): XMLDTDNode;
-  static createWithContentsOfWithOptions(options: URL, error: XMLNode.Options): XMLDTD;
-  static createWithDataWithOptions(options: NSData, error: XMLNode.Options): XMLDTD;
+  static createWithContentsOf_Options(options: NSURL, error: XMLNode.Options): XMLDTD;
+  static createWithData_Options(options: NSData, error: XMLNode.Options): XMLDTD;
   insertChild(_: XMLNode, at: number): void;
   insertChildren(_: XMLNode[], at: number): void;
   notationDeclaration(forName: string): XMLDTDNode;
@@ -25876,6 +27979,8 @@ export class XMLDTD extends XMLNode {
   replaceChild(at: number, with_: XMLNode): void;
   setChildren(_?: XMLNode[]): void;
 }
+
+export function XMLDTD(args?: any): XMLDTD;
 
 export class XMLDTDNode extends XMLNode {
   dtdKind: XMLDTDNode.DTDKind;
@@ -25890,6 +27995,8 @@ export class XMLDTDNode extends XMLNode {
   static createWithXmlString(_: string): XMLDTDNode;
 }
 
+export function XMLDTDNode(args?: any): XMLDTDNode;
+
 export class XMLDocument extends XMLNode {
   static replacementClass(for_: typeof NSObject): typeof NSObject;
   dtd: XMLDTD;
@@ -25903,14 +28010,14 @@ export class XMLDocument extends XMLNode {
   isStandalone: boolean;
   setStandalone(_: boolean);
   addChild(_: XMLNode): void;
-  static createWithContentsOfWithOptions(options: URL, error: XMLNode.Options): XMLDocument;
-  static createWithDataWithOptions(options: NSData, error: XMLNode.Options): XMLDocument;
+  static createWithContentsOf_Options(options: NSURL, error: XMLNode.Options): XMLDocument;
+  static createWithData_Options(options: NSData, error: XMLNode.Options): XMLDocument;
   static createWithRootElement(_?: XMLElement): XMLDocument;
-  static createWithXmlStringWithOptions(options: string, error: XMLNode.Options): XMLDocument;
+  static createWithXmlString_Options(options: string, error: XMLNode.Options): XMLDocument;
   insertChild(_: XMLNode, at: number): void;
   insertChildren(_: XMLNode[], at: number): void;
   objectByApplyingXSLT(arguments_: NSData, error?: Map<string, string>): any;
-  objectByApplyingXSLTAtURL(arguments_: URL, error?: Map<string, string>): any;
+  objectByApplyingXSLTAtURL(arguments_: NSURL, error?: Map<string, string>): any;
   objectByApplyingXSLTString(arguments_: string, error?: Map<string, string>): any;
   removeChild(at: number): void;
   replaceChild(at: number, with_: XMLNode): void;
@@ -25919,6 +28026,8 @@ export class XMLDocument extends XMLNode {
   setRootElement(_: XMLElement): void;
   validateAndReturnError(): boolean;
 }
+
+export function XMLDocument(args?: any): XMLDocument;
 
 export class XMLElement extends XMLNode {
   attributes: XMLNode[];
@@ -25935,8 +28044,8 @@ export class XMLElement extends XMLNode {
   elements(forLocalName: string, uri?: string): XMLElement[];
   elements(forName: string): XMLElement[];
   static createWithName(_: string): XMLElement;
-  static createWithNameWithUri(_: string, URI?: string): XMLElement;
-  static createWithNameWithStringValue(_: string, stringValue?: string): XMLElement;
+  static createWithName_Uri(_: string, URI?: string): XMLElement;
+  static createWithName_StringValue(_: string, stringValue?: string): XMLElement;
   static createWithXmlString(error: string): XMLElement;
   insertChild(_: XMLNode, at: number): void;
   insertChildren(_: XMLNode[], at: number): void;
@@ -25953,6 +28062,8 @@ export class XMLElement extends XMLNode {
   setAttributesWith(_: Map<string, string>): void;
   setChildren(_?: XMLNode[]): void;
 }
+
+export function XMLElement(args?: any): XMLElement;
 
 export class XMLNode extends NSObject {
   static dtdNode(withXMLString: string): any;
@@ -25997,12 +28108,14 @@ export class XMLNode extends NSObject {
   child(at: number): XMLNode;
   detach(): void;
   static createWithKind(_: XMLNode.Kind): XMLNode;
-  static createWithKindWithOptions(_: XMLNode.Kind, options: XMLNode.Options): XMLNode;
+  static createWithKind_Options(_: XMLNode.Kind, options: XMLNode.Options): XMLNode;
   nodesForXPath(error: string): XMLNode[];
   objectsForXQuery(constants: string, error?: Map<string, any>): any[];
   objectsForXQuery(error: string): any[];
   setStringValue(_: string, resolvingEntities: boolean): void;
 }
+
+export function XMLNode(args?: any): XMLNode;
 
 export class XMLParser extends NSObject {
   allowedExternalEntityURLs: Set<any>;
@@ -26013,7 +28126,7 @@ export class XMLParser extends NSObject {
   externalEntityResolvingPolicy: XMLParser.ExternalEntityResolvingPolicy;
   setExternalEntityResolvingPolicy(_: XMLParser.ExternalEntityResolvingPolicy);
   lineNumber: number;
-  parserError: Error;
+  parserError: NSError;
   publicID: string;
   shouldProcessNamespaces: boolean;
   setShouldProcessNamespaces(_: boolean);
@@ -26023,11 +28136,13 @@ export class XMLParser extends NSObject {
   setShouldResolveExternalEntities(_: boolean);
   systemID: string;
   abortParsing(): void;
-  static createWithContentsOf(_: URL): XMLParser;
+  static createWithContentsOf(_: NSURL): XMLParser;
   static createWithData(_: NSData): XMLParser;
   static createWithStream(_: InputStream): XMLParser;
   parse(): boolean;
 }
+
+export function XMLParser(args?: any): XMLParser;
 
 interface XMLParserDelegate {
   parser(_: XMLParser, foundNotationDeclarationWithName: string, publicID?: string, systemID?: string): void;
@@ -26046,8 +28161,8 @@ interface XMLParserDelegate {
   parser(_: XMLParser, foundComment: string): void;
   parser(_: XMLParser, foundCDATA: NSData): void;
   parser(_: XMLParser, resolveExternalEntityName: string, systemID?: string): NSData;
-  parser(_: XMLParser, parseErrorOccurred: Error): void;
-  parser(_: XMLParser, validationErrorOccurred: Error): void;
+  parser(_: XMLParser, parseErrorOccurred: NSError): void;
+  parser(_: XMLParser, validationErrorOccurred: NSError): void;
   parserDidEndDocument(_: XMLParser): void;
   parserDidStartDocument(_: XMLParser): void;
 }
@@ -26409,8 +28524,8 @@ export class IKCameraDeviceView extends NSView {
   setDownloadAllControlLabel(_: string);
   downloadSelectedControlLabel: string;
   setDownloadSelectedControlLabel(_: string);
-  downloadsDirectory: URL;
-  setDownloadsDirectory(_: URL);
+  downloadsDirectory: NSURL;
+  setDownloadsDirectory(_: NSURL);
   hasDisplayModeIcon: boolean;
   setHasDisplayModeIcon(_: boolean);
   hasDisplayModeTable: boolean;
@@ -26419,8 +28534,8 @@ export class IKCameraDeviceView extends NSView {
   setIconSize(_: number);
   mode: IKCameraDeviceView.IKCameraDeviceViewDisplayMode;
   setMode(_: IKCameraDeviceView.IKCameraDeviceViewDisplayMode);
-  postProcessApplication: URL;
-  setPostProcessApplication(_: URL);
+  postProcessApplication: NSURL;
+  setPostProcessApplication(_: NSURL);
   transferMode: IKCameraDeviceView.IKCameraDeviceViewTransferMode;
   setTransferMode(_: IKCameraDeviceView.IKCameraDeviceViewTransferMode);
   deleteSelectedItems(_: any): void;
@@ -26432,9 +28547,11 @@ export class IKCameraDeviceView extends NSView {
   selectedIndexes(): IndexSet;
 }
 
+export function IKCameraDeviceView(args?: any): IKCameraDeviceView;
+
 interface IKCameraDeviceViewDelegate {
-  cameraDeviceView(_: IKCameraDeviceView, didDownloadFile: ICCameraFile, location: URL, fileData: NSData, error: Error): void;
-  cameraDeviceView(_: IKCameraDeviceView, didEncounterError: Error): void;
+  cameraDeviceView(_: IKCameraDeviceView, didDownloadFile: ICCameraFile, location: NSURL, fileData: NSData, error: NSError): void;
+  cameraDeviceView(_: IKCameraDeviceView, didEncounterError: NSError): void;
   cameraDeviceViewSelectionDidChange(_: IKCameraDeviceView): void;
 }
 
@@ -26454,9 +28571,11 @@ export class IKDeviceBrowserView extends NSView {
   selectedDevice: ICDevice;
 }
 
+export function IKDeviceBrowserView(args?: any): IKDeviceBrowserView;
+
 interface IKDeviceBrowserViewDelegate {
   deviceBrowserView(_: IKDeviceBrowserView, selectionDidChange: ICDevice): void;
-  deviceBrowserView(_: IKDeviceBrowserView, didEncounterError: Error): void;
+  deviceBrowserView(_: IKDeviceBrowserView, didEncounterError: NSError): void;
 }
 
 export class IKFilterBrowserPanel extends NSPanel {
@@ -26470,10 +28589,14 @@ export class IKFilterBrowserPanel extends NSPanel {
   runModal(options: Map<any, any>): number;
 }
 
+export function IKFilterBrowserPanel(args?: any): IKFilterBrowserPanel;
+
 export class IKFilterBrowserView extends NSView {
   filterName(): string;
   setPreviewState(_: boolean): void;
 }
+
+export function IKFilterBrowserView(args?: any): IKFilterBrowserView;
 
 interface IKFilterCustomUIProvider {
   provideView(forUIConfiguration: Map<any, any>, excludedKeys: any[]): IKFilterUIView;
@@ -26483,9 +28606,11 @@ export class IKFilterUIView extends NSView {
   static view(withFrame: CGRect, filter: CIFilter): any;
   filter(): CIFilter;
   // @ts-ignore 
-  static createWithFrameWithFilter(_: CGRect, filter: CIFilter): IKFilterUIView;
+  static createWithFrame_Filter(_: CGRect, filter: CIFilter): IKFilterUIView;
   objectController(): NSObjectController;
 }
+
+export function IKFilterUIView(args?: any): IKFilterUIView;
 
 export class IKImageBrowserCell extends NSObject {
   cellState(): IKImageBrowserCell.IKImageBrowserCellState;
@@ -26504,6 +28629,8 @@ export class IKImageBrowserCell extends NSObject {
   titleFrame(): CGRect;
 }
 
+export function IKImageBrowserCell(args?: any): IKImageBrowserCell;
+
 export class IKImageEditPanel extends NSPanel {
   static shared(): IKImageEditPanel;
   dataSource: any;
@@ -26511,6 +28638,8 @@ export class IKImageEditPanel extends NSPanel {
   filterArray: any[];
   reloadData(): void;
 }
+
+export function IKImageEditPanel(args?: any): IKImageEditPanel;
 
 interface IKImageEditPanelDataSource {
   hasAdjustMode(): boolean;
@@ -26567,7 +28696,7 @@ export class IKImageView extends NSView {
   // @ts-ignore 
   scroll(to: CGRect): void;
   setImage(_: any, imageProperties: Map<any, any>): void;
-  setImageWith(_: URL): void;
+  setImageWith(_: NSURL): void;
   setImageZoomFactor(_: number, center: CGPoint): void;
   setOverlay(_: CALayer, forType: string): void;
   setRotationAngle(_: number, center: CGPoint): void;
@@ -26577,6 +28706,8 @@ export class IKImageView extends NSView {
   zoomIn(_: any): void;
   zoomOut(_: any): void;
 }
+
+export function IKImageView(args?: any): IKImageView;
 
 export class IKPictureTaker extends NSPanel {
   static pictureTaker(): IKPictureTaker;
@@ -26592,6 +28723,8 @@ export class IKPictureTaker extends NSPanel {
   setMirroring(_: boolean): void;
 }
 
+export function IKPictureTaker(args?: any): IKPictureTaker;
+
 export class IKSaveOptions extends NSObject {
   delegate: any;
   setDelegate(_: any);
@@ -26600,8 +28733,10 @@ export class IKSaveOptions extends NSObject {
   userSelection: Map<any, any>;
   addAccessoryView(to: NSSavePanel): void;
   add(to: NSView): void;
-  static createWithImagePropertiesWithImageutType(_: Map<any, any>, imageUTType: string): IKSaveOptions;
+  static createWithImageProperties_ImageutType(_: Map<any, any>, imageUTType: string): IKSaveOptions;
 }
+
+export function IKSaveOptions(args?: any): IKSaveOptions;
 
 export class IKScannerDeviceView extends NSView {
   delegate: any;
@@ -26612,8 +28747,8 @@ export class IKScannerDeviceView extends NSView {
   setDisplaysPostProcessApplicationControl(_: boolean);
   documentName: string;
   setDocumentName(_: string);
-  downloadsDirectory: URL;
-  setDownloadsDirectory(_: URL);
+  downloadsDirectory: NSURL;
+  setDownloadsDirectory(_: NSURL);
   hasDisplayModeAdvanced: boolean;
   setHasDisplayModeAdvanced(_: boolean);
   hasDisplayModeSimple: boolean;
@@ -26622,8 +28757,8 @@ export class IKScannerDeviceView extends NSView {
   setMode(_: IKScannerDeviceView.IKScannerDeviceViewDisplayMode);
   overviewControlLabel: string;
   setOverviewControlLabel(_: string);
-  postProcessApplication: URL;
-  setPostProcessApplication(_: URL);
+  postProcessApplication: NSURL;
+  setPostProcessApplication(_: NSURL);
   scanControlLabel: string;
   setScanControlLabel(_: string);
   scannerDevice: ICScannerDevice;
@@ -26632,11 +28767,13 @@ export class IKScannerDeviceView extends NSView {
   setTransferMode(_: IKScannerDeviceView.IKScannerDeviceViewTransferMode);
 }
 
+export function IKScannerDeviceView(args?: any): IKScannerDeviceView;
+
 interface IKScannerDeviceViewDelegate {
-  scannerDeviceView(_: IKScannerDeviceView, didScanTo: URL, fileData: NSData, error: Error): void;
-  scannerDeviceView(_: IKScannerDeviceView, didScanTo: URL, error: Error): void;
-  scannerDeviceView(_: IKScannerDeviceView, didScanTo: ICScannerBandData, scanInfo: Map<any, any>, error: Error): void;
-  scannerDeviceView(_: IKScannerDeviceView, didEncounterError: Error): void;
+  scannerDeviceView(_: IKScannerDeviceView, didScanTo: NSURL, fileData: NSData, error: NSError): void;
+  scannerDeviceView(_: IKScannerDeviceView, didScanTo: NSURL, error: NSError): void;
+  scannerDeviceView(_: IKScannerDeviceView, didScanTo: ICScannerBandData, scanInfo: Map<any, any>, error: NSError): void;
+  scannerDeviceView(_: IKScannerDeviceView, didEncounterError: NSError): void;
 }
 
 export class IKSlideshow extends NSObject {
@@ -26652,6 +28789,8 @@ export class IKSlideshow extends NSObject {
   stop(_: any): void;
 }
 
+export function IKSlideshow(args?: any): IKSlideshow;
+
 interface IKSlideshowDataSource {
   canExportSlideshowItem(at: number, toApplication: string): boolean;
   nameOfSlideshowItem(at: number): string;
@@ -26665,7 +28804,7 @@ interface IKSlideshowDataSource {
 interface QLPreviewItem {
   previewItemDisplayState?: any;
   previewItemTitle?: string;
-  previewItemURL: URL;
+  previewItemURL: NSURL;
 }
 
 export class QLPreviewPanel extends NSPanel {
@@ -26689,6 +28828,8 @@ export class QLPreviewPanel extends NSPanel {
   updateController(): void;
 }
 
+export function QLPreviewPanel(args?: any): QLPreviewPanel;
+
 interface QLPreviewPanelDataSource {
   numberOfPreviewItems(in_: QLPreviewPanel): number;
   previewPanel(_: QLPreviewPanel, previewItemAt: number): any;
@@ -26711,13 +28852,15 @@ export class QLPreviewView extends NSView {
   setShouldCloseWithWindow(_: boolean);
   close(): void;
   // @ts-ignore 
-  static createWithFrameWithStyle(_: CGRect, style: QLPreviewView.QLPreviewViewStyle): QLPreviewView;
+  static createWithFrame_Style(_: CGRect, style: QLPreviewView.QLPreviewViewStyle): QLPreviewView;
   refreshPreviewItem(): void;
 }
 
+export function QLPreviewView(args?: any): QLPreviewView;
+
 interface QLPreviewingController {
-  preparePreviewOfFile(at: URL, completionHandler?: (p1: Error) => void): void;
-  preparePreviewOfSearchableItem(identifier: string, queryString?: string, completionHandler?: (p1: Error) => void): void;
+  preparePreviewOfFile(at: NSURL, completionHandler?: (p1: NSError) => void): void;
+  preparePreviewOfSearchableItem(identifier: string, queryString?: string, completionHandler?: (p1: NSError) => void): void;
 }
 
 export class QuartzFilter extends NSObject {
@@ -26725,8 +28868,10 @@ export class QuartzFilter extends NSObject {
   localizedName(): string;
   properties(): Map<any, any>;
   remove(from: any): void;
-  url(): URL;
+  url(): NSURL;
 }
+
+export function QuartzFilter(args?: any): QuartzFilter;
 
 export class QuartzFilterManager extends NSObject {
   static filters(inDomains: any[]): any[];
@@ -26739,9 +28884,13 @@ export class QuartzFilterManager extends NSObject {
   setDelegate(_: any): void;
 }
 
+export function QuartzFilterManager(args?: any): QuartzFilterManager;
+
 export class QuartzFilterView extends NSView {
   sizeToFit(): void;
 }
+
+export function QuartzFilterView(args?: any): QuartzFilterView;
 
 interface CAAction {
   run(forKey: string, object_: any, arguments_?: Map<any, any>): void;
@@ -26758,6 +28907,8 @@ export class CAAnimation extends NSObject {
   shouldArchiveValue(forKey: string): boolean;
 }
 
+export function CAAnimation(args?: any): CAAnimation;
+
 interface CAAnimationDelegate {
   animationDidStart(_: CAAnimation): void;
   animationDidStop(_: CAAnimation, finished: boolean): void;
@@ -26768,6 +28919,8 @@ export class CAAnimationGroup extends CAAnimation {
   setAnimations(_: CAAnimation[]);
 }
 
+export function CAAnimationGroup(args?: any): CAAnimationGroup;
+
 export class CABasicAnimation extends CAPropertyAnimation {
   byValue: any;
   setByValue(_: any);
@@ -26777,17 +28930,23 @@ export class CABasicAnimation extends CAPropertyAnimation {
   setToValue(_: any);
 }
 
+export function CABasicAnimation(args?: any): CABasicAnimation;
+
 export class CAConstraint extends NSObject {
   attribute: CAConstraintLayoutManager.CAConstraintAttribute;
   offset: number;
   scale: number;
   sourceAttribute: CAConstraintLayoutManager.CAConstraintAttribute;
   sourceName: string;
-  static createWithAttributeWithRelativeToWithAttribute2WithScaleWithOffset(_: CAConstraintLayoutManager.CAConstraintAttribute, relativeTo: string, attribute: CAConstraintLayoutManager.CAConstraintAttribute, scale: number, offset: number): CAConstraint;
+  static createWithAttribute_RelativeTo_Attribute2_Scale_Offset(_: CAConstraintLayoutManager.CAConstraintAttribute, relativeTo: string, attribute: CAConstraintLayoutManager.CAConstraintAttribute, scale: number, offset: number): CAConstraint;
 }
+
+export function CAConstraint(args?: any): CAConstraint;
 
 export class CAConstraintLayoutManager extends NSObject {
 }
+
+export function CAConstraintLayoutManager(args?: any): CAConstraintLayoutManager;
 
 // export function CACurrentMediaTime(): number;
 
@@ -26806,11 +28965,15 @@ export class CADisplayLink extends NSObject {
   remove(from: RunLoop, forMode: string): void;
 }
 
+export function CADisplayLink(args?: any): CADisplayLink;
+
 export class CAEDRMetadata extends NSObject {
   static hdr10(displayInfo?: NSData, contentInfo?: NSData, opticalOutputScale?: number): CAEDRMetadata;
   static hdr10(minLuminance: number, maxLuminance: number, opticalOutputScale: number): CAEDRMetadata;
   static hlg: CAEDRMetadata;
 }
+
+export function CAEDRMetadata(args?: any): CAEDRMetadata;
 
 export class CAEmitterCell extends NSObject {
   static defaultValue(forKey: string): any;
@@ -26888,6 +29051,8 @@ export class CAEmitterCell extends NSObject {
   shouldArchiveValue(forKey: string): boolean;
 }
 
+export function CAEmitterCell(args?: any): CAEmitterCell;
+
 export class CAEmitterLayer extends CALayer {
   birthRate: number;
   setBirthRate(_: number);
@@ -26921,6 +29086,8 @@ export class CAEmitterLayer extends CALayer {
   setVelocity(_: number);
 }
 
+export function CAEmitterLayer(args?: any): CAEmitterLayer;
+
 export class CAGradientLayer extends CALayer {
   colors: any[];
   setColors(_: any[]);
@@ -26933,6 +29100,8 @@ export class CAGradientLayer extends CALayer {
   type: string;
   setType(_: string);
 }
+
+export function CAGradientLayer(args?: any): CAGradientLayer;
 
 export class CAKeyframeAnimation extends CAPropertyAnimation {
   biasValues: number[];
@@ -26954,6 +29123,8 @@ export class CAKeyframeAnimation extends CAPropertyAnimation {
   values: any[];
   setValues(_: any[]);
 }
+
+export function CAKeyframeAnimation(args?: any): CAKeyframeAnimation;
 
 export class CALayer extends NSObject {
   static cornerCurveExpansionFactor(_: string): number;
@@ -27114,6 +29285,8 @@ export class CALayer extends NSObject {
   shouldArchiveValue(forKey: string): boolean;
 }
 
+export function CALayer(args?: any): CALayer;
+
 interface CALayerDelegate {
   action(for_: CALayer, forKey: string): any;
   display(_: CALayer): void;
@@ -27148,10 +29321,12 @@ interface CAMediaTiming {
 }
 
 export class CAMediaTimingFunction extends NSObject {
-  static createWithFunctionWithControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
+  static createWithFunction_ControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
   getControlPoint(at: number, values: number): void;
   static createWithControlPoints(_: number, _2: number, _3: number, _4: number): CAMediaTimingFunction;
 }
+
+export function CAMediaTimingFunction(args?: any): CAMediaTimingFunction;
 
 interface CAMetalDrawable {
   layer: CAMetalLayer;
@@ -27185,6 +29360,8 @@ export class CAMetalLayer extends CALayer {
   nextDrawable(): any;
 }
 
+export function CAMetalLayer(args?: any): CAMetalLayer;
+
 export class CAPropertyAnimation extends CAAnimation {
   isAdditive: boolean;
   setAdditive(_: boolean);
@@ -27196,16 +29373,22 @@ export class CAPropertyAnimation extends CAAnimation {
   setValueFunction(_: CAValueFunction);
 }
 
+export function CAPropertyAnimation(args?: any): CAPropertyAnimation;
+
 export class CARemoteLayerClient extends NSObject {
   clientId: number;
   static createWithServerPort(_: number): CARemoteLayerClient;
   invalidate(): void;
 }
 
+export function CARemoteLayerClient(args?: any): CARemoteLayerClient;
+
 export class CARemoteLayerServer extends NSObject {
   static shared(): CARemoteLayerServer;
   serverPort: number;
 }
+
+export function CARemoteLayerServer(args?: any): CARemoteLayerServer;
 
 export class CARenderer extends NSObject {
   bounds: CGRect;
@@ -27218,6 +29401,8 @@ export class CARenderer extends NSObject {
   setDestination(_: any): void;
   updateBounds(): CGRect;
 }
+
+export function CARenderer(args?: any): CARenderer;
 
 export class CAReplicatorLayer extends CALayer {
   instanceAlphaOffset: number;
@@ -27240,6 +29425,8 @@ export class CAReplicatorLayer extends CALayer {
   setPreservesDepth(_: boolean);
 }
 
+export function CAReplicatorLayer(args?: any): CAReplicatorLayer;
+
 export class CAScrollLayer extends CALayer {
   scrollMode: string;
   setScrollMode(_: string);
@@ -27248,6 +29435,8 @@ export class CAScrollLayer extends CALayer {
   // @ts-ignore 
   scroll(to: CGRect): void;
 }
+
+export function CAScrollLayer(args?: any): CAScrollLayer;
 
 export class CAShapeLayer extends CALayer {
   fillColor: any;
@@ -27276,6 +29465,8 @@ export class CAShapeLayer extends CALayer {
   setStrokeStart(_: number);
 }
 
+export function CAShapeLayer(args?: any): CAShapeLayer;
+
 export class CASpringAnimation extends CABasicAnimation {
   damping: number;
   setDamping(_: number);
@@ -27287,6 +29478,8 @@ export class CASpringAnimation extends CABasicAnimation {
   stiffness: number;
   setStiffness(_: number);
 }
+
+export function CASpringAnimation(args?: any): CASpringAnimation;
 
 export class CATextLayer extends CALayer {
   alignmentMode: string;
@@ -27305,6 +29498,8 @@ export class CATextLayer extends CALayer {
   setWrapped(_: boolean);
 }
 
+export function CATextLayer(args?: any): CATextLayer;
+
 export class CATiledLayer extends CALayer {
   static fadeDuration(): number;
   levelsOfDetail: number;
@@ -27314,6 +29509,8 @@ export class CATiledLayer extends CALayer {
   tileSize: CGSize;
   setTileSize(_: CGSize);
 }
+
+export function CATiledLayer(args?: any): CATiledLayer;
 
 export class CATransaction extends NSObject {
   static animationDuration(): number;
@@ -27332,6 +29529,8 @@ export class CATransaction extends NSObject {
   static unlock(): void;
   static value(forKey: string): any;
 }
+
+export function CATransaction(args?: any): CATransaction;
 
 // export function CATransform3DConcat(a: CATransform3D, b: CATransform3D): CATransform3D;
 
@@ -27362,6 +29561,8 @@ export class CATransaction extends NSObject {
 export class CATransformLayer extends CALayer {
 }
 
+export function CATransformLayer(args?: any): CATransformLayer;
+
 export class CATransition extends CAAnimation {
   endProgress: number;
   setEndProgress(_: number);
@@ -27375,9 +29576,13 @@ export class CATransition extends CAAnimation {
   setType(_: string);
 }
 
+export function CATransition(args?: any): CATransition;
+
 export class CAValueFunction extends NSObject {
   name: string;
 }
+
+export function CAValueFunction(args?: any): CAValueFunction;
 
 namespace AE {
       export enum AEDataModel { }
@@ -27853,9 +30058,11 @@ export namespace AVCaptureDepthDataOutput {
 
 export namespace AVCaptureDevice {
   export class DiscoverySession extends NSObject {
-    static createWithDiscoverySessionWithDeviceTypesMediaTypeWithPosition(_: string[], mediaType?: string, position?: AVCaptureDevice.Position): AVCaptureDevice.DiscoverySession;
+    static createWithMediaType_Position(_: string[], mediaType?: string, position?: AVCaptureDevice.Position): AVCaptureDevice.DiscoverySession;
     devices: AVCaptureDevice[];
   }
+  
+  export function DiscoverySession(args?: any): DiscoverySession;
   
   export class Format extends NSObject {
     autoFocusSystem: AVCaptureDevice.Format.AutoFocusSystem;
@@ -27865,15 +30072,21 @@ export namespace AVCaptureDevice {
     videoSupportedFrameRateRanges: AVFrameRateRange[];
   }
   
+  export function Format(args?: any): Format;
+  
   export class InputSource extends NSObject {
     inputSourceID: string;
     localizedName: string;
   }
   
+  export function InputSource(args?: any): InputSource;
+  
   export class SystemPressureState extends NSObject {
     factors: AVCaptureDevice.SystemPressureState.Factors;
     level: string;
   }
+  
+  export function SystemPressureState(args?: any): SystemPressureState;
   
   export namespace Format {
     export enum AutoFocusSystem {
@@ -27982,6 +30195,8 @@ export namespace AVCaptureInput {
     input: AVCaptureInput;
     mediaType: string;
   }
+  
+  export function Port(args?: any): Port;
   
 }
 
@@ -30256,6 +32471,8 @@ export namespace CKFetchRecordZoneChangesOperation {
     setResultsLimit(_: number);
   }
   
+  export function ZoneConfiguration(args?: any): ZoneConfiguration;
+  
 }
 
 export namespace CKFetchRecordZonesOperation {
@@ -30298,6 +32515,8 @@ export namespace CKNotification {
   export class ID extends NSObject {
   }
   
+  export function ID(args?: any): ID;
+  
   export namespace CKQueryNotification {
     export enum Reason {
       Created = 1,
@@ -30331,6 +32550,8 @@ export namespace CKOperation {
     setTimeoutIntervalForResource(_: number);
   }
   
+  export function Configuration(args?: any): Configuration;
+  
 }
 
 export namespace CKOperationGroup {
@@ -30354,6 +32575,8 @@ export namespace CKQueryOperation {
   export class Cursor extends NSObject {
   }
   
+  export function Cursor(args?: any): Cursor;
+  
 }
 
 export namespace CKRecord {
@@ -30361,15 +32584,19 @@ export namespace CKRecord {
     recordName: string;
     zoneID: CKRecordZone.ID;
     static createWithRecordName(_: string): CKRecord.ID;
-    static createWithRecordNameWithZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord.ID;
+    static createWithRecordName_ZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord.ID;
   }
+  
+  export function ID(args?: any): ID;
   
   export class Reference extends NSObject {
     recordID: CKRecord.ID;
     action: CKRecord.Reference.CKRecord_Reference_Action;
-    static createWithRecordWithAction(_: CKRecord, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
-    static createWithRecordIDWithAction(_: CKRecord.ID, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
+    static createWithRecord_Action(_: CKRecord, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
+    static createWithRecordID_Action(_: CKRecord.ID, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
   }
+  
+  export function Reference(args?: any): Reference;
   
 }
 
@@ -30377,8 +32604,10 @@ export namespace CKRecordZone {
   export class ID extends NSObject {
     ownerName: string;
     zoneName: string;
-    static createWithZoneNameWithOwnerName(_: string, ownerName: string): CKRecordZone.ID;
+    static createWithZoneName_OwnerName(_: string, ownerName: string): CKRecordZone.ID;
   }
+  
+  export function ID(args?: any): ID;
   
   export enum Capabilities {
     FetchChanges = 1,
@@ -30400,6 +32629,8 @@ export namespace CKShare {
     share: CKShare;
   }
   
+  export function Metadata(args?: any): Metadata;
+  
   export class Participant extends NSObject {
     acceptanceStatus: CKShare.Participant.CKShare_Participant_AcceptanceStatus;
     permission: CKShare.Participant.CKShare_Participant_Permission;
@@ -30408,6 +32639,8 @@ export namespace CKShare {
     setRole(_: CKShare.Participant.CKShare_Participant_Role);
     userIdentity: CKUserIdentity;
   }
+  
+  export function Participant(args?: any): Participant;
   
 }
 
@@ -30445,6 +32678,8 @@ export namespace CKSubscription {
     setTitleLocalizationKey(_: string);
   }
   
+  export function NotificationInfo(args?: any): NotificationInfo;
+  
   export namespace CKQuerySubscription {
     export enum Options {
       RecordCreation = 1,
@@ -30474,6 +32709,8 @@ export namespace CKUserIdentity {
     static createWithPhoneNumber(_: string): CKUserIdentity.LookupInfo;
     static createWithUserRecordID(_: CKRecord.ID): CKUserIdentity.LookupInfo;
   }
+  
+  export function LookupInfo(args?: any): LookupInfo;
   
 }
 
@@ -31476,6 +33713,24 @@ export namespace DateIntervalFormatter {
 
 }
 
+export namespace Dispatch {
+  export enum dispatch_autorelease_frequency_t {
+    CY_INHERIT = 0,
+    CY_WORK_ITEM = 1,
+    CY_NEVER = 2
+  }
+
+  export enum dispatch_block_flags_t {
+    K_BARRIER = 1,
+    K_DETACHED = 2,
+    K_ASSIGN_CURRENT = 4,
+    K_NO_QOS_CLASS = 8,
+    K_INHERIT_QOS_CLASS = 16,
+    K_ENFORCE_QOS_CLASS = 32
+  }
+
+}
+
 export namespace DistributedNotificationCenter {
   export enum Options {
     DeliverImmediately = 1,
@@ -31510,6 +33765,8 @@ export namespace FileManager {
     skipDescendants(): void;
     skipDescendents(): void;
   }
+  
+  export function DirectoryEnumerator<ObjectType>(args?: any): DirectoryEnumerator<ObjectType>;
   
   export enum DirectoryEnumerationOptions {
     SkipsSubdirectoryDescendants = 1,
@@ -32165,9 +34422,11 @@ export namespace NSAccessibilityCustomRotor {
     targetElement: any;
     targetRange: NSRange;
     setTargetRange(_: NSRange);
-    static createWithItemLoadingTokenWithCustomLabel(_: any, customLabel: string): NSAccessibilityCustomRotor.ItemResult;
+    static createWithItemLoadingToken_CustomLabel(_: any, customLabel: string): NSAccessibilityCustomRotor.ItemResult;
     static createWithTargetElement(_: any): NSAccessibilityCustomRotor.ItemResult;
   }
+  
+  export function ItemResult(args?: any): ItemResult;
   
   export class SearchParameters extends NSObject {
     currentItem: NSAccessibilityCustomRotor.ItemResult;
@@ -32177,6 +34436,8 @@ export namespace NSAccessibilityCustomRotor {
     searchDirection: NSAccessibilityCustomRotor.SearchDirection;
     setSearchDirection(_: NSAccessibilityCustomRotor.SearchDirection);
   }
+  
+  export function SearchParameters(args?: any): SearchParameters;
   
   export enum RotorType {
     Custom = 0,
@@ -33084,7 +35345,6 @@ export namespace NSCustomImageRep {
 export namespace NSCustomTouchBarItem {
 }
 
-// @ts-ignore
 export namespace NSData {
   export enum Base64DecodingOptions {
     NSDataBase64DecodingIgnoreUnknownCharacters = 1
@@ -36593,6 +38853,8 @@ export namespace NSWorkspace {
   export class Authorization extends NSObject {
   }
   
+  export function Authorization(args?: any): Authorization;
+  
   export class OpenConfiguration extends NSObject {
     static createWithConfiguration(): NSWorkspace.OpenConfiguration;
     activates: boolean;
@@ -36622,6 +38884,8 @@ export namespace NSWorkspace {
     requiresUniversalLinks: boolean;
     setRequiresUniversalLinks(_: boolean);
   }
+  
+  export function OpenConfiguration(args?: any): OpenConfiguration;
   
   export enum AuthorizationType {
     CreateSymbolicLink = 0,
@@ -42975,6 +45239,34 @@ let global = globalThis as any;
   '2': 'MediumStyle',
   '3': 'LongStyle',
   '4': 'FullStyle'
+};
+
+
+(globalThis as any)['Dispatch'] = (globalThis as any)['Dispatch'] || {};
+(globalThis as any)['Dispatch']['dispatch_autorelease_frequency_t'] = (globalThis as any)['Dispatch']['dispatch_autorelease_frequency_t'] || {};
+(globalThis as any)['Dispatch']['dispatch_autorelease_frequency_t'] = {
+  CY_INHERIT: 0,
+  CY_WORK_ITEM: 1,
+  CY_NEVER: 2,
+  '0': 'CY_INHERIT',
+  '1': 'CY_WORK_ITEM',
+  '2': 'CY_NEVER'
+};
+
+(globalThis as any)['Dispatch']['dispatch_block_flags_t'] = (globalThis as any)['Dispatch']['dispatch_block_flags_t'] || {};
+(globalThis as any)['Dispatch']['dispatch_block_flags_t'] = {
+  K_BARRIER: 1,
+  K_DETACHED: 2,
+  K_ASSIGN_CURRENT: 4,
+  K_NO_QOS_CLASS: 8,
+  K_INHERIT_QOS_CLASS: 16,
+  K_ENFORCE_QOS_CLASS: 32,
+  '1': 'K_BARRIER',
+  '2': 'K_DETACHED',
+  '4': 'K_ASSIGN_CURRENT',
+  '8': 'K_NO_QOS_CLASS',
+  '16': 'K_INHERIT_QOS_CLASS',
+  '32': 'K_ENFORCE_QOS_CLASS'
 };
 
 
@@ -51304,6 +53596,7 @@ export {
   DateComponentsFormatter,
   DateFormatter,
   DateIntervalFormatter,
+  Dispatch,
   DistributedNotificationCenter,
   EnergyFormatter,
   FileManager,

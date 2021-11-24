@@ -29,6 +29,7 @@ declare global {
     emitAction(VueKitNode, any, string): void;
 
     instance?: NSObject;
+    controller?: any;
     props: { [key: string]: any };
     parent: VueKitNode;
     children: VueKitNode[];

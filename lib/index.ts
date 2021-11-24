@@ -1,14 +1,14 @@
-// let levels = ['error', 'warn', 'log', 'info', 'debug'];
+import { createConstructors } from './createConstructors';
 
-import { createConstructors } from './node';
+let levels = ['error', 'warn', 'log', 'info', 'debug'];
 
-// for (const level of levels) {
-//   let original = console[level];
-//   console[level] = (...args: any[]) => {
-//     original(...args);
-//     globalThis.VueKitLog(level, ...args);
-//   };
-// }
+for (const level of levels) {
+  let original = console[level];
+  console[level] = (...args: any[]) => {
+    original(...args);
+    globalThis.VueKitLog(level, ...args);
+  };
+}
 
 // export function setImmediate(callback: (...args: any[]) => void) {
 //   return global.setTimeout(callback, 0);
@@ -22,3 +22,4 @@ createConstructors();
 
 export { createApp } from './createApp';
 export { createNode } from './createNode';
+export { setInstanceValue } from './setInstanceValue';

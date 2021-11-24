@@ -1,8 +1,8 @@
 import { createRenderer } from '@vue/runtime-core';
-import { setInstanceValue } from './setInstanceValue';
-import { addNodeToParentView, addNodeToParentNode } from './addNodeToParent';
+import { setNodeValue } from './setInstanceValue';
+import { addNodeToParentView, addNodeToParentNode } from './addToParent';
 import constraints from './plugins/constraints';
-import { createNode } from './createNode';
+import { createNode, removeNode } from './createNode';
 
 let windows = new Set();
 
@@ -16,8 +16,8 @@ const nodeOps = {
       windows.add(node);
     }
     else {
-      addNodeToParentView(node, parent, anchor);
       addNodeToParentNode(node, parent, anchor);
+      addNodeToParentView(node, parent, anchor);
     }
   },
 
@@ -26,26 +26,14 @@ const nodeOps = {
       windows.delete(node);
     }
 
-    if (node.instance instanceof NSView) {
-      node.instance.removeFromSuperview();
-    }
-
-    if (node.parent?.children?.length > 0) {
-      let { children } = node.parent;
-      let idx = node.parent.children.indexOf(node);
-      // console.log('Before remove... el.parent.children is', el.parent.children);
-      node.parent.children = [...children.slice(0, idx), ...children.slice(idx + 1)];
-      // console.log('After remove... el.parent.children is now', el.parent.children);
-    }
-
-    node.destroy();
+    return removeNode(node);
   },
 
   patchProp(node: VueKitNode, key: string, _: any, nextValue: any) {
     // if (nextValue !== undefined) {
     //   console.log('patch prop', key);
     // }
-    setInstanceValue(node, key, nextValue, true);
+    setNodeValue(node, key, nextValue, true);
   },
 
   nextSibling(node: VueKitNode) {

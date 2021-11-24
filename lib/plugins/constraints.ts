@@ -14,7 +14,7 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
       firstView = firstRef.$el.instance;
     }
     catch (error) {
-      console.warn('Could not find ref named', firstItem, 'when trying to build constraint on', component.$options.name);
+      console.warn('Could not find ref named', firstItem, 'when trying to build constraint in component: ', component.$options.name);
       continue;
     }
 
@@ -22,7 +22,20 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
       let definition = definitions[anchorName];
       let firstAnchor = firstView[`${anchorName}Anchor`];
 
-      let secondView = firstRef.$el.parent.instance;
+      let secondInstance = firstRef.$el.parent.instance;
+      let secondView;
+
+      if (secondInstance instanceof NSWindow) {
+        secondView = secondInstance.contentView;
+      }
+      else if (secondInstance instanceof NSView) {
+        secondView = secondInstance;
+      }
+      else {
+        console.log(`Cannot use ${secondInstance} in constraint since it is not as NSView`);
+        continue;
+      }
+
       let secondItem;
       let secondAnchorName;
       let constant;
@@ -53,7 +66,7 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
           secondView = secondRef.$el.instance;
         }
         catch (error) {
-          console.warn('Could not find ref named', definition.secondItem, 'when trying to build constraint on', component.$options.name);
+          console.warn('Could not find ref named', definition.secondItem, 'when trying to build constraint in component: ', component.$options.name);
           continue;
         }
       }
@@ -67,6 +80,7 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
         constant = definition;
       }
       else {
+        // { leading: { constant: 20, priority: 499 } }
         if (definition.relationship) constraint.relation = Constraint.Relation[definition.relationship];
         if (typeof definition['priority'] === 'number') constraint['priority'] = definition['priority'];
         if (typeof definition['multiplier'] === 'number') constraint['multiplier'] = definition['multiplier'];
@@ -91,14 +105,19 @@ export default {
         if (!this.$options.constraints) return;
 
         let createdConstraints = createConstraintsFromComponentDefinition(this, this.$options.constraints);
-        NSLayoutConstraint.activateConstraints(createdConstraints);
+
+        DispatchQueue.mainAsync(() => {
+          NSLayoutConstraint.activateConstraints(createdConstraints);
+        });
 
         this.$options.constraints = reactive(this.$options.constraints);
 
         watch(this.$options.constraints, constraints => {
-          NSLayoutConstraint.deactivateConstraints(createdConstraints);
-          createdConstraints = createConstraintsFromComponentDefinition(this, constraints);
-          NSLayoutConstraint.activateConstraints(createdConstraints);
+          DispatchQueue.mainAsync(() => {
+            NSLayoutConstraint.deactivateConstraints(createdConstraints);
+            createdConstraints = createConstraintsFromComponentDefinition(this, constraints);
+            NSLayoutConstraint.activateConstraints(createdConstraints);
+          });
         });
       }
     });

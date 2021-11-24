@@ -33,22 +33,22 @@ module.exports = {
     'comma-dangle': ['warn', 'never'],
     'brace-style': ['error', 'stroustrup'],
     'arrow-parens': ['warn', 'as-needed'],
+    'no-shadow': 'off',
     'consistent-return': 'off',
     'dot-notation': 'warn',
     'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
     'lines-between-class-members': 'off',
     'max-len': 'off',
     'no-bitwise': 'off',
     'no-console': 'off',
+    'no-empty': 'off',
     'no-continue': 'off',
     'no-debugger': 'warn',
-    'no-empty': 'off',
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-return-assign': 'warn',
-    'no-shadow': 'off',
-    'no-underscore-dangle': 'off',
     'prefer-const': 'off',
     'prefer-destructuring': 'off',
     'quote-props': 'warn',
@@ -77,6 +77,7 @@ module.exports = {
 
     // Relax some typescript-eslint rules
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
 
     // These rules set in airbnb-base are better checked by the ts compiler
     'constructor-super': 'off',
@@ -100,11 +101,12 @@ module.exports = {
 
     // Relax some of the vue3-recommended rules
     'vue/valid-v-model': 'off',
+    'vue/no-unused-components': 'warn',
     'vue/max-attributes-per-line': 'off',
     'vue/html-closing-bracket-newline': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/component-definition-name-casing': 'off',
-    'vue/no-unused-components': 'warn',
+    'vue/attribute-hyphenation': 'off',
     'vue/prop-name-casing': 'off'
   }
 };

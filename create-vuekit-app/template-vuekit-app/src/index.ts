@@ -6,4 +6,4 @@ let app = createApp(App);
 
 app.mount({} as VueKitNode);
 
-console.log('⟁ Welcome to VueKit!');
+console.log('⟁ Welcome to the VueKit Technical Preview!');

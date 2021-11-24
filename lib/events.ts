@@ -113,6 +113,7 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): v
   let propName = `on${snakeToPascal(eventName)}`;
 
   // console.log('Checking for callbacks for ', propName, 'on', node.instance);
+
   if (typeof node.props?.[propName] !== 'function') return;
 
   let populatedEvent = decorateEvent(event, extended);
@@ -127,7 +128,7 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): v
 export function emitAction(node: VueKitNode, event: NSEvent, extended: string): void {
   let { instance } = node;
 
-  let vModelUpdateFn = node.props['onUpdate:modelValue'];
+  let vModelUpdateFn = node.props?.['onUpdate:modelValue'];
 
   if (instance && vModelUpdateFn) {
     let valueTypeKey = valueTypeForJSType(typeof node.props.modelValue);

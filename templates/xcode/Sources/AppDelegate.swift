@@ -5,11 +5,12 @@ import VueKitBridge
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_: Notification) {
-    let context = JSContext()!
+   guard let context = JSContext() else {
+     NSLog("Could not create JSContext!")
+     return
+   }
 
-    _ = context.setObject(DispatchQueue.self, forKeyedSubscript: "DispatchQueue" as (NSCopying & NSObjectProtocol)?)
-
-    let bridgeTender = BridgeTender(context: context)
-    bridgeTender.loadJSBundle()
+   let bridgeTender = BridgeTender(context: context)
+   bridgeTender.loadJSBundle()
   }
 }

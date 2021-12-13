@@ -2,6 +2,12 @@ import { App, reactive, watch } from '@vue/runtime-core';
 import * as Runtime from '@vue/runtime-core';
 import * as Constraint from '../../types/constraint';
 
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    constraints: Constraint.Definitions
+  }
+}
+
 export function createConstraintsFromComponentDefinition(component: Runtime.ComponentPublicInstance, value: Constraint.Definition): NSLayoutConstraint[] {
   let constraints = [];
 
@@ -30,10 +36,6 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
       }
       else if (secondInstance instanceof NSView) {
         secondView = secondInstance;
-      }
-      else {
-        console.log(`Cannot use ${secondInstance} in constraint since it is not as NSView`);
-        continue;
       }
 
       let secondItem;
@@ -72,23 +74,55 @@ export function createConstraintsFromComponentDefinition(component: Runtime.Comp
       }
 
       secondAnchorName = secondAnchorName || definition.secondAnchor || anchorName;
-      let secondAnchor = secondView[`${secondAnchorName}Anchor`];
-      let constraint = firstAnchor.constraintWithEqualTo(secondAnchor);
+
+      let secondAnchor;
+
+      if (secondView) {
+        secondAnchor = secondView[`${secondAnchorName}Anchor`];
+      }
+
+      let relationshipName = 'EqualTo';
+
+      let constraint;
 
       if (typeof definition === 'number') {
+        if (!secondAnchor) {
+          log.debug(`Cannot use ${secondInstance} in constraint since it is not as NSView`);
+          continue;
+        }
+
         // { leading: 20 } shorthand
+        constraint = firstAnchor.constraintWithEqualTo(secondAnchor);
         constant = definition;
+        constraint.constant = constant;
       }
       else {
         // { leading: { constant: 20, priority: 499 } }
-        if (definition.relationship) constraint.relation = Constraint.Relation[definition.relationship];
+
+        if (definition.relationship === '<=') {
+          relationshipName = 'LessThanOrEqualTo';
+        }
+        else if (definition.relationship === '>=') {
+          relationshipName = 'GreaterThanOrEqualTo';
+        }
+
+        if (typeof definition['constant'] === 'number') constant = definition['constant'];
+
+        if (anchorName === 'width' || anchorName === 'height') {
+          constraint = firstAnchor[`constraintWith${relationshipName}Constant`](firstAnchor, constant);
+        }
+        else {
+          if (!secondAnchor) {
+            log.debug(`Cannot use ${secondInstance} in constraint since it is not as NSView`);
+            continue;
+          }
+
+          constraint = firstAnchor[`constraintWith${relationshipName}`](secondAnchor);
+          constraint.constant = constant;
+        }
+
         if (typeof definition['priority'] === 'number') constraint['priority'] = definition['priority'];
         if (typeof definition['multiplier'] === 'number') constraint['multiplier'] = definition['multiplier'];
-        if (typeof definition['constant'] === 'number') constant = definition['constant'];
-      }
-
-      if (constant !== undefined) {
-        constraint.constant = constant;
       }
 
       constraints.push(constraint);
@@ -106,14 +140,14 @@ export default {
 
         let createdConstraints = createConstraintsFromComponentDefinition(this, this.$options.constraints);
 
-        DispatchQueue.mainAsync(() => {
+        DispatchQueue.main().async(() => {
           NSLayoutConstraint.activateConstraints(createdConstraints);
         });
 
         this.$options.constraints = reactive(this.$options.constraints);
 
         watch(this.$options.constraints, constraints => {
-          DispatchQueue.mainAsync(() => {
+          DispatchQueue.main().async(() => {
             NSLayoutConstraint.deactivateConstraints(createdConstraints);
             createdConstraints = createConstraintsFromComponentDefinition(this, constraints);
             NSLayoutConstraint.activateConstraints(createdConstraints);

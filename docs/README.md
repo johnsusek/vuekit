@@ -8,5 +8,3 @@ footer: MIT Licensed • Copyright © 2021 John Susek
 actions:
 
 ---
-
-`npm init vuekit-app@latest`

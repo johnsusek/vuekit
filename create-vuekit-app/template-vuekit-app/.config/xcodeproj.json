@@ -19,6 +19,10 @@
     "VueKitBridge": {
       "github": "johnsusek/vuekit-bridge",
       "branch": "master"
+    },
+    "FrameworkBridge": {
+      "github": "johnsusek/framework-bridge",
+      "branch": "master"
     }
   },
   "targets": {
@@ -47,7 +51,7 @@
           "package": "VueKitBridge"
         },
         {
-          "framework": "../build/framework/Build/Products/Debug/FrameworkBridge.framework"
+          "package": "FrameworkBridge"
         }
       ],
       "scheme": {

@@ -670,65 +670,65 @@
   "ComboBox/uses-data-source": {
     "type": "boolean"
   },
-  "Control/cell-class": {
+  "cell-class": {
     "type": "class"
   },
-  "Control/action": {
+  "action": {
     "type": "string"
   },
-  "Control/attributed-string-value": {
+  "attributed-string-value": {
     "type": "NSAttributedString"
   },
-  "Control/control-size": {
+  "control-size": {
     "options": [
       "Regular",
       "Small",
       "Mini"
     ]
   },
-  "Control/double-value": {
+  "double-value": {
     "type": "number"
   },
-  "Control/float-value": {
+  "float-value": {
     "type": "number"
   },
-  "Control/formatter": {
+  "formatter": {
     "type": "NSFormatter"
   },
-  "Control/ignores-multi-click": {
+  "ignores-multi-click": {
     "type": "boolean"
   },
-  "Control/integer-value": {
+  "integer-value": {
     "type": "number"
   },
-  "Control/int-value": {
+  "int-value": {
     "type": "number"
   },
-  "Control/is-continuous": {
+  "is-continuous": {
     "type": "boolean"
   },
-  "Control/is-enabled": {
+  "is-enabled": {
     "type": "boolean"
   },
-  "Control/is-highlighted": {
+  "is-highlighted": {
     "type": "boolean"
   },
-  "Control/object-value": {
+  "object-value": {
     "type": "Id"
   },
-  "Control/refuses-first-responder": {
+  "refuses-first-responder": {
     "type": "boolean"
   },
-  "Control/string-value": {
+  "string-value": {
     "type": "String"
   },
-  "Control/tag": {
+  "tag": {
     "type": "number"
   },
-  "Control/target": {
+  "target": {
     "type": "Id"
   },
-  "Control/alignment": {
+  "alignment": {
     "options": [
       "Left",
       "Right",
@@ -737,20 +737,20 @@
       "Natural"
     ]
   },
-  "Control/allows-expansion-tool-tips": {
+  "allows-expansion-tool-tips": {
     "type": "boolean"
   },
-  "Control/base-writing-direction": {
+  "base-writing-direction": {
     "options": [
       "Natural",
       "LeftToRight",
       "RightToLeft"
     ]
   },
-  "Control/font": {
+  "font": {
     "type": "NSFont"
   },
-  "Control/line-break-mode": {
+  "line-break-mode": {
     "options": [
       "WordWrapping",
       "CharWrapping",
@@ -760,10 +760,10 @@
       "TruncatingMiddle"
     ]
   },
-  "Control/uses-single-line-mode": {
+  "uses-single-line-mode": {
     "type": "boolean"
   },
-  "Control/cell": {
+  "cell": {
     "type": "NSCell"
   },
   "DatePicker/background-color": {
@@ -1090,6 +1090,177 @@
     "type": "NSTableColumn"
   },
   "Outline/strongly-references-items": {
+    "type": "boolean"
+  },
+  "Outline/allows-column-reordering": {
+    "type": "boolean"
+  },
+  "Outline/allows-column-resizing": {
+    "type": "boolean"
+  },
+  "Outline/allows-column-selection": {
+    "type": "boolean"
+  },
+  "Outline/allows-empty-selection": {
+    "type": "boolean"
+  },
+  "Outline/allows-multiple-selection": {
+    "type": "boolean"
+  },
+  "Outline/allows-type-select": {
+    "type": "boolean"
+  },
+  "Outline/autosave-name": {
+    "type": "String"
+  },
+  "Outline/autosave-table-columns": {
+    "type": "boolean"
+  },
+  "Outline/background-color": {
+    "type": "NSColor"
+  },
+  "Outline/clicked-column": {
+    "type": "number"
+  },
+  "Outline/clicked-row": {
+    "type": "number"
+  },
+  "Outline/column-autoresizing-style": {
+    "options": [
+      "NoColumnAutoresizing",
+      "UniformColumnAutoresizingStyle",
+      "SequentialColumnAutoresizingStyle",
+      "ReverseSequentialColumnAutoresizingStyle",
+      "LastColumnOnlyAutoresizingStyle",
+      "FirstColumnOnlyAutoresizingStyle"
+    ]
+  },
+  "Outline/corner-view": {
+    "type": "NSView"
+  },
+  "Outline/data-source": {
+    "type": "NSTableViewDataSource"
+  },
+  "Outline/delegate": {
+    "type": "NSTableViewDelegate"
+  },
+  "Outline/double-action": {
+    "type": "string"
+  },
+  "Outline/dragging-destination-feedback-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList",
+      "Gap"
+    ]
+  },
+  "Outline/edited-column": {
+    "type": "number"
+  },
+  "Outline/edited-row": {
+    "type": "number"
+  },
+  "Outline/effective-row-size-style": {
+    "options": [
+      "Default",
+      "Custom",
+      "Small",
+      "Medium",
+      "Large"
+    ]
+  },
+  "Outline/floats-group-rows": {
+    "type": "boolean"
+  },
+  "Outline/grid-color": {
+    "type": "NSColor"
+  },
+  "Outline/grid-style-mask": {
+    "options": [
+      "GridNone",
+      "SolidVerticalGridLineMask",
+      "SolidHorizontalGridLineMask",
+      "DashedHorizontalGridLineMask"
+    ]
+  },
+  "Outline/header-view": {
+    "type": "NSTableHeaderView"
+  },
+  "Outline/hidden-row-indexes": {
+    "type": "NSIndexSet"
+  },
+  "Outline/highlighted-table-column": {
+    "type": "NSTableColumn"
+  },
+  "Outline/intercell-spacing": {
+    "type": "NSSize"
+  },
+  "Outline/number-of-columns": {
+    "type": "number"
+  },
+  "Outline/number-of-rows": {
+    "type": "number"
+  },
+  "Outline/number-of-selected-columns": {
+    "type": "number"
+  },
+  "Outline/number-of-selected-rows": {
+    "type": "number"
+  },
+  "Outline/registered-nibs-by-identifier": {
+    "type": "NSDictionary"
+  },
+  "Outline/row-actions-visible": {
+    "type": "boolean"
+  },
+  "Outline/row-height": {
+    "type": "number"
+  },
+  "Outline/row-size-style": {
+    "options": [
+      "Default",
+      "Custom",
+      "Small",
+      "Medium",
+      "Large"
+    ]
+  },
+  "Outline/selected-column": {
+    "type": "number"
+  },
+  "Outline/selected-column-indexes": {
+    "type": "NSIndexSet"
+  },
+  "Outline/selected-row": {
+    "type": "number"
+  },
+  "Outline/selected-row-indexes": {
+    "type": "NSIndexSet"
+  },
+  "Outline/selection-highlight-style": {
+    "options": [
+      "None",
+      "Regular",
+      "SourceList"
+    ]
+  },
+  "Outline/sort-descriptors": {
+    "type": "NSArray"
+  },
+  "Outline/table-columns": {
+    "type": "NSArray"
+  },
+  "Outline/uses-alternating-row-background-colors": {
+    "type": "boolean"
+  },
+  "Outline/uses-automatic-row-heights": {
+    "type": "boolean"
+  },
+  "Outline/uses-static-contents": {
+    "type": "boolean"
+  },
+  "Outline/vertical-motion-can-begin-drag": {
     "type": "boolean"
   },
   "PathControl/allowed-types": {

@@ -90,6 +90,9 @@ export function setInstanceValue(instance: NSObject, key: string, value: any, fr
         setInstanceValue(instance[key], propName, layerValue, fromPatch);
       }
     }
+    else {
+      log.warn('Could not set mergable value on ', instance, 'for key', key);
+    }
 
     return;
   }

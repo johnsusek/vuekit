@@ -70,9 +70,35 @@ export function fetch(url: NSURL, { useJSON } = fetchDefaults): Promise<FetchRes
   });
 }
 
+export async function dispatch(fn: () => any, qos: NSObjCRuntime.QualityOfService = NSObjCRuntime.QualityOfService.UserInitiated) {
+  return new Promise((resolve, reject) => {
+    DispatchQueue.globalWithQos(qos).async(() => {
+      let result;
+
+      try {
+        result = fn();
+      }
+      catch (error) {
+        reject(error);
+      }
+
+      DispatchQueue.main().async(() => {
+        resolve(result);
+      });
+    });
+  });
+}
+
 export function snakeToCamelObject(obj = {}): StringObject {
   return Object.entries(obj).reduce((acc, curr) => {
     acc[snakeToCamel(curr[0])] = curr[1];
+    return acc;
+  }, {});
+}
+
+export function sortObj(obj: StringObject): StringObject {
+  return Object.keys(obj).sort().reduce((acc, key) => {
+    acc[key] = obj[key];
     return acc;
   }, {});
 }

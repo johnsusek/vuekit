@@ -25,6 +25,3 @@ interface Console {
 
 // @ts-ignore
 declare let console: Console;
-// declare function clearTimeout(id: number): void
-// declare function setTimeout(block: any, timeout: number): number;
-// declare function setImmediate(callback: (...args: any[]) => void): number;

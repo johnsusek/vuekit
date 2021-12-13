@@ -60,10 +60,8 @@ export class AVAssetExportSession extends NSObject {
   directoryForTemporaryFiles: NSURL;
   setDirectoryForTemporaryFiles(_: NSURL);
   error: NSError;
-  estimatedOutputFileLength: number;
   fileLengthLimit: number;
   setFileLengthLimit(_: number);
-  maxDuration: CMTime;
   metadata: AVMetadataItem[];
   setMetadata(_: AVMetadataItem[]);
   metadataItemFilter: AVMetadataItemFilter;
@@ -2370,8 +2368,6 @@ export class AVPlayerItem extends NSObject {
   asset: AVAsset;
   audioMix: AVAudioMix;
   setAudioMix(_: AVAudioMix);
-  isAudioSpatializationAllowed: boolean;
-  setAudioSpatializationAllowed(_: boolean);
   audioTimePitchAlgorithm: string;
   setAudioTimePitchAlgorithm(_: string);
   isAuthorizationRequiredForPlayback: boolean;
@@ -3652,8 +3648,6 @@ interface NSAnimationDelegate {
 export class NSAppearance extends NSObject {
   allowsVibrancy: boolean;
   name: string;
-  static current: NSAppearance;
-  setCurrentAppearance(_: NSAppearance);
   bestMatch(from: string[]): string;
   static createWithAppearanceNamed_Bundle(_: string, bundle?: Bundle): NSAppearance;
 }
@@ -7155,8 +7149,6 @@ export class NSMatrix extends NSControl {
   mouseDownFlags: number;
   numberOfColumns: number;
   numberOfRows: number;
-  prototype: NSCell;
-  setPrototype(_: NSCell);
   selectedCells: NSCell[];
   selectedColumn: number;
   selectedRow: number;
@@ -8584,8 +8576,6 @@ export class NSSavePanel extends NSPanel {
   url: NSURL;
   accessoryView: NSView;
   setAccessoryView(_: NSView);
-  allowedFileTypes: string[];
-  setAllowedFileTypes(_: string[]);
   allowsOtherFileTypes: boolean;
   setAllowsOtherFileTypes(_: boolean);
   canCreateDirectories: boolean;
@@ -8918,8 +8908,6 @@ export class NSScrubberTextItemView extends NSScrubberItemView {
 export function NSScrubberTextItemView(args?: any): NSScrubberTextItemView;
 
 export class NSSearchField extends NSTextField {
-  centersPlaceholder: boolean;
-  setCentersPlaceholder(_: boolean);
   delegate: any;
   setDelegate(_: any);
   maximumRecents: number;
@@ -8934,9 +8922,6 @@ export class NSSearchField extends NSTextField {
   setSendsSearchStringImmediately(_: boolean);
   sendsWholeSearchString: boolean;
   setSendsWholeSearchString(_: boolean);
-  rectForCancelButton(whenCentered: boolean): CGRect;
-  rectForSearchButton(whenCentered: boolean): CGRect;
-  rectForSearchText(whenCentered: boolean): CGRect;
 }
 
 export function NSSearchField(args?: any): NSSearchField;
@@ -11044,12 +11029,8 @@ export class NSToolbarItem extends NSObject {
   itemIdentifier: string;
   label: string;
   setLabel(_: string);
-  maxSize: CGSize;
-  setMaxSize(_: CGSize);
   menuFormRepresentation: NSMenuItem;
   setMenuFormRepresentation(_: NSMenuItem);
-  minSize: CGSize;
-  setMinSize(_: CGSize);
   paletteLabel: string;
   setPaletteLabel(_: string);
   tag: number;
@@ -12175,16 +12156,12 @@ export class NSWorkspace extends NSObject {
   desktopImageURL(for_: NSScreen): NSURL;
   duplicate(_: NSURL[], completionHandler?: (p1: Map<NSURL, NSURL>, p2: NSError) => void): void;
   extendPowerOff(by: number): number;
-  filenameExtension(_: string, isValidForType: string): boolean;
   getFileSystemInfo(forPath: string, isRemovable?: boolean, isWritable?: boolean, isUnmountable?: boolean, description?: string, type?: string): boolean;
-  getInfoForFile(_: string, application?: string, type?: string): boolean;
   hideOtherApplications(): void;
   icon(forFile: string): NSImage;
-  icon(forFileType: string): NSImage;
   icon(forFiles: string[]): NSImage;
   isFilePackage(atPath: string): boolean;
   launchApplicationAtURL(options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  localizedDescription(forType: string): string;
   noteFileSystemChanged(_: string): void;
   openApplication(at: NSURL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: NSError) => void): void;
   open(_: NSURL): boolean;
@@ -12192,505 +12169,18 @@ export class NSWorkspace extends NSObject {
   openURL(options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
   open(_: NSURL[], withApplicationAt: NSURL, configuration: NSWorkspace.OpenConfiguration, completionHandler?: (p1: NSRunningApplication, p2: NSError) => void): void;
   openURLs(withApplicationAtURL: NSURL[], options: NSURL, configuration: NSWorkspace.LaunchOptions, error: Map<string, any>): NSRunningApplication;
-  preferredFilenameExtension(forType: string): string;
   recycle(_: NSURL[], completionHandler?: (p1: Map<NSURL, NSURL>, p2: NSError) => void): void;
   requestAuthorization(to: NSWorkspace.AuthorizationType, completionHandler?: (p1: NSWorkspace.Authorization, p2: NSError) => void): void;
   selectFile(_?: string, inFileViewerRootedAtPath?: string): boolean;
   setDesktopImageURL(forScreen: NSURL, options: NSScreen, error: Map<string, any>): boolean;
   setIcon(_?: NSImage, forFile?: string, options?: NSWorkspace.IconCreationOptions): boolean;
   showSearchResults(forQueryString: string): boolean;
-  type(_: string, conformsToType: string): boolean;
   typeOfFile(error: string): string;
   unmountAndEjectDevice(atPath: string): boolean;
   unmountAndEjectDeviceAtURL(error: NSURL): boolean;
 }
 
 export function NSWorkspace(args?: any): NSWorkspace;
-
-export class CKAcceptSharesOperation extends CKOperation {
-  acceptSharesCompletionBlock: (p1: NSError) => void;
-  setAcceptSharesCompletionBlock(_: (p1: NSError) => void);
-  perShareCompletionBlock: (p1: CKShare.Metadata, p2: CKShare, p3: NSError) => void;
-  setPerShareCompletionBlock(_: (p1: CKShare.Metadata, p2: CKShare, p3: NSError) => void);
-  shareMetadatas: CKShare.Metadata[];
-  setShareMetadatas(_: CKShare.Metadata[]);
-  static createWithShareMetadatas(_: CKShare.Metadata[]): CKAcceptSharesOperation;
-}
-
-export function CKAcceptSharesOperation(args?: any): CKAcceptSharesOperation;
-
-export class CKAsset extends NSObject {
-  fileURL: NSURL;
-  static createWithFileURL(_: NSURL): CKAsset;
-}
-
-export function CKAsset(args?: any): CKAsset;
-
-export class CKContainer extends NSObject {
-  static default(): CKContainer;
-  containerIdentifier: string;
-  privateCloudDatabase: CKDatabase;
-  publicCloudDatabase: CKDatabase;
-  sharedCloudDatabase: CKDatabase;
-  accept(_: CKShare.Metadata, completionHandler?: (p1: CKShare, p2: NSError) => void): void;
-  accountStatus(completionHandler?: (p1: CKContainer.CKAccountStatus, p2: NSError) => void): void;
-  add(_: CKOperation): void;
-  database(with_: CKDatabase.Scope): CKDatabase;
-  discoverAllIdentities(completionHandler?: (p1: CKUserIdentity[], p2: NSError) => void): void;
-  discoverUserIdentity(withEmailAddress: string, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
-  discoverUserIdentity(withPhoneNumber: string, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
-  discoverUserIdentity(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKUserIdentity, p2: NSError) => void): void;
-  fetchAllLongLivedOperationIDsWithCompletionHandler(_?: (p1: string[], p2: NSError) => void): void;
-  fetchLongLivedOperationWithID(_: string, completionHandler?: (p1: CKOperation, p2: NSError) => void): void;
-  fetchShareMetadata(with_: NSURL, completionHandler?: (p1: CKShare.Metadata, p2: NSError) => void): void;
-  fetchShareParticipant(withEmailAddress: string, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
-  fetchShareParticipant(withPhoneNumber: string, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
-  fetchShareParticipant(withUserRecordID: CKRecord.ID, completionHandler?: (p1: CKShare.Participant, p2: NSError) => void): void;
-  fetchUserRecordID(completionHandler?: (p1: CKRecord.ID, p2: NSError) => void): void;
-  requestApplicationPermission(_: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: NSError) => void): void;
-  status(forApplicationPermission: CKContainer.CKContainer_Application_Permissions, completionHandler: (p1: CKContainer.CKContainer_Application_PermissionStatus, p2: NSError) => void): void;
-}
-
-export function CKContainer(args?: any): CKContainer;
-
-export class CKDatabase extends NSObject {
-  databaseScope: CKDatabase.Scope;
-  add(_: CKDatabaseOperation): void;
-  delete(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord.ID, p2: NSError) => void): void;
-  delete(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone.ID, p2: NSError) => void): void;
-  __delete(withSubscriptionID: string, completionHandler?: (p1: string, p2: NSError) => void): void;
-  fetchAllRecordZones(completionHandler?: (p1: CKRecordZone[], p2: NSError) => void): void;
-  fetchAllSubscriptions(completionHandler?: (p1: CKSubscription[], p2: NSError) => void): void;
-  fetch(withRecordID: CKRecord.ID, completionHandler?: (p1: CKRecord, p2: NSError) => void): void;
-  fetch(withRecordZoneID: CKRecordZone.ID, completionHandler?: (p1: CKRecordZone, p2: NSError) => void): void;
-  __fetch(withSubscriptionID: string, completionHandler?: (p1: CKSubscription, p2: NSError) => void): void;
-  // @ts-ignore 
-  perform(_: CKQuery, inZoneWith?: CKRecordZone.ID, completionHandler?: (p1: CKRecord[], p2: NSError) => void): void;
-  save(_: CKRecord, completionHandler?: (p1: CKRecord, p2: NSError) => void): void;
-  save(_: CKRecordZone, completionHandler?: (p1: CKRecordZone, p2: NSError) => void): void;
-  save(_: CKSubscription, completionHandler?: (p1: CKSubscription, p2: NSError) => void): void;
-}
-
-export function CKDatabase(args?: any): CKDatabase;
-
-export class CKDatabaseNotification extends CKNotification {
-  databaseScope: CKDatabase.Scope;
-}
-
-export function CKDatabaseNotification(args?: any): CKDatabaseNotification;
-
-export class CKDatabaseOperation extends CKOperation {
-  database: CKDatabase;
-  setDatabase(_: CKDatabase);
-}
-
-export function CKDatabaseOperation(args?: any): CKDatabaseOperation;
-
-export class CKDatabaseSubscription extends CKSubscription {
-  recordType: string;
-  setRecordType(_: string);
-  static createWithSubscriptionID(_: string): CKDatabaseSubscription;
-}
-
-export function CKDatabaseSubscription(args?: any): CKDatabaseSubscription;
-
-export class CKDiscoverAllUserIdentitiesOperation extends CKOperation {
-  discoverAllUserIdentitiesCompletionBlock: (p1: NSError) => void;
-  setDiscoverAllUserIdentitiesCompletionBlock(_: (p1: NSError) => void);
-  userIdentityDiscoveredBlock: (p1: CKUserIdentity) => void;
-  setUserIdentityDiscoveredBlock(_: (p1: CKUserIdentity) => void);
-}
-
-export function CKDiscoverAllUserIdentitiesOperation(args?: any): CKDiscoverAllUserIdentitiesOperation;
-
-export class CKDiscoverUserIdentitiesOperation extends CKOperation {
-  discoverUserIdentitiesCompletionBlock: (p1: NSError) => void;
-  setDiscoverUserIdentitiesCompletionBlock(_: (p1: NSError) => void);
-  userIdentityDiscoveredBlock: (p1: CKUserIdentity, p2: CKUserIdentity.LookupInfo) => void;
-  setUserIdentityDiscoveredBlock(_: (p1: CKUserIdentity, p2: CKUserIdentity.LookupInfo) => void);
-  userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
-  setUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]);
-  static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKDiscoverUserIdentitiesOperation;
-}
-
-export function CKDiscoverUserIdentitiesOperation(args?: any): CKDiscoverUserIdentitiesOperation;
-
-export class CKFetchDatabaseChangesOperation extends CKDatabaseOperation {
-  changeTokenUpdatedBlock: (p1: CKServerChangeToken) => void;
-  setChangeTokenUpdatedBlock(_: (p1: CKServerChangeToken) => void);
-  fetchAllChanges: boolean;
-  setFetchAllChanges(_: boolean);
-  fetchDatabaseChangesCompletionBlock: (p1: CKServerChangeToken, p2: boolean, p3: NSError) => void;
-  setFetchDatabaseChangesCompletionBlock(_: (p1: CKServerChangeToken, p2: boolean, p3: NSError) => void);
-  previousServerChangeToken: CKServerChangeToken;
-  setPreviousServerChangeToken(_: CKServerChangeToken);
-  recordZoneWithIDChangedBlock: (p1: CKRecordZone.ID) => void;
-  setRecordZoneWithIDChangedBlock(_: (p1: CKRecordZone.ID) => void);
-  recordZoneWithIDWasDeletedBlock: (p1: CKRecordZone.ID) => void;
-  setRecordZoneWithIDWasDeletedBlock(_: (p1: CKRecordZone.ID) => void);
-  recordZoneWithIDWasPurgedBlock: (p1: CKRecordZone.ID) => void;
-  setRecordZoneWithIDWasPurgedBlock(_: (p1: CKRecordZone.ID) => void);
-  resultsLimit: number;
-  setResultsLimit(_: number);
-  static createWithPreviousServerChangeToken(_?: CKServerChangeToken): CKFetchDatabaseChangesOperation;
-}
-
-export function CKFetchDatabaseChangesOperation(args?: any): CKFetchDatabaseChangesOperation;
-
-export class CKFetchRecordZoneChangesOperation extends CKDatabaseOperation {
-  configurationsByRecordZoneID: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>;
-  setConfigurationsByRecordZoneID(_: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>);
-  fetchAllChanges: boolean;
-  setFetchAllChanges(_: boolean);
-  fetchRecordZoneChangesCompletionBlock: (p1: NSError) => void;
-  setFetchRecordZoneChangesCompletionBlock(_: (p1: NSError) => void);
-  recordChangedBlock: (p1: CKRecord) => void;
-  setRecordChangedBlock(_: (p1: CKRecord) => void);
-  recordWithIDWasDeletedBlock: (p1: CKRecord.ID, p2: string) => void;
-  setRecordWithIDWasDeletedBlock(_: (p1: CKRecord.ID, p2: string) => void);
-  recordZoneChangeTokensUpdatedBlock: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData) => void;
-  setRecordZoneChangeTokensUpdatedBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData) => void);
-  recordZoneFetchCompletionBlock: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: NSError) => void;
-  setRecordZoneFetchCompletionBlock(_: (p1: CKRecordZone.ID, p2: CKServerChangeToken, p3: NSData, p4: boolean, p5: NSError) => void);
-  recordZoneIDs: CKRecordZone.ID[];
-  setRecordZoneIDs(_: CKRecordZone.ID[]);
-  static createWithRecordZoneiDs_ConfigurationsByRecordZoneID(_: CKRecordZone.ID[], configurationsByRecordZoneID?: Map<CKRecordZone.ID, CKFetchRecordZoneChangesOperation.ZoneConfiguration>): CKFetchRecordZoneChangesOperation;
-}
-
-export function CKFetchRecordZoneChangesOperation(args?: any): CKFetchRecordZoneChangesOperation;
-
-export class CKFetchRecordZonesOperation extends CKDatabaseOperation {
-  static createWithFetchAllRecordZonesOperation(): CKFetchRecordZonesOperation;
-  fetchRecordZonesCompletionBlock: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: NSError) => void;
-  setFetchRecordZonesCompletionBlock(_: (p1: Map<CKRecordZone.ID, CKRecordZone>, p2: NSError) => void);
-  recordZoneIDs: CKRecordZone.ID[];
-  setRecordZoneIDs(_: CKRecordZone.ID[]);
-  static createWithRecordZoneiDs(_: CKRecordZone.ID[]): CKFetchRecordZonesOperation;
-}
-
-export function CKFetchRecordZonesOperation(args?: any): CKFetchRecordZonesOperation;
-
-export class CKFetchRecordsOperation extends CKDatabaseOperation {
-  static createWithFetchCurrentUserRecordOperation(): CKFetchRecordsOperation;
-  desiredKeys: string[];
-  setDesiredKeys(_: string[]);
-  fetchRecordsCompletionBlock: (p1: Map<CKRecord.ID, CKRecord>, p2: NSError) => void;
-  setFetchRecordsCompletionBlock(_: (p1: Map<CKRecord.ID, CKRecord>, p2: NSError) => void);
-  perRecordCompletionBlock: (p1: CKRecord, p2: CKRecord.ID, p3: NSError) => void;
-  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: CKRecord.ID, p3: NSError) => void);
-  perRecordProgressBlock: (p1: CKRecord.ID, p2: number) => void;
-  setPerRecordProgressBlock(_: (p1: CKRecord.ID, p2: number) => void);
-  recordIDs: CKRecord.ID[];
-  setRecordIDs(_: CKRecord.ID[]);
-  static createWithRecordiDs(_: CKRecord.ID[]): CKFetchRecordsOperation;
-}
-
-export function CKFetchRecordsOperation(args?: any): CKFetchRecordsOperation;
-
-export class CKFetchShareMetadataOperation extends CKOperation {
-  fetchShareMetadataCompletionBlock: (p1: NSError) => void;
-  setFetchShareMetadataCompletionBlock(_: (p1: NSError) => void);
-  perShareMetadataBlock: (p1: NSURL, p2: CKShare.Metadata, p3: NSError) => void;
-  setPerShareMetadataBlock(_: (p1: NSURL, p2: CKShare.Metadata, p3: NSError) => void);
-  rootRecordDesiredKeys: string[];
-  setRootRecordDesiredKeys(_: string[]);
-  shareURLs: NSURL[];
-  setShareURLs(_: NSURL[]);
-  shouldFetchRootRecord: boolean;
-  setShouldFetchRootRecord(_: boolean);
-}
-
-export function CKFetchShareMetadataOperation(args?: any): CKFetchShareMetadataOperation;
-
-export class CKFetchShareParticipantsOperation extends CKOperation {
-  fetchShareParticipantsCompletionBlock: (p1: NSError) => void;
-  setFetchShareParticipantsCompletionBlock(_: (p1: NSError) => void);
-  shareParticipantFetchedBlock: (p1: CKShare.Participant) => void;
-  setShareParticipantFetchedBlock(_: (p1: CKShare.Participant) => void);
-  userIdentityLookupInfos: CKUserIdentity.LookupInfo[];
-  setUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]);
-  static createWithUserIdentityLookupInfos(_: CKUserIdentity.LookupInfo[]): CKFetchShareParticipantsOperation;
-}
-
-export function CKFetchShareParticipantsOperation(args?: any): CKFetchShareParticipantsOperation;
-
-export class CKFetchSubscriptionsOperation extends CKDatabaseOperation {
-  static createWithFetchAllSubscriptionsOperation(): CKFetchSubscriptionsOperation;
-  fetchSubscriptionCompletionBlock: (p1: Map<string, CKSubscription>, p2: NSError) => void;
-  setFetchSubscriptionCompletionBlock(_: (p1: Map<string, CKSubscription>, p2: NSError) => void);
-  subscriptionIDs: string[];
-  setSubscriptionIDs(_: string[]);
-  static createWithSubscriptioniDs(_: string[]): CKFetchSubscriptionsOperation;
-}
-
-export function CKFetchSubscriptionsOperation(args?: any): CKFetchSubscriptionsOperation;
-
-export class CKFetchWebAuthTokenOperation extends CKDatabaseOperation {
-  apiToken: string;
-  setAPIToken(_: string);
-  fetchWebAuthTokenCompletionBlock: (p1: string, p2: NSError) => void;
-  setFetchWebAuthTokenCompletionBlock(_: (p1: string, p2: NSError) => void);
-  static createWithApiToken(_: string): CKFetchWebAuthTokenOperation;
-}
-
-export function CKFetchWebAuthTokenOperation(args?: any): CKFetchWebAuthTokenOperation;
-
-export class CKLocationSortDescriptor extends NSSortDescriptor {
-  relativeLocation: CLLocation;
-  // @ts-ignore 
-  static createWithKey_RelativeLocation(_: string, relativeLocation: CLLocation): CKLocationSortDescriptor;
-}
-
-export function CKLocationSortDescriptor(args?: any): CKLocationSortDescriptor;
-
-export class CKModifyRecordZonesOperation extends CKDatabaseOperation {
-  modifyRecordZonesCompletionBlock: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: NSError) => void;
-  setModifyRecordZonesCompletionBlock(_: (p1: CKRecordZone[], p2: CKRecordZone.ID[], p3: NSError) => void);
-  recordZoneIDsToDelete: CKRecordZone.ID[];
-  setRecordZoneIDsToDelete(_: CKRecordZone.ID[]);
-  recordZonesToSave: CKRecordZone[];
-  setRecordZonesToSave(_: CKRecordZone[]);
-  static createWithRecordZonesToSave_RecordZoneiDsToDelete(_?: CKRecordZone[], recordZoneIDsToDelete?: CKRecordZone.ID[]): CKModifyRecordZonesOperation;
-}
-
-export function CKModifyRecordZonesOperation(args?: any): CKModifyRecordZonesOperation;
-
-export class CKModifyRecordsOperation extends CKDatabaseOperation {
-  isAtomic: boolean;
-  setAtomic(_: boolean);
-  clientChangeTokenData: NSData;
-  setClientChangeTokenData(_: NSData);
-  modifyRecordsCompletionBlock: (p1: CKRecord[], p2: CKRecord.ID[], p3: NSError) => void;
-  setModifyRecordsCompletionBlock(_: (p1: CKRecord[], p2: CKRecord.ID[], p3: NSError) => void);
-  perRecordCompletionBlock: (p1: CKRecord, p2: NSError) => void;
-  setPerRecordCompletionBlock(_: (p1: CKRecord, p2: NSError) => void);
-  perRecordProgressBlock: (p1: CKRecord, p2: number) => void;
-  setPerRecordProgressBlock(_: (p1: CKRecord, p2: number) => void);
-  recordIDsToDelete: CKRecord.ID[];
-  setRecordIDsToDelete(_: CKRecord.ID[]);
-  recordsToSave: CKRecord[];
-  setRecordsToSave(_: CKRecord[]);
-  savePolicy: CKModifyRecordsOperation.RecordSavePolicy;
-  setSavePolicy(_: CKModifyRecordsOperation.RecordSavePolicy);
-  static createWithRecordsToSave_RecordiDsToDelete(_?: CKRecord[], recordIDsToDelete?: CKRecord.ID[]): CKModifyRecordsOperation;
-}
-
-export function CKModifyRecordsOperation(args?: any): CKModifyRecordsOperation;
-
-export class CKModifySubscriptionsOperation extends CKDatabaseOperation {
-  modifySubscriptionsCompletionBlock: (p1: CKSubscription[], p2: string[], p3: NSError) => void;
-  setModifySubscriptionsCompletionBlock(_: (p1: CKSubscription[], p2: string[], p3: NSError) => void);
-  subscriptionIDsToDelete: string[];
-  setSubscriptionIDsToDelete(_: string[]);
-  subscriptionsToSave: CKSubscription[];
-  setSubscriptionsToSave(_: CKSubscription[]);
-  static createWithSubscriptionsToSave_SubscriptioniDsToDelete(_?: CKSubscription[], subscriptionIDsToDelete?: string[]): CKModifySubscriptionsOperation;
-}
-
-export function CKModifySubscriptionsOperation(args?: any): CKModifySubscriptionsOperation;
-
-export class CKNotification extends NSObject {
-  alertActionLocalizationKey: string;
-  alertBody: string;
-  alertLaunchImage: string;
-  alertLocalizationArgs: string[];
-  alertLocalizationKey: string;
-  badge: number;
-  category: string;
-  containerIdentifier: string;
-  isPruned: boolean;
-  notificationID: CKNotification.ID;
-  notificationType: CKNotification.NotificationType;
-  soundName: string;
-  subscriptionID: string;
-  subtitle: string;
-  subtitleLocalizationArgs: string[];
-  subtitleLocalizationKey: string;
-  title: string;
-  titleLocalizationArgs: string[];
-  titleLocalizationKey: string;
-}
-
-export function CKNotification(args?: any): CKNotification;
-
-export class CKOperation extends Operation {
-  configuration: CKOperation.Configuration;
-  setConfiguration(_: CKOperation.Configuration);
-  group: CKOperationGroup;
-  setGroup(_: CKOperationGroup);
-  longLivedOperationWasPersistedBlock: () => void;
-  setLongLivedOperationWasPersistedBlock(_: () => void);
-  operationID: string;
-}
-
-export function CKOperation(args?: any): CKOperation;
-
-export class CKOperationGroup extends NSObject {
-  defaultConfiguration: CKOperation.Configuration;
-  setDefaultConfiguration(_: CKOperation.Configuration);
-  expectedReceiveSize: CKOperationGroup.TransferSize;
-  setExpectedReceiveSize(_: CKOperationGroup.TransferSize);
-  expectedSendSize: CKOperationGroup.TransferSize;
-  setExpectedSendSize(_: CKOperationGroup.TransferSize);
-  name: string;
-  setName(_: string);
-  operationGroupID: string;
-  quantity: number;
-  setQuantity(_: number);
-}
-
-export function CKOperationGroup(args?: any): CKOperationGroup;
-
-export class CKQuery extends NSObject {
-  predicate: NSPredicate;
-  recordType: string;
-  sortDescriptors: NSSortDescriptor[];
-  setSortDescriptors(_: NSSortDescriptor[]);
-  static createWithRecordType_Predicate(_: string, predicate: NSPredicate): CKQuery;
-}
-
-export function CKQuery(args?: any): CKQuery;
-
-export class CKQueryNotification extends CKNotification {
-  databaseScope: CKDatabase.Scope;
-  queryNotificationReason: CKNotification.CKQueryNotification.Reason;
-  recordFields: Map<string, any>;
-  recordID: CKRecord.ID;
-}
-
-export function CKQueryNotification(args?: any): CKQueryNotification;
-
-export class CKQueryOperation extends CKDatabaseOperation {
-  cursor: CKQueryOperation.Cursor;
-  setCursor(_: CKQueryOperation.Cursor);
-  desiredKeys: string[];
-  setDesiredKeys(_: string[]);
-  query: CKQuery;
-  setQuery(_: CKQuery);
-  queryCompletionBlock: (p1: CKQueryOperation.Cursor, p2: NSError) => void;
-  setQueryCompletionBlock(_: (p1: CKQueryOperation.Cursor, p2: NSError) => void);
-  recordFetchedBlock: (p1: CKRecord) => void;
-  setRecordFetchedBlock(_: (p1: CKRecord) => void);
-  resultsLimit: number;
-  setResultsLimit(_: number);
-  zoneID: CKRecordZone.ID;
-  setZoneID(_: CKRecordZone.ID);
-  static createWithCursor(_: CKQueryOperation.Cursor): CKQueryOperation;
-  static createWithQuery(_: CKQuery): CKQueryOperation;
-}
-
-export function CKQueryOperation(args?: any): CKQueryOperation;
-
-export class CKQuerySubscription extends CKSubscription {
-  predicate: NSPredicate;
-  querySubscriptionOptions: CKSubscription.CKQuerySubscription.Options;
-  recordType: string;
-  zoneID: CKRecordZone.ID;
-  setZoneID(_: CKRecordZone.ID);
-  static createWithRecordType_Predicate_Options(_: string, predicate: NSPredicate, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
-  static createWithRecordType_Predicate_SubscriptionID_Options(_: string, predicate: NSPredicate, subscriptionID: string, options: CKSubscription.CKQuerySubscription.Options): CKQuerySubscription;
-}
-
-export function CKQuerySubscription(args?: any): CKQuerySubscription;
-
-export class CKRecord extends NSObject {
-  creationDate: Date;
-  creatorUserRecordID: CKRecord.ID;
-  lastModifiedUserRecordID: CKRecord.ID;
-  modificationDate: Date;
-  parent: CKRecord.Reference;
-  setParent(_: CKRecord.Reference);
-  recordChangeTag: string;
-  recordID: CKRecord.ID;
-  recordType: string;
-  share: CKRecord.Reference;
-  allTokens(): string[];
-  encodeSystemFields(with_: NSCoder): void;
-  static createWithRecordType(_: string): CKRecord;
-  static createWithRecordType_RecordID(_: string, recordID: CKRecord.ID): CKRecord;
-  static createWithRecordType_ZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord;
-  setParent(_?: CKRecord): void;
-  setParent(_?: CKRecord.ID): void;
-}
-
-export function CKRecord(args?: any): CKRecord;
-
-interface CKRecordKeyValueSetting {
-  allKeys(): string[];
-  changedKeys(): string[];
-  object(forKey: string): any;
-  objectForKeyedSubscript(_: string): any;
-  setObject(_?: any, forKey?: string): void;
-  setObject(_?: any, forKeyedSubscript?: string): void;
-}
-
-export class CKRecordZone extends NSObject {
-  static default(): CKRecordZone;
-  capabilities: CKRecordZone.Capabilities;
-  zoneID: CKRecordZone.ID;
-  static createWithZoneID(_: CKRecordZone.ID): CKRecordZone;
-  static createWithZoneName(_: string): CKRecordZone;
-}
-
-export function CKRecordZone(args?: any): CKRecordZone;
-
-export class CKRecordZoneNotification extends CKNotification {
-  databaseScope: CKDatabase.Scope;
-  recordZoneID: CKRecordZone.ID;
-}
-
-export function CKRecordZoneNotification(args?: any): CKRecordZoneNotification;
-
-export class CKRecordZoneSubscription extends CKSubscription {
-  recordType: string;
-  setRecordType(_: string);
-  zoneID: CKRecordZone.ID;
-  static createWithZoneID(_: CKRecordZone.ID): CKRecordZoneSubscription;
-  static createWithZoneID_SubscriptionID(_: CKRecordZone.ID, subscriptionID: string): CKRecordZoneSubscription;
-}
-
-export function CKRecordZoneSubscription(args?: any): CKRecordZoneSubscription;
-
-export class CKServerChangeToken extends NSObject {
-}
-
-export function CKServerChangeToken(args?: any): CKServerChangeToken;
-
-export class CKShare extends CKRecord {
-  url: NSURL;
-  currentUserParticipant: CKShare.Participant;
-  owner: CKShare.Participant;
-  participants: CKShare.Participant[];
-  publicPermission: CKShare.Participant.CKShare_Participant_Permission;
-  setPublicPermission(_: CKShare.Participant.CKShare_Participant_Permission);
-  addParticipant(_: CKShare.Participant): void;
-  static createWithRootRecord(_: CKRecord): CKShare;
-  removeParticipant(_: CKShare.Participant): void;
-}
-
-export function CKShare(args?: any): CKShare;
-
-export class CKSubscription extends NSObject {
-  notificationInfo: CKSubscription.NotificationInfo;
-  setNotificationInfo(_: CKSubscription.NotificationInfo);
-  subscriptionID: string;
-  subscriptionType: CKSubscription.SubscriptionType;
-}
-
-export function CKSubscription(args?: any): CKSubscription;
-
-export class CKUserIdentity extends NSObject {
-  contactIdentifiers: string[];
-  hasiCloudAccount: boolean;
-  lookupInfo: CKUserIdentity.LookupInfo;
-  nameComponents: PersonNameComponents;
-  userRecordID: CKRecord.ID;
-}
-
-export function CKUserIdentity(args?: any): CKUserIdentity;
-
-interface __CKRecordObjCValue {
-}
 
 // export function AudioConvertHostTimeToNanos(inHostTime: number): number;
 
@@ -23260,8 +22750,6 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   fileSystemFileNumber(): number;
   fileSystemNumber(): number;
   fileType(): string;
-  // static createWithContentsOfFile(_: string): Dictionary<KeyType, ObjectType>;
-  // static createWithContentsOf(_: NSURL): Dictionary<KeyType, ObjectType>;
   // static createWithContentsOf(error: NSURL): Dictionary<KeyType, ObjectType>;
   // static createWithDictionary(_: Map<KeyType, ObjectType>): Dictionary<KeyType, ObjectType>;
   // static createWithDictionary_CopyItems(_: Map<KeyType, ObjectType>, copyItems: boolean): Dictionary<KeyType, ObjectType>;
@@ -23282,8 +22770,6 @@ export class Dictionary<KeyType, ObjectType> extends NSObject {
   objects(forKeys: KeyType[], notFoundMarker: ObjectType): ObjectType[];
   // @ts-ignore 
   value(forKey: string): ObjectType;
-  write(toFile: string, atomically: boolean): boolean;
-  write(to: NSURL, atomically: boolean): boolean;
   writeToURL(error: NSURL): boolean;
 }
 
@@ -23336,7 +22822,6 @@ export class FileHandle extends NSObject {
   static createWithError(error: NSURL): FileHandle;
   availableData: NSData;
   fileDescriptor: number;
-  offsetInFile: number;
   readabilityHandler: (p1: FileHandle) => void;
   setReadabilityHandler(_: (p1: FileHandle) => void);
   writeabilityHandler: (p1: FileHandle) => void;
@@ -23348,29 +22833,21 @@ export class FileHandle extends NSObject {
   acceptConnectionInBackgroundAndNotify(): void;
   acceptConnectionInBackgroundAndNotify(forModes?: string[]): void;
   closeAndReturnError(): boolean;
-  closeFile(): void;
   getOffset(error: number): boolean;
   static createWithFileDescriptor(_: number): FileHandle;
   static createWithFileDescriptor_CloseOnDealloc(_: number, closeOnDealloc: boolean): FileHandle;
-  readData(ofLength: number): NSData;
-  readDataToEndOfFile(): NSData;
   readDataToEndOfFileAndReturnError(): NSData;
   readDataUpToLength(error: number): NSData;
   readInBackgroundAndNotify(): void;
   readInBackgroundAndNotify(forModes?: string[]): void;
   readToEndOfFileInBackgroundAndNotify(): void;
   readToEndOfFileInBackgroundAndNotify(forModes?: string[]): void;
-  seekToEndOfFile(): number;
   seekToEndReturningOffset(error?: number): boolean;
-  seek(toFileOffset: number): void;
   seekToOffset(error: number): boolean;
   synchronizeAndReturnError(): boolean;
-  synchronizeFile(): void;
   truncateAtOffset(error: number): boolean;
-  truncateFile(atOffset: number): void;
   waitForDataInBackgroundAndNotify(): void;
   waitForDataInBackgroundAndNotify(forModes?: string[]): void;
-  write(_: NSData): void;
   writeData(error: NSData): boolean;
 }
 
@@ -23577,7 +23054,6 @@ export class IndexPath extends NSObject {
   length: number;
   section: number;
   compare(_: IndexPath): NSObjCRuntime.ComparisonResult;
-  getIndexes(_: number): void;
   getIndexes(_: number, range: NSRange): void;
   index(atPosition: number): number;
   adding(_: number): IndexPath;
@@ -23888,8 +23364,6 @@ export class NSArray<ObjectType> extends NSObject {
   indexesOfObjects(options: NSObjCRuntime.NSEnumerationOptions, passingTest: (p1: ObjectType, p2: number, p3: boolean) => boolean): IndexSet;
   // static createWithArray(_: ObjectType[]): NSArray<ObjectType>;
   // static createWithArray_CopyItems(_: ObjectType[], copyItems: boolean): NSArray<ObjectType>;
-  // static createWithContentsOfFile(_: string): NSArray<ObjectType>;
-  // static createWithContentsOf(_: NSURL): NSArray<ObjectType>;
   // static createWithContentsOf(error: NSURL): NSArray<ObjectType>;
   // static createWithObjects(_: ObjectType): NSArray<ObjectType>;
   // static createWithObjects_Count(_?: ObjectType, count?: number): NSArray<ObjectType>;
@@ -23911,8 +23385,6 @@ export class NSArray<ObjectType> extends NSObject {
   sortedArray(using: string): ObjectType[];
   sortedArray(options: NSObjCRuntime.NSSortOptions, usingComparator: (p1: any, p2: any) => NSObjCRuntime.ComparisonResult): ObjectType[];
   subarray(with_: NSRange): ObjectType[];
-  write(toFile: string, atomically: boolean): boolean;
-  write(to: NSURL, atomically: boolean): boolean;
   writeToURL(error: NSURL): boolean;
 }
 
@@ -24099,7 +23571,6 @@ export class NSCoder extends NSObject {
   decodeRect(forKey: string): CGRect;
   decodeSize(): CGSize;
   decodeSize(forKey: string): CGSize;
-  decodeValue(ofObjCType: string, at: any): void;
   decodeValue(ofObjCType: string, at: any, size: number): void;
   encodeArray(ofObjCType: string, count: number, at: any): void;
   encode(_: boolean, forKey: string): void;
@@ -24816,27 +24287,7 @@ interface NSKeyedUnarchiverDelegate {
 }
 
 export class NSLinguisticTagger extends NSObject {
-  static availableTagSchemes(forLanguage: string): string[];
-  static availableTagSchemes(for_: NSLinguisticTagger.NSLinguisticTaggerUnit, language: string): string[];
-  //  static dominantLanguage(for_: string): string;
-  static enumerateTags(for_: string, range: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, using?: (p1: string, p2: NSRange, p3: boolean) => void): void;
-  static tag(for_: string, at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, orthography?: NSOrthography, tokenRange?: NSRange): string;
-  static tags(for_: string, range: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, orthography?: NSOrthography, tokenRanges?: NSValue[]): string[];
-  dominantLanguage: string;
-  tagSchemes: string[];
-  enumerateTags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: NSRange, p4: boolean) => void): void;
-  enumerateTags(in_: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, using?: (p1: string, p2: NSRange, p3: boolean) => void): void;
   static createWithTagSchemes_Options(_: string[], options: number): NSLinguisticTagger;
-  orthography(at: number, effectiveRange?: NSRange): NSOrthography;
-  possibleTags(at: number, scheme: string, tokenRange?: NSRange, sentenceRange?: NSRange, scores?: NSValue[]): string[];
-  sentenceRange(for_: NSRange): NSRange;
-  setOrthography(_?: NSOrthography, range?: NSRange): void;
-  stringEdited(in_: NSRange, changeInLength: number): void;
-  tag(at: number, scheme: string, tokenRange?: NSRange, sentenceRange?: NSRange): string;
-  tag(at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, tokenRange?: NSRange): string;
-  tags(in_: NSRange, scheme: string, options: NSLinguisticTagger.Options, tokenRanges?: NSValue[]): string[];
-  tags(in_: NSRange, unit: NSLinguisticTagger.NSLinguisticTaggerUnit, scheme: string, options: NSLinguisticTagger.Options, tokenRanges?: NSValue[]): string[];
-  tokenRange(at: number, unit: NSLinguisticTagger.NSLinguisticTaggerUnit): NSRange;
 }
 
 export function NSLinguisticTagger(args?: any): NSLinguisticTagger;
@@ -26187,7 +25638,6 @@ export class NSValue extends NSObject {
   rangeValue: NSRange;
   rectValue: CGRect;
   sizeValue: CGSize;
-  getValue(_: any): void;
   getValue(_: any, size: number): void;
   static createWithBytes_ObjCType(_: any, objCType: string): NSValue;
   // @ts-ignore 
@@ -26582,8 +26032,6 @@ export class OperationQueue extends NSObject {
   setMaxConcurrentOperationCount(_: number);
   name: string;
   setName(_: string);
-  operationCount: number;
-  operations: Operation[];
   qualityOfService: NSObjCRuntime.QualityOfService;
   setQualityOfService(_: NSObjCRuntime.QualityOfService);
   isSuspended: boolean;
@@ -26684,19 +26132,14 @@ export function PortMessage(args?: any): PortMessage;
 
 export class Process extends NSObject {
   static run(_: NSURL, _2: string[], arguments_?: NSError, terminationHandler?: (p1: Process) => void): Process;
-  static launchedProcess(launchPath: string, arguments_: string[]): Process;
   arguments: string[];
   setArguments(_: string[]);
-  currentDirectoryPath: string;
-  setCurrentDirectoryPath(_: string);
   currentDirectoryURL: NSURL;
   setCurrentDirectoryURL(_: NSURL);
   environment: Map<string, string>;
   setEnvironment(_: Map<string, string>);
   executableURL: NSURL;
   setExecutableURL(_: NSURL);
-  launchPath: string;
-  setLaunchPath(_: string);
   processIdentifier: number;
   qualityOfService: NSObjCRuntime.QualityOfService;
   setQualityOfService(_: NSObjCRuntime.QualityOfService);
@@ -26712,7 +26155,6 @@ export class Process extends NSObject {
   terminationReason: Process.TerminationReason;
   terminationStatus: number;
   interrupt(): void;
-  launch(): void;
   resume(): boolean;
   suspend(): boolean;
   terminate(): void;
@@ -27109,7 +26551,6 @@ export class URLCache extends NSObject {
   cachedResponse(for_: NSURLRequest): CachedURLResponse;
   getCachedResponse(for_: URLSessionDataTask, completionHandler?: (p1: CachedURLResponse) => void): void;
   static createWithMemoryCapacity_DiskCapacity_DirectoryURL(_: number, diskCapacity: number, directoryURL?: NSURL): URLCache;
-  static createWithMemoryCapacity_DiskCapacity_DiskPath(_: number, diskCapacity: number, diskPath?: string): URLCache;
   removeAllCachedResponses(): void;
   removeCachedResponse(for_: URLSessionDataTask): void;
   removeCachedResponse(for_: NSURLRequest): void;
@@ -27341,12 +26782,8 @@ export class URLSessionConfiguration extends NSObject {
   setHTTPShouldSetCookies(_: boolean);
   HTTPShouldUsePipelining: boolean;
   setHTTPShouldUsePipelining(_: boolean);
-  TLSMaximumSupportedProtocol: SecProtocolTypes.SSLProtocol;
-  setTLSMaximumSupportedProtocol(_: SecProtocolTypes.SSLProtocol);
   TLSMaximumSupportedProtocolVersion: SecProtocolTypes.tls_protocol_version_t;
   setTLSMaximumSupportedProtocolVersion(_: SecProtocolTypes.tls_protocol_version_t);
-  TLSMinimumSupportedProtocol: SecProtocolTypes.SSLProtocol;
-  setTLSMinimumSupportedProtocol(_: SecProtocolTypes.SSLProtocol);
   TLSMinimumSupportedProtocolVersion: SecProtocolTypes.tls_protocol_version_t;
   setTLSMinimumSupportedProtocolVersion(_: SecProtocolTypes.tls_protocol_version_t);
   URLCache: URLCache;
@@ -28058,7 +27495,6 @@ export class XMLElement extends XMLNode {
   replaceChild(at: number, with_: XMLNode): void;
   resolveNamespace(forName: string): XMLNode;
   resolvePrefix(forNamespaceURI: string): string;
-  setAttributesAs(_: Map<any, any>): void;
   setAttributesWith(_: Map<string, string>): void;
   setChildren(_?: XMLNode[]): void;
 }
@@ -32370,348 +31806,6 @@ export namespace CISampler {
 }
 
 export namespace CIVector {
-}
-
-export namespace CKAcceptSharesOperation {
-}
-
-export namespace CKAsset {
-}
-
-export namespace CKContainer {
-  export enum CKAccountStatus {
-    CouldNotDetermine = 0,
-    Available = 1,
-    Restricted = 2,
-    NoAccount = 3
-  }
-
-  export enum CKContainer_Application_PermissionStatus {
-    InitialState = 0,
-    CouldNotComplete = 1,
-    Denied = 2,
-    Granted = 3
-  }
-
-  export enum CKContainer_Application_Permissions {
-    CKApplicationPermissionUserDiscoverability = 1
-  }
-
-}
-
-export namespace CKDatabase {
-  export enum Scope {
-    Public = 1,
-    Private = 2,
-    Shared = 3
-  }
-
-}
-
-export namespace CKDatabaseOperation {
-}
-
-export namespace CKDiscoverAllUserIdentitiesOperation {
-}
-
-export namespace CKDiscoverUserIdentitiesOperation {
-}
-
-export namespace CKError {
-  export enum CKErrorCode {
-    InternalError = 1,
-    PartialFailure = 2,
-    NetworkUnavailable = 3,
-    NetworkFailure = 4,
-    BadContainer = 5,
-    ServiceUnavailable = 6,
-    RequestRateLimited = 7,
-    MissingEntitlement = 8,
-    NotAuthenticated = 9,
-    PermissionFailure = 10,
-    UnknownItem = 11,
-    InvalidArguments = 12,
-    ResultsTruncated = 13,
-    ServerRecordChanged = 14,
-    ServerRejectedRequest = 15,
-    AssetFileNotFound = 16,
-    AssetFileModified = 17,
-    IncompatibleVersion = 18,
-    ConstraintViolation = 19,
-    OperationCancelled = 20,
-    ChangeTokenExpired = 21,
-    BatchRequestFailed = 22,
-    ZoneBusy = 23,
-    BadDatabase = 24,
-    QuotaExceeded = 25,
-    ZoneNotFound = 26,
-    LimitExceeded = 27,
-    UserDeletedZone = 28,
-    TooManyParticipants = 29,
-    AlreadyShared = 30,
-    ReferenceViolation = 31,
-    ManagedAccountRestricted = 32,
-    ParticipantMayNeedVerification = 33,
-    ServerResponseLost = 34,
-    AssetNotAvailable = 35
-  }
-
-}
-
-export namespace CKFetchDatabaseChangesOperation {
-}
-
-export namespace CKFetchRecordZoneChangesOperation {
-  export class ZoneConfiguration extends NSObject {
-    desiredKeys: string[];
-    setDesiredKeys(_: string[]);
-    previousServerChangeToken: CKServerChangeToken;
-    setPreviousServerChangeToken(_: CKServerChangeToken);
-    resultsLimit: number;
-    setResultsLimit(_: number);
-  }
-  
-  export function ZoneConfiguration(args?: any): ZoneConfiguration;
-  
-}
-
-export namespace CKFetchRecordZonesOperation {
-}
-
-export namespace CKFetchRecordsOperation {
-}
-
-export namespace CKFetchShareMetadataOperation {
-}
-
-export namespace CKFetchShareParticipantsOperation {
-}
-
-export namespace CKFetchSubscriptionsOperation {
-}
-
-export namespace CKFetchWebAuthTokenOperation {
-}
-
-export namespace CKLocationSortDescriptor {
-}
-
-export namespace CKModifyRecordZonesOperation {
-}
-
-export namespace CKModifyRecordsOperation {
-  export enum RecordSavePolicy {
-    IfServerRecordUnchanged = 0,
-    ChangedKeys = 1,
-    AllKeys = 2
-  }
-
-}
-
-export namespace CKModifySubscriptionsOperation {
-}
-
-export namespace CKNotification {
-  export class ID extends NSObject {
-  }
-  
-  export function ID(args?: any): ID;
-  
-  export namespace CKQueryNotification {
-    export enum Reason {
-      Created = 1,
-      Updated = 2,
-      Deleted = 3
-    }
-  }
-
-  export enum NotificationType {
-    Query = 1,
-    RecordZone = 2,
-    ReadNotification = 3,
-    Database = 4
-  }
-
-}
-
-export namespace CKOperation {
-  export class Configuration extends NSObject {
-    allowsCellularAccess: boolean;
-    setAllowsCellularAccess(_: boolean);
-    container: CKContainer;
-    setContainer(_: CKContainer);
-    isLongLived: boolean;
-    setLongLived(_: boolean);
-    qualityOfService: NSObjCRuntime.QualityOfService;
-    setQualityOfService(_: NSObjCRuntime.QualityOfService);
-    timeoutIntervalForRequest: number;
-    setTimeoutIntervalForRequest(_: number);
-    timeoutIntervalForResource: number;
-    setTimeoutIntervalForResource(_: number);
-  }
-  
-  export function Configuration(args?: any): Configuration;
-  
-}
-
-export namespace CKOperationGroup {
-  export enum TransferSize {
-    Unknown = 0,
-    Kilobytes = 1,
-    Megabytes = 2,
-    TensOfMegabytes = 3,
-    HundredsOfMegabytes = 4,
-    Gigabytes = 5,
-    TensOfGigabytes = 6,
-    HundredsOfGigabytes = 7
-  }
-
-}
-
-export namespace CKQuery {
-}
-
-export namespace CKQueryOperation {
-  export class Cursor extends NSObject {
-  }
-  
-  export function Cursor(args?: any): Cursor;
-  
-}
-
-export namespace CKRecord {
-  export class ID extends NSObject {
-    recordName: string;
-    zoneID: CKRecordZone.ID;
-    static createWithRecordName(_: string): CKRecord.ID;
-    static createWithRecordName_ZoneID(_: string, zoneID: CKRecordZone.ID): CKRecord.ID;
-  }
-  
-  export function ID(args?: any): ID;
-  
-  export class Reference extends NSObject {
-    recordID: CKRecord.ID;
-    action: CKRecord.Reference.CKRecord_Reference_Action;
-    static createWithRecord_Action(_: CKRecord, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
-    static createWithRecordID_Action(_: CKRecord.ID, action: CKRecord.Reference.CKRecord_Reference_Action): CKRecord.Reference;
-  }
-  
-  export function Reference(args?: any): Reference;
-  
-}
-
-export namespace CKRecordZone {
-  export class ID extends NSObject {
-    ownerName: string;
-    zoneName: string;
-    static createWithZoneName_OwnerName(_: string, ownerName: string): CKRecordZone.ID;
-  }
-  
-  export function ID(args?: any): ID;
-  
-  export enum Capabilities {
-    FetchChanges = 1,
-    Atomic = 2,
-    Sharing = 4
-  }
-
-}
-
-export namespace CKShare {
-  export class Metadata extends NSObject {
-    containerIdentifier: string;
-    ownerIdentity: CKUserIdentity;
-    participantPermission: CKShare.Participant.CKShare_Participant_Permission;
-    participantRole: CKShare.Participant.CKShare_Participant_Role;
-    participantStatus: CKShare.Participant.CKShare_Participant_AcceptanceStatus;
-    rootRecord: CKRecord;
-    rootRecordID: CKRecord.ID;
-    share: CKShare;
-  }
-  
-  export function Metadata(args?: any): Metadata;
-  
-  export class Participant extends NSObject {
-    acceptanceStatus: CKShare.Participant.CKShare_Participant_AcceptanceStatus;
-    permission: CKShare.Participant.CKShare_Participant_Permission;
-    setPermission(_: CKShare.Participant.CKShare_Participant_Permission);
-    role: CKShare.Participant.CKShare_Participant_Role;
-    setRole(_: CKShare.Participant.CKShare_Participant_Role);
-    userIdentity: CKUserIdentity;
-  }
-  
-  export function Participant(args?: any): Participant;
-  
-}
-
-export namespace CKSubscription {
-  export class NotificationInfo extends NSObject {
-    alertActionLocalizationKey: string;
-    setAlertActionLocalizationKey(_: string);
-    alertBody: string;
-    setAlertBody(_: string);
-    alertLaunchImage: string;
-    setAlertLaunchImage(_: string);
-    alertLocalizationKey: string;
-    setAlertLocalizationKey(_: string);
-    category: string;
-    setCategory(_: string);
-    collapseIDKey: string;
-    setCollapseIDKey(_: string);
-    desiredKeys: string[];
-    setDesiredKeys(_: string[]);
-    shouldBadge: boolean;
-    setShouldBadge(_: boolean);
-    shouldSendContentAvailable: boolean;
-    setShouldSendContentAvailable(_: boolean);
-    shouldSendMutableContent: boolean;
-    setShouldSendMutableContent(_: boolean);
-    soundName: string;
-    setSoundName(_: string);
-    subtitle: string;
-    setSubtitle(_: string);
-    subtitleLocalizationKey: string;
-    setSubtitleLocalizationKey(_: string);
-    title: string;
-    setTitle(_: string);
-    titleLocalizationKey: string;
-    setTitleLocalizationKey(_: string);
-  }
-  
-  export function NotificationInfo(args?: any): NotificationInfo;
-  
-  export namespace CKQuerySubscription {
-    export enum Options {
-      RecordCreation = 1,
-      RecordUpdate = 2,
-      RecordDeletion = 4,
-      ce = 8
-    }
-  }
-
-  export enum SubscriptionType {
-    Query = 1,
-    RecordZone = 2,
-    Database = 3
-  }
-
-}
-
-export namespace CKUserIdentity {
-  export class LookupInfo extends NSObject {
-    static lookupInfosWithEmails(_: string[]): CKUserIdentity.LookupInfo[];
-    static lookupInfosWithPhoneNumbers(_: string[]): CKUserIdentity.LookupInfo[];
-    static lookupInfosWithRecordIDs(_: CKRecord.ID[]): CKUserIdentity.LookupInfo[];
-    emailAddress: string;
-    phoneNumber: string;
-    userRecordID: CKRecord.ID;
-    static createWithEmailAddress(_: string): CKUserIdentity.LookupInfo;
-    static createWithPhoneNumber(_: string): CKUserIdentity.LookupInfo;
-    static createWithUserRecordID(_: CKRecord.ID): CKUserIdentity.LookupInfo;
-  }
-  
-  export function LookupInfo(args?: any): LookupInfo;
-  
 }
 
 export namespace CLBeaconIdentityConstraint {
@@ -43462,266 +42556,6 @@ let global = globalThis as any;
 
 (globalThis as any)['CIVector'] = (globalThis as any)['CIVector'] || {};
 
-(globalThis as any)['CKAcceptSharesOperation'] = (globalThis as any)['CKAcceptSharesOperation'] || {};
-
-(globalThis as any)['CKAsset'] = (globalThis as any)['CKAsset'] || {};
-
-(globalThis as any)['CKContainer'] = (globalThis as any)['CKContainer'] || {};
-(globalThis as any)['CKContainer']['CKAccountStatus'] = (globalThis as any)['CKContainer']['CKAccountStatus'] || {};
-(globalThis as any)['CKContainer']['CKAccountStatus'] = {
-  CouldNotDetermine: 0,
-  Available: 1,
-  Restricted: 2,
-  NoAccount: 3,
-  '0': 'CouldNotDetermine',
-  '1': 'Available',
-  '2': 'Restricted',
-  '3': 'NoAccount'
-};
-
-(globalThis as any)['CKContainer']['CKContainer_Application_PermissionStatus'] = (globalThis as any)['CKContainer']['CKContainer_Application_PermissionStatus'] || {};
-(globalThis as any)['CKContainer']['CKContainer_Application_PermissionStatus'] = {
-  InitialState: 0,
-  CouldNotComplete: 1,
-  Denied: 2,
-  Granted: 3,
-  '0': 'InitialState',
-  '1': 'CouldNotComplete',
-  '2': 'Denied',
-  '3': 'Granted'
-};
-
-(globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] = (globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] || {};
-(globalThis as any)['CKContainer']['CKContainer_Application_Permissions'] = {
-  CKApplicationPermissionUserDiscoverability: 1,
-  '1': 'CKApplicationPermissionUserDiscoverability'
-};
-
-
-(globalThis as any)['CKDatabase'] = (globalThis as any)['CKDatabase'] || {};
-(globalThis as any)['CKDatabase']['Scope'] = (globalThis as any)['CKDatabase']['Scope'] || {};
-(globalThis as any)['CKDatabase']['Scope'] = {
-  Public: 1,
-  Private: 2,
-  Shared: 3,
-  '1': 'Public',
-  '2': 'Private',
-  '3': 'Shared'
-};
-
-
-(globalThis as any)['CKDatabaseOperation'] = (globalThis as any)['CKDatabaseOperation'] || {};
-
-(globalThis as any)['CKDiscoverAllUserIdentitiesOperation'] = (globalThis as any)['CKDiscoverAllUserIdentitiesOperation'] || {};
-
-(globalThis as any)['CKDiscoverUserIdentitiesOperation'] = (globalThis as any)['CKDiscoverUserIdentitiesOperation'] || {};
-
-(globalThis as any)['CKError'] = (globalThis as any)['CKError'] || {};
-(globalThis as any)['CKError']['CKErrorCode'] = (globalThis as any)['CKError']['CKErrorCode'] || {};
-(globalThis as any)['CKError']['CKErrorCode'] = {
-  InternalError: 1,
-  PartialFailure: 2,
-  NetworkUnavailable: 3,
-  NetworkFailure: 4,
-  BadContainer: 5,
-  ServiceUnavailable: 6,
-  RequestRateLimited: 7,
-  MissingEntitlement: 8,
-  NotAuthenticated: 9,
-  PermissionFailure: 10,
-  UnknownItem: 11,
-  InvalidArguments: 12,
-  ResultsTruncated: 13,
-  ServerRecordChanged: 14,
-  ServerRejectedRequest: 15,
-  AssetFileNotFound: 16,
-  AssetFileModified: 17,
-  IncompatibleVersion: 18,
-  ConstraintViolation: 19,
-  OperationCancelled: 20,
-  ChangeTokenExpired: 21,
-  BatchRequestFailed: 22,
-  ZoneBusy: 23,
-  BadDatabase: 24,
-  QuotaExceeded: 25,
-  ZoneNotFound: 26,
-  LimitExceeded: 27,
-  UserDeletedZone: 28,
-  TooManyParticipants: 29,
-  AlreadyShared: 30,
-  ReferenceViolation: 31,
-  ManagedAccountRestricted: 32,
-  ParticipantMayNeedVerification: 33,
-  ServerResponseLost: 34,
-  AssetNotAvailable: 35,
-  '1': 'InternalError',
-  '2': 'PartialFailure',
-  '3': 'NetworkUnavailable',
-  '4': 'NetworkFailure',
-  '5': 'BadContainer',
-  '6': 'ServiceUnavailable',
-  '7': 'RequestRateLimited',
-  '8': 'MissingEntitlement',
-  '9': 'NotAuthenticated',
-  '10': 'PermissionFailure',
-  '11': 'UnknownItem',
-  '12': 'InvalidArguments',
-  '13': 'ResultsTruncated',
-  '14': 'ServerRecordChanged',
-  '15': 'ServerRejectedRequest',
-  '16': 'AssetFileNotFound',
-  '17': 'AssetFileModified',
-  '18': 'IncompatibleVersion',
-  '19': 'ConstraintViolation',
-  '20': 'OperationCancelled',
-  '21': 'ChangeTokenExpired',
-  '22': 'BatchRequestFailed',
-  '23': 'ZoneBusy',
-  '24': 'BadDatabase',
-  '25': 'QuotaExceeded',
-  '26': 'ZoneNotFound',
-  '27': 'LimitExceeded',
-  '28': 'UserDeletedZone',
-  '29': 'TooManyParticipants',
-  '30': 'AlreadyShared',
-  '31': 'ReferenceViolation',
-  '32': 'ManagedAccountRestricted',
-  '33': 'ParticipantMayNeedVerification',
-  '34': 'ServerResponseLost',
-  '35': 'AssetNotAvailable'
-};
-
-
-(globalThis as any)['CKFetchDatabaseChangesOperation'] = (globalThis as any)['CKFetchDatabaseChangesOperation'] || {};
-
-(globalThis as any)['CKFetchRecordZoneChangesOperation'] = (globalThis as any)['CKFetchRecordZoneChangesOperation'] || {};
-
-(globalThis as any)['CKFetchRecordZonesOperation'] = (globalThis as any)['CKFetchRecordZonesOperation'] || {};
-
-(globalThis as any)['CKFetchRecordsOperation'] = (globalThis as any)['CKFetchRecordsOperation'] || {};
-
-(globalThis as any)['CKFetchShareMetadataOperation'] = (globalThis as any)['CKFetchShareMetadataOperation'] || {};
-
-(globalThis as any)['CKFetchShareParticipantsOperation'] = (globalThis as any)['CKFetchShareParticipantsOperation'] || {};
-
-(globalThis as any)['CKFetchSubscriptionsOperation'] = (globalThis as any)['CKFetchSubscriptionsOperation'] || {};
-
-(globalThis as any)['CKFetchWebAuthTokenOperation'] = (globalThis as any)['CKFetchWebAuthTokenOperation'] || {};
-
-(globalThis as any)['CKLocationSortDescriptor'] = (globalThis as any)['CKLocationSortDescriptor'] || {};
-
-(globalThis as any)['CKModifyRecordZonesOperation'] = (globalThis as any)['CKModifyRecordZonesOperation'] || {};
-
-(globalThis as any)['CKModifyRecordsOperation'] = (globalThis as any)['CKModifyRecordsOperation'] || {};
-(globalThis as any)['CKModifyRecordsOperation']['RecordSavePolicy'] = (globalThis as any)['CKModifyRecordsOperation']['RecordSavePolicy'] || {};
-(globalThis as any)['CKModifyRecordsOperation']['RecordSavePolicy'] = {
-  IfServerRecordUnchanged: 0,
-  ChangedKeys: 1,
-  AllKeys: 2,
-  '0': 'IfServerRecordUnchanged',
-  '1': 'ChangedKeys',
-  '2': 'AllKeys'
-};
-
-
-(globalThis as any)['CKModifySubscriptionsOperation'] = (globalThis as any)['CKModifySubscriptionsOperation'] || {};
-
-(globalThis as any)['CKNotification'] = (globalThis as any)['CKNotification'] || {};
-(globalThis as any)['CKNotification']['CKQueryNotification'] = (globalThis as any)['CKNotification']['CKQueryNotification'] || {};
-(globalThis as any)['CKNotification']['CKQueryNotification']['Reason'] = (globalThis as any)['CKNotification']['CKQueryNotification']['Reason'] || {};
-(globalThis as any)['CKNotification']['CKQueryNotification']['Reason'] = {
-  Created: 1,
-  Updated: 2,
-  Deleted: 3,
-  '1': 'Created',
-  '2': 'Updated',
-  '3': 'Deleted'
-};
-
-(globalThis as any)['CKNotification']['NotificationType'] = (globalThis as any)['CKNotification']['NotificationType'] || {};
-(globalThis as any)['CKNotification']['NotificationType'] = {
-  Query: 1,
-  RecordZone: 2,
-  ReadNotification: 3,
-  Database: 4,
-  '1': 'Query',
-  '2': 'RecordZone',
-  '3': 'ReadNotification',
-  '4': 'Database'
-};
-
-
-(globalThis as any)['CKOperation'] = (globalThis as any)['CKOperation'] || {};
-
-(globalThis as any)['CKOperationGroup'] = (globalThis as any)['CKOperationGroup'] || {};
-(globalThis as any)['CKOperationGroup']['TransferSize'] = (globalThis as any)['CKOperationGroup']['TransferSize'] || {};
-(globalThis as any)['CKOperationGroup']['TransferSize'] = {
-  Unknown: 0,
-  Kilobytes: 1,
-  Megabytes: 2,
-  TensOfMegabytes: 3,
-  HundredsOfMegabytes: 4,
-  Gigabytes: 5,
-  TensOfGigabytes: 6,
-  HundredsOfGigabytes: 7,
-  '0': 'Unknown',
-  '1': 'Kilobytes',
-  '2': 'Megabytes',
-  '3': 'TensOfMegabytes',
-  '4': 'HundredsOfMegabytes',
-  '5': 'Gigabytes',
-  '6': 'TensOfGigabytes',
-  '7': 'HundredsOfGigabytes'
-};
-
-
-(globalThis as any)['CKQuery'] = (globalThis as any)['CKQuery'] || {};
-
-(globalThis as any)['CKQueryOperation'] = (globalThis as any)['CKQueryOperation'] || {};
-
-(globalThis as any)['CKRecord'] = (globalThis as any)['CKRecord'] || {};
-
-(globalThis as any)['CKRecordZone'] = (globalThis as any)['CKRecordZone'] || {};
-(globalThis as any)['CKRecordZone']['Capabilities'] = (globalThis as any)['CKRecordZone']['Capabilities'] || {};
-(globalThis as any)['CKRecordZone']['Capabilities'] = {
-  FetchChanges: 1,
-  Atomic: 2,
-  Sharing: 4,
-  '1': 'FetchChanges',
-  '2': 'Atomic',
-  '4': 'Sharing'
-};
-
-
-(globalThis as any)['CKShare'] = (globalThis as any)['CKShare'] || {};
-
-(globalThis as any)['CKSubscription'] = (globalThis as any)['CKSubscription'] || {};
-(globalThis as any)['CKSubscription']['CKQuerySubscription'] = (globalThis as any)['CKSubscription']['CKQuerySubscription'] || {};
-(globalThis as any)['CKSubscription']['CKQuerySubscription']['Options'] = (globalThis as any)['CKSubscription']['CKQuerySubscription']['Options'] || {};
-(globalThis as any)['CKSubscription']['CKQuerySubscription']['Options'] = {
-  RecordCreation: 1,
-  RecordUpdate: 2,
-  RecordDeletion: 4,
-  ce: 8,
-  '1': 'RecordCreation',
-  '2': 'RecordUpdate',
-  '4': 'RecordDeletion',
-  '8': 'ce'
-};
-
-(globalThis as any)['CKSubscription']['SubscriptionType'] = (globalThis as any)['CKSubscription']['SubscriptionType'] || {};
-(globalThis as any)['CKSubscription']['SubscriptionType'] = {
-  Query: 1,
-  RecordZone: 2,
-  Database: 3,
-  '1': 'Query',
-  '2': 'RecordZone',
-  '3': 'Database'
-};
-
-
-(globalThis as any)['CKUserIdentity'] = (globalThis as any)['CKUserIdentity'] || {};
-
 (globalThis as any)['CLBeaconIdentityConstraint'] = (globalThis as any)['CLBeaconIdentityConstraint'] || {};
 
 (globalThis as any)['CLBeaconRegion'] = (globalThis as any)['CLBeaconRegion'] || {};
@@ -53506,36 +52340,6 @@ export {
   CIRenderDestination,
   CISampler,
   CIVector,
-  CKAcceptSharesOperation,
-  CKAsset,
-  CKContainer,
-  CKDatabase,
-  CKDatabaseOperation,
-  CKDiscoverAllUserIdentitiesOperation,
-  CKDiscoverUserIdentitiesOperation,
-  CKError,
-  CKFetchDatabaseChangesOperation,
-  CKFetchRecordZoneChangesOperation,
-  CKFetchRecordZonesOperation,
-  CKFetchRecordsOperation,
-  CKFetchShareMetadataOperation,
-  CKFetchShareParticipantsOperation,
-  CKFetchSubscriptionsOperation,
-  CKFetchWebAuthTokenOperation,
-  CKLocationSortDescriptor,
-  CKModifyRecordZonesOperation,
-  CKModifyRecordsOperation,
-  CKModifySubscriptionsOperation,
-  CKNotification,
-  CKOperation,
-  CKOperationGroup,
-  CKQuery,
-  CKQueryOperation,
-  CKRecord,
-  CKRecordZone,
-  CKShare,
-  CKSubscription,
-  CKUserIdentity,
   CLBeaconIdentityConstraint,
   CLBeaconRegion,
   CLCircularRegion,

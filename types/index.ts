@@ -1,5 +1,6 @@
 import './builtins';
-import './globals';
+import './console';
+import './common';
 import './Vue';
 import './VueKit';
 import './macos/fills';

@@ -14,6 +14,7 @@ declare global {
   }
 
   export namespace CKShare {
+    export enum Metadata { }
     export namespace Participant {
       export enum CKShare_Participant_Permission { }
       export enum CKShare_Participant_Role { }
@@ -22,10 +23,16 @@ declare global {
   }
 
   export namespace CKRecord {
+    export enum ID { }
+
     export namespace Reference {
       export enum CKRecord_Reference_Action { }
     }
   }
+
+  export class CKContainer { }
+  export class CKShare { }
+  export class CKRecord { }
 
   export namespace MTLPixelFormat {
     export enum MTLPixelFormat { }
@@ -111,8 +118,8 @@ declare global {
   export class simd_float4x3 { }
 
   export class DispatchQueue {
-    static mainAsync(completionHandler: () => void): void;
-    static main: DispatchQueue
+    static main(): DispatchQueue
+    static globalWithQos(qos: NSObjCRuntime.QualityOfService): DispatchQueue
     async(completionHandler: () => void): void;
   }
 
@@ -120,6 +127,28 @@ declare global {
   export type CGRect = NSRect;
   export type CGSize = NSSize;
   export type IOSurface = any;
+
+  export type MKCoordinateRegion = any;
+  export type MKCoordinateSpan = any;
+  export type MKMapRect = any;
+  export type MKMapPoint = any;
+  export namespace MKTileOverlay {
+    export type Path = any;
+  }
+  export namespace MKRoute {
+    export type Step = any;
+  }
+  export namespace MKLocalSearch {
+    export namespace Request {
+      export namespace MKLocalSearch {
+        export type ResultType = any;
+      }
+    }
+  }
+
+  export namespace NSTableView {
+    export type AutosaveName = string;
+  }
 }
 
 export { };

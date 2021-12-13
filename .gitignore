@@ -15,8 +15,7 @@ xcuserdata
 
 build/
 dist/
-data/*
-!data/frameworks.json
-!data/inheritence.json
+!vscode/vetur/frameworks.json
+!vscode/vetur/enums.json
 
 tmp/

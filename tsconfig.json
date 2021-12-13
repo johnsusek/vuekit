@@ -17,9 +17,11 @@
   },
   "include": [
     "lib",
-    "types"
+    "types",
+    "components/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "components/*/*"
   ]
 }

@@ -34,6 +34,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

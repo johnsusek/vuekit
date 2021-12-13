@@ -89,9 +89,9 @@ function decorateEvent(eventDetails: NSEvent, serialized: string): NSEvent {
   return eventDetails;
 }
 
-// This function gets called from swift when an NSEvent happens in one of our views.
-// Here we'll check the node props for a callback matching the pattern `on[EventName]`,
-// and call it if it exists.
+// This function gets called from the Swift side of the bridge when an NSEvent
+// happens in one of our views. Here we'll check the node props for a callback
+// matching the pattern `on[EventName]`, and call it if it exists.
 //
 // Note that Vue adds the "on" prefix to @ event handlers, so:
 // @leftMouseDown="" becomes node.props.onLeftMouseDown
@@ -99,20 +99,20 @@ export function emitEvent(node: VueKitNode, event: NSEvent, extended: string): v
   let eventType = event.type?.toString();
 
   if (!eventType) {
-    console.error('Could not find event.type on ', event);
+    log.error('Could not find event.type on ', event);
     return;
   }
 
   let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.error('Could not find event name in NSEvent.EventType enum for ', event);
+    log.error('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 
   let propName = `on${snakeToPascal(eventName)}`;
 
-  // console.log('Checking for callbacks for ', propName, 'on', node.instance);
+  // log.debug('Checking for callbacks for ', propName, 'on', node.instance);
 
   if (typeof node.props?.[propName] !== 'function') return;
 
@@ -132,7 +132,7 @@ export function emitAction(node: VueKitNode, event: NSEvent, extended: string): 
 
   if (instance && vModelUpdateFn) {
     let valueTypeKey = valueTypeForJSType(typeof node.props.modelValue);
-    // console.log('Updating v-model automatically from action call (calling node.props[\'onUpdate:modelValue\']) with value ', view[valueTypeKey]);
+    // log.debug('Updating v-model automatically from action call (calling node.props[\'onUpdate:modelValue\']) with value ', view[valueTypeKey]);
     vModelUpdateFn(instance[valueTypeKey]);
   }
 
@@ -143,14 +143,14 @@ export function emitAction(node: VueKitNode, event: NSEvent, extended: string): 
   let eventType = event.type?.toString();
 
   if (!eventType) {
-    console.error('Could not find event.type on ', event);
+    log.error('Could not find event.type on ', event);
     return;
   }
 
   let eventName = NSEvent.EventType[eventType];
 
   if (!eventName) {
-    console.error('Could not find event name in NSEvent.EventType enum for ', event);
+    log.error('Could not find event name in NSEvent.EventType enum for ', event);
     return;
   }
 

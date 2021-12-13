@@ -32,7 +32,7 @@ export function classNameFromTag(type: string) {
   // av-capture -> CaptureView
   for (const nameToTry of namesToTry) {
     if (globalThis[nameToTry]) {
-      // console.log(`Found globalThis.${nameToTry} for type ${type}`);
+      // log.debug(`Found globalThis.${nameToTry} for type ${type}`);
       return nameToTry;
     }
   }

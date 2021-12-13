@@ -1,6 +1,10 @@
 import { VNodeProps } from '@vue/runtime-core';
-import { snakeToCamel } from './string';
+import { snakeToCamel } from '../string';
+import { setInstanceValue } from '../setValue';
+import { snakeToCamelObject } from '../util';
+import { sweeten } from './sugar';
 
+// TODO: cache and/or make O(1)
 export function getAllPropertyNames(obj) {
   const proto = Object.getPrototypeOf(obj);
   const inherited = (proto) ? getAllPropertyNames(proto) : [];
@@ -27,7 +31,7 @@ function getPropValueForKey(key: string, props: VNodeProps, defaultValue: any) {
   return defaultValue;
 }
 
-export function getPropValues(requestedProps: any, props: VNodeProps): Record<string, any> {
+export function getPropValues(requestedProps = {}, props: VNodeProps = {}): StringObject {
   let values: any = {};
 
   for (let [propName, defaultValue] of Object.entries(requestedProps)) {
@@ -36,3 +40,24 @@ export function getPropValues(requestedProps: any, props: VNodeProps): Record<st
 
   return values;
 }
+
+export function updateInstanceFromComponent(instance: NSObject, innerComponent: any) {
+  let innerComponentProps = snakeToCamelObject(innerComponent.props);
+  let props = {
+    ...innerComponentProps,
+    ...sweeten(innerComponentProps, innerComponent.type.types)
+  };
+
+  for (let [key, value] of Object.entries(props)) {
+    if (value instanceof Promise) {
+      value.then(res => {
+        setInstanceValue(instance, key, res, true);
+      });
+    }
+    else {
+      setInstanceValue(instance, key, value, true);
+    }
+  }
+}
+
+export { sweeten } from './sugar';

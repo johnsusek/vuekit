@@ -1,21 +1,10 @@
-import classesToRegister from './classesToRegister.json';
-import { capitalize, snakeToCamel } from './string';
+import classesToCreateConstructors from './classesToCreateConstructors.json';
+import { capitalize, decapitalize, snakeToCamel } from './string';
+import { getClassName } from './util';
 
 const CONSTRUCTOR_PREFIX = 'createWith';
 
-function decapitalize(str) {
-  return str.charAt(0).toLowerCase() + str.slice(1);
-}
-
-function getClassName(obj) {
-  return Object.prototype.toString.call(obj).slice(8, -12);
-}
-
-export function bridgedConstructor(elementClass: typeof NSObject, props?: VueKitNodeProps): any {
-  if (!props || Object(props) !== props) return elementClass.create();
-
-  let definedProps = Object.keys(props).filter(key => props[key] !== undefined && typeof props[key] !== 'function');
-  let definedPropsSnake = definedProps.map(k => snakeToCamel(k));
+function getCandidate(elementClass: typeof NSObject, props?: VueKitNodeProps, definedProps?: VueKitNodeProps, definedPropsSnake?: VueKitNodeProps): [string, string[], boolean] {
   let candidateName;
   let candidateArgLabels = [];
 
@@ -27,7 +16,7 @@ export function bridgedConstructor(elementClass: typeof NSObject, props?: VueKit
   // createWithFoo_BarBaz_Blarg -> ["foo", "barBaz", "blarg"]
   let constructorsMap = constructors.map(n => n.split(splitToken).slice(1).map(decapitalize));
 
-  let firstParamIsCreateWithSuffix = false;
+  let isFirstParamSuffix = false;
 
   // Now we want to check to see which constructors could be called
   // with all the defined props we have
@@ -62,7 +51,7 @@ export function bridgedConstructor(elementClass: typeof NSObject, props?: VueKit
           // (note above create fn takes 2 params b/c contentRect is not an empty string)
           //
           let createWithSuffixCandidate = `createWith${capitalize(snakeToCamel(argLabel))}`;
-          firstParamIsCreateWithSuffix = constructors[idx].startsWith(createWithSuffixCandidate);
+          isFirstParamSuffix = constructors[idx].startsWith(createWithSuffixCandidate);
         }
       }
     }
@@ -74,53 +63,34 @@ export function bridgedConstructor(elementClass: typeof NSObject, props?: VueKit
     }
   }
 
+  return [candidateName, candidateArgLabels, isFirstParamSuffix];
+}
+
+export function bridgedConstructor(elementClass: typeof NSObject, props?: VueKitNodeProps): any {
+  if (!props || Object(props) !== props) return elementClass.create();
+
+  let definedProps = Object.keys(props).filter(key => props[key] !== undefined && typeof props[key] !== 'function');
+  let definedPropsSnake = definedProps.map(k => snakeToCamel(k));
+
+  let [candidateName, candidateArgLabels, isFirstParamSuffix] = getCandidate(elementClass, props, definedProps, definedPropsSnake);
   let instance;
 
   if (candidateName) {
     let args = candidateArgLabels.map(c => props[c]);
-    if (firstParamIsCreateWithSuffix) {
+    if (isFirstParamSuffix) {
       args.shift();
     }
-    // console.log(`Using constructor ${candidateName}`, args);
+    // log.debug(`Using constructor ${candidateName}`, args);
     instance = elementClass[candidateName](...args);
   }
   else {
     instance = elementClass.create();
   }
 
-  // The most-convenient constructor:
-  //
-  // For any object properties not used in the constructor, apply them immediately
-  // post-creation.
-  //
-  // For example:
-  //
-  // NSButton({ title: 'foo', alternateTitle: 'bar' })
-  //
-  // is the same as:
-  //
-  // let button = NSButton({ title: 'foo' });
-  // button.alternateTitle = 'bar';
-  //
-  // which are both the same as:
-  //
-  // let button = NSButton.createWithTitle('foo');
-  // button.alternateTitle = 'bar';
-  //
-  if (definedProps.length && (candidateArgLabels.length !== definedProps.length)) {
-    // Additional props not used in the constructor, apply now
-    for (let definedProp of definedPropsSnake) {
-      if (props[definedProp] !== undefined && !candidateArgLabels.includes(definedProp)) {
-        instance[definedProp] = props[definedProp];
-        console.log('applying property after create: ', definedProp);
-      }
-    }
-  }
-
   return instance;
 }
 
-export function createConstructors() {
+function createConstructors() {
   // Creating new instances of bridged JSExport classes works like this:
   // `NSButton.create()` or `NSButton.createWithTitle('foo')`
   //
@@ -136,7 +106,7 @@ export function createConstructors() {
   // (thus replacing it). All static and instance properties point to
   // the original bridged class.
   //
-  for (let className of Object.values(classesToRegister).flat()) {
+  for (let className of Object.values(classesToCreateConstructors).flat()) {
     try {
       let bridgedClass = globalThis[className];
 
@@ -153,7 +123,9 @@ export function createConstructors() {
       globalThis[className].prototype = bridgedClass.prototype;
     }
     catch (error) {
-      console.log(`Could not register ${className}`, error);
+      log.debug(`Could not register ${className}`, error);
     }
   }
 }
+
+createConstructors();

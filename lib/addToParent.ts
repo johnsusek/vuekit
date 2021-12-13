@@ -1,112 +1,4 @@
-/**
- *
- *
- * @param {NSTableColumn} instance
- * @param {NSTableView} parentInstance
- */
-function addToTable(instance: NSTableColumn, parentInstance: NSTableView) {
-  parentInstance.addTableColumn(instance);
-}
-
-/**
- *
- *
- * @param {NSView} instance
- * @param {NSView} parentInstance
- */
-function add(instance: NSView, parentInstance: NSView) {
-  parentInstance.addSubview(instance);
-}
-
-/**
- *
- *
- * @param {NSView} instance
- * @param {NSView} parentInstance
- * @param {VueKitNode} anchor
- */
-function addWithAnchor(instance: NSView, parentInstance: NSView, anchor: VueKitNode) {
-  if (anchor.instance) {
-    console.log('insert after this view: ', anchor.instance);
-    parentInstance.addSubviewPositionedWithRelativeTo(instance, NSWindow.OrderingMode.Below, anchor.instance as NSView);
-  }
-  else {
-    console.error('Could not insert view because anchor has no view: ', instance, anchor);
-    // TODO: loop index backwards from anchor until we find a el with a view
-  }
-}
-
-/**
- *
- *
- * @param {NSView} documentView
- * @param {NSScrollView} scrollView
- */
-function addToScroll(documentView: NSView, scrollView: NSScrollView) {
-  // @ts-ignore
-  let clipView = NSClipView();
-  // @ts-ignore
-  clipView.translatesAutoresizingMaskIntoConstraints = false;
-  scrollView.contentView = clipView;
-  scrollView.documentView = documentView;
-}
-
-/**
- *
- *
- * @param {NSView} view
- * @param {VueKitNode} parent
- * @param {VueKitNode} anchor
- * @returns
- */
-function addToSplit(splitViewItem: NSSplitViewItem, parent: VueKitNode, anchor: VueKitNode) {
-  let splitViewController = parent.controller as NSSplitViewController;
-
-  if (!(splitViewItem instanceof NSSplitViewItem)) {
-    debugger;
-  }
-
-  if (anchor) {
-    let anchorViewPosition = getAnchorViewIndex(parent, anchor);
-    // @ts-ignore
-    splitViewController.insertSplitViewItemAtIndex(splitViewItem, anchorViewPosition);
-  }
-  else {
-    // @ts-ignore
-    splitViewController.addSplitViewItem(splitViewItem);
-  }
-}
-
-/**
- *
- *
- * @param {NSView} view
- * @param {VueKitNode} parent
- * @param {VueKitNode} anchor
- * @returns
- */
-function addToStack(view: NSView, parent: VueKitNode, anchor: VueKitNode) {
-  let parentInstance = parent.instance as NSStackView;
-
-  if (!anchor) {
-    // console.log('Adding arranged subview', instance, parentInstance);
-    parentInstance.addArrangedSubview(view);
-    return;
-  }
-
-  let anchorViewPosition = getAnchorViewIndex(parent, anchor);
-
-  parentInstance.insertArrangedSubview(view, anchorViewPosition);
-}
-
-/**
- *
- *
- * @param {VueKitNode} parent
- * @param {VueKitNode} anchor
- * @returns
- */
-function getAnchorViewIndex(parent: VueKitNode, anchor: VueKitNode) {
+export function getAnchorViewIndex(parent: VueKitNode, anchor: VueKitNode) {
   if (!anchor) return -1;
 
   // The position in the parent's list of child VueKitNodes (includes text/comment nodes)
@@ -132,126 +24,206 @@ function getAnchorViewIndex(parent: VueKitNode, anchor: VueKitNode) {
 
   // The position in the parent NSView hierarchy (does not include text/comment nodes)
   let childrenWithViews = parent.children.filter(c => c.instance);
-  let anchorViewPosition = childrenWithViews.indexOf(nearestViewInParentNode);
+  let anchorViewPosition = childrenWithViews.indexOf(nearestViewInParentNode) - 1;
 
   anchorViewPosition = anchorViewPosition < 0 ? 0 : anchorViewPosition;
 
-  console.info('anchor is at children position: ', anchorPosInParentNode, 'of', parent.children, 'view position: ', anchorViewPosition, 'of', childrenWithViews);
+  // console.info('anchor is at children position: ', anchorPosInParentNode, 'of', parent.children, 'view position: ', anchorViewPosition, 'of', childrenWithViews);
 
   return anchorViewPosition;
 }
 
-/**
- *
- *
- * @param {*} instance
- * @param {*} parentInstance
- * @param {*} gravityArea
- */
+function add(instance: NSView, parentInstance: NSView) {
+  parentInstance.addSubview(instance);
+}
+
+function addToTable(instance: NSTableColumn, parentInstance: NSTableView) {
+  parentInstance.addTableColumn(instance);
+}
+
+function addWithAnchor(instance: NSView, parentInstance: NSView, anchor: VueKitNode) {
+  if (anchor.instance) {
+    log.debug('insert after this view: ', anchor.instance);
+    parentInstance.addSubviewPositionedWithRelativeTo(instance, NSWindow.OrderingMode.Below, anchor.instance as NSView);
+  }
+  else {
+    console.error('Could not insert view because anchor has no view: ', instance, anchor);
+    // TODO: loop index backwards from anchor until we find a el with a view
+  }
+}
+
+function addToScroll(documentView: NSView, scrollView: NSScrollView) {
+  // @ts-ignore
+  let clipView = NSClipView();
+  clipView.drawsBackground = false;
+  // @ts-ignore
+  clipView.translatesAutoresizingMaskIntoConstraints = false;
+  scrollView.contentView = clipView;
+  scrollView.documentView = documentView;
+}
+
+function addToGrid(rowNode: VueKitNode, parent: VueKitNode, anchor: VueKitNode) {
+  let gridView = parent.instance as NSGridView;
+  let rows = rowNode.children.map(c => c.instance);
+
+  if (anchor) {
+    let anchorViewPosition = getAnchorViewIndex(parent, anchor);
+    // @ts-ignore
+    gridView.insertRowAtIndexWithViews(anchorViewPosition, rows);
+  }
+  else {
+    // @ts-ignore
+    gridView.addRowWithViews(rows);
+  }
+}
+
+function addToSplit(splitViewItem: NSSplitViewItem, parent: VueKitNode, anchor: VueKitNode) {
+  let splitViewController = parent.controller as NSSplitViewController;
+
+  if (!(splitViewItem instanceof NSSplitViewItem)) {
+    console.warn('Child of Split must be a SplitViewItem', splitViewItem, parent);
+    return;
+  }
+  if (!splitViewItem.viewController) {
+    console.warn('SplitViewItem does not have controller', splitViewItem, parent);
+    return;
+  }
+
+  if (anchor) {
+    let anchorViewPosition = getAnchorViewIndex(parent, anchor);
+    // @ts-ignore
+    splitViewController.insertSplitViewItemAtIndex(splitViewItem, anchorViewPosition);
+  }
+  else {
+    // @ts-ignore
+    splitViewController.addSplitViewItem(splitViewItem);
+  }
+}
+
+function addToStack(view: NSView, parent: VueKitNode, anchor: VueKitNode) {
+  let parentInstance = parent.instance as NSStackView;
+
+  if (!anchor) {
+    // log.debug('Adding arranged subview', instance, parentInstance);
+    parentInstance.addArrangedSubview(view);
+    return;
+  }
+
+  let anchorViewPosition = getAnchorViewIndex(parent, anchor);
+
+  // @ts-ignore
+  parentInstance.insertArrangedSubviewAtIndex(view, anchorViewPosition);
+}
+
 function addToStackGravityArea(instance, parentInstance, gravityArea) {
   // TODO: check anchor?
   let area = gravityArea === undefined ? NSStackView.Gravity.Center : gravityArea;
 
   parentInstance.addViewInGravity(instance, area);
-  // console.log('added ', el, 'to gravity area', NSStackView.Gravity[area]);
+  // log.debug('added ', el, 'to gravity area', NSStackView.Gravity[area]);
 }
 
-/**
- *
- *
- * @export
- * @param {VueKitNode} node
- * @param {VueKitNode} parent
- * @param {VueKitNode} [anchor]
- * @param {NSStackView.Gravity} [gravityArea]
- * @returns
- */
 export function addNodeToParentView(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode, gravityArea?: NSStackView.Gravity) {
-  if (!parent.instance || !node.instance) return;
-
-  let parentInstance = parent.instance;
-
-  // For adding nodes to parent views, we want to use the controller view if
-  // available, which for e.g. NSSplitViewController is an NSView
-  // (splitViewController.view) that contains an NSSplitView
-  // (splitViewController.splitView)
-  //
-  // If we didn't do this, node.instance would be the inner splitView, which is
-  // not the one we want to insert into the parent
-  //
-  let viewToAdd = node.controller?.view || node.instance;
-
-  if (viewToAdd instanceof NSTableColumn && parentInstance instanceof NSTableView) {
-    addToTable(viewToAdd, parentInstance);
+  if (!parent.view) {
+    if (parent.parent?.view instanceof NSGridView) {
+      log.trace('Skipping adding to NSGridView child - grandchild will get added');
+    }
+    else if (parent.parent?.view instanceof NSCollectionView) {
+      log.debug('Skipping adding to NSCollectionView child - grandchild will get added');
+    }
+    else {
+      log.trace('No parent instance trying to add ', node, 'to', parent);
+    }
+    return;
   }
-  else if (viewToAdd instanceof NSSplitViewItem && parentInstance instanceof NSSplitView) {
-    addToSplit(viewToAdd, parent, anchor);
+
+  if (!node.view) {
+    log.trace('No node.view trying to add ', node, 'to', parent);
   }
-  else if (viewToAdd instanceof NSView) {
-    if (parentInstance instanceof NSStackView
-      && parentInstance.distribution === NSStackView.Distribution.GravityAreas) {
-      addToStackGravityArea(viewToAdd, parentInstance, gravityArea);
+
+  if (node.view instanceof NSSplitViewItem) {
+    if (!node.children.length) {
+      log.warn('Skipping adding empty SplitViewItem');
+      return;
     }
-    else if (parentInstance instanceof NSStackView) {
-      addToStack(viewToAdd, parent, anchor);
+  }
+
+  if (parent.instance instanceof NSGridView) {
+    addToGrid(node, parent, anchor);
+  }
+  else if (node.view instanceof NSTableColumn && parent.instance instanceof NSTableView) {
+    addToTable(node.view, parent.instance);
+  }
+  else if (node.view instanceof NSSplitViewItem && parent.instance instanceof NSSplitView) {
+    addToSplit(node.view, parent, anchor);
+  }
+  else if (node.view instanceof NSView) {
+    if (parent.instance instanceof NSStackView
+      && parent.instance.distribution === NSStackView.Distribution.GravityAreas) {
+      addToStackGravityArea(node.view, parent.instance, gravityArea);
     }
-    else if (parentInstance instanceof NSScrollView) {
-      addToScroll(viewToAdd, parentInstance);
+    else if (parent.instance instanceof NSStackView) {
+      addToStack(node.view, parent, anchor);
     }
-    else if (parentInstance instanceof NSView) {
+    else if (parent.instance instanceof NSScrollView) {
+      addToScroll(node.view, parent.instance);
+    }
+    else if (parent.instance instanceof NSView) {
       if (anchor) {
-        addWithAnchor(viewToAdd, parentInstance, anchor);
+        addWithAnchor(node.view, parent.instance, anchor);
       }
       else {
-        add(viewToAdd, parentInstance);
+        add(node.view, parent.instance);
       }
     }
-    else if (parentInstance instanceof NSWindow) {
-      add(viewToAdd, parentInstance.contentView);
+    else if (parent.instance instanceof NSWindow) {
+      add(node.view, parent.instance.contentView);
     }
-    else if (parentInstance instanceof NSSplitViewItem) {
+    else if (parent.instance instanceof NSSplitViewItem) {
       // @ts-ignore
-      parentInstance.viewController.view = viewToAdd;
+      parent.instance.viewController.view = node.view;
     }
-    else if (!(parentInstance instanceof NSTableColumn)) {
-      console.log('Unsure where to insert, this is a view but parent is not: ', viewToAdd);
+    else if (!(parent.instance instanceof NSTableColumn)) {
+      log.debug('Unsure where to insert, this is a view but parent is not: ', node.view);
     }
   }
   else {
-    console.log('Unsure where to insert, this is not a view: ', viewToAdd);
+    log.trace('Unsure where to insert, viewToAdd is not a view: ', node);
   }
 
   // Inserting a view into an NSWindow's root contentView
   // is a special case where we always want to fill the
-  // entire view
+  // entire view.
   // If we didn't do this, users would have to add the
   // same 4 constraints to every child of a <Window>
   // Think about moving this to the Window .vue component, as that's
   // a better abstraction point than here, which is fairly low-level
-  if (parentInstance instanceof NSWindow && viewToAdd instanceof NSView) {
-    console.log('Setting constraints to window.contentView', viewToAdd);
+  if (parent.instance instanceof NSWindow && node.view instanceof NSView) {
     // @ts-ignore
-    viewToAdd.topAnchor.constraintWithEqualTo(parentInstance.contentView.topAnchor).setActive(true);
+    let top = node.view.topAnchor.constraintWithEqualTo(parent.instance.contentView.topAnchor);
+    top.priority = 490;
+    top.setActive(true);
     // @ts-ignore
-    viewToAdd.bottomAnchor.constraintWithEqualTo(parentInstance.contentView.bottomAnchor).setActive(true);
+    let bottom = node.view.bottomAnchor.constraintWithEqualTo(parent.instance.contentView.bottomAnchor);
+    bottom.priority = 490;
+    bottom.setActive(true);
     // @ts-ignore
-    viewToAdd.leadingAnchor.constraintWithEqualTo(parentInstance.contentView.leadingAnchor).setActive(true);
+    let leading = node.view.leadingAnchor.constraintWithEqualTo(parent.instance.contentView.leadingAnchor);
+    leading.priority = 490;
+    leading.setActive(true);
     // @ts-ignore
-    viewToAdd.trailingAnchor.constraintWithEqualTo(parentInstance.contentView.trailingAnchor).setActive(true);
+    let trailing = node.view.trailingAnchor.constraintWithEqualTo(parent.instance.contentView.trailingAnchor);
+    trailing.priority = 490;
+    trailing.setActive(true);
   }
 }
 
-/**
- *
- *
- * @export
- * @param {VueKitNode} node
- * @param {VueKitNode} parent
- * @param {VueKitNode} [anchor]
- * @returns
- */
 export function addNodeToParentNode(node: VueKitNode, parent: VueKitNode, anchor?: VueKitNode) {
-  if (!parent) return;
+  if (!parent) {
+    log.warn('Tried to add node without a parent, skipping.', node);
+    return;
+  }
+
   if (!parent.children) return;
 
   node.parent = parent;

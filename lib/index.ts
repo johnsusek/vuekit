@@ -1,25 +1,23 @@
-import { createConstructors } from './createConstructors';
+import './builtins';
+import './constructors';
 
-let levels = ['error', 'warn', 'log', 'info', 'debug'];
+import { createApp, render } from './createApp';
+import { setInstanceValue } from './setValue';
+import { createInstance } from './createNode';
+import { debounce, fetch } from './util';
 
-for (const level of levels) {
-  let original = console[level];
-  console[level] = (...args: any[]) => {
-    original(...args);
-    globalThis.VueKitLog(level, ...args);
-  };
-}
+export { createApp, render } from './createApp';
+export { setInstanceValue } from './setValue';
+export { createInstance } from './createNode';
+export { debounce, fetch } from './util';
+export { getAnchorViewIndex } from './addToParent';
+export { updateInstanceFromComponent } from './props';
 
-// export function setImmediate(callback: (...args: any[]) => void) {
-//   return global.setTimeout(callback, 0);
-// }
-
-// export function nextTick(): Promise<void> {
-//   return new Promise(resolve => global.setImmediate(resolve));
-// }
-
-createConstructors();
-
-export { createApp } from './createApp';
-export { createNode } from './createNode';
-export { setInstanceValue } from './setInstanceValue';
+export default {
+  createApp,
+  render,
+  setInstanceValue,
+  createInstance,
+  debounce,
+  fetch
+};

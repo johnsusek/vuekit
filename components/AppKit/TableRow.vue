@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'TableRow',
 
-  tag: 'NSTableRowView',
+  class: 'NSTableRowView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'background-color': {
@@ -56,27 +56,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        draggingDestinationFeedbackStyle: NSTableView.DraggingDestinationFeedbackStyle,
-        selectionHighlightStyle: NSTableView.SelectionHighlightStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTableRowView', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    draggingDestinationFeedbackStyle: NSTableView.DraggingDestinationFeedbackStyle,
+    selectionHighlightStyle: NSTableView.SelectionHighlightStyle,
   }
 });
 </script>

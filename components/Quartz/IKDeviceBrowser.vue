@@ -5,9 +5,9 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKDeviceBrowser',
 
-  tag: 'IKDeviceBrowserView',
+  class: 'IKDeviceBrowserView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'delegate': {
@@ -36,26 +36,8 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        mode: IKDeviceBrowserView.IKDeviceBrowserViewDisplayMode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('IKDeviceBrowserView', this.attrs, this.$slots);
+  types: {
+    mode: IKDeviceBrowserView.IKDeviceBrowserViewDisplayMode,
   }
 });
 </script>

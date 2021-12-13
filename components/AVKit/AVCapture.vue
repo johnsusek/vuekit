@@ -5,9 +5,9 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AVCapture',
 
-  tag: 'AVCaptureView',
+  class: 'AVCaptureView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'controls-style': {
@@ -24,26 +24,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        controlsStyle: AVCaptureView.AVCaptureViewControlsStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('AVCaptureView', this.attrs, this.$slots);
+  types: {
+    controlsStyle: AVCaptureView.AVCaptureViewControlsStyle,
+    videoGravity: AVLayerVideoGravity,
   }
 });
 </script>

@@ -5,9 +5,9 @@ import Button from './Button.vue';
 export default defineComponent({
   name: 'PopUpButton',
 
-  tag: 'NSPopUpButton',
+  class: 'NSPopUpButton',
 
-  extends: { Button },
+  mixins: [ Button ],
 
   props: {
     'autoenables-items': {
@@ -24,26 +24,8 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        preferredEdge: NSGeometry.NSRectEdge,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSPopUpButton', this.attrs, this.$slots);
+  types: {
+    preferredEdge: NSGeometry.NSRectEdge,
   }
 });
 </script>

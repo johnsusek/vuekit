@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Image',
 
-  tag: 'NSImageView',
+  class: 'NSImageView',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-cut-copy-paste': {
@@ -44,28 +44,12 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        imageAlignment: NSImageCell.NSImageAlignment,
-        imageFrameStyle: NSImageCell.NSImageView.FrameStyle,
-        imageScaling: NSCell.NSImageScaling,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSImageView', this.attrs, this.$slots);
+  types: {
+    contentTintColor: NSColor,
+    image: NSImage,
+    imageAlignment: NSImageCell.NSImageAlignment,
+    imageFrameStyle: NSImageCell.NSImageView.FrameStyle,
+    imageScaling: NSCell.NSImageScaling,
   }
 });
 </script>

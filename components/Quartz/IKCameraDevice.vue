@@ -5,9 +5,9 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKCameraDevice',
 
-  tag: 'IKCameraDeviceView',
+  class: 'IKCameraDeviceView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'camera-device': {
@@ -64,27 +64,12 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        mode: IKCameraDeviceView.IKCameraDeviceViewDisplayMode,
-        transferMode: IKCameraDeviceView.IKCameraDeviceViewTransferMode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('IKCameraDeviceView', this.attrs, this.$slots);
+  types: {
+    cameraDevice: ICCameraDevice,
+    downloadsDirectory: URL,
+    mode: IKCameraDeviceView.IKCameraDeviceViewDisplayMode,
+    postProcessApplication: URL,
+    transferMode: IKCameraDeviceView.IKCameraDeviceViewTransferMode,
   }
 });
 </script>

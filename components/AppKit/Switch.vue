@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Switch',
 
-  tag: 'NSSwitch',
+  class: 'NSSwitch',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'state': {
@@ -16,25 +16,7 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSSwitch', this.attrs, this.$slots);
+  types: {
   }
 });
 </script>

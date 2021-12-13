@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Scrubber',
 
-  tag: 'NSScrubber',
+  class: 'NSScrubber',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'background-color': {
@@ -68,27 +68,14 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        itemAlignment: NSScrubber.Alignment,
-        mode: NSScrubber.Mode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSScrubber', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    backgroundView: NSView,
+    itemAlignment: NSScrubber.Alignment,
+    mode: NSScrubber.Mode,
+    scrubberLayout: NSScrubberLayout,
+    selectionBackgroundStyle: NSScrubberSelectionStyle,
+    selectionOverlayStyle: NSScrubberSelectionStyle,
   }
 });
 </script>

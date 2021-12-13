@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Grid',
 
-  tag: 'NSGridView',
+  class: 'NSGridView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'column-spacing': {
@@ -32,28 +32,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        rowAlignment: NSGridView.NSGridRow.Alignment,
-        xPlacement: NSGridView.NSGridCell.Placement,
-        yPlacement: NSGridView.NSGridCell.Placement,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSGridView', this.attrs, this.$slots);
+  types: {
+    rowAlignment: NSGridView.NSGridRow.Alignment,
+    xPlacement: NSGridView.NSGridCell.Placement,
+    yPlacement: NSGridView.NSGridCell.Placement,
   }
 });
 </script>

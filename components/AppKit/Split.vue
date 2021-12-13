@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Split',
 
-  tag: 'NSSplitView',
+  class: 'NSSplitView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'arranges-all-subviews': {
@@ -32,26 +32,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        dividerStyle: NSSplitView.DividerStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSSplitView', this.attrs, this.$slots);
+  types: {
+    autosaveName: NSSplitView.AutosaveName,
+    dividerStyle: NSSplitView.DividerStyle,
   }
 });
 </script>

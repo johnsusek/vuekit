@@ -5,9 +5,9 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'SearchField',
 
-  tag: 'NSSearchField',
+  class: 'NSSearchField',
 
-  extends: { TextField },
+  mixins: [ TextField ],
 
   props: {
     'centers-placeholder': {
@@ -44,25 +44,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSSearchField', this.attrs, this.$slots);
+  types: {
+    recentSearches: [String],
+    recentsAutosaveName: NSSearchField.RecentsAutosaveName,
+    searchMenuTemplate: NSMenu,
   }
 });
 </script>

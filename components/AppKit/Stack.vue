@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Stack',
 
-  tag: 'NSStackView',
+  class: 'NSStackView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'alignment': {
@@ -40,28 +40,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        alignment: NSLayoutConstraint.Attribute,
-        distribution: NSStackView.Distribution,
-        orientation: NSUserInterfaceLayout.NSUserInterfaceLayoutOrientation,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSStackView', this.attrs, this.$slots);
+  types: {
+    alignment: NSLayoutConstraint.Attribute,
+    distribution: NSStackView.Distribution,
+    orientation: NSUserInterfaceLayout.NSUserInterfaceLayoutOrientation,
   }
 });
 </script>

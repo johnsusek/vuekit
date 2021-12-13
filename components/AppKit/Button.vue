@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Button',
 
-  tag: 'NSButton',
+  class: 'NSButton',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-mixed-state': {
@@ -104,30 +104,19 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        bezelStyle: NSButtonCell.NSButton.BezelStyle,
-        imagePosition: NSCell.NSControl.ImagePosition,
-        imageScaling: NSCell.NSImageScaling,
-        keyEquivalentModifierMask: NSEvent.ModifierFlags,
-        buttonType: NSButton.ButtonType,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSButton', this.attrs, this.$slots);
+  types: {
+    alternateImage: NSImage,
+    attributedAlternateTitle: NSAttributedString,
+    attributedTitle: NSAttributedString,
+    bezelColor: NSColor,
+    bezelStyle: NSButtonCell.NSButton.BezelStyle,
+    contentTintColor: NSColor,
+    image: NSImage,
+    imagePosition: NSCell.NSControl.ImagePosition,
+    imageScaling: NSCell.NSImageScaling,
+    keyEquivalentModifierMask: NSEvent.ModifierFlags,
+    sound: NSSound,
+    buttonType: NSButton.ButtonType,
   }
 });
 </script>

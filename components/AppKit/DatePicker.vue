@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'DatePicker',
 
-  tag: 'NSDatePicker',
+  class: 'NSDatePicker',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'background-color': {
@@ -80,28 +80,18 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        datePickerElements: NSDatePickerCell.NSDatePicker.ElementFlags,
-        datePickerMode: NSDatePickerCell.NSDatePicker.Mode,
-        datePickerStyle: NSDatePickerCell.NSDatePicker.Style,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSDatePicker', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    calendar: Calendar,
+    datePickerElements: NSDatePickerCell.NSDatePicker.ElementFlags,
+    datePickerMode: NSDatePickerCell.NSDatePicker.Mode,
+    datePickerStyle: NSDatePickerCell.NSDatePicker.Style,
+    dateValue: Date,
+    locale: Locale,
+    maxDate: Date,
+    minDate: Date,
+    textColor: NSColor,
+    timeZone: TimeZone,
   }
 });
 </script>

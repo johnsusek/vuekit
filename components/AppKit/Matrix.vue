@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Matrix',
 
-  tag: 'NSMatrix',
+  class: 'NSMatrix',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-empty-selection': {
@@ -92,26 +92,12 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        mode: NSMatrix.Mode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSMatrix', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    cellBackgroundColor: NSColor,
+    keyCell: NSCell,
+    mode: NSMatrix.Mode,
+    prototype: NSCell,
   }
 });
 </script>

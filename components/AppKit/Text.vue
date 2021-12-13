@@ -1,10 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
+import View from './View.vue';
 
 export default defineComponent({
   name: 'Text',
 
-  tag: 'NSTextView',
+  class: 'NSTextView',
+
+  mixins: [ View ],
 
   props: {
     'accepts-glyph-info': {
@@ -165,27 +168,18 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        selectionGranularity: NSTextView.NSSelectionGranularity,
-        layoutOrientation: NSLayoutManager.TextLayoutOrientation,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTextView', this.attrs, this.$slots);
+  types: {
+    allowedInputSourceLocales: [String],
+    defaultParagraphStyle: NSParagraphStyle,
+    insertionPointColor: NSColor,
+    linkTextAttributes: Map<string, any>,
+    markedTextAttributes: Map<string, any>,
+    selectedRanges: [NSValue],
+    selectedTextAttributes: Map<string, any>,
+    selectionGranularity: NSTextView.NSSelectionGranularity,
+    textContainer: NSTextContainer,
+    typingAttributes: Map<string, any>,
+    layoutOrientation: NSLayoutManager.TextLayoutOrientation,
   }
 });
 </script>

@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Scroller',
 
-  tag: 'NSScroller',
+  class: 'NSScroller',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'knob-proportion': {
@@ -24,27 +24,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        knobStyle: NSScroller.KnobStyle,
-        scrollerStyle: NSScroller.Style,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSScroller', this.attrs, this.$slots);
+  types: {
+    knobStyle: NSScroller.KnobStyle,
+    scrollerStyle: NSScroller.Style,
   }
 });
 </script>

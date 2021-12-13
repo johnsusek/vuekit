@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Table',
 
-  tag: 'NSTableView',
+  class: 'NSTableView',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-column-reordering': {
@@ -132,30 +132,19 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        columnAutoresizingStyle: NSTableView.ColumnAutoresizingStyle,
-        draggingDestinationFeedbackStyle: NSTableView.DraggingDestinationFeedbackStyle,
-        gridStyleMask: NSTableView.GridLineStyle,
-        rowSizeStyle: NSTableView.RowSizeStyle,
-        selectionHighlightStyle: NSTableView.SelectionHighlightStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTableView', this.attrs, this.$slots);
+  types: {
+    autosaveName: NSTableView.AutosaveName,
+    backgroundColor: NSColor,
+    columnAutoresizingStyle: NSTableView.ColumnAutoresizingStyle,
+    cornerView: NSView,
+    draggingDestinationFeedbackStyle: NSTableView.DraggingDestinationFeedbackStyle,
+    gridColor: NSColor,
+    gridStyleMask: NSTableView.GridLineStyle,
+    headerView: NSTableHeaderView,
+    highlightedTableColumn: NSTableColumn,
+    rowSizeStyle: NSTableView.RowSizeStyle,
+    selectionHighlightStyle: NSTableView.SelectionHighlightStyle,
+    sortDescriptors: [NSSortDescriptor],
   }
 });
 </script>

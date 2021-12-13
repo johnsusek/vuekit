@@ -1,29 +1,25 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import View from './View.vue';
+import Base from '../Base.vue';
 
 export default defineComponent({
-  name: 'TableCell',
+  name: 'CollectionViewItem',
 
-  class: 'NSTableCellView',
+  class: 'NSCollectionViewItem',
 
-  mixins: [ View ],
+  mixins: [Base],
 
   props: {
-    'background-style': {
-      type: String as PropType<keyof typeof NSCell.NSView.BackgroundStyle>,
+    'highlight-state': {
+      type: String as PropType<keyof typeof NSCollectionView.NSCollectionViewItem.HighlightState>,
       default: () => undefined
     },
     'image-view': {
       type: Object as PropType<NSImageView>,
       default: () => undefined
     },
-    'object-value': {
-      type: Object as PropType<Any>,
-      default: () => undefined
-    },
-    'row-size-style': {
-      type: String as PropType<keyof typeof NSTableView.RowSizeStyle>,
+    'is-selected': {
+      type: Boolean,
       default: () => undefined
     },
     'text-field': {
@@ -33,9 +29,8 @@ export default defineComponent({
   },
 
   types: {
-    backgroundStyle: NSCell.NSView.BackgroundStyle,
+    highlightState: NSCollectionView.NSCollectionViewItem.HighlightState,
     imageView: NSImageView,
-    rowSizeStyle: NSTableView.RowSizeStyle,
     textField: NSTextField,
   }
 });

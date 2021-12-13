@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'VisualEffect',
 
-  tag: 'NSVisualEffectView',
+  class: 'NSVisualEffectView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'blending-mode': {
@@ -32,28 +32,11 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        blendingMode: NSVisualEffectView.BlendingMode,
-        material: NSVisualEffectView.Material,
-        state: NSVisualEffectView.State,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSVisualEffectView', this.attrs, this.$slots);
+  types: {
+    blendingMode: NSVisualEffectView.BlendingMode,
+    maskImage: NSImage,
+    material: NSVisualEffectView.Material,
+    state: NSVisualEffectView.State,
   }
 });
 </script>

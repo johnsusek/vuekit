@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Ruler',
 
-  tag: 'NSRulerView',
+  class: 'NSRulerView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'accessory-view': {
@@ -52,26 +52,13 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        orientation: NSRulerView.Orientation,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSRulerView', this.attrs, this.$slots);
+  types: {
+    accessoryView: NSView,
+    clientView: NSView,
+    markers: [NSRulerMarker],
+    measurementUnits: NSRulerView.UnitName,
+    orientation: NSRulerView.Orientation,
+    scrollView: NSScrollView,
   }
 });
 </script>

@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Box',
 
-  tag: 'NSBox',
+  class: 'NSBox',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'border-color': {
@@ -64,28 +64,14 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        borderType: NSView.NSBorderType,
-        boxType: NSBox.BoxType,
-        titlePosition: NSBox.TitlePosition,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSBox', this.attrs, this.$slots);
+  types: {
+    borderColor: NSColor,
+    borderType: NSView.NSBorderType,
+    boxType: NSBox.BoxType,
+    contentView: NSView,
+    fillColor: NSColor,
+    titleFont: NSFont,
+    titlePosition: NSBox.TitlePosition,
   }
 });
 </script>

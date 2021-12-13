@@ -1,13 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import TableView from './TableView.vue';
+import Table from './Table.vue';
 
 export default defineComponent({
   name: 'Outline',
 
-  tag: 'NSOutlineView',
+  class: 'NSOutlineView',
 
-  extends: { TableView },
+  mixins: [ Table ],
 
   props: {
     'autoresizes-outline-column': {
@@ -44,25 +44,8 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSOutlineView', this.attrs, this.$slots);
+  types: {
+    outlineTableColumn: NSTableColumn,
   }
 });
 </script>

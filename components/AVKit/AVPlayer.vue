@@ -5,9 +5,9 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'AVPlayer',
 
-  tag: 'AVPlayerView',
+  class: 'AVPlayerView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'action-pop-up-button-menu': {
@@ -56,26 +56,11 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        controlsStyle: AVPlayerView.AVPlayerViewControlsStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('AVPlayerView', this.attrs, this.$slots);
+  types: {
+    actionPopUpButtonMenu: NSMenu,
+    controlsStyle: AVPlayerView.AVPlayerViewControlsStyle,
+    player: AVPlayer,
+    videoGravity: AVLayerVideoGravity,
   }
 });
 </script>

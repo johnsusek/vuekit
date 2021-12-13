@@ -1,13 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import ScrubberItemView from './ScrubberItemView.vue';
+import ScrubberItem from './ScrubberItem.vue';
 
 export default defineComponent({
   name: 'ScrubberImageItem',
 
-  tag: 'NSScrubberImageItemView',
+  class: 'NSScrubberImageItemView',
 
-  extends: { ScrubberItemView },
+  mixins: [ ScrubberItem ],
 
   props: {
     'image': {
@@ -20,26 +20,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        imageAlignment: NSImageCell.NSImageAlignment,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSScrubberImageItemView', this.attrs, this.$slots);
+  types: {
+    image: NSImage,
+    imageAlignment: NSImageCell.NSImageAlignment,
   }
 });
 </script>

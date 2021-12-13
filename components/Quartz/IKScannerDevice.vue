@@ -5,9 +5,9 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'IKScannerDevice',
 
-  tag: 'IKScannerDeviceView',
+  class: 'IKScannerDeviceView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'delegate': {
@@ -64,27 +64,12 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        mode: IKScannerDeviceView.IKScannerDeviceViewDisplayMode,
-        transferMode: IKScannerDeviceView.IKScannerDeviceViewTransferMode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('IKScannerDeviceView', this.attrs, this.$slots);
+  types: {
+    downloadsDirectory: URL,
+    mode: IKScannerDeviceView.IKScannerDeviceViewDisplayMode,
+    postProcessApplication: URL,
+    scannerDevice: ICScannerDevice,
+    transferMode: IKScannerDeviceView.IKScannerDeviceViewTransferMode,
   }
 });
 </script>

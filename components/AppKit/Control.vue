@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Control',
 
-  tag: 'NSControl',
+  class: 'NSControl',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'action': {
@@ -108,29 +108,15 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        alignment: NSText.NSTextAlignment,
-        baseWritingDirection: NSText.NSWritingDirection,
-        controlSize: NSCell.NSControl.ControlSize,
-        lineBreakMode: NSParagraphStyle.NSLineBreakMode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSControl', this.attrs, this.$slots);
+  types: {
+    alignment: NSText.NSTextAlignment,
+    attributedStringValue: NSAttributedString,
+    baseWritingDirection: NSText.NSWritingDirection,
+    cell: NSCell,
+    controlSize: NSCell.NSControl.ControlSize,
+    font: NSFont,
+    formatter: Formatter,
+    lineBreakMode: NSParagraphStyle.NSLineBreakMode,
   }
 });
 </script>

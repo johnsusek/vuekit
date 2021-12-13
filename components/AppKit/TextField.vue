@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'TextField',
 
-  tag: 'NSTextField',
+  class: 'NSTextField',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-character-picker-touch-bar-item': {
@@ -84,26 +84,11 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        bezelStyle: NSTextFieldCell.NSTextField.BezelStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTextField', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    bezelStyle: NSTextFieldCell.NSTextField.BezelStyle,
+    placeholderAttributedString: NSAttributedString,
+    textColor: NSColor,
   }
 });
 </script>

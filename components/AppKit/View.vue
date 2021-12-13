@@ -1,10 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
+import Responder from './Responder.vue';
 
 export default defineComponent({
   name: 'View',
 
-  tag: 'NSView',
+  class: 'NSView',
+
+  mixins: [ Responder ],
 
   props: {
     'allowed-touch-types': {
@@ -181,31 +184,22 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        allowedTouchTypes: NSTouch.TouchTypeMask,
-        autoresizingMask: NSView.AutoresizingMask,
-        focusRingType: NSGraphics.NSFocusRingType,
-        layerContentsPlacement: NSView.LayerContentsPlacement,
-        layerContentsRedrawPolicy: NSView.LayerContentsRedrawPolicy,
-        userInterfaceLayoutDirection: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSView', this.attrs, this.$slots);
+  types: {
+    allowedTouchTypes: NSTouch.TouchTypeMask,
+    autoresizingMask: NSView.AutoresizingMask,
+    backgroundFilters: [CIFilter],
+    compositingFilter: CIFilter,
+    contentFilters: [CIFilter],
+    focusRingType: NSGraphics.NSFocusRingType,
+    gestureRecognizers: [NSGestureRecognizer],
+    layer: CALayer,
+    layerContentsPlacement: NSView.LayerContentsPlacement,
+    layerContentsRedrawPolicy: NSView.LayerContentsRedrawPolicy,
+    nextKeyView: NSView,
+    pressureConfiguration: NSPressureConfiguration,
+    shadow: NSShadow,
+    subviews: [NSView],
+    userInterfaceLayoutDirection: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection,
   }
 });
 </script>

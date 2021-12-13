@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Scroll',
 
-  tag: 'NSScrollView',
+  class: 'NSScrollView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'allows-magnification': {
@@ -156,31 +156,21 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        borderType: NSView.NSBorderType,
-        findBarPosition: NSScrollView.FindBarPosition,
-        horizontalScrollElasticity: NSScrollView.Elasticity,
-        scrollerKnobStyle: NSScroller.KnobStyle,
-        scrollerStyle: NSScroller.Style,
-        verticalScrollElasticity: NSScrollView.Elasticity,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSScrollView', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    borderType: NSView.NSBorderType,
+    contentView: NSClipView,
+    documentCursor: NSCursor,
+    documentView: NSView,
+    findBarPosition: NSScrollView.FindBarPosition,
+    horizontalRulerView: NSRulerView,
+    horizontalScrollElasticity: NSScrollView.Elasticity,
+    horizontalScroller: NSScroller,
+    scrollerKnobStyle: NSScroller.KnobStyle,
+    scrollerStyle: NSScroller.Style,
+    verticalRulerView: NSRulerView,
+    verticalScrollElasticity: NSScrollView.Elasticity,
+    verticalScroller: NSScroller,
   }
 });
 </script>

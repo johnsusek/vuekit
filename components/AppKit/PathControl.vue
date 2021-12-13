@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'PathControl',
 
-  tag: 'NSPathControl',
+  class: 'NSPathControl',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'url': {
@@ -52,26 +52,13 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        pathStyle: NSPathCell.NSPathControl.Style,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSPathControl', this.attrs, this.$slots);
+  types: {
+    url: URL,
+    allowedTypes: [String],
+    backgroundColor: NSColor,
+    pathItems: [NSPathControlItem],
+    pathStyle: NSPathCell.NSPathControl.Style,
+    placeholderAttributedString: NSAttributedString,
   }
 });
 </script>

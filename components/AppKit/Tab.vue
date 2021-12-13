@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Tab',
 
-  tag: 'NSTabView',
+  class: 'NSTabView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'allows-truncated-labels': {
@@ -52,30 +52,14 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        controlSize: NSCell.NSControl.ControlSize,
-        controlTint: NSCell.NSControlTint,
-        tabPosition: NSTabView.TabPosition,
-        tabViewBorderType: NSTabView.TabViewBorderType,
-        tabViewType: NSTabView.TabType,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTabView', this.attrs, this.$slots);
+  types: {
+    controlSize: NSCell.NSControl.ControlSize,
+    controlTint: NSCell.NSControlTint,
+    font: NSFont,
+    tabPosition: NSTabView.TabPosition,
+    tabViewBorderType: NSTabView.TabViewBorderType,
+    tabViewItems: [NSTabViewItem],
+    tabViewType: NSTabView.TabType,
   }
 });
 </script>

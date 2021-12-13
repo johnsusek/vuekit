@@ -1,10 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
+import Responder from '../AppKit/Responder.vue';
 
 export default defineComponent({
   name: 'TableColumn',
 
-  tag: 'NSTableColumn',
+  class: 'NSTableColumn',
+
+  mixins: [ Responder ],
 
   props: {
     'data-cell': {
@@ -57,26 +60,11 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        resizingMask: NSTableColumn.ResizingOptions,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTableColumn', this.attrs, this.$slots);
+  types: {
+    headerCell: NSTableHeaderCell,
+    resizingMask: NSTableColumn.ResizingOptions,
+    sortDescriptorPrototype: NSSortDescriptor,
+    tableView: NSTableView,
   }
 });
 </script>

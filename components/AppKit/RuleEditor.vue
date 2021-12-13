@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'RuleEditor',
 
-  tag: 'NSRuleEditor',
+  class: 'NSRuleEditor',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'can-remove-all-rows': {
@@ -60,26 +60,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        nestingMode: NSRuleEditor.NestingMode,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSRuleEditor', this.attrs, this.$slots);
+  types: {
+    formattingDictionary: Map<string, string>,
+    nestingMode: NSRuleEditor.NestingMode,
   }
 });
 </script>

@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'LevelIndicator',
 
-  tag: 'NSLevelIndicator',
+  class: 'NSLevelIndicator',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'critical-fill-color': {
@@ -76,28 +76,15 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        levelIndicatorStyle: NSLevelIndicatorCell.NSLevelIndicator.Style,
-        placeholderVisibility: NSLevelIndicator.PlaceholderVisibility,
-        tickMarkPosition: NSSliderCell.NSSlider.TickMarkPosition,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSLevelIndicator', this.attrs, this.$slots);
+  types: {
+    criticalFillColor: NSColor,
+    fillColor: NSColor,
+    levelIndicatorStyle: NSLevelIndicatorCell.NSLevelIndicator.Style,
+    placeholderVisibility: NSLevelIndicator.PlaceholderVisibility,
+    ratingImage: NSImage,
+    ratingPlaceholderImage: NSImage,
+    tickMarkPosition: NSSliderCell.NSSlider.TickMarkPosition,
+    warningFillColor: NSColor,
   }
 });
 </script>

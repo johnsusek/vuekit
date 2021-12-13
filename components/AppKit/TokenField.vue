@@ -5,9 +5,9 @@ import TextField from './TextField.vue';
 export default defineComponent({
   name: 'TokenField',
 
-  tag: 'NSTokenField',
+  class: 'NSTokenField',
 
-  extends: { TextField },
+  mixins: [ TextField ],
 
   props: {
     'completion-delay': {
@@ -28,26 +28,9 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        tokenStyle: NSTokenFieldCell.NSTokenField.TokenStyle,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSTokenField', this.attrs, this.$slots);
+  types: {
+    tokenStyle: NSTokenFieldCell.NSTokenField.TokenStyle,
+    tokenizingCharacterSet: CharacterSet,
   }
 });
 </script>

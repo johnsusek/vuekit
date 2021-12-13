@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'ProgressIndicator',
 
-  tag: 'NSProgressIndicator',
+  class: 'NSProgressIndicator',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'is-bezeled': {
@@ -52,28 +52,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        controlSize: NSCell.NSControl.ControlSize,
-        controlTint: NSCell.NSControlTint,
-        style: NSProgressIndicator.Style,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSProgressIndicator', this.attrs, this.$slots);
+  types: {
+    controlSize: NSCell.NSControl.ControlSize,
+    controlTint: NSCell.NSControlTint,
+    style: NSProgressIndicator.Style,
   }
 });
 </script>

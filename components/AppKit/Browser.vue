@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'Browser',
 
-  tag: 'NSBrowser',
+  class: 'NSBrowser',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'allows-branch-selection': {
@@ -124,26 +124,12 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        columnResizingType: NSBrowser.ColumnResizingType,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSBrowser', this.attrs, this.$slots);
+  types: {
+    backgroundColor: NSColor,
+    columnResizingType: NSBrowser.ColumnResizingType,
+    columnsAutosaveName: NSBrowser.ColumnsAutosaveName,
+    selectionIndexPath: IndexPath,
+    selectionIndexPaths: [IndexPath],
   }
 });
 </script>

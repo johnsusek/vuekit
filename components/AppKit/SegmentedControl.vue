@@ -5,9 +5,9 @@ import Control from './Control.vue';
 export default defineComponent({
   name: 'SegmentedControl',
 
-  tag: 'NSSegmentedControl',
+  class: 'NSSegmentedControl',
 
-  extends: { Control },
+  mixins: [ Control ],
 
   props: {
     'segment-count': {
@@ -40,28 +40,11 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-        segmentDistribution: NSSegmentedControl.Distribution,
-        segmentStyle: NSSegmentedControl.Style,
-        trackingMode: NSSegmentedControl.SwitchTracking,
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSSegmentedControl', this.attrs, this.$slots);
+  types: {
+    segmentDistribution: NSSegmentedControl.Distribution,
+    segmentStyle: NSSegmentedControl.Style,
+    selectedSegmentBezelColor: NSColor,
+    trackingMode: NSSegmentedControl.SwitchTracking,
   }
 });
 </script>

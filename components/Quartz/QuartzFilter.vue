@@ -5,32 +5,14 @@ import View from '../AppKit/View.vue';
 export default defineComponent({
   name: 'QuartzFilter',
 
-  tag: 'QuartzFilterView',
+  class: 'QuartzFilterView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('QuartzFilterView', this.attrs, this.$slots);
+  types: {
   }
 });
 </script>

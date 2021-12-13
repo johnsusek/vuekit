@@ -5,9 +5,9 @@ import View from './View.vue';
 export default defineComponent({
   name: 'Collection',
 
-  tag: 'NSCollectionView',
+  class: 'NSCollectionView',
 
-  extends: { View },
+  mixins: [ View ],
 
   props: {
     'allows-empty-selection': {
@@ -64,25 +64,13 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    attrs() {
-      let attrs: any = {};
-
-      let types = {
-      };
-
-      for (const [propName, propType] of Object.entries(types)) {
-        if (this[propName] !== undefined) {
-          attrs[propName] = propType[this[propName]];
-        }
-      }
-
-      return { ...this.$props, ...this.$attrs, ...attrs };
-    }
-  },
-
-  render() {
-    return h('NSCollectionView', this.attrs, this.$slots);
+  types: {
+    backgroundColors: [NSColor],
+    backgroundView: NSView,
+    collectionViewLayout: NSCollectionViewLayout,
+    content: [[Object]],
+    selectionIndexPaths: Set,
+    selectionIndexes: IndexSet,
   }
 });
 </script>

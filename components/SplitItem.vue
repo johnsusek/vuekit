@@ -49,17 +49,17 @@ export default defineComponent({
     'view-controller': {
       type: Object as PropType<NSViewController>,
       default: () => undefined
-    },
+    }
   },
 
   data() {
     return {
       viewController: NSViewController()
-    }
+    };
   },
 
   types: {
-    collapseBehavior: NSSplitViewItem.CollapseBehavior,
+    collapseBehavior: NSSplitViewItem.CollapseBehavior
   }
 });
 </script>

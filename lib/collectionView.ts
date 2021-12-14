@@ -1,5 +1,5 @@
 import { ComponentPublicInstance } from '@vue/runtime-core';
-import { updateInstanceFromComponent } from '.';
+import { updateInstanceFromComponent } from './index';
 
 export function renderCollectionViewItem(collectionViewItem: NSCollectionViewItem, collection: ComponentPublicInstance, identifier: string, itemData: StringObject): void {
   if (!collection.$slots.default) {
@@ -8,8 +8,8 @@ export function renderCollectionViewItem(collectionViewItem: NSCollectionViewIte
   }
 
   let itemComponents = collection.$slots.default(collectionViewItem);
-  let itemComponent = itemComponents.find(s => s.children?.[0].props.identifier === identifier);
-
+  let itemComponentsDefaultSlot = itemComponents?.[0].children?.[0].children.default(collectionViewItem);
+  let itemComponent = itemComponentsDefaultSlot.find(s => s.props.identifier === identifier);
   if (!itemComponent) {
     log.error(`Could not find CollectionItem with identifier: ${identifier}`);
     return;
@@ -18,14 +18,14 @@ export function renderCollectionViewItem(collectionViewItem: NSCollectionViewIte
   log.trace('updateInstanceFromComponent itemComponent?.children?.[0]', itemComponent?.children?.[0]);
 
   // @ts-ignore
-  updateInstanceFromComponent(collectionViewItem.view, itemComponent?.children?.[0]);
+  updateInstanceFromComponent(collectionViewItem.view, itemComponent);
 
   if (!itemComponent.children) {
     log.error('No children for CollectionItem to render - add a TextField and/or Image');
     return;
   }
 
-  let innerComponents = (itemComponent.children as any)?.[0]?.children;
+  let innerComponents = itemComponent.children;
 
   if (!innerComponents) {
     log.error('No children for CollectionItem to render - add a TextField and/or Image');

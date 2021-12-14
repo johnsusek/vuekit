@@ -1,13 +1,14 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import NSResponderComponent from './NSResponder.vue';
+import { mergableViewProps, setNodeValue } from '../lib';
+import NSResponderComponent from './AppKit/NSResponder.vue';
 
 export default defineComponent({
   name: 'NSView',
 
   class: 'NSView',
 
-  mixins: [ NSResponderComponent ],
+  mixins: [NSResponderComponent],
 
   props: {
     'allowed-touch-types': {
@@ -181,7 +182,7 @@ export default defineComponent({
     'keyboard-focus-ring-needs-display': {
       type: Object as PropType<CGRect>,
       default: () => undefined
-    },
+    }
   },
 
   types: {
@@ -199,7 +200,7 @@ export default defineComponent({
     pressureConfiguration: NSPressureConfiguration,
     shadow: NSShadow,
     subviews: [NSView],
-    userInterfaceLayoutDirection: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection,
+    userInterfaceLayoutDirection: NSUserInterfaceLayout.NSUserInterfaceLayoutDirection
   }
 });
 </script>

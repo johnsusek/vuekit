@@ -1,13 +1,10 @@
 <script lang='ts'>
 import { PropType, defineComponent } from '@vue/runtime-core';
-// import Base from './Base.vue';
 
 export default defineComponent({
   name: 'CollectionItem',
 
   class: 'CollectionViewItem',
-
-  // mixins: [Base],
 
   props: {
     'highlight-state': {

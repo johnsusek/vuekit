@@ -11,6 +11,7 @@
       v-slot="item"
       @didSelectItemsAtIndexPaths="didSelectItemsAtIndexPaths"
       @didDeselectItemsAtIndexPaths="didDeselectItemsAtIndexPaths"
+      @numberOfSections="numberOfSections"
       @numberOfItemsInSection="numberOfItemsInSection"
       @itemForRepresentedObjectAtIndexPath="itemForRepresentedObjectAtIndexPath">
       <slot :item="item" />
@@ -20,6 +21,7 @@
 
 <script lang='ts'>
 import { defineComponent, watch, ref, ComponentPublicInstance } from '@vue/runtime-core';
+import { updateInstanceFromComponent } from '../lib';
 import { createCollectionViewItem, renderCollectionViewItem } from '../lib/collectionView';
 
 export default defineComponent({
@@ -54,12 +56,29 @@ export default defineComponent({
       () => DispatchQueue.main().async(() => {
         let collectionView = collection.value.$el.instance as NSCollectionView;
         collectionView.reloadData();
+        globalThis.collectionView = collectionView;
       })
     );
 
     return {
       collection
     };
+  },
+
+  mounted() {
+    let instance = this.$refs.collection.$el.instance;
+
+    instance.registerClassStringForItemWithIdentifier('CollectionViewItem', 'CollectionViewItem');
+
+    let layout = this.$slots.default(instance)[0];
+    let flowLayout = NSCollectionViewFlowLayout();
+
+    updateInstanceFromComponent(flowLayout, layout);
+
+    // @ts-ignore
+    instance.collectionViewLayout = flowLayout;
+
+    console.log(instance.collectionViewLayout);
   },
 
   methods: {
@@ -82,6 +101,10 @@ export default defineComponent({
 
     didDeselectItemsAtIndexPaths(indexPaths: any) {
       this.renderItems(indexPaths, 'didDeselectItem');
+    },
+
+    numberOfSections() {
+      return this.collectionData.length;
     },
 
     numberOfItemsInSection(section: number) {

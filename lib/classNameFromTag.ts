@@ -11,6 +11,10 @@ import { capitalize, snakeToCamel } from './string';
 export function classNameFromTag(type: string) {
   let formattedType = capitalize(snakeToCamel(type));
 
+  if (formattedType === 'CollectionLayout') {
+    return 'NSCollectionViewLayout';
+  }
+
   // This will try the prefixed version first
   // av-capture -> AvCapture
   // Strip framework prefixes and try again
@@ -37,5 +41,5 @@ export function classNameFromTag(type: string) {
     }
   }
 
-  throw new Error(`Bridged Class ${type} not found - did you forget to import the component?.`);
+  log.error(`Bridged Class ${type} not found - did you forget to import the component?.`);
 }

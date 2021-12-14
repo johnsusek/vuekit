@@ -1,13 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import NSViewComponent from './NSView.vue';
+import NSViewComponent from '../NSView.vue';
 
 export default defineComponent({
   name: 'NSStackView',
 
   class: 'NSStackView',
 
-  mixins: [ NSViewComponent ],
+  mixins: [NSViewComponent],
 
   props: {
     'alignment': {

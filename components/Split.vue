@@ -1,9 +1,9 @@
 <script lang='ts'>
-import { PropType, h, defineComponent } from '@vue/runtime-core';
-import NSViewComponent from '../NSView.vue';
+import { PropType, defineComponent } from '@vue/runtime-core';
+import NSViewComponent from './NSView.vue';
 
 export default defineComponent({
-  name: 'NSSplitView',
+  name: 'Split',
 
   class: 'NSSplitView',
 
@@ -29,12 +29,12 @@ export default defineComponent({
     'is-vertical': {
       type: Boolean,
       default: () => undefined
-    },
+    }
   },
 
   types: {
     autosaveName: NSSplitView.AutosaveName,
-    dividerStyle: NSSplitView.DividerStyle,
+    dividerStyle: NSSplitView.DividerStyle
   }
 });
 </script>

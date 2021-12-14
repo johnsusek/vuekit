@@ -2,56 +2,10 @@ import { emitAction, emitEvent } from './events';
 import { getPropValues } from './props';
 import { valueTypeForJSType } from './type';
 import { classNameFromTag } from './classNameFromTag';
-import { setInstanceValue, setNodeValue } from './setValue';
+import { setInstanceValue } from './setValue';
 
 let nodes = new Set();
 globalThis.nodes = nodes;
-
-function applyInstanceDefaults(instance: NSObject) {
-  if (instance instanceof NSCollectionView) {
-    let layout = NSCollectionViewFlowLayout();
-
-    // @ts-ignore
-    instance.collectionViewLayout = layout;
-    // instance.allowsMultipleSelection = false;
-    // @ts-ignore
-    // instance.backgroundColors = [NSColor.clearColor()];
-    instance.isSelectable = true;
-
-    // @ts-ignore
-    instance.registerClassStringForItemWithIdentifier('CollectionViewItem', 'CollectionViewItem');
-  }
-
-  if (instance instanceof NSWindow) {
-    instance.contentView.wantsLayer = true;
-
-    // TODO: these should be props on the <Window> component that default to true
-    // this is too opinionated to be at this depth
-    instance.makeKeyAndOrderFront(null);
-  }
-
-  if (instance instanceof NSView) {
-    // Opinionated Default:
-    // These days, layer-backed views are the norm, and
-    // in macOS 11+ all windows use CA layers
-    instance.wantsLayer = true;
-
-    // Opinionated Default:
-    //
-    // Autoresizing masks are a hack on top of OG coordinate/frame-based layouts,
-    // to make them more responsive to external changes in size.
-    //
-    // AutoLayout replaces autoresizing masks.
-    //
-    // Since VueKit uses AutoLayout via the constraint plugin and views like
-    // NSStackView (which uses AutoLayout internally), we never want autoresizing masks.
-    //
-    // This completely abstracts away the legacy layout systems
-    // that often confuse new app developers.
-
-    instance.translatesAutoresizingMaskIntoConstraints = false;
-  }
-}
 
 // Each VueKitNode holds one instance of an NSObject, this is
 // usually an NSView subclass, but not always (e.g. Window, TableColumn)
@@ -83,42 +37,13 @@ function propsToConstructorParams(props: VueKitNodeProps) {
   return params;
 }
 
-let propertyForView = {
-  'NSSplitView': 'splitView'
-};
-
-let controllerForView = {
-  'NSSplitView': NSSplitViewController
-};
-
-export function createInstance(tag: string, props: VueKitNodeProps = {}, applyProps = false): [NSObject, Record<string, any>, NSObject?] {
+export function createInstance(tag: string, props: VueKitNodeProps = {}, applyProps = false): [NSObject, Record<string, any>] {
   let instance: NSObject;
-  let controller: NSViewController;
-  let viewProperty = propertyForView[tag];
-  let controllerClass = controllerForView[tag];
   let className = classNameFromTag(tag);
   let builtProps = buildPropDefaults(tag, props);
   let constructorParams = propsToConstructorParams(builtProps);
 
-  if (controllerClass) {
-    controller = controllerClass();
-    // @ts-ignore
-    if (controller.view) {
-      // @ts-ignore
-      controller.view.translatesAutoresizingMaskIntoConstraints = false;
-      // @ts-ignore
-      controller.view.wantsLayer = true;
-    }
-  }
-
-  if (viewProperty) {
-    instance = controller[viewProperty];
-  }
-  else {
-    instance = globalThis[className](constructorParams);
-  }
-
-  applyInstanceDefaults(instance);
+  instance = globalThis[className](constructorParams);
 
   if (applyProps) {
     for (let [key, value] of Object.entries(builtProps)) {
@@ -126,7 +51,7 @@ export function createInstance(tag: string, props: VueKitNodeProps = {}, applyPr
     }
   }
 
-  return [instance, builtProps, controller];
+  return [instance, builtProps];
 }
 
 // A VueKitNode is roughly analagous to a Vue VNode or a DOM Node.
@@ -138,13 +63,28 @@ export function createNode(tag: string, props: VueKitNodeProps = {}): VueKitNode
     return VueKitNode.create(null, props, null, null);
   }
 
-  let [instance, builtProps, controller] = createInstance(tag, props);
+  let instance: NSObject;
+  let builtProps: VueKitNodeProps;
+  let controller: NSViewController;
+
+  if (tag === 'NSSplitView') {
+    // @ts-ignore
+    controller = NSSplitViewController();
+    // @ts-ignore
+    instance = controller.splitView;
+
+    builtProps = buildPropDefaults(tag, props);
+  }
+  else {
+    [instance, builtProps] = createInstance(tag, props);
+  }
 
   // This is a bridged call that creates the node on the Swift side
   // It will call emitEvent/emitAction as the user interacts with the UI
   let node = VueKitNode.create(instance, builtProps, emitEvent, emitAction);
 
-  if (propertyForView[tag]) {
+  if (controller) {
+    node.controller = controller;
     // @ts-ignore
     node.view = controller.view;
   }
@@ -152,19 +92,8 @@ export function createNode(tag: string, props: VueKitNodeProps = {}): VueKitNode
     node.view = instance as NSView;
   }
 
-  // @ts-ignore
   node.view.translatesAutoresizingMaskIntoConstraints = false;
-  // @ts-ignore
   node.view.wantsLayer = true;
-
-  node.controller = controller;
-
-  // Post-create instance/view defaults
-
-  if (instance instanceof NSView && builtProps.layer) {
-    log.trace('builtProps.layer', builtProps.layer);
-    setNodeValue(node, 'layer', builtProps.layer);
-  }
 
   nodes.add(node);
 

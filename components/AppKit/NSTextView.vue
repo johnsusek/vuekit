@@ -1,13 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import NSViewComponent from './NSView.vue';
+import NSViewComponent from '../NSView.vue';
 
 export default defineComponent({
   name: 'NSTextView',
 
   class: 'NSTextView',
 
-  mixins: [ NSViewComponent ],
+  mixins: [NSViewComponent],
 
   props: {
     'accepts-glyph-info': {
@@ -172,14 +172,14 @@ export default defineComponent({
     allowedInputSourceLocales: [String],
     defaultParagraphStyle: NSParagraphStyle,
     insertionPointColor: NSColor,
-    linkTextAttributes: Map<string, any>,
-    markedTextAttributes: Map<string, any>,
-    selectedRanges: [NSValue],
-    selectedTextAttributes: Map<string, any>,
-    selectionGranularity: NSTextView.NSSelectionGranularity,
-    textContainer: NSTextContainer,
-    typingAttributes: Map<string, any>,
-    layoutOrientation: NSLayoutManager.TextLayoutOrientation,
+    linkTextAttributes: Map < string, any>,
+  markedTextAttributes: Map < string, any>,
+  selectedRanges: [NSValue],
+  selectedTextAttributes: Map < string, any >,
+  selectionGranularity: NSTextView.NSSelectionGranularity,
+  textContainer: NSTextContainer,
+  typingAttributes: Map < string, any >,
+  layoutOrientation: NSLayoutManager.TextLayoutOrientation,
   }
 });
 </script>

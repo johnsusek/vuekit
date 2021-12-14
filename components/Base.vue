@@ -18,7 +18,7 @@ export default defineComponent({
 
   render() {
     if (!this.$options.class) {
-      throw new Error('No tag found for component. The base component cannot be called directly.');
+      throw new Error('No class found for component. The base component cannot be called directly.');
     }
 
     return h(this.$options.class, this.renderProps, this.$slots);

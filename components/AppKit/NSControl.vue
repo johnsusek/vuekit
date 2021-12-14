@@ -1,13 +1,13 @@
 <script lang='ts'>
 import { PropType, h, defineComponent } from '@vue/runtime-core';
-import NSViewComponent from './NSView.vue';
+import NSViewComponent from '../NSView.vue';
 
 export default defineComponent({
   name: 'NSControl',
 
   class: 'NSControl',
 
-  mixins: [ NSViewComponent ],
+  mixins: [NSViewComponent],
 
   props: {
     'action': {

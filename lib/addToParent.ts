@@ -84,6 +84,7 @@ function addToSplit(splitViewItem: NSSplitViewItem, parent: VueKitNode, anchor: 
     console.warn('Child of Split must be a SplitViewItem', splitViewItem, parent);
     return;
   }
+
   if (!splitViewItem.viewController) {
     console.warn('SplitViewItem does not have controller', splitViewItem, parent);
     return;
@@ -95,7 +96,6 @@ function addToSplit(splitViewItem: NSSplitViewItem, parent: VueKitNode, anchor: 
     splitViewController.insertSplitViewItemAtIndex(splitViewItem, anchorViewPosition);
   }
   else {
-    // @ts-ignore
     splitViewController.addSplitViewItem(splitViewItem);
   }
 }
@@ -129,7 +129,7 @@ export function addNodeToParentView(node: VueKitNode, parent: VueKitNode, anchor
       log.trace('Skipping adding to NSGridView child - grandchild will get added');
     }
     else if (parent.parent?.view instanceof NSCollectionView) {
-      log.debug('Skipping adding to NSCollectionView child - grandchild will get added');
+      log.trace('Skipping adding to NSCollectionView child - grandchild will get added');
     }
     else {
       log.trace('No parent instance trying to add ', node, 'to', parent);
@@ -184,37 +184,11 @@ export function addNodeToParentView(node: VueKitNode, parent: VueKitNode, anchor
       parent.instance.viewController.view = node.view;
     }
     else if (!(parent.instance instanceof NSTableColumn)) {
-      log.debug('Unsure where to insert, this is a view but parent is not: ', node.view);
+      log.trace('Unsure where to insert, this is a view but parent is not: ', node.view);
     }
   }
   else {
     log.trace('Unsure where to insert, viewToAdd is not a view: ', node);
-  }
-
-  // Inserting a view into an NSWindow's root contentView
-  // is a special case where we always want to fill the
-  // entire view.
-  // If we didn't do this, users would have to add the
-  // same 4 constraints to every child of a <Window>
-  // Think about moving this to the Window .vue component, as that's
-  // a better abstraction point than here, which is fairly low-level
-  if (parent.instance instanceof NSWindow && node.view instanceof NSView) {
-    // @ts-ignore
-    let top = node.view.topAnchor.constraintWithEqualTo(parent.instance.contentView.topAnchor);
-    top.priority = 490;
-    top.setActive(true);
-    // @ts-ignore
-    let bottom = node.view.bottomAnchor.constraintWithEqualTo(parent.instance.contentView.bottomAnchor);
-    bottom.priority = 490;
-    bottom.setActive(true);
-    // @ts-ignore
-    let leading = node.view.leadingAnchor.constraintWithEqualTo(parent.instance.contentView.leadingAnchor);
-    leading.priority = 490;
-    leading.setActive(true);
-    // @ts-ignore
-    let trailing = node.view.trailingAnchor.constraintWithEqualTo(parent.instance.contentView.trailingAnchor);
-    trailing.priority = 490;
-    trailing.setActive(true);
   }
 }
 

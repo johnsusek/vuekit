@@ -42,6 +42,8 @@ export function getPropValues(requestedProps = {}, props: VNodeProps = {}): Stri
 }
 
 export function updateInstanceFromComponent(instance: NSObject, innerComponent: any) {
+  if (!innerComponent.props) return;
+
   let innerComponentProps = snakeToCamelObject(innerComponent.props);
   let props = {
     ...innerComponentProps,

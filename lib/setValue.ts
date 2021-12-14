@@ -2,7 +2,8 @@ import { snakeToCamel, capitalize } from './string';
 import { valueTypeForJSType, getTypeAsString } from './type';
 import { getAllPropertyNames } from './props';
 
-let mergableViewProps = ['layer', 'textStorage'];
+export const mergableViewProps = ['layer', 'textStorage'];
+
 let propToBridgedName = {
   // Since CGColor can't be bridged, we needed to create
   // setBackgroundColor(color: NSColor?) in the CALayer bridge,
